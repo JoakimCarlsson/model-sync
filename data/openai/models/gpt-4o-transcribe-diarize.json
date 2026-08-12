@@ -1,0 +1,66 @@
+{
+  "id": "gpt-4o-transcribe-diarize",
+  "provider": "openai",
+  "name": "GPT-4o Transcribe Diarize",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription + diarization"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription + diarization"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_minute",
+      "amount": 0.006,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription + diarization"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4o-transcribe-diarize",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Transcription model that identifies who's speaking when"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 2000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/audio/transcriptions"
+    ],
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4o-transcribe-diarize"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize.md"
+  ]
+}

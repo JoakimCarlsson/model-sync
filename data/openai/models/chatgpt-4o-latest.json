@@ -1,0 +1,59 @@
+{
+  "id": "chatgpt-4o-latest",
+  "provider": "openai",
+  "name": "ChatGPT-4o",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "chatgpt-4o-latest",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "GPT-4o model used in ChatGPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses"
+    ],
+    "features": [
+      "streaming",
+      "predicted_outputs",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "chatgpt-4o-latest"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/chatgpt-4o-latest.md"
+  ]
+}

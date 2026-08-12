@@ -1,0 +1,58 @@
+{
+  "id": "gpt-4-turbo-preview",
+  "provider": "openai",
+  "name": "GPT-4 Turbo Preview",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4-0125-preview",
+    "knowledge_cutoff": "Dec 01, 2023",
+    "summary": "An older fast GPT model"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants"
+    ],
+    "features": [
+      "fine_tuning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4-0125-preview",
+      "gpt-4-1106-vision-preview"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview.md"
+  ]
+}

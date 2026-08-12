@@ -1,0 +1,44 @@
+{
+  "id": "omni-moderation-latest",
+  "provider": "openai",
+  "name": "omni-moderation",
+  "kind": "moderation",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "omni-moderation-2024-09-26",
+    "summary": "Identify potentially harmful content in text and images"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/batch",
+      "v1/moderations"
+    ],
+    "features": [
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "omni-moderation-2024-09-26"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/omni-moderation-latest.md"
+  ]
+}

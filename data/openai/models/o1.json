@@ -1,0 +1,103 @@
+{
+  "id": "o1",
+  "provider": "openai",
+  "name": "o1",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "o1-2024-12-17",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "Previous full o-series reasoning model"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 100000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "file_search",
+      "function_calling",
+      "file_uploads",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "o1-2024-12-17"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/o1.md"
+  ]
+}

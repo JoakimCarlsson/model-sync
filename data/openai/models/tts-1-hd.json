@@ -1,0 +1,40 @@
+{
+  "id": "tts-1-hd",
+  "provider": "openai",
+  "name": "TTS-1 HD",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_characters",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "tts-1-hd",
+    "summary": "Text-to-speech model optimized for quality"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/audio/speech"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ],
+    "snapshots": [
+      "tts-1-hd"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/tts-1-hd.md"
+  ]
+}

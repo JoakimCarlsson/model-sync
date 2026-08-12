@@ -1,0 +1,77 @@
+{
+  "id": "o4-mini-deep-research",
+  "provider": "openai",
+  "name": "o4-mini-deep-research",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "o4-mini-deep-research-2025-06-26",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Faster, more affordable deep research model"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 100000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "file_uploads",
+      "image_input",
+      "prompt_caching",
+      "evals",
+      "stored_completions"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "o4-mini-deep-research-2025-06-26"
+    ],
+    "tools": [
+      "web_search",
+      "code_interpreter",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/o4-mini-deep-research.md"
+  ]
+}

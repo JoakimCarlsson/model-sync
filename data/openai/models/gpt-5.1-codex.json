@@ -1,0 +1,75 @@
+{
+  "id": "gpt-5.1-codex",
+  "provider": "openai",
+  "name": "GPT-5.1-Codex",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5.1-codex",
+    "knowledge_cutoff": "Sep 30, 2024",
+    "summary": "A version of GPT-5.1 optimized for agentic coding in Codex."
+  },
+  "limits": {
+    "context_window": 400000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling",
+      "image_input",
+      "web_search",
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5.1-codex"
+    ],
+    "tools": [
+      "function_calling",
+      "web_search"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-5.1-codex.md"
+  ]
+}

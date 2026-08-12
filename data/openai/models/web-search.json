@@ -1,0 +1,54 @@
+{
+  "id": "web-search",
+  "provider": "openai",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "detail": "Web search (all models)",
+        "tier": "standard"
+      },
+      "note": "+ Search content tokens billed at model rates."
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "detail": "Image Web search (all models)",
+        "tier": "standard"
+      },
+      "note": "+ Search content tokens billed at model rates."
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "detail": "Web search preview (reasoning models, including `gpt-5`, `o-series`)",
+        "tier": "standard"
+      },
+      "note": "+ Search content tokens billed at model rates."
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "detail": "Web search preview (non-reasoning models)",
+        "tier": "standard"
+      },
+      "note": "+ Search content tokens are free."
+    }
+  ],
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md"
+  ]
+}

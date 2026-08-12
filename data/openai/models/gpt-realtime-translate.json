@@ -1,0 +1,49 @@
+{
+  "id": "gpt-realtime-translate",
+  "provider": "openai",
+  "name": "GPT-Realtime-Translate",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_minute",
+      "amount": 0.034,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Live translation"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-realtime-translate",
+    "knowledge_cutoff": "Sep 30, 2024",
+    "summary": "Streaming speech-to-speech translation model"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 2000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/realtime/translations"
+    ],
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ],
+    "snapshots": [
+      "gpt-realtime-translate"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-realtime-translate.md"
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "o1-preview",
+  "provider": "openai",
+  "name": "o1 Preview",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "o1-preview-2024-09-12",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "Preview of our first o-series reasoning model"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/assistants"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "file_search",
+      "function_calling",
+      "file_uploads"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "o1-preview-2024-09-12"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/o1-preview.md"
+  ]
+}

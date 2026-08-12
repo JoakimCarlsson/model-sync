@@ -1,0 +1,85 @@
+{
+  "id": "gpt-audio-mini",
+  "provider": "openai",
+  "name": "gpt-audio-mini",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-audio-mini-2025-12-15",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "A cost-efficient version of GPT Audio"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions"
+    ],
+    "features": [
+      "function_calling",
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
+    "snapshots": [
+      "gpt-audio-mini-2025-12-15",
+      "gpt-audio-mini-2025-10-06"
+    ],
+    "tools": [
+      "function_calling"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-audio-mini.md"
+  ]
+}

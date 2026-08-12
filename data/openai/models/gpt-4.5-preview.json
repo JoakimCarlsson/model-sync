@@ -1,0 +1,74 @@
+{
+  "id": "gpt-4.5-preview",
+  "provider": "openai",
+  "name": "GPT-4.5 Preview",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 37.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 150,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4.5-preview-2025-02-27",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "Deprecated large model."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants",
+      "v1/batch"
+    ],
+    "features": [
+      "function_calling",
+      "structured_outputs",
+      "streaming",
+      "system_messages",
+      "evals",
+      "prompt_caching",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4.5-preview-2025-02-27"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4.5-preview.md"
+  ]
+}

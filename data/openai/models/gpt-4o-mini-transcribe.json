@@ -1,0 +1,68 @@
+{
+  "id": "gpt-4o-mini-transcribe",
+  "provider": "openai",
+  "name": "GPT-4o mini Transcribe",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_minute",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4o-mini-transcribe-2025-12-15",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Speech-to-text model powered by GPT-4o mini"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 2000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/realtime",
+      "v1/audio/transcriptions"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4o-mini-transcribe-2025-12-15",
+      "gpt-4o-mini-transcribe-2025-03-20"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe.md"
+  ]
+}

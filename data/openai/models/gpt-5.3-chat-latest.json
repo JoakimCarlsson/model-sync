@@ -1,0 +1,78 @@
+{
+  "id": "gpt-5.3-chat-latest",
+  "provider": "openai",
+  "name": "GPT-5.3 Chat",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.75,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.175,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5.3-chat-latest",
+    "knowledge_cutoff": "Aug 31, 2025",
+    "summary": "GPT-5.3 Instant model used in ChatGPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_input_tokens": 272000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses"
+    ],
+    "features": [
+      "structured_outputs",
+      "function_calling",
+      "streaming",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5.3-chat-latest"
+    ],
+    "tools": [
+      "function_calling",
+      "web_search",
+      "file_search",
+      "image_generation",
+      "code_interpreter",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest.md"
+  ]
+}

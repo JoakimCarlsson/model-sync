@@ -1,0 +1,118 @@
+{
+  "id": "gpt-5.6-cyber",
+  "provider": "openai",
+  "name": "GPT-5.6 Cyber",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15.625,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5.6-cyber",
+    "knowledge_cutoff": "Feb 16, 2026",
+    "summary": "Our most advanced cybersecurity model for authorized vulnerability research and security testing."
+  },
+  "limits": {
+    "batch_queue_limit_tier_1": 1500000,
+    "batch_queue_limit_tier_2": 3000000,
+    "batch_queue_limit_tier_3": 100000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 15000000000,
+    "context_window": 400000,
+    "max_input_tokens": 272000,
+    "max_output_tokens": 128000,
+    "rpm_tier_1": 500,
+    "rpm_tier_2": 5000,
+    "rpm_tier_3": 5000,
+    "rpm_tier_4": 10000,
+    "rpm_tier_5": 15000,
+    "tpm_tier_1": 500000,
+    "tpm_tier_2": 1000000,
+    "tpm_tier_3": 2000000,
+    "tpm_tier_4": 4000000,
+    "tpm_tier_5": 40000000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling",
+      "file_search",
+      "image_input",
+      "web_search",
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5.6-cyber"
+    ],
+    "tools": [
+      "web_search",
+      "file_search",
+      "image_generation",
+      "code_interpreter",
+      "hosted_shell",
+      "apply_patch",
+      "skills",
+      "computer_use",
+      "mcp",
+      "tool_search"
+    ]
+  },
+  "notes": [
+    "Prompts with >272K input tokens are priced at 2x input and 1.5x output for the full request.",
+    "Cache writes are billed at 1.25x the uncached input token rate."
+  ],
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-cyber.md"
+  ]
+}

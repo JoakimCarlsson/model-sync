@@ -1,0 +1,108 @@
+{
+  "id": "gpt-5.2-pro",
+  "provider": "openai",
+  "name": "GPT-5.2 Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 21,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 168,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 84,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5.2-pro-2025-12-11",
+    "knowledge_cutoff": "Aug 31, 2025",
+    "summary": "Previous pro model for professional work that produces smarter and more precise responses."
+  },
+  "limits": {
+    "batch_queue_limit_tier_1": 90000,
+    "batch_queue_limit_tier_2": 1350000,
+    "batch_queue_limit_tier_3": 50000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 5000000000,
+    "context_window": 400000,
+    "max_output_tokens": 128000,
+    "rpm_tier_1": 500,
+    "rpm_tier_2": 5000,
+    "rpm_tier_3": 5000,
+    "rpm_tier_4": 10000,
+    "rpm_tier_5": 10000,
+    "tpm_tier_1": 30000,
+    "tpm_tier_2": 450000,
+    "tpm_tier_3": 800000,
+    "tpm_tier_4": 2000000,
+    "tpm_tier_5": 30000000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "function_calling",
+      "file_search",
+      "image_input",
+      "image_generation",
+      "mcp",
+      "web_search"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5.2-pro-2025-12-11"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "image_generation",
+      "mcp",
+      "web_search"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-5.2-pro.md"
+  ]
+}

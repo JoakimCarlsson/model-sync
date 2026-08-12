@@ -1,0 +1,103 @@
+{
+  "id": "o3-mini",
+  "provider": "openai",
+  "name": "o3-mini",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "o3-mini-2025-01-31",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "A small model alternative to o3"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 100000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling",
+      "file_search",
+      "file_uploads"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "o3-mini-2025-01-31"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "code_interpreter",
+      "mcp",
+      "image_generation"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/o3-mini.md"
+  ]
+}

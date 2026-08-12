@@ -1,0 +1,90 @@
+{
+  "id": "o3-pro",
+  "provider": "openai",
+  "name": "o3-pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 80,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 40,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "o3-pro-2025-06-10",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Version of o3 with more compute for better responses"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 100000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "structured_outputs",
+      "function_calling",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "o3-pro-2025-06-10"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "image_generation",
+      "mcp",
+      "web_search"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/o3-pro.md"
+  ]
+}

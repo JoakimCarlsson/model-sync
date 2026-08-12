@@ -1,0 +1,94 @@
+{
+  "id": "gpt-5-pro",
+  "provider": "openai",
+  "name": "GPT-5 Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 120,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5-pro-2025-10-06",
+    "knowledge_cutoff": "Sep 30, 2024",
+    "summary": "Version of GPT-5 that produces smarter and more precise responses"
+  },
+  "limits": {
+    "context_window": 400000,
+    "max_output_tokens": 272000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling",
+      "file_search",
+      "file_uploads",
+      "image_input",
+      "web_search"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5-pro-2025-10-06"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "image_generation",
+      "mcp",
+      "web_search"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-5-pro.md"
+  ]
+}

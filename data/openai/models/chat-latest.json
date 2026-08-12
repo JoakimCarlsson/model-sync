@@ -1,0 +1,79 @@
+{
+  "id": "chat-latest",
+  "provider": "openai",
+  "name": "Chat Latest",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "chat-latest",
+    "knowledge_cutoff": "Aug 31, 2025",
+    "summary": "Latest Instant model used in ChatGPT"
+  },
+  "limits": {
+    "context_window": 400000,
+    "max_input_tokens": 272000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses"
+    ],
+    "features": [
+      "structured_outputs",
+      "function_calling",
+      "streaming",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "chat-latest"
+    ],
+    "tools": [
+      "function_calling",
+      "web_search",
+      "file_search",
+      "image_generation",
+      "code_interpreter",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/chat-latest.md"
+  ]
+}

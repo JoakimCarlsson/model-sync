@@ -1,0 +1,105 @@
+{
+  "id": "sora-2-pro",
+  "provider": "openai",
+  "name": "Sora 2 Pro",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1280x720",
+        "portrait": "720x1280",
+        "size": "720p",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1792x1024",
+        "portrait": "1024x1792",
+        "size": "1024p",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.7,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1920x1080",
+        "portrait": "1080x1920",
+        "size": "1080p",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1280x720",
+        "portrait": "720x1280",
+        "size": "720p",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1792x1024",
+        "portrait": "1024x1792",
+        "size": "1024p",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1920x1080",
+        "portrait": "1080x1920",
+        "size": "1080p",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "sora-2-pro-2025-10-06",
+    "summary": "Most advanced synced-audio video generation"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/videos"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "video",
+      "audio"
+    ],
+    "snapshots": [
+      "sora-2-pro-2025-10-06",
+      "sora-2-pro"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/sora-2-pro.md"
+  ]
+}

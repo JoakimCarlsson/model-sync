@@ -1,0 +1,49 @@
+{
+  "id": "gpt-realtime-whisper",
+  "provider": "openai",
+  "name": "GPT-Realtime-Whisper",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_minute",
+      "amount": 0.017,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Live transcription"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-realtime-whisper",
+    "knowledge_cutoff": "Sep 30, 2024",
+    "summary": "Streaming speech-to-text model for realtime transcription"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 2000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/realtime/transcription_sessions"
+    ],
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-realtime-whisper"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-realtime-whisper.md"
+  ]
+}

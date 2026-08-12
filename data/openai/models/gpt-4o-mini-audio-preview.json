@@ -1,0 +1,64 @@
+{
+  "id": "gpt-4o-mini-audio-preview",
+  "provider": "openai",
+  "name": "GPT-4o mini Audio",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4o-mini-audio-preview-2024-12-17",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "Smaller model capable of audio inputs and outputs"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions"
+    ],
+    "features": [
+      "streaming",
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
+    "snapshots": [
+      "gpt-4o-mini-audio-preview-2024-12-17"
+    ],
+    "tools": [
+      "web_search",
+      "file_search",
+      "code_interpreter",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview.md"
+  ]
+}

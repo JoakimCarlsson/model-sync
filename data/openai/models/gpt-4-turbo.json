@@ -1,0 +1,61 @@
+{
+  "id": "gpt-4-turbo",
+  "provider": "openai",
+  "name": "GPT-4 Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4-turbo-2024-04-09",
+    "knowledge_cutoff": "Dec 01, 2023",
+    "summary": "An older high-intelligence GPT model"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants",
+      "v1/batch"
+    ],
+    "features": [
+      "streaming",
+      "function_calling",
+      "image_input"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4-turbo-2024-04-09"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4-turbo.md"
+  ]
+}

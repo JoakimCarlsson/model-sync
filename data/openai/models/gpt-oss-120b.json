@@ -1,0 +1,45 @@
+{
+  "id": "gpt-oss-120b",
+  "provider": "openai",
+  "name": "gpt-oss-120b",
+  "kind": "chat",
+  "attrs": {
+    "default_snapshot": "gpt-oss-120b",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Most powerful open-weight model, fits into an H100 GPU"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072
+  },
+  "lists": {
+    "endpoints": [
+      "v1/responses",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-oss-120b"
+    ],
+    "tools": [
+      "function_calling",
+      "code_interpreter",
+      "mcp",
+      "web_search"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-oss-120b.md"
+  ]
+}

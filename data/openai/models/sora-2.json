@@ -1,0 +1,58 @@
+{
+  "id": "sora-2",
+  "provider": "openai",
+  "name": "Sora 2",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1280x720",
+        "portrait": "720x1280",
+        "size": "720p",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1280x720",
+        "portrait": "720x1280",
+        "size": "720p",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "sora-2-2025-12-08",
+    "summary": "Flagship video generation with synced audio"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/videos"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "video",
+      "audio"
+    ],
+    "snapshots": [
+      "sora-2-2025-12-08",
+      "sora-2-2025-10-06",
+      "sora-2"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/sora-2.md"
+  ]
+}

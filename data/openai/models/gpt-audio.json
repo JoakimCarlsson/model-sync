@@ -1,0 +1,81 @@
+{
+  "id": "gpt-audio",
+  "provider": "openai",
+  "name": "gpt-audio",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 32,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 64,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-audio-2025-08-28",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "For audio inputs and outputs with Chat Completions API"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions"
+    ],
+    "features": [
+      "streaming",
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
+    "snapshots": [
+      "gpt-audio-2025-08-28"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-audio.md"
+  ]
+}

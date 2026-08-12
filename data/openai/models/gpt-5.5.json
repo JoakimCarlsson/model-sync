@@ -1,0 +1,312 @@
+{
+  "id": "gpt-5.5",
+  "provider": "openai",
+  "name": "GPT-5.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "fast"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-5.5-2026-04-23",
+    "knowledge_cutoff": "Dec 01, 2025",
+    "summary": "A new class of intelligence for coding and professional work."
+  },
+  "limits": {
+    "batch_queue_limit_tier_1": 1500000,
+    "batch_queue_limit_tier_2": 3000000,
+    "batch_queue_limit_tier_3": 100000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 15000000000,
+    "context_window": 1050000,
+    "max_output_tokens": 128000,
+    "rpm_tier_1": 500,
+    "rpm_tier_2": 5000,
+    "rpm_tier_3": 5000,
+    "rpm_tier_4": 10000,
+    "rpm_tier_5": 15000,
+    "tpm_tier_1": 500000,
+    "tpm_tier_2": 1000000,
+    "tpm_tier_3": 2000000,
+    "tpm_tier_4": 4000000,
+    "tpm_tier_5": 40000000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/batch"
+    ],
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "function_calling",
+      "file_search",
+      "file_uploads",
+      "image_input",
+      "web_search",
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-5.5-2026-04-23"
+    ],
+    "tools": [
+      "function_calling",
+      "web_search",
+      "file_search",
+      "tool_search",
+      "image_generation",
+      "code_interpreter",
+      "hosted_shell",
+      "apply_patch",
+      "skills",
+      "computer_use",
+      "mcp"
+    ]
+  },
+  "notes": [
+    "For GPT-5.5, prompts with >272K input tokens are priced at 2x input and 1.5x output for the full session for standard, batch, and flex.",
+    "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.5."
+  ],
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-5.5.md"
+  ]
+}

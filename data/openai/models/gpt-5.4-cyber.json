@@ -1,0 +1,8 @@
+{
+  "id": "gpt-5.4-cyber",
+  "provider": "openai",
+  "kind": "chat",
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md"
+  ]
+}

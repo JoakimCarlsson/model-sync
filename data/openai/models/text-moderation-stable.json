@@ -1,0 +1,31 @@
+{
+  "id": "text-moderation-stable",
+  "provider": "openai",
+  "name": "text-moderation-stable",
+  "kind": "moderation",
+  "attrs": {
+    "default_snapshot": "text-moderation-007",
+    "knowledge_cutoff": "Sep 01, 2021",
+    "summary": "Previous generation text-only moderation model"
+  },
+  "limits": {
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "endpoints": [
+      "v1/moderations"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "text-moderation-007"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/text-moderation-stable.md"
+  ]
+}

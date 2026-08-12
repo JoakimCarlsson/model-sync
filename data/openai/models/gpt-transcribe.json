@@ -1,0 +1,45 @@
+{
+  "id": "gpt-transcribe",
+  "provider": "openai",
+  "name": "GPT Transcribe",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_minute",
+      "amount": 0.0045,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard",
+        "use_case": "Transcription"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-transcribe",
+    "summary": "High-accuracy speech-to-text model for file and Realtime input transcription"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/realtime/transcription_sessions",
+      "v1/audio/transcriptions"
+    ],
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-transcribe"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-transcribe.md"
+  ]
+}

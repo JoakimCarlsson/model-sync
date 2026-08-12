@@ -1,0 +1,40 @@
+{
+  "id": "text-embedding-3-small",
+  "provider": "openai",
+  "name": "text-embedding-3-small",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "text-embedding-3-small",
+    "summary": "Small embedding model"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/batch",
+      "v1/embeddings"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "text-embedding-3-small"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/text-embedding-3-small.md"
+  ]
+}

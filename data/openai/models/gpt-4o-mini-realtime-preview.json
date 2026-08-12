@@ -1,0 +1,67 @@
+{
+  "id": "gpt-4o-mini-realtime-preview",
+  "provider": "openai",
+  "name": "GPT-4o mini Realtime",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4o-mini-realtime-preview-2024-12-17",
+    "knowledge_cutoff": "Oct 01, 2023",
+    "summary": "Smaller realtime model for text and audio inputs and outputs"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "endpoints": [
+      "v1/realtime"
+    ],
+    "features": [
+      "function_calling",
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text",
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "audio"
+    ],
+    "snapshots": [
+      "gpt-4o-mini-realtime-preview-2024-12-17"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview.md"
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "id": "gpt-4.1-nano",
+  "provider": "openai",
+  "name": "GPT-4.1 nano",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-4.1-nano-2025-04-14",
+    "knowledge_cutoff": "Jun 01, 2024",
+    "summary": "Fastest, most cost-efficient version of GPT-4.1"
+  },
+  "limits": {
+    "batch_queue_limit_tier_1": 2000000,
+    "batch_queue_limit_tier_2": 20000000,
+    "batch_queue_limit_tier_3": 40000000,
+    "batch_queue_limit_tier_4": 1000000000,
+    "batch_queue_limit_tier_5": 15000000000,
+    "context_window": 1047576,
+    "max_output_tokens": 32768,
+    "rpd_tier_1": 10000,
+    "rpm_tier_1": 500,
+    "rpm_tier_2": 5000,
+    "rpm_tier_3": 5000,
+    "rpm_tier_4": 10000,
+    "rpm_tier_5": 30000,
+    "tpm_tier_1": 200000,
+    "tpm_tier_2": 2000000,
+    "tpm_tier_3": 4000000,
+    "tpm_tier_4": 10000000,
+    "tpm_tier_5": 150000000
+  },
+  "lists": {
+    "endpoints": [
+      "v1/chat/completions",
+      "v1/responses",
+      "v1/assistants",
+      "v1/batch",
+      "v1/fine-tuning"
+    ],
+    "features": [
+      "predicted_outputs",
+      "streaming",
+      "function_calling",
+      "file_search",
+      "file_uploads",
+      "structured_outputs",
+      "image_input",
+      "prompt_caching",
+      "fine_tuning"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gpt-4.1-nano-2025-04-14"
+    ],
+    "tools": [
+      "function_calling",
+      "file_search",
+      "image_generation",
+      "code_interpreter",
+      "mcp"
+    ]
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/models/gpt-4.1-nano.md"
+  ]
+}

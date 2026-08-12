@@ -1,0 +1,239 @@
+{
+  "id": "gpt-image-2",
+  "provider": "openai",
+  "name": "GPT Image 2",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.006,
+      "currency": "USD",
+      "dims": {
+        "quality": "low",
+        "size": "1024x1024",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "quality": "low",
+        "size": "1024x1536",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "quality": "low",
+        "size": "1536x1024",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.041,
+      "currency": "USD",
+      "dims": {
+        "quality": "medium",
+        "size": "1536x1024",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.053,
+      "currency": "USD",
+      "dims": {
+        "quality": "medium",
+        "size": "1024x1024",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.041,
+      "currency": "USD",
+      "dims": {
+        "quality": "medium",
+        "size": "1024x1536",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.211,
+      "currency": "USD",
+      "dims": {
+        "quality": "high",
+        "size": "1024x1024",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "quality": "high",
+        "size": "1024x1536",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "quality": "high",
+        "size": "1536x1024",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "default_snapshot": "gpt-image-2-2026-04-21",
+    "summary": "State-of-the-art image generation model"
+  },
+  "lists": {
+    "endpoints": [
+      "v1/batch",
+      "v1/images/generations",
+      "v1/images/edits"
+    ],
+    "features": [
+      "inpainting"
+    ],
+    "input_modalities": [
+      "text",
+      "image"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "snapshots": [
+      "gpt-image-2-2026-04-21"
+    ]
+  },
+  "notes": [
+    "Additional sizes available"
+  ],
+  "sources": [
+    "https://developers.openai.com/api/docs/pricing.md",
+    "https://developers.openai.com/api/docs/guides/image-generation.md",
+    "https://developers.openai.com/api/docs/models/gpt-image-2.md"
+  ]
+}
