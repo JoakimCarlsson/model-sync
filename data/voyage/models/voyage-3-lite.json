@@ -1,0 +1,35 @@
+{
+  "id": "voyage-3-lite",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00002,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "older",
+    "summary": "Optimized for latency and cost."
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "512"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

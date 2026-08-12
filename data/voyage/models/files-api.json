@@ -1,0 +1,17 @@
+{
+  "id": "files-api",
+  "provider": "voyage",
+  "name": "Files API",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "storage",
+      "unit": "per_gb_month",
+      "amount": 0.05,
+      "currency": "USD"
+    }
+  ],
+  "sources": [
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

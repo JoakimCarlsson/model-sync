@@ -1,0 +1,30 @@
+{
+  "id": "rerank-lite-1",
+  "provider": "voyage",
+  "kind": "rerank",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00002,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "older",
+    "summary": "Our generalist first-generation reranker optimized for both latency and quality."
+  },
+  "limits": {
+    "context_window": 4000
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://docs.voyageai.com/docs/reranker.md"
+  ]
+}

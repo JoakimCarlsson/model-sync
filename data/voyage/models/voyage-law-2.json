@@ -1,0 +1,37 @@
+{
+  "id": "voyage-law-2",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "free_allowance": "50 million",
+    "state": "current",
+    "summary": "Optimized for legal retrieval and RAG."
+  },
+  "limits": {
+    "context_window": 16000,
+    "free_tokens": 50000000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

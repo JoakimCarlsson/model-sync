@@ -1,0 +1,42 @@
+{
+  "id": "voyage-context-4",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00018,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "default_embedding_dimension": "1024",
+    "free_allowance": "200 million",
+    "state": "current",
+    "summary": "Contextualized chunk embeddings optimized for general-purpose and multilingual retrieval quality."
+  },
+  "limits": {
+    "chunk_context_window": 32000,
+    "context_window": 120000,
+    "free_tokens": 200000000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024",
+      "2048",
+      "256",
+      "512"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/contextualized-chunk-embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

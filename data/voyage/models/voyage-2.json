@@ -1,0 +1,35 @@
+{
+  "id": "voyage-2",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0001,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "older",
+    "summary": "General-purpose embedding model optimized for a balance between cost, latency, and retrieval quality."
+  },
+  "limits": {
+    "context_window": 4000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

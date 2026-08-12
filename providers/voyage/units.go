@@ -1,0 +1,169 @@
+package voyage
+
+import (
+	"regexp"
+	"strconv"
+	"strings"
+
+	"github.com/joakimcarlsson/model-sync/catalog"
+)
+
+// Metrics Voyage bills on. There is no output metric: an embedding or a
+// reranking is charged entirely by what goes into it.
+const (
+	MetricInputTokens catalog.Metric = "input_tokens"
+	MetricPixels      catalog.Metric = "pixels"
+	MetricStorage     catalog.Metric = "storage"
+)
+
+// Units Voyage quotes amounts against.
+const (
+	UnitPer1KTokens catalog.Unit = "per_1k_tokens"
+	UnitPer1MTokens catalog.Unit = "per_1m_tokens"
+	UnitPer1BPixels catalog.Unit = "per_1b_pixels"
+	UnitPerGBMonth  catalog.Unit = "per_gb_month"
+)
+
+// Kinds of model Voyage publishes.
+const (
+	KindEmbedding catalog.Kind = "embedding"
+	KindRerank    catalog.Kind = "rerank"
+	KindTool      catalog.Kind = "tool"
+)
+
+// States Voyage distinguishes. An older model is still served; it simply
+// carries no free allowance.
+const (
+	StateCurrent = "current"
+	StateOlder   = "older"
+)
+
+// Scalar keys the documents populate.
+const (
+	AttrSummary          = "summary"
+	AttrState            = "state"
+	AttrFreeAllowance    = "free_allowance"
+	AttrEstPerRequest    = "estimated_price_per_request"
+	AttrBatchDiscount    = "batch_discount"
+	AttrDefaultDimension = "default_embedding_dimension"
+	AttrOpenWeights      = "open_weights"
+)
+
+// Numeric keys the documents populate.
+const (
+	LimitContextWindow = "context_window"
+	LimitChunkContext  = "chunk_context_window"
+	LimitFreeTokens    = "free_tokens"
+)
+
+// Enumeration keys the documents populate.
+const (
+	ListDimensions = "embedding_dimensions"
+)
+
+var (
+	linkRe    = regexp.MustCompile(`\[([^\]]*)\]\([^)]*\)`)
+	breakRe   = regexp.MustCompile(`(?i)<br\s*/?>`)
+	htmlTagRe = regexp.MustCompile(`(?s)<[^>]*>`)
+	amountRe  = regexp.MustCompile(`\$\s*([\d,]*\.?\d+)`)
+	countRe   = regexp.MustCompile(
+		`(?i)^([\d,]*\.?\d+)\s*(thousand|million|billion|[kmb])?\b`,
+	)
+	dimensionRe = regexp.MustCompile(`(\d+)\s*(\(default\))?`)
+	backtickRe  = regexp.MustCompile("`([^`]+)`")
+)
+
+// clean strips the decoration Voyage wraps around cell values. Its markdown
+// carries MDX anchor elements, escaped footnote markers and backticked
+// identifiers.
+func clean(cell string) string {
+	s := breakRe.ReplaceAllString(cell, "\n")
+	s = linkRe.ReplaceAllString(s, "$1")
+	s = htmlTagRe.ReplaceAllString(s, " ")
+	s = strings.ReplaceAll(s, "**", "")
+	s = strings.ReplaceAll(s, "`", "")
+	s = strings.ReplaceAll(s, `\*`, "")
+	return strings.Join(strings.Fields(s), " ")
+}
+
+// splitModels reads a model cell, which names more than one model when they
+// share a rate. Voyage separates them with a line break element.
+func splitModels(cell string) []string {
+	var out []string
+	for _, part := range breakRe.Split(cell, -1) {
+		for _, line := range strings.Split(part, "\n") {
+			if id := clean(line); id != "" {
+				out = append(out, id)
+			}
+		}
+	}
+	return out
+}
+
+// parseAmount reads a price cell.
+func parseAmount(cell string) (float64, bool) {
+	match := amountRe.FindStringSubmatch(clean(cell))
+	if match == nil {
+		return 0, false
+	}
+	value, err := strconv.ParseFloat(strings.ReplaceAll(match[1], ",", ""), 64)
+	if err != nil {
+		return 0, false
+	}
+	return value, true
+}
+
+// parseCount reads a quantity, which Voyage writes both as a grouped number
+// and as a word, as in "32,000" and "200 million".
+func parseCount(value string) int64 {
+	match := countRe.FindStringSubmatch(strings.TrimSpace(clean(value)))
+	if match == nil {
+		return 0
+	}
+	n, err := strconv.ParseFloat(strings.ReplaceAll(match[1], ",", ""), 64)
+	if err != nil {
+		return 0
+	}
+	switch strings.ToLower(match[2]) {
+	case "thousand", "k":
+		n *= 1_000
+	case "million", "m":
+		n *= 1_000_000
+	case "billion", "b":
+		n *= 1_000_000_000
+	}
+	return int64(n)
+}
+
+// parseDimensions reads an embedding dimension cell such as
+// "1024 (default), 256, 512, 2048", returning every dimension offered and the
+// one used when none is asked for.
+func parseDimensions(cell string) (dimensions []string, defaultDim string) {
+	for _, match := range dimensionRe.FindAllStringSubmatch(clean(cell), -1) {
+		dimensions = append(dimensions, match[1])
+		if match[2] != "" {
+			defaultDim = match[1]
+		}
+	}
+	return dimensions, defaultDim
+}
+
+// backtickedIDs returns every identifier written as code in a passage, which
+// is how Voyage lists the models a term applies to when it states them in a
+// sentence rather than a table.
+func backtickedIDs(text string) []string {
+	var out []string
+	for _, match := range backtickRe.FindAllStringSubmatch(text, -1) {
+		out = append(out, strings.TrimSpace(match[1]))
+	}
+	return out
+}
+
+// kindFor reports what a model is from its identifier, which is the only
+// signal on pages that mix them.
+func kindFor(id string) catalog.Kind {
+	if strings.HasPrefix(id, "rerank") {
+		return KindRerank
+	}
+	return KindEmbedding
+}

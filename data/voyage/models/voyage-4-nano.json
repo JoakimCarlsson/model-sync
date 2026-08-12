@@ -1,0 +1,24 @@
+{
+  "id": "voyage-4-nano",
+  "provider": "voyage",
+  "kind": "embedding",
+  "attrs": {
+    "default_embedding_dimension": "1024",
+    "open_weights": "true",
+    "summary": "Open-weight model available on Hugging Face."
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024",
+      "2048",
+      "256",
+      "512"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/embeddings.md"
+  ]
+}

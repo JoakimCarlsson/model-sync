@@ -1,0 +1,43 @@
+{
+  "id": "voyage-code-3",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00018,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.18,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "batch_discount": "33%",
+    "default_embedding_dimension": "1024",
+    "free_allowance": "200 million",
+    "state": "current",
+    "summary": "Optimized for code retrieval."
+  },
+  "limits": {
+    "context_window": 32000,
+    "free_tokens": 200000000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024",
+      "2048",
+      "256",
+      "512"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/batch-inference.md",
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

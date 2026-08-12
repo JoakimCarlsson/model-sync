@@ -1,0 +1,35 @@
+{
+  "id": "voyage-large-2",
+  "provider": "voyage",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "older",
+    "summary": "General-purpose embedding model that is optimized for retrieval quality (e.g., better than OpenAI V3 Large)."
+  },
+  "limits": {
+    "context_window": 16000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1536"
+    ]
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://docs.voyageai.com/docs/pricing.md"
+  ]
+}

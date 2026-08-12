@@ -10,6 +10,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 	"github.com/joakimcarlsson/model-sync/providers/anthropic"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
+	"github.com/joakimcarlsson/model-sync/providers/voyage"
 	"github.com/joakimcarlsson/model-sync/providers/xai"
 	"github.com/joakimcarlsson/model-sync/store"
 )
@@ -44,7 +45,14 @@ func run(data, api, cache string, timeout time.Duration) error {
 	anthropicSource.CacheDir = cache
 	xaiSource := xai.New()
 	xaiSource.CacheDir = cache
-	sources := []catalog.Source{openaiSource, anthropicSource, xaiSource}
+	voyageSource := voyage.New()
+	voyageSource.CacheDir = cache
+	sources := []catalog.Source{
+		openaiSource,
+		anthropicSource,
+		xaiSource,
+		voyageSource,
+	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()

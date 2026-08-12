@@ -1,0 +1,35 @@
+{
+  "id": "rerank-2.5",
+  "provider": "voyage",
+  "kind": "rerank",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00005,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "batch_discount": "33%",
+    "estimated_price_per_request": "$0.0025",
+    "free_allowance": "200 million",
+    "state": "current",
+    "summary": "Our generalist reranker optimized for quality with instruction-following and multilingual support."
+  },
+  "limits": {
+    "context_window": 32000,
+    "free_tokens": 200000000
+  },
+  "sources": [
+    "https://docs.voyageai.com/docs/batch-inference.md",
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://docs.voyageai.com/docs/reranker.md"
+  ]
+}
