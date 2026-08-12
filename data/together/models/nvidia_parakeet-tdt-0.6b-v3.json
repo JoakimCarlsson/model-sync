@@ -1,0 +1,21 @@
+{
+  "id": "nvidia/parakeet-tdt-0.6b-v3",
+  "provider": "together",
+  "name": "Parakeet TDT 0.6B v3",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0015,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "NVIDIA",
+    "modality": "Speech-to-Text"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

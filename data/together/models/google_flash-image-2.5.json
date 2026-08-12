@@ -1,0 +1,20 @@
+{
+  "id": "google/flash-image-2.5",
+  "provider": "together",
+  "name": "Flash Image 2.5 (Nano Banana)",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.039,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

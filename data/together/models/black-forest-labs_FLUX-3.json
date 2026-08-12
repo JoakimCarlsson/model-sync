@@ -1,0 +1,20 @@
+{
+  "id": "black-forest-labs/FLUX-3",
+  "provider": "together",
+  "name": "FLUX 3",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.17,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Black Forest Labs"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

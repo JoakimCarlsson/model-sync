@@ -1,0 +1,20 @@
+{
+  "id": "vidu/vidu-q3-turbo",
+  "provider": "together",
+  "name": "Vidu Q3 Turbo",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.195,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Vidu"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

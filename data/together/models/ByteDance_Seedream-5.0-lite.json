@@ -1,0 +1,20 @@
+{
+  "id": "ByteDance/Seedream-5.0-lite",
+  "provider": "together",
+  "name": "Seedream 5.0 Lite",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.035,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ByteDance"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

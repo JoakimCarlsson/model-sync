@@ -1,0 +1,20 @@
+{
+  "id": "openai/gpt-image-2",
+  "provider": "together",
+  "name": "GPT Image 2",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.053,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "OpenAI"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

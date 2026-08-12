@@ -1,0 +1,20 @@
+{
+  "id": "Wan-AI/wan2.7-t2v",
+  "provider": "together",
+  "name": "Wan 2.7 T2V",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Wan-AI"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+  "provider": "together",
+  "name": "DeepSeek-V4-Flash-0731",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 1000000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

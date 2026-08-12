@@ -44977,6 +44977,2489 @@
       ]
     },
     {
+      "id": "together",
+      "name": "Together AI",
+      "models": [
+        {
+          "id": "ByteDance-Seed/Seedream-3.0",
+          "provider": "together",
+          "name": "Seedream 3.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.018,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance-Seed/Seedream-4.0",
+          "provider": "together",
+          "name": "Seedream 4.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.03,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance/Seedance-1.0-lite",
+          "provider": "together",
+          "name": "Seedance 1.0 Lite",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.14,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance/Seedance-1.0-pro",
+          "provider": "together",
+          "name": "Seedance 1.0 Pro",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.57,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance/Seedance-2.0",
+          "provider": "together",
+          "name": "ByteDance Seedance 2.0",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.16,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance/Seedance-2.5",
+          "provider": "together",
+          "name": "ByteDance Seedance 2.5",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.115,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ByteDance/Seedream-5.0-lite",
+          "provider": "together",
+          "name": "Seedream 5.0 Lite",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.035,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ByteDance"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "LiquidAI/LFM2.5-8B-A1B",
+          "provider": "together",
+          "name": "LFM2.5-8B-A1B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.12,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "LiquidAI"
+          },
+          "limits": {
+            "context_window": 32768
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "MiniMaxAI/MiniMax-M3",
+          "provider": "together",
+          "name": "Minimax M3",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.06,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.2,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Minimax"
+          },
+          "limits": {
+            "context_window": 524288
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Prism-ML/Ternary-Bonsai-27B",
+          "provider": "together",
+          "name": "Ternary Bonsai 27B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Prism ML"
+          },
+          "limits": {
+            "context_window": 262144
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen-Image",
+          "provider": "together",
+          "name": "Qwen Image",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0058,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen-Image-2.0",
+          "provider": "together",
+          "name": "Qwen Image 2.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.035,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen-Image-2.0-Pro",
+          "provider": "together",
+          "name": "Qwen Image 2.0 Pro",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.075,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen2.5-7B-Instruct-Turbo",
+          "provider": "together",
+          "name": "Qwen 2.5 7B Instruct Turbo",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "limits": {
+            "context_window": 32768
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen3.5-9B",
+          "provider": "together",
+          "name": "Qwen3.5 9B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.17,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.25,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "limits": {
+            "context_window": 262144
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen3.6-Plus",
+          "provider": "together",
+          "name": "Qwen3.6 Plus",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "limits": {
+            "context_window": 1000000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen3.7-Max",
+          "provider": "together",
+          "name": "Qwen3.7 Max",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.75,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen3.7-Plus",
+          "provider": "together",
+          "name": "Qwen3.7 Plus",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.32,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.28,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "limits": {
+            "context_window": 1000000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Qwen/Qwen3.8-2.4T-A95B",
+          "provider": "together",
+          "name": "Qwen3.8-2.4T-A95B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Qwen"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "RunDiffusion/Juggernaut-pro-flux",
+          "provider": "together",
+          "name": "Juggernaut Pro Flux",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0049,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "RunDiffusion"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Rundiffusion/Juggernaut-Lightning-Flux",
+          "provider": "together",
+          "name": "Juggernaut Lightning Flux",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0017,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "RunDiffusion"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Wan-AI/Wan2.6-image",
+          "provider": "together",
+          "name": "Wan 2.6 Image",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.03,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Wan-AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Wan-AI/wan2.7-i2v",
+          "provider": "together",
+          "name": "Wan 2.7 I2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.1,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Wan-AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Wan-AI/wan2.7-r2v",
+          "provider": "together",
+          "name": "Wan 2.7 R2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.1,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Wan-AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "Wan-AI/wan2.7-t2v",
+          "provider": "together",
+          "name": "Wan 2.7 T2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.1,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Wan-AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.0-i2v",
+          "provider": "together",
+          "name": "HappyHorse 1.0 I2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.24,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.0-r2v",
+          "provider": "together",
+          "name": "HappyHorse 1.0 R2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.24,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.0-t2v",
+          "provider": "together",
+          "name": "HappyHorse 1.0 T2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.24,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.1-i2v",
+          "provider": "together",
+          "name": "HappyHorse 1.1 I2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.14,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.1-r2v",
+          "provider": "together",
+          "name": "HappyHorse 1.1 R2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.14,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "alibaba/happyhorse-1.1-t2v",
+          "provider": "together",
+          "name": "HappyHorse 1.1 T2V",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.14,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Alibaba"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX-3",
+          "provider": "together",
+          "name": "FLUX 3",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.17,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.1-kontext-max",
+          "provider": "together",
+          "name": "Flux.1 Kontext [max]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.08,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs",
+            "default_steps": "28"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.1-kontext-pro",
+          "provider": "together",
+          "name": "Flux.1 Kontext [pro]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs",
+            "default_steps": "28"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.1-schnell",
+          "provider": "together",
+          "name": "Flux.1 [schnell] (Turbo)",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0027,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs",
+            "default_steps": "4"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.1.1-pro",
+          "provider": "together",
+          "name": "Flux1.1 [pro]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.2-dev",
+          "provider": "together",
+          "name": "FLUX.2 [dev]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0154,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.2-flex",
+          "provider": "together",
+          "name": "FLUX.2 [flex]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.03,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.2-max",
+          "provider": "together",
+          "name": "FLUX.2 [max]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.07,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs",
+            "default_steps": "50"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "black-forest-labs/FLUX.2-pro",
+          "provider": "together",
+          "name": "FLUX.2 [pro]",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.03,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Black Forest Labs"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "canopylabs/orpheus-3b-0.1-ft",
+          "provider": "together",
+          "name": "Orpheus 3B",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 15,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Canopy Labs",
+            "modality": "Text-to-Speech"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "cartesia/sonic",
+          "provider": "together",
+          "name": "Cartesia Sonic",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 65,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Cartesia",
+            "modality": "Text-to-Speech"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "cartesia/sonic-2",
+          "provider": "together",
+          "name": "Cartesia Sonic 2",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 65,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Cartesia",
+            "modality": "Text-to-Speech"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "cartesia/sonic-3",
+          "provider": "together",
+          "name": "Cartesia Sonic 3",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 65,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Cartesia",
+            "modality": "Text-to-Speech"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "deepcogito/cogito-v2-1-671b",
+          "provider": "together",
+          "name": "Cogito v2.1 671B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Deepcogito"
+          },
+          "limits": {
+            "context_window": 163840
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+          "provider": "together",
+          "name": "DeepSeek-V4-Flash-0731",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.14,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.28,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "DeepSeek"
+          },
+          "limits": {
+            "context_window": 1000000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "deepseek-ai/DeepSeek-V4-Pro",
+          "provider": "together",
+          "name": "DeepSeek-V4-Pro",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.74,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.48,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "DeepSeek"
+          },
+          "limits": {
+            "context_window": 512000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/flash-image-2.5",
+          "provider": "together",
+          "name": "Flash Image 2.5 (Nano Banana)",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.039,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/flash-image-3.1",
+          "provider": "together",
+          "name": "Gemini 3.1 Flash Image (Nano Banana 2)",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.05,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/flash-image-3.1-lite",
+          "provider": "together",
+          "name": "Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.069,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/gemini-3-pro-image",
+          "provider": "together",
+          "name": "Gemini 3 Pro Image (Nano Banana Pro)",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.134,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/gemma-3n-E4B-it",
+          "provider": "together",
+          "name": "Gemma 3N E4B Instruct",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.06,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.12,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "limits": {
+            "context_window": 32768
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/gemma-4-31B-it",
+          "provider": "together",
+          "name": "Gemma 4 31B Instruct",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.39,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.97,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "limits": {
+            "context_window": 262144
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/imagen-4.0-fast",
+          "provider": "together",
+          "name": "Imagen 4.0 Fast",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.02,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/imagen-4.0-preview",
+          "provider": "together",
+          "name": "Imagen 4.0 Preview",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/imagen-4.0-ultra",
+          "provider": "together",
+          "name": "Imagen 4.0 Ultra",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.06,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-2.0",
+          "provider": "together",
+          "name": "Veo 2.0",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.0",
+          "provider": "together",
+          "name": "Veo 3.0",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 1.6,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.0-audio",
+          "provider": "together",
+          "name": "Veo 3.0 + Audio",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 3.2,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.0-fast",
+          "provider": "together",
+          "name": "Veo 3.0 Fast",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.8,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.0-fast-audio",
+          "provider": "together",
+          "name": "Veo 3.0 Fast + Audio",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 1.2,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.1",
+          "provider": "together",
+          "name": "Veo 3.1",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.08,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.1-lite",
+          "provider": "together",
+          "name": "Veo 3.1 Lite",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.05,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "google/veo-3.1-test-debug",
+          "provider": "together",
+          "name": "Veo 3.1 Debug Test",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.08,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Google"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "hexgrad/Kokoro-82M",
+          "provider": "together",
+          "name": "Kokoro",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 4,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Kokoro",
+            "modality": "Text-to-Speech"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ideogram/ideogram-3.0",
+          "provider": "together",
+          "name": "Ideogram 3.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.06,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Ideogram"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "ideogram/ideogram-4.0",
+          "provider": "together",
+          "name": "Ideogram 4.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.06,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "ideogram"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "intfloat/multilingual-e5-large-instruct",
+          "provider": "together",
+          "name": "Multilingual-e5-large-instruct",
+          "kind": "embedding",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.02,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "default_embedding_dimension": "1024",
+            "model_size": "560M"
+          },
+          "limits": {
+            "context_window": 514
+          },
+          "lists": {
+            "embedding_dimensions": [
+              "1024"
+            ]
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "kwaivgI/kling-1.6-standard",
+          "provider": "together",
+          "name": "Kling 1.6 Standard",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.19,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Kuaishou"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "kwaivgI/kling-2.1-master",
+          "provider": "together",
+          "name": "Kling 2.1 Master",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.92,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Kuaishou"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "kwaivgI/kling-2.1-pro",
+          "provider": "together",
+          "name": "Kling 2.1 Pro",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.32,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Kuaishou"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "kwaivgI/kling-2.1-standard",
+          "provider": "together",
+          "name": "Kling 2.1 Standard",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.18,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Kuaishou"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+          "provider": "together",
+          "name": "Llama 3.3 70B Instruct Turbo",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.04,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Meta"
+          },
+          "limits": {
+            "context_window": 131072
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "meta-llama/Llama-Guard-4-12B",
+          "provider": "together",
+          "name": "Llama Guard 4 12B",
+          "kind": "moderation",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Meta"
+          },
+          "limits": {
+            "context_window": 1048576
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "meta-models/Muse-Glimmer-30B",
+          "provider": "together",
+          "name": "Muse Glimmer 30B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.04,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.35,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Meta"
+          },
+          "limits": {
+            "context_window": 131072
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "minimax/hailuo-02",
+          "provider": "together",
+          "name": "MiniMax Hailuo 02",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.49,
+              "currency": "USD",
+              "dims": {
+                "duration": "10s",
+                "resolution": "768p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "MiniMax"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "minimax/video-01-director",
+          "provider": "together",
+          "name": "MiniMax 01 Director",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.28,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "MiniMax"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "moonshotai/Kimi-K2.6",
+          "provider": "together",
+          "name": "Kimi K2.6",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.2,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4.5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Moonshot"
+          },
+          "limits": {
+            "context_window": 262144
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "moonshotai/Kimi-K2.7-Code",
+          "provider": "together",
+          "name": "Kimi K2.7 Code",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.19,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.95,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Moonshot"
+          },
+          "limits": {
+            "context_window": 262144
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "provider": "together",
+          "name": "Kimi K3",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Moonshot"
+          },
+          "limits": {
+            "context_window": 1000000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "nvidia/nemotron-3-asr-streaming-0.6b",
+          "provider": "together",
+          "name": "NVIDIA Nemotron 3 ASR Streaming 0.6B",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0015,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "NVIDIA",
+            "modality": "Speech-to-Text"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "nvidia/nemotron-3-ultra-550b-a55b",
+          "provider": "together",
+          "name": "Nemotron 3 Ultra 550B A55B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.6,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.6,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "NVIDIA"
+          },
+          "limits": {
+            "context_window": 512300
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+          "provider": "together",
+          "name": "NVIDIA Nemotron 3.5 ASR Streaming 0.6B",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0015,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "NVIDIA",
+            "modality": "Speech-to-Text"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "nvidia/parakeet-tdt-0.6b-v3",
+          "provider": "together",
+          "name": "Parakeet TDT 0.6B v3",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0015,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "NVIDIA",
+            "modality": "Speech-to-Text"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-image-1.5",
+          "provider": "together",
+          "name": "GPT Image 1.5",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.034,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-image-2",
+          "provider": "together",
+          "name": "GPT Image 2",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.053,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "provider": "together",
+          "name": "GPT-OSS 120B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.15,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.6,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "limits": {
+            "context_window": 128000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "provider": "together",
+          "name": "GPT-OSS 20B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.05,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "limits": {
+            "context_window": 128000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/sora-2",
+          "provider": "together",
+          "name": "Sora 2",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.8,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/sora-2-pro",
+          "provider": "together",
+          "name": "Sora 2 Pro",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 2.4,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "openai/whisper-large-v3",
+          "provider": "together",
+          "name": "Whisper Large v3",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0015,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "OpenAI",
+            "modality": "Speech-to-Text"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "pearl-ai/gemma-4-31b-it",
+          "provider": "together",
+          "name": "Gemma 4 31B Instruct",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.28,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.86,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Pearl AI"
+          },
+          "limits": {
+            "context_window": 32000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "pixverse/pixverse-v5",
+          "provider": "together",
+          "name": "PixVerse v5",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.3,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "PixVerse"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "pixverse/pixverse-v5.6",
+          "provider": "together",
+          "name": "PixVerse v5.6",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.1326,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "PixVerse"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "pixverse/pixverse-v6",
+          "provider": "together",
+          "name": "PixVerse v6",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.09,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "PixVerse"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "prunaai/p-image-ideogram",
+          "provider": "together",
+          "name": "P-Image-Ideogram",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.00225,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Pruna AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "stabilityai/stable-diffusion-xl-base-1.0",
+          "provider": "together",
+          "name": "SD XL",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_megapixel",
+              "amount": 0.0019,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Stability AI"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "thinkingmachines/Inkling",
+          "provider": "together",
+          "name": "Inkling",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.17,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4.05,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Thinking Machines"
+          },
+          "limits": {
+            "context_window": 524288
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "thinkingmachines/Inkling-Small",
+          "provider": "together",
+          "name": "Inkling Small",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.2,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Thinking Machines"
+          },
+          "limits": {
+            "context_window": 524288
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "vidu/vidu-2.0",
+          "provider": "together",
+          "name": "Vidu 2.0",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.8,
+              "currency": "USD",
+              "dims": {
+                "duration": "8s",
+                "resolution": "720p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Vidu"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "vidu/vidu-q1",
+          "provider": "together",
+          "name": "Vidu Q1",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.22,
+              "currency": "USD",
+              "dims": {
+                "duration": "5s",
+                "resolution": "1080p"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Vidu"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "vidu/vidu-q3",
+          "provider": "together",
+          "name": "Vidu Q3",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.0975,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Vidu"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "vidu/vidu-q3-turbo",
+          "provider": "together",
+          "name": "Vidu Q3 Turbo",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_video",
+              "amount": 0.195,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Vidu"
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        },
+        {
+          "id": "zai-org/GLM-5.2",
+          "provider": "together",
+          "name": "GLM-5.2",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.26,
+              "currency": "USD"
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.4,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4.4,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "author": "Z.ai"
+          },
+          "limits": {
+            "context_window": 512000
+          },
+          "sources": [
+            "https://docs.together.ai/docs/serverless-models.md"
+          ]
+        }
+      ]
+    },
+    {
       "id": "voyage",
       "name": "Voyage AI",
       "models": [

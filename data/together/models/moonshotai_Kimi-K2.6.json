@@ -1,0 +1,35 @@
+{
+  "id": "moonshotai/Kimi-K2.6",
+  "provider": "together",
+  "name": "Kimi K2.6",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Moonshot"
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

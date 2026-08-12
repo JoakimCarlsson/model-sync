@@ -1,0 +1,21 @@
+{
+  "id": "black-forest-labs/FLUX.2-max",
+  "provider": "together",
+  "name": "FLUX.2 [max]",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.07,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Black Forest Labs",
+    "default_steps": "50"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

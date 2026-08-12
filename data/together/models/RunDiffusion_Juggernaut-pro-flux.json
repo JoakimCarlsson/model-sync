@@ -1,0 +1,20 @@
+{
+  "id": "RunDiffusion/Juggernaut-pro-flux",
+  "provider": "together",
+  "name": "Juggernaut Pro Flux",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.0049,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "RunDiffusion"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

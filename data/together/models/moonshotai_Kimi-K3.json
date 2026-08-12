@@ -1,0 +1,35 @@
+{
+  "id": "moonshotai/Kimi-K3",
+  "provider": "together",
+  "name": "Kimi K3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Moonshot"
+  },
+  "limits": {
+    "context_window": 1000000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

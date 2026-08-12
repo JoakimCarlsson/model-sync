@@ -1,0 +1,29 @@
+{
+  "id": "pearl-ai/gemma-4-31b-it",
+  "provider": "together",
+  "name": "Gemma 4 31B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.86,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Pearl AI"
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

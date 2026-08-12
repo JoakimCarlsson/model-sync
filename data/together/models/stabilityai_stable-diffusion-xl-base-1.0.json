@@ -1,0 +1,20 @@
+{
+  "id": "stabilityai/stable-diffusion-xl-base-1.0",
+  "provider": "together",
+  "name": "SD XL",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.0019,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Stability AI"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

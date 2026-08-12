@@ -1,0 +1,24 @@
+{
+  "id": "ByteDance/Seedance-1.0-lite",
+  "provider": "together",
+  "name": "Seedance 1.0 Lite",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "duration": "5s",
+        "resolution": "720p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "ByteDance"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

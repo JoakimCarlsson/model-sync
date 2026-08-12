@@ -1,0 +1,29 @@
+{
+  "id": "deepcogito/cogito-v2-1-671b",
+  "provider": "together",
+  "name": "Cogito v2.1 671B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Deepcogito"
+  },
+  "limits": {
+    "context_window": 163840
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

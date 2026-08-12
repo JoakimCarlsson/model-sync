@@ -1,0 +1,21 @@
+{
+  "id": "openai/whisper-large-v3",
+  "provider": "together",
+  "name": "Whisper Large v3",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0015,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "OpenAI",
+    "modality": "Speech-to-Text"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

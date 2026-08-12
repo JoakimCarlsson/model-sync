@@ -1,0 +1,21 @@
+{
+  "id": "canopylabs/orpheus-3b-0.1-ft",
+  "provider": "together",
+  "name": "Orpheus 3B",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_1m_characters",
+      "amount": 15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Canopy Labs",
+    "modality": "Text-to-Speech"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

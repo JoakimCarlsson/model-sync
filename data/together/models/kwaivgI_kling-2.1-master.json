@@ -1,0 +1,24 @@
+{
+  "id": "kwaivgI/kling-2.1-master",
+  "provider": "together",
+  "name": "Kling 2.1 Master",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.92,
+      "currency": "USD",
+      "dims": {
+        "duration": "5s",
+        "resolution": "1080p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Kuaishou"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

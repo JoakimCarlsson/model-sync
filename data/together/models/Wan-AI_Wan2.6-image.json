@@ -1,0 +1,20 @@
+{
+  "id": "Wan-AI/Wan2.6-image",
+  "provider": "together",
+  "name": "Wan 2.6 Image",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.03,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Wan-AI"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

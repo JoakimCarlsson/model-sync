@@ -1,0 +1,21 @@
+{
+  "id": "cartesia/sonic-2",
+  "provider": "together",
+  "name": "Cartesia Sonic 2",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_1m_characters",
+      "amount": 65,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Cartesia",
+    "modality": "Text-to-Speech"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

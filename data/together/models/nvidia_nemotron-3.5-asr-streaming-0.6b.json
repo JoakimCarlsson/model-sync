@@ -1,0 +1,21 @@
+{
+  "id": "nvidia/nemotron-3.5-asr-streaming-0.6b",
+  "provider": "together",
+  "name": "NVIDIA Nemotron 3.5 ASR Streaming 0.6B",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0015,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "NVIDIA",
+    "modality": "Speech-to-Text"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "zai-org/GLM-5.2",
+  "provider": "together",
+  "name": "GLM-5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Z.ai"
+  },
+  "limits": {
+    "context_window": 512000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

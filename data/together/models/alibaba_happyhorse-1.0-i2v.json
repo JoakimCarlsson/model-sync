@@ -1,0 +1,20 @@
+{
+  "id": "alibaba/happyhorse-1.0-i2v",
+  "provider": "together",
+  "name": "HappyHorse 1.0 I2V",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.24,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Alibaba"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

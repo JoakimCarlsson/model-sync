@@ -1,0 +1,24 @@
+{
+  "id": "minimax/hailuo-02",
+  "provider": "together",
+  "name": "MiniMax Hailuo 02",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.49,
+      "currency": "USD",
+      "dims": {
+        "duration": "10s",
+        "resolution": "768p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "MiniMax"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

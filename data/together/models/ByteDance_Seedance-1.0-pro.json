@@ -1,0 +1,24 @@
+{
+  "id": "ByteDance/Seedance-1.0-pro",
+  "provider": "together",
+  "name": "Seedance 1.0 Pro",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.57,
+      "currency": "USD",
+      "dims": {
+        "duration": "5s",
+        "resolution": "1080p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "ByteDance"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

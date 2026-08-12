@@ -1,0 +1,29 @@
+{
+  "id": "meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "provider": "together",
+  "name": "Llama 3.3 70B Instruct Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.04,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.04,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Meta"
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "google/imagen-4.0-fast",
+  "provider": "together",
+  "name": "Imagen 4.0 Fast",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.02,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

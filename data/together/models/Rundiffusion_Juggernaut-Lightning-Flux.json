@@ -1,0 +1,20 @@
+{
+  "id": "Rundiffusion/Juggernaut-Lightning-Flux",
+  "provider": "together",
+  "name": "Juggernaut Lightning Flux",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.0017,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "RunDiffusion"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

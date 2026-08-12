@@ -1,0 +1,35 @@
+{
+  "id": "deepseek-ai/DeepSeek-V4-Pro",
+  "provider": "together",
+  "name": "DeepSeek-V4-Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 512000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "google/veo-3.1",
+  "provider": "together",
+  "name": "Veo 3.1",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.08,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

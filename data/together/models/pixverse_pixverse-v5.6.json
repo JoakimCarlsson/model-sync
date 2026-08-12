@@ -1,0 +1,20 @@
+{
+  "id": "pixverse/pixverse-v5.6",
+  "provider": "together",
+  "name": "PixVerse v5.6",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.1326,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "PixVerse"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

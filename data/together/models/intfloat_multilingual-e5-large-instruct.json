@@ -1,0 +1,29 @@
+{
+  "id": "intfloat/multilingual-e5-large-instruct",
+  "provider": "together",
+  "name": "Multilingual-e5-large-instruct",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "default_embedding_dimension": "1024",
+    "model_size": "560M"
+  },
+  "limits": {
+    "context_window": 514
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ]
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

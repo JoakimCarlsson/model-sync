@@ -1,0 +1,35 @@
+{
+  "id": "MiniMaxAI/MiniMax-M3",
+  "provider": "together",
+  "name": "Minimax M3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Minimax"
+  },
+  "limits": {
+    "context_window": 524288
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

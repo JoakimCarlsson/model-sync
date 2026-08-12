@@ -1,0 +1,20 @@
+{
+  "id": "ideogram/ideogram-4.0",
+  "provider": "together",
+  "name": "Ideogram 4.0",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.06,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ideogram"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "Prism-ML/Ternary-Bonsai-27B",
+  "provider": "together",
+  "name": "Ternary Bonsai 27B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Prism ML"
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "google/gemma-3n-E4B-it",
+  "provider": "together",
+  "name": "Gemma 3N E4B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

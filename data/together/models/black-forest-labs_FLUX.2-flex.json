@@ -1,0 +1,20 @@
+{
+  "id": "black-forest-labs/FLUX.2-flex",
+  "provider": "together",
+  "name": "FLUX.2 [flex]",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.03,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Black Forest Labs"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "meta-models/Muse-Glimmer-30B",
+  "provider": "together",
+  "name": "Muse Glimmer 30B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Meta"
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

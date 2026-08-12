@@ -1,0 +1,24 @@
+{
+  "id": "vidu/vidu-2.0",
+  "provider": "together",
+  "name": "Vidu 2.0",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "duration": "8s",
+        "resolution": "720p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Vidu"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

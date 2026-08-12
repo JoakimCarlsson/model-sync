@@ -1,0 +1,29 @@
+{
+  "id": "Qwen/Qwen2.5-7B-Instruct-Turbo",
+  "provider": "together",
+  "name": "Qwen 2.5 7B Instruct Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Qwen"
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

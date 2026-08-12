@@ -1,0 +1,20 @@
+{
+  "id": "ByteDance/Seedance-2.5",
+  "provider": "together",
+  "name": "ByteDance Seedance 2.5",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.115,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ByteDance"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

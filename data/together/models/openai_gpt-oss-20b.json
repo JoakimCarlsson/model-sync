@@ -1,0 +1,29 @@
+{
+  "id": "openai/gpt-oss-20b",
+  "provider": "together",
+  "name": "GPT-OSS 20B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "OpenAI"
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

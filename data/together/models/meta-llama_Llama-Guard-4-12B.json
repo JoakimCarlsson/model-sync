@@ -1,0 +1,29 @@
+{
+  "id": "meta-llama/Llama-Guard-4-12B",
+  "provider": "together",
+  "name": "Llama Guard 4 12B",
+  "kind": "moderation",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Meta"
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

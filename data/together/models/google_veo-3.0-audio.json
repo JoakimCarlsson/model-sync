@@ -1,0 +1,24 @@
+{
+  "id": "google/veo-3.0-audio",
+  "provider": "together",
+  "name": "Veo 3.0 + Audio",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 3.2,
+      "currency": "USD",
+      "dims": {
+        "duration": "8s",
+        "resolution": "720p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

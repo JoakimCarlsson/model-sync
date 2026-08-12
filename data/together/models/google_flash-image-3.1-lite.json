@@ -1,0 +1,20 @@
+{
+  "id": "google/flash-image-3.1-lite",
+  "provider": "together",
+  "name": "Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.069,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

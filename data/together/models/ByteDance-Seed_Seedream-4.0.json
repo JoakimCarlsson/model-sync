@@ -1,0 +1,20 @@
+{
+  "id": "ByteDance-Seed/Seedream-4.0",
+  "provider": "together",
+  "name": "Seedream 4.0",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_megapixel",
+      "amount": 0.03,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ByteDance"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

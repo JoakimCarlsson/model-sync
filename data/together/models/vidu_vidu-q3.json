@@ -1,0 +1,20 @@
+{
+  "id": "vidu/vidu-q3",
+  "provider": "together",
+  "name": "Vidu Q3",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 0.0975,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Vidu"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

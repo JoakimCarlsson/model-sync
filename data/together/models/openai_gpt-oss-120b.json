@@ -1,0 +1,29 @@
+{
+  "id": "openai/gpt-oss-120b",
+  "provider": "together",
+  "name": "GPT-OSS 120B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "OpenAI"
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "Qwen/Qwen3.8-2.4T-A95B",
+  "provider": "together",
+  "name": "Qwen3.8-2.4T-A95B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Qwen"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

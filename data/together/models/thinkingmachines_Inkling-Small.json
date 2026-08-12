@@ -1,0 +1,29 @@
+{
+  "id": "thinkingmachines/Inkling-Small",
+  "provider": "together",
+  "name": "Inkling Small",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Thinking Machines"
+  },
+  "limits": {
+    "context_window": 524288
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

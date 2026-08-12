@@ -1,0 +1,29 @@
+{
+  "id": "Qwen/Qwen3.5-9B",
+  "provider": "together",
+  "name": "Qwen3.5 9B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.17,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Qwen"
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

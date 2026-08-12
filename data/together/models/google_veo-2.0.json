@@ -1,0 +1,24 @@
+{
+  "id": "google/veo-2.0",
+  "provider": "together",
+  "name": "Veo 2.0",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_video",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "duration": "5s",
+        "resolution": "720p"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Google"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

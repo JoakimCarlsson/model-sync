@@ -1,0 +1,35 @@
+{
+  "id": "moonshotai/Kimi-K2.7-Code",
+  "provider": "together",
+  "name": "Kimi K2.7 Code",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.19,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Moonshot"
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}

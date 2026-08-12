@@ -1,0 +1,26 @@
+{
+  "id": "Qwen/Qwen3.7-Max",
+  "provider": "together",
+  "name": "Qwen3.7 Max",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.75,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "Qwen"
+  },
+  "sources": [
+    "https://docs.together.ai/docs/serverless-models.md"
+  ]
+}
