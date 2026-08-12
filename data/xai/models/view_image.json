@@ -1,0 +1,15 @@
+{
+  "id": "view_image",
+  "provider": "xai",
+  "name": "Image Understanding",
+  "kind": "tool",
+  "attrs": {
+    "summary": "Analyze images found during Web Search and X Search*"
+  },
+  "notes": [
+    "Token-based"
+  ],
+  "sources": [
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

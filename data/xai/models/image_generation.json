@@ -1,0 +1,15 @@
+{
+  "id": "image_generation",
+  "provider": "xai",
+  "name": "Image Generation",
+  "kind": "tool",
+  "attrs": {
+    "summary": "Generate and edit images"
+  },
+  "notes": [
+    "Imagine API rates"
+  ],
+  "sources": [
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

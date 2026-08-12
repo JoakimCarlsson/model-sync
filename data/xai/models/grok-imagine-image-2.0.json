@@ -1,0 +1,35 @@
+{
+  "id": "grok-imagine-image-2.0",
+  "provider": "xai",
+  "name": "grok-imagine-image-2.0",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.04,
+      "currency": "USD"
+    }
+  ],
+  "limits": {
+    "requests_per_second": 5
+  },
+  "lists": {
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ]
+  },
+  "sources": [
+    "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-imagine-image-2.0.md",
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

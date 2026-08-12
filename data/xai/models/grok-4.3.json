@@ -1,0 +1,98 @@
+{
+  "id": "grok-4.3",
+  "provider": "xai",
+  "name": "Grok 4.3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<200k"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">=200k"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<200k"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">=200k"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<200k"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">=200k"
+      }
+    }
+  ],
+  "attrs": {
+    "batch_discount": "20%"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "requests_per_second": 37,
+    "tokens_per_minute": 10000000
+  },
+  "lists": {
+    "aliases": [
+      "grok-4.3-latest",
+      "grok-latest"
+    ],
+    "features": [
+      "function_calling",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "eu-west-1",
+      "us-east-1",
+      "us-west-2"
+    ]
+  },
+  "sources": [
+    "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-4.3.md",
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

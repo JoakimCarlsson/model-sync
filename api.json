@@ -14784,6 +14784,1188 @@
           ]
         }
       ]
+    },
+    {
+      "id": "xai",
+      "name": "xAI",
+      "models": [
+        {
+          "id": "attachment_search",
+          "provider": "xai",
+          "name": "File Attachments",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_calls",
+              "amount": 10,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "summary": "Search through files attached to messages"
+          },
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "code_execution",
+          "provider": "xai",
+          "name": "Code Execution",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_calls",
+              "amount": 5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "summary": "Run Python code in a sandboxed environment"
+          },
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "collections_search",
+          "provider": "xai",
+          "name": "Collections Search",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_calls",
+              "amount": 2.5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "summary": "Query your uploaded document collections (RAG)"
+          },
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.20-0309-non-reasoning",
+          "provider": "xai",
+          "name": "Grok 4.20 (Non-Reasoning)",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "attrs": {
+            "batch_discount": "20%"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "requests_per_second": 37,
+            "tokens_per_minute": 10000000
+          },
+          "lists": {
+            "aliases": [
+              "grok-4.20-beta-0309-non-reasoning",
+              "grok-4.20-beta-latest-non-reasoning",
+              "grok-4.20-beta-non-reasoning",
+              "grok-4.20-experimental-beta-0304-non-reasoning",
+              "grok-4.20-experimental-beta-non-reasoning-latest",
+              "grok-4.20-non-reasoning",
+              "grok-4.20-non-reasoning-gv2",
+              "grok-4.20-non-reasoning-latest"
+            ],
+            "features": [
+              "function_calling",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.20-0309-non-reasoning.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.20-0309-reasoning",
+          "provider": "xai",
+          "name": "Grok 4.20",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "attrs": {
+            "batch_discount": "20%"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "requests_per_second": 37,
+            "tokens_per_minute": 10000000
+          },
+          "lists": {
+            "aliases": [
+              "grok-4.20",
+              "grok-4.20-0309",
+              "grok-4.20-beta",
+              "grok-4.20-beta-0309",
+              "grok-4.20-beta-0309-reasoning",
+              "grok-4.20-beta-latest",
+              "grok-4.20-beta-latest-reasoning",
+              "grok-4.20-beta-reasoning",
+              "grok-4.20-experimental-beta-0304",
+              "grok-4.20-experimental-beta-0304-reasoning",
+              "grok-4.20-experimental-beta-latest",
+              "grok-4.20-experimental-beta-reasoning-latest",
+              "grok-4.20-reasoning",
+              "grok-4.20-reasoning-gv2",
+              "grok-4.20-reasoning-latest"
+            ],
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.20-0309-reasoning.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.20-multi-agent-0309",
+          "provider": "xai",
+          "name": "Grok 4.20 Multi-Agent Beta",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "attrs": {
+            "batch_discount": "20%"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "requests_per_second": 9,
+            "tokens_per_minute": 2500000
+          },
+          "lists": {
+            "aliases": [
+              "grok-4.20-multi-agent",
+              "grok-4.20-multi-agent-beta-0309",
+              "grok-4.20-multi-agent-beta-latest",
+              "grok-4.20-multi-agent-experimental-beta-0304",
+              "grok-4.20-multi-agent-experimental-beta-latest",
+              "grok-4.20-multi-agent-latest"
+            ],
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.20-multi-agent-0309.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.3",
+          "provider": "xai",
+          "name": "Grok 4.3",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "attrs": {
+            "batch_discount": "20%"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "requests_per_second": 37,
+            "tokens_per_minute": 10000000
+          },
+          "lists": {
+            "aliases": [
+              "grok-4.3-latest",
+              "grok-latest"
+            ],
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "eu-west-1",
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.3.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.5",
+          "provider": "xai",
+          "name": "Grok 4.5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.6,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "limits": {
+            "context_window": 500000,
+            "requests_per_second": 150,
+            "tokens_per_minute": 50000000
+          },
+          "lists": {
+            "aliases": [
+              "grok-4.5-latest",
+              "grok-build-latest"
+            ],
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.5.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-4.6",
+          "provider": "xai",
+          "name": "Grok 4.6",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "attrs": {
+            "knowledge_cutoff": "2026-02-01"
+          },
+          "limits": {
+            "context_window": 500000,
+            "requests_per_second": 150,
+            "tokens_per_minute": 50000000
+          },
+          "lists": {
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-4.6.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-build-0.1",
+          "provider": "xai",
+          "name": "Grok Build 0.1",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": "<200k"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD",
+              "dims": {
+                "prompt_band": ">=200k"
+              }
+            }
+          ],
+          "limits": {
+            "context_window": 256000,
+            "requests_per_second": 37,
+            "tokens_per_minute": 10000000
+          },
+          "lists": {
+            "aliases": [
+              "grok-code-fast",
+              "grok-code-fast-1",
+              "grok-code-fast-1-0825"
+            ],
+            "features": [
+              "function_calling",
+              "reasoning",
+              "structured_outputs"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-build-0.1.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-imagine-image",
+          "provider": "xai",
+          "name": "grok-imagine-image",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.02,
+              "currency": "USD"
+            }
+          ],
+          "limits": {
+            "requests_per_second": 5
+          },
+          "lists": {
+            "aliases": [
+              "grok-imagine-image-2026-03-02"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "image"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-saltlake-2",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-imagine-image-2.0",
+          "provider": "xai",
+          "name": "grok-imagine-image-2.0",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "limits": {
+            "requests_per_second": 5
+          },
+          "lists": {
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "image"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image-2.0.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-imagine-image-quality",
+          "provider": "xai",
+          "name": "grok-imagine-image-quality",
+          "kind": "image",
+          "prices": [
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.05,
+              "currency": "USD"
+            }
+          ],
+          "limits": {
+            "requests_per_second": 5
+          },
+          "lists": {
+            "aliases": [
+              "grok-imagine-image-pro",
+              "grok-imagine-image-quality-20260403",
+              "grok-imagine-image-quality-latest"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "image"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image-quality.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-imagine-video",
+          "provider": "xai",
+          "name": "grok-imagine-video",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_second",
+              "amount": 0.05,
+              "currency": "USD"
+            }
+          ],
+          "limits": {
+            "requests_per_second": 10
+          },
+          "lists": {
+            "input_modalities": [
+              "image",
+              "text",
+              "video"
+            ],
+            "output_modalities": [
+              "video"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-saltlake-2",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-video.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-imagine-video-1.5",
+          "provider": "xai",
+          "name": "grok-imagine-video-1.5",
+          "kind": "video",
+          "prices": [
+            {
+              "metric": "video_output",
+              "unit": "per_second",
+              "amount": 0.08,
+              "currency": "USD"
+            }
+          ],
+          "limits": {
+            "requests_per_second": 10
+          },
+          "lists": {
+            "aliases": [
+              "grok-imagine-video-1.5-2026-05-30",
+              "grok-imagine-video-1.5-preview"
+            ],
+            "input_modalities": [
+              "image",
+              "text"
+            ],
+            "output_modalities": [
+              "video"
+            ],
+            "regions": [
+              "us-east-1",
+              "us-west-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-video-1.5.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-voice-think-fast-1.0",
+          "provider": "xai",
+          "name": "Speech to Speech",
+          "kind": "voice",
+          "prices": [
+            {
+              "metric": "audio",
+              "amount": 0.004,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-speech"
+              },
+              "note": "text input"
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.05,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-speech"
+              },
+              "note": "($3.00 / hr) audio"
+            }
+          ],
+          "lists": {
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "eu-west-1",
+              "us-east-1",
+              "us-saltlake-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-voice-think-fast-1.0.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "grok-voice-think-fast-2.0",
+          "provider": "xai",
+          "name": "Speech to Speech",
+          "kind": "voice",
+          "prices": [
+            {
+              "metric": "audio",
+              "amount": 0.004,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-speech"
+              },
+              "note": "text input"
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.08,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-speech"
+              },
+              "note": "($4.80 / hr) audio"
+            }
+          ],
+          "lists": {
+            "aliases": [
+              "grok-voice-latest"
+            ],
+            "input_modalities": [
+              "text"
+            ],
+            "output_modalities": [
+              "text"
+            ],
+            "regions": [
+              "eu-west-1",
+              "us-east-1",
+              "us-saltlake-2"
+            ]
+          },
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-voice-think-fast-2.0.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "image_generation",
+          "provider": "xai",
+          "name": "Image Generation",
+          "kind": "tool",
+          "attrs": {
+            "summary": "Generate and edit images"
+          },
+          "notes": [
+            "Imagine API rates"
+          ],
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "speech-to-text",
+          "provider": "xai",
+          "name": "Speech to Text",
+          "kind": "voice",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.1,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-text",
+                "transport": "rest"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "mode": "speech-to-text",
+                "transport": "streaming"
+              }
+            }
+          ],
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/speech-to-text.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "text-to-speech",
+          "provider": "xai",
+          "name": "Text to Speech",
+          "kind": "voice",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_1m_characters",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "mode": "text-to-speech"
+              }
+            }
+          ],
+          "sources": [
+            "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/text-to-speech.md",
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "view_image",
+          "provider": "xai",
+          "name": "Image Understanding",
+          "kind": "tool",
+          "attrs": {
+            "summary": "Analyze images found during Web Search and X Search*"
+          },
+          "notes": [
+            "Token-based"
+          ],
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "view_x_video",
+          "provider": "xai",
+          "name": "X Video Understanding",
+          "kind": "tool",
+          "attrs": {
+            "summary": "Analyze videos found during X Search*"
+          },
+          "notes": [
+            "Token-based"
+          ],
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "web_search",
+          "provider": "xai",
+          "name": "Web Search",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_calls",
+              "amount": 5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "summary": "Search the internet and browse web pages"
+          },
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        },
+        {
+          "id": "x_search",
+          "provider": "xai",
+          "name": "X Search",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_calls",
+              "amount": 5,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "summary": "Search X posts, user profiles, and threads"
+          },
+          "sources": [
+            "https://docs.x.ai/developers/pricing.md"
+          ]
+        }
+      ]
     }
   ]
 }

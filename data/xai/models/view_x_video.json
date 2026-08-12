@@ -1,0 +1,15 @@
+{
+  "id": "view_x_video",
+  "provider": "xai",
+  "name": "X Video Understanding",
+  "kind": "tool",
+  "attrs": {
+    "summary": "Analyze videos found during X Search*"
+  },
+  "notes": [
+    "Token-based"
+  ],
+  "sources": [
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

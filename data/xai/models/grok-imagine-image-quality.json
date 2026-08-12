@@ -1,0 +1,40 @@
+{
+  "id": "grok-imagine-image-quality",
+  "provider": "xai",
+  "name": "grok-imagine-image-quality",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.05,
+      "currency": "USD"
+    }
+  ],
+  "limits": {
+    "requests_per_second": 5
+  },
+  "lists": {
+    "aliases": [
+      "grok-imagine-image-pro",
+      "grok-imagine-image-quality-20260403",
+      "grok-imagine-image-quality-latest"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ]
+  },
+  "sources": [
+    "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-imagine-image-quality.md",
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}

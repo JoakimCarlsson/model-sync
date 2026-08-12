@@ -1,0 +1,39 @@
+{
+  "id": "grok-imagine-video-1.5",
+  "provider": "xai",
+  "name": "grok-imagine-video-1.5",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.08,
+      "currency": "USD"
+    }
+  ],
+  "limits": {
+    "requests_per_second": 10
+  },
+  "lists": {
+    "aliases": [
+      "grok-imagine-video-1.5-2026-05-30",
+      "grok-imagine-video-1.5-preview"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-west-2"
+    ]
+  },
+  "sources": [
+    "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-imagine-video-1.5.md",
+    "https://docs.x.ai/developers/pricing.md"
+  ]
+}
