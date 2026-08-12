@@ -1,0 +1,64 @@
+{
+  "id": "anthracite-org/magnum-v4-72b",
+  "provider": "openrouter",
+  "name": "Magnum v4 72B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "anthracite-org",
+    "canonical_slug": "anthracite-org/magnum-v4-72b",
+    "hugging_face_id": "anthracite-org/magnum-v4-72b",
+    "instruct_type": "chatml",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2024-10-22",
+    "summary": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).",
+    "tokenizer": "Qwen"
+  },
+  "limits": {
+    "context_window": 16384,
+    "max_output_tokens": 2048,
+    "top_provider_context_window": 16384
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_a",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

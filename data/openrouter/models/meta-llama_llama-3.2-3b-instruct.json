@@ -1,0 +1,62 @@
+{
+  "id": "meta-llama/llama-3.2-3b-instruct",
+  "provider": "openrouter",
+  "name": "Meta: Llama 3.2 3B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "canonical_slug": "meta-llama/llama-3.2-3b-instruct",
+    "hugging_face_id": "meta-llama/Llama-3.2-3B-Instruct",
+    "instruct_type": "llama3",
+    "knowledge_cutoff": "2023-12-31",
+    "released": "2024-09-25",
+    "summary": "Llama 3.2 3B is a 3-billion-parameter multilingual large language model, optimized for advanced natural language processing tasks like dialogue generation, reasoning, and summarization.",
+    "tokenizer": "Llama3"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "z-ai/glm-4.6v",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 4.6V",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.055,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-4.6-20251208",
+    "hugging_face_id": "zai-org/GLM-4.6V",
+    "released": "2025-12-08",
+    "summary": "GLM-4.6V is a large multimodal model designed for high-fidelity visual understanding and long-context reasoning across images, documents, and mixed media.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

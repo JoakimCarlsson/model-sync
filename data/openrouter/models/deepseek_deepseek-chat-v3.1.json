@@ -1,0 +1,73 @@
+{
+  "id": "deepseek/deepseek-chat-v3.1",
+  "provider": "openrouter",
+  "name": "DeepSeek: DeepSeek V3.1",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "deepseek",
+    "canonical_slug": "deepseek/deepseek-chat-v3.1",
+    "hugging_face_id": "deepseek-ai/DeepSeek-V3.1",
+    "instruct_type": "deepseek-v3.1",
+    "knowledge_cutoff": "2025-03-31",
+    "released": "2025-08-21",
+    "summary": "DeepSeek-V3.1 is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes via prompt templates.",
+    "tokenizer": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 163840,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 163840
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

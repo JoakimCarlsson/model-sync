@@ -1,0 +1,73 @@
+{
+  "id": "moonshotai/kimi-k3",
+  "provider": "openrouter",
+  "name": "MoonshotAI: Kimi K3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "moonshotai",
+    "canonical_slug": "moonshotai/kimi-k3-20260715",
+    "hugging_face_id": "moonshotai/Kimi-K3",
+    "released": "2026-07-16",
+    "summary": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

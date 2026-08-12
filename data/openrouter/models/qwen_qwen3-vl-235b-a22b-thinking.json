@@ -1,0 +1,66 @@
+{
+  "id": "qwen/qwen3-vl-235b-a22b-thinking",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 VL 235B A22B Thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-vl-235b-a22b-thinking",
+    "hugging_face_id": "Qwen/Qwen3-VL-235B-A22B-Thinking",
+    "knowledge_cutoff": "2025-03-31",
+    "reasoning_mandatory": "true",
+    "released": "2025-09-23",
+    "summary": "Qwen3-VL-235B-A22B Thinking is a multimodal model that unifies strong text generation with visual understanding across images and video.",
+    "tokenizer": "Qwen3"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

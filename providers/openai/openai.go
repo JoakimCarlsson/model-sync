@@ -85,8 +85,14 @@ func (b *builder) applyPricingDoc(doc catalog.Document) {
 	}
 }
 
-// applyGuide reads the HTML tables a guide states rates in.
+// applyGuide reads a guide. Each states something no other document does: the
+// image guide holds the per-image rate matrix, the embeddings guide the vector
+// width and the longest accepted input.
 func (b *builder) applyGuide(doc catalog.Document) {
+	if doc.URL == EmbeddingsGuideURL {
+		b.applyEmbeddingsGuide(doc)
+		return
+	}
 	for _, t := range scanJSXTables(doc) {
 		b.applyImageTable(t)
 	}

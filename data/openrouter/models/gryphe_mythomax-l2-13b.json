@@ -1,0 +1,64 @@
+{
+  "id": "gryphe/mythomax-l2-13b",
+  "provider": "openrouter",
+  "name": "MythoMax 13B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "gryphe",
+    "canonical_slug": "gryphe/mythomax-l2-13b",
+    "hugging_face_id": "Gryphe/MythoMax-L2-13b",
+    "instruct_type": "alpaca",
+    "knowledge_cutoff": "2023-06-30",
+    "released": "2023-07-02",
+    "summary": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay.",
+    "tokenizer": "Llama2"
+  },
+  "limits": {
+    "context_window": 8192,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 4096
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_a",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

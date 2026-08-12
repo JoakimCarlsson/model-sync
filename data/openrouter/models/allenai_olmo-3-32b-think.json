@@ -1,0 +1,61 @@
+{
+  "id": "allenai/olmo-3-32b-think",
+  "provider": "openrouter",
+  "name": "AllenAI: Olmo 3 32B Think",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "allenai",
+    "canonical_slug": "allenai/olmo-3-32b-think-20251121",
+    "hugging_face_id": "allenai/Olmo-3-32B-Think",
+    "reasoning_mandatory": "true",
+    "released": "2025-11-21",
+    "summary": "Olmo 3 32B Think is a large-scale, 32-billion-parameter model purpose-built for deep reasoning, complex logic chains and advanced instruction-following scenarios.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

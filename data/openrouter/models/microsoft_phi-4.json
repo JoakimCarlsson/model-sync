@@ -1,0 +1,60 @@
+{
+  "id": "microsoft/phi-4",
+  "provider": "openrouter",
+  "name": "Microsoft: Phi 4",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.07,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "microsoft",
+    "canonical_slug": "microsoft/phi-4",
+    "hugging_face_id": "microsoft/phi-4",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2025-01-10",
+    "summary": "[Microsoft Research](/microsoft) Phi-4 is designed to perform well in complex reasoning tasks and can operate efficiently in situations with limited memory or where quick responses are needed.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 16384,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 16384
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

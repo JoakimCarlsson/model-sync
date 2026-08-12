@@ -1,0 +1,76 @@
+{
+  "id": "bytedance-seed/seed-1.6-flash",
+  "provider": "openrouter",
+  "name": "ByteDance Seed: Seed 1.6 Flash",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "bytedance-seed",
+    "canonical_slug": "bytedance-seed/seed-1.6-flash-20250625",
+    "released": "2025-12-23",
+    "summary": "Seed 1.6 Flash is an ultra-fast multimodal deep thinking model by ByteDance Seed, supporting both text and visual understanding.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

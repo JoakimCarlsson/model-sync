@@ -1,0 +1,41 @@
+{
+  "id": "openrouter/fusion",
+  "provider": "openrouter",
+  "name": "OpenRouter: Fusion",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": -1000000,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": -1000000,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openrouter",
+    "canonical_slug": "openrouter/fusion",
+    "released": "2026-06-13",
+    "summary": "Fusion turns your prompt into a small multi-model deliberation.",
+    "tokenizer": "Router"
+  },
+  "limits": {
+    "context_window": 1000000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

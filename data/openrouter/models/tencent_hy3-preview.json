@@ -1,0 +1,60 @@
+{
+  "id": "tencent/hy3-preview",
+  "provider": "openrouter",
+  "name": "Tencent: Hy3 preview",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.021,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.063,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.21,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "tencent",
+    "canonical_slug": "tencent/hy3-preview-20260421",
+    "hugging_face_id": "tencent/Hy3-preview",
+    "released": "2026-04-22",
+    "summary": "Hy3 preview is a high-efficiency Mixture-of-Experts model from Tencent designed for agentic workflows and production use.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "seed",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

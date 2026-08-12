@@ -1,0 +1,102 @@
+{
+  "id": "google/gemini-3.1-flash-lite-preview",
+  "provider": "openrouter",
+  "name": "Google: Gemini 3.1 Flash Lite Preview",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0833333333333333,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 2.5e-7,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemini-3.1-flash-lite-preview-20260303",
+    "released": "2026-03-03",
+    "summary": "Gemini 3.1 Flash Lite Preview is Google's high-efficiency model optimized for high-volume use cases.",
+    "tokenizer": "Gemini"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "seed",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

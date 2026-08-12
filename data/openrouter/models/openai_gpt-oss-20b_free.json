@@ -1,0 +1,53 @@
+{
+  "id": "openai/gpt-oss-20b:free",
+  "provider": "openrouter",
+  "name": "OpenAI: gpt-oss-20b (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-oss-20b",
+    "hugging_face_id": "openai/gpt-oss-20b",
+    "is_free": "true",
+    "knowledge_cutoff": "2024-06-30",
+    "reasoning_mandatory": "true",
+    "released": "2025-08-05",
+    "summary": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

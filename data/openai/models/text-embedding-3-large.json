@@ -15,14 +15,21 @@
     }
   ],
   "attrs": {
+    "default_embedding_dimension": "3072",
     "default_snapshot": "text-embedding-3-large",
     "state": "active",
     "summary": "Most capable embedding model"
+  },
+  "limits": {
+    "context_window": 8192
   },
   "lists": {
     "endpoints": [
       "v1/batch",
       "v1/embeddings"
+    ],
+    "features": [
+      "reducible_embedding_dimensions"
     ],
     "input_modalities": [
       "text"
@@ -35,6 +42,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/embeddings.md",
     "https://developers.openai.com/api/docs/models/text-embedding-3-large.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

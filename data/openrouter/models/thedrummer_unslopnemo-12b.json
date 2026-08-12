@@ -1,0 +1,64 @@
+{
+  "id": "thedrummer/unslopnemo-12b",
+  "provider": "openrouter",
+  "name": "TheDrummer: UnslopNemo 12B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "thedrummer",
+    "canonical_slug": "thedrummer/unslopnemo-12b",
+    "hugging_face_id": "TheDrummer/UnslopNemo-12B-v4.1",
+    "instruct_type": "mistral",
+    "knowledge_cutoff": "2024-04-30",
+    "released": "2024-11-08",
+    "summary": "UnslopNemo v4.1 is the latest addition from the creator of Rocinante, designed for adventure writing and role-play scenarios.",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 1024000,
+    "max_output_tokens": 1024000,
+    "top_provider_context_window": 1024000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

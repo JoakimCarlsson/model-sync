@@ -1,0 +1,51 @@
+{
+  "id": "minimax/minimax-01",
+  "provider": "openrouter",
+  "name": "MiniMax: MiniMax-01",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "minimax",
+    "canonical_slug": "minimax/minimax-01",
+    "hugging_face_id": "MiniMaxAI/MiniMax-Text-01",
+    "knowledge_cutoff": "2024-03-31",
+    "released": "2025-01-15",
+    "summary": "MiniMax-01 is a combines MiniMax-Text-01 for text generation and MiniMax-VL-01 for image understanding.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1000192,
+    "max_output_tokens": 1000192,
+    "top_provider_context_window": 1000192
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

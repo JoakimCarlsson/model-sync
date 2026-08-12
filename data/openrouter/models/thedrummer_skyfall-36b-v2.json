@@ -1,0 +1,67 @@
+{
+  "id": "thedrummer/skyfall-36b-v2",
+  "provider": "openrouter",
+  "name": "TheDrummer: Skyfall 36B V2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "thedrummer",
+    "canonical_slug": "thedrummer/skyfall-36b-v2",
+    "hugging_face_id": "TheDrummer/Skyfall-36B-v2",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2025-03-10",
+    "summary": "Skyfall 36B v2 is an enhanced iteration of Mistral Small 2501, specifically fine-tuned for improved creativity, nuanced writing, role-playing, and coherent storytelling.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32768,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

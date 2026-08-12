@@ -1,0 +1,77 @@
+{
+  "id": "openai/gpt-4o-mini:batch",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-4o-mini (batch)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-4o-mini",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2023-10-31",
+    "released": "2024-07-18",
+    "summary": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "prediction",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p",
+      "web_search_options"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

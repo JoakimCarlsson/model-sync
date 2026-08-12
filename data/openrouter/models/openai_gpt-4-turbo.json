@@ -1,0 +1,62 @@
+{
+  "id": "openai/gpt-4-turbo",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-4 Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-4-turbo",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2023-12-31",
+    "released": "2024-04-09",
+    "summary": "The latest GPT-4 Turbo model with vision capabilities.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

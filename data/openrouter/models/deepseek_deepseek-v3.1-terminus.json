@@ -1,0 +1,71 @@
+{
+  "id": "deepseek/deepseek-v3.1-terminus",
+  "provider": "openrouter",
+  "name": "DeepSeek: DeepSeek V3.1 Terminus",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.27,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "deepseek",
+    "canonical_slug": "deepseek/deepseek-v3.1-terminus",
+    "hugging_face_id": "deepseek-ai/DeepSeek-V3.1-Terminus",
+    "instruct_type": "deepseek-v3.1",
+    "knowledge_cutoff": "2025-03-31",
+    "released": "2025-09-22",
+    "summary": "DeepSeek-V3.1 Terminus is an update to [DeepSeek V3.1](/deepseek/deepseek-chat-v3.1) that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's...",
+    "tokenizer": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 163840,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 163840
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

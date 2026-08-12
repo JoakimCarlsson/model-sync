@@ -1,0 +1,70 @@
+{
+  "id": "moonshotai/kimi-k2-thinking",
+  "provider": "openrouter",
+  "name": "MoonshotAI: Kimi K2 Thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "moonshotai",
+    "canonical_slug": "moonshotai/kimi-k2-thinking-20251106",
+    "hugging_face_id": "moonshotai/Kimi-K2-Thinking",
+    "reasoning_mandatory": "true",
+    "released": "2025-11-06",
+    "summary": "Kimi K2 Thinking is Moonshot AI’s most advanced open reasoning model to date, extending the K2 series into agentic, long-horizon reasoning.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 100352,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

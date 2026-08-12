@@ -1,0 +1,62 @@
+{
+  "id": "upstage/solar-pro4",
+  "provider": "openrouter",
+  "name": "Upstage: Solar Pro 4",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.006,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "upstage",
+    "canonical_slug": "upstage/solar-pro4-20260810",
+    "released": "2026-08-10",
+    "summary": "Solar Pro 4 is a large language model from Upstage.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 524288,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 524288
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "response_format",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

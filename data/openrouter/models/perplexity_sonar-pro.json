@@ -1,0 +1,59 @@
+{
+  "id": "perplexity/sonar-pro",
+  "provider": "openrouter",
+  "name": "Perplexity: Sonar Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "perplexity",
+    "canonical_slug": "perplexity/sonar-pro",
+    "released": "2025-03-07",
+    "summary": "Note: Sonar Pro pricing includes Perplexity search pricing.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 8000,
+    "top_provider_context_window": 200000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "temperature",
+      "top_k",
+      "top_p",
+      "web_search_options"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

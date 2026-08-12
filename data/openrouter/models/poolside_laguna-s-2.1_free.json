@@ -1,0 +1,39 @@
+{
+  "id": "poolside/laguna-s-2.1:free",
+  "provider": "openrouter",
+  "name": "Poolside: Laguna S 2.1 (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "poolside",
+    "canonical_slug": "poolside/laguna-s-2.1-20260720",
+    "hugging_face_id": "poolside/Laguna-S-2.1",
+    "is_free": "true",
+    "released": "2026-07-21",
+    "summary": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>).",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "temperature",
+      "tool_choice",
+      "tools"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

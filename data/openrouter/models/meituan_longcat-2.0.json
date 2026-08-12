@@ -1,0 +1,67 @@
+{
+  "id": "meituan/longcat-2.0",
+  "provider": "openrouter",
+  "name": "Meituan: LongCat 2.0",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.006,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meituan",
+    "canonical_slug": "meituan/longcat-2.0-20260720",
+    "hugging_face_id": "meituan-longcat/LongCat-2.0",
+    "released": "2026-07-20",
+    "summary": "LongCat 2.0 is a sparse mixture-of-experts language model from Meituan, with 48B active parameters out of 1.6T total.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1048756,
+    "max_output_tokens": 262144,
+    "top_provider_context_window": 1048756
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "seed",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

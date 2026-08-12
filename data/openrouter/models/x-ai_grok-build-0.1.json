@@ -1,0 +1,101 @@
+{
+  "id": "x-ai/grok-build-0.1",
+  "provider": "openrouter",
+  "name": "SpaceXAI: Grok Build 0.1",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "x-ai",
+    "canonical_slug": "x-ai/grok-build-0.1-20260520",
+    "reasoning_mandatory": "true",
+    "released": "2026-05-20",
+    "summary": "Grok Build 0.1 is SpaceXAI’s fast coding model trained specifically for agentic software engineering workflows.",
+    "tokenizer": "Grok"
+  },
+  "limits": {
+    "context_window": 256000,
+    "top_provider_context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

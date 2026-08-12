@@ -1,0 +1,48 @@
+{
+  "id": "relace/relace-apply-3",
+  "provider": "openrouter",
+  "name": "Relace: Relace Apply 3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.85,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "relace",
+    "canonical_slug": "relace/relace-apply-3",
+    "released": "2025-09-26",
+    "summary": "Relace Apply 3 is a specialized code-patching LLM that merges AI-suggested edits straight into your source files.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 128000,
+    "top_provider_context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "seed",
+      "stop"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

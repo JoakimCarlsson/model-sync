@@ -1,0 +1,60 @@
+{
+  "id": "ibm-granite/granite-4.0-h-micro",
+  "provider": "openrouter",
+  "name": "IBM: Granite 4.0 Micro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.017,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.112,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ibm-granite",
+    "canonical_slug": "ibm-granite/granite-4.0-h-micro",
+    "hugging_face_id": "ibm-granite/granite-4.0-h-micro",
+    "released": "2025-10-20",
+    "summary": "Granite-4.0-H-Micro is a 3B parameter from the Granite 4 family of models.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 131000,
+    "max_output_tokens": 131000,
+    "top_provider_context_window": 131000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

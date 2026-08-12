@@ -1,0 +1,64 @@
+{
+  "id": "openai/gpt-oss-safeguard-20b",
+  "provider": "openrouter",
+  "name": "OpenAI: gpt-oss-safeguard-20b",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-oss-safeguard-20b",
+    "hugging_face_id": "openai/gpt-oss-safeguard-20b",
+    "reasoning_mandatory": "true",
+    "released": "2025-10-29",
+    "summary": "gpt-oss-safeguard-20b is a safety reasoning model from OpenAI built upon gpt-oss-20b.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "id": "anthropic/claude-3-haiku",
+  "provider": "openrouter",
+  "name": "Anthropic: Claude 3 Haiku",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "anthropic",
+    "canonical_slug": "anthropic/claude-3-haiku",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2023-08-31",
+    "released": "2024-03-13",
+    "summary": "Claude 3 Haiku is Anthropic's fastest and most compact model for near-instant responsiveness.",
+    "tokenizer": "Claude"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 200000
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

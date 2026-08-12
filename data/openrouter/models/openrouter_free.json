@@ -1,0 +1,51 @@
+{
+  "id": "openrouter/free",
+  "provider": "openrouter",
+  "name": "Free Models Router",
+  "kind": "chat",
+  "attrs": {
+    "author": "openrouter",
+    "canonical_slug": "openrouter/free",
+    "is_free": "true",
+    "released": "2026-02-01",
+    "summary": "The simplest way to get free inference.",
+    "tokenizer": "Router"
+  },
+  "limits": {
+    "context_window": 200000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_completion_tokens",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

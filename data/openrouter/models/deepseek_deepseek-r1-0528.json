@@ -1,0 +1,74 @@
+{
+  "id": "deepseek/deepseek-r1-0528",
+  "provider": "openrouter",
+  "name": "DeepSeek: R1 0528",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "deepseek",
+    "canonical_slug": "deepseek/deepseek-r1-0528",
+    "hugging_face_id": "deepseek-ai/DeepSeek-R1-0528",
+    "instruct_type": "deepseek-r1",
+    "knowledge_cutoff": "2025-03-31",
+    "reasoning_mandatory": "true",
+    "released": "2025-05-28",
+    "summary": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens.",
+    "tokenizer": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 163840,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 163840
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

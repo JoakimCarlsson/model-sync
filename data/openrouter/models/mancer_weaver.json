@@ -1,0 +1,63 @@
+{
+  "id": "mancer/weaver",
+  "provider": "openrouter",
+  "name": "Mancer: Weaver (alpha)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "mancer",
+    "canonical_slug": "mancer/weaver",
+    "instruct_type": "alpaca",
+    "knowledge_cutoff": "2023-06-30",
+    "released": "2023-08-02",
+    "summary": "An attempt to recreate Claude-style verbosity, but don't expect the same level of coherence or memory.",
+    "tokenizer": "Llama2"
+  },
+  "limits": {
+    "context_window": 8000,
+    "max_output_tokens": 6000,
+    "top_provider_context_window": 8000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_a",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "openai/gpt-3.5-turbo-16k",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-3.5 Turbo 16k",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-3.5-turbo-16k",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2021-09-30",
+    "released": "2023-08-28",
+    "summary": "This model offers four times the context length of gpt-3.5-turbo, allowing it to support approximately 20 pages of text in a single request at a higher cost.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 16385,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 16385
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_completion_tokens",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "id": "qwen/qwen-2.5-coder-32b-instruct",
+  "provider": "openrouter",
+  "name": "Qwen2.5 Coder 32B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.66,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen-2.5-coder-32b-instruct",
+    "hugging_face_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "instruct_type": "chatml",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2024-11-11",
+    "summary": "Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen).",
+    "tokenizer": "Qwen"
+  },
+  "limits": {
+    "context_window": 32768,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

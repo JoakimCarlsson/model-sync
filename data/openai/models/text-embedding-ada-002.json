@@ -19,6 +19,9 @@
     "state": "active",
     "summary": "Older embedding model"
   },
+  "limits": {
+    "context_window": 8192
+  },
   "lists": {
     "endpoints": [
       "v1/batch",
@@ -35,6 +38,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/embeddings.md",
     "https://developers.openai.com/api/docs/models/text-embedding-ada-002.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

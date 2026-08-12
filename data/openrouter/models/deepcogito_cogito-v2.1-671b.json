@@ -1,0 +1,58 @@
+{
+  "id": "deepcogito/cogito-v2.1-671b",
+  "provider": "openrouter",
+  "name": "Deep Cogito: Cogito v2.1 671B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "deepcogito",
+    "canonical_slug": "deepcogito/cogito-v2.1-671b-20251118",
+    "released": "2025-11-13",
+    "summary": "Cogito v2.1 671B MoE represents one of the strongest open models globally, matching performance of frontier closed and open models.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 128000,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

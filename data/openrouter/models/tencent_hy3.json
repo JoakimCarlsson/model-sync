@@ -1,0 +1,71 @@
+{
+  "id": "tencent/hy3",
+  "provider": "openrouter",
+  "name": "Tencent: Hy3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.033,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.132,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.528,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "tencent",
+    "canonical_slug": "tencent/hy3-20260706",
+    "hugging_face_id": "tencent/Hy3",
+    "released": "2026-07-06",
+    "summary": "Hy3 is a 295B-parameter Mixture-of-Experts model from Tencent (21B active, 192 experts with top-8 routing) built for reasoning, agentic workflows, and real-world production use.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 128000,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_completion_tokens",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

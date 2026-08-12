@@ -1,0 +1,73 @@
+{
+  "id": "z-ai/glm-5.2",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.091,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.49,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.54,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-5.2-20260616",
+    "hugging_face_id": "zai-org/GLM-5.2",
+    "released": "2026-06-16",
+    "summary": "GLM 5.2 is a large-scale reasoning model from Z.ai.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "parallel_tool_calls",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

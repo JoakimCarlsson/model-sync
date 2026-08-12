@@ -1,0 +1,61 @@
+{
+  "id": "qwen/qwen2.5-vl-72b-instruct",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen2.5 VL 72B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen2.5-vl-72b-instruct",
+    "hugging_face_id": "Qwen/Qwen2.5-VL-72B-Instruct",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2025-02-01",
+    "summary": "Qwen2.5-VL is proficient in recognizing common objects such as flowers, birds, fish, and insects.",
+    "tokenizer": "Qwen"
+  },
+  "limits": {
+    "context_window": 128000,
+    "top_provider_context_window": 32000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

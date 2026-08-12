@@ -1,0 +1,60 @@
+{
+  "id": "aion-labs/aion-3.0-mini",
+  "provider": "openrouter",
+  "name": "AionLabs: Aion-3.0-Mini",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.18,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.7,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "aion-labs",
+    "canonical_slug": "aion-labs/aion-3.0-mini-20260707",
+    "reasoning_mandatory": "true",
+    "released": "2026-07-07",
+    "summary": "Aion-3.0 Mini is a multi-model roleplaying and storytelling system from AionLabs, built on the DeepSeek family of models.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

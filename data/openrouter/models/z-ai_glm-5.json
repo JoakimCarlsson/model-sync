@@ -1,0 +1,71 @@
+{
+  "id": "z-ai/glm-5",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.55,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-5-20260211",
+    "hugging_face_id": "zai-org/GLM-5",
+    "released": "2026-02-11",
+    "summary": "GLM-5 is Z.ai’s flagship open-source foundation model engineered for complex systems design and long-horizon agent workflows.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 204800,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 204800
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "id": "inclusionai/ling-2.6-1t",
+  "provider": "openrouter",
+  "name": "inclusionAI: Ling-2.6-1T",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.015,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "inclusionai",
+    "canonical_slug": "inclusionai/ling-2.6-1t-20260423",
+    "released": "2026-04-23",
+    "summary": "Ling-2.6-1T is an instant (instruct) model from inclusionAI and the company’s trillion-parameter flagship, designed for real-world agents that require fast execution and high efficiency at scale.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

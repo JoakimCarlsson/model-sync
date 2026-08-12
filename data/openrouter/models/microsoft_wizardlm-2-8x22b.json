@@ -1,0 +1,58 @@
+{
+  "id": "microsoft/wizardlm-2-8x22b",
+  "provider": "openrouter",
+  "name": "WizardLM-2 8x22B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.62,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.62,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "microsoft",
+    "canonical_slug": "microsoft/wizardlm-2-8x22b",
+    "hugging_face_id": "microsoft/WizardLM-2-8x22B",
+    "instruct_type": "vicuna",
+    "knowledge_cutoff": "2024-04-30",
+    "released": "2024-04-16",
+    "summary": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model.",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 65535,
+    "max_output_tokens": 8000,
+    "top_provider_context_window": 65535
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

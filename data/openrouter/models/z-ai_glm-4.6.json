@@ -1,0 +1,70 @@
+{
+  "id": "z-ai/glm-4.6",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 4.6",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.11,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-4.6",
+    "hugging_face_id": "zai-org/GLM-4.6",
+    "knowledge_cutoff": "2025-03-31",
+    "released": "2025-09-30",
+    "summary": "Compared with GLM-4.5, this generation brings several key improvements: Longer context window: The context window has been expanded from 128K to 200K tokens, enabling the model to handle more complex...",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 204800,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 204800
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

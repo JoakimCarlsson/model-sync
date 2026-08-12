@@ -1,0 +1,56 @@
+{
+  "id": "tencent/hunyuan-a13b-instruct",
+  "provider": "openrouter",
+  "name": "Tencent: Hunyuan A13B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.57,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "tencent",
+    "canonical_slug": "tencent/hunyuan-a13b-instruct",
+    "hugging_face_id": "tencent/Hunyuan-A13B-Instruct",
+    "knowledge_cutoff": "2025-03-31",
+    "released": "2025-07-08",
+    "summary": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

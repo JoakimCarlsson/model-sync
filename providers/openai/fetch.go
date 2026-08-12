@@ -30,7 +30,12 @@ const (
 // states only per token.
 var GuideURLs = []string{
 	baseURL + "/api/docs/guides/image-generation.md",
+	EmbeddingsGuideURL,
 }
+
+// EmbeddingsGuideURL is the only document stating how wide an OpenAI embedding
+// is and the longest input an embedding model takes.
+const EmbeddingsGuideURL = baseURL + "/api/docs/guides/embeddings.md"
 
 // fetchWorkers bounds the concurrent requests made for the per-model pages.
 const fetchWorkers = 8

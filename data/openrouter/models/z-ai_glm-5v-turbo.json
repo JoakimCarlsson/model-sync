@@ -1,0 +1,63 @@
+{
+  "id": "z-ai/glm-5v-turbo",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 5V Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.24,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-5v-turbo-20260401",
+    "expiration_date": "2098-12-31",
+    "released": "2026-04-01",
+    "summary": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 202752,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 202752
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

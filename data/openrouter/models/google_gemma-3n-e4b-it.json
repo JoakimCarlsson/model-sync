@@ -1,0 +1,58 @@
+{
+  "id": "google/gemma-3n-e4b-it",
+  "provider": "openrouter",
+  "name": "Google: Gemma 3n 4B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemma-3n-e4b-it",
+    "hugging_face_id": "google/gemma-3n-E4B-it",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-05-20",
+    "summary": "Gemma 3n E4B-it is optimized for efficient execution on mobile and low-resource devices, such as phones, laptops, and tablets.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32768,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

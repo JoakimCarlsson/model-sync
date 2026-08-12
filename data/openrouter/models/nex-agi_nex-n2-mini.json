@@ -1,0 +1,65 @@
+{
+  "id": "nex-agi/nex-n2-mini",
+  "provider": "openrouter",
+  "name": "Nex AGI: Nex-N2-Mini",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0025,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "nex-agi",
+    "canonical_slug": "nex-agi/nex-n2-mini",
+    "hugging_face_id": "nex-agi/Nex-N2-Mini",
+    "released": "2026-06-24",
+    "summary": "Nex-N2-Mini is an open-source agentic mixture-of-experts model from Nex AGI, the smaller sibling in the Nex-N2 series.",
+    "tokenizer": "Qwen3"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 262144,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

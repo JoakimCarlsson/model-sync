@@ -1,0 +1,71 @@
+{
+  "id": "xiaomi/mimo-v2.5-pro",
+  "provider": "openrouter",
+  "name": "Xiaomi: MiMo-V2.5-Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0036,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.435,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.87,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "xiaomi",
+    "canonical_slug": "xiaomi/mimo-v2.5-pro-20260422",
+    "hugging_face_id": "XiaomiMiMo/MiMo-V2.5-Pro",
+    "released": "2026-04-22",
+    "summary": "MiMo-V2.5-Pro is Xiaomi’s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro....",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1050000,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

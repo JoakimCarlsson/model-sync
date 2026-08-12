@@ -1,0 +1,65 @@
+{
+  "id": "mistralai/mistral-nemo",
+  "provider": "openrouter",
+  "name": "Mistral: Mistral Nemo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.019,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "canonical_slug": "mistralai/mistral-nemo",
+    "hugging_face_id": "mistralai/Mistral-Nemo-Instruct-2407",
+    "instruct_type": "mistral",
+    "knowledge_cutoff": "2024-04-30",
+    "released": "2024-07-19",
+    "summary": "A 12B parameter model with a 128k token context length built by Mistral in collaboration with NVIDIA.",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

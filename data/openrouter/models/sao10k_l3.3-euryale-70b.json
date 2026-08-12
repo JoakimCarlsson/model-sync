@@ -1,0 +1,60 @@
+{
+  "id": "sao10k/l3.3-euryale-70b",
+  "provider": "openrouter",
+  "name": "Sao10K: Llama 3.3 Euryale 70B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "sao10k",
+    "canonical_slug": "sao10k/l3.3-euryale-70b-v2.3",
+    "hugging_face_id": "Sao10K/L3.3-70B-Euryale-v2.3",
+    "instruct_type": "llama3",
+    "knowledge_cutoff": "2023-12-31",
+    "released": "2024-12-18",
+    "summary": "Euryale L3.3 70B is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k).",
+    "tokenizer": "Llama3"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "nvidia/nemotron-3.5-content-safety:free",
+  "provider": "openrouter",
+  "name": "NVIDIA: Nemotron 3.5 Content Safety (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "nvidia",
+    "canonical_slug": "nvidia/nemotron-3.5-content-safety-20260604",
+    "hugging_face_id": "nvidia/Nemotron-3.5-Content-Safety",
+    "is_free": "true",
+    "released": "2026-06-04",
+    "summary": "NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8192,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "seed",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

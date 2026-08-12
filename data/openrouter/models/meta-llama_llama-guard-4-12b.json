@@ -1,0 +1,60 @@
+{
+  "id": "meta-llama/llama-guard-4-12b",
+  "provider": "openrouter",
+  "name": "Meta: Llama Guard 4 12B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.18,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.18,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "canonical_slug": "meta-llama/llama-guard-4-12b",
+    "hugging_face_id": "meta-llama/Llama-Guard-4-12B",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-04-30",
+    "summary": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 163840
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "minimax/minimax-m2-her",
+  "provider": "openrouter",
+  "name": "MiniMax: MiniMax M2-her",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "minimax",
+    "canonical_slug": "minimax/minimax-m2-her-20260123",
+    "released": "2026-01-23",
+    "summary": "MiniMax M2-her is a dialogue-first large language model built for immersive roleplay, character-driven chat, and expressive multi-turn conversations.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 2048,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

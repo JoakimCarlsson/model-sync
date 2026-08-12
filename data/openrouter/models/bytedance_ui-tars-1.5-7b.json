@@ -1,0 +1,67 @@
+{
+  "id": "bytedance/ui-tars-1.5-7b",
+  "provider": "openrouter",
+  "name": "ByteDance: UI-TARS 7B ",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "bytedance",
+    "canonical_slug": "bytedance/ui-tars-1.5-7b",
+    "hugging_face_id": "ByteDance-Seed/UI-TARS-1.5-7B",
+    "knowledge_cutoff": "2025-01-31",
+    "released": "2025-07-22",
+    "summary": "UI-TARS-1.5 is a multimodal vision-language agent optimized for GUI-based environments, including desktop interfaces, web browsers, mobile systems, and games.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 2048,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

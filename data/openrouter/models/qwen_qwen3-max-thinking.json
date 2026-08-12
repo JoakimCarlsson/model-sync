@@ -1,0 +1,97 @@
+{
+  "id": "qwen/qwen3-max-thinking",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 Max Thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.78,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.95,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.56,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.9,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.75,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.8,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-max-thinking-20260123",
+    "released": "2026-02-09",
+    "summary": "Qwen3-Max-Thinking is the flagship reasoning model in the Qwen3 series, designed for high-stakes cognitive tasks that require deep, multi-step reasoning.",
+    "tokenizer": "Qwen"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

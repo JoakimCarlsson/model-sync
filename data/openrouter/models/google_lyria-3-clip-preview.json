@@ -1,0 +1,39 @@
+{
+  "id": "google/lyria-3-clip-preview",
+  "provider": "openrouter",
+  "name": "Google: Lyria 3 Clip Preview",
+  "kind": "audio",
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/lyria-3-clip-preview-20260330",
+    "is_free": "true",
+    "released": "2026-03-30",
+    "summary": "30 second duration clips are priced at $0.04 per clip.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

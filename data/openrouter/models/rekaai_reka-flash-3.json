@@ -1,0 +1,61 @@
+{
+  "id": "rekaai/reka-flash-3",
+  "provider": "openrouter",
+  "name": "Reka Flash 3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "rekaai",
+    "canonical_slug": "rekaai/reka-flash-3",
+    "hugging_face_id": "RekaAI/reka-flash-3",
+    "knowledge_cutoff": "2025-01-31",
+    "reasoning_mandatory": "true",
+    "released": "2025-03-12",
+    "summary": "Reka Flash 3 is a general-purpose, instruction-tuned large language model with 21 billion parameters, developed by Reka.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

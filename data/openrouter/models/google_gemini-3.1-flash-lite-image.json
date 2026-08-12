@@ -1,0 +1,68 @@
+{
+  "id": "google/gemini-3.1-flash-lite-image",
+  "provider": "openrouter",
+  "name": "Google: Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image)",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00003,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemini-3.1-flash-lite-image-20260630",
+    "knowledge_cutoff": "2025-01-01",
+    "released": "2026-06-30",
+    "summary": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's fastest, most cost-efficient Gemini image model, built for high-velocity developer pipelines and rapid-fire visual exploration.",
+    "tokenizer": "Gemini"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

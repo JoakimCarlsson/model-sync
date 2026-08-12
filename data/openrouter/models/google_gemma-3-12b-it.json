@@ -1,0 +1,64 @@
+{
+  "id": "google/gemma-3-12b-it",
+  "provider": "openrouter",
+  "name": "Google: Gemma 3 12B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemma-3-12b-it",
+    "hugging_face_id": "google/gemma-3-12b-it",
+    "instruct_type": "gemma",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-03-13",
+    "summary": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs.",
+    "tokenizer": "Gemini"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

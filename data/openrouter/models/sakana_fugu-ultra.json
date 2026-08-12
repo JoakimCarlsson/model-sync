@@ -1,0 +1,93 @@
+{
+  "id": "sakana/fugu-ultra",
+  "provider": "openrouter",
+  "name": "Sakana: Fugu Ultra",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 45,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "sakana",
+    "canonical_slug": "sakana/fugu-ultra-20260615",
+    "reasoning_mandatory": "true",
+    "released": "2026-06-24",
+    "summary": "Fugu Ultra is the higher-performance model in Sakana AI's Fugu family.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000,
+    "top_provider_context_window": 1000000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "reasoning",
+      "reasoning_effort",
+      "structured_outputs",
+      "tool_choice",
+      "tools",
+      "web_search_options"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

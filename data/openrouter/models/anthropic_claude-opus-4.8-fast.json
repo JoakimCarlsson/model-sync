@@ -1,0 +1,85 @@
+{
+  "id": "anthropic/claude-opus-4.8-fast",
+  "provider": "openrouter",
+  "name": "Anthropic: Claude Opus 4.8 (Fast)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 50,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "anthropic",
+    "canonical_slug": "anthropic/claude-4.8-opus-fast-20260528",
+    "is_moderated": "true",
+    "released": "2026-05-27",
+    "summary": "Fast-mode variant of [Opus 4.8](/anthropic/claude-opus-4.8) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 4.8.",
+    "tokenizer": "Claude"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000,
+    "top_provider_context_window": 1000000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "tool_choice",
+      "tools",
+      "verbosity"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

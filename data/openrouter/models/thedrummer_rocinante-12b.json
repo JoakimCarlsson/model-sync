@@ -1,0 +1,62 @@
+{
+  "id": "thedrummer/rocinante-12b",
+  "provider": "openrouter",
+  "name": "TheDrummer: Rocinante 12B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "thedrummer",
+    "canonical_slug": "thedrummer/rocinante-12b",
+    "hugging_face_id": "TheDrummer/Rocinante-12B-v1.1",
+    "instruct_type": "chatml",
+    "knowledge_cutoff": "2024-04-30",
+    "released": "2024-09-30",
+    "summary": "Rocinante 12B is designed for engaging storytelling and rich prose.",
+    "tokenizer": "Qwen"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

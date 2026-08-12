@@ -1,0 +1,69 @@
+{
+  "id": "minimax/minimax-m3:batch",
+  "provider": "openrouter",
+  "name": "MiniMax: MiniMax M3 (batch)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "minimax",
+    "canonical_slug": "minimax/minimax-m3-20260531",
+    "hugging_face_id": "MiniMaxAI/Minimax-M3",
+    "released": "2026-05-31",
+    "summary": "MiniMax-M3 is a multimodal foundation model from MiniMax.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 524288,
+    "top_provider_context_window": 524288
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

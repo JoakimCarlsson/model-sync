@@ -1,0 +1,63 @@
+{
+  "id": "mistralai/mistral-large-2407",
+  "provider": "openrouter",
+  "name": "Mistral Large 2407",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "canonical_slug": "mistralai/mistral-large-2407",
+    "knowledge_cutoff": "2024-03-31",
+    "released": "2024-11-19",
+    "summary": "This is Mistral AI's flagship model, Mistral Large 2 (version mistral-large-2407).",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 131072,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "file",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

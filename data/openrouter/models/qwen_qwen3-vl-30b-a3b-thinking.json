@@ -1,0 +1,65 @@
+{
+  "id": "qwen/qwen3-vl-30b-a3b-thinking",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 VL 30B A3B Thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-vl-30b-a3b-thinking",
+    "hugging_face_id": "Qwen/Qwen3-VL-30B-A3B-Thinking",
+    "knowledge_cutoff": "2025-03-31",
+    "reasoning_mandatory": "true",
+    "released": "2025-10-06",
+    "summary": "Qwen3-VL-30B-A3B-Thinking is a multimodal model that unifies strong text generation with visual understanding for images and videos.",
+    "tokenizer": "Qwen3"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

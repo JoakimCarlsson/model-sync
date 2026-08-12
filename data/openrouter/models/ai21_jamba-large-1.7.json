@@ -1,0 +1,54 @@
+{
+  "id": "ai21/jamba-large-1.7",
+  "provider": "openrouter",
+  "name": "AI21: Jamba Large 1.7",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "ai21",
+    "canonical_slug": "ai21/jamba-large-1.7",
+    "hugging_face_id": "ai21labs/AI21-Jamba-Large-1.7",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-08-08",
+    "summary": "Jamba Large 1.7 is the latest model in the Jamba open family, offering improvements in grounding, instruction-following, and overall efficiency.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "response_format",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

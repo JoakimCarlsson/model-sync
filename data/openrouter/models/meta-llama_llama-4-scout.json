@@ -1,0 +1,63 @@
+{
+  "id": "meta-llama/llama-4-scout",
+  "provider": "openrouter",
+  "name": "Meta: Llama 4 Scout",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "canonical_slug": "meta-llama/llama-4-scout-17b-16e-instruct",
+    "hugging_face_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-04-05",
+    "summary": "Llama 4 Scout 17B Instruct (16E) is a mixture-of-experts (MoE) language model developed by Meta, activating 17 billion parameters out of a total of 109B.",
+    "tokenizer": "Llama4"
+  },
+  "limits": {
+    "context_window": 1310720,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 327680
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

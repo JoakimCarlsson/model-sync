@@ -1,0 +1,68 @@
+{
+  "id": "z-ai/glm-4.5v",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM 4.5V",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.11,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.8,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "z-ai",
+    "canonical_slug": "z-ai/glm-4.5v",
+    "hugging_face_id": "zai-org/GLM-4.5V",
+    "knowledge_cutoff": "2024-12-31",
+    "released": "2025-08-11",
+    "summary": "GLM-4.5V is a vision-language foundation model for multimodal agent applications.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

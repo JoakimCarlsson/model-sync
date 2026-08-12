@@ -1,0 +1,58 @@
+{
+  "id": "google/gemma-2-27b-it",
+  "provider": "openrouter",
+  "name": "Google: Gemma 2 27B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemma-2-27b-it",
+    "hugging_face_id": "google/gemma-2-27b-it",
+    "instruct_type": "gemma",
+    "knowledge_cutoff": "2024-06-30",
+    "released": "2024-07-13",
+    "summary": "Gemma 2 27B by Google is an open model built from the same research and technology used to create the [Gemini models](/models?q=gemini).",
+    "tokenizer": "Gemini"
+  },
+  "limits": {
+    "context_window": 8192,
+    "max_output_tokens": 2048,
+    "top_provider_context_window": 8192
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

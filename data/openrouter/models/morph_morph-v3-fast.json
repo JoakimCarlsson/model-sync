@@ -1,0 +1,48 @@
+{
+  "id": "morph/morph-v3-fast",
+  "provider": "openrouter",
+  "name": "Morph: Morph V3 Fast",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "morph",
+    "canonical_slug": "morph/morph-v3-fast",
+    "released": "2025-07-07",
+    "summary": "Morph's fastest apply model for code edits.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 81920,
+    "max_output_tokens": 38000,
+    "top_provider_context_window": 81920
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "stop",
+      "temperature"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "openai/gpt-audio",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT Audio",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 32,
+      "currency": "USD"
+    },
+    {
+      "metric": "audio_output",
+      "unit": "per_1m_tokens",
+      "amount": 64,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-audio",
+    "is_moderated": "true",
+    "released": "2026-01-19",
+    "summary": "The gpt-audio model is OpenAI's first generally available audio model.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16384,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

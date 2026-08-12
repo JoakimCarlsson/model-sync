@@ -1,0 +1,64 @@
+{
+  "id": "meta-llama/llama-4-maverick",
+  "provider": "openrouter",
+  "name": "Meta: Llama 4 Maverick",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.696,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "canonical_slug": "meta-llama/llama-4-maverick-17b-128e-instruct",
+    "hugging_face_id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+    "knowledge_cutoff": "2024-08-31",
+    "released": "2025-04-05",
+    "summary": "Llama 4 Maverick 17B Instruct (128E) is a high-capacity multimodal language model from Meta, built on a mixture-of-experts (MoE) architecture with 128 experts and 17 billion active parameters per forward...",
+    "tokenizer": "Llama4"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

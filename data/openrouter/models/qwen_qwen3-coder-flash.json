@@ -1,0 +1,143 @@
+{
+  "id": "qwen/qwen3-coder-flash",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 Coder Flash",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.24375,
+      "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.40625,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.039,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.104,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.065,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.195,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.52,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.325,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.975,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.6,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.625,
+      "currency": "USD",
+      "dims": {
+        "min_prompt_tokens": "32000"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-coder-flash",
+    "knowledge_cutoff": "2025-06-30",
+    "released": "2025-09-17",
+    "summary": "Qwen3 Coder Flash is Alibaba's fast and cost efficient version of their proprietary Qwen3 Coder Plus.",
+    "tokenizer": "Qwen3"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 65536,
+    "top_provider_context_window": 1000000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

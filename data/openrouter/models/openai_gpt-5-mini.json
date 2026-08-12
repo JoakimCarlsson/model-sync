@@ -1,0 +1,72 @@
+{
+  "id": "openai/gpt-5-mini",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-5 Mini",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-5-mini-2025-08-07",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2024-05-31",
+    "reasoning_mandatory": "true",
+    "released": "2025-08-07",
+    "summary": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 400000,
+    "max_output_tokens": 128000,
+    "top_provider_context_window": 400000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_completion_tokens",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "seed",
+      "structured_outputs",
+      "tool_choice",
+      "tools"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "amazon/nova-2-lite-v1",
+  "provider": "openrouter",
+  "name": "Amazon: Nova 2 Lite",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "amazon",
+    "canonical_slug": "amazon/nova-2-lite-v1",
+    "is_moderated": "true",
+    "released": "2025-12-02",
+    "summary": "Nova 2 Lite is a fast, cost-effective reasoning model for everyday workloads that can process text, images, and videos to generate text.",
+    "tokenizer": "Nova"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 65535,
+    "top_provider_context_window": 1000000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "id": "amazon/nova-pro-v1",
+  "provider": "openrouter",
+  "name": "Amazon: Nova Pro 1.0",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "amazon",
+    "canonical_slug": "amazon/nova-pro-v1",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2024-10-31",
+    "released": "2024-12-05",
+    "summary": "Amazon Nova Pro 1.0 is a capable multimodal model from Amazon focused on providing a combination of accuracy, speed, and cost for a wide range of tasks.",
+    "tokenizer": "Nova"
+  },
+  "limits": {
+    "context_window": 300000,
+    "max_output_tokens": 5120,
+    "top_provider_context_window": 300000
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "stop",
+      "temperature",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

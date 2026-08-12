@@ -1,0 +1,59 @@
+{
+  "id": "cohere/command-r-08-2024",
+  "provider": "openrouter",
+  "name": "Cohere: Command R (08-2024)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "cohere",
+    "canonical_slug": "cohere/command-r-08-2024",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2024-03-31",
+    "released": "2024-08-30",
+    "summary": "command-r-08-2024 is an update of the [Command R](/models/cohere/command-r) with improved performance for multilingual retrieval-augmented generation (RAG) and tool use.",
+    "tokenizer": "Cohere"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

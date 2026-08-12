@@ -1,0 +1,71 @@
+{
+  "id": "meta-llama/llama-3.1-8b-instruct",
+  "provider": "openrouter",
+  "name": "Meta: Llama 3.1 8B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "canonical_slug": "meta-llama/llama-3.1-8b-instruct",
+    "hugging_face_id": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "instruct_type": "llama3",
+    "knowledge_cutoff": "2023-12-31",
+    "released": "2024-07-23",
+    "summary": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors.",
+    "tokenizer": "Llama3"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

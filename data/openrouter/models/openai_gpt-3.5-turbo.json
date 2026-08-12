@@ -1,0 +1,61 @@
+{
+  "id": "openai/gpt-3.5-turbo",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-3.5 Turbo",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-3.5-turbo",
+    "is_moderated": "true",
+    "knowledge_cutoff": "2021-09-30",
+    "released": "2023-05-28",
+    "summary": "GPT-3.5 Turbo is OpenAI's fastest model.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 16385,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 16385
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

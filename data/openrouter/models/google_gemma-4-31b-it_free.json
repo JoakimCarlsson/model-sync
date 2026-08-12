@@ -1,0 +1,44 @@
+{
+  "id": "google/gemma-4-31b-it:free",
+  "provider": "openrouter",
+  "name": "Google: Gemma 4 31B (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemma-4-31b-it-20260402",
+    "hugging_face_id": "google/gemma-4-31B-it",
+    "is_free": "true",
+    "released": "2026-04-02",
+    "summary": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output.",
+    "tokenizer": "Gemma"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "seed",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

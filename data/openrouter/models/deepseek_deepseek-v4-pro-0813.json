@@ -1,0 +1,65 @@
+{
+  "id": "deepseek/deepseek-v4-pro-0813",
+  "provider": "openrouter",
+  "name": "DeepSeek: DeepSeek V4 Pro 0813",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.003625,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.435,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.87,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "deepseek",
+    "canonical_slug": "deepseek/deepseek-v4-pro-20260813",
+    "released": "2026-08-12",
+    "summary": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek.",
+    "tokenizer": "DeepSeek"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 384000,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

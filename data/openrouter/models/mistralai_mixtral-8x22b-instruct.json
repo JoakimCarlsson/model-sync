@@ -1,0 +1,65 @@
+{
+  "id": "mistralai/mixtral-8x22b-instruct",
+  "provider": "openrouter",
+  "name": "Mistral: Mixtral 8x22B Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "canonical_slug": "mistralai/mixtral-8x22b-instruct",
+    "hugging_face_id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
+    "instruct_type": "mistral",
+    "knowledge_cutoff": "2024-01-31",
+    "released": "2024-04-17",
+    "summary": "Mistral's official instruct fine-tuned version of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "file",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

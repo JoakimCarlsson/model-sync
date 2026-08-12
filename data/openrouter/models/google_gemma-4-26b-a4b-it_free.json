@@ -1,0 +1,52 @@
+{
+  "id": "google/gemma-4-26b-a4b-it:free",
+  "provider": "openrouter",
+  "name": "Google: Gemma 4 26B A4B  (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
+    "hugging_face_id": "google/gemma-4-26B-A4B-it",
+    "is_free": "true",
+    "released": "2026-04-03",
+    "summary": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind.",
+    "tokenizer": "Gemma"
+  },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 32768,
+    "top_provider_context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

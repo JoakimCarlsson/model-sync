@@ -1,0 +1,46 @@
+{
+  "id": "cohere/north-mini-code:free",
+  "provider": "openrouter",
+  "name": "Cohere: North Mini Code (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "cohere",
+    "canonical_slug": "cohere/north-mini-code-20260617",
+    "hugging_face_id": "CohereLabs/North-Mini-Code-1.0",
+    "is_free": "true",
+    "is_moderated": "true",
+    "released": "2026-06-17",
+    "summary": "North Mini Code is Cohere's first agentic coding model and the debut of its North family.",
+    "tokenizer": "Cohere"
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 64000,
+    "top_provider_context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "seed",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

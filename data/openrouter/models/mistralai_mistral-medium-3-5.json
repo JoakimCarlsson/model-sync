@@ -1,0 +1,60 @@
+{
+  "id": "mistralai/mistral-medium-3-5",
+  "provider": "openrouter",
+  "name": "Mistral: Mistral Medium 3.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "canonical_slug": "mistralai/mistral-medium-3.5-20260430",
+    "released": "2026-04-30",
+    "summary": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI.",
+    "tokenizer": "Mistral"
+  },
+  "limits": {
+    "context_window": 262144,
+    "top_provider_context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "include_reasoning",
+      "max_tokens",
+      "presence_penalty",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

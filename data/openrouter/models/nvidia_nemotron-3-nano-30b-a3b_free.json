@@ -1,0 +1,40 @@
+{
+  "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+  "provider": "openrouter",
+  "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
+  "kind": "chat",
+  "attrs": {
+    "author": "nvidia",
+    "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",
+    "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+    "is_free": "true",
+    "released": "2025-12-14",
+    "summary": "NVIDIA Nemotron 3 Nano 30B A3B is a small language MoE model with highest compute efficiency and accuracy for developers to build specialized agentic AI systems.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 256000,
+    "top_provider_context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "seed",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

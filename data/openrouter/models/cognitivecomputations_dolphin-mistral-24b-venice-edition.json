@@ -1,0 +1,55 @@
+{
+  "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
+  "provider": "openrouter",
+  "name": "Venice: Uncensored",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "cognitivecomputations",
+    "canonical_slug": "venice/uncensored",
+    "hugging_face_id": "cognitivecomputations/Dolphin-Mistral-24B-Venice-Edition",
+    "knowledge_cutoff": "2024-04-30",
+    "released": "2025-07-09",
+    "summary": "Venice Uncensored Dolphin Mistral 24B Venice Edition is a fine-tuned variant of Mistral-Small-24B-Instruct-2501, developed by dphn.ai in collaboration with Venice.ai.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8192,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "frequency_penalty",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

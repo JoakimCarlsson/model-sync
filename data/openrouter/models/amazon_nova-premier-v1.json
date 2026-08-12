@@ -1,0 +1,59 @@
+{
+  "id": "amazon/nova-premier-v1",
+  "provider": "openrouter",
+  "name": "Amazon: Nova Premier 1.0",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "amazon",
+    "canonical_slug": "amazon/nova-premier-v1",
+    "is_moderated": "true",
+    "released": "2025-10-31",
+    "summary": "Amazon Nova Premier is the most capable of Amazon’s multimodal models for complex reasoning tasks and for use as the best teacher for distilling custom models.",
+    "tokenizer": "Nova"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 32000,
+    "top_provider_context_window": 1000000
+  },
+  "lists": {
+    "features": [
+      "max_tokens",
+      "stop",
+      "temperature",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}

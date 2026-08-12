@@ -1,0 +1,41 @@
+{
+  "id": "openrouter/pareto-code",
+  "provider": "openrouter",
+  "name": "Pareto Code Router",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": -1000000,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": -1000000,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openrouter",
+    "canonical_slug": "openrouter/pareto-code",
+    "released": "2026-04-21",
+    "summary": "The Pareto Router maintains a tiered shortlist of strong coding models, ranked by [Artificial Analysis](https://artificialanalysis.ai/) coding percentiles.",
+    "tokenizer": "Router"
+  },
+  "limits": {
+    "context_window": 2000000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models"
+  ]
+}
