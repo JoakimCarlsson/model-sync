@@ -8,6 +8,7 @@ import (
 	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
+	"github.com/joakimcarlsson/model-sync/providers/anthropic"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
 	"github.com/joakimcarlsson/model-sync/store"
 )
@@ -38,7 +39,9 @@ func main() {
 func run(data, api, cache string, timeout time.Duration) error {
 	openaiSource := openai.New()
 	openaiSource.CacheDir = cache
-	sources := []catalog.Source{openaiSource}
+	anthropicSource := anthropic.New()
+	anthropicSource.CacheDir = cache
+	sources := []catalog.Source{openaiSource, anthropicSource}
 
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()

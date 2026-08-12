@@ -1,0 +1,20 @@
+{
+  "id": "code-execution",
+  "provider": "anthropic",
+  "name": "Code execution",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "runtime",
+      "unit": "per_hour",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+  ]
+}

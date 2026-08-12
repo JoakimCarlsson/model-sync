@@ -1,0 +1,100 @@
+{
+  "id": "claude-opus-4-6",
+  "provider": "anthropic",
+  "name": "Claude Opus 4.6",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "5m",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "aws_bedrock_id": "anthropic.claude-opus-4-6-v1",
+    "comparative_latency": "Moderate",
+    "google_cloud_id": "claude-opus-4-6",
+    "knowledge_cutoff": "May 2025",
+    "training_data_cutoff": "Aug 2025"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "aliases": [
+      "claude-opus-4-6"
+    ],
+    "features": [
+      "adaptive_thinking",
+      "extended_thinking_(thinking_type:_\"enabled\")"
+    ]
+  },
+  "notes": [
+    "extended_thinking_(thinking_type:_\"enabled\") deprecated"
+  ],
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+  ]
+}

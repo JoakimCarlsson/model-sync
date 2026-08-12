@@ -1,0 +1,97 @@
+{
+  "id": "claude-haiku-4-5-20251001",
+  "provider": "anthropic",
+  "name": "Claude Haiku 4.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "5m",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "aws_bedrock_id": "anthropic.claude-haiku-4-5-20251001-v1:0",
+    "comparative_latency": "Fastest",
+    "google_cloud_id": "claude-haiku-4-5@20251001",
+    "knowledge_cutoff": "Feb 2025",
+    "summary": "The fastest model with near-frontier intelligence",
+    "training_data_cutoff": "Jul 2025"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 64000
+  },
+  "lists": {
+    "aliases": [
+      "claude-haiku-4-5"
+    ],
+    "features": [
+      "extended_thinking_(thinking_type:_\"enabled\")"
+    ]
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+  ]
+}

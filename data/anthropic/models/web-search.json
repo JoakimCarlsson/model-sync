@@ -1,0 +1,20 @@
+{
+  "id": "web-search",
+  "provider": "anthropic",
+  "name": "Web search",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_searches",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+  ]
+}

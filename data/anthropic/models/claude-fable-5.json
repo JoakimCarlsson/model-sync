@@ -1,0 +1,100 @@
+{
+  "id": "claude-fable-5",
+  "provider": "anthropic",
+  "name": "Claude Fable 5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "5m",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "aws_bedrock_id": "anthropic.claude-fable-5",
+    "comparative_latency": "Slower",
+    "google_cloud_id": "claude-fable-5",
+    "knowledge_cutoff": "Jan 2026",
+    "summary": "Next-generation intelligence for long-running agents",
+    "training_data_cutoff": "Jan 2026"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "aliases": [
+      "claude-fable-5"
+    ],
+    "features": [
+      "adaptive_thinking"
+    ]
+  },
+  "notes": [
+    "adaptive_thinking always on"
+  ],
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+  ]
+}

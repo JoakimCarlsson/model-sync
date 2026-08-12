@@ -1,6 +1,1478 @@
 {
   "providers": [
     {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "models": [
+        {
+          "id": "claude-fable-5",
+          "provider": "anthropic",
+          "name": "Claude Fable 5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 20,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 50,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-fable-5",
+            "comparative_latency": "Slower",
+            "google_cloud_id": "claude-fable-5",
+            "knowledge_cutoff": "Jan 2026",
+            "summary": "Next-generation intelligence for long-running agents",
+            "training_data_cutoff": "Jan 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-fable-5"
+            ],
+            "features": [
+              "adaptive_thinking"
+            ]
+          },
+          "notes": [
+            "adaptive_thinking always on"
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-haiku-3-5",
+          "provider": "anthropic",
+          "name": "Claude Haiku 3.5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.6,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.08,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.4,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.8,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "availability": "retired, except on Bedrock and Google Cloud"
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-haiku-4-5-20251001",
+          "provider": "anthropic",
+          "name": "Claude Haiku 4.5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.1,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-haiku-4-5-20251001-v1:0",
+            "comparative_latency": "Fastest",
+            "google_cloud_id": "claude-haiku-4-5@20251001",
+            "knowledge_cutoff": "Feb 2025",
+            "summary": "The fastest model with near-frontier intelligence",
+            "training_data_cutoff": "Jul 2025"
+          },
+          "limits": {
+            "context_window": 200000,
+            "max_output_tokens": 64000
+          },
+          "lists": {
+            "aliases": [
+              "claude-haiku-4-5"
+            ],
+            "features": [
+              "extended_thinking_(thinking_type:_\"enabled\")"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-mythos-5",
+          "provider": "anthropic",
+          "name": "Claude Mythos 5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 20,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 50,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "availability": "limited availability"
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4",
+          "provider": "anthropic",
+          "name": "Claude Opus 4",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 30,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 18.75,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 7.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 37.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 75,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "availability": "retired, except on Google Cloud"
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4-1",
+          "provider": "anthropic",
+          "name": "Claude Opus 4.1",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 30,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 18.75,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 7.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 37.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 75,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "availability": "retired, except on Bedrock and Google Cloud"
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4-5-20251101",
+          "provider": "anthropic",
+          "name": "Claude Opus 4.5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-opus-4-5-20251101-v1:0",
+            "comparative_latency": "Moderate",
+            "google_cloud_id": "claude-opus-4-5@20251101",
+            "knowledge_cutoff": "May 2025",
+            "training_data_cutoff": "Aug 2025"
+          },
+          "limits": {
+            "context_window": 200000,
+            "max_output_tokens": 64000
+          },
+          "lists": {
+            "aliases": [
+              "claude-opus-4-5"
+            ],
+            "features": [
+              "extended_thinking_(thinking_type:_\"enabled\")"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4-6",
+          "provider": "anthropic",
+          "name": "Claude Opus 4.6",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-opus-4-6-v1",
+            "comparative_latency": "Moderate",
+            "google_cloud_id": "claude-opus-4-6",
+            "knowledge_cutoff": "May 2025",
+            "training_data_cutoff": "Aug 2025"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-opus-4-6"
+            ],
+            "features": [
+              "adaptive_thinking",
+              "extended_thinking_(thinking_type:_\"enabled\")"
+            ]
+          },
+          "notes": [
+            "extended_thinking_(thinking_type:_\"enabled\") deprecated"
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4-7",
+          "provider": "anthropic",
+          "name": "Claude Opus 4.7",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-opus-4-7",
+            "comparative_latency": "Moderate",
+            "google_cloud_id": "claude-opus-4-7",
+            "knowledge_cutoff": "Jan 2026",
+            "training_data_cutoff": "Jan 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-opus-4-7"
+            ],
+            "features": [
+              "adaptive_thinking"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-4-8",
+          "provider": "anthropic",
+          "name": "Claude Opus 4.8",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "fast"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 50,
+              "currency": "USD",
+              "dims": {
+                "tier": "fast"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-opus-4-8",
+            "comparative_latency": "Moderate",
+            "google_cloud_id": "claude-opus-4-8",
+            "knowledge_cutoff": "Jan 2026",
+            "training_data_cutoff": "Jan 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-opus-4-8"
+            ],
+            "features": [
+              "adaptive_thinking"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-opus-5",
+          "provider": "anthropic",
+          "name": "Claude Opus 5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6.25,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "fast"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 12.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 50,
+              "currency": "USD",
+              "dims": {
+                "tier": "fast"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 25,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-opus-5",
+            "comparative_latency": "Moderate",
+            "google_cloud_id": "claude-opus-5",
+            "knowledge_cutoff": "May 2026",
+            "summary": "For complex agentic coding and enterprise work",
+            "training_data_cutoff": "May 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-opus-5"
+            ],
+            "features": [
+              "adaptive_thinking"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-sonnet-4",
+          "provider": "anthropic",
+          "name": "Claude Sonnet 4",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.75,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 7.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "availability": "retired, except on Bedrock and Google Cloud"
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-sonnet-4-5-20250929",
+          "provider": "anthropic",
+          "name": "Claude Sonnet 4.5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.75,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 7.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-sonnet-4-5-20250929-v1:0",
+            "comparative_latency": "Fast",
+            "google_cloud_id": "claude-sonnet-4-5@20250929",
+            "knowledge_cutoff": "Jan 2025",
+            "training_data_cutoff": "Jul 2025"
+          },
+          "limits": {
+            "context_window": 200000,
+            "max_output_tokens": 64000
+          },
+          "lists": {
+            "aliases": [
+              "claude-sonnet-4-5"
+            ],
+            "features": [
+              "extended_thinking_(thinking_type:_\"enabled\")"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-sonnet-4-6",
+          "provider": "anthropic",
+          "name": "Claude Sonnet 4.6",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 6,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.75,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 7.5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-sonnet-4-6",
+            "comparative_latency": "Fast",
+            "google_cloud_id": "claude-sonnet-4-6",
+            "knowledge_cutoff": "Aug 2025",
+            "training_data_cutoff": "Jan 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-sonnet-4-6"
+            ],
+            "features": [
+              "adaptive_thinking",
+              "extended_thinking_(thinking_type:_\"enabled\")"
+            ]
+          },
+          "notes": [
+            "extended_thinking_(thinking_type:_\"enabled\") deprecated"
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "claude-sonnet-5",
+          "provider": "anthropic",
+          "name": "Claude Sonnet 5",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "1h",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cache_write_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "USD",
+              "dims": {
+                "cache_ttl": "5m",
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "USD",
+              "dims": {
+                "tier": "batch"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "attrs": {
+            "aws_bedrock_id": "anthropic.claude-sonnet-5",
+            "comparative_latency": "Fast",
+            "google_cloud_id": "claude-sonnet-5",
+            "knowledge_cutoff": "Jan 2026",
+            "summary": "The best combination of speed and intelligence",
+            "training_data_cutoff": "Jan 2026"
+          },
+          "limits": {
+            "context_window": 1000000,
+            "max_output_tokens": 128000
+          },
+          "lists": {
+            "aliases": [
+              "claude-sonnet-5"
+            ],
+            "features": [
+              "adaptive_thinking"
+            ]
+          },
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/models/overview.md",
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "code-execution",
+          "provider": "anthropic",
+          "name": "Code execution",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "runtime",
+              "unit": "per_hour",
+              "amount": 0.05,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "managed-agents-session",
+          "provider": "anthropic",
+          "name": "Claude Managed Agents session runtime",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "runtime",
+              "unit": "per_session_hour",
+              "amount": 0.08,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        },
+        {
+          "id": "web-search",
+          "provider": "anthropic",
+          "name": "Web search",
+          "kind": "tool",
+          "prices": [
+            {
+              "metric": "tool_call",
+              "unit": "per_1k_searches",
+              "amount": 10,
+              "currency": "USD",
+              "dims": {
+                "tier": "standard"
+              }
+            }
+          ],
+          "sources": [
+            "https://platform.claude.com/docs/en/about-claude/pricing.md"
+          ]
+        }
+      ]
+    },
+    {
       "id": "openai",
       "name": "OpenAI",
       "models": [
