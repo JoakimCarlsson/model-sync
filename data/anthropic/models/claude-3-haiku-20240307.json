@@ -1,0 +1,14 @@
+{
+  "id": "claude-3-haiku-20240307",
+  "provider": "anthropic",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "February 19, 2026",
+    "recommended_replacement": "claude-haiku-4-5-20251001",
+    "retirement_date": "April 20, 2026",
+    "state": "retired"
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md"
+  ]
+}

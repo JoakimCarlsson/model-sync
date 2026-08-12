@@ -75,6 +75,8 @@
     "comparative_latency": "Fast",
     "google_cloud_id": "claude-sonnet-4-5@20250929",
     "knowledge_cutoff": "Jan 2025",
+    "retirement_date": "Not sooner than September 29, 2026",
+    "state": "active",
     "training_data_cutoff": "Jul 2025"
   },
   "limits": {
@@ -90,6 +92,7 @@
     ]
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

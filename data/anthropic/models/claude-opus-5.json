@@ -93,6 +93,8 @@
     "comparative_latency": "Moderate",
     "google_cloud_id": "claude-opus-5",
     "knowledge_cutoff": "May 2026",
+    "retirement_date": "Not sooner than July 24, 2027",
+    "state": "active",
     "summary": "For complex agentic coding and enterprise work",
     "training_data_cutoff": "May 2026"
   },
@@ -109,6 +111,7 @@
     ]
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

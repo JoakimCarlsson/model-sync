@@ -1,13 +1,13 @@
 {
-  "id": "claude-sonnet-4",
+  "id": "claude-opus-4-1-20250805",
   "provider": "anthropic",
-  "name": "Claude Sonnet 4",
+  "name": "Claude Opus 4.1",
   "kind": "chat",
   "prices": [
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 6,
+      "amount": 30,
       "currency": "USD",
       "dims": {
         "cache_ttl": "1h",
@@ -17,7 +17,7 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 3.75,
+      "amount": 18.75,
       "currency": "USD",
       "dims": {
         "cache_ttl": "5m",
@@ -27,32 +27,14 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.3,
-      "currency": "USD",
-      "dims": {
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 1.5,
       "currency": "USD",
       "dims": {
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 3,
-      "currency": "USD",
-      "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 7.5,
       "currency": "USD",
@@ -61,9 +43,27 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 37.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -71,9 +71,14 @@
     }
   ],
   "attrs": {
-    "availability": "retired, except on Bedrock and Google Cloud"
+    "availability": "retired, except on Bedrock and Google Cloud",
+    "deprecated_on": "June 5, 2026",
+    "recommended_replacement": "claude-opus-4-8",
+    "retirement_date": "August 5, 2026",
+    "state": "retired"
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]
 }

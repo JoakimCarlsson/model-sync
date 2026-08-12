@@ -75,6 +75,8 @@
     "comparative_latency": "Fast",
     "google_cloud_id": "claude-sonnet-5",
     "knowledge_cutoff": "Jan 2026",
+    "retirement_date": "Not sooner than June 30, 2027",
+    "state": "active",
     "summary": "The best combination of speed and intelligence",
     "training_data_cutoff": "Jan 2026"
   },
@@ -91,6 +93,7 @@
     ]
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

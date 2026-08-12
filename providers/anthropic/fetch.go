@@ -18,18 +18,21 @@ const baseURL = "https://platform.claude.com/docs/en"
 // Documents Anthropic publishes that this parser reads. Appending .md to a doc
 // URL returns its markdown source.
 const (
-	OverviewURL = baseURL + "/about-claude/models/overview.md"
-	PricingURL  = baseURL + "/about-claude/pricing.md"
+	DeprecationsURL = baseURL + "/about-claude/model-deprecations.md"
+	OverviewURL     = baseURL + "/about-claude/models/overview.md"
+	PricingURL      = baseURL + "/about-claude/pricing.md"
 )
 
-// Fetch retrieves the overview and the pricing page. Both are required: the
-// pricing page alone cannot be keyed to API identifiers.
+// Fetch retrieves the three pages. None is redundant: the pricing page names
+// models only by display name, the overview states identifiers for current
+// models only, and the deprecations page is the sole source of identifiers and
+// lifecycle for retired ones.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	var (
 		docs     []catalog.Document
 		failures []error
 	)
-	for _, url := range []string{OverviewURL, PricingURL} {
+	for _, url := range []string{DeprecationsURL, OverviewURL, PricingURL} {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)

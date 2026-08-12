@@ -75,6 +75,8 @@
     "comparative_latency": "Fastest",
     "google_cloud_id": "claude-haiku-4-5@20251001",
     "knowledge_cutoff": "Feb 2025",
+    "retirement_date": "Not sooner than October 15, 2026",
+    "state": "active",
     "summary": "The fastest model with near-frontier intelligence",
     "training_data_cutoff": "Jul 2025"
   },
@@ -91,6 +93,7 @@
     ]
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

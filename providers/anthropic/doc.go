@@ -10,12 +10,16 @@
 // models in one cell when they share a rate. Its capability table is also
 // transposed: models are columns and features are rows.
 //
-// Two documents are read:
+// Three documents are read, in this order, because the later ones depend on
+// identifiers the earlier ones establish:
 //
-//   - the model overview, whose transposed table carries the display name to
-//     API identifier mapping, context windows, cutoffs and capabilities. It is
-//     parsed first because the pricing tables identify models only by display
-//     name.
+//   - the deprecations page, whose status table is the only place every
+//     model's real API identifier appears, along with whether it is retired
+//     and when. Without it a retired model is filed under a guess and looks
+//     current.
+//   - the model overview, whose transposed table is authoritative for current
+//     models and carries context windows, cutoffs and capabilities.
 //   - the pricing page, whose standard, batch and fast-mode tables carry the
-//     rates, and whose prose carries the server-side tool prices.
+//     rates, and whose prose carries the server-side tool prices. It names
+//     models only by display name, which is why it is read last.
 package anthropic

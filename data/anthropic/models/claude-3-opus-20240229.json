@@ -1,0 +1,13 @@
+{
+  "id": "claude-3-opus-20240229",
+  "provider": "anthropic",
+  "kind": "chat",
+  "attrs": {
+    "recommended_replacement": "claude-opus-4-8",
+    "retirement_date": "January 5, 2026",
+    "state": "retired"
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md"
+  ]
+}

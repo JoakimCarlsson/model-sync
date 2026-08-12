@@ -37,45 +37,64 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Parse reads the overview before the pricing page regardless of the order the
-// documents arrive in, because the pricing tables name models by display name
-// and the overview is what maps those names onto API identifiers.
+// Parse reads the documents in dependency order regardless of the order they
+// arrive in. The pricing tables name models only by display name, so both
+// pages that state API identifiers are read first: deprecations, which lists
+// every model that has ever existed, then the overview, which is authoritative
+// for the current ones.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
-	for _, doc := range docs {
-		if strings.Contains(doc.URL, "/models/") {
-			b.applyOverview(doc)
-		}
-	}
-	for _, doc := range docs {
-		if strings.Contains(doc.URL, "/pricing") {
-			b.applyPricing(doc)
+	for _, stage := range []struct {
+		match string
+		apply func(catalog.Document)
+	}{
+		{"/model-deprecations", b.applyDeprecations},
+		{"/models/", b.applyOverview},
+		{"/pricing", b.applyPricing},
+	} {
+		for _, doc := range docs {
+			if strings.Contains(doc.URL, stage.match) {
+				stage.apply(doc)
+			}
 		}
 	}
 	return b.result(), nil
 }
 
-// builder accumulates models across documents. nameToID carries the display
-// name to identifier mapping the overview establishes, which the pricing
-// tables then depend on.
+// builder accumulates models across documents.
+//
+// Two indexes exist because Anthropic identifies models three different ways.
+// nameToID holds the display name to identifier mapping the overview states
+// outright. byTokens holds the identifiers the deprecations page lists, keyed
+// on their version tokens, which is the only way to reach a retired model
+// whose display name and identifier order their tokens differently.
 type builder struct {
-	models   map[string]*catalog.Model
-	order    []string
-	nameToID map[string]string
+	models    map[string]*catalog.Model
+	order     []string
+	nameToID  map[string]string
+	byTokens  map[string]string
+	ambiguous map[string]bool
 }
 
 func newBuilder() *builder {
 	return &builder{
-		models:   map[string]*catalog.Model{},
-		nameToID: map[string]string{},
+		models:    map[string]*catalog.Model{},
+		nameToID:  map[string]string{},
+		byTokens:  map[string]string{},
+		ambiguous: map[string]bool{},
 	}
 }
 
-// resolve turns a display name from a pricing row into an identifier. Models
-// the overview does not list, which are the retired ones, fall back to the
-// alias form of their name.
+// resolve turns a display name from a pricing row into an identifier, in
+// descending order of how directly Anthropic states it: the overview names the
+// identifier for current models, the deprecations page lists it for every
+// model including retired ones, and only a model on neither page falls back to
+// a slug of its display name.
 func (b *builder) resolve(name string) string {
 	if id, ok := b.nameToID[strings.ToLower(name)]; ok {
+		return id
+	}
+	if id, ok := b.lookup(name); ok {
 		return id
 	}
 	return slugID(name)

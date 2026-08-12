@@ -75,6 +75,8 @@
     "comparative_latency": "Moderate",
     "google_cloud_id": "claude-opus-4-5@20251101",
     "knowledge_cutoff": "May 2025",
+    "retirement_date": "Not sooner than November 24, 2026",
+    "state": "active",
     "training_data_cutoff": "Aug 2025"
   },
   "limits": {
@@ -90,6 +92,7 @@
     ]
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

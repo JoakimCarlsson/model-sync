@@ -1,7 +1,7 @@
 {
-  "id": "claude-opus-4-1",
+  "id": "claude-opus-4-20250514",
   "provider": "anthropic",
-  "name": "Claude Opus 4.1",
+  "name": "Claude Opus 4",
   "kind": "chat",
   "prices": [
     {
@@ -71,9 +71,14 @@
     }
   ],
   "attrs": {
-    "availability": "retired, except on Bedrock and Google Cloud"
+    "availability": "retired, except on Google Cloud",
+    "deprecated_on": "April 14, 2026",
+    "recommended_replacement": "claude-opus-4-8",
+    "retirement_date": "June 15, 2026",
+    "state": "retired"
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]
 }

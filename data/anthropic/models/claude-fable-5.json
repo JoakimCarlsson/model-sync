@@ -75,6 +75,8 @@
     "comparative_latency": "Slower",
     "google_cloud_id": "claude-fable-5",
     "knowledge_cutoff": "Jan 2026",
+    "retirement_date": "Not sooner than June 9, 2027",
+    "state": "active",
     "summary": "Next-generation intelligence for long-running agents",
     "training_data_cutoff": "Jan 2026"
   },
@@ -94,6 +96,7 @@
     "adaptive_thinking always on"
   ],
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]

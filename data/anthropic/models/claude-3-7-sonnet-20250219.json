@@ -1,0 +1,14 @@
+{
+  "id": "claude-3-7-sonnet-20250219",
+  "provider": "anthropic",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "October 28, 2025",
+    "recommended_replacement": "claude-sonnet-4-6",
+    "retirement_date": "February 19, 2026",
+    "state": "retired"
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md"
+  ]
+}

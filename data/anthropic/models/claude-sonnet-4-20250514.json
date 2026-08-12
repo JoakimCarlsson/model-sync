@@ -1,13 +1,13 @@
 {
-  "id": "claude-haiku-3-5",
+  "id": "claude-sonnet-4-20250514",
   "provider": "anthropic",
-  "name": "Claude Haiku 3.5",
+  "name": "Claude Sonnet 4",
   "kind": "chat",
   "prices": [
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.6,
+      "amount": 6,
       "currency": "USD",
       "dims": {
         "cache_ttl": "1h",
@@ -17,7 +17,7 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
+      "amount": 3.75,
       "currency": "USD",
       "dims": {
         "cache_ttl": "5m",
@@ -27,7 +27,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.08,
+      "amount": 0.3,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -36,7 +36,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.4,
+      "amount": 1.5,
       "currency": "USD",
       "dims": {
         "tier": "batch"
@@ -45,7 +45,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.8,
+      "amount": 3,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -54,7 +54,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
+      "amount": 7.5,
       "currency": "USD",
       "dims": {
         "tier": "batch"
@@ -63,7 +63,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 4,
+      "amount": 15,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -71,9 +71,14 @@
     }
   ],
   "attrs": {
-    "availability": "retired, except on Bedrock and Google Cloud"
+    "availability": "retired, except on Bedrock and Google Cloud",
+    "deprecated_on": "April 14, 2026",
+    "recommended_replacement": "claude-sonnet-4-6",
+    "retirement_date": "June 15, 2026",
+    "state": "retired"
   },
   "sources": [
+    "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]
 }
