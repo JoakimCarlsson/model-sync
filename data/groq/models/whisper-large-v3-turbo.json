@@ -1,0 +1,24 @@
+{
+  "id": "whisper-large-v3-turbo",
+  "provider": "groq",
+  "name": "Whisper Large V3 Turbo",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.04,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "production"
+  },
+  "limits": {
+    "audio_seconds_per_hour": 400000,
+    "requests_per_minute": 400
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

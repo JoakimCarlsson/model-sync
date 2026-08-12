@@ -1,0 +1,34 @@
+{
+  "id": "qwen/qwen3.6-27b",
+  "provider": "groq",
+  "name": "Qwen/Qwen3.6-27B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "max_file_size": "20 MB",
+    "state": "preview",
+    "tokens_per_second": "500"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 16384,
+    "requests_per_minute": 1000,
+    "tokens_per_minute": 250000
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

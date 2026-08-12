@@ -1,0 +1,18 @@
+{
+  "id": "minimaxai/minimax-m2.7",
+  "provider": "groq",
+  "name": "MiniMax M2.7",
+  "kind": "chat",
+  "attrs": {
+    "access": "Enterprise",
+    "state": "preview",
+    "tokens_per_second": "260"
+  },
+  "limits": {
+    "context_window": 196608,
+    "max_output_tokens": 131072
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

@@ -9,6 +9,7 @@ import (
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 	"github.com/joakimcarlsson/model-sync/providers/anthropic"
+	"github.com/joakimcarlsson/model-sync/providers/groq"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
 	"github.com/joakimcarlsson/model-sync/providers/openrouter"
 	"github.com/joakimcarlsson/model-sync/providers/together"
@@ -53,7 +54,10 @@ func run(data, api, cache string, timeout time.Duration) error {
 	openrouterSource.CacheDir = cache
 	togetherSource := together.New()
 	togetherSource.CacheDir = cache
+	groqSource := groq.New()
+	groqSource.CacheDir = cache
 	sources := []catalog.Source{
+		groqSource,
 		openaiSource,
 		anthropicSource,
 		xaiSource,

@@ -1,0 +1,20 @@
+{
+  "id": "groq/compound-mini",
+  "provider": "groq",
+  "name": "Compound Mini",
+  "kind": "chat",
+  "attrs": {
+    "is_system": "true",
+    "state": "production",
+    "tokens_per_second": "450"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 8192,
+    "requests_per_minute": 200,
+    "tokens_per_minute": 200000
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

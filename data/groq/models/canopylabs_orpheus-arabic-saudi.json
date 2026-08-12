@@ -1,0 +1,26 @@
+{
+  "id": "canopylabs/orpheus-arabic-saudi",
+  "provider": "groq",
+  "name": "Canopy Labs Orpheus Arabic Saudi",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1m_characters",
+      "amount": 40,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "preview"
+  },
+  "limits": {
+    "context_window": 4000,
+    "max_output_tokens": 50000,
+    "requests_per_minute": 250,
+    "tokens_per_minute": 50000
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

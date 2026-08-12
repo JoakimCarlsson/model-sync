@@ -1,0 +1,32 @@
+{
+  "id": "meta-llama/llama-prompt-guard-2-22m",
+  "provider": "groq",
+  "name": "Llama Prompt Guard 2 22M",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "preview"
+  },
+  "limits": {
+    "context_window": 512,
+    "max_output_tokens": 512,
+    "requests_per_minute": 100,
+    "tokens_per_minute": 30000
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

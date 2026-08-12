@@ -1,0 +1,33 @@
+{
+  "id": "openai/gpt-oss-safeguard-20b",
+  "provider": "groq",
+  "name": "Safety GPT OSS 20B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "state": "preview",
+    "tokens_per_second": "1000"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 65536,
+    "requests_per_minute": 1000,
+    "tokens_per_minute": 150000
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}

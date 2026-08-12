@@ -1730,6 +1730,434 @@
       ]
     },
     {
+      "id": "groq",
+      "name": "Groq",
+      "models": [
+        {
+          "id": "canopylabs/orpheus-arabic-saudi",
+          "provider": "groq",
+          "name": "Canopy Labs Orpheus Arabic Saudi",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "speech",
+              "unit": "per_1m_characters",
+              "amount": 40,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "preview"
+          },
+          "limits": {
+            "context_window": 4000,
+            "max_output_tokens": 50000,
+            "requests_per_minute": 250,
+            "tokens_per_minute": 50000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "canopylabs/orpheus-v1-english",
+          "provider": "groq",
+          "name": "Canopy Labs Orpheus V1 English",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "speech",
+              "unit": "per_1m_characters",
+              "amount": 22,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "preview"
+          },
+          "limits": {
+            "context_window": 4000,
+            "max_output_tokens": 50000,
+            "requests_per_minute": 250,
+            "tokens_per_minute": 50000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "groq/compound",
+          "provider": "groq",
+          "name": "Compound",
+          "kind": "chat",
+          "attrs": {
+            "is_system": "true",
+            "state": "production",
+            "tokens_per_second": "450"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 8192,
+            "requests_per_minute": 200,
+            "tokens_per_minute": 200000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "groq/compound-mini",
+          "provider": "groq",
+          "name": "Compound Mini",
+          "kind": "chat",
+          "attrs": {
+            "is_system": "true",
+            "state": "production",
+            "tokens_per_second": "450"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 8192,
+            "requests_per_minute": 200,
+            "tokens_per_minute": 200000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "llama-3.1-8b-instant",
+          "provider": "groq",
+          "name": "Llama 3.1 8B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.05,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.08,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "production",
+            "tokens_per_second": "560"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 131072,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 250000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "llama-3.3-70b-versatile",
+          "provider": "groq",
+          "name": "Llama 3.3 70B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.59,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.79,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "production",
+            "tokens_per_second": "280"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 32768,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 300000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-22m",
+          "provider": "groq",
+          "name": "Llama Prompt Guard 2 22M",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "preview"
+          },
+          "limits": {
+            "context_window": 512,
+            "max_output_tokens": 512,
+            "requests_per_minute": 100,
+            "tokens_per_minute": 30000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "meta-llama/llama-prompt-guard-2-86m",
+          "provider": "groq",
+          "name": "Prompt Guard 2 86M",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.04,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "preview"
+          },
+          "limits": {
+            "context_window": 512,
+            "max_output_tokens": 512,
+            "requests_per_minute": 100,
+            "tokens_per_minute": 30000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "minimaxai/minimax-m2.7",
+          "provider": "groq",
+          "name": "MiniMax M2.7",
+          "kind": "chat",
+          "attrs": {
+            "access": "Enterprise",
+            "state": "preview",
+            "tokens_per_second": "260"
+          },
+          "limits": {
+            "context_window": 196608,
+            "max_output_tokens": 131072
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "provider": "groq",
+          "name": "GPT OSS 120B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.15,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.6,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "production",
+            "tokens_per_second": "500"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 65536,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 250000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-20b",
+          "provider": "groq",
+          "name": "GPT OSS 20B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.075,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "production",
+            "tokens_per_second": "1000"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 65536,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 250000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-safeguard-20b",
+          "provider": "groq",
+          "name": "Safety GPT OSS 20B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.075,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "preview",
+            "tokens_per_second": "1000"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 65536,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 150000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "qwen/qwen3.6-27b",
+          "provider": "groq",
+          "name": "Qwen/Qwen3.6-27B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.6,
+              "currency": "USD"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "max_file_size": "20 MB",
+            "state": "preview",
+            "tokens_per_second": "500"
+          },
+          "limits": {
+            "context_window": 131072,
+            "max_output_tokens": 16384,
+            "requests_per_minute": 1000,
+            "tokens_per_minute": 250000
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "whisper-large-v3",
+          "provider": "groq",
+          "name": "Whisper",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.111,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "max_file_size": "100 MB",
+            "state": "production"
+          },
+          "limits": {
+            "audio_seconds_per_hour": 200000,
+            "requests_per_minute": 300
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        },
+        {
+          "id": "whisper-large-v3-turbo",
+          "provider": "groq",
+          "name": "Whisper Large V3 Turbo",
+          "kind": "audio",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.04,
+              "currency": "USD"
+            }
+          ],
+          "attrs": {
+            "state": "production"
+          },
+          "limits": {
+            "audio_seconds_per_hour": 400000,
+            "requests_per_minute": 400
+          },
+          "sources": [
+            "https://console.groq.com/docs/models.md"
+          ]
+        }
+      ]
+    },
+    {
       "id": "openai",
       "name": "OpenAI",
       "models": [

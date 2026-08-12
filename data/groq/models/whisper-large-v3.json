@@ -1,0 +1,25 @@
+{
+  "id": "whisper-large-v3",
+  "provider": "groq",
+  "name": "Whisper",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.111,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "max_file_size": "100 MB",
+    "state": "production"
+  },
+  "limits": {
+    "audio_seconds_per_hour": 200000,
+    "requests_per_minute": 300
+  },
+  "sources": [
+    "https://console.groq.com/docs/models.md"
+  ]
+}
