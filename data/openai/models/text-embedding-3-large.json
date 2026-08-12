@@ -34,7 +34,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/text-embedding-3-large.md"
+    "https://developers.openai.com/api/docs/models/text-embedding-3-large.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

@@ -35,7 +35,15 @@ func scanMarkdownTables(doc catalog.Document) []mdTable {
 		line := strings.TrimSpace(raw)
 		if strings.HasPrefix(line, "|") {
 			if current == nil {
-				out = append(out, mdTable{Kind: kind, Tier: tier, Unit: unit, Source: doc.URL})
+				out = append(
+					out,
+					mdTable{
+						Kind:   kind,
+						Tier:   tier,
+						Unit:   unit,
+						Source: doc.URL,
+					},
+				)
 				current = &out[len(out)-1]
 			}
 			cells := splitRow(line)
@@ -155,7 +163,11 @@ func headerColumn(header string) column {
 	case "training":
 		return column{role: rolePrice, metric: MetricTraining}
 	case "price per second":
-		return column{role: rolePrice, metric: MetricVideoOutput, unit: UnitPerSecond}
+		return column{
+			role:   rolePrice,
+			metric: MetricVideoOutput,
+			unit:   UnitPerSecond,
+		}
 	case "estimated cost", "pricing":
 		return column{role: rolePrice, metric: MetricUsage}
 	}
@@ -233,7 +245,9 @@ func addMemoryPrices(m *catalog.Model, cell string, dims catalog.Dims) bool {
 	if len(matches) == 0 {
 		return false
 	}
-	note := strings.TrimSpace(strings.TrimLeft(cell[matches[len(matches)-1][1]:], ", "))
+	note := strings.TrimSpace(
+		strings.TrimLeft(cell[matches[len(matches)-1][1]:], ", "),
+	)
 	for _, at := range matches {
 		value, err := strconv.ParseFloat(cell[at[4]:at[5]], 64)
 		if err != nil {
@@ -254,7 +268,11 @@ func addMemoryPrices(m *catalog.Model, cell string, dims catalog.Dims) bool {
 // metricFor specializes a column's metric where the section makes it more
 // precise: a tool row priced per call is a tool call, and one priced per
 // gigabyte-day is storage.
-func metricFor(kind catalog.Kind, m catalog.Metric, unit catalog.Unit) catalog.Metric {
+func metricFor(
+	kind catalog.Kind,
+	m catalog.Metric,
+	unit catalog.Unit,
+) catalog.Metric {
 	if kind != KindTool || m != MetricUsage {
 		return m
 	}

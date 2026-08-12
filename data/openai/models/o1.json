@@ -5,16 +5,6 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 7.5,
@@ -25,16 +15,6 @@
       }
     },
     {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 60,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 7.5,
@@ -45,6 +25,16 @@
       }
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 30,
@@ -52,6 +42,16 @@
       "dims": {
         "context": "short",
         "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
       }
     }
   ],
@@ -66,23 +66,23 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/assistants",
-      "v1/batch"
+      "v1/batch",
+      "v1/chat/completions",
+      "v1/responses"
     ],
     "features": [
+      "file_search",
+      "file_uploads",
+      "function_calling",
+      "image_input",
       "reasoning",
       "streaming",
-      "structured_outputs",
-      "file_search",
-      "function_calling",
-      "file_uploads",
-      "image_input"
+      "structured_outputs"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -91,13 +91,13 @@
       "o1-2024-12-17"
     ],
     "tools": [
-      "function_calling",
       "file_search",
+      "function_calling",
       "mcp"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/o1.md"
+    "https://developers.openai.com/api/docs/models/o1.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

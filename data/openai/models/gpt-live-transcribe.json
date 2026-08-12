@@ -38,7 +38,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-live-transcribe.md"
+    "https://developers.openai.com/api/docs/models/gpt-live-transcribe.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

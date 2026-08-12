@@ -35,8 +35,10 @@ const (
 )
 
 var (
-	modelIDRe    = regexp.MustCompile("(?m)^Model ID:\\s*`([^`]+)`")
-	reasoningRe  = regexp.MustCompile(`(?i)^Reasoning\.effort supports:\s*(.+)$`)
+	modelIDRe   = regexp.MustCompile("(?m)^Model ID:\\s*`([^`]+)`")
+	reasoningRe = regexp.MustCompile(
+		`(?i)^Reasoning\.effort supports:\s*(.+)$`,
+	)
 	numberLeadRe = regexp.MustCompile(`^([\d][\d,]*)\s+(.+)$`)
 )
 
@@ -69,14 +71,21 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 			}
 			continue
 		case strings.HasPrefix(line, "#"):
-			section = strings.ToLower(strings.TrimSpace(strings.TrimLeft(line, "# ")))
+			section = strings.ToLower(
+				strings.TrimSpace(strings.TrimLeft(line, "# ")),
+			)
 			priceHeader, rateHeaders = "", nil
 			continue
 		case line == "":
 			continue
 		}
 		if strings.HasPrefix(line, "> ") {
-			if text := strings.TrimSpace(line[2:]); !strings.Contains(text, "llms.txt") {
+			if text := strings.TrimSpace(
+				line[2:],
+			); !strings.Contains(
+				text,
+				"llms.txt",
+			) {
 				m.SetAttr(AttrSummary, text)
 			}
 			continue
@@ -199,9 +208,13 @@ func applyRateRow(m *catalog.Model, cells, headers []string) []string {
 	if headers == nil || !strings.HasPrefix(strings.ToLower(cells[0]), "tier") {
 		return headers
 	}
-	tier := strings.ToLower(strings.ReplaceAll(strings.TrimSpace(cells[0]), " ", "_"))
+	tier := strings.ToLower(
+		strings.ReplaceAll(strings.TrimSpace(cells[0]), " ", "_"),
+	)
 	for i := 1; i < len(cells) && i < len(headers); i++ {
-		key := strings.ToLower(strings.ReplaceAll(strings.TrimSpace(headers[i]), " ", "_"))
+		key := strings.ToLower(
+			strings.ReplaceAll(strings.TrimSpace(headers[i]), " ", "_"),
+		)
 		m.SetLimit(key+"_"+tier, parseCount(cells[i]))
 	}
 	return headers
@@ -209,7 +222,11 @@ func applyRateRow(m *catalog.Model, cells, headers []string) []string {
 
 // applyModelPriceRow records a rate from a model page, skipping metrics the
 // pricing page already covered.
-func applyModelPriceRow(m *catalog.Model, cells []string, header string) string {
+func applyModelPriceRow(
+	m *catalog.Model,
+	cells []string,
+	header string,
+) string {
 	if len(cells) < 2 {
 		return header
 	}

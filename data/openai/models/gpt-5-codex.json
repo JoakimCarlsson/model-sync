@@ -5,18 +5,18 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.25,
+      "amount": 0.125,
       "currency": "USD",
       "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.125,
+      "amount": 1.25,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -47,17 +47,17 @@
       "v1/responses"
     ],
     "features": [
+      "function_calling",
+      "image_input",
+      "prompt_caching",
       "reasoning",
       "streaming",
       "structured_outputs",
-      "function_calling",
-      "image_input",
-      "web_search",
-      "prompt_caching"
+      "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"

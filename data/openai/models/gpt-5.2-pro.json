@@ -7,6 +7,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 10.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 21,
       "currency": "USD",
       "dims": {
@@ -17,17 +27,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 168,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10.5,
+      "amount": 84,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -37,11 +37,11 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 84,
+      "amount": 168,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
@@ -74,18 +74,18 @@
       "v1/responses"
     ],
     "features": [
+      "file_search",
+      "function_calling",
+      "image_generation",
+      "image_input",
+      "mcp",
       "reasoning",
       "streaming",
-      "function_calling",
-      "file_search",
-      "image_input",
-      "image_generation",
-      "mcp",
       "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -94,15 +94,15 @@
       "gpt-5.2-pro-2025-12-11"
     ],
     "tools": [
-      "function_calling",
       "file_search",
+      "function_calling",
       "image_generation",
       "mcp",
       "web_search"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5.2-pro.md"
+    "https://developers.openai.com/api/docs/models/gpt-5.2-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

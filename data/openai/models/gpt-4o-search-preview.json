@@ -37,9 +37,9 @@
       "v1/chat/completions"
     ],
     "features": [
+      "image_input",
       "streaming",
-      "structured_outputs",
-      "image_input"
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"

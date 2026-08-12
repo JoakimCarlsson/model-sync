@@ -5,18 +5,18 @@
   "kind": "realtime",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.6,
+      "amount": 0.3,
       "currency": "USD",
       "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.3,
+      "amount": 0.6,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -50,12 +50,12 @@
       "prompt_caching"
     ],
     "input_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
       "gpt-4o-mini-realtime-preview-2024-12-17"

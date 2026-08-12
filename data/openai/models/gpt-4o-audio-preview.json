@@ -37,21 +37,21 @@
       "v1/chat/completions"
     ],
     "features": [
-      "streaming",
-      "function_calling"
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
-      "gpt-4o-audio-preview-2025-06-03",
+      "gpt-4o-audio-preview-2024-10-01",
       "gpt-4o-audio-preview-2024-12-17",
-      "gpt-4o-audio-preview-2024-10-01"
+      "gpt-4o-audio-preview-2025-06-03"
     ]
   },
   "sources": [

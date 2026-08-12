@@ -7,6 +7,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 150,
       "currency": "USD",
       "dims": {
@@ -17,17 +27,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 600,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 75,
+      "amount": 300,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -37,11 +37,11 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 300,
+      "amount": 600,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
@@ -56,18 +56,18 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
-      "reasoning",
-      "structured_outputs",
       "function_calling",
-      "image_input"
+      "image_input",
+      "reasoning",
+      "structured_outputs"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -76,13 +76,13 @@
       "o1-pro-2025-03-19"
     ],
     "tools": [
-      "function_calling",
       "file_search",
+      "function_calling",
       "mcp"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/o1-pro.md"
+    "https://developers.openai.com/api/docs/models/o1-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

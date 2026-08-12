@@ -5,14 +5,14 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 5,
+      "amount": 0.5,
       "currency": "USD",
       "dims": {
-        "context": "short",
+        "context": "long",
         "max_context_length": "<272k",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -21,31 +21,9 @@
       "amount": 0.5,
       "currency": "USD",
       "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 30,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10,
-      "currency": "USD",
-      "dims": {
         "context": "long",
         "max_context_length": "<272k",
-        "tier": "standard"
+        "tier": "flex"
       }
     },
     {
@@ -60,9 +38,75 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 45,
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
       "currency": "USD",
       "dims": {
         "context": "long",
@@ -82,58 +126,14 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.25,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 5,
+      "amount": 12.5,
       "currency": "USD",
       "dims": {
-        "context": "long",
+        "context": "short",
         "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 22.5,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "batch"
+        "tier": "fast"
       }
     },
     {
@@ -148,47 +148,25 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.25,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "flex"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 5,
       "currency": "USD",
       "dims": {
-        "context": "long",
+        "context": "short",
         "max_context_length": "<272k",
-        "tier": "flex"
+        "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 22.5,
       "currency": "USD",
       "dims": {
         "context": "long",
         "max_context_length": "<272k",
-        "tier": "flex"
+        "tier": "batch"
       }
     },
     {
@@ -203,25 +181,25 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 12.5,
+      "amount": 45,
       "currency": "USD",
       "dims": {
-        "context": "short",
+        "context": "long",
         "max_context_length": "<272k",
-        "tier": "fast"
+        "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.25,
+      "amount": 15,
       "currency": "USD",
       "dims": {
         "context": "short",
         "max_context_length": "<272k",
-        "tier": "fast"
+        "tier": "batch"
       }
     },
     {
@@ -233,6 +211,28 @@
         "context": "short",
         "max_context_length": "<272k",
         "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
       }
     }
   ],
@@ -262,24 +262,24 @@
   },
   "lists": {
     "endpoints": [
+      "v1/batch",
       "v1/chat/completions",
-      "v1/responses",
-      "v1/batch"
+      "v1/responses"
     ],
     "features": [
+      "file_search",
+      "file_uploads",
+      "function_calling",
+      "image_input",
+      "prompt_caching",
       "reasoning",
       "streaming",
       "structured_outputs",
-      "function_calling",
-      "file_search",
-      "file_uploads",
-      "image_input",
-      "web_search",
-      "prompt_caching"
+      "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -288,17 +288,17 @@
       "gpt-5.5-2026-04-23"
     ],
     "tools": [
-      "function_calling",
-      "web_search",
-      "file_search",
-      "tool_search",
-      "image_generation",
-      "code_interpreter",
-      "hosted_shell",
       "apply_patch",
-      "skills",
+      "code_interpreter",
       "computer_use",
-      "mcp"
+      "file_search",
+      "function_calling",
+      "hosted_shell",
+      "image_generation",
+      "mcp",
+      "skills",
+      "tool_search",
+      "web_search"
     ]
   },
   "notes": [
@@ -306,7 +306,7 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.5."
   ],
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5.5.md"
+    "https://developers.openai.com/api/docs/models/gpt-5.5.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

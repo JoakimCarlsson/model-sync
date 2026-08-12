@@ -46,8 +46,8 @@
   },
   "lists": {
     "endpoints": [
-      "v1/realtime",
-      "v1/audio/transcriptions"
+      "v1/audio/transcriptions",
+      "v1/realtime"
     ],
     "input_modalities": [
       "audio",
@@ -61,7 +61,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-4o-transcribe.md"
+    "https://developers.openai.com/api/docs/models/gpt-4o-transcribe.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

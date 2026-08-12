@@ -4,12 +4,30 @@
   "kind": "finetune",
   "prices": [
     {
-      "metric": "training",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 25,
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
       "currency": "USD",
       "dims": {
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
       }
     },
     {
@@ -22,12 +40,12 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.75,
+      "amount": 6,
       "currency": "USD",
       "dims": {
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -49,30 +67,12 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "training",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 25,
       "currency": "USD",
       "dims": {
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6,
-      "currency": "USD",
-      "dims": {
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],

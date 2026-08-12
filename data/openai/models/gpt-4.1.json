@@ -5,29 +5,19 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
+      "amount": 0.875,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "standard"
+        "tier": "fast"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -45,16 +35,6 @@
       }
     },
     {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 3.5,
@@ -65,13 +45,23 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.875,
+      "amount": 2,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "fast"
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
       }
     },
     {
@@ -82,6 +72,16 @@
       "dims": {
         "context": "short",
         "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
       }
     }
   ],
@@ -96,27 +96,27 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/assistants",
       "v1/batch",
-      "v1/fine-tuning"
+      "v1/chat/completions",
+      "v1/fine-tuning",
+      "v1/responses"
     ],
     "features": [
-      "streaming",
-      "structured_outputs",
-      "predicted_outputs",
-      "function_calling",
       "file_search",
       "file_uploads",
-      "image_input",
-      "web_search",
       "fine_tuning",
-      "prompt_caching"
+      "function_calling",
+      "image_input",
+      "predicted_outputs",
+      "prompt_caching",
+      "streaming",
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -125,16 +125,16 @@
       "gpt-4.1-2025-04-14"
     ],
     "tools": [
-      "function_calling",
-      "web_search",
-      "file_search",
-      "image_generation",
       "code_interpreter",
-      "mcp"
+      "file_search",
+      "function_calling",
+      "image_generation",
+      "mcp",
+      "web_search"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-4.1.md"
+    "https://developers.openai.com/api/docs/models/gpt-4.1.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

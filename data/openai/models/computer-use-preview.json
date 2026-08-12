@@ -34,16 +34,16 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
-      "reasoning",
-      "function_calling"
+      "function_calling",
+      "reasoning"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"

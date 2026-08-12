@@ -103,7 +103,8 @@ type Model struct {
 // survives into the output instead of being silently resolved here.
 func (m *Model) AddPrice(p Price) {
 	for _, existing := range m.Prices {
-		if existing.key() == p.key() && existing.Amount == p.Amount && existing.Note == p.Note {
+		if existing.key() == p.key() && existing.Amount == p.Amount &&
+			existing.Note == p.Note {
 			return
 		}
 	}
@@ -170,7 +171,21 @@ func (m *Model) AddSource(src string) {
 	m.Sources = append(m.Sources, src)
 }
 
-func (m *Model) sort() {
+// SortModels orders a slice of models and everything inside them. Every path
+// that persists models goes through this, because a parser is free to produce
+// prices in any order and map iteration alone would otherwise rewrite files
+// that did not change.
+func SortModels(models []Model) {
+	for i := range models {
+		models[i].Sort()
+	}
+	slices.SortStableFunc(models, func(a, b Model) int {
+		return strings.Compare(a.ID, b.ID)
+	})
+}
+
+// Sort orders one model's prices, notes, sources and enumerations.
+func (m *Model) Sort() {
 	slices.SortStableFunc(m.Prices, func(a, b Price) int {
 		if a.Metric != b.Metric {
 			return strings.Compare(string(a.Metric), string(b.Metric))
@@ -230,7 +245,10 @@ type Catalog struct {
 
 // Add appends a provider's models to the catalog.
 func (c *Catalog) Add(id, name string, models []Model) {
-	c.Providers = append(c.Providers, Provider{ID: id, Name: name, Models: models})
+	c.Providers = append(
+		c.Providers,
+		Provider{ID: id, Name: name, Models: models},
+	)
 }
 
 // Normalize orders providers, models, prices and enumerations so regenerating
@@ -240,13 +258,7 @@ func (c *Catalog) Normalize() {
 		return strings.Compare(a.ID, b.ID)
 	})
 	for i := range c.Providers {
-		models := c.Providers[i].Models
-		for j := range models {
-			models[j].sort()
-		}
-		slices.SortStableFunc(models, func(a, b Model) int {
-			return strings.Compare(a.ID, b.ID)
-		})
+		SortModels(c.Providers[i].Models)
 	}
 }
 

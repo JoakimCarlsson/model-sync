@@ -5,18 +5,18 @@
   "kind": "realtime",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 5,
+      "amount": 2.5,
       "currency": "USD",
       "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.5,
+      "amount": 5,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -50,17 +50,17 @@
       "prompt_caching"
     ],
     "input_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
-      "gpt-4o-realtime-preview-2025-06-03",
+      "gpt-4o-realtime-preview-2024-10-01",
       "gpt-4o-realtime-preview-2024-12-17",
-      "gpt-4o-realtime-preview-2024-10-01"
+      "gpt-4o-realtime-preview-2025-06-03"
     ]
   },
   "sources": [

@@ -5,146 +5,6 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.2,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2.5,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 12,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 5,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 18,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.25,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.2,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "batch"
-      }
-    },
-    {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.5,
@@ -152,156 +12,6 @@
       "dims": {
         "context": "long",
         "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 9,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.25,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.2,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2.5,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 9,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "fast"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "fast"
-      }
-    },
-    {
-      "metric": "cache_write_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 5,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "fast"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 24,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "fast"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "fast"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.8,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "tier": "fast"
       }
     },
     {
@@ -315,6 +25,236 @@
       }
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 36,
@@ -322,6 +262,66 @@
       "dims": {
         "context": "long",
         "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 24,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
       }
     }
   ],
@@ -352,57 +352,57 @@
   },
   "lists": {
     "endpoints": [
+      "v1/batch",
       "v1/chat/completions",
-      "v1/responses",
-      "v1/batch"
+      "v1/responses"
     ],
     "features": [
+      "file_search",
+      "function_calling",
+      "image_input",
+      "prompt_caching",
       "reasoning",
       "streaming",
       "structured_outputs",
-      "function_calling",
-      "file_search",
-      "image_input",
-      "web_search",
-      "prompt_caching"
+      "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
     ],
     "reasoning_efforts": [
-      "none",
-      "low",
-      "medium",
       "high",
-      "xhigh",
-      "max"
+      "low",
+      "max",
+      "medium",
+      "none",
+      "xhigh"
     ],
     "snapshots": [
       "gpt-5.6-terra"
     ],
     "tools": [
-      "web_search",
-      "file_search",
-      "image_generation",
-      "code_interpreter",
-      "hosted_shell",
       "apply_patch",
-      "skills",
+      "code_interpreter",
       "computer_use",
+      "file_search",
+      "hosted_shell",
+      "image_generation",
       "mcp",
-      "tool_search"
+      "skills",
+      "tool_search",
+      "web_search"
     ]
   },
   "notes": [
-    "Prompts with >272K input tokens are priced at 2x input and 1.5x output for the full request.",
-    "Cache writes are billed at 1.25x the uncached input token rate."
+    "Cache writes are billed at 1.25x the uncached input token rate.",
+    "Prompts with >272K input tokens are priced at 2x input and 1.5x output for the full request."
   ],
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5.6-terra.md"
+    "https://developers.openai.com/api/docs/models/gpt-5.6-terra.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

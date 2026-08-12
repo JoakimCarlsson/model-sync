@@ -5,22 +5,22 @@
   "kind": "realtime",
   "prices": [
     {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 12,
-      "currency": "USD",
-      "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD",
       "dims": {
         "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
         "tier": "standard"
       }
     }
@@ -40,12 +40,12 @@
       "audio"
     ],
     "snapshots": [
-      "gpt-4o-mini-tts-2025-12-15",
-      "gpt-4o-mini-tts-2025-03-20"
+      "gpt-4o-mini-tts-2025-03-20",
+      "gpt-4o-mini-tts-2025-12-15"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts.md"
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

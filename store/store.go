@@ -28,13 +28,22 @@ type providerMeta struct {
 // WriteProvider writes one provider's models under root, one file each, and
 // removes the files of models the provider no longer publishes so a withdrawn
 // model appears as a deletion.
+//
+// The models are sorted in place first. Sorting here rather than expecting the
+// caller to do it is what guarantees the committed files are stable: a parser
+// that emits prices in map order would otherwise rewrite files whose content
+// had not changed, and the diff is the reason these files are split at all.
 func WriteProvider(root string, p catalog.Provider) error {
+	catalog.SortModels(p.Models)
 	dir := filepath.Join(root, fileName(p.ID))
 	models := filepath.Join(dir, modelsDir)
 	if err := os.MkdirAll(models, 0o755); err != nil {
 		return err
 	}
-	if err := writeJSON(filepath.Join(dir, providerFile), providerMeta{ID: p.ID, Name: p.Name}); err != nil {
+	if err := writeJSON(
+		filepath.Join(dir, providerFile),
+		providerMeta{ID: p.ID, Name: p.Name},
+	); err != nil {
 		return err
 	}
 	taken := map[string]string{}
@@ -66,7 +75,10 @@ func Load(root string) (*catalog.Catalog, error) {
 		}
 		dir := filepath.Join(root, entry.Name())
 		var meta providerMeta
-		if err := readJSON(filepath.Join(dir, providerFile), &meta); err != nil {
+		if err := readJSON(
+			filepath.Join(dir, providerFile),
+			&meta,
+		); err != nil {
 			return nil, err
 		}
 		models, err := loadModels(filepath.Join(dir, modelsDir))
@@ -148,7 +160,8 @@ func prune(dir string, keep map[string]bool) error {
 		return err
 	}
 	for _, entry := range entries {
-		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ext) || keep[entry.Name()] {
+		if entry.IsDir() || !strings.HasSuffix(entry.Name(), ext) ||
+			keep[entry.Name()] {
 			continue
 		}
 		if err := os.Remove(filepath.Join(dir, entry.Name())); err != nil {

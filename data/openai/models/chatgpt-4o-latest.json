@@ -38,13 +38,13 @@
       "v1/responses"
     ],
     "features": [
-      "streaming",
+      "image_input",
       "predicted_outputs",
-      "image_input"
+      "streaming"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"

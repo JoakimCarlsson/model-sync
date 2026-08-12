@@ -34,19 +34,19 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/assistants",
-      "v1/batch"
+      "v1/batch",
+      "v1/chat/completions",
+      "v1/responses"
     ],
     "features": [
-      "streaming",
       "function_calling",
-      "image_input"
+      "image_input",
+      "streaming"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"

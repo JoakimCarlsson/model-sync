@@ -21,8 +21,8 @@
   },
   "lists": {
     "endpoints": [
-      "v1/realtime/transcription_sessions",
-      "v1/audio/transcriptions"
+      "v1/audio/transcriptions",
+      "v1/realtime/transcription_sessions"
     ],
     "features": [
       "streaming"
@@ -39,7 +39,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-transcribe.md"
+    "https://developers.openai.com/api/docs/models/gpt-transcribe.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

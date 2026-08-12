@@ -46,8 +46,8 @@
   },
   "lists": {
     "endpoints": [
-      "v1/realtime",
-      "v1/audio/transcriptions"
+      "v1/audio/transcriptions",
+      "v1/realtime"
     ],
     "input_modalities": [
       "audio",
@@ -57,12 +57,12 @@
       "text"
     ],
     "snapshots": [
-      "gpt-4o-mini-transcribe-2025-12-15",
-      "gpt-4o-mini-transcribe-2025-03-20"
+      "gpt-4o-mini-transcribe-2025-03-20",
+      "gpt-4o-mini-transcribe-2025-12-15"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe.md"
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

@@ -14,14 +14,14 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
+      "function_calling",
       "reasoning",
       "streaming",
-      "structured_outputs",
-      "function_calling"
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"
@@ -33,8 +33,8 @@
       "gpt-oss-20b"
     ],
     "tools": [
-      "function_calling",
       "code_interpreter",
+      "function_calling",
       "mcp",
       "web_search"
     ]

@@ -81,7 +81,11 @@ func parseJSXRow(row string) []jsxCell {
 	matches := cellRe.FindAllStringSubmatch(row, -1)
 	cells := make([]jsxCell, 0, len(matches))
 	for _, m := range matches {
-		cell := jsxCell{text: cellText(m[3]), header: strings.EqualFold(m[1], "th"), rowSpan: 1}
+		cell := jsxCell{
+			text:    cellText(m[3]),
+			header:  strings.EqualFold(m[1], "th"),
+			rowSpan: 1,
+		}
 		if s := rowSpanRe.FindStringSubmatch(m[2]); s != nil {
 			if n, err := strconv.Atoi(s[1]); err == nil && n > 1 {
 				cell.rowSpan = n
@@ -132,7 +136,18 @@ func cellTexts(cells []jsxCell) []string {
 // behind.
 func cellText(s string) string {
 	s = tagRe.ReplaceAllString(s, " ")
-	r := strings.NewReplacer("&nbsp;", " ", "&amp;", "&", "&times;", "x", "&lt;", "<", "&gt;", ">")
+	r := strings.NewReplacer(
+		"&nbsp;",
+		" ",
+		"&amp;",
+		"&",
+		"&times;",
+		"x",
+		"&lt;",
+		"<",
+		"&gt;",
+		">",
+	)
 	return strings.Join(strings.Fields(r.Replace(s)), " ")
 }
 
@@ -149,7 +164,9 @@ func (b *builder) applyImageTable(t jsxTable) {
 		case strings.EqualFold(h, "quality"):
 			qualityCol = i
 		default:
-			if m := sizeHeaderRe.FindStringSubmatch(strings.TrimSpace(h)); m != nil {
+			if m := sizeHeaderRe.FindStringSubmatch(
+				strings.TrimSpace(h),
+			); m != nil {
 				sizes[i] = m[1] + "x" + m[2]
 			}
 		}
@@ -163,7 +180,12 @@ func (b *builder) applyImageTable(t jsxTable) {
 }
 
 // applyImageRow emits one per-image price per size column.
-func (b *builder) applyImageRow(t jsxTable, row []string, idCol, qualityCol int, sizes map[int]string) {
+func (b *builder) applyImageRow(
+	t jsxTable,
+	row []string,
+	idCol, qualityCol int,
+	sizes map[int]string,
+) {
 	name, note := splitAdditionalSizes(cellAt(row, idCol))
 	id := slugID(name)
 	if id == "" {
@@ -198,5 +220,7 @@ func splitAdditionalSizes(cell string) (name, note string) {
 	if !strings.Contains(cell, additionalSizes) {
 		return strings.TrimSpace(cell), ""
 	}
-	return strings.TrimSpace(strings.ReplaceAll(cell, additionalSizes, "")), additionalSizes
+	return strings.TrimSpace(
+		strings.ReplaceAll(cell, additionalSizes, ""),
+	), additionalSizes
 }

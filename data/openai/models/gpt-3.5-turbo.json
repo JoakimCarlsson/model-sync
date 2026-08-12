@@ -15,23 +15,13 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.5,
       "currency": "USD",
       "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "training",
-      "unit": "per_1m_tokens",
-      "amount": 8,
-      "currency": "USD",
-      "dims": {
         "legacy": "true",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -42,6 +32,26 @@
       "dims": {
         "legacy": "true",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "legacy": "true",
+        "tier": "batch"
       }
     },
     {
@@ -65,23 +75,13 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "training",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 8,
       "currency": "USD",
       "dims": {
         "legacy": "true",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 3,
-      "currency": "USD",
-      "dims": {
-        "legacy": "true",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
@@ -96,10 +96,10 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/batch",
-      "v1/fine-tuning"
+      "v1/chat/completions",
+      "v1/fine-tuning",
+      "v1/responses"
     ],
     "features": [
       "fine_tuning"
@@ -117,7 +117,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-3.5-turbo.md"
+    "https://developers.openai.com/api/docs/models/gpt-3.5-turbo.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

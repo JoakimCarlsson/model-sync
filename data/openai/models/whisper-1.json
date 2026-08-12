@@ -35,7 +35,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/whisper-1.md"
+    "https://developers.openai.com/api/docs/models/whisper-1.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

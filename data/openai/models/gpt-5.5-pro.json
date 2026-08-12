@@ -7,21 +7,10 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 30,
+      "amount": 60,
       "currency": "USD",
       "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 180,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
+        "context": "long",
         "max_context_length": "<272k",
         "tier": "standard"
       }
@@ -29,10 +18,32 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 60,
+      "amount": 15,
       "currency": "USD",
       "dims": {
-        "context": "long",
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
         "max_context_length": "<272k",
         "tier": "standard"
       }
@@ -49,9 +60,9 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 15,
+      "amount": 90,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -67,29 +78,18 @@
       "dims": {
         "context": "short",
         "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
         "tier": "flex"
       }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 90,
+      "amount": 180,
       "currency": "USD",
       "dims": {
         "context": "short",
         "max_context_length": "<272k",
-        "tier": "flex"
+        "tier": "standard"
       }
     }
   ],
@@ -104,22 +104,22 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
+      "file_search",
+      "function_calling",
+      "image_generation",
+      "image_input",
+      "mcp",
       "reasoning",
       "structured_outputs",
-      "function_calling",
-      "file_search",
-      "image_input",
-      "image_generation",
-      "mcp",
       "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -128,13 +128,13 @@
       "gpt-5.5-pro-2026-04-23"
     ],
     "tools": [
-      "function_calling",
-      "web_search",
-      "file_search",
-      "image_generation",
       "code_interpreter",
+      "file_search",
+      "function_calling",
       "hosted_shell",
-      "mcp"
+      "image_generation",
+      "mcp",
+      "web_search"
     ]
   },
   "notes": [
@@ -142,7 +142,7 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.5 Pro."
   ],
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5.5-pro.md"
+    "https://developers.openai.com/api/docs/models/gpt-5.5-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

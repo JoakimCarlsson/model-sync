@@ -131,7 +131,10 @@ func unitHint(line string) (catalog.Unit, bool) {
 	if !strings.HasPrefix(l, "prices per ") {
 		return "", false
 	}
-	l = strings.TrimSuffix(strings.TrimPrefix(l, "prices per "), " unless noted")
+	l = strings.TrimSuffix(
+		strings.TrimPrefix(l, "prices per "),
+		" unless noted",
+	)
 	return unitFor(l)
 }
 
@@ -207,7 +210,10 @@ func parseAmount(cell string) amount {
 	for end < len(rest) && (rest[end] >= '0' && rest[end] <= '9' || rest[end] == '.' || rest[end] == ',') {
 		end++
 	}
-	value, err := strconv.ParseFloat(strings.ReplaceAll(strings.TrimSuffix(rest[:end], "."), ",", ""), 64)
+	value, err := strconv.ParseFloat(
+		strings.ReplaceAll(strings.TrimSuffix(rest[:end], "."), ",", ""),
+		64,
+	)
 	if err != nil {
 		return amount{Note: c}
 	}
@@ -259,14 +265,19 @@ func splitQualifier(cell string) qualifier {
 		return qualifier{ID: slugID(raw)}
 	}
 	inner := strings.TrimSpace(raw[open+1 : len(raw)-1])
-	q := qualifier{ID: slugID(strings.TrimSpace(raw[:open])), Dims: catalog.Dims{}}
+	q := qualifier{
+		ID:   slugID(strings.TrimSpace(raw[:open])),
+		Dims: catalog.Dims{},
+	}
 	switch {
 	case strings.EqualFold(inner, "data sharing"):
 		q.Dims[DimDataSharing] = "true"
 	case strings.EqualFold(inner, "legacy"):
 		q.Dims[DimLegacy] = "true"
 	case strings.HasSuffix(strings.ToLower(inner), "context length"):
-		q.Dims[DimMaxContext] = strings.TrimSpace(strings.TrimSuffix(strings.ToLower(inner), "context length"))
+		q.Dims[DimMaxContext] = strings.TrimSpace(
+			strings.TrimSuffix(strings.ToLower(inner), "context length"),
+		)
 	default:
 		q.Note = inner
 	}

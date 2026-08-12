@@ -5,63 +5,13 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.275,
+      "amount": 0.5,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.4,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.55,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2.2,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.55,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "flex"
+        "tier": "fast"
       }
     },
     {
@@ -75,13 +25,23 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.2,
+      "amount": 0.275,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "flex"
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
       }
     },
     {
@@ -95,13 +55,33 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 0.55,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "fast"
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
       }
     },
     {
@@ -112,6 +92,26 @@
       "dims": {
         "context": "short",
         "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
       }
     }
   ],
@@ -126,27 +126,27 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/batch",
-      "v1/fine-tuning"
+      "v1/chat/completions",
+      "v1/fine-tuning",
+      "v1/responses"
     ],
     "features": [
-      "reasoning",
-      "streaming",
-      "structured_outputs",
-      "function_calling",
+      "evals",
       "file_search",
       "file_uploads",
+      "fine_tuning",
+      "function_calling",
       "image_input",
       "prompt_caching",
-      "evals",
+      "reasoning",
       "stored_completions",
-      "fine_tuning"
+      "streaming",
+      "structured_outputs"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -155,15 +155,15 @@
       "o4-mini-2025-04-16"
     ],
     "tools": [
-      "function_calling",
-      "file_search",
       "code_interpreter",
+      "file_search",
+      "function_calling",
       "mcp",
       "web_search"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/o4-mini.md"
+    "https://developers.openai.com/api/docs/models/o4-mini.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

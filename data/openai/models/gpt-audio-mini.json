@@ -15,22 +15,22 @@
       }
     },
     {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 20,
-      "currency": "USD",
-      "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD",
       "dims": {
         "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
         "tier": "standard"
       }
     },
@@ -63,23 +63,23 @@
       "prompt_caching"
     ],
     "input_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
-      "gpt-audio-mini-2025-12-15",
-      "gpt-audio-mini-2025-10-06"
+      "gpt-audio-mini-2025-10-06",
+      "gpt-audio-mini-2025-12-15"
     ],
     "tools": [
       "function_calling"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-audio-mini.md"
+    "https://developers.openai.com/api/docs/models/gpt-audio-mini.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

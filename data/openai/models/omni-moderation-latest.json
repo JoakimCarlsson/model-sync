@@ -27,8 +27,8 @@
       "image_input"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -38,7 +38,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/omni-moderation-latest.md"
+    "https://developers.openai.com/api/docs/models/omni-moderation-latest.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

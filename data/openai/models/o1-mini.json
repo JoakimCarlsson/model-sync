@@ -5,18 +5,18 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.1,
+      "amount": 0.55,
       "currency": "USD",
       "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.55,
+      "amount": 1.1,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -43,14 +43,14 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/assistants"
+      "v1/assistants",
+      "v1/chat/completions"
     ],
     "features": [
-      "reasoning",
-      "streaming",
       "file_search",
-      "file_uploads"
+      "file_uploads",
+      "reasoning",
+      "streaming"
     ],
     "input_modalities": [
       "text"
@@ -62,8 +62,8 @@
       "o1-mini-2024-09-12"
     ],
     "tools": [
-      "file_search",
       "code_interpreter",
+      "file_search",
       "mcp"
     ]
   },

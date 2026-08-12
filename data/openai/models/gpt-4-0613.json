@@ -6,11 +6,31 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 30,
       "currency": "USD",
       "dims": {
         "context": "short",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
       }
     },
     {
@@ -21,26 +41,6 @@
       "dims": {
         "context": "short",
         "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 30,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
       }
     }
   ],

@@ -83,7 +83,10 @@ func modelPageURLs(index []byte) []string {
 
 // getAll retrieves urls concurrently and returns the documents in the order
 // the urls were given, so a run is reproducible.
-func (p *Provider) getAll(ctx context.Context, urls []string) ([]catalog.Document, []error) {
+func (p *Provider) getAll(
+	ctx context.Context,
+	urls []string,
+) ([]catalog.Document, []error) {
 	docs := make([]catalog.Document, len(urls))
 	errs := make([]error, len(urls))
 	var wg sync.WaitGroup
@@ -117,7 +120,10 @@ func (p *Provider) getAll(ctx context.Context, urls []string) ([]catalog.Documen
 
 // get retrieves one document, reading from and writing to the cache directory
 // when one is configured.
-func (p *Provider) get(ctx context.Context, url string) (catalog.Document, error) {
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
 	if body, ok := p.readCache(url); ok {
 		return catalog.Document{URL: url, Body: body}, nil
 	}
@@ -133,7 +139,7 @@ func (p *Provider) get(ctx context.Context, url string) (catalog.Document, error
 	if err != nil {
 		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
-	defer resp.Body.Close()
+	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
 		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
@@ -170,7 +176,10 @@ func (p *Provider) writeCache(url string, body []byte) {
 func cacheName(url string) string {
 	trimmed := strings.TrimPrefix(url, baseURL+"/")
 	return strings.Map(func(r rune) rune {
-		if r >= 'a' && r <= 'z' || r >= 'A' && r <= 'Z' || r >= '0' && r <= '9' || r == '.' || r == '-' {
+		if r >= 'a' && r <= 'z' || r >= 'A' && r <= 'Z' ||
+			r >= '0' && r <= '9' ||
+			r == '.' ||
+			r == '-' {
 			return r
 		}
 		return '_'

@@ -10,20 +10,20 @@
       "amount": 30,
       "currency": "USD",
       "dims": {
-        "context": "short",
+        "context": "long",
         "max_context_length": "<272k",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 180,
+      "amount": 30,
       "currency": "USD",
       "dims": {
-        "context": "short",
+        "context": "long",
         "max_context_length": "<272k",
-        "tier": "standard"
+        "tier": "flex"
       }
     },
     {
@@ -38,6 +38,61 @@
       }
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "max_context_length": "<272k",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 135,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 135,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "max_context_length": "<272k",
+        "tier": "flex"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 270,
@@ -49,9 +104,9 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 15,
+      "amount": 90,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -67,73 +122,18 @@
       "dims": {
         "context": "short",
         "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 30,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "batch"
+        "tier": "flex"
       }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 135,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 15,
+      "amount": 180,
       "currency": "USD",
       "dims": {
         "context": "short",
         "max_context_length": "<272k",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 90,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "max_context_length": "<272k",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 30,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 135,
-      "currency": "USD",
-      "dims": {
-        "context": "long",
-        "max_context_length": "<272k",
-        "tier": "flex"
+        "tier": "standard"
       }
     }
   ],
@@ -166,18 +166,18 @@
       "v1/responses"
     ],
     "features": [
+      "file_search",
+      "function_calling",
+      "image_generation",
+      "image_input",
+      "mcp",
       "reasoning",
       "streaming",
-      "function_calling",
-      "file_search",
-      "image_input",
-      "image_generation",
-      "mcp",
       "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -186,14 +186,14 @@
       "gpt-5.4-pro-2026-03-05"
     ],
     "tools": [
-      "function_calling",
-      "web_search",
-      "file_search",
-      "tool_search",
-      "image_generation",
       "apply_patch",
       "computer_use",
-      "mcp"
+      "file_search",
+      "function_calling",
+      "image_generation",
+      "mcp",
+      "tool_search",
+      "web_search"
     ]
   },
   "notes": [
@@ -201,7 +201,7 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.4 and GPT-5.4 Pro."
   ],
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5.4-pro.md"
+    "https://developers.openai.com/api/docs/models/gpt-5.4-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

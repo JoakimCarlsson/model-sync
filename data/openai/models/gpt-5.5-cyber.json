@@ -4,9 +4,9 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 12.5,
+      "amount": 1.25,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -14,9 +14,9 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.25,
+      "amount": 12.5,
       "currency": "USD",
       "dims": {
         "context": "short",

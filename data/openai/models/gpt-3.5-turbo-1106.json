@@ -10,17 +10,7 @@
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -30,7 +20,7 @@
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "batch"
+        "tier": "standard"
       }
     },
     {
@@ -41,6 +31,16 @@
       "dims": {
         "context": "short",
         "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
       }
     }
   ],

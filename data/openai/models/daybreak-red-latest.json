@@ -33,18 +33,18 @@
       "v1/responses"
     ],
     "features": [
+      "file_search",
+      "function_calling",
+      "image_input",
+      "prompt_caching",
       "reasoning",
       "streaming",
       "structured_outputs",
-      "function_calling",
-      "file_search",
-      "image_input",
-      "web_search",
-      "prompt_caching"
+      "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -53,16 +53,16 @@
       "gpt-5.6-cyber"
     ],
     "tools": [
-      "web_search",
-      "file_search",
-      "image_generation",
-      "code_interpreter",
-      "hosted_shell",
       "apply_patch",
-      "skills",
+      "code_interpreter",
       "computer_use",
+      "file_search",
+      "hosted_shell",
+      "image_generation",
       "mcp",
-      "tool_search"
+      "skills",
+      "tool_search",
+      "web_search"
     ]
   },
   "sources": [

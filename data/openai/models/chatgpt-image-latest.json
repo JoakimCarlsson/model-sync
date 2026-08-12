@@ -5,13 +5,13 @@
   "kind": "image",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 8,
+      "amount": 1,
       "currency": "USD",
       "dims": {
         "modality": "Image",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -25,39 +25,19 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 32,
-      "currency": "USD",
-      "dims": {
-        "modality": "Image",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 5,
+      "amount": 0.63,
       "currency": "USD",
       "dims": {
         "modality": "Text",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.25,
-      "currency": "USD",
-      "dims": {
-        "modality": "Text",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10,
       "currency": "USD",
       "dims": {
         "modality": "Text",
@@ -75,23 +55,13 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
+      "amount": 8,
       "currency": "USD",
       "dims": {
         "modality": "Image",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 16,
-      "currency": "USD",
-      "dims": {
-        "modality": "Image",
-        "tier": "batch"
+        "tier": "standard"
       }
     },
     {
@@ -105,13 +75,33 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.63,
+      "amount": 5,
       "currency": "USD",
       "dims": {
         "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 16,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
         "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 32,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "standard"
       }
     },
     {
@@ -123,6 +113,16 @@
         "modality": "Text",
         "tier": "batch"
       }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
     }
   ],
   "attrs": {
@@ -132,15 +132,15 @@
   "lists": {
     "endpoints": [
       "v1/batch",
-      "v1/images/generations",
-      "v1/images/edits"
+      "v1/images/edits",
+      "v1/images/generations"
     ],
     "features": [
       "inpainting"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "image",
@@ -151,7 +151,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/chatgpt-image-latest.md"
+    "https://developers.openai.com/api/docs/models/chatgpt-image-latest.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

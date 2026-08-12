@@ -7,6 +7,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD",
       "dims": {
@@ -17,17 +27,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 120,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 7.5,
+      "amount": 60,
       "currency": "USD",
       "dims": {
         "context": "short",
@@ -37,11 +37,11 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 60,
+      "amount": 120,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
@@ -56,22 +56,22 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
+      "file_search",
+      "file_uploads",
+      "function_calling",
+      "image_input",
       "reasoning",
       "streaming",
       "structured_outputs",
-      "function_calling",
-      "file_search",
-      "file_uploads",
-      "image_input",
       "web_search"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -80,15 +80,15 @@
       "gpt-5-pro-2025-10-06"
     ],
     "tools": [
-      "function_calling",
       "file_search",
+      "function_calling",
       "image_generation",
       "mcp",
       "web_search"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-5-pro.md"
+    "https://developers.openai.com/api/docs/models/gpt-5-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

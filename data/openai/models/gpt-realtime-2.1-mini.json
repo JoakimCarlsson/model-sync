@@ -5,16 +5,6 @@
   "kind": "realtime",
   "prices": [
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10,
-      "currency": "USD",
-      "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
@@ -25,22 +15,12 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 20,
+      "amount": 0.08,
       "currency": "USD",
       "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.6,
-      "currency": "USD",
-      "dims": {
-        "modality": "Text",
+        "modality": "Image",
         "tier": "standard"
       }
     },
@@ -55,12 +35,12 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.4,
+      "amount": 10,
       "currency": "USD",
       "dims": {
-        "modality": "Text",
+        "modality": "Audio",
         "tier": "standard"
       }
     },
@@ -75,12 +55,32 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.08,
+      "amount": 0.6,
       "currency": "USD",
       "dims": {
-        "modality": "Image",
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
         "tier": "standard"
       }
     }
@@ -99,25 +99,25 @@
       "v1/realtime"
     ],
     "features": [
-      "reasoning",
       "function_calling",
-      "prompt_caching"
+      "prompt_caching",
+      "reasoning"
     ],
     "input_modalities": [
-      "text",
       "audio",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
       "gpt-realtime-2.1-mini"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini.md"
+    "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

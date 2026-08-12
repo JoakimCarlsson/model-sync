@@ -34,11 +34,11 @@
   },
   "lists": {
     "endpoints": [
-      "v1/chat/completions",
-      "v1/responses",
       "v1/assistants",
       "v1/batch",
-      "v1/fine-tuning"
+      "v1/chat/completions",
+      "v1/fine-tuning",
+      "v1/responses"
     ],
     "features": [
       "fine_tuning",
@@ -51,8 +51,8 @@
       "text"
     ],
     "snapshots": [
-      "gpt-4-0613",
-      "gpt-4-0314"
+      "gpt-4-0314",
+      "gpt-4-0613"
     ]
   },
   "sources": [

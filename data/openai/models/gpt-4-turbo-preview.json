@@ -34,9 +34,9 @@
   },
   "lists": {
     "endpoints": [
+      "v1/assistants",
       "v1/chat/completions",
-      "v1/responses",
-      "v1/assistants"
+      "v1/responses"
     ],
     "features": [
       "fine_tuning"

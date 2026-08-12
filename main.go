@@ -14,9 +14,17 @@ import (
 
 func main() {
 	data := flag.String("data", "data", "directory holding one file per model")
-	api := flag.String("api", "api.json", "aggregate written for consumers, or - to skip")
+	api := flag.String(
+		"api",
+		"api.json",
+		"aggregate written for consumers, or - to skip",
+	)
 	cache := flag.String("cache", "", "directory to cache fetched documents in")
-	timeout := flag.Duration("timeout", 2*time.Minute, "overall time budget for fetching")
+	timeout := flag.Duration(
+		"timeout",
+		2*time.Minute,
+		"overall time budget for fetching",
+	)
 	flag.Parse()
 
 	if err := run(*data, *api, *cache, *timeout); err != nil {
@@ -50,7 +58,13 @@ func run(data, api, cache string, timeout time.Duration) error {
 	if err := store.WriteAggregate(api, cat); err != nil {
 		return err
 	}
-	fmt.Fprintf(os.Stderr, "model-sync: %s: %d providers, %d models\n", api, len(cat.Providers), cat.Count())
+	fmt.Fprintf(
+		os.Stderr,
+		"model-sync: %s: %d providers, %d models\n",
+		api,
+		len(cat.Providers),
+		cat.Count(),
+	)
 	return nil
 }
 
@@ -70,12 +84,26 @@ func sync(ctx context.Context, data string, source catalog.Source) error {
 		return fmt.Errorf("%s: %w", source.ID(), err)
 	}
 	if len(models) == 0 {
-		return fmt.Errorf("%s: no models parsed from %d documents", source.ID(), len(docs))
+		return fmt.Errorf(
+			"%s: no models parsed from %d documents",
+			source.ID(),
+			len(docs),
+		)
 	}
-	provider := catalog.Provider{ID: source.ID(), Name: source.Name(), Models: models}
+	provider := catalog.Provider{
+		ID:     source.ID(),
+		Name:   source.Name(),
+		Models: models,
+	}
 	if err := store.WriteProvider(data, provider); err != nil {
 		return fmt.Errorf("%s: %w", source.ID(), err)
 	}
-	fmt.Fprintf(os.Stderr, "model-sync: %s: %d documents, %d models\n", source.ID(), len(docs), len(models))
+	fmt.Fprintf(
+		os.Stderr,
+		"model-sync: %s: %d documents, %d models\n",
+		source.ID(),
+		len(docs),
+		len(models),
+	)
 	return nil
 }

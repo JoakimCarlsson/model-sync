@@ -5,18 +5,18 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "input_tokens",
+      "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
+      "amount": 0.5,
       "currency": "USD",
       "dims": {
         "tier": "standard"
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 2,
       "currency": "USD",
       "dims": {
         "tier": "standard"
@@ -43,21 +43,21 @@
   },
   "lists": {
     "endpoints": [
-      "v1/responses",
-      "v1/batch"
+      "v1/batch",
+      "v1/responses"
     ],
     "features": [
-      "reasoning",
-      "streaming",
+      "evals",
       "file_uploads",
       "image_input",
       "prompt_caching",
-      "evals",
-      "stored_completions"
+      "reasoning",
+      "stored_completions",
+      "streaming"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
       "text"
@@ -66,9 +66,9 @@
       "o4-mini-deep-research-2025-06-26"
     ],
     "tools": [
-      "web_search",
       "code_interpreter",
-      "mcp"
+      "mcp",
+      "web_search"
     ]
   },
   "sources": [

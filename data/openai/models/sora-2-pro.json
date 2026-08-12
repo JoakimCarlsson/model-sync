@@ -7,42 +7,6 @@
     {
       "metric": "video_output",
       "unit": "per_second",
-      "amount": 0.3,
-      "currency": "USD",
-      "dims": {
-        "landscape": "1280x720",
-        "portrait": "720x1280",
-        "size": "720p",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "video_output",
-      "unit": "per_second",
-      "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "landscape": "1792x1024",
-        "portrait": "1024x1792",
-        "size": "1024p",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "video_output",
-      "unit": "per_second",
-      "amount": 0.7,
-      "currency": "USD",
-      "dims": {
-        "landscape": "1920x1080",
-        "portrait": "1080x1920",
-        "size": "1080p",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "video_output",
-      "unit": "per_second",
       "amount": 0.15,
       "currency": "USD",
       "dims": {
@@ -50,6 +14,18 @@
         "portrait": "720x1280",
         "size": "720p",
         "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1280x720",
+        "portrait": "720x1280",
+        "size": "720p",
+        "tier": "standard"
       }
     },
     {
@@ -67,6 +43,18 @@
     {
       "metric": "video_output",
       "unit": "per_second",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1792x1024",
+        "portrait": "1024x1792",
+        "size": "1024p",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
       "amount": 0.35,
       "currency": "USD",
       "dims": {
@@ -74,6 +62,18 @@
         "portrait": "1080x1920",
         "size": "1080p",
         "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.7,
+      "currency": "USD",
+      "dims": {
+        "landscape": "1920x1080",
+        "portrait": "1080x1920",
+        "size": "1080p",
+        "tier": "standard"
       }
     }
   ],
@@ -86,20 +86,20 @@
       "v1/videos"
     ],
     "input_modalities": [
-      "text",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
-      "video",
-      "audio"
+      "audio",
+      "video"
     ],
     "snapshots": [
-      "sora-2-pro-2025-10-06",
-      "sora-2-pro"
+      "sora-2-pro",
+      "sora-2-pro-2025-10-06"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/sora-2-pro.md"
+    "https://developers.openai.com/api/docs/models/sora-2-pro.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

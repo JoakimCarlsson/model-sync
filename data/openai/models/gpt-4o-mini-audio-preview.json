@@ -37,25 +37,25 @@
       "v1/chat/completions"
     ],
     "features": [
-      "streaming",
-      "function_calling"
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
       "gpt-4o-mini-audio-preview-2024-12-17"
     ],
     "tools": [
-      "web_search",
-      "file_search",
       "code_interpreter",
-      "mcp"
+      "file_search",
+      "mcp",
+      "web_search"
     ]
   },
   "sources": [

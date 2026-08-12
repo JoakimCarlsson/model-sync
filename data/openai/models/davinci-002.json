@@ -7,15 +7,15 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
+      "amount": 1,
       "currency": "USD",
       "dims": {
         "context": "short",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 2,
       "currency": "USD",
@@ -27,31 +27,11 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "context": "short",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "training",
-      "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD",
       "dims": {
         "legacy": "true",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
@@ -67,6 +47,36 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "legacy": "true",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 12,
       "currency": "USD",
       "dims": {
@@ -85,23 +95,13 @@
       }
     },
     {
-      "metric": "input_tokens",
+      "metric": "training",
       "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD",
       "dims": {
         "legacy": "true",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6,
-      "currency": "USD",
-      "dims": {
-        "legacy": "true",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
@@ -131,7 +131,7 @@
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/davinci-002.md"
+    "https://developers.openai.com/api/docs/models/davinci-002.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

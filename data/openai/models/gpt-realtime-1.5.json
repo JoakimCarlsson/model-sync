@@ -5,62 +5,42 @@
   "kind": "realtime",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "modality": "Image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 32,
       "currency": "USD",
       "dims": {
         "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 64,
-      "currency": "USD",
-      "dims": {
-        "modality": "Audio",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
-        "modality": "Text",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "modality": "Text",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 16,
-      "currency": "USD",
-      "dims": {
-        "modality": "Text",
         "tier": "standard"
       }
     },
@@ -75,12 +55,32 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 4,
       "currency": "USD",
       "dims": {
-        "modality": "Image",
+        "modality": "Text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 64,
+      "currency": "USD",
+      "dims": {
+        "modality": "Audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 16,
+      "currency": "USD",
+      "dims": {
+        "modality": "Text",
         "tier": "standard"
       }
     }
@@ -103,20 +103,20 @@
       "prompt_caching"
     ],
     "input_modalities": [
-      "text",
       "audio",
-      "image"
+      "image",
+      "text"
     ],
     "output_modalities": [
-      "text",
-      "audio"
+      "audio",
+      "text"
     ],
     "snapshots": [
       "gpt-realtime-1.5"
     ]
   },
   "sources": [
-    "https://developers.openai.com/api/docs/pricing.md",
-    "https://developers.openai.com/api/docs/models/gpt-realtime-1.5.md"
+    "https://developers.openai.com/api/docs/models/gpt-realtime-1.5.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

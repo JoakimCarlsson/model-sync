@@ -4,12 +4,70 @@
   "kind": "finetune",
   "prices": [
     {
-      "metric": "training",
-      "unit": "per_hour",
-      "amount": 100,
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "data_sharing": "true",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "data_sharing": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
       "currency": "USD",
       "dims": {
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "data_sharing": "true",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "data_sharing": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
       }
     },
     {
@@ -22,12 +80,32 @@
       }
     },
     {
-      "metric": "cached_input_tokens",
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
+      "amount": 4,
       "currency": "USD",
       "dims": {
+        "data_sharing": "true",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "data_sharing": "true",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
       }
     },
     {
@@ -46,33 +124,13 @@
       "currency": "USD",
       "dims": {
         "data_sharing": "true",
-        "tier": "standard"
+        "tier": "batch"
       }
     },
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "data_sharing": "true",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "data_sharing": "true",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8,
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 100,
       "currency": "USD",
       "dims": {
         "data_sharing": "true",
@@ -89,70 +147,12 @@
       }
     },
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD",
-      "dims": {
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.5,
-      "currency": "USD",
-      "dims": {
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8,
-      "currency": "USD",
-      "dims": {
-        "tier": "batch"
-      }
-    },
-    {
       "metric": "training",
       "unit": "per_hour",
       "amount": 100,
       "currency": "USD",
       "dims": {
-        "data_sharing": "true",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "data_sharing": "true",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.25,
-      "currency": "USD",
-      "dims": {
-        "data_sharing": "true",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
-        "data_sharing": "true",
-        "tier": "batch"
+        "tier": "standard"
       }
     }
   ],
