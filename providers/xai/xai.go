@@ -37,17 +37,23 @@ func (p *Provider) ID() string { return providerID }
 func (p *Provider) Name() string { return providerName }
 
 // Parse reads the pricing page first, because it is the only document listing
-// every model and the per-model pages are fetched from what it names.
+// every model and the per-model pages are fetched from what it names. The
+// rendered pages come last: they supersede the headline rate the earlier two
+// documents give for a generation model.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
-	for _, doc := range docs {
-		if !isModelPage(doc.URL) {
-			b.applyPricing(doc)
-		}
-	}
-	for _, doc := range docs {
-		if isModelPage(doc.URL) {
-			b.applyModelPage(doc)
+	for _, stage := range []struct {
+		match func(string) bool
+		apply func(catalog.Document)
+	}{
+		{isSummary, b.applyPricing},
+		{isMarkdownPage, b.applyModelPage},
+		{isVariantPage, b.applyVariantPage},
+	} {
+		for _, doc := range docs {
+			if stage.match(doc.URL) {
+				stage.apply(doc)
+			}
 		}
 	}
 	return b.result(), nil
@@ -56,6 +62,19 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 // isModelPage reports whether a URL is one model's detail page.
 func isModelPage(url string) bool {
 	return strings.Contains(url, "/developers/models/")
+}
+
+// isSummary reports whether a URL is the pricing or models page.
+func isSummary(url string) bool { return !isModelPage(url) }
+
+// isMarkdownPage reports whether a URL is a model's markdown page.
+func isMarkdownPage(url string) bool {
+	return isModelPage(url) && strings.HasSuffix(url, ".md")
+}
+
+// isVariantPage reports whether a URL is a model's rendered page.
+func isVariantPage(url string) bool {
+	return isModelPage(url) && !strings.HasSuffix(url, ".md")
 }
 
 // builder accumulates models across documents.

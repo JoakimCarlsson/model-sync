@@ -46,46 +46,53 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	} else {
 		failures = append(failures, err)
 	}
-	pages, pageErrs := p.getAll(ctx, modelPageURLs(pricing))
+	markdown, variants := modelPageURLs(pricing)
+	pages, pageErrs := p.getAll(ctx, append(markdown, variants...))
 	docs = append(docs, pages...)
 	return docs, errors.Join(append(failures, pageErrs...)...)
 }
 
-// modelPageURLs derives the per-model page of every model the pricing tables
-// name.
-func modelPageURLs(pricing catalog.Document) []string {
-	var urls []string
-	add := func(id string) {
-		if id == "" || strings.Contains(id, " ") {
-			return
-		}
-		url := modelPagePre + id + ".md"
-		if !slices.Contains(urls, url) {
-			urls = append(urls, url)
+// modelPageURLs derives the per-model pages of every model the pricing tables
+// name, returning the markdown pages and, separately, the rendered pages of
+// the generation models.
+//
+// The rendered page is fetched only for the Imagine models, and only because
+// their markdown is lossy: it states one headline rate where the page states a
+// matrix by resolution and quality. Every other model's markdown is complete,
+// and fetching its page too would double the requests for nothing.
+func modelPageURLs(pricing catalog.Document) (markdown, variants []string) {
+	add := func(urls *[]string, url string) {
+		if !slices.Contains(*urls, url) {
+			*urls = append(*urls, url)
 		}
 	}
 	for _, t := range scanTables(string(pricing.Body), pricing.URL) {
-		switch t.Section {
-		case sectionText:
-			at := columnOf(t.Headers, "model")
-			for _, row := range t.Rows {
-				add(splitModelCell(cellAt(row, at)).ID)
+		at := columnOf(t.Headers, "model", "mode")
+		if at < 0 {
+			continue
+		}
+		for _, row := range t.Rows {
+			id := ""
+			switch t.Section {
+			case sectionText:
+				id = splitModelCell(cellAt(row, at)).ID
+			case sectionImagine:
+				id = clean(cellAt(row, at))
+			case sectionVoice:
+				id, _ = voiceID(clean(cellAt(row, at)))
 			}
-		case sectionImagine:
-			at := columnOf(t.Headers, "model")
-			for _, row := range t.Rows {
-				add(clean(cellAt(row, at)))
+			if id == "" || strings.Contains(id, " ") {
+				continue
 			}
-		case sectionVoice:
-			at := columnOf(t.Headers, "mode")
-			for _, row := range t.Rows {
-				id, _ := voiceID(clean(cellAt(row, at)))
-				add(id)
+			add(&markdown, modelPagePre+id+".md")
+			if t.Section == sectionImagine {
+				add(&variants, modelPagePre+id)
 			}
 		}
 	}
-	slices.Sort(urls)
-	return urls
+	slices.Sort(markdown)
+	slices.Sort(variants)
+	return markdown, variants
 }
 
 // getAll retrieves urls concurrently, returning the documents in the order the

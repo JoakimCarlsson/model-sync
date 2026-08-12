@@ -5,10 +5,30 @@
   "kind": "image",
   "prices": [
     {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.002,
+      "currency": "USD"
+    },
+    {
       "metric": "image_output",
       "unit": "per_image",
       "amount": 0.02,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "resolution": "1k",
+        "size": "1024x1024"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "resolution": "2k",
+        "size": "2048x2048"
+      }
     }
   ],
   "limits": {
@@ -33,6 +53,7 @@
   },
   "sources": [
     "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-imagine-image",
     "https://docs.x.ai/developers/models/grok-imagine-image.md",
     "https://docs.x.ai/developers/pricing.md"
   ]

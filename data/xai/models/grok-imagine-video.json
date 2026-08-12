@@ -5,10 +5,34 @@
   "kind": "video",
   "prices": [
     {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.002,
+      "currency": "USD"
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_second",
+      "amount": 0.01,
+      "currency": "USD"
+    },
+    {
       "metric": "video_output",
       "unit": "per_second",
       "amount": 0.05,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "resolution": "480p"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.07,
+      "currency": "USD",
+      "dims": {
+        "resolution": "720p"
+      }
     }
   ],
   "limits": {
@@ -31,6 +55,7 @@
   },
   "sources": [
     "https://docs.x.ai/developers/models.md",
+    "https://docs.x.ai/developers/models/grok-imagine-video",
     "https://docs.x.ai/developers/models/grok-imagine-video.md",
     "https://docs.x.ai/developers/pricing.md"
   ]

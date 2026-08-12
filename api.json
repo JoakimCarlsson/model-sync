@@ -15549,10 +15549,30 @@
           "kind": "image",
           "prices": [
             {
+              "metric": "image_input",
+              "unit": "per_image",
+              "amount": 0.002,
+              "currency": "USD"
+            },
+            {
               "metric": "image_output",
               "unit": "per_image",
               "amount": 0.02,
-              "currency": "USD"
+              "currency": "USD",
+              "dims": {
+                "resolution": "1k",
+                "size": "1024x1024"
+              }
+            },
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.02,
+              "currency": "USD",
+              "dims": {
+                "resolution": "2k",
+                "size": "2048x2048"
+              }
             }
           ],
           "limits": {
@@ -15577,6 +15597,7 @@
           },
           "sources": [
             "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image",
             "https://docs.x.ai/developers/models/grok-imagine-image.md",
             "https://docs.x.ai/developers/pricing.md"
           ]
@@ -15588,10 +15609,50 @@
           "kind": "image",
           "prices": [
             {
+              "metric": "image_input",
+              "unit": "per_image",
+              "amount": 0.01,
+              "currency": "USD"
+            },
+            {
               "metric": "image_output",
               "unit": "per_image",
               "amount": 0.04,
-              "currency": "USD"
+              "currency": "USD",
+              "dims": {
+                "quality": "low",
+                "resolution": "1k"
+              }
+            },
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.06,
+              "currency": "USD",
+              "dims": {
+                "quality": "low",
+                "resolution": "2k"
+              }
+            },
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.06,
+              "currency": "USD",
+              "dims": {
+                "quality": "medium",
+                "resolution": "1k"
+              }
+            },
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.08,
+              "currency": "USD",
+              "dims": {
+                "quality": "medium",
+                "resolution": "2k"
+              }
             }
           ],
           "limits": {
@@ -15612,6 +15673,7 @@
           },
           "sources": [
             "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image-2.0",
             "https://docs.x.ai/developers/models/grok-imagine-image-2.0.md",
             "https://docs.x.ai/developers/pricing.md"
           ]
@@ -15623,10 +15685,30 @@
           "kind": "image",
           "prices": [
             {
+              "metric": "image_input",
+              "unit": "per_image",
+              "amount": 0.01,
+              "currency": "USD"
+            },
+            {
               "metric": "image_output",
               "unit": "per_image",
               "amount": 0.05,
-              "currency": "USD"
+              "currency": "USD",
+              "dims": {
+                "resolution": "1k",
+                "size": "1024x1024"
+              }
+            },
+            {
+              "metric": "image_output",
+              "unit": "per_image",
+              "amount": 0.07,
+              "currency": "USD",
+              "dims": {
+                "resolution": "2k",
+                "size": "2048x2048"
+              }
             }
           ],
           "limits": {
@@ -15652,6 +15734,7 @@
           },
           "sources": [
             "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-image-quality",
             "https://docs.x.ai/developers/models/grok-imagine-image-quality.md",
             "https://docs.x.ai/developers/pricing.md"
           ]
@@ -15663,10 +15746,34 @@
           "kind": "video",
           "prices": [
             {
+              "metric": "image_input",
+              "unit": "per_image",
+              "amount": 0.002,
+              "currency": "USD"
+            },
+            {
+              "metric": "video_input",
+              "unit": "per_second",
+              "amount": 0.01,
+              "currency": "USD"
+            },
+            {
               "metric": "video_output",
               "unit": "per_second",
               "amount": 0.05,
-              "currency": "USD"
+              "currency": "USD",
+              "dims": {
+                "resolution": "480p"
+              }
+            },
+            {
+              "metric": "video_output",
+              "unit": "per_second",
+              "amount": 0.07,
+              "currency": "USD",
+              "dims": {
+                "resolution": "720p"
+              }
             }
           ],
           "limits": {
@@ -15689,6 +15796,7 @@
           },
           "sources": [
             "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-video",
             "https://docs.x.ai/developers/models/grok-imagine-video.md",
             "https://docs.x.ai/developers/pricing.md"
           ]
@@ -15700,10 +15808,37 @@
           "kind": "video",
           "prices": [
             {
+              "metric": "image_input",
+              "unit": "per_image",
+              "amount": 0.01,
+              "currency": "USD"
+            },
+            {
+              "metric": "video_output",
+              "unit": "per_second",
+              "amount": 0.25,
+              "currency": "USD",
+              "dims": {
+                "resolution": "1080p"
+              }
+            },
+            {
               "metric": "video_output",
               "unit": "per_second",
               "amount": 0.08,
-              "currency": "USD"
+              "currency": "USD",
+              "dims": {
+                "resolution": "480p"
+              }
+            },
+            {
+              "metric": "video_output",
+              "unit": "per_second",
+              "amount": 0.14,
+              "currency": "USD",
+              "dims": {
+                "resolution": "720p"
+              }
             }
           ],
           "limits": {
@@ -15728,6 +15863,7 @@
           },
           "sources": [
             "https://docs.x.ai/developers/models.md",
+            "https://docs.x.ai/developers/models/grok-imagine-video-1.5",
             "https://docs.x.ai/developers/models/grok-imagine-video-1.5.md",
             "https://docs.x.ai/developers/pricing.md"
           ]
