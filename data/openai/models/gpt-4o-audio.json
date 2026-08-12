@@ -1,0 +1,12 @@
+{
+  "id": "gpt-4o-audio",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-audio-1.5",
+    "shutdown_date": "2027-01-20",
+    "state": "deprecated"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

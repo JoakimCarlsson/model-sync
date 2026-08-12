@@ -4,6 +4,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -119,6 +120,48 @@ func dropIDFootnote(value, apiID string) string {
 		}
 	}
 	return value
+}
+
+// dateLayouts are the date formats Anthropic writes, paired with the precision
+// to render each at. Lifecycle dates carry a day, cutoffs only a month.
+var dateLayouts = []struct{ in, out string }{
+	{"2006-01-02", "2006-01-02"},
+	{"January 2, 2006", "2006-01-02"},
+	{"Jan 2, 2006", "2006-01-02"},
+	{"January 2006", "2006-01"},
+	{"Jan 2006", "2006-01"},
+}
+
+// isoDate rewrites a date into its machine readable form, keeping the
+// precision it was written at, so "February 19, 2026" becomes 2026-02-19 and
+// "May 2026" becomes 2026-05. A value in no recognized format is returned
+// unchanged rather than dropped.
+func isoDate(value string) string {
+	text := strings.TrimSpace(value)
+	for _, layout := range dateLayouts {
+		if t, err := time.Parse(layout.in, text); err == nil {
+			return t.Format(layout.out)
+		}
+	}
+	return text
+}
+
+// retirementHedges are the ways Anthropic says a retirement date is a floor
+// rather than a commitment.
+var retirementHedges = []string{"not sooner than", "no sooner than"}
+
+// splitRetirement separates a retirement date from the hedge in front of it,
+// so that "Not sooner than June 9, 2027" yields a usable date and keeps the
+// fact that the date can move.
+func splitRetirement(value string) (date, hedge string) {
+	text := strings.TrimSpace(value)
+	for _, prefix := range retirementHedges {
+		if len(text) > len(prefix) &&
+			strings.EqualFold(text[:len(prefix)], prefix) {
+			return isoDate(text[len(prefix):]), prefix
+		}
+	}
+	return isoDate(text), ""
 }
 
 // unitFor maps Anthropic's denominator wording onto a unit.

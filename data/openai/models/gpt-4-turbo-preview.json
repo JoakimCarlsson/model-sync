@@ -25,7 +25,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4-0125-preview",
-    "knowledge_cutoff": "Dec 01, 2023",
+    "knowledge_cutoff": "2023-12-01",
+    "state": "active",
     "summary": "An older fast GPT model"
   },
   "limits": {

@@ -17,6 +17,7 @@
   ],
   "attrs": {
     "default_snapshot": "whisper-1",
+    "state": "active",
     "summary": "General-purpose speech recognition model"
   },
   "lists": {

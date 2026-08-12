@@ -1,0 +1,12 @@
+{
+  "id": "text-moderation-007",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "omni-moderation",
+    "shutdown_date": "2025-10-27",
+    "state": "shutdown"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

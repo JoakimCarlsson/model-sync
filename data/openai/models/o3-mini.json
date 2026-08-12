@@ -57,7 +57,8 @@
   ],
   "attrs": {
     "default_snapshot": "o3-mini-2025-01-31",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "state": "active",
     "summary": "A small model alternative to o3"
   },
   "limits": {

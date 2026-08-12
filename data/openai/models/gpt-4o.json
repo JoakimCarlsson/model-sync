@@ -87,7 +87,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4o-2024-08-06",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "state": "active",
     "summary": "Fast, intelligent, flexible GPT model"
   },
   "limits": {

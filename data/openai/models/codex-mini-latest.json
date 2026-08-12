@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "codex-mini-latest",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "recommended_replacement": "gpt-5-codex-mini",
+    "shutdown_date": "2026-02-12",
+    "state": "shutdown",
     "summary": "Fast reasoning model optimized for the Codex CLI"
   },
   "limits": {
@@ -67,6 +70,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/codex-mini-latest.md"
   ]
 }

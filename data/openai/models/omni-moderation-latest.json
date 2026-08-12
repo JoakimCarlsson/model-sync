@@ -16,6 +16,7 @@
   ],
   "attrs": {
     "default_snapshot": "omni-moderation-2024-09-26",
+    "state": "active",
     "summary": "Identify potentially harmful content in text and images"
   },
   "lists": {

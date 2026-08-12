@@ -72,9 +72,9 @@
   ],
   "attrs": {
     "availability": "retired, except on Bedrock and Google Cloud",
-    "deprecated_on": "December 19, 2025",
+    "deprecated_on": "2025-12-19",
     "recommended_replacement": "claude-haiku-4-5-20251001",
-    "retirement_date": "February 19, 2026",
+    "retirement_date": "2026-02-19",
     "state": "retired"
   },
   "sources": [

@@ -16,6 +16,7 @@
   ],
   "attrs": {
     "default_snapshot": "text-embedding-ada-002",
+    "state": "active",
     "summary": "Older embedding model"
   },
   "lists": {

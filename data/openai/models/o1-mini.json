@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "o1-mini-2024-09-12",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "o4-mini",
+    "shutdown_date": "2025-10-27",
+    "state": "shutdown",
     "summary": "A small model alternative to o1"
   },
   "limits": {
@@ -68,6 +71,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/o1-mini.md"
   ]
 }

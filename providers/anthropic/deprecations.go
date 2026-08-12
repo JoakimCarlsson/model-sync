@@ -10,10 +10,15 @@ import (
 
 // Lifecycle keys the deprecations page populates.
 const (
-	AttrState          = "state"
-	AttrDeprecatedOn   = "deprecated_on"
+	AttrState        = "state"
+	AttrDeprecatedOn = "deprecated_on"
+	AttrReplacement  = "recommended_replacement"
+	// AttrRetirementDate is the date alone. Anthropic hedges most of them, and
+	// keeping the hedge in the same field would make every one of them
+	// unparseable to spare the few that are firm.
 	AttrRetirementDate = "retirement_date"
-	AttrReplacement    = "recommended_replacement"
+	// AttrRetirementQualifier records that hedge when there is one.
+	AttrRetirementQualifier = "retirement_date_qualifier"
 )
 
 // notApplicable is what Anthropic writes in the deprecated column of a model
@@ -63,9 +68,11 @@ func (b *builder) applyStatusRow(t mdTable, row []string) {
 	m.SetAttr(AttrState, strings.ToLower(clean(cellAt(row, 1))))
 	deprecated := clean(cellAt(row, 2))
 	if !strings.EqualFold(deprecated, notApplicable) {
-		m.SetAttr(AttrDeprecatedOn, deprecated)
+		m.SetAttr(AttrDeprecatedOn, isoDate(deprecated))
 	}
-	m.SetAttr(AttrRetirementDate, clean(cellAt(row, 3)))
+	date, hedge := splitRetirement(clean(cellAt(row, 3)))
+	m.SetAttr(AttrRetirementDate, date)
+	m.SetAttr(AttrRetirementQualifier, hedge)
 	b.register(id)
 }
 
@@ -86,10 +93,11 @@ func (b *builder) applyReplacementRow(t mdTable, row []string) {
 	m := b.model(deprecated, KindChat)
 	m.AddSource(t.Source)
 	m.SetAttr(AttrReplacement, replacement)
-	m.SetAttr(
-		AttrRetirementDate,
+	date, hedge := splitRetirement(
 		clean(cellAt(row, columnOf(t, "retirement date"))),
 	)
+	m.SetAttr(AttrRetirementDate, date)
+	m.SetAttr(AttrRetirementQualifier, hedge)
 	m.SetAttr(AttrState, stateRetired)
 	b.register(deprecated)
 }

@@ -97,7 +97,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.4-nano-2026-03-17",
-    "knowledge_cutoff": "Aug 31, 2025",
+    "knowledge_cutoff": "2025-08-31",
+    "state": "active",
     "summary": "Our cheapest GPT-5.4-class model for simple high-volume tasks"
   },
   "limits": {

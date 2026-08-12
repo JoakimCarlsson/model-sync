@@ -74,10 +74,11 @@
     "aws_bedrock_id": "anthropic.claude-sonnet-4-5-20250929-v1:0",
     "comparative_latency": "Fast",
     "google_cloud_id": "claude-sonnet-4-5@20250929",
-    "knowledge_cutoff": "Jan 2025",
-    "retirement_date": "Not sooner than September 29, 2026",
+    "knowledge_cutoff": "2025-01",
+    "retirement_date": "2026-09-29",
+    "retirement_date_qualifier": "not sooner than",
     "state": "active",
-    "training_data_cutoff": "Jul 2025"
+    "training_data_cutoff": "2025-07"
   },
   "limits": {
     "context_window": 200000,

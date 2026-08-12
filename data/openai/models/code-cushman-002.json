@@ -1,0 +1,12 @@
+{
+  "id": "code-cushman-002",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-4o",
+    "shutdown_date": "2023-03-23",
+    "state": "shutdown"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

@@ -59,6 +59,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	}
 	m := b.model(id, "")
 	m.AddSource(doc.URL)
+	m.SetAttr(AttrState, StateActive)
 
 	var section, priceHeader string
 	var rateHeaders []string
@@ -158,7 +159,7 @@ func applyDetail(m *catalog.Model, bullet string) {
 		case "context window":
 			m.SetLimit(LimitContextWindow, parseCount(value))
 		case "knowledge cutoff":
-			m.SetAttr(AttrKnowledgeCutoff, value)
+			m.SetAttr(AttrKnowledgeCutoff, isoDate(value))
 		default:
 			m.AddNote(bullet)
 		}
@@ -179,7 +180,7 @@ func applyDetail(m *catalog.Model, bullet string) {
 		return
 	}
 	if suffix, ok := strings.CutSuffix(bullet, " knowledge cutoff"); ok {
-		m.SetAttr(AttrKnowledgeCutoff, strings.TrimSpace(suffix))
+		m.SetAttr(AttrKnowledgeCutoff, isoDate(suffix))
 		return
 	}
 	if strings.EqualFold(bullet, "reasoning token support") {

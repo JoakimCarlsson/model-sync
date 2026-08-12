@@ -117,7 +117,8 @@
   ],
   "attrs": {
     "default_snapshot": "o3-2025-04-16",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "state": "active",
     "summary": "Reasoning model for complex tasks, succeeded by GPT-5"
   },
   "limits": {

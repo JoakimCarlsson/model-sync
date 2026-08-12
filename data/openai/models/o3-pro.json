@@ -47,7 +47,8 @@
   ],
   "attrs": {
     "default_snapshot": "o3-pro-2025-06-10",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "state": "active",
     "summary": "Version of o3 with more compute for better responses"
   },
   "limits": {

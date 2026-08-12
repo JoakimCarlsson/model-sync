@@ -97,7 +97,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5-nano-2025-08-07",
-    "knowledge_cutoff": "May 31, 2024",
+    "knowledge_cutoff": "2024-05-31",
+    "state": "active",
     "summary": "Fastest, most cost-efficient version of GPT-5"
   },
   "limits": {

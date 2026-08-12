@@ -1,0 +1,12 @@
+{
+  "id": "gpt-4-0314",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-5 or gpt-4.1*",
+    "shutdown_date": "2026-03-26",
+    "state": "shutdown"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

@@ -61,7 +61,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.3-codex",
-    "knowledge_cutoff": "Aug 31, 2025",
+    "knowledge_cutoff": "2025-08-31",
+    "state": "active",
     "summary": "The most capable agentic coding model to date."
   },
   "limits": {

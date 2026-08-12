@@ -87,7 +87,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-realtime-2025-08-28",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-realtime-2.1",
+    "shutdown_date": "2027-01-20",
+    "state": "deprecated",
     "summary": "Model capable of realtime text and audio inputs and outputs"
   },
   "limits": {
@@ -116,6 +119,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

@@ -74,11 +74,12 @@
     "aws_bedrock_id": "anthropic.claude-haiku-4-5-20251001-v1:0",
     "comparative_latency": "Fastest",
     "google_cloud_id": "claude-haiku-4-5@20251001",
-    "knowledge_cutoff": "Feb 2025",
-    "retirement_date": "Not sooner than October 15, 2026",
+    "knowledge_cutoff": "2025-02",
+    "retirement_date": "2026-10-15",
+    "retirement_date_qualifier": "not sooner than",
     "state": "active",
     "summary": "The fastest model with near-frontier intelligence",
-    "training_data_cutoff": "Jul 2025"
+    "training_data_cutoff": "2025-07"
   },
   "limits": {
     "context_window": 200000,

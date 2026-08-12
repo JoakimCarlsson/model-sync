@@ -25,7 +25,10 @@
   ],
   "attrs": {
     "default_snapshot": "chatgpt-4o-latest",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-5.1-chat-latest",
+    "shutdown_date": "2026-02-17",
+    "state": "shutdown",
     "summary": "GPT-4o model used in ChatGPT"
   },
   "limits": {
@@ -54,6 +57,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/chatgpt-4o-latest.md"
   ]
 }

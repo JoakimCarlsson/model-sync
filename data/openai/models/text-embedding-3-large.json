@@ -16,6 +16,7 @@
   ],
   "attrs": {
     "default_snapshot": "text-embedding-3-large",
+    "state": "active",
     "summary": "Most capable embedding model"
   },
   "lists": {

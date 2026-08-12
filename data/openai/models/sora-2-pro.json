@@ -79,6 +79,9 @@
   ],
   "attrs": {
     "default_snapshot": "sora-2-pro-2025-10-06",
+    "recommended_replacement": "---",
+    "shutdown_date": "2026-09-24",
+    "state": "deprecated",
     "summary": "Most advanced synced-audio video generation"
   },
   "lists": {
@@ -99,6 +102,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/sora-2-pro.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

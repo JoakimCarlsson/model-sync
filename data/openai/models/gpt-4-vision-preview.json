@@ -1,0 +1,12 @@
+{
+  "id": "gpt-4-vision-preview",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-4o",
+    "shutdown_date": "2024-12-06",
+    "state": "shutdown"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

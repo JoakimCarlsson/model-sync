@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4o-realtime-preview-2025-06-03",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-realtime-1.5",
+    "shutdown_date": "2026-05-07",
+    "state": "shutdown",
     "summary": "Model capable of realtime text and audio inputs and outputs"
   },
   "limits": {
@@ -64,6 +67,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview.md"
   ]
 }

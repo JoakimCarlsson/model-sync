@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.1-codex-mini",
-    "knowledge_cutoff": "Sep 30, 2024",
+    "knowledge_cutoff": "2024-09-30",
+    "recommended_replacement": "gpt-5.6-terra",
+    "shutdown_date": "2026-07-23",
+    "state": "shutdown",
     "summary": "Smaller, more cost-effective, less-capable version of GPT-5.1-Codex"
   },
   "limits": {
@@ -71,6 +74,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini.md"
   ]
 }

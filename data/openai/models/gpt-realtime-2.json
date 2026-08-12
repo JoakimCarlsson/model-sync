@@ -87,7 +87,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-realtime-2",
-    "knowledge_cutoff": "Sep 30, 2024",
+    "knowledge_cutoff": "2024-09-30",
+    "state": "active",
     "summary": "Reasoning model with tool use"
   },
   "limits": {

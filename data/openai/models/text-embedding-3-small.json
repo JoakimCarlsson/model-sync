@@ -16,6 +16,7 @@
   ],
   "attrs": {
     "default_snapshot": "text-embedding-3-small",
+    "state": "active",
     "summary": "Small embedding model"
   },
   "lists": {

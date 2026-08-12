@@ -17,6 +17,7 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-transcribe",
+    "state": "active",
     "summary": "High-accuracy speech-to-text model for file and Realtime input transcription"
   },
   "lists": {

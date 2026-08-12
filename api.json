@@ -10,7 +10,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -23,7 +23,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -36,7 +36,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -49,7 +49,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -62,7 +62,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-opus-4-8",
-            "retirement_date": "July 21, 2025",
+            "retirement_date": "2025-07-21",
             "state": "retired"
           },
           "sources": [
@@ -75,7 +75,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-opus-4-8",
-            "retirement_date": "July 21, 2025",
+            "retirement_date": "2025-07-21",
             "state": "retired"
           },
           "sources": [
@@ -156,9 +156,9 @@
           ],
           "attrs": {
             "availability": "retired, except on Bedrock and Google Cloud",
-            "deprecated_on": "December 19, 2025",
+            "deprecated_on": "2025-12-19",
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "February 19, 2026",
+            "retirement_date": "2026-02-19",
             "state": "retired"
           },
           "sources": [
@@ -172,7 +172,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-sonnet-4-6",
-            "retirement_date": "October 28, 2025",
+            "retirement_date": "2025-10-28",
             "state": "retired"
           },
           "sources": [
@@ -185,7 +185,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-sonnet-4-6",
-            "retirement_date": "October 28, 2025",
+            "retirement_date": "2025-10-28",
             "state": "retired"
           },
           "sources": [
@@ -197,9 +197,9 @@
           "provider": "anthropic",
           "kind": "chat",
           "attrs": {
-            "deprecated_on": "October 28, 2025",
+            "deprecated_on": "2025-10-28",
             "recommended_replacement": "claude-sonnet-4-6",
-            "retirement_date": "February 19, 2026",
+            "retirement_date": "2026-02-19",
             "state": "retired"
           },
           "sources": [
@@ -211,9 +211,9 @@
           "provider": "anthropic",
           "kind": "chat",
           "attrs": {
-            "deprecated_on": "February 19, 2026",
+            "deprecated_on": "2026-02-19",
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "April 20, 2026",
+            "retirement_date": "2026-04-20",
             "state": "retired"
           },
           "sources": [
@@ -226,7 +226,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-opus-4-8",
-            "retirement_date": "January 5, 2026",
+            "retirement_date": "2026-01-05",
             "state": "retired"
           },
           "sources": [
@@ -239,7 +239,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-sonnet-4-6",
-            "retirement_date": "July 21, 2025",
+            "retirement_date": "2025-07-21",
             "state": "retired"
           },
           "sources": [
@@ -322,11 +322,12 @@
             "aws_bedrock_id": "anthropic.claude-fable-5",
             "comparative_latency": "Slower",
             "google_cloud_id": "claude-fable-5",
-            "knowledge_cutoff": "Jan 2026",
-            "retirement_date": "Not sooner than June 9, 2027",
+            "knowledge_cutoff": "2026-01",
+            "retirement_date": "2027-06-09",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
             "summary": "Next-generation intelligence for long-running agents",
-            "training_data_cutoff": "Jan 2026"
+            "training_data_cutoff": "2026-01"
           },
           "limits": {
             "context_window": 1000000,
@@ -425,11 +426,12 @@
             "aws_bedrock_id": "anthropic.claude-haiku-4-5-20251001-v1:0",
             "comparative_latency": "Fastest",
             "google_cloud_id": "claude-haiku-4-5@20251001",
-            "knowledge_cutoff": "Feb 2025",
-            "retirement_date": "Not sooner than October 15, 2026",
+            "knowledge_cutoff": "2025-02",
+            "retirement_date": "2026-10-15",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
             "summary": "The fastest model with near-frontier intelligence",
-            "training_data_cutoff": "Jul 2025"
+            "training_data_cutoff": "2025-07"
           },
           "limits": {
             "context_window": 200000,
@@ -455,7 +457,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -468,7 +470,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -481,7 +483,7 @@
           "kind": "chat",
           "attrs": {
             "recommended_replacement": "claude-haiku-4-5-20251001",
-            "retirement_date": "November 6, 2024",
+            "retirement_date": "2024-11-06",
             "state": "retired"
           },
           "sources": [
@@ -641,9 +643,9 @@
           ],
           "attrs": {
             "availability": "retired, except on Bedrock and Google Cloud",
-            "deprecated_on": "June 5, 2026",
+            "deprecated_on": "2026-06-05",
             "recommended_replacement": "claude-opus-4-8",
-            "retirement_date": "August 5, 2026",
+            "retirement_date": "2026-08-05",
             "state": "retired"
           },
           "sources": [
@@ -725,9 +727,9 @@
           ],
           "attrs": {
             "availability": "retired, except on Google Cloud",
-            "deprecated_on": "April 14, 2026",
+            "deprecated_on": "2026-04-14",
             "recommended_replacement": "claude-opus-4-8",
-            "retirement_date": "June 15, 2026",
+            "retirement_date": "2026-06-15",
             "state": "retired"
           },
           "sources": [
@@ -811,10 +813,11 @@
             "aws_bedrock_id": "anthropic.claude-opus-4-5-20251101-v1:0",
             "comparative_latency": "Moderate",
             "google_cloud_id": "claude-opus-4-5@20251101",
-            "knowledge_cutoff": "May 2025",
-            "retirement_date": "Not sooner than November 24, 2026",
+            "knowledge_cutoff": "2025-05",
+            "retirement_date": "2026-11-24",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Aug 2025"
+            "training_data_cutoff": "2025-08"
           },
           "limits": {
             "context_window": 200000,
@@ -910,10 +913,11 @@
             "aws_bedrock_id": "anthropic.claude-opus-4-6-v1",
             "comparative_latency": "Moderate",
             "google_cloud_id": "claude-opus-4-6",
-            "knowledge_cutoff": "May 2025",
-            "retirement_date": "Not sooner than February 5, 2027",
+            "knowledge_cutoff": "2025-05",
+            "retirement_date": "2027-02-05",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Aug 2025"
+            "training_data_cutoff": "2025-08"
           },
           "limits": {
             "context_window": 1000000,
@@ -1013,10 +1017,11 @@
             "aws_bedrock_id": "anthropic.claude-opus-4-7",
             "comparative_latency": "Moderate",
             "google_cloud_id": "claude-opus-4-7",
-            "knowledge_cutoff": "Jan 2026",
-            "retirement_date": "Not sooner than April 16, 2027",
+            "knowledge_cutoff": "2026-01",
+            "retirement_date": "2027-04-16",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Jan 2026"
+            "training_data_cutoff": "2026-01"
           },
           "limits": {
             "context_window": 1000000,
@@ -1130,10 +1135,11 @@
             "aws_bedrock_id": "anthropic.claude-opus-4-8",
             "comparative_latency": "Moderate",
             "google_cloud_id": "claude-opus-4-8",
-            "knowledge_cutoff": "Jan 2026",
-            "retirement_date": "Not sooner than May 28, 2027",
+            "knowledge_cutoff": "2026-01",
+            "retirement_date": "2027-05-28",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Jan 2026"
+            "training_data_cutoff": "2026-01"
           },
           "limits": {
             "context_window": 1000000,
@@ -1247,11 +1253,12 @@
             "aws_bedrock_id": "anthropic.claude-opus-5",
             "comparative_latency": "Moderate",
             "google_cloud_id": "claude-opus-5",
-            "knowledge_cutoff": "May 2026",
-            "retirement_date": "Not sooner than July 24, 2027",
+            "knowledge_cutoff": "2026-05",
+            "retirement_date": "2027-07-24",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
             "summary": "For complex agentic coding and enterprise work",
-            "training_data_cutoff": "May 2026"
+            "training_data_cutoff": "2026-05"
           },
           "limits": {
             "context_window": 1000000,
@@ -1345,9 +1352,9 @@
           ],
           "attrs": {
             "availability": "retired, except on Bedrock and Google Cloud",
-            "deprecated_on": "April 14, 2026",
+            "deprecated_on": "2026-04-14",
             "recommended_replacement": "claude-sonnet-4-6",
-            "retirement_date": "June 15, 2026",
+            "retirement_date": "2026-06-15",
             "state": "retired"
           },
           "sources": [
@@ -1431,10 +1438,11 @@
             "aws_bedrock_id": "anthropic.claude-sonnet-4-5-20250929-v1:0",
             "comparative_latency": "Fast",
             "google_cloud_id": "claude-sonnet-4-5@20250929",
-            "knowledge_cutoff": "Jan 2025",
-            "retirement_date": "Not sooner than September 29, 2026",
+            "knowledge_cutoff": "2025-01",
+            "retirement_date": "2026-09-29",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Jul 2025"
+            "training_data_cutoff": "2025-07"
           },
           "limits": {
             "context_window": 200000,
@@ -1530,10 +1538,11 @@
             "aws_bedrock_id": "anthropic.claude-sonnet-4-6",
             "comparative_latency": "Fast",
             "google_cloud_id": "claude-sonnet-4-6",
-            "knowledge_cutoff": "Aug 2025",
-            "retirement_date": "Not sooner than February 17, 2027",
+            "knowledge_cutoff": "2025-08",
+            "retirement_date": "2027-02-17",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
-            "training_data_cutoff": "Jan 2026"
+            "training_data_cutoff": "2026-01"
           },
           "limits": {
             "context_window": 1000000,
@@ -1633,11 +1642,12 @@
             "aws_bedrock_id": "anthropic.claude-sonnet-5",
             "comparative_latency": "Fast",
             "google_cloud_id": "claude-sonnet-5",
-            "knowledge_cutoff": "Jan 2026",
-            "retirement_date": "Not sooner than June 30, 2027",
+            "knowledge_cutoff": "2026-01",
+            "retirement_date": "2027-06-30",
+            "retirement_date_qualifier": "not sooner than",
             "state": "active",
             "summary": "The best combination of speed and intelligence",
-            "training_data_cutoff": "Jan 2026"
+            "training_data_cutoff": "2026-01"
           },
           "limits": {
             "context_window": 1000000,
@@ -1724,6 +1734,18 @@
       "name": "OpenAI",
       "models": [
         {
+          "id": "ada",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "babbage-002",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "agent-kit",
           "provider": "openai",
           "kind": "tool",
@@ -1742,6 +1764,18 @@
           ],
           "sources": [
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "babbage",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "babbage-002",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -1853,7 +1887,10 @@
           ],
           "attrs": {
             "default_snapshot": "babbage-002",
-            "knowledge_cutoff": "Sep 01, 2021",
+            "knowledge_cutoff": "2021-09-01",
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-09-28",
+            "state": "deprecated",
             "summary": "Replacement for the GPT-3 ada and babbage base models"
           },
           "limits": {
@@ -1877,6 +1914,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/babbage-002.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
@@ -1917,7 +1955,8 @@
           ],
           "attrs": {
             "default_snapshot": "chat-latest",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Latest Instant model used in ChatGPT"
           },
           "limits": {
@@ -1987,7 +2026,10 @@
           ],
           "attrs": {
             "default_snapshot": "chatgpt-4o-latest",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-5.1-chat-latest",
+            "shutdown_date": "2026-02-17",
+            "state": "shutdown",
             "summary": "GPT-4o model used in ChatGPT"
           },
           "limits": {
@@ -2016,6 +2058,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/chatgpt-4o-latest.md"
           ]
         },
@@ -2148,6 +2191,9 @@
           ],
           "attrs": {
             "default_snapshot": "chatgpt-image-latest",
+            "recommended_replacement": "gpt-image-2",
+            "shutdown_date": "2026-12-01",
+            "state": "deprecated",
             "summary": "Previous image model used in ChatGPT."
           },
           "lists": {
@@ -2172,8 +2218,117 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/chatgpt-image-latest.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "code-cushman-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2023-03-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-cushman-002",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2023-03-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-davinci-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2023-03-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-davinci-002",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-davinci-edit-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-search-ada-code-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-search-ada-text-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-search-babbage-code-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "code-search-babbage-text-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -2212,7 +2367,10 @@
           ],
           "attrs": {
             "default_snapshot": "codex-mini-latest",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "recommended_replacement": "gpt-5-codex-mini",
+            "shutdown_date": "2026-02-12",
+            "state": "shutdown",
             "summary": "Fast reasoning model optimized for the Codex CLI"
           },
           "limits": {
@@ -2245,6 +2403,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/codex-mini-latest.md"
           ]
         },
@@ -2275,7 +2434,8 @@
           ],
           "attrs": {
             "default_snapshot": "computer-use-preview-2025-03-11",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Specialized model for computer use tool"
           },
           "limits": {
@@ -2362,6 +2522,54 @@
           ],
           "sources": [
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "curie",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "davinci-002",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "dall-e-2",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-image-2, gpt-image-1, or gpt-image-1-mini",
+            "shutdown_date": "2026-05-12",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "dall-e-3",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-image-2, gpt-image-1, or gpt-image-1-mini",
+            "shutdown_date": "2026-05-12",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "davinci",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "davinci-002",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -2473,7 +2681,10 @@
           ],
           "attrs": {
             "default_snapshot": "davinci-002",
-            "knowledge_cutoff": "Sep 01, 2021",
+            "knowledge_cutoff": "2021-09-01",
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-09-28",
+            "state": "deprecated",
             "summary": "Replacement for the GPT-3 curie and davinci base models"
           },
           "limits": {
@@ -2497,6 +2708,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/davinci-002.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
@@ -2508,7 +2720,8 @@
           "kind": "chat",
           "attrs": {
             "default_snapshot": "gpt-5.6-sol",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "An alias for frontier general-purpose models with safeguards for defensive cybersecurity work."
           },
           "limits": {
@@ -2579,7 +2792,8 @@
           "kind": "chat",
           "attrs": {
             "default_snapshot": "gpt-5.6-cyber",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "An alias for advanced cybersecurity models for authorized vulnerability research and security testing."
           },
           "limits": {
@@ -2675,6 +2889,78 @@
           ]
         },
         {
+          "id": "ft-babbage-002",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "ft-davinci-002",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "ft-gpt-3.5-turbo",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "ft-gpt-4",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "ft-gpt-4.1-nano-2025-04-14",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-luna",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "ft-o4-mini-2025-04-16",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-3.5-turbo",
           "provider": "openai",
           "name": "GPT-3.5 Turbo",
@@ -2763,7 +3049,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-3.5-turbo-0125",
-            "knowledge_cutoff": "Sep 01, 2021",
+            "knowledge_cutoff": "2021-09-01",
+            "state": "active",
             "summary": "Legacy GPT model for cheaper chat and non-chat tasks"
           },
           "limits": {
@@ -2848,6 +3135,30 @@
           ]
         },
         {
+          "id": "gpt-3.5-turbo-0301",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo",
+            "shutdown_date": "2024-09-13",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-3.5-turbo-0613",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo",
+            "shutdown_date": "2024-09-13",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-3.5-turbo-1106",
           "provider": "openai",
           "kind": "chat",
@@ -2893,8 +3204,26 @@
               }
             }
           ],
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-09-28",
+            "state": "deprecated"
+          },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-3.5-turbo-16k-0613",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo",
+            "shutdown_date": "2024-09-13",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -2923,7 +3252,13 @@
               }
             }
           ],
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-09-28",
+            "state": "deprecated"
+          },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
         },
@@ -2954,7 +3289,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4-0613",
-            "knowledge_cutoff": "Dec 01, 2023",
+            "knowledge_cutoff": "2023-12-01",
+            "state": "active",
             "summary": "An older high-intelligence GPT model"
           },
           "limits": {
@@ -2986,6 +3322,30 @@
           },
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4.md"
+          ]
+        },
+        {
+          "id": "gpt-4-0125-preview",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5 or gpt-4.1*",
+            "shutdown_date": "2026-03-26",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4-0314",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5 or gpt-4.1*",
+            "shutdown_date": "2026-03-26",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -3039,6 +3399,66 @@
           ]
         },
         {
+          "id": "gpt-4-1106-preview",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4-1106-vision-preview",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2024-12-06",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4-32k",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2025-06-06",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4-32k-0314",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2025-06-06",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4-32k-0613",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2025-06-06",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-4-turbo",
           "provider": "openai",
           "name": "GPT-4 Turbo",
@@ -3065,7 +3485,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4-turbo-2024-04-09",
-            "knowledge_cutoff": "Dec 01, 2023",
+            "knowledge_cutoff": "2023-12-01",
+            "state": "active",
             "summary": "An older high-intelligence GPT model"
           },
           "limits": {
@@ -3176,7 +3597,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4-0125-preview",
-            "knowledge_cutoff": "Dec 01, 2023",
+            "knowledge_cutoff": "2023-12-01",
+            "state": "active",
             "summary": "An older fast GPT model"
           },
           "limits": {
@@ -3205,6 +3627,18 @@
           },
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4-turbo-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4-vision-preview",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2024-12-06",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -3296,7 +3730,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4.1-2025-04-14",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Smartest non-reasoning model"
           },
           "limits": {
@@ -3518,7 +3953,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4.1-mini-2025-04-14",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Smaller, faster version of GPT-4.1"
           },
           "limits": {
@@ -3754,7 +4190,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4.1-nano-2025-04-14",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Fastest, most cost-efficient version of GPT-4.1"
           },
           "limits": {
@@ -3937,7 +4374,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4.5-preview-2025-02-27",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-4.1",
+            "shutdown_date": "2025-07-14",
+            "state": "shutdown",
             "summary": "Deprecated large model."
           },
           "limits": {
@@ -3972,6 +4412,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-4.5-preview.md"
           ]
         },
@@ -4064,7 +4505,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-2024-08-06",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Fast, intelligent, flexible GPT model"
           },
           "limits": {
@@ -4182,7 +4624,13 @@
               }
             }
           ],
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated"
+          },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
         },
@@ -4269,6 +4717,18 @@
           ]
         },
         {
+          "id": "gpt-4o-audio",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-4o-audio-preview",
           "provider": "openai",
           "name": "GPT-4o Audio",
@@ -4295,7 +4755,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-audio-preview-2025-06-03",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown",
             "summary": "GPT-4o models capable of audio inputs and outputs"
           },
           "limits": {
@@ -4325,7 +4788,20 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-4o-audio-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-audio-preview-2024-10-01",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2025-10-10",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4417,7 +4893,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-2024-07-18",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Fast, affordable small model for focused tasks"
           },
           "limits": {
@@ -4550,6 +5027,18 @@
           ]
         },
         {
+          "id": "gpt-4o-mini-audio",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-4o-mini-audio-preview",
           "provider": "openai",
           "name": "GPT-4o mini Audio",
@@ -4576,7 +5065,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-audio-preview-2024-12-17",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-audio-mini",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown",
             "summary": "Smaller model capable of audio inputs and outputs"
           },
           "limits": {
@@ -4610,7 +5102,20 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-4o-mini-audio-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-mini-realtime",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-2.1-mini",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4649,7 +5154,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-realtime-preview-2024-12-17",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-realtime-mini",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown",
             "summary": "Smaller realtime model for text and audio inputs and outputs"
           },
           "limits": {
@@ -4677,6 +5185,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-4o-mini-realtime-preview.md"
           ]
         },
@@ -4707,7 +5216,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-search-preview-2025-03-11",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Fast, affordable small model for web search"
           },
           "limits": {
@@ -4735,6 +5245,18 @@
           },
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4o-mini-search-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-mini-search-preview-2025-03-11",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4776,7 +5298,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-transcribe-2025-12-15",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Speech-to-text model powered by GPT-4o mini"
           },
           "limits": {
@@ -4803,6 +5326,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-mini-transcribe-2025-03-20",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o-mini-transcribe-2025-12-15",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4834,6 +5369,7 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-mini-tts-2025-12-15",
+            "state": "active",
             "summary": "Text-to-speech model powered by GPT-4o mini"
           },
           "lists": {
@@ -4854,6 +5390,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4o-mini-tts.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-realtime",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-2.1",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4892,7 +5440,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-realtime-preview-2025-06-03",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-realtime-1.5",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown",
             "summary": "Model capable of realtime text and audio inputs and outputs"
           },
           "limits": {
@@ -4922,7 +5473,44 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-4o-realtime-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-realtime-preview-2024-10-01",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-1.5",
+            "shutdown_date": "2025-10-10",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-realtime-preview-2024-12-17",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-1.5",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-realtime-preview-2025-06-03",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-1.5",
+            "shutdown_date": "2026-05-07",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -4952,7 +5540,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-search-preview-2025-03-11",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "GPT model for web search in Chat Completions"
           },
           "limits": {
@@ -4980,6 +5569,18 @@
           },
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-4o-search-preview.md"
+          ]
+        },
+        {
+          "id": "gpt-4o-search-preview-2025-03-11",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -5021,7 +5622,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-transcribe",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Speech-to-text model powered by GPT-4o"
           },
           "limits": {
@@ -5088,7 +5690,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-4o-transcribe-diarize",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Transcription model that identifies who's speaking when"
           },
           "limits": {
@@ -5244,7 +5847,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-2025-08-07",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Previous intelligent reasoning model for coding and agentic tasks with configurable reasoning effort"
           },
           "limits": {
@@ -5294,6 +5898,18 @@
           ]
         },
         {
+          "id": "gpt-5-2025-08-07",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "gpt-5-chat-latest",
           "provider": "openai",
           "name": "GPT-5 Chat",
@@ -5329,7 +5945,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-chat-latest",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "GPT-5 model used in ChatGPT"
           },
           "limits": {
@@ -5368,6 +5987,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5-chat-latest.md"
           ]
         },
@@ -5407,7 +6027,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-codex",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "A version of GPT-5 optimized for agentic coding in Codex"
           },
           "limits": {
@@ -5444,6 +6067,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5-codex.md"
           ]
         },
@@ -5576,7 +6200,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-mini-2025-08-07",
-            "knowledge_cutoff": "May 31, 2024",
+            "knowledge_cutoff": "2024-05-31",
+            "state": "active",
             "summary": "Near-frontier intelligence for cost sensitive, low latency, high volume workloads"
           },
           "limits": {
@@ -5621,6 +6246,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-5-mini.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-5-mini-2025-08-07",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -5722,7 +6359,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-nano-2025-08-07",
-            "knowledge_cutoff": "May 31, 2024",
+            "knowledge_cutoff": "2024-05-31",
+            "state": "active",
             "summary": "Fastest, most cost-efficient version of GPT-5"
           },
           "limits": {
@@ -5768,6 +6406,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-5-nano.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-5-nano-2025-08-07",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-luna",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -5819,7 +6469,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5-pro-2025-10-06",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Version of GPT-5 that produces smarter and more precise responses"
           },
           "limits": {
@@ -5862,6 +6513,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/gpt-5-pro.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-5-pro-2025-10-06",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -6030,7 +6693,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.1-2025-11-13",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "The best model for coding and agentic tasks with configurable reasoning effort"
           },
           "limits": {
@@ -6115,7 +6779,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.1-chat-latest",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "GPT-5.1 model used in ChatGPT"
           },
           "limits": {
@@ -6154,6 +6821,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.1-chat-latest.md"
           ]
         },
@@ -6193,7 +6861,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.1-codex",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "A version of GPT-5.1 optimized for agentic coding in Codex."
           },
           "limits": {
@@ -6229,6 +6900,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.1-codex.md"
           ]
         },
@@ -6268,7 +6940,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.1-codex-max",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "A version of GPT-5.1-codex optimized for long running tasks."
           },
           "limits": {
@@ -6304,6 +6979,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.1-codex-max.md"
           ]
         },
@@ -6343,7 +7019,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.1-codex-mini",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "recommended_replacement": "gpt-5.6-terra",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "Smaller, more cost-effective, less-capable version of GPT-5.1-Codex"
           },
           "limits": {
@@ -6380,6 +7059,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.1-codex-mini.md"
           ]
         },
@@ -6512,7 +7192,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.2-2025-12-11",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Previous frontier model for professional work with configurable reasoning effort"
           },
           "limits": {
@@ -6599,7 +7280,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.2-chat-latest",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-08-10",
+            "state": "shutdown",
             "summary": "GPT-5.2 model used in ChatGPT"
           },
           "limits": {
@@ -6638,6 +7322,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest.md"
           ]
         },
@@ -6677,7 +7362,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.2-codex",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown",
             "summary": "Our most intelligent coding model optimized for long-horizon, agentic coding tasks."
           },
           "limits": {
@@ -6716,6 +7404,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.2-codex.md"
           ]
         },
@@ -6768,7 +7457,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.2-pro-2025-12-11",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Previous pro model for professional work that produces smarter and more precise responses."
           },
           "limits": {
@@ -6863,7 +7553,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.3-chat-latest",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-08-10",
+            "state": "shutdown",
             "summary": "GPT-5.3 Instant model used in ChatGPT"
           },
           "limits": {
@@ -6902,6 +7595,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest.md"
           ]
         },
@@ -6968,7 +7662,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.3-codex",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "The most capable agentic coding model to date."
           },
           "limits": {
@@ -7251,7 +7946,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.4-2026-03-05",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "A more affordable model for coding and professional work."
           },
           "limits": {
@@ -7460,7 +8156,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.4-mini-2026-03-17",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Our strongest mini model yet for coding, computer use, and subagents"
           },
           "limits": {
@@ -7616,7 +8313,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.4-nano-2026-03-17",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Our cheapest GPT-5.4-class model for simple high-volume tasks"
           },
           "limits": {
@@ -7812,7 +8510,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.4-pro-2026-03-05",
-            "knowledge_cutoff": "Aug 31, 2025",
+            "knowledge_cutoff": "2025-08-31",
+            "state": "active",
             "summary": "Version of GPT-5.4 that produces smarter and more precise responses."
           },
           "limits": {
@@ -8118,7 +8817,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.5-2026-04-23",
-            "knowledge_cutoff": "Dec 01, 2025",
+            "knowledge_cutoff": "2025-12-01",
+            "state": "active",
             "summary": "A new class of intelligence for coding and professional work."
           },
           "limits": {
@@ -8327,7 +9027,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.5-pro-2026-04-23",
-            "knowledge_cutoff": "Dec 01, 2025",
+            "knowledge_cutoff": "2025-12-01",
+            "state": "active",
             "summary": "Version of GPT-5.5 that produces smarter and more precise responses."
           },
           "limits": {
@@ -8427,7 +9128,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.6-cyber",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "Our most advanced cybersecurity model for authorized vulnerability research and security testing."
           },
           "limits": {
@@ -8825,7 +9527,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.6-luna",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "GPT-5.6 model optimized for cost-sensitive workloads"
           },
           "limits": {
@@ -9218,7 +9921,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.6-sol",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "Frontier model for complex professional work"
           },
           "limits": {
@@ -9626,7 +10330,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-5.6-terra",
-            "knowledge_cutoff": "Feb 16, 2026",
+            "knowledge_cutoff": "2026-02-16",
+            "state": "active",
             "summary": "GPT-5.6 model that balances intelligence and cost"
           },
           "limits": {
@@ -9754,7 +10459,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-audio-2025-08-28",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated",
             "summary": "For audio inputs and outputs with Chat Completions API"
           },
           "limits": {
@@ -9782,6 +10490,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-audio.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
@@ -9835,7 +10544,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-audio-1.5",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "The best voice model for audio in, audio out with Chat Completions."
           },
           "limits": {
@@ -9916,7 +10626,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-audio-mini-2025-12-15",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated",
             "summary": "A cost-efficient version of GPT Audio"
           },
           "limits": {
@@ -9948,8 +10661,21 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-audio-mini.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-audio-mini-2025-10-06",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-audio-1.5",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -10160,6 +10886,9 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-image-1",
+            "recommended_replacement": "gpt-image-2",
+            "shutdown_date": "2026-10-23",
+            "state": "deprecated",
             "summary": "Our previous image generation model"
           },
           "lists": {
@@ -10184,6 +10913,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/guides/image-generation.md",
             "https://developers.openai.com/api/docs/models/gpt-image-1.md",
             "https://developers.openai.com/api/docs/pricing.md"
@@ -10397,6 +11127,9 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-image-1-mini",
+            "recommended_replacement": "gpt-image-2",
+            "shutdown_date": "2026-12-01",
+            "state": "deprecated",
             "summary": "A cost-efficient version of GPT Image 1"
           },
           "lists": {
@@ -10417,6 +11150,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/guides/image-generation.md",
             "https://developers.openai.com/api/docs/models/gpt-image-1-mini.md",
             "https://developers.openai.com/api/docs/pricing.md"
@@ -10650,6 +11384,9 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-image-1.5-2025-12-16",
+            "recommended_replacement": "gpt-image-2",
+            "shutdown_date": "2026-12-01",
+            "state": "deprecated",
             "summary": "Our previous image generation model"
           },
           "lists": {
@@ -10674,6 +11411,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/guides/image-generation.md",
             "https://developers.openai.com/api/docs/models/gpt-image-1.5.md",
             "https://developers.openai.com/api/docs/pricing.md"
@@ -10887,6 +11625,7 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-image-2-2026-04-21",
+            "state": "active",
             "summary": "State-of-the-art image generation model"
           },
           "lists": {
@@ -10937,6 +11676,7 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-live-transcribe",
+            "state": "active",
             "summary": "Low-latency speech-to-text model for realtime transcription"
           },
           "lists": {
@@ -10969,7 +11709,8 @@
           "kind": "chat",
           "attrs": {
             "default_snapshot": "gpt-oss-120b",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Most powerful open-weight model, fits into an H100 GPU"
           },
           "limits": {
@@ -11014,7 +11755,8 @@
           "kind": "chat",
           "attrs": {
             "default_snapshot": "gpt-oss-20b",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Medium-sized open-weight model for low latency"
           },
           "limits": {
@@ -11141,7 +11883,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-2025-08-28",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-realtime-2.1",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated",
             "summary": "Model capable of realtime text and audio inputs and outputs"
           },
           "limits": {
@@ -11170,6 +11915,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-realtime.md",
             "https://developers.openai.com/api/docs/pricing.md"
           ]
@@ -11263,7 +12009,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-1.5",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "The best voice model for audio in, audio out"
           },
           "limits": {
@@ -11385,7 +12132,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-2",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Reasoning model with tool use"
           },
           "limits": {
@@ -11508,7 +12256,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-2.1",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Reasoning model with tool use"
           },
           "limits": {
@@ -11631,7 +12380,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-2.1-mini",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Reasoning model with tool use"
           },
           "limits": {
@@ -11754,7 +12504,10 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-mini-2025-12-15",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "gpt-realtime-2.1-mini",
+            "shutdown_date": "2027-01-20",
+            "state": "deprecated",
             "summary": "A cost-efficient version of GPT-Realtime"
           },
           "limits": {
@@ -11784,8 +12537,21 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/gpt-realtime-mini.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "gpt-realtime-mini-2025-10-06",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-realtime-2.1-mini",
+            "shutdown_date": "2026-07-23",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -11807,7 +12573,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-translate",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Streaming speech-to-speech translation model"
           },
           "limits": {
@@ -11856,7 +12623,8 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-realtime-whisper",
-            "knowledge_cutoff": "Sep 30, 2024",
+            "knowledge_cutoff": "2024-09-30",
+            "state": "active",
             "summary": "Streaming speech-to-text model for realtime transcription"
           },
           "limits": {
@@ -11905,6 +12673,7 @@
           ],
           "attrs": {
             "default_snapshot": "gpt-transcribe",
+            "state": "active",
             "summary": "High-accuracy speech-to-text model for file and Realtime input transcription"
           },
           "lists": {
@@ -11990,7 +12759,8 @@
           ],
           "attrs": {
             "default_snapshot": "o1-2024-12-17",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Previous full o-series reasoning model"
           },
           "limits": {
@@ -12070,7 +12840,10 @@
           ],
           "attrs": {
             "default_snapshot": "o1-mini-2024-09-12",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "o4-mini",
+            "shutdown_date": "2025-10-27",
+            "state": "shutdown",
             "summary": "A small model alternative to o1"
           },
           "limits": {
@@ -12104,6 +12877,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/o1-mini.md"
           ]
         },
@@ -12143,7 +12917,10 @@
           ],
           "attrs": {
             "default_snapshot": "o1-preview-2024-09-12",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "recommended_replacement": "o3",
+            "shutdown_date": "2025-07-28",
+            "state": "shutdown",
             "summary": "Preview of our first o-series reasoning model"
           },
           "limits": {
@@ -12174,6 +12951,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/o1-preview.md"
           ]
         },
@@ -12226,7 +13004,8 @@
           ],
           "attrs": {
             "default_snapshot": "o1-pro-2025-03-19",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "Version of o1 with more compute for better responses"
           },
           "limits": {
@@ -12384,7 +13163,8 @@
           ],
           "attrs": {
             "default_snapshot": "o3-2025-04-16",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Reasoning model for complex tasks, succeeded by GPT-5"
           },
           "limits": {
@@ -12434,6 +13214,18 @@
           ]
         },
         {
+          "id": "o3-2025-04-16",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "o3-deep-research",
           "provider": "openai",
           "name": "o3-deep-research",
@@ -12469,7 +13261,8 @@
           ],
           "attrs": {
             "default_snapshot": "o3-deep-research-2025-06-26",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Our most powerful deep research model"
           },
           "limits": {
@@ -12569,7 +13362,8 @@
           ],
           "attrs": {
             "default_snapshot": "o3-mini-2025-01-31",
-            "knowledge_cutoff": "Oct 01, 2023",
+            "knowledge_cutoff": "2023-10-01",
+            "state": "active",
             "summary": "A small model alternative to o3"
           },
           "limits": {
@@ -12662,7 +13456,8 @@
           ],
           "attrs": {
             "default_snapshot": "o3-pro-2025-06-10",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Version of o3 with more compute for better responses"
           },
           "limits": {
@@ -12701,6 +13496,18 @@
           "sources": [
             "https://developers.openai.com/api/docs/models/o3-pro.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "o3-pro-2025-06-10",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-5.6-sol",
+            "shutdown_date": "2026-12-11",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -12822,7 +13629,8 @@
           ],
           "attrs": {
             "default_snapshot": "o4-mini-2025-04-16",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Fast, cost-efficient reasoning model, succeeded by GPT-5 mini"
           },
           "limits": {
@@ -13070,7 +13878,8 @@
           ],
           "attrs": {
             "default_snapshot": "o4-mini-deep-research-2025-06-26",
-            "knowledge_cutoff": "Jun 01, 2024",
+            "knowledge_cutoff": "2024-06-01",
+            "state": "active",
             "summary": "Faster, more affordable deep research model"
           },
           "limits": {
@@ -13129,6 +13938,7 @@
           ],
           "attrs": {
             "default_snapshot": "omni-moderation-2024-09-26",
+            "state": "active",
             "summary": "Identify potentially harmful content in text and images"
           },
           "lists": {
@@ -13188,6 +13998,9 @@
           ],
           "attrs": {
             "default_snapshot": "sora-2-2025-12-08",
+            "recommended_replacement": "---",
+            "shutdown_date": "2026-09-24",
+            "state": "deprecated",
             "summary": "Flagship video generation with synced audio"
           },
           "lists": {
@@ -13209,8 +14022,33 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/sora-2.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "sora-2-2025-10-06",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "---",
+            "shutdown_date": "2026-09-24",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "sora-2-2025-12-08",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "---",
+            "shutdown_date": "2026-09-24",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -13294,6 +14132,9 @@
           ],
           "attrs": {
             "default_snapshot": "sora-2-pro-2025-10-06",
+            "recommended_replacement": "---",
+            "shutdown_date": "2026-09-24",
+            "state": "deprecated",
             "summary": "Most advanced synced-audio video generation"
           },
           "lists": {
@@ -13314,8 +14155,105 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/sora-2-pro.md",
             "https://developers.openai.com/api/docs/pricing.md"
+          ]
+        },
+        {
+          "id": "sora-2-pro-2025-10-06",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "---",
+            "shutdown_date": "2026-09-24",
+            "state": "deprecated"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-ada-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-babbage-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-curie-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-davinci-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-davinci-002",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-davinci-003",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-3.5-turbo-instruct",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-davinci-edit-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "gpt-4o",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -13336,6 +14274,7 @@
           ],
           "attrs": {
             "default_snapshot": "text-embedding-3-large",
+            "state": "active",
             "summary": "Most capable embedding model"
           },
           "lists": {
@@ -13376,6 +14315,7 @@
           ],
           "attrs": {
             "default_snapshot": "text-embedding-3-small",
+            "state": "active",
             "summary": "Small embedding model"
           },
           "lists": {
@@ -13416,6 +14356,7 @@
           ],
           "attrs": {
             "default_snapshot": "text-embedding-ada-002",
+            "state": "active",
             "summary": "Older embedding model"
           },
           "lists": {
@@ -13439,13 +14380,28 @@
           ]
         },
         {
+          "id": "text-moderation-007",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "omni-moderation",
+            "shutdown_date": "2025-10-27",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
           "id": "text-moderation-latest",
           "provider": "openai",
           "name": "text-moderation",
           "kind": "moderation",
           "attrs": {
             "default_snapshot": "text-moderation-007",
-            "knowledge_cutoff": "Sep 01, 2021",
+            "knowledge_cutoff": "2021-09-01",
+            "recommended_replacement": "omni-moderation",
+            "shutdown_date": "2025-10-27",
+            "state": "shutdown",
             "summary": "Previous generation text-only moderation model"
           },
           "limits": {
@@ -13466,6 +14422,7 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/text-moderation-latest.md"
           ]
         },
@@ -13476,7 +14433,10 @@
           "kind": "moderation",
           "attrs": {
             "default_snapshot": "text-moderation-007",
-            "knowledge_cutoff": "Sep 01, 2021",
+            "knowledge_cutoff": "2021-09-01",
+            "recommended_replacement": "omni-moderation",
+            "shutdown_date": "2025-10-27",
+            "state": "shutdown",
             "summary": "Previous generation text-only moderation model"
           },
           "limits": {
@@ -13497,7 +14457,152 @@
             ]
           },
           "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md",
             "https://developers.openai.com/api/docs/models/text-moderation-stable.md"
+          ]
+        },
+        {
+          "id": "text-search-ada-doc-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-ada-query-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-babbage-doc-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-babbage-query-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-curie-doc-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-curie-query-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-davinci-doc-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-search-davinci-query-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-similarity-ada-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-similarity-babbage-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-similarity-curie-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
+          ]
+        },
+        {
+          "id": "text-similarity-davinci-001",
+          "provider": "openai",
+          "attrs": {
+            "recommended_replacement": "text-embedding-3-small",
+            "shutdown_date": "2024-01-04",
+            "state": "shutdown"
+          },
+          "sources": [
+            "https://developers.openai.com/api/docs/deprecations.md"
           ]
         },
         {
@@ -13519,6 +14624,7 @@
           ],
           "attrs": {
             "default_snapshot": "tts-1",
+            "state": "active",
             "summary": "Text-to-speech model optimized for speed"
           },
           "lists": {
@@ -13559,6 +14665,7 @@
           ],
           "attrs": {
             "default_snapshot": "tts-1-hd",
+            "state": "active",
             "summary": "Text-to-speech model optimized for quality"
           },
           "lists": {
@@ -13653,6 +14760,7 @@
           ],
           "attrs": {
             "default_snapshot": "whisper-1",
+            "state": "active",
             "summary": "General-purpose speech recognition model"
           },
           "lists": {

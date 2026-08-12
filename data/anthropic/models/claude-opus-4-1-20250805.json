@@ -72,9 +72,9 @@
   ],
   "attrs": {
     "availability": "retired, except on Bedrock and Google Cloud",
-    "deprecated_on": "June 5, 2026",
+    "deprecated_on": "2026-06-05",
     "recommended_replacement": "claude-opus-4-8",
-    "retirement_date": "August 5, 2026",
+    "retirement_date": "2026-08-05",
     "state": "retired"
   },
   "sources": [

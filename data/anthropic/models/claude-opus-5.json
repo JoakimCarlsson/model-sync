@@ -92,11 +92,12 @@
     "aws_bedrock_id": "anthropic.claude-opus-5",
     "comparative_latency": "Moderate",
     "google_cloud_id": "claude-opus-5",
-    "knowledge_cutoff": "May 2026",
-    "retirement_date": "Not sooner than July 24, 2027",
+    "knowledge_cutoff": "2026-05",
+    "retirement_date": "2027-07-24",
+    "retirement_date_qualifier": "not sooner than",
     "state": "active",
     "summary": "For complex agentic coding and enterprise work",
-    "training_data_cutoff": "May 2026"
+    "training_data_cutoff": "2026-05"
   },
   "limits": {
     "context_window": 1000000,

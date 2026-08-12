@@ -34,7 +34,8 @@
   ],
   "attrs": {
     "default_snapshot": "o3-deep-research-2025-06-26",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "state": "active",
     "summary": "Our most powerful deep research model"
   },
   "limits": {

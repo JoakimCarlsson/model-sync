@@ -4,7 +4,7 @@
   "kind": "chat",
   "attrs": {
     "recommended_replacement": "claude-opus-4-8",
-    "retirement_date": "January 5, 2026",
+    "retirement_date": "2026-01-05",
     "state": "retired"
   },
   "sources": [

@@ -206,6 +206,7 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-image-2-2026-04-21",
+    "state": "active",
     "summary": "State-of-the-art image generation model"
   },
   "lists": {

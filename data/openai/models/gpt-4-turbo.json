@@ -25,7 +25,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4-turbo-2024-04-09",
-    "knowledge_cutoff": "Dec 01, 2023",
+    "knowledge_cutoff": "2023-12-01",
+    "state": "active",
     "summary": "An older high-intelligence GPT model"
   },
   "limits": {

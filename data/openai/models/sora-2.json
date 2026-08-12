@@ -31,6 +31,9 @@
   ],
   "attrs": {
     "default_snapshot": "sora-2-2025-12-08",
+    "recommended_replacement": "---",
+    "shutdown_date": "2026-09-24",
+    "state": "deprecated",
     "summary": "Flagship video generation with synced audio"
   },
   "lists": {
@@ -52,6 +55,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/sora-2.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

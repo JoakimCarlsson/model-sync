@@ -47,7 +47,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-audio-mini-2025-12-15",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-audio-1.5",
+    "shutdown_date": "2027-01-20",
+    "state": "deprecated",
     "summary": "A cost-efficient version of GPT Audio"
   },
   "limits": {
@@ -79,6 +82,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-audio-mini.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

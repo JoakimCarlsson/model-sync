@@ -27,6 +27,7 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4o-mini-tts-2025-12-15",
+    "state": "active",
     "summary": "Text-to-speech model powered by GPT-4o mini"
   },
   "lists": {

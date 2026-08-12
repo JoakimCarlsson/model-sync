@@ -1,0 +1,12 @@
+{
+  "id": "gpt-5-pro-2025-10-06",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-5.6-sol",
+    "shutdown_date": "2026-12-11",
+    "state": "deprecated"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

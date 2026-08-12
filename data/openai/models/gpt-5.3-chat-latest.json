@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.3-chat-latest",
-    "knowledge_cutoff": "Aug 31, 2025",
+    "knowledge_cutoff": "2025-08-31",
+    "recommended_replacement": "gpt-5.6-sol",
+    "shutdown_date": "2026-08-10",
+    "state": "shutdown",
     "summary": "GPT-5.3 Instant model used in ChatGPT"
   },
   "limits": {
@@ -73,6 +76,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest.md"
   ]
 }

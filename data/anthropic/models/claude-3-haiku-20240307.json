@@ -3,9 +3,9 @@
   "provider": "anthropic",
   "kind": "chat",
   "attrs": {
-    "deprecated_on": "February 19, 2026",
+    "deprecated_on": "2026-02-19",
     "recommended_replacement": "claude-haiku-4-5-20251001",
-    "retirement_date": "April 20, 2026",
+    "retirement_date": "2026-04-20",
     "state": "retired"
   },
   "sources": [

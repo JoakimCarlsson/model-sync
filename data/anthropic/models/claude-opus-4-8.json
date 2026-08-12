@@ -92,10 +92,11 @@
     "aws_bedrock_id": "anthropic.claude-opus-4-8",
     "comparative_latency": "Moderate",
     "google_cloud_id": "claude-opus-4-8",
-    "knowledge_cutoff": "Jan 2026",
-    "retirement_date": "Not sooner than May 28, 2027",
+    "knowledge_cutoff": "2026-01",
+    "retirement_date": "2027-05-28",
+    "retirement_date_qualifier": "not sooner than",
     "state": "active",
-    "training_data_cutoff": "Jan 2026"
+    "training_data_cutoff": "2026-01"
   },
   "limits": {
     "context_window": 1000000,

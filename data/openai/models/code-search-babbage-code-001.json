@@ -1,0 +1,12 @@
+{
+  "id": "code-search-babbage-code-001",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "text-embedding-3-small",
+    "shutdown_date": "2024-01-04",
+    "state": "shutdown"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "gpt-4o-realtime",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "gpt-realtime-2.1",
+    "shutdown_date": "2027-01-20",
+    "state": "deprecated"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

@@ -37,7 +37,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4o-mini-transcribe-2025-12-15",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "state": "active",
     "summary": "Speech-to-text model powered by GPT-4o mini"
   },
   "limits": {

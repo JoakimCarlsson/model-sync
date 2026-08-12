@@ -5,7 +5,8 @@
   "kind": "chat",
   "attrs": {
     "default_snapshot": "gpt-oss-20b",
-    "knowledge_cutoff": "Jun 01, 2024",
+    "knowledge_cutoff": "2024-06-01",
+    "state": "active",
     "summary": "Medium-sized open-weight model for low latency"
   },
   "limits": {

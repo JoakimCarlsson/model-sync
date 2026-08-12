@@ -40,23 +40,56 @@ func (p *Provider) Name() string { return providerName }
 
 // Parse routes each document to the reader for its shape and merges what they
 // find into one model per identifier.
+//
+// The order is a dependency order, not the order documents arrive in. Pricing
+// comes first because it states rates by tier and context band, which a model
+// page cannot, and a model page defers to what is already recorded.
+// Deprecations come before the model pages so that a withdrawn model is not
+// then marked current by the page that still documents it.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
-	for _, doc := range docs {
-		switch {
-		case strings.Contains(doc.URL, "/docs/models/"):
-			b.applyModelPage(doc)
-		case strings.HasSuffix(doc.URL, "/pricing.md"):
-			for _, t := range scanMarkdownTables(doc) {
-				b.applyPricingTable(t)
-			}
-		default:
-			for _, t := range scanJSXTables(doc) {
-				b.applyImageTable(t)
+	for _, stage := range []struct {
+		match func(string) bool
+		apply func(catalog.Document)
+	}{
+		{isPricing, b.applyPricingDoc},
+		{isDeprecations, b.applyDeprecations},
+		{isGuide, b.applyGuide},
+		{isModelPage, b.applyModelPage},
+	} {
+		for _, doc := range docs {
+			if stage.match(doc.URL) {
+				stage.apply(doc)
 			}
 		}
 	}
 	return b.result(), nil
+}
+
+func isPricing(url string) bool { return strings.HasSuffix(url, "/pricing.md") }
+
+func isDeprecations(url string) bool {
+	return strings.HasSuffix(url, "/deprecations.md")
+}
+
+func isModelPage(url string) bool {
+	return strings.Contains(url, "/docs/models/")
+}
+
+func isGuide(url string) bool { return strings.Contains(url, "/docs/guides/") }
+
+// applyPricingDoc reads every rate table on the pricing page.
+func (b *builder) applyPricingDoc(doc catalog.Document) {
+	for _, t := range scanMarkdownTables(doc) {
+		b.applyPricingTable(t)
+	}
+}
+
+// applyGuide reads the HTML tables a guide states rates in.
+func (b *builder) applyGuide(doc catalog.Document) {
+	for _, t := range scanJSXTables(doc) {
+		b.applyImageTable(t)
+	}
 }
 
 // builder accumulates models across documents, keyed by identifier, so that a

@@ -5,7 +5,8 @@
   "kind": "chat",
   "attrs": {
     "default_snapshot": "gpt-5.6-sol",
-    "knowledge_cutoff": "Feb 16, 2026",
+    "knowledge_cutoff": "2026-02-16",
+    "state": "active",
     "summary": "An alias for frontier general-purpose models with safeguards for defensive cybersecurity work."
   },
   "limits": {

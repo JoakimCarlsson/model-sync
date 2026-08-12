@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4.5-preview-2025-02-27",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-4.1",
+    "shutdown_date": "2025-07-14",
+    "state": "shutdown",
     "summary": "Deprecated large model."
   },
   "limits": {
@@ -69,6 +72,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-4.5-preview.md"
   ]
 }

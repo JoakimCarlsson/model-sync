@@ -47,7 +47,10 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-audio-2025-08-28",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "gpt-audio-1.5",
+    "shutdown_date": "2027-01-20",
+    "state": "deprecated",
     "summary": "For audio inputs and outputs with Chat Completions API"
   },
   "limits": {
@@ -75,6 +78,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-audio.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

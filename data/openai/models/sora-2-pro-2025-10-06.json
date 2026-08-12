@@ -1,0 +1,12 @@
+{
+  "id": "sora-2-pro-2025-10-06",
+  "provider": "openai",
+  "attrs": {
+    "recommended_replacement": "---",
+    "shutdown_date": "2026-09-24",
+    "state": "deprecated"
+  },
+  "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md"
+  ]
+}

@@ -34,7 +34,10 @@
   ],
   "attrs": {
     "default_snapshot": "o1-preview-2024-09-12",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "recommended_replacement": "o3",
+    "shutdown_date": "2025-07-28",
+    "state": "shutdown",
     "summary": "Preview of our first o-series reasoning model"
   },
   "limits": {
@@ -65,6 +68,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/o1-preview.md"
   ]
 }

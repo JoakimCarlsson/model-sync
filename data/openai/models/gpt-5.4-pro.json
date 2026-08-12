@@ -139,7 +139,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.4-pro-2026-03-05",
-    "knowledge_cutoff": "Aug 31, 2025",
+    "knowledge_cutoff": "2025-08-31",
+    "state": "active",
     "summary": "Version of GPT-5.4 that produces smarter and more precise responses."
   },
   "limits": {

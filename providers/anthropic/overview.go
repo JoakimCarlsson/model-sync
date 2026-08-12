@@ -90,9 +90,9 @@ func (b *builder) applyOverviewRow(
 		case "comparative latency":
 			m.SetAttr(AttrLatency, value)
 		case "reliable knowledge cutoff":
-			m.SetAttr(AttrKnowledgeCutoff, dropFootnote(value))
+			m.SetAttr(AttrKnowledgeCutoff, isoDate(dropFootnote(value)))
 		case "training data cutoff":
-			m.SetAttr(AttrTrainingCutoff, dropFootnote(value))
+			m.SetAttr(AttrTrainingCutoff, isoDate(dropFootnote(value)))
 		default:
 			applyCapability(m, label, value)
 		}

@@ -327,7 +327,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.6-luna",
-    "knowledge_cutoff": "Feb 16, 2026",
+    "knowledge_cutoff": "2026-02-16",
+    "state": "active",
     "summary": "GPT-5.6 model optimized for cost-sensitive workloads"
   },
   "limits": {

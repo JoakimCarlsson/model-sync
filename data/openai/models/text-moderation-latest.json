@@ -5,7 +5,10 @@
   "kind": "moderation",
   "attrs": {
     "default_snapshot": "text-moderation-007",
-    "knowledge_cutoff": "Sep 01, 2021",
+    "knowledge_cutoff": "2021-09-01",
+    "recommended_replacement": "omni-moderation",
+    "shutdown_date": "2025-10-27",
+    "state": "shutdown",
     "summary": "Previous generation text-only moderation model"
   },
   "limits": {
@@ -26,6 +29,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/text-moderation-latest.md"
   ]
 }

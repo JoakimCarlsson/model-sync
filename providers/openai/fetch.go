@@ -20,8 +20,9 @@ const baseURL = "https://developers.openai.com"
 
 // Documents OpenAI publishes that this parser reads.
 const (
-	PricingURL     = baseURL + "/api/docs/pricing.md"
-	ModelsIndexURL = baseURL + "/api/docs/models.md"
+	PricingURL      = baseURL + "/api/docs/pricing.md"
+	ModelsIndexURL  = baseURL + "/api/docs/models.md"
+	DeprecationsURL = baseURL + "/api/docs/deprecations.md"
 )
 
 // GuideURLs are guides carrying rates stated nowhere else. The image
@@ -54,7 +55,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{pricing}
 	var failures []error
-	for _, url := range GuideURLs {
+	for _, url := range append([]string{DeprecationsURL}, GuideURLs...) {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)

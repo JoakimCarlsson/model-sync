@@ -25,7 +25,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-4o-search-preview-2025-03-11",
-    "knowledge_cutoff": "Oct 01, 2023",
+    "knowledge_cutoff": "2023-10-01",
+    "state": "active",
     "summary": "GPT model for web search in Chat Completions"
   },
   "limits": {

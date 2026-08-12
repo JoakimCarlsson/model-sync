@@ -34,7 +34,8 @@
   ],
   "attrs": {
     "default_snapshot": "chat-latest",
-    "knowledge_cutoff": "Aug 31, 2025",
+    "knowledge_cutoff": "2025-08-31",
+    "state": "active",
     "summary": "Latest Instant model used in ChatGPT"
   },
   "limits": {

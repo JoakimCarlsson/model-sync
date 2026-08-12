@@ -127,6 +127,9 @@
   ],
   "attrs": {
     "default_snapshot": "chatgpt-image-latest",
+    "recommended_replacement": "gpt-image-2",
+    "shutdown_date": "2026-12-01",
+    "state": "deprecated",
     "summary": "Previous image model used in ChatGPT."
   },
   "lists": {
@@ -151,6 +154,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/chatgpt-image-latest.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

@@ -3,6 +3,7 @@ package openai
 import (
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -229,6 +230,41 @@ func parseAmount(cell string) amount {
 	out.Note = rest
 	return out
 }
+
+// dateLayouts are the date formats OpenAI writes, paired with the precision to
+// render each at. Deprecation tables use abbreviated and full month names as
+// well as calendar dates, and a knowledge cutoff is sometimes only a month.
+var dateLayouts = []struct{ in, out string }{
+	{"2006-01-02", "2006-01-02"},
+	{"Jan 2, 2006", "2006-01-02"},
+	{"January 2, 2006", "2006-01-02"},
+	{"Jan 2006", "2006-01"},
+	{"January 2006", "2006-01"},
+}
+
+// isoDate rewrites a date into its machine readable form, keeping the
+// precision it was written at, so "Feb 16, 2026" becomes 2026-02-16 and
+// "Oct 2023" becomes 2023-10. A value in no recognized format is returned
+// unchanged rather than dropped.
+func isoDate(value string) string {
+	text := strings.TrimSpace(hyphens.Replace(value))
+	for _, layout := range dateLayouts {
+		if t, err := time.Parse(layout.in, text); err == nil {
+			return t.Format(layout.out)
+		}
+	}
+	return strings.TrimSpace(value)
+}
+
+// hyphens normalizes the typographic dashes OpenAI's tables use in dates,
+// which are not the hyphen time.Parse expects.
+var hyphens = strings.NewReplacer(
+	"‐", "-",
+	"‑", "-",
+	"‒", "-",
+	"–", "-",
+	"—", "-",
+)
 
 // idAliases maps a display name OpenAI uses in a pricing row onto the
 // identifier its API and model pages use, so one model does not become two.

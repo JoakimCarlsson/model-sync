@@ -72,9 +72,9 @@
   ],
   "attrs": {
     "availability": "retired, except on Bedrock and Google Cloud",
-    "deprecated_on": "April 14, 2026",
+    "deprecated_on": "2026-04-14",
     "recommended_replacement": "claude-sonnet-4-6",
-    "retirement_date": "June 15, 2026",
+    "retirement_date": "2026-06-15",
     "state": "retired"
   },
   "sources": [

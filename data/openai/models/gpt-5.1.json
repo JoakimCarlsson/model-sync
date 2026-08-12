@@ -127,7 +127,8 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-5.1-2025-11-13",
-    "knowledge_cutoff": "Sep 30, 2024",
+    "knowledge_cutoff": "2024-09-30",
+    "state": "active",
     "summary": "The best model for coding and agentic tasks with configurable reasoning effort"
   },
   "limits": {

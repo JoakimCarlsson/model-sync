@@ -17,6 +17,7 @@
   ],
   "attrs": {
     "default_snapshot": "tts-1-hd",
+    "state": "active",
     "summary": "Text-to-speech model optimized for quality"
   },
   "lists": {

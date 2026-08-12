@@ -17,6 +17,7 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-live-transcribe",
+    "state": "active",
     "summary": "Low-latency speech-to-text model for realtime transcription"
   },
   "lists": {
