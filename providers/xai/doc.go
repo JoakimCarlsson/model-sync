@@ -19,6 +19,14 @@
 //     tables, carrying modalities, context window, capabilities, aliases, rate
 //     limits and regions.
 //
+// Three of the server-side tools have a rate cell holding words rather than an
+// amount, and the words are kept as a note against the tool. Image generation
+// is charged at the Imagine API's own rates, which the same page states per
+// image against the models that serve them; image and video understanding are
+// charged by the tokens the analysis costs, at the rate of whichever model made
+// the call. None of the three has a rate of its own, and the note is what says
+// so rather than the absence.
+//
 // What xAI does not publish: a bound on output length. A model page states a
 // context window, the rate limits and the regions, and stops there, so no
 // model carries a maximum output.
