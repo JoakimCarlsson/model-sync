@@ -18,7 +18,15 @@
 // capability, and is recorded as an image input instead, which is what every
 // provider stating modalities calls it.
 //
-// What Groq does not publish: a page for every model in its table. Three of
-// the eleven chat models are listed with rates and limits and no page, and
-// carry no capabilities for that reason.
+// A system is a model in the table and a page like any other, but Groq files
+// its page under a path of its own rather than beside the models, so both are
+// followed. That page closes with the sentence saying a system has no rate:
+// what a query costs is whatever the underlying models and built-in tools it
+// reached for cost. The sentence is kept as a note, which is why the two
+// compound systems carry no price and do not read as free.
+//
+// What Groq does not publish: a rate for a model sold only to enterprises. Its
+// table writes "ContactSales" where the amount goes, and the badge beside the
+// model's name is recorded instead, so the model carries an access note rather
+// than a price.
 package groq

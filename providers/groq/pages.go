@@ -8,9 +8,6 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// modelPagePre prefixes the page each model in the table links to.
-const modelPagePre = baseURL + "/docs/model/"
-
 // Enumeration keys the model pages populate.
 const (
 	ListFeatures         = "features"
@@ -61,8 +58,11 @@ var modalityNames = map[string]string{
 }
 
 var (
-	// pageLinkRe matches a link from the table to one model's page.
-	pageLinkRe = regexp.MustCompile(`\(/docs/model/([a-z0-9./-]+)\)`)
+	// pageLinkRe matches a link from the table to the page of one model or of
+	// one system, which Groq files under a path of its own.
+	pageLinkRe = regexp.MustCompile(
+		`\(/docs/(model|compound/systems)/([a-z0-9./-]+)\)`,
+	)
 	// pageIDRe matches the identifier the page names under its heading, which
 	// Groq writes alone in backticks.
 	pageIDRe = regexp.MustCompile("(?m)^`([^`]+)`\\s*$")
@@ -71,6 +71,9 @@ var (
 	pageLinkTextRe = regexp.MustCompile(`\[([^\]]+)\]\([^)]*\)`)
 	// pageCardRe matches the link to where the weights are published.
 	pageCardRe = regexp.MustCompile(`\[Model card\]\(([^)]+)\)`)
+	// composedRe matches the sentence a system's page closes its pricing
+	// section with.
+	composedRe = regexp.MustCompile(`(?m)^Final pricing depends on.*$`)
 )
 
 // modelPageURLs derives the model pages the table links to.
@@ -80,7 +83,7 @@ func modelPageURLs(doc catalog.Document) []string {
 		string(doc.Body),
 		-1,
 	) {
-		url := modelPagePre + match[1] + ".md"
+		url := baseURL + "/docs/" + match[1] + "/" + match[2] + ".md"
 		if !contains(urls, url) {
 			urls = append(urls, url)
 		}
@@ -104,6 +107,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	}
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrModelCard, firstOf(pageCardRe, body))
+	m.AddNote(composedPricing(body))
 	sections := readSections(body)
 	addModalities(m, ListInputModalities, sections[headInput])
 	addModalities(m, ListOutputModalities, sections[headOutput])
@@ -115,6 +119,20 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		}
 		m.AddList(ListFeatures, featureName(name))
 	}
+}
+
+// composedPricing returns the sentence a system's page closes its pricing
+// section with, which is Groq stating that the system has no rate of its own:
+// what a query costs is whatever the underlying models and built-in tools it
+// reached for cost. Only the first sentence is kept, the rest of the paragraph
+// being links to the pages that state those.
+func composedPricing(body string) string {
+	match := composedRe.FindStringSubmatch(body)
+	if match == nil {
+		return ""
+	}
+	sentence, _, _ := strings.Cut(match[0], ". ")
+	return strings.TrimSuffix(sentence, ".") + "."
 }
 
 // readSections returns the value under each heading the page states.

@@ -14,7 +14,26 @@
     "requests_per_minute": 200,
     "tokens_per_minute": 200000
   },
+  "lists": {
+    "features": [
+      "code_execution",
+      "json_mode",
+      "visit_website",
+      "web_search",
+      "wolfram_alpha"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "notes": [
+    "Final pricing depends on which underlying models and tools are used for your specific query."
+  ],
   "sources": [
+    "https://console.groq.com/docs/compound/systems/compound-mini.md",
     "https://console.groq.com/docs/models.md"
   ]
 }
