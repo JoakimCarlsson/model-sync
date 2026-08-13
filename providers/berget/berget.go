@@ -24,11 +24,21 @@ const (
 	providerName = "Berget"
 )
 
-// ModelsURL is the endpoint listing every model Berget serves.
-const ModelsURL = "https://api.berget.ai/v1/models"
+// Documents Berget publishes that this parser reads.
+const (
+	// ModelsURL lists every model Berget serves, with its rate and what it
+	// can do.
+	ModelsURL = "https://api.berget.ai/v1/models"
+	// OverviewURL states each model's context window, which the endpoint
+	// does not.
+	OverviewURL = "https://docs.berget.ai/models/overview"
+)
 
-// cacheFile is where a fetched response is kept.
-const cacheFile = "berget_models.json"
+// cacheFiles are where a fetched document is kept, one per document.
+var cacheFiles = map[string]string{
+	ModelsURL:   "berget_models.json",
+	OverviewURL: "berget_overview.html",
+}
 
 // Provider reads Berget's model API. The zero value is not usable; call New.
 type Provider struct {
@@ -49,14 +59,33 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the model listing.
+// Fetch retrieves the model listing and the overview. A missing overview
+// costs the context windows and nothing else, so the listing is returned
+// alone rather than the run failing.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, ModelsURL, nil)
+	listing, err := p.get(ctx, ModelsURL)
 	if err != nil {
 		return nil, err
+	}
+	overview, err := p.get(ctx, OverviewURL)
+	if err != nil {
+		return []catalog.Document{listing}, err
+	}
+	return []catalog.Document{listing, overview}, nil
+}
+
+// get retrieves one document, reading from and writing to the cache directory
+// when one is configured.
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
 	}
 	client := p.Client
 	if client == nil {
@@ -64,51 +93,60 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", ModelsURL, resp.Status)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse decodes the listing.
+// Parse decodes the listing, then reads the overview onto the models it
+// established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	var failures []error
 	for _, doc := range docs {
+		if doc.URL != ModelsURL {
+			continue
+		}
 		if err := b.applyListing(doc); err != nil {
 			failures = append(failures, err)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL == OverviewURL {
+			b.applyOverview(doc)
 		}
 	}
 	return b.result(), errors.Join(failures...)
 }
 
-// readCache returns a previously fetched response.
-func (p *Provider) readCache() ([]byte, bool) {
+// readCache returns a previously fetched body.
+func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFiles[url]))
 	return body, err == nil
 }
 
 // writeCache stores a response, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCache(url string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFiles[url]), body, 0o644)
 }
 
 // builder accumulates models.

@@ -128,6 +128,7 @@ func (b *builder) applyEntry(e entry, source string) {
 			m.AddList(ListFeatures, capability)
 		}
 	}
+	applyModalities(m, e)
 	b.applyPricing(m, e.Pricing)
 }
 

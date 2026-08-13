@@ -26,6 +26,7 @@
     "release_date": "2025-10-01"
   },
   "limits": {
+    "context_window": 128000,
     "model_size_billions": 24
   },
   "lists": {
@@ -40,9 +41,16 @@
       "function_calling",
       "json_mode",
       "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://api.berget.ai/v1/models"
+    "https://api.berget.ai/v1/models",
+    "https://docs.berget.ai/models/overview"
   ]
 }

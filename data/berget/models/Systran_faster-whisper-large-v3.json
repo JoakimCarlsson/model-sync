@@ -44,6 +44,12 @@
     ],
     "features": [
       "streaming"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

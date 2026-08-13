@@ -43,6 +43,13 @@
       "json_mode",
       "streaming",
       "vision"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
