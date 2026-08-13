@@ -43,6 +43,9 @@ const (
 	ListFeatures         = "features"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	// ListDimensions holds the widths an embedding model can return, which is
+	// the key every other provider here states a vector width under.
+	ListDimensions = "embedding_dimensions"
 )
 
 // featureNames map a capability a page lists onto the catalog's vocabulary.
@@ -120,6 +123,12 @@ var (
 const (
 	rowContext = "context window"
 	rowMaxOut  = "maximum output tokens"
+	// rowSequence is what an embedding model's page calls the same bound the
+	// generative pages call a context window: the longest input it accepts.
+	rowSequence = "maximum sequence length"
+	// rowDimensions is the width of the vector an embedding model returns,
+	// which its page states as a ceiling, "Up to 1,024".
+	rowDimensions = "output dimensions"
 )
 
 // modelPageURLs derives the model pages the index links to, keeping the
@@ -190,16 +199,22 @@ func (b *builder) applyModelPages(docs []catalog.Document) {
 		m.AddList(ListFeatures, pages[name].Features...)
 		m.AddList(ListInputModalities, pages[name].InputMod...)
 		m.AddList(ListOutputModalities, pages[name].OutMod...)
+		if width := pages[name].Dimensions; width > 0 {
+			m.AddList(ListDimensions, strconv.FormatInt(width, 10))
+		}
 	}
 }
 
 // documented is what a model page states about one model.
 type documented struct {
-	Context  int64
-	MaxOut   int64
-	Features []string
-	InputMod []string
-	OutMod   []string
+	Context int64
+	MaxOut  int64
+	// Dimensions is the width of the vector an embedding model returns, and is
+	// zero for every model that returns something else.
+	Dimensions int64
+	Features   []string
+	InputMod   []string
+	OutMod     []string
 }
 
 // readModelPage reads one page's specification table, reporting whether the
@@ -220,6 +235,10 @@ func readModelPage(body string) (string, documented, bool) {
 			page.Context = parseCount(specText(row[2]))
 		case rowMaxOut:
 			page.MaxOut = parseCount(specText(row[2]))
+		case rowSequence:
+			page.Context = parseCount(specText(row[2]))
+		case rowDimensions:
+			page.Dimensions = parseCount(specText(row[2]))
 		}
 	}
 	readQuotas(&page, specText(table[1]))

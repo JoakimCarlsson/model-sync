@@ -23,7 +23,13 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 512
+  },
   "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ],
     "input_modalities": [
       "text"
     ]

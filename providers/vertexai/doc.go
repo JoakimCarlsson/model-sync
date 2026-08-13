@@ -39,9 +39,19 @@
 // the figures among their per-region quotas instead, as "65,536 maximum
 // output, 163,840 context length". Both are read.
 //
+// An embedding model's page heads its rows differently from a generative one.
+// The bound on what it accepts is a maximum sequence length rather than a
+// context window, and it states the width of the vector it returns as a ceiling,
+// "Up to 1,024", which is the only place Vertex publishes one. Both are read
+// under the keys the rest of the catalog uses, so a consumer keying on
+// context_window finds an embedding model's input bound where it finds every
+// other model's.
+//
 // What Google does not publish: a page for every model Vertex bills for. The
-// Gemma variants offered for self-deployment, the older Llama releases and the
-// E5 embedding models are metered with none, and carry rates alone.
+// Gemma variants offered for self-deployment and the older Llama releases are
+// metered with none, and carry rates alone. Nor does it state an output modality
+// for an embedding model: the table marks embeddings as the output, which is
+// what the model returns rather than a modality it returns it in.
 //
 // Reading the catalog needs a Google credential, which no other provider here
 // does.
