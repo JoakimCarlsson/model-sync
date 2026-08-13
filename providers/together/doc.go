@@ -29,4 +29,9 @@
 // What Together does not publish: a bound on output length, for any model. Its
 // tables state a context length and nothing else about how much a model may
 // generate, and its listing API, which might, needs an account.
+//
+// Nor does it state a context length for every model it sells. Two chat models,
+// Qwen3.7-Max and Qwen3.8-2.4T-A95B, have a dash where the count goes, which is
+// how the table writes a fact it does not have. Those two carry rates and no
+// bound at all.
 package together
