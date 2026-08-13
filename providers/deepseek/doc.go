@@ -24,6 +24,11 @@
 // times the current ones. What is charged today is the first table, and after
 // that date the first table is what DeepSeek will restate.
 //
+// One row is prose where the rest are ticks. The thinking mode row says the
+// models support thinking and non-thinking modes and which they default to,
+// which is more than a tick can carry, so the sentence is kept whole and the
+// capability in it recorded as well.
+//
 // What DeepSeek does not publish: a display name distinct from the identifier,
 // or any modality. Its table heads each column with the identifier itself and
 // states a model version beside it, which is the build the identifier

@@ -216,3 +216,16 @@ func TestParseNoNameOrModality(t *testing.T) {
 		}
 	}
 }
+
+// TestParseThinkingMode covers the row DeepSeek writes as prose rather than as
+// a tick, which is both the sentence and the capability in it.
+func TestParseThinkingMode(t *testing.T) {
+	for id, m := range parse(t) {
+		if m.Attrs[AttrThinkingMode] == "" {
+			t.Errorf("%s: no thinking mode stated", id)
+		}
+		if !slices.Contains(m.Lists[ListFeatures], catalog.CapabilityReasoning) {
+			t.Errorf("%s: got features %q, want reasoning", id, m.Lists[ListFeatures])
+		}
+	}
+}

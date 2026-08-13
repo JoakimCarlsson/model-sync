@@ -206,6 +206,9 @@ func (b *builder) applyValue(id, label, value string) {
 		m.SetAttr(AttrModelVersion, value)
 	case "thinking mode":
 		m.SetAttr(AttrThinkingMode, value)
+		if thinkingRe.MatchString(value) {
+			m.AddList(ListFeatures, catalog.CapabilityReasoning)
+		}
 	case "context length":
 		m.SetLimit(LimitContextWindow, parseCount(value))
 	case "max output":
@@ -223,6 +226,14 @@ func (b *builder) applyValue(id, label, value string) {
 		m.AddList(ListFeatures, featureName(label))
 	}
 }
+
+// thinkingRe matches a thinking mode row stating that the model thinks.
+//
+// The row is prose rather than a tick, because DeepSeek has more to say than
+// yes: its models support thinking and non-thinking modes and default to one
+// of them. The whole sentence is kept as an attribute, and this reads the part
+// of it that is the capability every other provider states in one word.
+var thinkingRe = regexp.MustCompile(`(?i)\bsupports\b.*\bthinking\b`)
 
 // footnoteRe matches the reference marker DeepSeek appends to a row label.
 var footnoteRe = regexp.MustCompile(`\(\d+\)$`)

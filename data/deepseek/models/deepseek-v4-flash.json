@@ -39,6 +39,7 @@
     "features": [
       "function_calling",
       "prefix",
+      "reasoning",
       "structured_outputs"
     ]
   },
