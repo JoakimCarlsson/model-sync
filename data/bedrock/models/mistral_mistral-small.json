@@ -1,6 +1,7 @@
 {
   "id": "mistral/mistral-small",
   "provider": "bedrock",
+  "name": "Mistral Small",
   "kind": "chat",
   "prices": [
     {
@@ -46,9 +47,42 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "model_name": "Mistral Small"
+    "lifecycle_state": "active",
+    "model_name": "Mistral Small",
+    "released": "Dec 16, 2025",
+    "retirement_date": "No sooner than 5/24/2025",
+    "summary": "Mistral Small is Mistral AI's cost-efficient model optimized for low-latency tasks like classification, translation, and customer support. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "mistral.mistral-small-2402-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-small.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

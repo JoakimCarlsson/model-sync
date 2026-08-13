@@ -1,6 +1,7 @@
 {
   "id": "mistral/ministral-3b-3.0",
   "provider": "bedrock",
+  "name": "Ministral 3B 3.0",
   "kind": "chat",
   "prices": [
     {
@@ -1200,9 +1201,45 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "model_name": "Ministral 3B 3.0"
+    "lifecycle_state": "active",
+    "model_name": "Ministral 3B 3.0",
+    "released": "Dec 2, 2025",
+    "retirement_date": "N/A",
+    "summary": "Ministral 3B is Mistral AI's ultra-compact 3-billion parameter model for on-device tasks requiring minimal compute. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-ministral-3b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

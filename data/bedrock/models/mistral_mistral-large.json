@@ -1,6 +1,7 @@
 {
   "id": "mistral/mistral-large",
   "provider": "bedrock",
+  "name": "Mistral Large",
   "kind": "chat",
   "prices": [
     {

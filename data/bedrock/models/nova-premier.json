@@ -1,6 +1,7 @@
 {
   "id": "nova-premier",
   "provider": "bedrock",
+  "name": "Nova Premier",
   "kind": "chat",
   "prices": [
     {
@@ -335,9 +336,44 @@
     }
   ],
   "attrs": {
-    "model_name": "Nova Premier"
+    "knowledge_cutoff": "Oct 2024",
+    "lifecycle_state": "legacy",
+    "model_name": "Nova Premier",
+    "released": "Oct 31, 2025",
+    "retirement_date": "September 14, 2026",
+    "summary": "Nova Premier is Amazon's multimodal model for complex reasoning, agentic workflows, and model distillation. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 25000
+  },
+  "lists": {
+    "aliases": [
+      "amazon.nova-premier-v1:0",
+      "us.amazon.nova-premier-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "function_calling",
+      "guardrails",
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-premier.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

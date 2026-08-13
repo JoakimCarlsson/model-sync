@@ -1,6 +1,7 @@
 {
   "id": "nova-pro-latency-optimized",
   "provider": "bedrock",
+  "name": "Nova Pro Latency Optimized",
   "kind": "chat",
   "prices": [
     {

@@ -1,6 +1,7 @@
 {
   "id": "nova-pro",
   "provider": "bedrock",
+  "name": "Nova Pro",
   "kind": "chat",
   "prices": [
     {
@@ -2415,9 +2416,49 @@
     }
   ],
   "attrs": {
-    "model_name": "Nova Pro"
+    "knowledge_cutoff": "Oct 2024",
+    "lifecycle_state": "active",
+    "model_name": "Nova Pro",
+    "released": "Dec 05, 2024",
+    "retirement_date": "No sooner than 12/4/2025",
+    "summary": "Nova Pro is Amazon's balanced multimodal model offering strong accuracy, speed, and cost for a wide range of tasks across text, images, and video. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 300000,
+    "max_output_tokens": 5000
+  },
+  "lists": {
+    "aliases": [
+      "amazon.nova-pro-v1:0",
+      "eu.amazon.nova-pro-v1:0",
+      "us.amazon.nova-pro-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "intelligent_prompt_routing",
+      "model_evaluation",
+      "prompt_caching",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-pro.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

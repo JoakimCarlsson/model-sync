@@ -1,6 +1,7 @@
 {
   "id": "mistral/mixtral-8x7b",
   "provider": "bedrock",
+  "name": "Mixtral 8x7B",
   "kind": "chat",
   "prices": [
     {
@@ -186,9 +187,41 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "model_name": "Mixtral 8x7B"
+    "lifecycle_state": "active",
+    "model_name": "Mixtral 8x7B",
+    "released": "Dec 10, 2023",
+    "retirement_date": "No sooner than 3/1/2025",
+    "summary": "Mixtral 8x7B Instruct is Mistral AI's sparse mixture-of-experts model with 8 experts and 7B parameters each, delivering strong performance at faster inference speeds. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "mistral.mixtral-8x7b-instruct-v0:1"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mixtral-8x7b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

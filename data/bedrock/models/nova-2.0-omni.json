@@ -1,6 +1,7 @@
 {
   "id": "nova-2.0-omni",
   "provider": "bedrock",
+  "name": "Nova 2.0 Omni",
   "kind": "chat",
   "prices": [
     {

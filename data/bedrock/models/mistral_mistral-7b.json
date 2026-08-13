@@ -1,6 +1,7 @@
 {
   "id": "mistral/mistral-7b",
   "provider": "bedrock",
+  "name": "Mistral 7B",
   "kind": "chat",
   "prices": [
     {
@@ -186,9 +187,41 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "model_name": "Mistral 7B"
+    "lifecycle_state": "active",
+    "model_name": "Mistral 7B",
+    "released": "Sep 28, 2023",
+    "retirement_date": "No sooner than 3/1/2025",
+    "summary": "Mistral 7B Instruct is Mistral AI's 7-billion parameter instruction-tuned model with grouped-query attention and sliding window attention for efficient long-context inference. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "mistral.mistral-7b-instruct-v0:2"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-7b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

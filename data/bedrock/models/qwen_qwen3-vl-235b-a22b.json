@@ -1,6 +1,7 @@
 {
   "id": "qwen/qwen3-vl-235b-a22b",
   "provider": "bedrock",
+  "name": "Qwen3 VL 235B A22B",
   "kind": "chat",
   "prices": [
     {
@@ -1200,9 +1201,45 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "model_name": "Qwen3 VL 235B A22B"
+    "lifecycle_state": "active",
+    "model_name": "Qwen3 VL 235B A22B",
+    "released": "Sep 23, 2025",
+    "retirement_date": "N/A",
+    "summary": "Qwen3 VL 235B A22B is Qwen's vision-language mixture-of-experts model that processes text and images for visual reasoning and document understanding. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-vl-235b-a22b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

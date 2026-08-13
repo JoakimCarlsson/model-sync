@@ -1,6 +1,7 @@
 {
   "id": "meta/llama-3.1-70b-latency-optimized",
   "provider": "bedrock",
+  "name": "Llama 3.1 70B Latency Optimized",
   "kind": "chat",
   "prices": [
     {

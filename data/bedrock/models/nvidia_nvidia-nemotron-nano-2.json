@@ -1,6 +1,7 @@
 {
   "id": "nvidia/nvidia-nemotron-nano-2",
   "provider": "bedrock",
+  "name": "NVIDIA Nemotron Nano 2",
   "kind": "chat",
   "prices": [
     {

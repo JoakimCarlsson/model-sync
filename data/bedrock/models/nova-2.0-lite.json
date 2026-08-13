@@ -1,6 +1,7 @@
 {
   "id": "nova-2.0-lite",
   "provider": "bedrock",
+  "name": "Nova 2.0 Lite",
   "kind": "chat",
   "prices": [
     {
@@ -3961,9 +3962,48 @@
     }
   ],
   "attrs": {
-    "model_name": "Nova 2.0 Lite"
+    "knowledge_cutoff": "Oct 2025",
+    "lifecycle_state": "active",
+    "model_name": "Nova 2.0 Lite",
+    "released": "Dec 02, 2025",
+    "retirement_date": "N/A",
+    "summary": "Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, document processing, and customer support across text, images, and video. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 64000
+  },
+  "lists": {
+    "aliases": [
+      "amazon.nova-2-lite-v1:0",
+      "eu.amazon.nova-2-lite-v1:0",
+      "global.amazon.nova-2-lite-v1:0",
+      "jp.amazon.nova-2-lite-v1:0",
+      "us.amazon.nova-2-lite-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "function_calling",
+      "guardrails",
+      "prompt_optimization",
+      "streaming"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-lite.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

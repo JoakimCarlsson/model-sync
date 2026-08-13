@@ -1,6 +1,7 @@
 {
   "id": "writer/writer-palmyra-vision-7b",
   "provider": "bedrock",
+  "name": "Writer Palmyra Vision 7B",
   "kind": "chat",
   "prices": [
     {

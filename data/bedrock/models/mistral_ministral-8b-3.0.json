@@ -1,6 +1,7 @@
 {
   "id": "mistral/ministral-8b-3.0",
   "provider": "bedrock",
+  "name": "Ministral 8B 3.0",
   "kind": "chat",
   "prices": [
     {

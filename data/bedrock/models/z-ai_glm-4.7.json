@@ -1,6 +1,7 @@
 {
   "id": "z-ai/glm-4.7",
   "provider": "bedrock",
+  "name": "GLM 4.7",
   "kind": "chat",
   "prices": [
     {

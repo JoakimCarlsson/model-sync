@@ -1,6 +1,7 @@
 {
   "id": "meta/llama-3.2-11b",
   "provider": "bedrock",
+  "name": "Llama 3.2 11B",
   "kind": "chat",
   "prices": [
     {
@@ -86,9 +87,44 @@
   ],
   "attrs": {
     "author": "Meta",
-    "model_name": "Llama 3.2 11B"
+    "knowledge_cutoff": "Dec 2023",
+    "lifecycle_state": "legacy",
+    "model_name": "Llama 3.2 11B",
+    "released": "Sep 25, 2024",
+    "retirement_date": "July 7, 2026",
+    "summary": "Llama 3.2 11B Instruct is Meta's 11-billion parameter multimodal model that processes both text and images with a 128K context window. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "meta.llama3-2-11b-instruct-v1:0",
+      "us.meta.llama3-2-11b-instruct-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-2-11b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

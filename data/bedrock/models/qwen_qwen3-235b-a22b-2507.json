@@ -1,6 +1,7 @@
 {
   "id": "qwen/qwen3-235b-a22b-2507",
   "provider": "bedrock",
+  "name": "Qwen3 235B A22B 2507",
   "kind": "chat",
   "prices": [
     {
@@ -1200,9 +1201,48 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "model_name": "Qwen3 235B A22B 2507"
+    "lifecycle_state": "active",
+    "model_name": "Qwen3 235B A22B 2507",
+    "released": "Apr 28, 2025",
+    "retirement_date": "N/A",
+    "summary": "Qwen3 235B A22B is Qwen's 235-billion parameter mixture-of-experts model with 22 billion active parameters, supporting text and code generation with a 256K context window. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "aliases": [
+      "qwen.qwen3-235b-a22b-2507-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-235b-a22b-2507.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

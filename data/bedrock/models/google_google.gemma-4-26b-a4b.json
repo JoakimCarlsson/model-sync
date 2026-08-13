@@ -1,6 +1,7 @@
 {
   "id": "google/google.gemma-4-26b-a4b",
   "provider": "bedrock",
+  "name": "google.gemma-4-26b-a4b",
   "kind": "chat",
   "prices": [
     {

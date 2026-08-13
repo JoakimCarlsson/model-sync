@@ -1,6 +1,7 @@
 {
   "id": "qwen/qwen3-coder-30b-a3b",
   "provider": "bedrock",
+  "name": "Qwen3 Coder 30B A3B",
   "kind": "chat",
   "prices": [
     {
@@ -1260,9 +1261,47 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "model_name": "Qwen3 Coder 30B A3B"
+    "lifecycle_state": "active",
+    "model_name": "Qwen3 Coder 30B A3B",
+    "released": "Jul 31, 2025",
+    "retirement_date": "N/A",
+    "summary": "Qwen3 Coder 30B A3B is Qwen's compact coding mixture-of-experts model with 30B total and 3B active parameters for efficient code generation. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 16000
+  },
+  "lists": {
+    "aliases": [
+      "qwen.qwen3-coder-30b-a3b-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-30b-a3b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

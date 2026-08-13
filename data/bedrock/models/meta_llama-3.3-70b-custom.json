@@ -1,6 +1,7 @@
 {
   "id": "meta/llama-3.3-70b-custom",
   "provider": "bedrock",
+  "name": "Llama 3.3 70B Custom",
   "kind": "chat",
   "prices": [
     {

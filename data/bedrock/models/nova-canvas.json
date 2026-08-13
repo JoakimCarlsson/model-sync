@@ -1,6 +1,7 @@
 {
   "id": "nova-canvas",
   "provider": "bedrock",
+  "name": "Nova Canvas",
   "kind": "image",
   "prices": [
     {
@@ -95,9 +96,30 @@
     }
   ],
   "attrs": {
-    "model_name": "Nova Canvas"
+    "lifecycle_state": "legacy (certain regions)",
+    "model_name": "Nova Canvas",
+    "released": "Dec 3, 2024",
+    "retirement_date": "September 30, 2026",
+    "summary": "Nova Canvas is Amazon's image generation model that creates studio-quality images from text and image prompts with built-in controls for watermarking and content moderation. For more information about model development and performance, see the model/service card."
+  },
+  "lists": {
+    "aliases": [
+      "amazon.nova-canvas-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "invoke"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-canvas.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

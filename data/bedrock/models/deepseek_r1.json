@@ -1,6 +1,7 @@
 {
   "id": "deepseek/r1",
   "provider": "bedrock",
+  "name": "R1",
   "kind": "chat",
   "prices": [
     {

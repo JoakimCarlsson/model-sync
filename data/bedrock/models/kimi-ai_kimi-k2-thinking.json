@@ -1,6 +1,7 @@
 {
   "id": "kimi-ai/kimi-k2-thinking",
   "provider": "bedrock",
+  "name": "Kimi K2 Thinking",
   "kind": "chat",
   "prices": [
     {

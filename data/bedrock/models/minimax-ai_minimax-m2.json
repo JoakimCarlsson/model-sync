@@ -1,6 +1,7 @@
 {
   "id": "minimax-ai/minimax-m2",
   "provider": "bedrock",
+  "name": "Minimax M2",
   "kind": "chat",
   "prices": [
     {

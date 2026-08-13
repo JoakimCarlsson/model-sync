@@ -1,6 +1,7 @@
 {
   "id": "openai/gpt-oss-120b",
   "provider": "bedrock",
+  "name": "gpt-oss-120b",
   "kind": "chat",
   "prices": [
     {
@@ -1456,9 +1457,42 @@
   ],
   "attrs": {
     "author": "OpenAI",
-    "model_name": "gpt-oss-120b"
+    "lifecycle_state": "active",
+    "model_name": "gpt-oss-120b",
+    "released": "Aug 05, 2025",
+    "retirement_date": "N/A",
+    "summary": "GPT OSS 120B is OpenAI's 120-billion parameter open-source general-purpose model for text generation, coding, and reasoning tasks. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 16000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke",
+      "responses"
+    ],
+    "features": [
+      "function_calling",
+      "guardrails",
+      "projects",
+      "server-side_tool_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-openai-gpt-oss-120b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

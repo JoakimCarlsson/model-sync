@@ -1,6 +1,7 @@
 {
   "id": "deepseek/deepseek-v3.2",
   "provider": "bedrock",
+  "name": "DeepSeek v3.2",
   "kind": "chat",
   "prices": [
     {
@@ -1280,9 +1281,45 @@
   ],
   "attrs": {
     "author": "DeepSeek",
-    "model_name": "DeepSeek v3.2"
+    "knowledge_cutoff": "Mar 2025",
+    "lifecycle_state": "active",
+    "model_name": "DeepSeek v3.2",
+    "released": "Dec 01, 2025",
+    "retirement_date": "N/A",
+    "summary": "DeepSeek V3.2 is DeepSeek's mixture-of-experts model with improved reasoning, coding, and instruction following capabilities. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 164000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-deepseek-deepseek-v3-2.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

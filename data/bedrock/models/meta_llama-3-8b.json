@@ -1,6 +1,7 @@
 {
   "id": "meta/llama-3-8b",
   "provider": "bedrock",
+  "name": "Llama 3 8B",
   "kind": "chat",
   "prices": [
     {
@@ -146,9 +147,42 @@
   ],
   "attrs": {
     "author": "Meta",
-    "model_name": "Llama 3 8B"
+    "knowledge_cutoff": "Dec 2023",
+    "lifecycle_state": "active",
+    "model_name": "Llama 3 8B",
+    "released": "Apr 18, 2024",
+    "retirement_date": "No sooner than 4/23/2025",
+    "summary": "Llama 3 8B Instruct is Meta's 8-billion parameter instruction-tuned model with an 8K context window, designed for efficient deployment on smaller infrastructure. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 8000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "aliases": [
+      "meta.llama3-8b-instruct-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-8b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

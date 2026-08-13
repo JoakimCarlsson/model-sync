@@ -1,6 +1,7 @@
 {
   "id": "anthropic/claude-3-sonnet",
   "provider": "bedrock",
+  "name": "Claude 3 Sonnet",
   "kind": "chat",
   "prices": [
     {

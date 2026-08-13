@@ -232,6 +232,9 @@ func (b *builder) applyRate(
 	m.AddSource(source)
 	m.SetAttr(AttrAuthor, a.Provider)
 	m.SetAttr(AttrModel, a.Model)
+	if m.Name == "" {
+		m.Name = a.Model
+	}
 	m.AddPrice(catalog.Price{
 		Metric:   metric,
 		Unit:     unit,

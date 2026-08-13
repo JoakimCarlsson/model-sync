@@ -1,6 +1,7 @@
 {
   "id": "nova-2.0-pro",
   "provider": "bedrock",
+  "name": "Nova 2.0 Pro",
   "kind": "chat",
   "prices": [
     {

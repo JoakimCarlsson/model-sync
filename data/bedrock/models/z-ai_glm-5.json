@@ -1,6 +1,7 @@
 {
   "id": "z-ai/glm-5",
   "provider": "bedrock",
+  "name": "GLM 5",
   "kind": "chat",
   "prices": [
     {
@@ -1280,9 +1281,44 @@
   ],
   "attrs": {
     "author": "Z AI",
-    "model_name": "GLM 5"
+    "lifecycle_state": "active",
+    "model_name": "GLM 5",
+    "released": "Feb 11, 2026",
+    "retirement_date": "N/A",
+    "summary": "GLM 5 is a frontier-class, general-purpose large language model optimized for complex systems engineering and long-horizon agentic tasks. It builds on the GLM 4.5 agent-centric lineage and is designed to support multi-step reasoning, math (including AIME-style benchmarks), advanced coding, and tool-augmented workflows, with long context support suitable for sophisticated agents and enterprise applications. For more information about model development and performance, see the model card."
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-5.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

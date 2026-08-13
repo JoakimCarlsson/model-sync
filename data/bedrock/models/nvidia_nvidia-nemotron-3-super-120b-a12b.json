@@ -1,6 +1,7 @@
 {
   "id": "nvidia/nvidia-nemotron-3-super-120b-a12b",
   "provider": "bedrock",
+  "name": "NVIDIA Nemotron 3 Super 120B A12B",
   "kind": "chat",
   "prices": [
     {
@@ -1476,9 +1477,44 @@
   ],
   "attrs": {
     "author": "Nvidia",
-    "model_name": "NVIDIA Nemotron 3 Super 120B A12B"
+    "lifecycle_state": "active",
+    "model_name": "NVIDIA Nemotron 3 Super 120B A12B",
+    "released": "Mar 11, 2026",
+    "retirement_date": "N/A",
+    "summary": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications. It delivers up to 7x higher throughput, providing fast, cost-efficient inference for agentic tasks. A long context window gives the model long-term memory, preventing AI agents from losing focus on long, multi-step tasks and ensuring high-accuracy results. Fully open with weights, datasets, and recipes, it allows easy customization and secure deployment. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 32000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-super-3-120b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

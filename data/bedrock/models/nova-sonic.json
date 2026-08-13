@@ -1,6 +1,7 @@
 {
   "id": "nova-sonic",
   "provider": "bedrock",
+  "name": "Nova Sonic",
   "kind": "chat",
   "prices": [
     {

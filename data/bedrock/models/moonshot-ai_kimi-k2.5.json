@@ -1,6 +1,7 @@
 {
   "id": "moonshot-ai/kimi-k2.5",
   "provider": "bedrock",
+  "name": "Kimi K2.5",
   "kind": "chat",
   "prices": [
     {
@@ -1280,9 +1281,46 @@
   ],
   "attrs": {
     "author": "Moonshot AI",
-    "model_name": "Kimi K2.5"
+    "lifecycle_state": "active",
+    "model_name": "Kimi K2.5",
+    "released": "Jan 27, 2026",
+    "retirement_date": "N/A",
+    "summary": "Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 16000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k2-5.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

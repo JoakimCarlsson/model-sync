@@ -1,6 +1,7 @@
 {
   "id": "minimax-ai/minimax-m2.5",
   "provider": "bedrock",
+  "name": "MiniMax M2.5",
   "kind": "chat",
   "prices": [
     {
@@ -1280,9 +1281,45 @@
   ],
   "attrs": {
     "author": "Minimax AI",
-    "model_name": "MiniMax M2.5"
+    "lifecycle_state": "active",
+    "model_name": "MiniMax M2.5",
+    "released": "Feb 12, 2026",
+    "retirement_date": "N/A",
+    "summary": "MiniMax M2.5 is an agent-native frontier model trained explicitly to reason efficiently, decompose tasks optimally, and complete complex workflows under real-world time and cost constraints. It achieves task completion speeds comparable to or faster than leading proprietary frontier models by combining high inference throughput with reinforcement learning focused on token-efficient reasoning and better decision-making in agentic scaffolds. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 196000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-5.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

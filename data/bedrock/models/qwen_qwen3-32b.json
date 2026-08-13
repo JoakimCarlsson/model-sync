@@ -1,6 +1,7 @@
 {
   "id": "qwen/qwen3-32b",
   "provider": "bedrock",
+  "name": "Qwen3 32B",
   "kind": "chat",
   "prices": [
     {
@@ -1260,9 +1261,48 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "model_name": "Qwen3 32B"
+    "lifecycle_state": "active",
+    "model_name": "Qwen3 32B",
+    "released": "Apr 29, 2025",
+    "retirement_date": "N/A",
+    "summary": "Qwen3 32B is Qwen's 32-billion parameter dense model with hybrid thinking modes for both fast responses and deep reasoning. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "aliases": [
+      "qwen.qwen3-32b-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-32b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

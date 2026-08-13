@@ -1,6 +1,7 @@
 {
   "id": "mistral/magistral-small-1.2",
   "provider": "bedrock",
+  "name": "Magistral Small 1.2",
   "kind": "chat",
   "prices": [
     {

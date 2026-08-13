@@ -1,6 +1,7 @@
 {
   "id": "anthropic/claude-instant",
   "provider": "bedrock",
+  "name": "Claude Instant",
   "kind": "chat",
   "prices": [
     {

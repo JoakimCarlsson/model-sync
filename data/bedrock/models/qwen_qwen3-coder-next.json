@@ -1,6 +1,7 @@
 {
   "id": "qwen/qwen3-coder-next",
   "provider": "bedrock",
+  "name": "Qwen3 Coder Next",
   "kind": "chat",
   "prices": [
     {
@@ -1280,9 +1281,44 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "model_name": "Qwen3 Coder Next"
+    "lifecycle_state": "active",
+    "model_name": "Qwen3 Coder Next",
+    "released": "Feb 04, 2026",
+    "retirement_date": "N/A",
+    "summary": "Qwen3 Coder Next is Qwen's coding model with improved code generation, debugging, and software engineering capabilities. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 16000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-next.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

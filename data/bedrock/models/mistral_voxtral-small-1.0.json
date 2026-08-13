@@ -1,6 +1,7 @@
 {
   "id": "mistral/voxtral-small-1.0",
   "provider": "bedrock",
+  "name": "Voxtral Small 1.0",
   "kind": "transcription",
   "prices": [
     {
