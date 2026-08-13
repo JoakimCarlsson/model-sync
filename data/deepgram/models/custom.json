@@ -1,0 +1,13 @@
+{
+  "id": "custom",
+  "provider": "deepgram",
+  "name": "Custom",
+  "kind": "transcription",
+  "attrs": {
+    "product": "speech to text",
+    "summary": "Custom speech-to-text models trained on proprietary or novel datasets for maximum accuracy in edge-case scenarios."
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

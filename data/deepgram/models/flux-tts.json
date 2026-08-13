@@ -1,0 +1,32 @@
+{
+  "id": "flux-tts",
+  "provider": "deepgram",
+  "name": "Flux TTS",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.0405,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.045,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "text to speech"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

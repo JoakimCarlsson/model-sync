@@ -1,0 +1,34 @@
+{
+  "id": "nova-3-monolingual",
+  "provider": "deepgram",
+  "name": "Nova-3 Monolingual",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0042,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0048,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "previous_rate": "$0.0077/min",
+    "product": "speech to text",
+    "summary": "Our highest performing model. Recommended for most use cases, especially audio with multiple languages, background noise, crosstalk and far field audio."
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

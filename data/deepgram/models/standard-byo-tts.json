@@ -1,0 +1,32 @@
+{
+  "id": "standard-byo-tts",
+  "provider": "deepgram",
+  "name": "Standard - BYO TTS",
+  "kind": "agent",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.051,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.065,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "voice agent api"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

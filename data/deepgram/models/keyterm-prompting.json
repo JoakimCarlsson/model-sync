@@ -1,0 +1,32 @@
+{
+  "id": "keyterm-prompting",
+  "provider": "deepgram",
+  "name": "Keyterm Prompting",
+  "kind": "add-on",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0012,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0013,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "speech-to-text add-ons"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

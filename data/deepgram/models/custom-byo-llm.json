@@ -1,0 +1,54 @@
+{
+  "id": "custom-byo-llm",
+  "provider": "deepgram",
+  "name": "Custom - BYO LLM",
+  "kind": "agent",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.059,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.041,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth",
+        "promotional": "true"
+      },
+      "note": "$0.041/min through 9"
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.065,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go",
+        "promotional": "true"
+      },
+      "note": "$0.050/min through 9"
+    }
+  ],
+  "attrs": {
+    "product": "voice agent api"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

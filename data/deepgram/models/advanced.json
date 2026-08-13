@@ -1,0 +1,54 @@
+{
+  "id": "advanced",
+  "provider": "deepgram",
+  "name": "Advanced",
+  "kind": "agent",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.146,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.11,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth",
+        "promotional": "true"
+      },
+      "note": "$0.110/min through 9"
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.163,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.122,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go",
+        "promotional": "true"
+      },
+      "note": "$0.122/min through 9"
+    }
+  ],
+  "attrs": {
+    "product": "voice agent api"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "redaction",
+  "provider": "deepgram",
+  "name": "Redaction",
+  "kind": "add-on",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0017,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.002,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "speech-to-text add-ons"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

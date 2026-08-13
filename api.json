@@ -1981,6 +1981,696 @@
       ]
     },
     {
+      "id": "deepgram",
+      "name": "Deepgram",
+      "models": [
+        {
+          "id": "advanced",
+          "provider": "deepgram",
+          "name": "Advanced",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.146,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.11,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth",
+                "promotional": "true"
+              },
+              "note": "$0.110/min through 9"
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.163,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.122,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go",
+                "promotional": "true"
+              },
+              "note": "$0.122/min through 9"
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "advanced-byo-tts",
+          "provider": "deepgram",
+          "name": "Advanced - BYO TTS",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.11,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.122,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "aura-1",
+          "provider": "deepgram",
+          "name": "Aura-1",
+          "kind": "speech",
+          "prices": [
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.0135,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.015,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "text to speech"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "aura-2",
+          "provider": "deepgram",
+          "name": "Aura-2",
+          "kind": "speech",
+          "prices": [
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.027,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.03,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "text to speech"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "custom",
+          "provider": "deepgram",
+          "name": "Custom",
+          "kind": "transcription",
+          "attrs": {
+            "product": "speech to text",
+            "summary": "Custom speech-to-text models trained on proprietary or novel datasets for maximum accuracy in edge-case scenarios."
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "custom-byo-llm",
+          "provider": "deepgram",
+          "name": "Custom - BYO LLM",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.059,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.041,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth",
+                "promotional": "true"
+              },
+              "note": "$0.041/min through 9"
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.065,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.05,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go",
+                "promotional": "true"
+              },
+              "note": "$0.050/min through 9"
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "custom-byo-llm-tts",
+          "provider": "deepgram",
+          "name": "Custom - BYO LLM + TTS",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.041,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.05,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "entity-detection",
+          "provider": "deepgram",
+          "name": "Entity Detection",
+          "kind": "add-on",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0017,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0017,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "speech-to-text add-ons"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "flux-english",
+          "provider": "deepgram",
+          "name": "Flux English",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0057,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0065,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "previous_rate": "$0.0077/min",
+            "product": "speech to text",
+            "summary": "Conversational speech recognition for real-time voice agents with built-in turn detection, natural interruption handling, and ultra-low latency."
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "flux-multilingual",
+          "provider": "deepgram",
+          "name": "Flux Multilingual",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0068,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0078,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "speech to text",
+            "summary": "Conversational speech recognition for real-time voice agents that handle multiple languages within a single conversation, with built-in turn detection, natural interruption handling, and ultra-low latency."
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "flux-tts",
+          "provider": "deepgram",
+          "name": "Flux TTS",
+          "kind": "speech",
+          "prices": [
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.0405,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "speech",
+              "unit": "per_1k_characters",
+              "amount": 0.045,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "text to speech"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "keyterm-prompting",
+          "provider": "deepgram",
+          "name": "Keyterm Prompting",
+          "kind": "add-on",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0012,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0013,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "speech-to-text add-ons"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "nova-3-monolingual",
+          "provider": "deepgram",
+          "name": "Nova-3 Monolingual",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0042,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0048,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "previous_rate": "$0.0077/min",
+            "product": "speech to text",
+            "summary": "Our highest performing model. Recommended for most use cases, especially audio with multiple languages, background noise, crosstalk and far field audio."
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "nova-3-multilingual",
+          "provider": "deepgram",
+          "name": "Nova-3 Multilingual",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.005,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0058,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "previous_rate": "$0.0092/min",
+            "product": "speech to text",
+            "summary": "Our highest-accuracy multilingual model with automatic language detection. Recommended for audio with multiple languages, background noise, crosstalk, and far-field input."
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "redaction",
+          "provider": "deepgram",
+          "name": "Redaction",
+          "kind": "add-on",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.0017,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.002,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "speech-to-text add-ons"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "smart-formatting",
+          "provider": "deepgram",
+          "name": "Smart Formatting",
+          "kind": "add-on",
+          "attrs": {
+            "included": "true",
+            "product": "speech-to-text add-ons"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "speaker-diarization",
+          "provider": "deepgram",
+          "name": "Speaker Diarization",
+          "kind": "add-on",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.002,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "speech-to-text add-ons"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "standard",
+          "provider": "deepgram",
+          "name": "Standard",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.068,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.051,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth",
+                "promotional": "true"
+              },
+              "note": "$0.051/min through 9"
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.075,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.056,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go",
+                "promotional": "true"
+              },
+              "note": "$0.056/min through 9"
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "standard-byo-tts",
+          "provider": "deepgram",
+          "name": "Standard - BYO TTS",
+          "kind": "agent",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.051,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_minute",
+              "amount": 0.065,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "voice agent api"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        },
+        {
+          "id": "summarization",
+          "provider": "deepgram",
+          "name": "Summarization",
+          "kind": "intelligence",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1k_tokens",
+              "amount": 0.00024,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "input_tokens",
+              "unit": "per_1k_tokens",
+              "amount": 0.0003,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1k_tokens",
+              "amount": 0.00048,
+              "currency": "USD",
+              "dims": {
+                "plan": "growth"
+              }
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1k_tokens",
+              "amount": 0.0006,
+              "currency": "USD",
+              "dims": {
+                "plan": "pay-as-you-go"
+              }
+            }
+          ],
+          "attrs": {
+            "product": "audio intelligence"
+          },
+          "sources": [
+            "https://deepgram.com/pricing"
+          ]
+        }
+      ]
+    },
+    {
       "id": "fireworks",
       "name": "Fireworks AI",
       "models": [

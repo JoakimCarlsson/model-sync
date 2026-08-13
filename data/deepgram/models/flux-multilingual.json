@@ -1,0 +1,33 @@
+{
+  "id": "flux-multilingual",
+  "provider": "deepgram",
+  "name": "Flux Multilingual",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0068,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0078,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "speech to text",
+    "summary": "Conversational speech recognition for real-time voice agents that handle multiple languages within a single conversation, with built-in turn detection, natural interruption handling, and ultra-low latency."
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

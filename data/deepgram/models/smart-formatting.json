@@ -1,0 +1,13 @@
+{
+  "id": "smart-formatting",
+  "provider": "deepgram",
+  "name": "Smart Formatting",
+  "kind": "add-on",
+  "attrs": {
+    "included": "true",
+    "product": "speech-to-text add-ons"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

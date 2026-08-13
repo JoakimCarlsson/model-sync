@@ -1,0 +1,32 @@
+{
+  "id": "aura-1",
+  "provider": "deepgram",
+  "name": "Aura-1",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.0135,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "text to speech"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}

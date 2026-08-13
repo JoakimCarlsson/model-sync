@@ -1,0 +1,54 @@
+{
+  "id": "standard",
+  "provider": "deepgram",
+  "name": "Standard",
+  "kind": "agent",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.068,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.051,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth",
+        "promotional": "true"
+      },
+      "note": "$0.051/min through 9"
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.056,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go",
+        "promotional": "true"
+      },
+      "note": "$0.056/min through 9"
+    }
+  ],
+  "attrs": {
+    "product": "voice agent api"
+  },
+  "sources": [
+    "https://deepgram.com/pricing"
+  ]
+}
