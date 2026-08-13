@@ -30,6 +30,11 @@ const (
 // an alias points at rather than for the alias itself.
 const notePricedAs = "priced as "
 
+// noteNoRate records that the rate tables state no amount for a model OpenAI
+// documents and serves. It is the counterpart of notePricedAs: both exist so
+// that a model the tables leave out does not read as a free one.
+const noteNoRate = "no rate stated on the pricing page"
+
 // Numeric keys the model pages populate. Rate limits are suffixed with the
 // usage tier they apply to, as in rpm_tier_1.
 const (

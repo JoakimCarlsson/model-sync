@@ -88,6 +88,30 @@ func TestParseUnpricedStayUnpriced(t *testing.T) {
 		if len(m.Prices) != 0 {
 			t.Errorf("%s: got %d prices, want none", id, len(m.Prices))
 		}
+		if !slices.Contains(m.Notes, noteNoRate) {
+			t.Errorf(
+				"%s: got notes %v, want one saying no rate is stated",
+				id,
+				m.Notes,
+			)
+		}
+	}
+}
+
+// TestParseNoRateNoteOnlyWhereServed covers the limit on that note: a model
+// that appears only in the deprecations table is withdrawn, so its missing rate
+// is correct and marking it would say the tables had failed to state one.
+func TestParseNoRateNoteOnlyWhereServed(t *testing.T) {
+	for id, m := range parse(t) {
+		if !slices.Contains(m.Notes, noteNoRate) {
+			continue
+		}
+		if !served(&m) {
+			t.Errorf("%s: marked unpriced while withdrawn", id)
+		}
+		if len(m.Prices) != 0 {
+			t.Errorf("%s: marked unpriced while carrying a rate", id)
+		}
 	}
 }
 

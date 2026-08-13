@@ -65,7 +65,44 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}
 	b.fillKinds()
 	b.applyAliasRates()
+	b.noteUnpriced()
 	return b.result(), nil
+}
+
+// noteUnpriced marks a model OpenAI documents and serves but states no rate
+// for, so that it does not read as a free one.
+//
+// The tables leave a served model out in two ways. gpt-5.4-cyber has a row
+// whose every amount is the dash its own tables use for "not offered", and the
+// two open-weight gpt-oss models have no row at all: their weights are
+// published for the reader to run, so there is no rate for OpenAI to state.
+//
+// Only models OpenAI still serves are marked. A withdrawn model's missing rate
+// is correct rather than unstated, and two of the shut down moderation models
+// keep a page of their own, so the standing is checked and not just the
+// documents. This runs after the aliases are priced, so a model that borrows its
+// target's rate is not marked as unpriced.
+func (b *builder) noteUnpriced() {
+	for _, id := range b.order {
+		m := b.models[id]
+		if len(m.Prices) > 0 || !served(m) {
+			continue
+		}
+		m.AddNote(noteNoRate)
+	}
+}
+
+// served reports whether OpenAI still sells a model. A model reaches the catalog
+// from a page of its own or from a row in the rate table, and one that arrives
+// only through the deprecations table has been withdrawn.
+func served(m *catalog.Model) bool {
+	switch m.Attrs[AttrState] {
+	case StateDeprecated, StateShutdown:
+		return false
+	}
+	return slices.ContainsFunc(m.Sources, func(url string) bool {
+		return isModelPage(url) || isPricing(url)
+	})
 }
 
 // applyAliasRates prices an alias from the model it points at.
