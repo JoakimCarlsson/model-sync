@@ -49,25 +49,37 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the model overview and the pricing page. A pricing page that
-// cannot be read costs the rates and nothing else, so the overview is returned
-// alone rather than the run failing.
+// Fetch retrieves the overview, the pricing page and the two capability
+// guides. Only the overview is required: it is the one document naming the
+// identifiers the API answers to, and without it nothing the others say can be
+// attached to anything. A document that cannot be read costs what it alone
+// states, so the rest are returned with the failure rather than instead of it.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	overview, err := p.get(ctx, ModelsURL)
 	if err != nil {
 		return nil, err
 	}
 	docs := []catalog.Document{overview}
-	pricing, err := p.get(ctx, PricingURL)
-	if err != nil {
-		return docs, errors.Join(err)
+	var failures []error
+	for _, url := range []string{
+		PricingURL,
+		StructuredOutputsURL,
+		ToolUseURL,
+	} {
+		doc, err := p.get(ctx, url)
+		if err != nil {
+			failures = append(failures, err)
+			continue
+		}
+		docs = append(docs, doc)
 	}
-	return append(docs, pricing), nil
+	return docs, errors.Join(failures...)
 }
 
 // Parse reads the overview first, because it is the only document naming the
-// identifiers the API answers to, and the pricing page second, which attaches
-// rates to models the overview established.
+// identifiers the API answers to, and everything else second: the pricing page
+// attaches rates to models the overview established, and the two guides attach
+// capabilities to them the same way.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -77,9 +89,14 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}
 	priced := false
 	for _, doc := range docs {
-		if doc.URL == PricingURL {
+		switch doc.URL {
+		case PricingURL:
 			b.applyPricing(doc)
 			priced = true
+		case StructuredOutputsURL:
+			b.applyStructuredOutputs(doc)
+		case ToolUseURL:
+			b.applyToolUse(doc)
 		}
 	}
 	if priced {

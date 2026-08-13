@@ -1,6 +1,7 @@
 {
   "id": "tiny-aya-earth",
   "provider": "cohere",
+  "name": "Tiny Aya Earth",
   "kind": "chat",
   "attrs": {
     "family": "aya",

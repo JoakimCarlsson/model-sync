@@ -236,6 +236,7 @@ func (b *builder) addInstanceRate(
 // offered in.
 func (b *builder) addVault(doc catalog.Document, body string) {
 	for _, row := range scanVault(body) {
+		b.nameFromCard(row.Model)
 		for _, quoted := range []struct {
 			unit  catalog.Unit
 			value string
@@ -381,7 +382,7 @@ func unquote(value string) string {
 // A name the page states precisely reduces to an identifier instead, so that
 // "Command R+ 08-2024" reaches command-r-plus-08-2024 without a table.
 func (b *builder) identify(name string) []string {
-	if ids, ok := cardModels[strings.ToLower(strings.TrimSpace(name))]; ok {
+	if ids, ok := productModels[strings.ToLower(strings.TrimSpace(name))]; ok {
 		var out []string
 		for _, id := range ids {
 			if _, ok := b.models[id]; ok {

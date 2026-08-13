@@ -17,6 +17,9 @@
     "endpoints": [
       "Chat"
     ],
+    "features": [
+      "function_calling"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -28,6 +31,7 @@
     "no rate stated on the pricing page"
   ],
   "sources": [
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "tiny-aya-water",
   "provider": "cohere",
+  "name": "Tiny Aya Water",
   "kind": "chat",
   "attrs": {
     "family": "aya",

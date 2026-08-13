@@ -1,6 +1,7 @@
 {
   "id": "rerank-v3.5",
   "provider": "cohere",
+  "name": "Rerank 3.5",
   "kind": "rerank",
   "prices": [
     {

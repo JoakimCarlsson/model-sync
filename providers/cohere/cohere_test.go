@@ -10,7 +10,9 @@ import (
 )
 
 // fixtures returns the documents to parse, read from disk so the test never
-// touches the network.
+// touches the network. The two guides are kept as the passage that states the
+// capability and no further: the rest of each is worked examples in four
+// languages, which say nothing about which models support anything.
 func fixtures(t *testing.T) []catalog.Document {
 	t.Helper()
 	docs := []catalog.Document{}
@@ -20,6 +22,8 @@ func fixtures(t *testing.T) []catalog.Document {
 	}{
 		{ModelsURL, "models.md"},
 		{PricingURL, "pricing.html"},
+		{StructuredOutputsURL, "structured-outputs.md"},
+		{ToolUseURL, "tool-use-overview.md"},
 	} {
 		body, err := os.ReadFile(filepath.Join("testdata", f.file))
 		if err != nil {
@@ -360,6 +364,7 @@ func TestParseCardNames(t *testing.T) {
 		"embed-v4.0":             "Embed 4",
 		"rerank-v4.0-fast":       "Rerank 4 Fast",
 		"rerank-v4.0-pro":        "Rerank 4 Pro",
+		"rerank-v3.5":            "Rerank 3.5",
 		"command-a-plus-05-2026": "Command A+",
 		"command-r-08-2024":      "Command R",
 	} {
@@ -367,8 +372,23 @@ func TestParseCardNames(t *testing.T) {
 			t.Errorf("%s: got name %q, want %q", id, got, want)
 		}
 	}
-	if got := byID["c4ai-aya-expanse-32b"].Name; got != "" {
-		t.Errorf("a card heading two models named one of them %q", got)
+}
+
+// TestParseNamesFromDescription covers the models the overview's prose does
+// not link and its tables still name, which is every model of the Aya family:
+// the description column opens by naming the model, and the name is what
+// stands before the verb.
+func TestParseNamesFromDescription(t *testing.T) {
+	byID := parse(t)
+	for id, want := range map[string]string{
+		"c4ai-aya-expanse-32b": "Aya Expanse",
+		"c4ai-aya-vision-32b":  "Aya Vision",
+		"tiny-aya-global":      "Tiny Aya Global",
+		"tiny-aya-water":       "Tiny Aya Water",
+	} {
+		if got := byID[id].Name; got != want {
+			t.Errorf("%s: got name %q, want %q", id, got, want)
+		}
 	}
 }
 
@@ -378,13 +398,69 @@ func TestParseCardNames(t *testing.T) {
 func TestParseUnnamed(t *testing.T) {
 	byID := parse(t)
 	for _, id := range []string{
-		"tiny-aya-global",
-		"c4ai-aya-vision-32b",
 		"embed-english-v3.0",
-		"rerank-v3.5",
+		"embed-multilingual-v3.0",
+		"rerank-english-v3.0",
+		"command-nightly",
 	} {
 		if got := byID[id].Name; got != "" {
 			t.Errorf("%s: got name %q, want none published", id, got)
+		}
+	}
+}
+
+// TestParseStructuredOutputs covers the guide that lists the models it works
+// with, including the two the list names as products rather than precisely.
+func TestParseStructuredOutputs(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"command-a-plus-05-2026",
+		"command-a-03-2025",
+		"command-r-plus-08-2024",
+		"command-r-08-2024",
+	} {
+		features := byID[id].Lists[ListFeatures]
+		for _, want := range []string{
+			catalog.CapabilityStructuredOutputs,
+			catalog.CapabilityJSONMode,
+		} {
+			if !slices.Contains(features, want) {
+				t.Errorf("%s: got features %q, want %q", id, features, want)
+			}
+		}
+	}
+	if features := byID["command-a-vision-07-2025"].Lists[ListFeatures]; slices.Contains(
+		features,
+		catalog.CapabilityStructuredOutputs,
+	) {
+		t.Errorf("a model the guide does not list got %q", features)
+	}
+}
+
+// TestParseToolUse covers the capability Cohere states by naming a family. It
+// reaches the family's models and stops there: no other family is named, and a
+// Command model with no endpoint of its own is not one the guide covers.
+func TestParseToolUse(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"command-a-plus-05-2026",
+		"command-a-reasoning-08-2025",
+		"command-r7b-12-2024",
+	} {
+		features := byID[id].Lists[ListFeatures]
+		if !slices.Contains(features, catalog.CapabilityFunctionCalling) {
+			t.Errorf("%s: got features %q, want tool calling", id, features)
+		}
+	}
+	for _, id := range []string{
+		"command-nightly",
+		"c4ai-aya-expanse-32b",
+		"embed-v4.0",
+		"rerank-v4.0-pro",
+	} {
+		features := byID[id].Lists[ListFeatures]
+		if slices.Contains(features, catalog.CapabilityFunctionCalling) {
+			t.Errorf("%s: got %q, want the guide's scope respected", id, features)
 		}
 	}
 }

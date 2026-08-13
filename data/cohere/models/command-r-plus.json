@@ -22,6 +22,11 @@
     "endpoints": [
       "Chat"
     ],
+    "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -30,6 +35,8 @@
     ]
   },
   "sources": [
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/structured-outputs.md",
+    "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]
 }

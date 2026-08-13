@@ -1,6 +1,7 @@
 {
   "id": "c4ai-aya-expanse-8b",
   "provider": "cohere",
+  "name": "Aya Expanse",
   "kind": "chat",
   "attrs": {
     "family": "aya",

@@ -1,6 +1,7 @@
 {
   "id": "c4ai-aya-vision-32b",
   "provider": "cohere",
+  "name": "Aya Vision",
   "kind": "chat",
   "attrs": {
     "family": "aya",

@@ -1,5 +1,5 @@
-// Package cohere parses Cohere's model overview and pricing page into the
-// catalog model.
+// Package cohere parses Cohere's model overview, pricing page and capability
+// guides into the catalog model.
 //
 // The documentation publishes no rate at all: its pricing page explains how a
 // bill is counted and then points at the marketing site for the amounts. What
@@ -32,11 +32,31 @@
 // carry a maximum file size. A further table per family lists the identifier
 // the same model answers to on Bedrock, SageMaker, Azure and Oracle.
 //
-// Its tables state no display name, only the identifier, but the summary above
-// them names each model in prose and links it, and the link's address is the
-// identifier without its release date. That is the tie between the two, and it
-// covers the Command family. Models the summary does not name keep no display
-// name rather than one derived from their identifier.
+// Its tables state no display name, only the identifier, and a name is
+// therefore assembled from the three places Cohere writes one. The summary
+// above the tables names each model in prose and links it, and the link's
+// address is the identifier without its release date; that covers the Command
+// family. The description column of a table names the model it describes
+// wherever the description opens by naming it, which covers the whole Aya
+// family: "Tiny Aya Global is a 3.35B instruction-tuned multilingual model".
+// The pricing page's cards and its table of dedicated instances name what
+// Cohere sells, which is where the fourth generation embedder and the
+// rerankers get theirs.
+//
+// Models none of the three names keep no display name rather than one derived
+// from their identifier. The identifiers are slugs, and as a display name a
+// slug is worse than an empty field, because empty is honest and is also the
+// only signal saying this vendor still has names to find.
+//
+// Two capabilities are stated, each in the guide to the capability rather than
+// against the model. The structured outputs guide opens with the list of models
+// it works with, which names products the same way the rate cards do and
+// resolves through the same table. The tool use guide names a family instead of
+// listing its members, saying that tool use connects the Command family to
+// external tools through the Chat endpoint, so it reaches the Command models
+// the overview gives a Chat endpoint and stops there. Both are matched in the
+// document rather than assumed, so a guide rewritten to say something narrower
+// stops yielding the capability instead of going on claiming it.
 //
 // What Cohere does not publish:
 //
@@ -52,9 +72,20 @@
 //     which has no column for a context length, an output ceiling or a
 //     modality, so they carry none of the three. Cohere documents them nowhere
 //     else.
-//   - A capability list. What a model can do is described in paragraphs on its
-//     own page, not enumerated, so no features are recorded. The endpoints
-//     column is the nearest thing the overview states and is kept as one.
+//   - A capability list against a model. Neither the overview nor the pricing
+//     page has a capability column, and a model's own page describes what it
+//     can do in paragraphs rather than enumerating it. The two guides above are
+//     the whole of what is enumerable, so a model outside the Command family
+//     carries no capability at all.
+//   - Which models reason. Cohere has a reasoning guide and a model named for
+//     the capability, and neither states a list: the guide explains the feature
+//     and calls one model in its examples, which is a worked example and not an
+//     enumeration. Reading a capability out of an example would claim it for
+//     whichever model the example happened to use, so none is recorded.
+//   - A display name for the older embedders and rerankers or for the nightly
+//     builds. Their descriptions describe rather than name, "A model that
+//     allows for text to be classified or turned into embeddings", the summary
+//     does not link them, and no card sells them.
 //   - An output modality. The modality column states what a model accepts and
 //     says nothing about what it returns. Text is recorded for every model that
 //     has an input, because the medium each family works in is text on both

@@ -1,6 +1,7 @@
 {
   "id": "tiny-aya-fire",
   "provider": "cohere",
+  "name": "Tiny Aya Fire",
   "kind": "chat",
   "attrs": {
     "family": "aya",

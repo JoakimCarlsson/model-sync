@@ -3,6 +3,7 @@ package cohere
 import (
 	"path"
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 	"time"
@@ -55,6 +56,7 @@ const (
 
 // Enumeration keys the overview populates.
 const (
+	ListFeatures         = catalog.ListFeatures
 	ListEndpoints        = "endpoints"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
@@ -264,6 +266,9 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 			m.SetAttr(AttrDeprecatedOn, date)
 		case "description":
 			m.SetAttr(AttrSummary, firstSentence(value))
+			if m.Name == "" {
+				m.Name = nameFromDescription(value)
+			}
 		case "modality", "modalities":
 			m.SetAttr(AttrModality, value)
 			for _, item := range splitList(value) {
@@ -322,6 +327,52 @@ func splitList(value string) []string {
 		}
 	}
 	return out
+}
+
+// descriptionVerbs are the words a description separates a model's name from
+// the rest of the sentence with.
+var descriptionVerbs = []string{" is ", " offers "}
+
+// descriptionArticles open a description that describes a model without naming
+// it, which is how the embedding and rerank tables are written.
+var descriptionArticles = []string{
+	"a", "an", "the", "this", "these", "our", "it", "alias",
+}
+
+// nameFromDescription reads the display name out of a description that opens
+// by naming the model.
+//
+// The overview's tables have no name column, and the summary above them links
+// only the Command family, so for the rest of the catalog this is the one place
+// Cohere writes a name: the Aya rows open "Tiny Aya Global is a 3.35B
+// instruction-tuned multilingual model", and the name is everything before the
+// verb.
+//
+// Most descriptions do not open that way and yield nothing. A row describing a
+// model rather than naming it opens with an article, "A model that allows for
+// text to be classified", and a row naming it by its identifier opens in lower
+// case, which is the identifier again and not a display name. Both are left
+// unnamed, because an empty name is the honest answer and is also the only
+// signal saying this vendor still has names to find.
+func nameFromDescription(value string) string {
+	for _, verb := range descriptionVerbs {
+		head, _, ok := strings.Cut(value, verb)
+		if !ok {
+			continue
+		}
+		words := strings.Fields(head)
+		if len(words) == 0 || len(words) > 5 {
+			continue
+		}
+		if slices.Contains(descriptionArticles, strings.ToLower(words[0])) {
+			continue
+		}
+		if head == strings.ToLower(head) {
+			continue
+		}
+		return head
+	}
+	return ""
 }
 
 // firstSentence trims a description to its opening sentence, since Cohere's

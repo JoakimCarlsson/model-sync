@@ -70,14 +70,18 @@ func modalityName(value string) string {
 	return strings.ToLower(strings.TrimSpace(value))
 }
 
-// cardModels map the product name Cohere prints on a pricing card onto the
-// identifier that product is called by.
+// productModels map the product name Cohere writes outside the overview onto
+// the identifier that product is called by.
 //
-// The rate cards name products, not models: a card headed "Embed 4" states the
-// rate of the model the API calls embed-v4.0. Where the pricing page names a
-// model precisely, as its legacy rates do, no entry is needed and the name is
-// reduced to an identifier instead.
-var cardModels = map[string][]string{
+// Everything but the overview names products, not models: a card headed
+// "Embed 4" states the rate of the model the API calls embed-v4.0, and the
+// structured outputs guide declares itself compatible with "Command A+", which
+// is command-a-plus-05-2026. Where a document names a model precisely, as the
+// legacy rates and most of that guide's list do, no entry is needed and the
+// name is reduced to an identifier instead.
+var productModels = map[string][]string{
+	"command a":     {"command-a-03-2025"},
+	"command a+":    {"command-a-plus-05-2026"},
 	"command r":     {"command-r-08-2024"},
 	"command r7b":   {"command-r7b-12-2024"},
 	"embed 4":       {"embed-v4.0"},
