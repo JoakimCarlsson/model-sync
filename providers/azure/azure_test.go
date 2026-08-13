@@ -180,6 +180,28 @@ func TestParseEmbeddings(t *testing.T) {
 	}
 }
 
+// TestParseVectorOutput covers the output bullet of an embedding model, which
+// names a vector rather than a modality. It is read as the text the model works
+// in, so the model does not state what it takes and nothing about what it
+// returns, and the widths in the same bullet are still read.
+func TestParseVectorOutput(t *testing.T) {
+	var d documented
+	readCapabilities(
+		&d,
+		"- Input: text (512 tokens) and images (2MM pixels)<br>"+
+			"- Output: Vector (256, 512, 1024, 1536 dim.)",
+	)
+	if !slices.Equal(d.OutMod, []string{"text"}) {
+		t.Errorf("got output %v, want [text]", d.OutMod)
+	}
+	if !slices.Equal(d.InputMod, []string{"text", "image"}) {
+		t.Errorf("got input %v, want [text image]", d.InputMod)
+	}
+	if !has(d.Dimensions, "1536") {
+		t.Errorf("got dimensions %v", d.Dimensions)
+	}
+}
+
 // TestParseMeters covers the reading of a SKU: what is billed, at what
 // denominator, on which deployment, and which model it belongs to.
 func TestParseMeters(t *testing.T) {

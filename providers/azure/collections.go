@@ -69,6 +69,12 @@ var collectionModels = map[string][]string{
 
 // bulletModalities map a word a capability bullet names a modality with onto
 // the catalog's vocabulary.
+//
+// An embedding model writes "Output: Vector", which is its return value rather
+// than a modality. The catalog has no word for a vector, so it is read as the
+// text the model works in; leaving it out left embed-v4 stating what it takes
+// and nothing about what it gives back, which a consumer cannot tell from a
+// model that returns nothing. The widths in the same bullet are read separately.
 var bulletModalities = map[string]string{
 	"text":   "text",
 	"image":  "image",
@@ -77,6 +83,7 @@ var bulletModalities = map[string]string{
 	"video":  "video",
 	"pdf":    "file",
 	"pdfs":   "file",
+	"vector": "text",
 }
 
 // Labels the capability bullets are written under.
