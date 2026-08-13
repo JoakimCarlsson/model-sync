@@ -24,4 +24,13 @@
 // parameter count band, with rows like "4B - 16B parameters". They are rate
 // cards rather than catalog entries and there is nothing to key them to, so
 // they are not read.
+//
+// What Fireworks does not publish:
+//
+//   - A bound on output length, for any model. The record on a model's page
+//     carries the context window and nothing about how much of it a reply may
+//     take, and the pricing page states no bound at all.
+//   - Anything at all about its embedding model beyond the rate. Its row on the
+//     pricing page links to no model page, so it carries neither a context
+//     window nor the width of the vector it returns.
 package fireworks
