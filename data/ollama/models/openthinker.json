@@ -1,0 +1,21 @@
+{
+  "id": "openthinker",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.2M",
+    "summary": "A fully open-source family of reasoning models built using a dataset derived by distilling DeepSeek-R1."
+  },
+  "limits": {
+    "pulls": 1200000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "32b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

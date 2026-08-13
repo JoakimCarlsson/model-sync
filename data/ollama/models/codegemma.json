@@ -1,0 +1,21 @@
+{
+  "id": "codegemma",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "3.1M",
+    "summary": "CodeGemma is a collection of powerful, lightweight models that can perform a variety of coding tasks like fill-in-the-middle code completion, code generation, natural language understanding, mathematical reasoning, and instruction following."
+  },
+  "limits": {
+    "pulls": 3100000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "2b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

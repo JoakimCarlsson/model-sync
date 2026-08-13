@@ -1,0 +1,23 @@
+{
+  "id": "medgemma1.5",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "124.6K",
+    "summary": "MedGemma 1.5 4B is an updated version of the MedGemma 4B model."
+  },
+  "limits": {
+    "pulls": 124600
+  },
+  "lists": {
+    "capabilities": [
+      "vision"
+    ],
+    "parameter_sizes": [
+      "4b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

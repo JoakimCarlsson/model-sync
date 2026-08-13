@@ -1,0 +1,24 @@
+{
+  "id": "devstral-small-2",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "934.3K",
+    "summary": "24B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
+  },
+  "limits": {
+    "pulls": 934300
+  },
+  "lists": {
+    "capabilities": [
+      "tools",
+      "vision"
+    ],
+    "parameter_sizes": [
+      "24b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "llama-pro",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "896.3K",
+    "summary": "An expansion of Llama 2 that specializes in integrating both general language understanding and domain-specific knowledge, particularly in programming and mathematics."
+  },
+  "limits": {
+    "pulls": 896300
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

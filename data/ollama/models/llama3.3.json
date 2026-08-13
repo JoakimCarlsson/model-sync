@@ -1,0 +1,23 @@
+{
+  "id": "llama3.3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "4.1M",
+    "summary": "New state of the art 70B model. Llama 3.3 70B offers similar performance compared to the Llama 3.1 405B model."
+  },
+  "limits": {
+    "pulls": 4099999
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "70b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

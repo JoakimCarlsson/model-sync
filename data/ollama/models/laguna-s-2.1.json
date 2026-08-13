@@ -1,0 +1,21 @@
+{
+  "id": "laguna-s-2.1",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "73.4K",
+    "summary": "Our most capable model to date, designed for long-horizon work. 70.2% on Terminal-Bench 2.1 at 118B-A8B."
+  },
+  "limits": {
+    "pulls": 73400
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "mistrallite",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "515.3K",
+    "summary": "MistralLite is a fine-tuned model based on Mistral with enhanced capabilities of processing long contexts."
+  },
+  "limits": {
+    "pulls": 515299
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

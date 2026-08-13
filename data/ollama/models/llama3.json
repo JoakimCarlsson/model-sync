@@ -1,0 +1,21 @@
+{
+  "id": "llama3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "25M",
+    "summary": "Meta Llama 3: The most capable openly available LLM to date"
+  },
+  "limits": {
+    "pulls": 25000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

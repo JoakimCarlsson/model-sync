@@ -1,0 +1,21 @@
+{
+  "id": "deepseek-llm",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.2M",
+    "summary": "An advanced language model crafted with 2 trillion bilingual tokens."
+  },
+  "limits": {
+    "pulls": 1200000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "67b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

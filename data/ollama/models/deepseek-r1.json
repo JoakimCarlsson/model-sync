@@ -1,0 +1,30 @@
+{
+  "id": "deepseek-r1",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "91.3M",
+    "summary": "DeepSeek-R1 is a family of open reasoning models with performance approaching that of leading models, such as O3 and Gemini 2.5 Pro."
+  },
+  "limits": {
+    "pulls": 91300000
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ],
+    "parameter_sizes": [
+      "1.5b",
+      "14b",
+      "32b",
+      "671b",
+      "70b",
+      "7b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "granite3.2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "449.7K",
+    "summary": "Granite-3.2 is a family of long-context AI models from IBM Granite fine-tuned for thinking capabilities."
+  },
+  "limits": {
+    "pulls": 449700
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "2b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "gemma3",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "39.4M",
+    "summary": "The current, most capable model that runs on a single GPU."
+  },
+  "limits": {
+    "pulls": 39400000
+  },
+  "lists": {
+    "capabilities": [
+      "vision"
+    ],
+    "parameter_sizes": [
+      "12b",
+      "1b",
+      "270m",
+      "27b",
+      "4b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "qwen3-coder-next",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "2M",
+    "summary": "Qwen3-Coder-Next is a coding-focused language model from Alibaba&#39;s Qwen team, optimized for agentic coding workflows and local development."
+  },
+  "limits": {
+    "pulls": 2000000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

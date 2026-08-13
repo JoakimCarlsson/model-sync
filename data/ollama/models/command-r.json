@@ -1,0 +1,23 @@
+{
+  "id": "command-r",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.5M",
+    "summary": "Command R is a Large Language Model optimized for conversational interaction and long context tasks."
+  },
+  "limits": {
+    "pulls": 1500000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "35b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "goliath",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "471.1K",
+    "summary": "A language model created by combining two fine-tuned Llama 2 70B models into one."
+  },
+  "limits": {
+    "pulls": 471100
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

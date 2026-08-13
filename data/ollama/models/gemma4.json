@@ -1,0 +1,30 @@
+{
+  "id": "gemma4",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "21.8M",
+    "summary": "Gemma 4 models are designed to deliver frontier-level performance at each size. They are well-suited for reasoning, agentic workflows, coding, and multimodal understanding."
+  },
+  "limits": {
+    "pulls": 21800000
+  },
+  "lists": {
+    "capabilities": [
+      "audio",
+      "e2b",
+      "e4b",
+      "thinking",
+      "tools",
+      "vision"
+    ],
+    "parameter_sizes": [
+      "12b",
+      "26b",
+      "31b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

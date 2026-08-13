@@ -1,0 +1,21 @@
+{
+  "id": "nemotron-3-ultra",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "46.2K",
+    "summary": "NVIDIA Nemotron 3 Ultra is built for high-throughput reasoning and long-running agent workflows."
+  },
+  "limits": {
+    "pulls": 46200
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

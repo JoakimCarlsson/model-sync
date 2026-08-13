@@ -1,0 +1,23 @@
+{
+  "id": "mistral",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "31.8M",
+    "summary": "The 7B model released by Mistral AI, updated to version 0.3."
+  },
+  "limits": {
+    "pulls": 31800000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

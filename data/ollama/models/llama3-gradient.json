@@ -1,0 +1,21 @@
+{
+  "id": "llama3-gradient",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "984.7K",
+    "summary": "This model extends LLama-3 8B&#39;s context length from 8k to over 1m tokens."
+  },
+  "limits": {
+    "pulls": 984700
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

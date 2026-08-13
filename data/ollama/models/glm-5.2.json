@@ -1,0 +1,21 @@
+{
+  "id": "glm-5.2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "309.8K",
+    "summary": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks."
+  },
+  "limits": {
+    "pulls": 309800
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

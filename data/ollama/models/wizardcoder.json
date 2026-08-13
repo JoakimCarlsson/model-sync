@@ -1,0 +1,20 @@
+{
+  "id": "wizardcoder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1M",
+    "summary": "State-of-the-art code generation model"
+  },
+  "limits": {
+    "pulls": 1000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "33b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

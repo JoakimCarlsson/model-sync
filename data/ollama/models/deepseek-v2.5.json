@@ -1,0 +1,20 @@
+{
+  "id": "deepseek-v2.5",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "284.5K",
+    "summary": "An upgraded version of DeekSeek-V2 that integrates the general and coding abilities of both DeepSeek-V2-Chat and DeepSeek-Coder-V2-Instruct."
+  },
+  "limits": {
+    "pulls": 284500
+  },
+  "lists": {
+    "parameter_sizes": [
+      "236b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

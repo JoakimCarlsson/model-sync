@@ -1,0 +1,20 @@
+{
+  "id": "magicoder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "545.7K",
+    "summary": "🎩 Magicoder is a family of 7B parameter models trained on 75K synthetic instruction data using OSS-Instruct, a novel approach to enlightening LLMs with open-source code snippets."
+  },
+  "limits": {
+    "pulls": 545700
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

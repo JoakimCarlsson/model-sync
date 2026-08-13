@@ -1,0 +1,22 @@
+{
+  "id": "stable-beluga",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "921.8K",
+    "summary": "Llama 2 based model fine tuned on an Orca-style dataset. Originally called Free Willy."
+  },
+  "limits": {
+    "pulls": 921800
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b",
+      "70b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

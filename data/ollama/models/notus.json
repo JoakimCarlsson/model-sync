@@ -1,0 +1,20 @@
+{
+  "id": "notus",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "530.6K",
+    "summary": "A 7B chat model fine-tuned with high-quality data and based on Zephyr."
+  },
+  "limits": {
+    "pulls": 530600
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

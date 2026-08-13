@@ -1,0 +1,21 @@
+{
+  "id": "dolphincoder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "991.4K",
+    "summary": "A 7B and 15B uncensored variant of the Dolphin model family that excels at coding, based on StarCoder2."
+  },
+  "limits": {
+    "pulls": 991400
+  },
+  "lists": {
+    "parameter_sizes": [
+      "15b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

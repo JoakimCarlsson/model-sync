@@ -1,0 +1,20 @@
+{
+  "id": "nuextract",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "530.4K",
+    "summary": "A 3.8B model fine-tuned on a private high-quality synthetic dataset for information extraction, based on Phi-3."
+  },
+  "limits": {
+    "pulls": 530400
+  },
+  "lists": {
+    "parameter_sizes": [
+      "3.8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

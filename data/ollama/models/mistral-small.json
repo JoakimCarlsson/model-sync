@@ -1,0 +1,24 @@
+{
+  "id": "mistral-small",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "3.1M",
+    "summary": "Mistral Small 3 sets a new benchmark in the “small” Large Language Models category below 70B."
+  },
+  "limits": {
+    "pulls": 3100000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "22b",
+      "24b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

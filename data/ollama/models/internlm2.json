@@ -1,0 +1,23 @@
+{
+  "id": "internlm2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "993.3K",
+    "summary": "InternLM2.5 is a 7B parameter model tailored for practical scenarios with outstanding reasoning capability."
+  },
+  "limits": {
+    "pulls": 993300
+  },
+  "lists": {
+    "parameter_sizes": [
+      "1.8b",
+      "1m",
+      "20b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

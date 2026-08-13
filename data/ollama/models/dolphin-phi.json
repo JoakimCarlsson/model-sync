@@ -1,0 +1,20 @@
+{
+  "id": "dolphin-phi",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.6M",
+    "summary": "2.7B uncensored Dolphin model by Eric Hartford, based on the Phi language model by Microsoft Research."
+  },
+  "limits": {
+    "pulls": 1600000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "2.7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

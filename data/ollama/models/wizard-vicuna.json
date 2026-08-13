@@ -1,0 +1,20 @@
+{
+  "id": "wizard-vicuna",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "509.3K",
+    "summary": "Wizard Vicuna is a 13B parameter model based on Llama 2 trained by MelodysDreamj."
+  },
+  "limits": {
+    "pulls": 509300
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

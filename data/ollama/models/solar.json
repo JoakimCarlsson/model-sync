@@ -1,0 +1,20 @@
+{
+  "id": "solar",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "950.5K",
+    "summary": "A compact, yet powerful 10.7B large language model designed for single-turn conversation."
+  },
+  "limits": {
+    "pulls": 950500
+  },
+  "lists": {
+    "parameter_sizes": [
+      "10.7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

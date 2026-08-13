@@ -1,0 +1,21 @@
+{
+  "id": "tulu3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "383K",
+    "summary": "Tülu 3 is a leading instruction following model family, offering fully open-source data, code, and recipes by the The Allen Institute for AI."
+  },
+  "limits": {
+    "pulls": 383000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

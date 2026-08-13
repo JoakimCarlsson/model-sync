@@ -1,0 +1,23 @@
+{
+  "id": "codellama",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "5.9M",
+    "summary": "A large language model that can use text prompts to generate and discuss code."
+  },
+  "limits": {
+    "pulls": 5900000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b",
+      "34b",
+      "70b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

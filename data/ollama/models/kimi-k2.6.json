@@ -1,0 +1,22 @@
+{
+  "id": "kimi-k2.6",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "429.2K",
+    "summary": "Kimi K2.6 is an open-source, native multimodal agentic model that advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration."
+  },
+  "limits": {
+    "pulls": 429200
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

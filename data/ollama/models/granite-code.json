@@ -1,0 +1,23 @@
+{
+  "id": "granite-code",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.5M",
+    "summary": "A family of open foundation models by IBM for Code Intelligence"
+  },
+  "limits": {
+    "pulls": 1500000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "20b",
+      "34b",
+      "3b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

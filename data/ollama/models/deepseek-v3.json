@@ -1,0 +1,20 @@
+{
+  "id": "deepseek-v3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "3.8M",
+    "summary": "A strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token."
+  },
+  "limits": {
+    "pulls": 3800000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "671b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

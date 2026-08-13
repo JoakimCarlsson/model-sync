@@ -1,0 +1,20 @@
+{
+  "id": "mistral-openorca",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "670.9K",
+    "summary": "Mistral OpenOrca is a 7 billion parameter model, fine-tuned on top of the Mistral 7B model using the OpenOrca dataset."
+  },
+  "limits": {
+    "pulls": 670900
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "sailor2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "406.3K",
+    "summary": "Sailor2 are multilingual language models made for South-East Asia. Available in 1B, 8B, and 20B parameter sizes."
+  },
+  "limits": {
+    "pulls": 406300
+  },
+  "lists": {
+    "parameter_sizes": [
+      "1b",
+      "20b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

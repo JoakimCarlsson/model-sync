@@ -1,0 +1,30 @@
+{
+  "id": "qwen3-vl",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "5.1M",
+    "summary": "The most powerful vision-language model in the Qwen model family to date."
+  },
+  "limits": {
+    "pulls": 5100000
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools",
+      "vision"
+    ],
+    "parameter_sizes": [
+      "235b",
+      "2b",
+      "30b",
+      "32b",
+      "4b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

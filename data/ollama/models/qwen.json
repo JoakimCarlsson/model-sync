@@ -1,0 +1,27 @@
+{
+  "id": "qwen",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "7.5M",
+    "summary": "Qwen 1.5 is a series of large language models by Alibaba Cloud spanning from 0.5B to 110B parameters"
+  },
+  "limits": {
+    "pulls": 7500000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "0.5b",
+      "1.8b",
+      "110b",
+      "14b",
+      "32b",
+      "4b",
+      "72b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

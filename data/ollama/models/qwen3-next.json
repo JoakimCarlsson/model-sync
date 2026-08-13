@@ -1,0 +1,24 @@
+{
+  "id": "qwen3-next",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "579K",
+    "summary": "The first installment in the Qwen3-Next series with strong performance in terms of both parameter efficiency and inference speed."
+  },
+  "limits": {
+    "pulls": 579000
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ],
+    "parameter_sizes": [
+      "80b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

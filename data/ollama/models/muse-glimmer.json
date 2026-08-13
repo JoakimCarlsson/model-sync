@@ -1,0 +1,25 @@
+{
+  "id": "muse-glimmer",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "44.2K",
+    "summary": "Meta&#39;s latest open model built for always-on local agents. 30B parameters, licensed under Apache 2.0 and runs on a single GPU — tuned for tool use, long tasks, and failure recovery."
+  },
+  "limits": {
+    "pulls": 44200
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools",
+      "vision"
+    ],
+    "parameter_sizes": [
+      "30b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "athene-v2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "580.7K",
+    "summary": "Athene-V2 is a 72B parameter model which excels at code completion, mathematics, and log extraction tasks."
+  },
+  "limits": {
+    "pulls": 580700
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "72b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "orca2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "920.2K",
+    "summary": "Orca 2 is built by Microsoft research, and are a fine-tuned version of Meta&#39;s Llama 2 models. The model is designed to excel particularly in reasoning."
+  },
+  "limits": {
+    "pulls": 920200
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

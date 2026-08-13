@@ -1,0 +1,23 @@
+{
+  "id": "wizardlm2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.2M",
+    "summary": "State of the art large language model from Microsoft AI with improved performance on complex chat, multilingual, reasoning and agent use cases."
+  },
+  "limits": {
+    "pulls": 1200000
+  },
+  "lists": {
+    "capabilities": [
+      "8x22b"
+    ],
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

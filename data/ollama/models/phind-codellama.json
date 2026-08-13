@@ -1,0 +1,20 @@
+{
+  "id": "phind-codellama",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "956.2K",
+    "summary": "Code generation model based on Code Llama."
+  },
+  "limits": {
+    "pulls": 956200
+  },
+  "lists": {
+    "parameter_sizes": [
+      "34b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

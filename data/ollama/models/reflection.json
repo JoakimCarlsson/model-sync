@@ -1,0 +1,20 @@
+{
+  "id": "reflection",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "608.6K",
+    "summary": "A high-performing model trained with a new technique called Reflection-tuning that teaches a LLM to detect mistakes in its reasoning and correct course."
+  },
+  "limits": {
+    "pulls": 608600
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

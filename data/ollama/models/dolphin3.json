@@ -1,0 +1,20 @@
+{
+  "id": "dolphin3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "4M",
+    "summary": "Dolphin 3.0 Llama 3.1 8B 🐬 is the next generation of the Dolphin series of instruct-tuned models designed to be the ultimate general purpose local model, enabling coding, math, agentic, function calling, and general use cases."
+  },
+  "limits": {
+    "pulls": 4000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "kimi-k3",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "34.5K",
+    "summary": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date."
+  },
+  "limits": {
+    "pulls": 34500
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

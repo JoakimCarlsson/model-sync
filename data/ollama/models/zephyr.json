@@ -1,0 +1,21 @@
+{
+  "id": "zephyr",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.2M",
+    "summary": "Zephyr is a series of fine-tuned versions of the Mistral and Mixtral models that are trained to act as helpful assistants."
+  },
+  "limits": {
+    "pulls": 1200000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "141b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

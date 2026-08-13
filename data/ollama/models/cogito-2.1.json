@@ -1,0 +1,20 @@
+{
+  "id": "cogito-2.1",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "220.2K",
+    "summary": "The Cogito v2.1 LLMs are instruction tuned generative models. All models are released under MIT license for commercial use."
+  },
+  "limits": {
+    "pulls": 220200
+  },
+  "lists": {
+    "parameter_sizes": [
+      "671b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "command-a",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "223.9K",
+    "summary": "111 billion parameter model optimized for demanding enterprises that require fast, secure, and high-quality AI"
+  },
+  "limits": {
+    "pulls": 223900
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "111b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "id": "smollm2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "3.9M",
+    "summary": "SmolLM2 is a family of compact language models available in three size: 135M, 360M, and 1.7B parameters."
+  },
+  "limits": {
+    "pulls": 3900000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "1.7b",
+      "135m",
+      "360m"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

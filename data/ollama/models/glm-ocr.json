@@ -1,0 +1,21 @@
+{
+  "id": "glm-ocr",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "7M",
+    "summary": "GLM-OCR is a multimodal OCR model for complex document understanding, built on the GLM-V encoder–decoder architecture."
+  },
+  "limits": {
+    "pulls": 7000000
+  },
+  "lists": {
+    "capabilities": [
+      "tools",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

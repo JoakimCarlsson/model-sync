@@ -1,0 +1,25 @@
+{
+  "id": "qwen3-embedding",
+  "provider": "ollama",
+  "kind": "embedding",
+  "attrs": {
+    "pulls": "3.6M",
+    "summary": "Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes"
+  },
+  "limits": {
+    "pulls": 3600000
+  },
+  "lists": {
+    "capabilities": [
+      "embedding"
+    ],
+    "parameter_sizes": [
+      "0.6b",
+      "4b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

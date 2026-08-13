@@ -1,0 +1,25 @@
+{
+  "id": "llama3.1",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "118.4M",
+    "summary": "Llama 3.1 is a new state-of-the-art model from Meta available in 8B, 70B and 405B parameter sizes."
+  },
+  "limits": {
+    "pulls": 118400000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "405b",
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "llama3-chatqa",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1M",
+    "summary": "A model from NVIDIA based on Llama 3 that excels at conversational question answering (QA) and retrieval-augmented generation (RAG)."
+  },
+  "limits": {
+    "pulls": 1000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

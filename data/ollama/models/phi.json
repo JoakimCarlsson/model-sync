@@ -1,0 +1,20 @@
+{
+  "id": "phi",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.5M",
+    "summary": "Phi-2: a 2.7B language model by Microsoft Research that demonstrates outstanding reasoning and language understanding capabilities."
+  },
+  "limits": {
+    "pulls": 1500000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "2.7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

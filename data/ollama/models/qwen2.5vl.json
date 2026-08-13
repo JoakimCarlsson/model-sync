@@ -1,0 +1,26 @@
+{
+  "id": "qwen2.5vl",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "4.1M",
+    "summary": "Flagship vision-language model of Qwen and also a significant leap from the previous Qwen2-VL."
+  },
+  "limits": {
+    "pulls": 4099999
+  },
+  "lists": {
+    "capabilities": [
+      "vision"
+    ],
+    "parameter_sizes": [
+      "32b",
+      "3b",
+      "72b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

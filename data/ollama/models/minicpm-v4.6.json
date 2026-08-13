@@ -1,0 +1,23 @@
+{
+  "id": "minicpm-v4.6",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "32.1K",
+    "summary": "A Pocket-Sized MLLM for Ultra-Efficient Image and Video Understanding on Your Phone"
+  },
+  "limits": {
+    "pulls": 32100
+  },
+  "lists": {
+    "capabilities": [
+      "vision"
+    ],
+    "parameter_sizes": [
+      "1b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

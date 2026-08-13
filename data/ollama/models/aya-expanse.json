@@ -1,0 +1,24 @@
+{
+  "id": "aya-expanse",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "991.6K",
+    "summary": "Cohere For AI&#39;s language models trained to perform well across 23 different languages."
+  },
+  "limits": {
+    "pulls": 991600
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "32b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

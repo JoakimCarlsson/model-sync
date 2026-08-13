@@ -1,0 +1,23 @@
+{
+  "id": "minicpm-v",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "5.4M",
+    "summary": "A series of multimodal LLMs (MLLMs) designed for vision-language understanding."
+  },
+  "limits": {
+    "pulls": 5400000
+  },
+  "lists": {
+    "capabilities": [
+      "vision"
+    ],
+    "parameter_sizes": [
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

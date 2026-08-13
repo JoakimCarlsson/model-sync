@@ -1,0 +1,21 @@
+{
+  "id": "nous-hermes2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.1M",
+    "summary": "The powerful family of models by Nous Research that excels at scientific discussion and coding tasks."
+  },
+  "limits": {
+    "pulls": 1100000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "10.7b",
+      "34b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

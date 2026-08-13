@@ -1,0 +1,20 @@
+{
+  "id": "everythinglm",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "556.4K",
+    "summary": "Uncensored Llama2 based model with support for a 16K context window."
+  },
+  "limits": {
+    "pulls": 556400
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "id": "llama2-uncensored",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "2.7M",
+    "summary": "Uncensored Llama 2 model by George Sung and Jarrad Hope."
+  },
+  "limits": {
+    "pulls": 2700000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

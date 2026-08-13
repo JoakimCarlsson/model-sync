@@ -1,0 +1,21 @@
+{
+  "id": "mistral-large-3",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "89.8K",
+    "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads."
+  },
+  "limits": {
+    "pulls": 89800
+  },
+  "lists": {
+    "capabilities": [
+      "tools",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

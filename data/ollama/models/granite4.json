@@ -1,0 +1,25 @@
+{
+  "id": "granite4",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.4M",
+    "summary": "Granite 4 features improved instruction following (IF) and tool-calling capabilities, making them more effective in enterprise applications."
+  },
+  "limits": {
+    "pulls": 1400000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "1b",
+      "350m",
+      "3b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "marco-o1",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "209.5K",
+    "summary": "An open large reasoning model for real-world solutions by the Alibaba International Digital Commerce Group (AIDC-AI)."
+  },
+  "limits": {
+    "pulls": 209500
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

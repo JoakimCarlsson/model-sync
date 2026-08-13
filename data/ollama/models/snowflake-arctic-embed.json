@@ -1,0 +1,27 @@
+{
+  "id": "snowflake-arctic-embed",
+  "provider": "ollama",
+  "kind": "embedding",
+  "attrs": {
+    "pulls": "3.1M",
+    "summary": "A suite of text embedding models by Snowflake, optimized for performance."
+  },
+  "limits": {
+    "pulls": 3100000
+  },
+  "lists": {
+    "capabilities": [
+      "embedding"
+    ],
+    "parameter_sizes": [
+      "110m",
+      "137m",
+      "22m",
+      "335m",
+      "33m"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

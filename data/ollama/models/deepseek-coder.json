@@ -1,0 +1,22 @@
+{
+  "id": "deepseek-coder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "4.5M",
+    "summary": "DeepSeek Coder is a capable coding model trained on two trillion code and natural language tokens."
+  },
+  "limits": {
+    "pulls": 4500000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "1.3b",
+      "33b",
+      "6.7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

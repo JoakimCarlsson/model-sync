@@ -1,0 +1,21 @@
+{
+  "id": "reader-lm",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "912.3K",
+    "summary": "A series of models that convert HTML content to Markdown content, which is useful for content conversion tasks."
+  },
+  "limits": {
+    "pulls": 912300
+  },
+  "lists": {
+    "parameter_sizes": [
+      "0.5b",
+      "1.5b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

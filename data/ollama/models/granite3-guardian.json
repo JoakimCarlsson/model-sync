@@ -1,0 +1,21 @@
+{
+  "id": "granite3-guardian",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "330.1K",
+    "summary": "The IBM Granite Guardian 3.0 2B and 8B models are designed to detect risks in prompts and/or responses."
+  },
+  "limits": {
+    "pulls": 330100
+  },
+  "lists": {
+    "parameter_sizes": [
+      "2b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

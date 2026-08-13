@@ -1,0 +1,22 @@
+{
+  "id": "exaone-deep",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "757.9K",
+    "summary": "EXAONE Deep exhibits superior capabilities in various reasoning tasks including math and coding benchmarks, ranging from 2.4B to 32B parameters developed and released by LG AI Research."
+  },
+  "limits": {
+    "pulls": 757900
+  },
+  "lists": {
+    "parameter_sizes": [
+      "2.4b",
+      "32b",
+      "7.8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

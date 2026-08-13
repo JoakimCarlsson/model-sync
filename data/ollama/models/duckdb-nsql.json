@@ -1,0 +1,20 @@
+{
+  "id": "duckdb-nsql",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "518.6K",
+    "summary": "7B parameter text-to-SQL model made by MotherDuck and Numbers Station."
+  },
+  "limits": {
+    "pulls": 518600
+  },
+  "lists": {
+    "parameter_sizes": [
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

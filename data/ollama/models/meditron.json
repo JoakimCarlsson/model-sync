@@ -1,0 +1,21 @@
+{
+  "id": "meditron",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "814.2K",
+    "summary": "Open-source medical large language model adapted from Llama 2 to the medical domain."
+  },
+  "limits": {
+    "pulls": 814200
+  },
+  "lists": {
+    "parameter_sizes": [
+      "70b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

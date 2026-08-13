@@ -1,0 +1,23 @@
+{
+  "id": "snowflake-arctic-embed2",
+  "provider": "ollama",
+  "kind": "embedding",
+  "attrs": {
+    "pulls": "438.8K",
+    "summary": "Snowflake&#39;s frontier embedding model. Arctic Embed 2.0 adds multilingual support without sacrificing English performance or scalability."
+  },
+  "limits": {
+    "pulls": 438800
+  },
+  "lists": {
+    "capabilities": [
+      "embedding"
+    ],
+    "parameter_sizes": [
+      "568m"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

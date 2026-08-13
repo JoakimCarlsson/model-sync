@@ -1,0 +1,24 @@
+{
+  "id": "mistral-small3.2",
+  "provider": "ollama",
+  "kind": "vision",
+  "attrs": {
+    "pulls": "2.4M",
+    "summary": "An update to Mistral Small that improves on function calling, instruction following, and less repetition errors."
+  },
+  "limits": {
+    "pulls": 2400000
+  },
+  "lists": {
+    "capabilities": [
+      "tools",
+      "vision"
+    ],
+    "parameter_sizes": [
+      "24b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

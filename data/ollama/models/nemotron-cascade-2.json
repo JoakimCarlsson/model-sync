@@ -1,0 +1,24 @@
+{
+  "id": "nemotron-cascade-2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "140.8K",
+    "summary": "An open 30B MoE model from NVIDIA with 3B activated parameters that delivers strong reasoning and agentic capabilities."
+  },
+  "limits": {
+    "pulls": 140800
+  },
+  "lists": {
+    "capabilities": [
+      "thinking",
+      "tools"
+    ],
+    "parameter_sizes": [
+      "30b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

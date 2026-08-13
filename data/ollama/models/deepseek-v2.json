@@ -1,0 +1,21 @@
+{
+  "id": "deepseek-v2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1.2M",
+    "summary": "A strong, economical, and efficient Mixture-of-Experts language model."
+  },
+  "limits": {
+    "pulls": 1200000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "16b",
+      "236b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

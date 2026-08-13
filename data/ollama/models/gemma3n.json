@@ -1,0 +1,21 @@
+{
+  "id": "gemma3n",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "2M",
+    "summary": "Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones."
+  },
+  "limits": {
+    "pulls": 2000000
+  },
+  "lists": {
+    "capabilities": [
+      "e2b",
+      "e4b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

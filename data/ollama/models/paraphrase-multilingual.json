@@ -1,0 +1,23 @@
+{
+  "id": "paraphrase-multilingual",
+  "provider": "ollama",
+  "kind": "embedding",
+  "attrs": {
+    "pulls": "934.2K",
+    "summary": "Sentence-transformers model that can be used for tasks like clustering or semantic search."
+  },
+  "limits": {
+    "pulls": 934200
+  },
+  "lists": {
+    "capabilities": [
+      "embedding"
+    ],
+    "parameter_sizes": [
+      "278m"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

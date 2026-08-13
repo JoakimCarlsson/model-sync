@@ -1,0 +1,20 @@
+{
+  "id": "nexusraven",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "882.1K",
+    "summary": "Nexus Raven is a 13B instruction tuned model for function calling tasks."
+  },
+  "limits": {
+    "pulls": 882100
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

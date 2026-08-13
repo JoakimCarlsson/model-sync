@@ -1,0 +1,28 @@
+{
+  "id": "qwen2.5-coder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "20.3M",
+    "summary": "The latest series of Code-Specific Qwen models, with significant improvements in code generation, code reasoning, and code fixing."
+  },
+  "limits": {
+    "pulls": 20300000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "0.5b",
+      "1.5b",
+      "14b",
+      "32b",
+      "3b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

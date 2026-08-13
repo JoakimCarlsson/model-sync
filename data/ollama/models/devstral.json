@@ -1,0 +1,23 @@
+{
+  "id": "devstral",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1M",
+    "summary": "Devstral: the best open source model for coding agents"
+  },
+  "limits": {
+    "pulls": 1000000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "24b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

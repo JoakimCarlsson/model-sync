@@ -1,0 +1,23 @@
+{
+  "id": "nemotron",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "605.9K",
+    "summary": "Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries."
+  },
+  "limits": {
+    "pulls": 605900
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "70b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

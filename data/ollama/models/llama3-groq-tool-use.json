@@ -1,0 +1,24 @@
+{
+  "id": "llama3-groq-tool-use",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "979K",
+    "summary": "A series of models from Groq that represent a significant advancement in open-source AI capabilities for tool use/function calling."
+  },
+  "limits": {
+    "pulls": 979000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "70b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

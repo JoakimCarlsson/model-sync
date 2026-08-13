@@ -1,0 +1,21 @@
+{
+  "id": "xwinlm",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "972.3K",
+    "summary": "Conversational model based on Llama 2 that performs competitively on various benchmarks."
+  },
+  "limits": {
+    "pulls": 972300
+  },
+  "lists": {
+    "parameter_sizes": [
+      "13b",
+      "7b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

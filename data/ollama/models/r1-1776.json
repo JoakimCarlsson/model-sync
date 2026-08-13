@@ -1,0 +1,21 @@
+{
+  "id": "r1-1776",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "415.6K",
+    "summary": "A version of the DeepSeek-R1 model that has been post trained to provide unbiased, accurate, and factual information by Perplexity."
+  },
+  "limits": {
+    "pulls": 415600
+  },
+  "lists": {
+    "parameter_sizes": [
+      "671b",
+      "70b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

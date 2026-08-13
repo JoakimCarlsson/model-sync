@@ -1,0 +1,15 @@
+{
+  "id": "wizardlm",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "884.7K",
+    "summary": "General use model based on Llama 2."
+  },
+  "limits": {
+    "pulls": 884700
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

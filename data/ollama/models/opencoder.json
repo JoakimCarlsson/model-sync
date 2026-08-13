@@ -1,0 +1,21 @@
+{
+  "id": "opencoder",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "626.2K",
+    "summary": "OpenCoder is an open and reproducible code LLM family which includes 1.5B and 8B models, supporting chat in English and Chinese languages."
+  },
+  "limits": {
+    "pulls": 626200
+  },
+  "lists": {
+    "parameter_sizes": [
+      "1.5b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

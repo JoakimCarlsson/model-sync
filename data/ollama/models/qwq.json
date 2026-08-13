@@ -1,0 +1,23 @@
+{
+  "id": "qwq",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "2.3M",
+    "summary": "QwQ is the reasoning model of the Qwen series."
+  },
+  "limits": {
+    "pulls": 2300000
+  },
+  "lists": {
+    "capabilities": [
+      "tools"
+    ],
+    "parameter_sizes": [
+      "32b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

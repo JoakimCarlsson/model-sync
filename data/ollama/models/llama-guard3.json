@@ -1,0 +1,21 @@
+{
+  "id": "llama-guard3",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "1M",
+    "summary": "Llama Guard 3 is a series of models fine-tuned for content safety classification of LLM inputs and responses."
+  },
+  "limits": {
+    "pulls": 1000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "1b",
+      "8b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

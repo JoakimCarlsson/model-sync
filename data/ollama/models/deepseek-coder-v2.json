@@ -1,0 +1,21 @@
+{
+  "id": "deepseek-coder-v2",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "3M",
+    "summary": "An open-source Mixture-of-Experts code language model that achieves performance comparable to GPT4-Turbo in code-specific tasks."
+  },
+  "limits": {
+    "pulls": 3000000
+  },
+  "lists": {
+    "parameter_sizes": [
+      "16b",
+      "236b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}

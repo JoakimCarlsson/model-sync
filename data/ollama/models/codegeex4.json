@@ -1,0 +1,20 @@
+{
+  "id": "codegeex4",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "pulls": "680.8K",
+    "summary": "A versatile model for AI software development scenarios, including code completion."
+  },
+  "limits": {
+    "pulls": 680800
+  },
+  "lists": {
+    "parameter_sizes": [
+      "9b"
+    ]
+  },
+  "sources": [
+    "https://ollama.com/library"
+  ]
+}
