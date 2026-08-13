@@ -15,11 +15,14 @@ import (
 
 // The keys counted here. They are the vocabulary provider packages already
 // declare; a consumer keying on a synonym would silently miss the field, so
-// these strings are the ones to grep for when adding a provider.
+// these strings are the ones to grep for when adding a provider. The three
+// capability columns count the canonical values in catalog, and count them
+// exactly: a provider still spelling one its vendor's way reads as zero here,
+// which is what makes the column a measurement of convergence rather than a
+// count of however many synonyms happen to exist.
 const (
 	limitContextWindow   = "context_window"
 	limitMaxOutputTokens = "max_output_tokens"
-	listFeatures         = "features"
 	listInputModalities  = "input_modalities"
 	listOutputModalities = "output_modalities"
 	listDimensions       = "embedding_dimensions"
@@ -35,18 +38,21 @@ var retiredStates = []string{"retired", "deprecated", "shutdown"}
 
 // row is one provider-and-kind bucket of the coverage table.
 type row struct {
-	provider string
-	kind     string
-	live     int
-	priced   int
-	context  int
-	maxOut   int
-	features int
-	inMod    int
-	outMod   int
-	named    int
-	dims     int
-	embed    int
+	provider   string
+	kind       string
+	live       int
+	priced     int
+	context    int
+	maxOut     int
+	features   int
+	inMod      int
+	outMod     int
+	named      int
+	dims       int
+	embed      int
+	reason     int
+	structured int
+	tools      int
 }
 
 func (r *row) add(other row) {
@@ -60,6 +66,9 @@ func (r *row) add(other row) {
 	r.named += other.named
 	r.dims += other.dims
 	r.embed += other.embed
+	r.reason += other.reason
+	r.structured += other.structured
+	r.tools += other.tools
 }
 
 // coverage prints how much of each field is populated across the catalog.
@@ -150,8 +159,18 @@ func count(m catalog.Model) row {
 	if m.Limits[limitMaxOutputTokens] > 0 {
 		r.maxOut = 1
 	}
-	if len(m.Lists[listFeatures]) > 0 {
+	features := m.Lists[catalog.ListFeatures]
+	if len(features) > 0 {
 		r.features = 1
+	}
+	if slices.Contains(features, catalog.CapabilityReasoning) {
+		r.reason = 1
+	}
+	if slices.Contains(features, catalog.CapabilityStructuredOutputs) {
+		r.structured = 1
+	}
+	if slices.Contains(features, catalog.CapabilityFunctionCalling) {
+		r.tools = 1
 	}
 	if len(m.Lists[listInputModalities]) > 0 {
 		r.inMod = 1
@@ -216,7 +235,7 @@ func render(out io.Writer, rows []row, kind string, all bool) error {
 		return header.err
 	}
 	w.printf(
-		"provider\tkind\tlive\tpriced\tctx\tmaxout\tfeats\tinmod\toutmod\tname\tembdim\t\n",
+		"provider\tkind\tlive\tpriced\tctx\tmaxout\tfeats\treason\tstruct\ttools\tinmod\toutmod\tname\tembdim\t\n",
 	)
 	var total row
 	groups := byProvider(rows)
@@ -231,7 +250,7 @@ func render(out io.Writer, rows []row, kind string, all bool) error {
 			writeRow(w, group[0].provider, "all kinds", subtotal)
 		}
 		if len(groups) > 1 {
-			w.printf("\t\t\t\t\t\t\t\t\t\t\t\n")
+			w.printf("\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n")
 		}
 	}
 	if len(groups) > 1 {
@@ -273,7 +292,7 @@ func byProvider(rows []row) [][]row {
 // writeRow writes one line, blanking a count that cannot apply.
 func writeRow(w *errWriter, provider, kind string, r row) {
 	w.printf(
-		"%s\t%s\t%d\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t\n",
+		"%s\t%s\t%d\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t%s\t\n",
 		provider,
 		kind,
 		r.live,
@@ -281,6 +300,9 @@ func writeRow(w *errWriter, provider, kind string, r row) {
 		gap(r.context, r.live),
 		gap(r.maxOut, r.live),
 		gap(r.features, r.live),
+		gap(r.reason, r.live),
+		gap(r.structured, r.live),
+		gap(r.tools, r.live),
 		gap(r.inMod, r.live),
 		gap(r.outMod, r.live),
 		gap(r.named, r.live),

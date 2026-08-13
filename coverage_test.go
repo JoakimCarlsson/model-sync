@@ -23,7 +23,12 @@ func fixture() *catalog.Catalog {
 			limitMaxOutputTokens: 100,
 		},
 		Lists: map[string][]string{
-			listFeatures:         {"streaming"},
+			catalog.ListFeatures: {
+				"streaming",
+				catalog.CapabilityReasoning,
+				catalog.CapabilityStructuredOutputs,
+				catalog.CapabilityFunctionCalling,
+			},
 			listInputModalities:  {"text"},
 			listOutputModalities: {"text"},
 		},
@@ -103,6 +108,9 @@ func TestMeasureCountsLiveModelsByKind(t *testing.T) {
 		{"context", chat.context},
 		{"maxOut", chat.maxOut},
 		{"features", chat.features},
+		{"reason", chat.reason},
+		{"structured", chat.structured},
+		{"tools", chat.tools},
 		{"inMod", chat.inMod},
 		{"outMod", chat.outMod},
 		{"named", chat.named},
@@ -120,6 +128,28 @@ func TestMeasureCountsLiveModelsByKind(t *testing.T) {
 	}
 	if chat.embed != 0 {
 		t.Errorf("chat counted %d embedding models", chat.embed)
+	}
+}
+
+// A model stating a capability in its vendor's words is not counted as
+// stating it. The column measures how far the vocabulary has converged, so a
+// synonym has to read as the gap it is.
+func TestCountRejectsVendorSynonyms(t *testing.T) {
+	got := count(catalog.Model{
+		Kind: "chat",
+		Lists: map[string][]string{
+			catalog.ListFeatures: {"json_mode", "formatted_output", "tools"},
+		},
+	})
+	if got.features != 1 {
+		t.Errorf("features = %d, want the list counted as populated", got.features)
+	}
+	if got.structured != 0 || got.tools != 0 {
+		t.Errorf(
+			"structured = %d, tools = %d, want a synonym to count as neither",
+			got.structured,
+			got.tools,
+		)
 	}
 }
 
