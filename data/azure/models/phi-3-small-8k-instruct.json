@@ -647,6 +647,9 @@
   "attrs": {
     "product": "Azure Phi Models"
   },
+  "limits": {
+    "context_window": 8000
+  },
   "sources": [
     "https://prices.azure.com/api/retail/prices"
   ]

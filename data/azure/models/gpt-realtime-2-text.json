@@ -830,9 +830,25 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI Media"
+    "product": "Azure OpenAI Media",
+    "training_data_cutoff": "September 2024"
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

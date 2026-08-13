@@ -227,6 +227,9 @@
   "attrs": {
     "product": "Azure OpenAI"
   },
+  "limits": {
+    "context_window": 4000
+  },
   "sources": [
     "https://prices.azure.com/api/retail/prices"
   ]

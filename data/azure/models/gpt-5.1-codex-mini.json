@@ -1292,9 +1292,29 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI GPT5"
+    "product": "Azure OpenAI GPT5",
+    "training_data_cutoff": "September 30, 2024"
+  },
+  "limits": {
+    "context_window": 400000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "parallel_tool_calls",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

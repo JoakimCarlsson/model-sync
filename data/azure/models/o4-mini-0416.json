@@ -2909,9 +2909,32 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI Reasoning"
+    "product": "Azure OpenAI Reasoning",
+    "training_data_cutoff": "May 31, 2024"
+  },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 100000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat Completions",
+      "Responses"
+    ],
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -29,9 +29,26 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI OSS Models"
+    "product": "Azure OpenAI OSS Models",
+    "training_data_cutoff": "May 31, 2024"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072
+  },
+  "lists": {
+    "endpoints": [
+      "Chat Completions"
+    ],
+    "features": [
+      "function_calling",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }
