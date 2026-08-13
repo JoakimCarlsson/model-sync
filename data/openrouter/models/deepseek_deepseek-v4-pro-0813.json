@@ -26,6 +26,7 @@
   "attrs": {
     "author": "deepseek",
     "canonical_slug": "deepseek/deepseek-v4-pro-20260813",
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro-0813",
     "released": "2026-08-12",
     "summary": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek.",
     "tokenizer": "DeepSeek"
@@ -45,6 +46,7 @@
       "reasoning",
       "reasoning_effort",
       "response_format",
+      "seed",
       "stop",
       "temperature",
       "tool_choice",

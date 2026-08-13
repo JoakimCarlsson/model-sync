@@ -27,7 +27,7 @@
     "author": "upstage",
     "canonical_slug": "upstage/solar-pro4-20260810",
     "released": "2026-08-10",
-    "summary": "Solar Pro 4 is a large language model from Upstage.",
+    "summary": "Solar Pro 4 is Upstage's cost-efficient large language model, featuring a 524K context window.",
     "tokenizer": "Other"
   },
   "limits": {
