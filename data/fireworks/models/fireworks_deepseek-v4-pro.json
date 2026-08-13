@@ -1,0 +1,68 @@
+{
+  "id": "fireworks/deepseek-v4-pro",
+  "provider": "fireworks",
+  "name": "DeepSeek V4 Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.218,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.145,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.61,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.22,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-pro"
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/pricing.md"
+  ]
+}

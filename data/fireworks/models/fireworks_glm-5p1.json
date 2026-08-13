@@ -1,0 +1,98 @@
+{
+  "id": "fireworks/glm-5p1",
+  "provider": "fireworks",
+  "name": "GLM 5.1",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.52,
+      "currency": "USD",
+      "dims": {
+        "serving": "fast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.39,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.8,
+      "currency": "USD",
+      "dims": {
+        "serving": "fast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.1,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8.8,
+      "currency": "USD",
+      "dims": {
+        "serving": "fast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.6,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "model_url": "https://app.fireworks.ai/models/fireworks/glm-5p1"
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/pricing.md"
+  ]
+}

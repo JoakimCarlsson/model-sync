@@ -1,0 +1,41 @@
+{
+  "id": "fireworks/qwen3p7-plus",
+  "provider": "fireworks",
+  "name": "Qwen 3.7 Plus",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.6,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "model_url": "https://app.fireworks.ai/models/fireworks/qwen3p7-plus"
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/pricing.md"
+  ]
+}

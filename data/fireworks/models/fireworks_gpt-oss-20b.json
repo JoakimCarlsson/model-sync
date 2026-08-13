@@ -1,0 +1,41 @@
+{
+  "id": "fireworks/gpt-oss-20b",
+  "provider": "fireworks",
+  "name": "OpenAI GPT OSS 20B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.035,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.07,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-20b"
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/pricing.md"
+  ]
+}
