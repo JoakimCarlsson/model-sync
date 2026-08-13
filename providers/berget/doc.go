@@ -21,10 +21,12 @@
 // vision capability, which is the one capability naming a modality rather than
 // an API feature and is recorded as both.
 //
-// An embedding or reranking model records what it takes and nothing about what
-// it gives back, because what it gives back is a vector and a relevance score
-// rather than a modality. Naming those would invent a word no other provider
-// here uses for them.
+// An embedding or reranking model works in text on both sides, and that is what
+// both modality lists record. It describes the medium and not the return value,
+// which is a vector for one and a relevance score for the other; naming those
+// would invent a word no other provider here uses. Recording the input alone
+// would leave a consumer unable to tell an unstated output from a model that
+// returns nothing, so the two sides are always set together.
 //
 // What Berget does not publish:
 //

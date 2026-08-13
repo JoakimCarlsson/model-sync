@@ -27,10 +27,16 @@ const FeatureVision = "vision"
 // typeModalities map Berget's model type onto what a model of that type takes
 // and returns. The endpoint states the type and nothing else about modality,
 // so a model reading images is found by its vision capability instead.
+//
+// An embedding and a rerank model work in text on both sides, which is the
+// medium and not the return value: one answers with a vector and the other with
+// a set of scores, and the catalog has a word for neither. Recording the input
+// alone would leave a consumer unable to tell an unstated output from a model
+// that returns nothing.
 var typeModalities = map[string]struct{ in, out []string }{
 	"text":           {[]string{"text"}, []string{"text"}},
-	"embedding":      {[]string{"text"}, nil},
-	"rerank":         {[]string{"text"}, nil},
+	"embedding":      {[]string{"text"}, []string{"text"}},
+	"rerank":         {[]string{"text"}, []string{"text"}},
 	"speech-to-text": {[]string{"audio"}, []string{"text"}},
 }
 

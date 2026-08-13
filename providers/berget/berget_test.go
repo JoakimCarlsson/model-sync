@@ -92,9 +92,9 @@ func TestParseCurrency(t *testing.T) {
 }
 
 // TestParseModalitiesFromType covers the rule that neither document states a
-// modality: what a model takes and returns comes from its type, and an
-// embedding or reranking model records only what it takes because a vector and
-// a relevance score are not modalities.
+// modality: what a model takes and returns comes from its type. An embedding or
+// reranking model works in text on both sides, which is the medium rather than
+// the return value, since a vector and a relevance score are not modalities.
 func TestParseModalitiesFromType(t *testing.T) {
 	byID := parse(t)
 	cases := []struct {
@@ -103,8 +103,8 @@ func TestParseModalitiesFromType(t *testing.T) {
 		out []string
 	}{
 		{"openai/gpt-oss-120b", []string{"text"}, []string{"text"}},
-		{"intfloat/multilingual-e5-large", []string{"text"}, nil},
-		{"BAAI/bge-reranker-v2-m3", []string{"text"}, nil},
+		{"intfloat/multilingual-e5-large", []string{"text"}, []string{"text"}},
+		{"BAAI/bge-reranker-v2-m3", []string{"text"}, []string{"text"}},
 		{"KBLab/kb-whisper-large", []string{"audio"}, []string{"text"}},
 		{"moonshotai/Kimi-K2.6", []string{"image", "text"}, []string{"text"}},
 	}
