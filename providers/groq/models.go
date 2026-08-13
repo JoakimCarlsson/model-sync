@@ -65,6 +65,9 @@ func (b *builder) applyTable(t table, state string) {
 		}
 		m.SetAttr(AttrState, state)
 		m.SetAttr(AttrAccess, ref.Badge)
+		if len(rates) == 0 {
+			m.AddNote(contactSalesNote(cellAt(row, priceCol)))
+		}
 		if t.Section == sectionSystems {
 			m.SetAttr(AttrSystem, "true")
 		}
@@ -84,6 +87,26 @@ func (b *builder) applyTable(t table, state string) {
 			})
 		}
 	}
+}
+
+// contactSales is what Groq writes where the amount goes for a model it sells
+// only to enterprises.
+const contactSales = "contactsales"
+
+// contactSalesNote records that Groq states no amount for a model, giving what
+// its table says instead. Nothing reading the aggregate can see a package
+// comment, so without this a model sold by arrangement is indistinguishable
+// from a free one.
+//
+// The cell is the only place the fact is stated. The badge beside the model's
+// name marks the plan it belongs to, which several priced models also carry, so
+// it is the empty amount and not the badge that says there is no rate.
+func contactSalesNote(cell string) string {
+	stripped := strings.ReplaceAll(clean(cell), " ", "")
+	if !strings.EqualFold(stripped, contactSales) {
+		return ""
+	}
+	return "sold by arrangement; the pricing table states no amount"
 }
 
 // valueOrEmpty returns a cell's value, treating the dash Groq writes for "not

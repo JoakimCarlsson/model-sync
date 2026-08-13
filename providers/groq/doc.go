@@ -26,7 +26,9 @@
 // compound systems carry no price and do not read as free.
 //
 // What Groq does not publish: a rate for a model sold only to enterprises. Its
-// table writes "ContactSales" where the amount goes, and the badge beside the
-// model's name is recorded instead, so the model carries an access note rather
-// than a price.
+// table writes "ContactSales" where the amount goes, and that is kept as a note
+// saying the model is sold by arrangement, so it does not read as free. The
+// badge beside the model's name is recorded as well, but it marks the plan the
+// model belongs to and several priced models carry one, so it is the empty
+// amount and not the badge that says there is no rate.
 package groq

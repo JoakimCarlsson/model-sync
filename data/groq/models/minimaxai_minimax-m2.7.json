@@ -26,6 +26,9 @@
       "text"
     ]
   },
+  "notes": [
+    "sold by arrangement; the pricing table states no amount"
+  ],
   "sources": [
     "https://console.groq.com/docs/model/minimaxai/minimax-m2.7.md",
     "https://console.groq.com/docs/models.md"
