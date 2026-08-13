@@ -6,6 +6,20 @@
 // window, no capability and no modality. Each model's own page states all
 // three and no rate at all.
 //
+// What Google does not publish: a page for every model it prices. Seven models
+// appear in the pricing tables and have no page of their own — the Gemma
+// release, the two robotics previews, the flash-lite preview, a native-audio
+// live model and the two older Veo versions — so they carry rates and nothing
+// else. That is the whole of the catalog's remaining gap for this provider, and
+// it is Google's silence rather than a document this parser fails to read.
+//
+// A page that does exist states its bounds in a row headed "Token limits" or,
+// on the video and omni pages, "Limits", and names the input bound three ways
+// inside it: "Input token limit" almost everywhere, "Context window" on the omni
+// model and "Text input" on the video models, where it bounds the prompt. All
+// are read, being one fact under several of Google's own names. Reading only the
+// first heading skipped those rows whole.
+//
 // A model page writes its modalities as prose rather than as a list, and the
 // wordings matter. "Video with audio" names two modalities and not a quality of
 // one, so the video models return both. "Text embeddings" is the return value

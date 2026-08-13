@@ -36,6 +36,10 @@ const (
 	rowModelCode = "model code"
 	rowDataTypes = "supported data types"
 	rowTokens    = "token limits"
+	// rowLimits is what the video and omni pages head the same row with. They
+	// state a bound in tokens like the rest and were skipped entirely for
+	// being headed one word differently.
+	rowLimits    = "limits"
 	rowCaps      = "capabilities"
 	rowConsuming = "consumption options"
 	rowVersions  = "versions"
@@ -48,6 +52,13 @@ const (
 	fieldOutput   = "output"
 	fieldInLimit  = "input token limit"
 	fieldOutLimit = "output token limit"
+	// fieldContext and fieldTextInput are the other names Google gives the
+	// input bound. Almost every page heads it "Input token limit"; the omni
+	// model's heads the same count "Context window" and the video models' heads
+	// the tokens their prompt may carry "Text input". Reading only the first
+	// left all three with no bound at all.
+	fieldContext   = "context window"
+	fieldTextInput = "text input"
 	// fieldDimension is the width of the vector an embedding model returns.
 	fieldDimension = "output dimension size"
 )
@@ -170,7 +181,7 @@ func applyProperty(m *catalog.Model, name, cell string) {
 		for _, version := range versionRe.FindAllStringSubmatch(cell, -1) {
 			m.AddList(ListSnapshots, text(version[2]))
 		}
-	case rowDataTypes, rowTokens:
+	case rowDataTypes, rowTokens, rowLimits:
 		applyFields(m, cell)
 	case rowCaps, rowConsuming:
 		applyCapabilities(m, cell)
@@ -187,7 +198,7 @@ func applyFields(m *catalog.Model, cell string) {
 			addModalities(m, ListInputModalities, value)
 		case fieldOutput:
 			addModalities(m, ListOutputModalities, value)
-		case fieldInLimit:
+		case fieldInLimit, fieldContext, fieldTextInput:
 			m.SetLimit(LimitContextWindow, parseCount(value))
 		case fieldOutLimit:
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))

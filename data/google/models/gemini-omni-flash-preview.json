@@ -43,6 +43,9 @@
     "model_code": "Gemini API gemini-omni-flash-preview",
     "summary": "Gemini Omni Flash is a preview model designed for fast, conversational video generation and editing. It excels at turning text and images into video, lets you refine and edit generated videos through natural language conversations using the Interactions API."
   },
+  "limits": {
+    "context_window": 1048576
+  },
   "lists": {
     "aliases": [
       "Gemini API gemini-omni-flash-preview"
