@@ -73,6 +73,9 @@ func TestParseOpenWeightModel(t *testing.T) {
 	if len(m.Prices) != 0 {
 		t.Errorf("got %d prices, want none", len(m.Prices))
 	}
+	if len(m.Notes) != 1 {
+		t.Errorf("got notes %v, want one saying why there is no rate", m.Notes)
+	}
 }
 
 // TestParsePricing covers a rate stated twice per row, against two

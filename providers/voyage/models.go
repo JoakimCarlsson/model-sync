@@ -43,6 +43,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 				applyDimensions(m, cellAt(row, dimCol))
 				if t.Section == sectionOpenModels {
 					m.SetAttr(AttrOpenWeights, "true")
+					m.AddNote(noteOpenWeights)
 				}
 			}
 		}

@@ -49,6 +49,12 @@ const (
 	AttrOpenWeights      = "open_weights"
 )
 
+// noteOpenWeights records why the models Voyage publishes the weights of carry
+// no rate. Voyage does not serve them, so there is nothing for it to charge
+// for, and without this they would read as models it serves for free.
+const noteOpenWeights = "weights published; Voyage states no rate " +
+	"because it does not serve the model"
+
 // Numeric keys the documents populate.
 const (
 	LimitContextWindow = "context_window"

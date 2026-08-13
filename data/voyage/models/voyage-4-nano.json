@@ -21,6 +21,9 @@
       "text"
     ]
   },
+  "notes": [
+    "weights published; Voyage states no rate because it does not serve the model"
+  ],
   "sources": [
     "https://docs.voyageai.com/docs/embeddings.md"
   ]
