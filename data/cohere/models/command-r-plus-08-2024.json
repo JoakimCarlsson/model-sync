@@ -1,0 +1,26 @@
+{
+  "id": "command-r-plus-08-2024",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "command",
+    "modality": "Text",
+    "state": "live",
+    "summary": "command-r-plus-08-2024 is an update of the Command R+ model, delivered in August 2024."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

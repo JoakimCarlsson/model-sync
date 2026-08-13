@@ -1,0 +1,26 @@
+{
+  "id": "command-r-03-2024",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "command",
+    "modality": "Text",
+    "state": "deprecated sept 15, 2025",
+    "summary": "Command R is an instruction-following conversational model that performs language tasks at a higher quality, more reliably, and with a longer context than previous models."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

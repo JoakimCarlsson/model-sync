@@ -1,0 +1,35 @@
+{
+  "id": "embed-english-light-v3.0",
+  "provider": "cohere",
+  "kind": "embedding",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "N/A",
+    "default_embedding_dimension": "384",
+    "family": "embed",
+    "modality": "Text, Images",
+    "oracle_oci_id": "cohere.embed-english-light-image-v3.0 (for images), cohere.embed-english-light-v3.0 (for text)",
+    "similarity_metric": "Cosine Similarity",
+    "summary": "A smaller, faster version of embed-english-v3.0."
+  },
+  "limits": {
+    "context_window": 512
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "384"
+    ],
+    "endpoints": [
+      "Embed",
+      "Embed Jobs"
+    ],
+    "modalities": [
+      "Images",
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "id": "c4ai-aya-expanse-8b",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "aya",
+    "modality": "Text",
+    "state": "retired apr 4, 2026",
+    "summary": "Aya Expanse is a highly performant 8B multilingual model, designed to rival monolingual performance through innovations in instruction tuning with data arbitrage, preference training, and model merging."
+  },
+  "limits": {
+    "context_window": 8000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

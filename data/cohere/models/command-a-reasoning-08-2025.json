@@ -1,0 +1,26 @@
+{
+  "id": "command-a-reasoning-08-2025",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "command",
+    "modality": "Text",
+    "state": "live",
+    "summary": "Command A Reasoning is Cohere's first reasoning model, able to 'think' before generating an output in a way that allows it to perform well in certain kinds of nuanced problem-solving and agent-based tasks in 23 languages."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 32000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

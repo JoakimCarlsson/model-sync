@@ -1,0 +1,35 @@
+{
+  "id": "embed-english-v3.0",
+  "provider": "cohere",
+  "kind": "embedding",
+  "attrs": {
+    "amazon_bedrock_id": "cohere.embed-english-v3",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "Unique per deployment",
+    "default_embedding_dimension": "1024",
+    "family": "embed",
+    "modality": "Text, Images",
+    "oracle_oci_id": "cohere.embed-english-image-v3.0 (for images), cohere.embed-english-v3.0 (for text)",
+    "similarity_metric": "Cosine Similarity",
+    "summary": "A model that allows for text to be classified or turned into embeddings."
+  },
+  "limits": {
+    "context_window": 512
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ],
+    "endpoints": [
+      "Embed",
+      "Embed Jobs"
+    ],
+    "modalities": [
+      "Images",
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

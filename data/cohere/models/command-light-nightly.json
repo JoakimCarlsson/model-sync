@@ -1,0 +1,15 @@
+{
+  "id": "command-light-nightly",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "N/A",
+    "azure_ai_foundry_id": "N/A",
+    "family": "command",
+    "oracle_oci_id": "N/A"
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

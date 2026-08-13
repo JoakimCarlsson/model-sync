@@ -11,6 +11,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/anthropic"
 	"github.com/joakimcarlsson/model-sync/providers/assemblyai"
 	"github.com/joakimcarlsson/model-sync/providers/cerebras"
+	"github.com/joakimcarlsson/model-sync/providers/cohere"
 	"github.com/joakimcarlsson/model-sync/providers/deepgram"
 	"github.com/joakimcarlsson/model-sync/providers/elevenlabs"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
@@ -66,6 +67,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	perplexitySource.CacheDir = cache
 	cerebrasSource := cerebras.New()
 	cerebrasSource.CacheDir = cache
+	cohereSource := cohere.New()
+	cohereSource.CacheDir = cache
 	deepgramSource := deepgram.New()
 	deepgramSource.CacheDir = cache
 	elevenlabsSource := elevenlabs.New()
@@ -77,6 +80,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 	sources := []catalog.Source{
 		assemblyaiSource,
 		cerebrasSource,
+		cohereSource,
 		deepgramSource,
 		elevenlabsSource,
 		fireworksSource,

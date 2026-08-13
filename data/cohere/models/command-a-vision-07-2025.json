@@ -1,0 +1,27 @@
+{
+  "id": "command-a-vision-07-2025",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "command",
+    "modality": "Text, Images",
+    "state": "live",
+    "summary": "Command A Vision is our first model capable of processing images, excelling in enterprise use cases such as analyzing charts, graphs, and diagrams, table understanding, OCR, document Q\\&A, and object detection."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Images",
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

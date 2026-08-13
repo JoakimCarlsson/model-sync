@@ -1,0 +1,26 @@
+{
+  "id": "tiny-aya-water",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "family": "aya",
+    "modality": "Text",
+    "state": "live",
+    "summary": "Tiny Aya Water is a 3.35B region-specialized multilingual model, best for European and Asia-Pacific languages."
+  },
+  "limits": {
+    "context_window": 8000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

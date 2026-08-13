@@ -1,0 +1,30 @@
+{
+  "id": "command-r7b-12-2024",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "N/A",
+    "azure_ai_foundry_id": "N/A",
+    "family": "command",
+    "modality": "Text",
+    "oracle_oci_id": "N/A",
+    "state": "live",
+    "summary": "command-r7b-12-2024 is a small, fast update delivered in December 2024."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

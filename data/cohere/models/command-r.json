@@ -1,0 +1,30 @@
+{
+  "id": "command-r",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "cohere.command-r-v1:0",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "Unique per deployment",
+    "family": "command",
+    "modality": "Text",
+    "oracle_oci_id": "cohere.command-r-16k v1.2",
+    "state": "deprecated sept 15, 2025",
+    "summary": "Alias for command-r-03-2024"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

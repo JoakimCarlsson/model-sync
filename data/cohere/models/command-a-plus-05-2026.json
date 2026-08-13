@@ -1,0 +1,31 @@
+{
+  "id": "command-a-plus-05-2026",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "N/A",
+    "azure_ai_foundry_id": "'coherelabs-command-a-plus-05-2026-w4a4'",
+    "family": "command",
+    "modality": "Text, Images",
+    "oracle_oci_id": "N/A",
+    "state": "live",
+    "summary": "Command A+ offers the last model in the Command A family, while being Cohere's first Mixture of Experts model, simultaneously combining vision input support, agentic, reasoning, and world-class translation capabilities into single model weights."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 64000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Images",
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

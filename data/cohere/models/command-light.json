@@ -1,0 +1,30 @@
+{
+  "id": "command-light",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "cohere.command-light-text-v14",
+    "amazon_sagemaker_id": "N/A",
+    "azure_ai_foundry_id": "N/A",
+    "family": "command",
+    "modality": "Text",
+    "oracle_oci_id": "cohere.command-light v15.6",
+    "state": "deprecated sept 15, 2025",
+    "summary": "A smaller, faster version of command."
+  },
+  "limits": {
+    "context_window": 4000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

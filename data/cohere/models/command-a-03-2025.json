@@ -1,0 +1,30 @@
+{
+  "id": "command-a-03-2025",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "(Coming Soon)",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "Unique per deployment",
+    "family": "command",
+    "modality": "Text",
+    "oracle_oci_id": "cohere.command-a-03-2025",
+    "state": "live",
+    "summary": "Command A is our most performant model to date, excelling at tool use, agents, retrieval augmented generation (RAG), and multilingual use cases."
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

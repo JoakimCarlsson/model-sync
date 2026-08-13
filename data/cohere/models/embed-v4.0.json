@@ -1,0 +1,39 @@
+{
+  "id": "embed-v4.0",
+  "provider": "cohere",
+  "kind": "embedding",
+  "attrs": {
+    "amazon_bedrock_id": "(Coming Soon)",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "cohere-embed-v-4-plan",
+    "default_embedding_dimension": "One of '\\[256",
+    "family": "embed",
+    "modality": "Text, Images, Mixed texts/images (i.e. PDFs)",
+    "oracle_oci_id": "(Coming Soon)",
+    "similarity_metric": "Cosine Similarity, Dot Product Similarity, Euclidean Distance",
+    "summary": "A model that allows for text and images to be classified or turned into embeddings"
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024",
+      "1536 (default)]'",
+      "512",
+      "One of '\\[256"
+    ],
+    "endpoints": [
+      "Embed",
+      "Embed Jobs"
+    ],
+    "modalities": [
+      "Images",
+      "Mixed texts/images (i.e. PDFs)",
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

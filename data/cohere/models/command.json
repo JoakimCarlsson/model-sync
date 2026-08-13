@@ -1,0 +1,30 @@
+{
+  "id": "command",
+  "provider": "cohere",
+  "kind": "chat",
+  "attrs": {
+    "amazon_bedrock_id": "cohere.command-text-v14",
+    "amazon_sagemaker_id": "N/A",
+    "azure_ai_foundry_id": "N/A",
+    "family": "command",
+    "modality": "Text",
+    "oracle_oci_id": "cohere.command v15.6",
+    "state": "deprecated sept 15, 2025",
+    "summary": "An instruction-following conversational model that performs language tasks with high quality, more reliably and with a longer context than our base generative models."
+  },
+  "limits": {
+    "context_window": 4000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

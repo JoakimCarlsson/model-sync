@@ -1,0 +1,15 @@
+{
+  "id": "embed-multilingual-v2.0",
+  "provider": "cohere",
+  "kind": "embedding",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "N/A",
+    "family": "embed",
+    "oracle_oci_id": "N/A"
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

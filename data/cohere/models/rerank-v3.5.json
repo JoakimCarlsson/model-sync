@@ -1,0 +1,28 @@
+{
+  "id": "rerank-v3.5",
+  "provider": "cohere",
+  "kind": "rerank",
+  "attrs": {
+    "amazon_bedrock_id": "cohere.rerank-v3-5:0",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "Cohere-rerank-v3.5",
+    "family": "rerank",
+    "modality": "Text",
+    "oracle_oci_id": "cohere.rerank.3-5",
+    "summary": "A model that allows for re-ranking English Language documents and semi-structured data (JSON)."
+  },
+  "limits": {
+    "context_window": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Rerank"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

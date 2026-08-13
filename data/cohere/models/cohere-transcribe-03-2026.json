@@ -1,0 +1,19 @@
+{
+  "id": "cohere-transcribe-03-2026",
+  "provider": "cohere",
+  "kind": "transcription",
+  "attrs": {
+    "family": "audio",
+    "max_file_size": "25MB",
+    "state": "live",
+    "summary": "Open source research release focused on high-accuracy, multilingual speech transcription."
+  },
+  "lists": {
+    "endpoints": [
+      "Audio Transcriptions"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}

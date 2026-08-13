@@ -1,0 +1,28 @@
+{
+  "id": "rerank-multilingual-v3.0",
+  "provider": "cohere",
+  "kind": "rerank",
+  "attrs": {
+    "amazon_bedrock_id": "N/A",
+    "amazon_sagemaker_id": "Unique per deployment",
+    "azure_ai_foundry_id": "Cohere-rerank-v3-multilingual",
+    "family": "rerank",
+    "modality": "Text",
+    "oracle_oci_id": "N/A",
+    "summary": "A model for documents and semi-structure data (JSON) that are not in English."
+  },
+  "limits": {
+    "context_window": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "Rerank"
+    ],
+    "modalities": [
+      "Text"
+    ]
+  },
+  "sources": [
+    "https://docs.cohere.com/docs/models.md"
+  ]
+}
