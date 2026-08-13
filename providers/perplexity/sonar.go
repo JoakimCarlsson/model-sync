@@ -52,11 +52,17 @@ func (b *builder) applySonarPage(doc catalog.Document) {
 	if !ok {
 		return
 	}
+	m.AddSource(doc.URL)
+	if !slices.Contains(b.sonar, id) {
+		b.sonar = append(b.sonar, id)
+	}
+	if readsReasoning(string(doc.Body)) {
+		m.AddList(ListFeatures, featureReasoning)
+	}
 	match := contextRe.FindStringSubmatch(string(doc.Body))
 	if match == nil {
 		return
 	}
-	m.AddSource(doc.URL)
 	m.SetLimit(LimitContextWindow, parseTokens(match[1], match[2]))
 }
 

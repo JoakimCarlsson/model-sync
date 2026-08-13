@@ -47,7 +47,24 @@
   "limits": {
     "context_window": 128000
   },
+  "lists": {
+    "features": [
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://docs.perplexity.ai/docs/sonar/features.md",
+    "https://docs.perplexity.ai/docs/sonar/media.md",
     "https://docs.perplexity.ai/docs/sonar/models/sonar-reasoning-pro.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]

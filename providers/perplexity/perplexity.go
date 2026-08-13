@@ -32,7 +32,14 @@ var documentURLs = []string{
 	baseURL + "/getting-started/pricing.md",
 	baseURL + "/docs/agent-api/models.md",
 	SonarIndexURL,
+	FeaturesURL,
+	MediaURL,
 }
+
+// guideURLs are the documents describing the Sonar API rather than any one
+// model, which are read only after the model pages have said which models the
+// API serves.
+var guideURLs = []string{FeaturesURL, MediaURL}
 
 // SonarIndexURL lists the models Perplexity serves itself and links to the
 // page each of them has, which is the only place a context window is stated.
@@ -92,13 +99,22 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		if !strings.HasPrefix(doc.URL, sonarModelPre) {
+		if !strings.HasPrefix(doc.URL, sonarModelPre) &&
+			!slices.Contains(guideURLs, doc.URL) {
 			b.applyDocument(doc)
 		}
 	}
 	for _, doc := range docs {
 		if strings.HasPrefix(doc.URL, sonarModelPre) {
 			b.applySonarPage(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL == MediaURL {
+			b.applyBaseModalities(doc.URL)
+		}
+		if slices.Contains(guideURLs, doc.URL) {
+			b.applyGuide(doc)
 		}
 	}
 	return b.result(), nil
@@ -180,6 +196,10 @@ func cacheName(url string) string {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// sonar holds the models Perplexity serves itself, which are the ones with
+	// a page of their own. The guides describing what the Sonar API can do name
+	// no model, so this is what says who they are about.
+	sonar []string
 }
 
 func newBuilder() *builder {
