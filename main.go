@@ -75,6 +75,13 @@ func main() {
 // what makes both useful: reviewing a change to one parser means reading the
 // diff of that parser's models, and a run that refetched the other twenty-one
 // would bury it under whatever those vendors had changed in the meantime.
+//
+// A source that fails is reported and the rest still sync. One vendor moving a
+// page must not stop the other twenty-one from refreshing, and a source that
+// parsed nothing writes nothing, so its files stay as they were and the
+// aggregate is rebuilt with its previous models still in it. The failures are
+// returned at the end, so a run that lost a provider still exits non-zero rather
+// than passing quietly with stale data.
 func run(data, api, cache, only string, timeout time.Duration) error {
 	mistralSource := mistral.New()
 	mistralSource.CacheDir = cache
@@ -148,23 +155,25 @@ func run(data, api, cache, only string, timeout time.Duration) error {
 	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 
+	var failures []error
 	for _, source := range sources {
 		if only != "" && source.ID() != only {
 			continue
 		}
 		if err := sync(ctx, data, source); err != nil {
-			return err
+			fmt.Fprintf(os.Stderr, "model-sync: %v\n", err)
+			failures = append(failures, err)
 		}
 	}
 	if api == "-" {
-		return nil
+		return errors.Join(failures...)
 	}
 	cat, err := store.Load(data)
 	if err != nil {
-		return err
+		return errors.Join(append(failures, err)...)
 	}
 	if err := store.WriteAggregate(api, cat); err != nil {
-		return err
+		return errors.Join(append(failures, err)...)
 	}
 	fmt.Fprintf(
 		os.Stderr,
@@ -173,7 +182,7 @@ func run(data, api, cache, only string, timeout time.Duration) error {
 		len(cat.Providers),
 		cat.Count(),
 	)
-	return nil
+	return errors.Join(failures...)
 }
 
 // sync fetches and parses one source and writes its models to the tree. A
