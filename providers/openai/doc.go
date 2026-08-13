@@ -24,6 +24,12 @@
 // alias is priced as its target. Their rates are therefore taken from the
 // snapshot their page names, with a note recording that they were.
 //
+// An embedding model records the width of its vector as the default it is and
+// not as a list of the widths on offer. OpenAI exposes a dimensions parameter
+// that shortens the vector to any smaller length, so there is no set of
+// discrete widths to enumerate; a list would invent one. The default and the
+// fact that it can be reduced are what it states, and both are recorded.
+//
 // What OpenAI does not publish: a rate for gpt-5.4-cyber, whose row in the rate
 // table is a line of dashes, or for either open-weight gpt-oss model, which the
 // tables leave out entirely. Those three are served and documented and carry no
