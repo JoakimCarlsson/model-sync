@@ -55,10 +55,15 @@ const (
 
 // Enumeration keys the overview populates.
 const (
-	ListEndpoints       = "endpoints"
-	ListInputModalities = "input_modalities"
-	ListDimensions      = "embedding_dimensions"
+	ListEndpoints        = "endpoints"
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+	ListDimensions       = "embedding_dimensions"
 )
+
+// ModalityText is what a chat model returns. It is the catalog's word for it,
+// and the same word the modality column uses for what a model takes.
+const ModalityText = "text"
 
 // sectionKinds maps a family heading onto what its models do.
 var sectionKinds = map[string]catalog.Kind{
@@ -127,8 +132,32 @@ func (b *builder) applyOverview(doc catalog.Document) {
 				m.Name = names[undated(id)]
 			}
 			b.applyRow(m, t, row)
+			setOutputModality(m)
 		}
 	}
+}
+
+// setOutputModality records what a chat model gives back.
+//
+// The modality column states only what a model takes. What it returns is in the
+// paragraph above the table: Command "takes a user instruction (or command) and
+// generates text following the instruction", and the Aya models answer on the
+// same Chat endpoint, one of them taking images and text and giving back "a
+// single coherent response". Both families return text.
+//
+// Nothing is recorded for embed or rerank, which return a vector and a set of
+// relevance scores. Neither is a modality, and naming them here would put a
+// value in a field that no other provider's embedding models carry.
+//
+// A model the overview states no input modality for gets no output modality
+// either. The nightly builds appear only in the table of platform identifiers,
+// which has no modality column, and recording that one returns text while saying
+// nothing about what it takes would read as a model that takes nothing.
+func setOutputModality(m *catalog.Model) {
+	if m.Kind != KindChat || len(m.Lists[ListInputModalities]) == 0 {
+		return
+	}
+	m.AddList(ListOutputModalities, ModalityText)
 }
 
 // docLinkRe matches a link from the overview's opening summary to a model,

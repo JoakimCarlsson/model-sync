@@ -32,6 +32,9 @@
     ],
     "input_modalities": [
       "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

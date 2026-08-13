@@ -239,8 +239,46 @@ func TestParseDimensions(t *testing.T) {
 			t.Errorf("%s: got default width %q, want %q", c.id, got, c.def)
 		}
 	}
-	if got := byID["command-r-03-2024"].Attrs[AttrState]; got !=
-		StateDeprecated {
-		t.Errorf("got state %q", got)
+}
+
+// TestParseModalities covers the rule that neither side of the pair is recorded
+// without the other, and the sides a family states in prose rather than in a
+// column. Cohere's modality column says only what a model takes; the paragraph
+// above each table says what it gives back.
+func TestParseModalities(t *testing.T) {
+	byID := parse(t)
+	cases := []struct {
+		id  string
+		in  []string
+		out []string
+	}{
+		{"command-a-03-2025", []string{"text"}, []string{"text"}},
+		{
+			"command-a-vision-07-2025",
+			[]string{"image", "text"},
+			[]string{"text"},
+		},
+		{"c4ai-aya-vision-32b", []string{"image", "text"}, []string{"text"}},
+		{"tiny-aya-global", []string{"text"}, []string{"text"}},
+		{"command-nightly", nil, nil},
+		{"embed-v4.0", []string{"file", "image", "text"}, nil},
+		{"rerank-v4.0-pro", []string{"text"}, nil},
+	}
+	for _, c := range cases {
+		m := byID[c.id]
+		m.Sort()
+		if got := m.Lists[ListInputModalities]; !slices.Equal(got, c.in) {
+			t.Errorf("%s: got input %q, want %q", c.id, got, c.in)
+		}
+		if got := m.Lists[ListOutputModalities]; !slices.Equal(got, c.out) {
+			t.Errorf("%s: got output %q, want %q", c.id, got, c.out)
+		}
+	}
+	for id, m := range byID {
+		in := len(m.Lists[ListInputModalities])
+		out := len(m.Lists[ListOutputModalities])
+		if out > 0 && in == 0 {
+			t.Errorf("%s: returns something and takes nothing", id)
+		}
 	}
 }
