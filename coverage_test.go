@@ -184,3 +184,25 @@ func TestRenderMarksShortfalls(t *testing.T) {
 		t.Errorf("a single kind should need no subtotal:\n%s", out)
 	}
 }
+
+// TestCountDimensionsEitherWay covers the two keys a provider states the width
+// of an embedding vector in. A model offering a choice lists them; a model
+// returning one width states that one. Counting only the list would report a
+// gap against a provider that answered in the other key.
+func TestCountDimensionsEitherWay(t *testing.T) {
+	listed := count(catalog.Model{
+		Kind:  "embedding",
+		Lists: map[string][]string{listDimensions: {"256", "1024"}},
+	})
+	defaulted := count(catalog.Model{
+		Kind:  "embedding",
+		Attrs: map[string]string{attrDefaultDimension: "1536"},
+	})
+	silent := count(catalog.Model{Kind: "embedding"})
+	if listed.dims != 1 || defaulted.dims != 1 {
+		t.Errorf("got %d listed and %d defaulted, want 1 each", listed.dims, defaulted.dims)
+	}
+	if silent.dims != 0 || silent.embed != 1 {
+		t.Errorf("got %+v, want an embedding model stating no width", silent)
+	}
+}

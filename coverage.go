@@ -26,6 +26,13 @@ const (
 	listInputModalities  = "input_modalities"
 	listOutputModalities = "output_modalities"
 	listDimensions       = "embedding_dimensions"
+	// attrDefaultDimension is the other way a provider states the width of the
+	// vector an embedding model returns. Where a model offers a choice of
+	// widths the list holds them; where it returns one width, or where the
+	// width can be reduced to anything smaller and there is no set to
+	// enumerate, this is what states it. Counting only the list would read as
+	// a gap on a provider that answers the question in the other key.
+	attrDefaultDimension = "default_embedding_dimension"
 )
 
 // stateAttrs are the two keys providers record a lifecycle under.
@@ -183,7 +190,8 @@ func count(m catalog.Model) row {
 	}
 	if m.Kind == "embedding" {
 		r.embed = 1
-		if len(m.Lists[listDimensions]) > 0 {
+		if len(m.Lists[listDimensions]) > 0 ||
+			m.Attrs[attrDefaultDimension] != "" {
 			r.dims = 1
 		}
 	}
