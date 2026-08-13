@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Uncensored Llama 2 model by George Sung and Jarrad Hope."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "70b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama2-uncensored/tags"
   ]
 }

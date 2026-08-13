@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "A 7B and 15B uncensored variant of the Dolphin model family that excels at coding, based on StarCoder2."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "15b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/dolphincoder/tags"
   ]
 }

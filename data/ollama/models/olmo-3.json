@@ -5,10 +5,19 @@
   "attrs": {
     "summary": "Olmo is a series of Open language models designed to enable the science of language models. These models are pre-trained on the Dolma 3 dataset and post-trained on the Dolci datasets."
   },
+  "limits": {
+    "context_window": 64000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "32b",
@@ -16,6 +25,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/olmo-3/tags"
   ]
 }

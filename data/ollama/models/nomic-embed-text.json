@@ -5,12 +5,19 @@
   "attrs": {
     "summary": "A high-performing open embedding model with a large token context window."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
-    "capabilities": [
-      "embedding"
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/nomic-embed-text/tags"
   ]
 }

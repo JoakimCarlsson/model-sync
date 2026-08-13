@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Phi-3 is a family of lightweight 3B (Mini) and 14B (Medium) state-of-the-art open models by Microsoft."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "14b",
       "3.8b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/phi3/tags"
   ]
 }

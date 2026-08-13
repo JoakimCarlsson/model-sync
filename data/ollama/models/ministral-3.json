@@ -1,14 +1,23 @@
 {
   "id": "ministral-3",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "The Ministral 3 family is designed for edge deployment, capable of running on a wide range of hardware."
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
-    "capabilities": [
-      "tools",
-      "vision"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "14b",
@@ -17,6 +26,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/ministral-3/tags"
   ]
 }

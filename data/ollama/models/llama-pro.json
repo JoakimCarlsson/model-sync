@@ -5,7 +5,19 @@
   "attrs": {
     "summary": "An expansion of Llama 2 that specializes in integrating both general language understanding and domain-specific knowledge, particularly in programming and mathematics."
   },
+  "limits": {
+    "context_window": 4000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama-pro/tags"
   ]
 }

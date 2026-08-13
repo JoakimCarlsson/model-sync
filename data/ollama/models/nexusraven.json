@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "Nexus Raven is a 13B instruction tuned model for function calling tasks."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/nexusraven/tags"
   ]
 }

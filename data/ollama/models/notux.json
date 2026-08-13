@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A top-performing mixture of experts model, fine-tuned with high-quality data."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameter_sizes": [
       "8x7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/notux/tags"
   ]
 }

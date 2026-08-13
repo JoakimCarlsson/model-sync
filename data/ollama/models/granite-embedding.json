@@ -6,9 +6,6 @@
     "summary": "The IBM Granite Embedding 30M and 278M models models are text-only dense biencoder embedding models, with 30M available in English only and 278M serving multilingual use cases."
   },
   "lists": {
-    "capabilities": [
-      "embedding"
-    ],
     "parameter_sizes": [
       "278m",
       "30m"

@@ -6,9 +6,6 @@
     "summary": "Embedding model from BAAI mapping texts to vectors."
   },
   "lists": {
-    "capabilities": [
-      "embedding"
-    ],
     "parameter_sizes": [
       "335m"
     ]

@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "QwQ is the reasoning model of the Qwen series."
   },
+  "limits": {
+    "context_window": 40000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "32b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwq/tags"
   ]
 }

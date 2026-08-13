@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "A general-purpose model ranging from 3 billion parameters to 70 billion, suitable for entry-level hardware."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "3b",
@@ -14,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/orca-mini/tags"
   ]
 }

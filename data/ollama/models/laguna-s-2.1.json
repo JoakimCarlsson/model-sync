@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Our most capable model to date, designed for long-horizon work. 70.2% on Terminal-Bench 2.1 at 118B-A8B."
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/laguna-s-2.1/tags"
   ]
 }

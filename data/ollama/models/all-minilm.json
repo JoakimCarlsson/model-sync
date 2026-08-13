@@ -6,9 +6,6 @@
     "summary": "Embedding models on very large sentence level datasets."
   },
   "lists": {
-    "capabilities": [
-      "embedding"
-    ],
     "parameter_sizes": [
       "22m",
       "33m"

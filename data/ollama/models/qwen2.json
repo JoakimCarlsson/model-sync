@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "Qwen2 is a new series of large language models from Alibaba group"
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "0.5b",
@@ -17,6 +26,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen2/tags"
   ]
 }

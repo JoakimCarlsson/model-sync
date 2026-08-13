@@ -1,15 +1,24 @@
 {
   "id": "qwen3.6",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "Qwen3.6 delivers substantial upgrades in agentic coding and thinking preservation than previous Qwen models."
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools",
-      "vision"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "27b",
@@ -17,6 +26,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen3.6/tags"
   ]
 }

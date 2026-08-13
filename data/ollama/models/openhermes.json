@@ -5,7 +5,19 @@
   "attrs": {
     "summary": "OpenHermes 2.5 is a 7B model fine-tuned by Teknium on Mistral with fully open datasets."
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/openhermes/tags"
   ]
 }

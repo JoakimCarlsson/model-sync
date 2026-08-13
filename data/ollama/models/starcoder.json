@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "StarCoder is a code generation model trained on 80&#43; programming languages."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "15b",
       "1b",
@@ -14,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/starcoder/tags"
   ]
 }

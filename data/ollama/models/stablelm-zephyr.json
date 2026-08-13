@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A lightweight chat model allowing accurate, and responsive output without requiring high-end hardware."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "3b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/stablelm-zephyr/tags"
   ]
 }

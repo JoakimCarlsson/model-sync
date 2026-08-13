@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "This model extends LLama-3 8B&#39;s context length from 8k to over 1m tokens."
   },
+  "limits": {
+    "context_window": 1000000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "70b",
       "8b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama3-gradient/tags"
   ]
 }

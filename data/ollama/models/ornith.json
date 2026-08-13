@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "A self-improving family of open-source models for agentic coding"
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "35b",
@@ -15,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/ornith/tags"
   ]
 }

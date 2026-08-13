@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "Mistral Small 3 sets a new benchmark in the “small” Large Language Models category below 70B."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "22b",
@@ -15,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/mistral-small/tags"
   ]
 }

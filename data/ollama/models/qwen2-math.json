@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Qwen2 Math is a series of specialized math language models built upon the Qwen2 LLMs, which significantly outperforms the mathematical capabilities of open-source models and even closed-source models (e.g., GPT4o)."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "1.5b",
       "72b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen2-math/tags"
   ]
 }

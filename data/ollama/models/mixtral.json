@@ -5,14 +5,26 @@
   "attrs": {
     "summary": "A set of Mixture of Experts (MoE) model with open weights by Mistral AI in 8x7b and 8x22b parameter sizes."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameter_sizes": [
       "8x22b",
-      "8x7b",
-      "tools"
+      "8x7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/mixtral/tags"
   ]
 }

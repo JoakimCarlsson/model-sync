@@ -1,20 +1,30 @@
 {
   "id": "granite3.2-vision",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "A compact and efficient vision-language model, specifically designed for visual document understanding, enabling automated content extraction from tables, charts, infographics, plots, diagrams, and more."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
-    "capabilities": [
-      "tools",
-      "vision"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "2b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/granite3.2-vision/tags"
   ]
 }

@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "Starling is a large language model trained by reinforcement learning from AI feedback focused on improving chatbot helpfulness."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/starling-lm/tags"
   ]
 }

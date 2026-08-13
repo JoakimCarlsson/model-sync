@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "2.7B uncensored Dolphin model by Eric Hartford, based on the Phi language model by Microsoft Research."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "2.7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/dolphin-phi/tags"
   ]
 }

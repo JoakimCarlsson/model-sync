@@ -1,19 +1,27 @@
 {
   "id": "medgemma1.5",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "MedGemma 1.5 4B is an updated version of the MedGemma 4B model."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "vision"
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "4b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/medgemma1.5/tags"
   ]
 }

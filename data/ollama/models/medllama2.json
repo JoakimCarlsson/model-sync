@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "Fine-tuned Llama 2 model to answer medical questions based on an open source medical dataset."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/medllama2/tags"
   ]
 }

@@ -1,19 +1,27 @@
 {
   "id": "llava-llama3",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "A LLaVA model fine-tuned from Llama 3 Instruct with better scores in several benchmarks."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
-    "capabilities": [
-      "vision"
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "8b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llava-llama3/tags"
   ]
 }

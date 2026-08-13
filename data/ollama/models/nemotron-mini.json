@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "A commercial-friendly small language model by NVIDIA optimized for roleplay, RAG QA, and function calling."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "4b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/nemotron-mini/tags"
   ]
 }

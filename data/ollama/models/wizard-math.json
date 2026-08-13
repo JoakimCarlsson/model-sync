@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Model focused on math and logic problems"
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "70b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/wizard-math/tags"
   ]
 }

@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Conversational model based on Llama 2 that performs competitively on various benchmarks."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/xwinlm/tags"
   ]
 }

@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "Command R is a Large Language Model optimized for conversational interaction and long context tasks."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "35b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/command-r/tags"
   ]
 }

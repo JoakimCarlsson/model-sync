@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "New state of the art 70B model. Llama 3.3 70B offers similar performance compared to the Llama 3.1 405B model."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "70b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama3.3/tags"
   ]
 }

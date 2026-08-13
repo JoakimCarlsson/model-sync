@@ -1,13 +1,20 @@
 {
   "id": "qwen2.5vl",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "Flagship vision-language model of Qwen and also a significant leap from the previous Qwen2-VL."
   },
+  "limits": {
+    "context_window": 125000
+  },
   "lists": {
-    "capabilities": [
-      "vision"
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "32b",
@@ -17,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen2.5vl/tags"
   ]
 }

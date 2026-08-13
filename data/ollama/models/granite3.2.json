@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "Granite-3.2 is a family of long-context AI models from IBM Granite fine-tuned for thinking capabilities."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "2b",
@@ -15,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/granite3.2/tags"
   ]
 }

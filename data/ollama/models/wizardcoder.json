@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "State-of-the-art code generation model"
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "33b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/wizardcoder/tags"
   ]
 }

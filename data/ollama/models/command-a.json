@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "111 billion parameter model optimized for demanding enterprises that require fast, secure, and high-quality AI"
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "111b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/command-a/tags"
   ]
 }

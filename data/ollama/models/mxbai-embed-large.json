@@ -6,9 +6,6 @@
     "summary": "State-of-the-art large embedding model from mixedbread.ai"
   },
   "lists": {
-    "capabilities": [
-      "embedding"
-    ],
     "parameter_sizes": [
       "335m"
     ]

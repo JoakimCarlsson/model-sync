@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "The Nous Hermes 2 model from Nous Research, now trained over Mixtral."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameter_sizes": [
       "8x7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/nous-hermes2-mixtral/tags"
   ]
 }

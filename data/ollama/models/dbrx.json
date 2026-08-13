@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "DBRX is an open, general-purpose LLM created by Databricks."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "132b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/dbrx/tags"
   ]
 }

@@ -5,7 +5,19 @@
   "attrs": {
     "summary": "General use model based on Llama 2."
   },
+  "limits": {
+    "context_window": 2000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/wizardlm/tags"
   ]
 }

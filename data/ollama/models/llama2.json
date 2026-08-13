@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Llama 2 is a collection of foundation language models ranging from 7B to 70B parameters."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "70b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama2/tags"
   ]
 }

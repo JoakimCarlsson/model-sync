@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameter_sizes": [
       "e2b",
       "e4b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/gemma3n/tags"
   ]
 }

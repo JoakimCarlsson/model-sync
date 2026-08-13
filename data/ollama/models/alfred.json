@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A robust conversational model designed to be used for both chat and instruct use cases."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "40b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/alfred/tags"
   ]
 }

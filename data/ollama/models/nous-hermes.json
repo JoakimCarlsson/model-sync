@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "General use models based on Llama and Llama 2 from Nous Research."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/nous-hermes/tags"
   ]
 }

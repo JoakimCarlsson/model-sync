@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "A large language model that can use text prompts to generate and discuss code."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "34b",
@@ -14,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/codellama/tags"
   ]
 }

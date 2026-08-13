@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Open-source medical large language model adapted from Llama 2 to the medical domain."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "70b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/meditron/tags"
   ]
 }

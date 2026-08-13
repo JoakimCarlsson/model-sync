@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "Command R&#43; is a powerful, scalable large language model purpose-built to excel at real-world enterprise use cases."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "104b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/command-r-plus/tags"
   ]
 }

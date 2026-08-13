@@ -1,17 +1,27 @@
 {
   "id": "mistral-large-3",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads."
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
-    "capabilities": [
-      "tools",
-      "vision"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/mistral-large-3/tags"
   ]
 }

@@ -5,7 +5,19 @@
   "attrs": {
     "summary": "A language model created by combining two fine-tuned Llama 2 70B models into one."
   },
+  "limits": {
+    "context_window": 4000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/goliath/tags"
   ]
 }

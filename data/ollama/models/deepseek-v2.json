@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "A strong, economical, and efficient Mixture-of-Experts language model."
   },
+  "limits": {
+    "context_window": 160000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "16b",
       "236b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-v2/tags"
   ]
 }

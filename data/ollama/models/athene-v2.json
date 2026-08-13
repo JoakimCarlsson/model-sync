@@ -5,15 +5,25 @@
   "attrs": {
     "summary": "Athene-V2 is a 72B parameter model which excels at code completion, mathematics, and log extraction tasks."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "72b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/athene-v2/tags"
   ]
 }

@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A fine-tuned model based on Mistral with good coverage of domain and language."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/neural-chat/tags"
   ]
 }

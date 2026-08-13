@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Google Gemma 2 is a high-performing and efficient model available in three sizes: 2B, 9B, and 27B."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "27b",
       "2b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/gemma2/tags"
   ]
 }

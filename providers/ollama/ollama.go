@@ -2,12 +2,15 @@ package ollama
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
+	"sync"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -18,11 +21,13 @@ const (
 	providerName = "Ollama"
 )
 
-// LibraryURL is the page listing every model Ollama distributes.
-const LibraryURL = "https://ollama.com/library"
+const baseURL = "https://ollama.com"
 
-// cacheFile is where a fetched document is kept.
-const cacheFile = "ollama_library.html"
+// LibraryURL is the page listing every model Ollama distributes.
+const LibraryURL = baseURL + "/library"
+
+// fetchWorkers bounds the concurrent requests made for the tag listings.
+const fetchWorkers = 8
 
 // Provider reads Ollama's model library. The zero value is not usable; call
 // New.
@@ -44,19 +49,90 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the library page.
+// Fetch retrieves the library page, then the tag listing of every model on it.
+//
+// The library says which models exist and what each can do, and states no
+// bound on any of them. A model's tag listing states one per build, so the
+// listings are fetched too, one per model.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: LibraryURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(
-		ctx,
-		http.MethodGet,
-		LibraryURL,
-		nil,
-	)
+	library, err := p.get(ctx, LibraryURL)
 	if err != nil {
 		return nil, err
+	}
+	listings, failures := p.getAll(ctx, tagListingURLs(library))
+	return append([]catalog.Document{library}, listings...),
+		errors.Join(failures...)
+}
+
+// tagListingURLs derives the tag listing of every model the library names.
+func tagListingURLs(library catalog.Document) []string {
+	var urls []string
+	for _, entry := range entryRe.FindAllStringSubmatch(
+		string(library.Body),
+		-1,
+	) {
+		id := strings.TrimSpace(entry[1])
+		if id == "" {
+			continue
+		}
+		url := baseURL + "/library/" + id + tagsPath
+		if !slices.Contains(urls, url) {
+			urls = append(urls, url)
+		}
+	}
+	slices.Sort(urls)
+	return urls
+}
+
+// getAll retrieves urls concurrently, returning the documents in the order the
+// urls were given so a run is reproducible.
+func (p *Provider) getAll(
+	ctx context.Context,
+	urls []string,
+) ([]catalog.Document, []error) {
+	docs := make([]catalog.Document, len(urls))
+	errs := make([]error, len(urls))
+	var wg sync.WaitGroup
+	work := make(chan int)
+	for range min(fetchWorkers, len(urls)) {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for i := range work {
+				docs[i], errs[i] = p.get(ctx, urls[i])
+			}
+		}()
+	}
+	for i := range urls {
+		work <- i
+	}
+	close(work)
+	wg.Wait()
+
+	out := make([]catalog.Document, 0, len(urls))
+	var failures []error
+	for i := range urls {
+		if errs[i] != nil {
+			failures = append(failures, errs[i])
+			continue
+		}
+		out = append(out, docs[i])
+	}
+	return out, failures
+}
+
+// get retrieves one document, reading from and writing to the cache directory
+// when one is configured.
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
 	}
 	client := p.Client
 	if client == nil {
@@ -64,48 +140,70 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", LibraryURL, err)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", LibraryURL, resp.Status)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", LibraryURL, err)
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: LibraryURL, Body: body}}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the library page.
+// Parse reads the library first, because it is the only document naming the
+// models, then each tag listing onto the model it belongs to.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyLibrary(doc)
+		if doc.URL == LibraryURL {
+			b.applyLibrary(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL != LibraryURL {
+			b.applyTagListing(doc)
+		}
 	}
 	return b.result(), nil
 }
 
-// readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
+// readCache returns a previously fetched body.
+func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheName(url)))
 	return body, err == nil
+}
+
+// cacheName turns a URL into a flat filename.
+func cacheName(url string) string {
+	trimmed := strings.TrimPrefix(url, baseURL+"/")
+	return providerID + "_" + strings.Map(func(r rune) rune {
+		switch {
+		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
+			return r
+		case r == '.', r == '-', r == '_':
+			return r
+		}
+		return '_'
+	}, trimmed)
 }
 
 // writeCache stores a document, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCache(url string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheName(url)), body, 0o644)
 }
 
 // builder accumulates models.

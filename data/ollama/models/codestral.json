@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "Codestral is Mistral AI’s first-ever code model designed for code generation tasks."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "22b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/codestral/tags"
   ]
 }

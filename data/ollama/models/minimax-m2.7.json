@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "MiniMax&#39;s M2-series model for coding, agentic workflows, and professional productivity."
   },
+  "limits": {
+    "context_window": 200000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/minimax-m2.7/tags"
   ]
 }

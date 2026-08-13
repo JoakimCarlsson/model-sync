@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A high-performing code instruct model created by merging two existing code models."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "34b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/codebooga/tags"
   ]
 }

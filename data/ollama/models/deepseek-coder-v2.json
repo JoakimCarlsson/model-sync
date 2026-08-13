@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "An open-source Mixture-of-Experts code language model that achieves performance comparable to GPT4-Turbo in code-specific tasks."
   },
+  "limits": {
+    "context_window": 160000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "16b",
       "236b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-coder-v2/tags"
   ]
 }

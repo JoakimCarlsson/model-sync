@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "The TinyLlama project is an open endeavor to train a compact 1.1B Llama model on 3 trillion tokens."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "1.1b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/tinyllama/tags"
   ]
 }

@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "Cohere For AI&#39;s language models trained to perform well across 23 different languages."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "32b",
@@ -15,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/aya-expanse/tags"
   ]
 }

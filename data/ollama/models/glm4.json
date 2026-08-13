@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A strong multi-lingual general language model with competitive performance to Llama 3."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "9b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/glm4/tags"
   ]
 }

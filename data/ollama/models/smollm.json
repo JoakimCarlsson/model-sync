@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "🪐 A family of small models with 135M, 360M, and 1.7B parameters, trained on a new high-quality dataset."
   },
+  "limits": {
+    "context_window": 2000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "1.7b",
       "135m",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/smollm/tags"
   ]
 }

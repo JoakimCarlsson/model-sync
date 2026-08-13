@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "The latest series of Code-Specific Qwen models, with significant improvements in code generation, code reasoning, and code fixing."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "0.5b",
@@ -19,6 +28,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen2.5-coder/tags"
   ]
 }

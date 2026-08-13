@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Llama 2 based model fine tuned on an Orca-style dataset. Originally called Free Willy."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "70b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/stable-beluga/tags"
   ]
 }

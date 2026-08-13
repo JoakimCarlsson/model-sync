@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "An advanced language model crafted with 2 trillion bilingual tokens."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "67b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-llm/tags"
   ]
 }

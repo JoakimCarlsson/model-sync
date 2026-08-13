@@ -6,9 +6,6 @@
     "summary": "Sentence-transformers model that can be used for tasks like clustering or semantic search."
   },
   "lists": {
-    "capabilities": [
-      "embedding"
-    ],
     "parameter_sizes": [
       "278m"
     ]

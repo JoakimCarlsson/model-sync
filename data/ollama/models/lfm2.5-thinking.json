@@ -5,16 +5,26 @@
   "attrs": {
     "summary": "LFM2.5 is a new family of hybrid models designed for on-device deployment."
   },
+  "limits": {
+    "context_window": 125000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "1.2b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/lfm2.5-thinking/tags"
   ]
 }

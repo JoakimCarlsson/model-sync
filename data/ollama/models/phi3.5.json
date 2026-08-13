@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A lightweight AI model with 3.8 billion parameters with performance overtaking similarly and larger sized models."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "3.8b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/phi3.5/tags"
   ]
 }

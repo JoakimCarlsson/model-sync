@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "DeepSeek-V4-Pro is a frontier Mixture-of-Experts model with a large context window and three reasoning modes."
   },
+  "limits": {
+    "context_window": 1000000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-v4-pro/tags"
   ]
 }

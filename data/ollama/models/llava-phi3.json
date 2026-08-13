@@ -1,19 +1,27 @@
 {
   "id": "llava-phi3",
   "provider": "ollama",
-  "kind": "vision",
+  "kind": "chat",
   "attrs": {
     "summary": "A new small LLaVA model fine-tuned from Phi 3 Mini."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
-    "capabilities": [
-      "vision"
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "3.8b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llava-phi3/tags"
   ]
 }

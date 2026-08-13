@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "The uncensored Dolphin model based on Mistral that excels at coding tasks. Updated to version 2.8."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/dolphin-mistral/tags"
   ]
 }

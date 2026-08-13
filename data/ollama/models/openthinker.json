@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "A fully open-source family of reasoning models built using a dataset derived by distilling DeepSeek-R1."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "32b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/openthinker/tags"
   ]
 }

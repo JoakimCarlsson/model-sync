@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "A family of efficient AI models under 10B parameters performant in science, math, and coding through innovative training techniques."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "10b",
       "1b",
@@ -14,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/falcon3/tags"
   ]
 }

@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "Gemma is a family of lightweight, state-of-the-art open models built by Google DeepMind. Updated to version 1.1"
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "2b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/gemma/tags"
   ]
 }

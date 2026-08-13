@@ -5,16 +5,26 @@
   "attrs": {
     "summary": "DeepSeek-V3.1-Terminus is a hybrid model that supports both thinking mode and non-thinking mode."
   },
+  "limits": {
+    "context_window": 160000
+  },
   "lists": {
-    "capabilities": [
-      "thinking",
-      "tools"
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "671b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-v3.1/tags"
   ]
 }

@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "A family of open foundation models by IBM for Code Intelligence"
   },
+  "limits": {
+    "context_window": 125000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "20b",
       "34b",
@@ -14,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/granite-code/tags"
   ]
 }

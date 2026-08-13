@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A versatile model for AI software development scenarios, including code completion."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "9b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/codegeex4/tags"
   ]
 }

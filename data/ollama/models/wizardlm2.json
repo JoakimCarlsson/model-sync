@@ -5,15 +5,23 @@
   "attrs": {
     "summary": "State of the art large language model from Microsoft AI with improved performance on complex chat, multilingual, reasoning and agent use cases."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
-    "capabilities": [
-      "8x22b"
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
-      "7b"
+      "7b",
+      "8x22b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/wizardlm2/tags"
   ]
 }

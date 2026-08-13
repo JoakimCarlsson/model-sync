@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "An extension of Llama 2 that supports a context of up to 128k tokens."
   },
+  "limits": {
+    "context_window": 64000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "13b",
       "7b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/yarn-llama2/tags"
   ]
 }

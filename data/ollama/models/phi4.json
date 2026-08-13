@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "Phi-4 is a 14B parameter, state-of-the-art open model from Microsoft."
   },
+  "limits": {
+    "context_window": 16000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "14b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/phi4/tags"
   ]
 }

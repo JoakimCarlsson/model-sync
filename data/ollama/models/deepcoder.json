@@ -5,13 +5,23 @@
   "attrs": {
     "summary": "DeepCoder is a fully open-Source 14B coder model at O3-mini level, with a 1.5B version also available."
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "1.5b",
       "14b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/deepcoder/tags"
   ]
 }

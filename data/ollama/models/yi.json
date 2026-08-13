@@ -5,7 +5,16 @@
   "attrs": {
     "summary": "Yi 1.5 is a high-performing, bilingual language model."
   },
+  "limits": {
+    "context_window": 4000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "34b",
       "6b",
@@ -13,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/yi/tags"
   ]
 }

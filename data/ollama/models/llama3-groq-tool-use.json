@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "A series of models from Groq that represent a significant advancement in open-source AI capabilities for tool use/function calling."
   },
+  "limits": {
+    "context_window": 8000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "70b",
@@ -15,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/llama3-groq-tool-use/tags"
   ]
 }

@@ -5,9 +5,18 @@
   "attrs": {
     "summary": "Hermes 3 is the latest version of the flagship Hermes series of LLMs by Nous Research"
   },
+  "limits": {
+    "context_window": 128000
+  },
   "lists": {
-    "capabilities": [
-      "tools"
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "3b",
@@ -17,6 +26,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/hermes3/tags"
   ]
 }

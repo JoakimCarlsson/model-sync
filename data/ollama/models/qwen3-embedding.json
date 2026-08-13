@@ -5,9 +5,15 @@
   "attrs": {
     "summary": "Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes"
   },
+  "limits": {
+    "context_window": 40000
+  },
   "lists": {
-    "capabilities": [
-      "embedding"
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ],
     "parameter_sizes": [
       "0.6b",
@@ -16,6 +22,7 @@
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/qwen3-embedding/tags"
   ]
 }

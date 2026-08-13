@@ -5,12 +5,22 @@
   "attrs": {
     "summary": "A new small reasoning model fine-tuned from the Qwen 2.5 3B Instruct model."
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "3b"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/smallthinker/tags"
   ]
 }

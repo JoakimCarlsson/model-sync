@@ -7,11 +7,12 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// Kinds of model Ollama distributes.
+// Kinds of model Ollama distributes. A model that reads images is a chat model
+// that takes an image, which is what its modalities say, rather than a kind of
+// its own.
 const (
 	KindChat      catalog.Kind = "chat"
 	KindEmbedding catalog.Kind = "embedding"
-	KindVision    catalog.Kind = "vision"
 )
 
 // AttrSummary is the description Ollama gives a model.
@@ -22,10 +23,12 @@ const (
 // changes in churn.
 const AttrSummary = "summary"
 
-// Enumeration keys the library populates.
+// Enumeration keys the library and the tag listings populate.
 const (
-	ListCapabilities   = "capabilities"
-	ListParameterSizes = "parameter_sizes"
+	ListFeatures         = "features"
+	ListParameterSizes   = "parameter_sizes"
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
 )
 
 // capabilityKinds maps a capability tag onto the kind it implies. A model
@@ -33,7 +36,39 @@ const (
 // described.
 var capabilityKinds = map[string]catalog.Kind{
 	"embedding": KindEmbedding,
-	"vision":    KindVision,
+}
+
+// capabilityFeatures map a capability tag onto the catalog's vocabulary.
+// Ollama's own words for these are shared with no other provider.
+var capabilityFeatures = map[string]string{
+	"tools":    "function_calling",
+	"thinking": "reasoning",
+	"insert":   "fill_in_the_middle",
+}
+
+// capabilityModalities map a capability tag onto the modality it really names.
+// A model tagged for vision does not have a vision feature; it takes an image,
+// which is what every provider stating modalities says instead.
+var capabilityModalities = map[string]string{
+	"vision": "image",
+	"audio":  "audio",
+}
+
+// modalityNames map the wording of a tag listing's input column onto the
+// catalog's vocabulary.
+var modalityNames = map[string]string{
+	"text":  "text",
+	"image": "image",
+	"audio": "audio",
+	"video": "video",
+}
+
+// addModality records one modality under key, ignoring a word the listing uses
+// that names no modality.
+func addModality(m *catalog.Model, key, value string) {
+	if name, ok := modalityNames[strings.ToLower(strings.TrimSpace(value))]; ok {
+		m.AddList(key, name)
+	}
 }
 
 var (
@@ -46,8 +81,10 @@ var (
 	)
 	markupRe = regexp.MustCompile(`(?s)<[^>]*>`)
 	// sizeRe matches a tag that states a parameter count rather than a
-	// capability, as in "8b" or "1.5b".
-	sizeRe = regexp.MustCompile(`(?i)^\d+(\.\d+)?[bm]$`)
+	// capability, as in "8b" or "1.5b". A mixture of experts states its count
+	// as a product, "8x7b", and a model shipped at an effective size prefixes
+	// it, "e4b"; both are sizes and neither is anything a model can do.
+	sizeRe = regexp.MustCompile(`(?i)^(e|\d+(\.\d+)?x)?\d+(\.\d+)?[bm]$`)
 )
 
 // text strips markup and collapses whitespace.
@@ -78,6 +115,11 @@ func (b *builder) applyLibrary(doc catalog.Document) {
 
 // applyTag records one tag as either a size the model comes in or something it
 // can do.
+//
+// A capability is translated rather than kept: Ollama's words for these are
+// shared with no other provider, and two of them name a modality rather than a
+// feature. Anything unrecognized keeps Ollama's own word, since inventing a
+// translation would lose which capability it was.
 func (b *builder) applyTag(m *catalog.Model, tag string) {
 	if tag == "" {
 		return
@@ -87,8 +129,17 @@ func (b *builder) applyTag(m *catalog.Model, tag string) {
 		return
 	}
 	capability := strings.ToLower(tag)
-	m.AddList(ListCapabilities, capability)
 	if kind, ok := capabilityKinds[capability]; ok {
 		m.Kind = kind
+		return
 	}
+	if modality, ok := capabilityModalities[capability]; ok {
+		m.AddList(ListInputModalities, modality)
+		return
+	}
+	if feature, ok := capabilityFeatures[capability]; ok {
+		m.AddList(ListFeatures, feature)
+		return
+	}
+	m.AddList(ListFeatures, capability)
 }
