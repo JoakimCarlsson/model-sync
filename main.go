@@ -49,6 +49,11 @@ func main() {
 		"aggregate written for consumers, or - to skip",
 	)
 	cache := flag.String("cache", "", "directory to cache fetched documents in")
+	only := flag.String(
+		"provider",
+		"",
+		"sync only this provider, or none to rebuild the aggregate alone",
+	)
 	timeout := flag.Duration(
 		"timeout",
 		2*time.Minute,
@@ -56,7 +61,7 @@ func main() {
 	)
 	flag.Parse()
 
-	if err := run(*data, *api, *cache, *timeout); err != nil {
+	if err := run(*data, *api, *cache, *only, *timeout); err != nil {
 		fmt.Fprintln(os.Stderr, "model-sync:", err)
 		os.Exit(1)
 	}
@@ -64,7 +69,13 @@ func main() {
 
 // run syncs every source into the data tree, then rebuilds the aggregate from
 // the tree so that providers not synced by this run survive in it.
-func run(data, api, cache string, timeout time.Duration) error {
+//
+// A named provider syncs alone, and naming one that does not exist syncs
+// nothing and rebuilds the aggregate. That the aggregate comes from the tree is
+// what makes both useful: reviewing a change to one parser means reading the
+// diff of that parser's models, and a run that refetched the other twenty-one
+// would bury it under whatever those vendors had changed in the meantime.
+func run(data, api, cache, only string, timeout time.Duration) error {
 	mistralSource := mistral.New()
 	mistralSource.CacheDir = cache
 	ollamaSource := ollama.New()
@@ -138,6 +149,9 @@ func run(data, api, cache string, timeout time.Duration) error {
 	defer cancel()
 
 	for _, source := range sources {
+		if only != "" && source.ID() != only {
+			continue
+		}
 		if err := sync(ctx, data, source); err != nil {
 			return err
 		}
