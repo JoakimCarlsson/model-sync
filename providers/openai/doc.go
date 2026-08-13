@@ -17,4 +17,11 @@
 //     modalities, limits, endpoints, snapshots and rate limits.
 //   - the guides, whose per-image dollar tables are raw JSX with rowSpan and
 //     are invisible to a markdown table reader.
+//
+// What OpenAI does not publish: a display name for a snapshot or a withdrawn
+// model. Every model it currently sells is named on a page of its own, and the
+// dated snapshots of those models and the models it has retired appear only in
+// the deprecation table, which lists identifiers and dates and no names. That
+// is why 72 of the 131 chat models carry none: 48 are shut down, 18 deprecated
+// and the rest are snapshots.
 package openai
