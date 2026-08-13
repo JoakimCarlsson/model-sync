@@ -4505,7 +4505,26 @@
   "attrs": {
     "product": "Azure Grok Models"
   },
+  "limits": {
+    "context_window": 200000,
+    "max_output_tokens": 8192
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

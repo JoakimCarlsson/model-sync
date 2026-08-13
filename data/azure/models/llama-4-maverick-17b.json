@@ -1789,7 +1789,35 @@
   "attrs": {
     "product": "Azure Llama Models"
   },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 1000000
+  },
+  "lists": {
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "languages": [
+      "ar",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "hi",
+      "id",
+      "it",
+      "pt",
+      "th",
+      "tl",
+      "vi"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -1,0 +1,682 @@
+<!doctype html><html><body>
+<table>
+<thead>
+<tr>
+<th>Models</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-56" data-linktype="relative-path">GPT-5.6 series</a></td>
+<td><strong>NEW</strong> <code>gpt-5.6-sol</code>, <code>gpt-5.6-terra</code>, <code>gpt-5.6-luna</code></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-chat-latest" data-linktype="relative-path">GPT-chat-latest (preview)</a></td>
+<td><strong>NEW</strong> <code>gpt-chat-latest</code> <strong>Preview</strong></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-55" data-linktype="relative-path">GPT-5.5 series</a></td>
+<td><code>gpt-5.5</code></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-54" data-linktype="relative-path">GPT-5.4 series</a></td>
+<td><code>gpt-5.4-mini</code>, <code>gpt-5.4-nano</code>, <code>gpt-5.4</code>, <code>gpt-5.4-pro</code></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-53" data-linktype="relative-path">GPT-5.3 series</a></td>
+<td><code>gpt-5.3-chat</code>, <code>gpt-5.3-codex</code></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-52" data-linktype="relative-path">GPT-5.2 series</a></td>
+<td><code>gpt-5.2-codex</code>, <code>gpt-5.2</code>, <code>gpt-5.2-chat</code> <strong>Preview</strong></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-51" data-linktype="relative-path">GPT-5.1 series</a></td>
+<td><code>gpt-5.1</code>, <code>gpt-5.1-chat</code> <strong>Preview</strong>, <code>gpt-5.1-codex</code>, <code>gpt-5.1-codex-mini</code></td>
+</tr>
+<tr>
+<td><a href="/en-us/azure/ai-foundry/foundry-models/concepts/models-sold-directly-by-azure?pivots=azure-openai&amp;tabs=global-standard-aoai%2Cstandard-chat-completions%2Cglobal-standard#video-generation-models" data-linktype="absolute-path">Sora</a></td>
+<td><strong>NEW</strong> sora-2</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-5" data-linktype="relative-path">GPT-5 series</a></td>
+<td><code>gpt-5</code>, <code>gpt-5-mini</code>, <code>gpt-5-nano</code>, <code>gpt-5-chat</code> <strong>Preview</strong></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-oss" data-linktype="relative-path">gpt-oss</a></td>
+<td>open-weight reasoning models</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#o-series-models" data-linktype="relative-path">codex-mini</a></td>
+<td>Fine-tuned version of <code>o4-mini</code>.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-41-series" data-linktype="relative-path">GPT-4.1 series</a></td>
+<td><code>gpt-4.1</code>, <code>gpt-4.1-mini</code>, <code>gpt-4.1-nano</code></td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#computer-use-preview" data-linktype="relative-path">computer-use-preview</a></td>
+<td>An experimental model trained for use with the Responses API computer use tool.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#o-series-models" data-linktype="relative-path">o-series models</a></td>
+<td><a href="../../openai/how-to/reasoning" data-linktype="relative-path">Reasoning models</a> with advanced problem solving and increased focus and capability.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#gpt-4o-and-gpt-4-turbo" data-linktype="relative-path">GPT-4o, GPT-4o mini, and GPT-4 Turbo</a></td>
+<td>Capable Azure OpenAI models with multimodal versions, which can accept both text and images as input.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#embeddings" data-linktype="relative-path">Embeddings</a></td>
+<td>A set of models that can convert text into numerical vector form to facilitate text similarity.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#image-generation-models" data-linktype="relative-path">Image generation</a></td>
+<td>A series of models that can generate original images from natural language.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#video-generation-models" data-linktype="relative-path"><code>Video generation</code></a></td>
+<td>A model that can generate original video scenes from text instructions.</td>
+</tr>
+<tr>
+<td><a href="models-sold-directly-by-azure#audio-models" data-linktype="relative-path">Audio</a></td>
+<td>A series of models for speech to text, translation, and text to speech. GPT-4o audio models support either low latency <em>speech in, speech out</em> conversational interactions or audio generation.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model ID</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Context Window</th>
+<th style="text-align: left;">Max Output Tokens</th>
+<th style="text-align: center;">Training Data (up to)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-5</code> (2025-08-07)</td>
+<td style="text-align: left;">- <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Reasoning</a> <br> - Chat Completions API. <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - Structured outputs.<br> - Text and image processing. <br> - Functions, tools, and parallel tool calling. <br> - <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Full summary of capabilities</a>.</td>
+<td style="text-align: left;">400,000<br><br>Input: 272,000<br>Output: 128,000</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: center;">September 30, 2024</td>
+</tr>
+<tr>
+<td><code>gpt-5-mini</code> (2025-08-07)</td>
+<td style="text-align: left;">- <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Reasoning</a> <br> - Chat Completions API. <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - Structured outputs.<br> - Text and image processing. <br> - Functions, tools, and parallel tool calling. <br> - <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Full summary of capabilities</a>.</td>
+<td style="text-align: left;">400,000<br><br>Input: 272,000<br>Output: 128,000</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: center;">May 31, 2024</td>
+</tr>
+<tr>
+<td><code>gpt-5-nano</code> (2025-08-07)</td>
+<td style="text-align: left;">- <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Reasoning</a> <br> - Chat Completions API. <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - Structured outputs.<br> - Text and image processing. <br> - Functions, tools, and parallel tool calling. <br> - <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Full summary of capabilities</a>.</td>
+<td style="text-align: left;">400,000<br><br>Input: 272,000<br>Output: 128,000</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: center;">May 31, 2024</td>
+</tr>
+<tr>
+<td><code>gpt-5-chat</code> (2025-08-07)<br><strong>Preview</strong></td>
+<td style="text-align: left;">- Chat Completions API. <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - <strong>Input</strong>: Text/Image <br> - <strong>Output</strong>: Text only</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: left;">16,384</td>
+<td style="text-align: center;">September 30, 2024</td>
+</tr>
+<tr>
+<td><code>gpt-5-chat</code> (2025-10-03)<br><strong>Preview</strong><sup>1</sup></td>
+<td style="text-align: left;">- Chat Completions API. <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - <strong>Input</strong>: Text/Image <br> - <strong>Output</strong>: Text only</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: left;">16,384</td>
+<td style="text-align: center;">September 30, 2024</td>
+</tr>
+<tr>
+<td><code>gpt-5-codex</code> (2025-09-11)</td>
+<td style="text-align: left;">- <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a> only. <br> - <strong>Input</strong>: Text/Image <br> - <strong>Output</strong>: Text only  <br> - Structured outputs.<br> - Text and image processing. <br> - Functions, tools, and parallel tool calling. <br> - <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Full summary of capabilities</a><br> - Optimized for <a href="../../openai/how-to/codex" data-linktype="relative-path">Codex CLI &amp; Codex VS Code extension</a></td>
+<td style="text-align: left;">400,000<br><br>Input: 272,000<br>Output: 128,000</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td><code>gpt-5-pro</code> (2025-10-06)</td>
+<td style="text-align: left;">- <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Reasoning</a> <br> - <a href="../../openai/how-to/responses" data-linktype="relative-path">Responses API</a>. <br> - Structured outputs.<br> - Text and image processing. <br> - Functions and tools <br> - <a href="../../openai/how-to/reasoning" data-linktype="relative-path">Full summary of capabilities</a>.</td>
+<td style="text-align: left;">400,000<br><br>Input: 272,000<br>Output: 128,000</td>
+<td style="text-align: left;">128,000</td>
+<td style="text-align: center;">September 30, 2024</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Evaluation benchmark</th>
+<th><code>text-embedding-ada-002</code></th>
+<th><code>text-embedding-3-small</code></th>
+<th><code>text-embedding-3-large</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MIRACL average</td>
+<td>31.4</td>
+<td>44.0</td>
+<td>54.9</td>
+</tr>
+<tr>
+<td>MTEB average</td>
+<td>61.0</td>
+<td>62.3</td>
+<td>64.6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model ID</th>
+<th>Max request (tokens)</th>
+<th style="text-align: center;">Output dimensions</th>
+<th style="text-align: center;">Training data (up to)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text-embedding-ada-002</code> (version 2)</td>
+<td>8,192</td>
+<td style="text-align: center;">1,536</td>
+<td style="text-align: center;">Sep 2021</td>
+</tr>
+<tr>
+<td><code>text-embedding-ada-002</code> (version 1)</td>
+<td>2,046</td>
+<td style="text-align: center;">1,536</td>
+<td style="text-align: center;">Sep 2021</td>
+</tr>
+<tr>
+<td><code>text-embedding-3-large</code></td>
+<td>8,192</td>
+<td style="text-align: center;">3,072</td>
+<td style="text-align: center;">Sep 2021</td>
+</tr>
+<tr>
+<td><code>text-embedding-3-small</code></td>
+<td>8,192</td>
+<td style="text-align: center;">1,536</td>
+<td style="text-align: center;">Sep 2021</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model ID</th>
+<th>Standard regions</th>
+<th>Data Zone</th>
+<th style="text-align: center;">Global</th>
+<th style="text-align: center;">Developer</th>
+<th style="text-align: center;">Methods</th>
+<th>Status</th>
+<th>Modality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gpt-4o-mini</code> <br> (2024-07-18)</td>
+<td>North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">SFT</td>
+<td>GA</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>gpt-4o</code> <br> (2024-08-06)</td>
+<td>East US2 <br> North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">SFT, DPO</td>
+<td>GA</td>
+<td>Text and vision to text</td>
+</tr>
+<tr>
+<td><code>gpt-4.1</code> <br> (2025-04-14)</td>
+<td>North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">SFT, DPO</td>
+<td>GA</td>
+<td>Text and vision to text</td>
+</tr>
+<tr>
+<td><code>gpt-4.1-mini</code> <br> (2025-04-14)</td>
+<td>North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">SFT, DPO</td>
+<td>GA</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>gpt-4.1-nano</code> (2025-04-14)</td>
+<td>North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">SFT, DPO</td>
+<td>GA</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>o4-mini</code> <br> (2025-04-16)</td>
+<td>East US2 <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">RFT</td>
+<td>GA</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>gpt-5</code> <br> (2025-08-07)</td>
+<td>North Central US <br> Sweden Central</td>
+<td>US</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">RFT</td>
+<td>GA<sup>*</sup></td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>Ministral-3B</code> <br> (2411)</td>
+<td>Not supported</td>
+<td>❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">SFT</td>
+<td>Public preview</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>Qwen-32B</code></td>
+<td>Not supported</td>
+<td>❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">SFT</td>
+<td>Public preview</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>Llama-3.3-70B-Instruct</code></td>
+<td>Not supported</td>
+<td>❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">SFT</td>
+<td>Public preview</td>
+<td>Text to text</td>
+</tr>
+<tr>
+<td><code>gpt-oss-20b</code></td>
+<td>Not supported</td>
+<td>❌</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">❌</td>
+<td style="text-align: center;">SFT</td>
+<td>Public preview</td>
+<td>Text to text</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Region</th>
+<th style="text-align: center;">gpt-4o, 2024-05-13</th>
+<th style="text-align: center;">gpt-4o, 2024-08-06</th>
+<th style="text-align: center;">gpt-4o-mini, 2024-07-18</th>
+<th style="text-align: center;">gpt-4, 0613</th>
+<th style="text-align: center;">gpt-4, 1106-Preview</th>
+<th style="text-align: center;">gpt-4, 0125-Preview</th>
+<th style="text-align: center;">gpt-4, turbo-2024-04-09</th>
+<th style="text-align: center;">gpt-4-32k, 0613</th>
+<th style="text-align: center;">gpt-35-turbo, 0613</th>
+<th style="text-align: center;">gpt-35-turbo, 1106</th>
+<th style="text-align: center;">gpt-35-turbo, 0125</th>
+<th style="text-align: center;">gpt-35-turbo-16k, 0613</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">australiaeast</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">eastus</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">eastus2</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">francecentral</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">japaneast</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">norwayeast</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">southindia</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">swedencentral</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">uksouth</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;">westus</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">westus3</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">✅</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Cohere-rerank-v4.0-pro</code></td>
+<td>text classification (rerank)</td>
+<td>- <strong>Input:</strong> text <br> - <strong>Output:</strong> text <br> - <strong>Languages:</strong> <code>en</code>, <code>fr</code>, <code>es</code>, <code>it</code>, <code>de</code>, <code>pt-br</code>, <code>ja</code>, <code>zh-cn</code>, <code>ar</code>, <code>vi</code>, <code>hi</code>, <code>ru</code>, <code>id</code>, and <code>nl</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> JSON</td>
+</tr>
+<tr>
+<td><code>Cohere-rerank-v4.0-fast</code></td>
+<td>text classification (rerank)</td>
+<td>- <strong>Input:</strong> text <br> - <strong>Output:</strong> text <br> - <strong>Languages:</strong> <code>en</code>, <code>fr</code>, <code>es</code>, <code>it</code>, <code>de</code>, <code>pt-br</code>, <code>ja</code>, <code>zh-cn</code>, <code>ar</code>, <code>vi</code>, <code>hi</code>, <code>ru</code>, <code>id</code>, and <code>nl</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> JSON</td>
+</tr>
+<tr>
+<td><code>Cohere-command-a-plus-05-2026</code> <br> <strong>Preview</strong></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text (128,000 tokens) <br> - <strong>Output:</strong> text (64,000 tokens) <br> - <strong>Languages:</strong> <code>en</code>, <code>fr</code>, <code>es</code>, <code>it</code>, <code>de</code>, <code>pt-br</code>, <code>ja</code>, <code>ko</code>, <code>zh-cn</code>, and <code>ar</code> <br>  - <strong>Tool calling:</strong> Yes <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+<tr>
+<td><code>Cohere-command-a</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (131,072 tokens) <br> - <strong>Output:</strong> text (8,182 tokens) <br> - <strong>Languages:</strong> <code>en</code>, <code>fr</code>, <code>es</code>, <code>it</code>, <code>de</code>, <code>pt-br</code>, <code>ja</code>, <code>ko</code>, <code>zh-cn</code>, and <code>ar</code> <br>  - <strong>Tool calling:</strong> Yes <br> - <strong>Response formats:</strong> Text, JSON</td>
+</tr>
+<tr>
+<td><code>embed-v-4-0</code></td>
+<td>embeddings</td>
+<td>- <strong>Input:</strong> text (512 tokens) and images (2MM pixels) <br> - <strong>Output:</strong> Vector (256, 512, 1024, 1536 dim.) <br> - <strong>Languages:</strong> <code>en</code>, <code>fr</code>, <code>es</code>, <code>it</code>, <code>de</code>, <code>pt-br</code>, <code>ja</code>, <code>ko</code>, <code>zh-cn</code>, and <code>ar</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DeepSeek-V4-Pro</code></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text (1,000,000 tokens) <br> - <strong>Output:</strong> text (384,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text, JSON</td>
+</tr>
+<tr>
+<td><code>DeepSeek-V4-Flash</code></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text (1,000,000 tokens) <br> - <strong>Output:</strong> text (384,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text, JSON</td>
+</tr>
+<tr>
+<td><code>DeepSeek-V3.2-Speciale</code></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text (128,000 tokens) <br> - <strong>Output:</strong> text (128,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text, JSON</td>
+</tr>
+<tr>
+<td><code>DeepSeek-V3.2</code></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text (128,000 tokens) <br> - <strong>Output:</strong> text (128,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text, JSON</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Llama-4-Maverick-17B-128E-Instruct-FP8</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text and images (1M tokens) <br> - <strong>Output:</strong> text (1M tokens) <br> - <strong>Languages:</strong> <code>ar</code>, <code>en</code>, <code>fr</code>, <code>de</code>, <code>hi</code>, <code>id</code>, <code>it</code>, <code>pt</code>, <code>es</code>, <code>tl</code>, <code>th</code>, and <code>vi</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+<tr>
+<td><code>Llama-3.3-70B-Instruct</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (128,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code>, <code>de</code>, <code>fr</code>, <code>it</code>, <code>pt</code>, <code>hi</code>, <code>es</code>, and <code>th</code> <br>  - <strong>Tool calling:</strong> No <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Kimi-K2.7-Code</code> <br> <strong>Preview</strong></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text and image (262,144 tokens) <br> - <strong>Output:</strong> text (262,144 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> Yes <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+<tr>
+<td><code>Kimi-K2.6</code> <br> <strong>Preview</strong></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text and image (262,144 tokens) <br> - <strong>Output:</strong> text (262,144 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> Yes <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+<tr>
+<td><code>Kimi-K2.5</code> <br> <strong>Preview</strong></td>
+<td>chat-completion <br> (with reasoning content)</td>
+<td>- <strong>Input:</strong> text and image (262,144 tokens) <br> - <strong>Output:</strong> text (262,144 tokens) <br> - <strong>Languages:</strong> <code>en</code> and <code>zh</code> <br>  - <strong>Tool calling:</strong> Yes <br> - <strong>Response formats:</strong> Text</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Type</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>grok-4.3</code> <br> <strong>Preview</strong></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (200,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-4-20-reasoning</code> <br> <strong>Preview</strong></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (262,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-4-20-non-reasoning</code> <br> <strong>Preview</strong></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (262,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-4.1-fast-reasoning</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text, image (128,000 tokens) <br> - <strong>Output:</strong> text (128,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-4.1-fast-non-reasoning</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text, image (128,000 tokens) <br> - <strong>Output:</strong> text (128,000 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-4</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (262,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+<tr>
+<td><code>grok-code-fast-1</code></td>
+<td>chat-completion</td>
+<td>- <strong>Input:</strong> text (256,000 tokens) <br> - <strong>Output:</strong> text (8,192 tokens) <br> - <strong>Languages:</strong> <code>en</code> <br>  - <strong>Tool calling:</strong> yes <br> - <strong>Response formats:</strong> text</td>
+</tr>
+</tbody>
+</table>
+</body></html>

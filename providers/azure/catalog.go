@@ -40,8 +40,11 @@ const (
 	colMaxOut   = "max output"
 	colTraining = "training data"
 	// colRequest is what the older tables head the same two bounds with,
-	// stating both in one cell as a labelled pair.
+	// stating both in one cell as a labelled pair, and what the embedding
+	// tables head the one bound they have with.
 	colRequest = "max request"
+	// colDimensions is the width of the vector an embedding model returns.
+	colDimensions = "output dimensions"
 )
 
 // capabilityFeatures map one of the documentation's capability bullets onto
@@ -114,13 +117,15 @@ var (
 
 // documented is what the documentation states about one model.
 type documented struct {
-	Context  int64
-	MaxOut   int64
-	Training string
-	Features []string
-	Endpoint []string
-	InputMod []string
-	OutMod   []string
+	Context    int64
+	MaxOut     int64
+	Training   string
+	Features   []string
+	Endpoint   []string
+	InputMod   []string
+	OutMod     []string
+	Languages  []string
+	Dimensions []string
 }
 
 // applyCatalog reads the documentation onto the models the price list
@@ -134,6 +139,7 @@ type documented struct {
 // meter of the model and keeps gpt-5 from claiming gpt-5-mini.
 func (b *builder) applyCatalog(doc catalog.Document) {
 	docs := readDocumentation(string(doc.Body))
+	maps.Copy(docs, readCollections(string(doc.Body)))
 	names := slices.Sorted(maps.Keys(docs))
 	for _, id := range b.order {
 		name := longestPrefix(id, names)
@@ -174,12 +180,27 @@ func apply(m *catalog.Model, d documented) {
 	m.AddList(ListEndpoints, d.Endpoint...)
 	m.AddList(ListInputModalities, d.InputMod...)
 	m.AddList(ListOutputModalities, d.OutMod...)
+	m.AddList(ListLanguages, d.Languages...)
+	m.AddList(ListDimensions, d.Dimensions...)
+}
+
+// meterAliases name the documented model behind a SKU that abbreviates it past
+// recognition. A meter reaching its documentation by prefix is the rule; these
+// are the meters that drop a word the documentation keeps, and there is no
+// shape that recovers it.
+var meterAliases = map[string]string{
+	"embedding-ada":  "text-embedding-ada-002",
+	"embeddings-ada": "text-embedding-ada-002",
 }
 
 // longestPrefix returns the longest name that id equals or extends, so that a
-// meter reaches the most specific model documented rather than the first.
+// meter reaches the most specific model documented rather than the first. A
+// meter named in the alias table reaches what that names instead.
 func longestPrefix(id string, names []string) string {
 	lower, best := strings.ToLower(id), ""
+	if alias, ok := meterAliases[lower]; ok {
+		return alias
+	}
 	for _, name := range names {
 		if lower != name && !strings.HasPrefix(lower, name+"-") {
 			continue
@@ -220,12 +241,13 @@ func readDocumentation(body string) map[string]documented {
 // heading rather than by position.
 func headerColumns(row string) map[string]int {
 	at := map[string]int{
-		colModelID:  -1,
-		colDescribe: -1,
-		colContext:  -1,
-		colMaxOut:   -1,
-		colTraining: -1,
-		colRequest:  -1,
+		colModelID:    -1,
+		colDescribe:   -1,
+		colContext:    -1,
+		colMaxOut:     -1,
+		colTraining:   -1,
+		colRequest:    -1,
+		colDimensions: -1,
 	}
 	for i, cell := range docCellRe.FindAllStringSubmatch(row, -1) {
 		header := strings.ToLower(docText(cell[1]))
@@ -239,6 +261,12 @@ func headerColumns(row string) map[string]int {
 }
 
 // readRow records one documented model.
+//
+// The bound the older tables state as a labelled pair is the same column an
+// embedding table states one bare count under, because a model returning a
+// vector has no output tokens to bound. A bare count there is read as the
+// window only where the table also states a vector width, since the image
+// tables head the same column with a count of characters.
 func readRow(out map[string]documented, at map[string]int, cells [][]string) {
 	id := strings.ToLower(cellText(cells, at[colModelID]))
 	if before, _, ok := strings.Cut(id, "("); ok {
@@ -248,11 +276,23 @@ func readRow(out map[string]documented, at map[string]int, cells [][]string) {
 		return
 	}
 	d := out[id]
-	context, maxOut := parseSides(cellText(cells, at[colRequest]))
+	request := cellText(cells, at[colRequest])
+	bare := int64(0)
+	if at[colDimensions] >= 0 {
+		bare = parseCount(request)
+	}
+	context, maxOut := parseSides(request)
 	if d.Context == 0 {
 		d.Context = firstOf(
 			parseCount(cellText(cells, at[colContext])),
 			context,
+			bare,
+		)
+	}
+	if len(d.Dimensions) == 0 {
+		d.Dimensions = appendNew(
+			d.Dimensions,
+			splitCounts(cellText(cells, at[colDimensions]))...,
 		)
 	}
 	if d.MaxOut == 0 {

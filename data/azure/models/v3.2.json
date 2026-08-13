@@ -1789,7 +1789,27 @@
   "attrs": {
     "product": "Azure Deepseek Models"
   },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "features": [
+      "json_mode"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

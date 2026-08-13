@@ -205,7 +205,20 @@
   "attrs": {
     "product": "Azure BFL Flux Models"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

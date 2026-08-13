@@ -1,0 +1,112 @@
+{
+ "Items": [
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.0001,
+   "armRegionName": "northcentralus",
+   "meterName": "embedding-ada-glbl Tokens",
+   "productName": "Azure OpenAI",
+   "skuName": "embedding-ada-glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 2.75,
+   "armRegionName": "westus",
+   "meterName": "Rerank v4 Pro DZ Search",
+   "productName": "Cohere Models",
+   "skuName": "Rerank v4 Pro DZ",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.000145,
+   "armRegionName": "polandcentral",
+   "meterName": "V4 Pro cached glbl Tokens",
+   "productName": "Azure Deepseek Models",
+   "skuName": "V4 Pro cached glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.00066,
+   "armRegionName": "westus2",
+   "meterName": "FW Kimi K2.5 Inp DZ Tokens",
+   "productName": "Azure Fireworks Models",
+   "skuName": "FW Kimi K2.5 Inp DZ",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.0025,
+   "armRegionName": "koreacentral",
+   "meterName": "Command A Inp Glbl Tokens",
+   "productName": "Cohere Models",
+   "skuName": "Command A Inp Glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.00071,
+   "armRegionName": "uksouth",
+   "meterName": "Llama 3.3 70B Inp glbl Tokens",
+   "productName": "Azure Llama Models",
+   "skuName": "Llama 3.3 70B Inp glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.00174,
+   "armRegionName": "australiaeast",
+   "meterName": "V4 Pro Inp glbl Tokens",
+   "productName": "Azure Deepseek Models",
+   "skuName": "V4 Pro Inp glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 1,
+   "armRegionName": "eastus",
+   "meterName": "GPT 5 Mini Batch outpt Glbl 1M Tokens",
+   "productName": "Azure OpenAI GPT5",
+   "skuName": "GPT 5 Mini Batch outpt Glbl",
+   "unitOfMeasure": "1M"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.01,
+   "armRegionName": "indonesiacentral",
+   "meterName": "Command A Outp Glbl Tokens",
+   "productName": "Cohere Models",
+   "skuName": "Command A Outp Glbl",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.25,
+   "armRegionName": "uaenorth",
+   "meterName": "GPT 5 Mini Inpt Glbl 1M Tokens",
+   "productName": "Azure OpenAI GPT5",
+   "skuName": "GPT 5 Mini Inpt Glbl",
+   "unitOfMeasure": "1M"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.000022,
+   "armRegionName": "westeurope",
+   "meterName": "text embedding 3 small DZ Tokens",
+   "productName": "Azure OpenAI Embedding",
+   "skuName": "text embedding 3 small DZ",
+   "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 0.12,
+   "armRegionName": "polandcentral",
+   "meterName": "gpt-4-32K-Output-regional Tokens",
+   "productName": "Azure OpenAI",
+   "skuName": "gpt-4-32K-Output-regional",
+   "unitOfMeasure": "1K"
+  }
+ ]
+}

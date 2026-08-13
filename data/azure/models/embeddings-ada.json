@@ -25,9 +25,19 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "product": "Azure OpenAI",
+    "training_data_cutoff": "Sep 2021"
+  },
+  "limits": {
+    "context_window": 8192
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1536"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

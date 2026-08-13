@@ -1393,7 +1393,36 @@
   "attrs": {
     "product": "Cohere Models"
   },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 8182
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "ar",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "it",
+      "ja",
+      "ko",
+      "pt-br",
+      "zh-cn"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

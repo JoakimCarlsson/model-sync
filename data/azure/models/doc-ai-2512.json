@@ -777,7 +777,23 @@
   "attrs": {
     "product": "Azure Mistral Models"
   },
+  "lists": {
+    "features": [
+      "json_mode"
+    ],
+    "input_modalities": [
+      "file",
+      "image"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }
