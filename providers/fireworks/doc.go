@@ -30,6 +30,10 @@
 //   - A bound on output length, for any model. The record on a model's page
 //     carries the context window and nothing about how much of it a reply may
 //     take, and the pricing page states no bound at all.
+//   - A context window for every model. The page of qwen3p7-plus records its
+//     context length as zero and renders it as "N/A", which is Fireworks
+//     stating that it has none to give rather than a page this parser fails to
+//     read.
 //   - Anything at all about its embedding model beyond the rate. Its row on the
 //     pricing page links to no model page, so it carries neither a context
 //     window nor the width of the vector it returns.
