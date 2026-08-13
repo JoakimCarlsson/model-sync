@@ -1,0 +1,45 @@
+{
+  "id": "BAAI/bge-reranker-v2-m3",
+  "provider": "berget",
+  "name": "bge-reranker-v2-m3",
+  "kind": "rerank",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "BAAI",
+    "license": "Apache 2.0",
+    "lifecycle_state": "stable",
+    "model_path": "BAAI/bge-reranker-v2-m3",
+    "quantization": "FP16",
+    "release_date": "2025-04-23"
+  },
+  "limits": {
+    "model_size_billions": 1
+  },
+  "lists": {
+    "aliases": [
+      "BAAI/bge-reranker-base",
+      "bge-reranker",
+      "bge-reranker-base",
+      "reranker"
+    ],
+    "features": [
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

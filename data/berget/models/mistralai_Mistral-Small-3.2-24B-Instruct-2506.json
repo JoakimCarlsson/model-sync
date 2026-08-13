@@ -1,0 +1,48 @@
+{
+  "id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+  "provider": "berget",
+  "name": "Mistral-Small-3.2-24B-Instruct-2506",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "license": "Apache 2.0",
+    "lifecycle_state": "stable",
+    "model_path": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+    "quantization": "BF16",
+    "release_date": "2025-10-01"
+  },
+  "limits": {
+    "model_size_billions": 24
+  },
+  "lists": {
+    "aliases": [
+      "mistral",
+      "mistral-small",
+      "mistral/small",
+      "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

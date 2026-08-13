@@ -1,0 +1,39 @@
+{
+  "id": "intfloat/multilingual-e5-large",
+  "provider": "berget",
+  "name": "multilingual-e5-large",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "intfloat",
+    "license": "MIT",
+    "lifecycle_state": "stable",
+    "model_path": "intfloat/multilingual-e5-large",
+    "quantization": "FP16",
+    "release_date": "2025-09-11"
+  },
+  "limits": {
+    "model_size_billions": 1
+  },
+  "lists": {
+    "aliases": [
+      "e5",
+      "e5-large",
+      "multilingual-e5-large"
+    ],
+    "features": [
+      "embeddings",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

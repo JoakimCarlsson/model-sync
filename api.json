@@ -1918,6 +1918,749 @@
       ]
     },
     {
+      "id": "berget",
+      "name": "Berget",
+      "models": [
+        {
+          "id": "BAAI/bge-reranker-v2-m3",
+          "provider": "berget",
+          "name": "bge-reranker-v2-m3",
+          "kind": "rerank",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.1,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.1,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "BAAI",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "BAAI/bge-reranker-v2-m3",
+            "quantization": "FP16",
+            "release_date": "2025-04-23"
+          },
+          "limits": {
+            "model_size_billions": 1
+          },
+          "lists": {
+            "aliases": [
+              "BAAI/bge-reranker-base",
+              "bge-reranker",
+              "bge-reranker-base",
+              "reranker"
+            ],
+            "features": [
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "KBLab/kb-whisper-large",
+          "provider": "berget",
+          "name": "kb-whisper-large",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "input"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "output"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "KBLab",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "KBLab/kb-whisper-large",
+            "quantization": "FP16",
+            "release_date": "2025-04-27"
+          },
+          "limits": {
+            "model_size_billions": 2
+          },
+          "lists": {
+            "aliases": [
+              "kb-whisper",
+              "kb/whisper",
+              "whisper"
+            ],
+            "features": [
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "NbAiLab/nb-whisper-large",
+          "provider": "berget",
+          "name": "nb-whisper-large",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "input"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "output"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "NbAiLab",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "NbAiLab/nb-whisper-large",
+            "quantization": "FP16",
+            "release_date": "2026-07-14"
+          },
+          "limits": {
+            "model_size_billions": 2
+          },
+          "lists": {
+            "aliases": [
+              "nb-whisper",
+              "nb/whisper",
+              "norwegian/whisper"
+            ],
+            "features": [
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "Systran/faster-whisper-large-v3",
+          "provider": "berget",
+          "name": "faster-whisper-large-v3",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "input"
+              }
+            },
+            {
+              "metric": "audio",
+              "unit": "per_second",
+              "amount": 0.000033,
+              "currency": "EUR",
+              "dims": {
+                "direction": "output"
+              }
+            }
+          ],
+          "attrs": {
+            "author": "Systran",
+            "license": "MIT",
+            "lifecycle_state": "stable",
+            "model_path": "Systran/faster-whisper-large-v3",
+            "quantization": "FP16",
+            "release_date": "2026-07-14"
+          },
+          "limits": {
+            "model_size_billions": 2
+          },
+          "lists": {
+            "aliases": [
+              "openai/whisper",
+              "openai/whisper-large",
+              "openai/whisper-large-v3",
+              "whisper-large",
+              "whisper/v3"
+            ],
+            "features": [
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "google/gemma-4-31B-it",
+          "provider": "berget",
+          "name": "gemma-4-31B-it",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.25,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.5,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "google",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "google/gemma-4-31B-it",
+            "quantization": "FP16",
+            "release_date": "2026-04-02"
+          },
+          "limits": {
+            "model_size_billions": 31
+          },
+          "lists": {
+            "aliases": [
+              "gemma",
+              "gemma-4",
+              "gemma-4-31b",
+              "gemma/4",
+              "gemma/4-31b",
+              "gemma4",
+              "gemma4-31b",
+              "google/gemma-4",
+              "google/gemma4"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming",
+              "vision"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "intfloat/multilingual-e5-large",
+          "provider": "berget",
+          "name": "multilingual-e5-large",
+          "kind": "embedding",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "intfloat",
+            "license": "MIT",
+            "lifecycle_state": "stable",
+            "model_path": "intfloat/multilingual-e5-large",
+            "quantization": "FP16",
+            "release_date": "2025-09-11"
+          },
+          "limits": {
+            "model_size_billions": 1
+          },
+          "lists": {
+            "aliases": [
+              "e5",
+              "e5-large",
+              "multilingual-e5-large"
+            ],
+            "features": [
+              "embeddings",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "intfloat/multilingual-e5-large-instruct",
+          "provider": "berget",
+          "name": "multilingual-e5-large-instruct",
+          "kind": "embedding",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.03,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.02,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "intfloat",
+            "license": "MIT",
+            "lifecycle_state": "stable",
+            "model_path": "intfloat/multilingual-e5-large-instruct",
+            "quantization": "FP16",
+            "release_date": "2025-04-27"
+          },
+          "limits": {
+            "model_size_billions": 1
+          },
+          "lists": {
+            "aliases": [
+              "e5-instruct",
+              "e5-large-instruct",
+              "multilingual-e5-large-instruct"
+            ],
+            "features": [
+              "embeddings",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "meta-llama/Llama-3.3-70B-Instruct",
+          "provider": "berget",
+          "name": "Llama-3.3-70B-Instruct",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.9,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.9,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "meta-llama",
+            "license": "Llama 3.3",
+            "lifecycle_state": "stable",
+            "model_path": "meta-llama/Llama-3.3-70B-Instruct",
+            "quantization": "FP16",
+            "release_date": "2026-07-14"
+          },
+          "limits": {
+            "model_size_billions": 70
+          },
+          "lists": {
+            "aliases": [
+              "llama-3.3",
+              "llama-3.3-70b",
+              "meta/llama-3.3",
+              "meta/llama-3.3-70b"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "mistralai/Mistral-Medium-3.5-128B",
+          "provider": "berget",
+          "name": "Mistral-Medium-3.5-128B",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.5,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 5,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "mistralai",
+            "license": "Other",
+            "lifecycle_state": "eval",
+            "model_path": "mistralai/Mistral-Medium-3.5-128B",
+            "quantization": "FP8",
+            "release_date": "2026-04-29"
+          },
+          "limits": {
+            "model_size_billions": 128
+          },
+          "lists": {
+            "aliases": [
+              "mistral-medium",
+              "mistral-medium-3.5",
+              "mistral/3.5",
+              "mistral/medium",
+              "mistral/medium-3.5"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming",
+              "vision"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+          "provider": "berget",
+          "name": "Mistral-Small-3.2-24B-Instruct-2506",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.3,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "mistralai",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+            "quantization": "BF16",
+            "release_date": "2025-10-01"
+          },
+          "limits": {
+            "model_size_billions": 24
+          },
+          "lists": {
+            "aliases": [
+              "mistral",
+              "mistral-small",
+              "mistral/small",
+              "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "moonshotai/Kimi-K2.6",
+          "provider": "berget",
+          "name": "Kimi-K2.6",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.75,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3.5,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "moonshotai",
+            "license": "Other",
+            "lifecycle_state": "stable",
+            "model_path": "moonshotai/Kimi-K2.6",
+            "quantization": "FP16",
+            "release_date": "2026-04-14"
+          },
+          "limits": {
+            "model_size_billions": 1100
+          },
+          "lists": {
+            "aliases": [
+              "kimi-2.6",
+              "kimi-k2-6",
+              "kimi/2.6",
+              "kimi2.6",
+              "moonshot/kimi-2.6",
+              "moonshotai/Kimi-K2",
+              "moonshotai/Kimi-K2.6"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming",
+              "vision"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "moonshotai/Kimi-K3",
+          "provider": "berget",
+          "name": "Kimi-K3",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 3,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 15,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "moonshotai",
+            "license": "Other",
+            "lifecycle_state": "eval",
+            "model_path": "moonshotai/Kimi-K3",
+            "quantization": "INT4",
+            "release_date": "2026-07-28"
+          },
+          "limits": {
+            "model_size_billions": 2800
+          },
+          "lists": {
+            "aliases": [
+              "kimi-3",
+              "kimi-k3",
+              "kimi/3",
+              "kimi3",
+              "moonshot/kimi-3",
+              "moonshotai/Kimi-K3"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming",
+              "vision"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "openai/gpt-oss-120b",
+          "provider": "berget",
+          "name": "gpt-oss-120b",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.2,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.75,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "openai",
+            "license": "Apache 2.0",
+            "lifecycle_state": "stable",
+            "model_path": "openai/gpt-oss-120b",
+            "quantization": "INT4",
+            "release_date": "2025-08-05"
+          },
+          "limits": {
+            "model_size_billions": 120
+          },
+          "lists": {
+            "aliases": [
+              "gpt-oss",
+              "gpt-oss-120b",
+              "openai/120b",
+              "openai/gpt-oss"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "zai-org/GLM-4.7-FP8",
+          "provider": "berget",
+          "name": "GLM-4.7-FP8",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.7,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 2.5,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "zai-org",
+            "license": "MIT",
+            "lifecycle_state": "stable",
+            "model_path": "zai-org/GLM-4.7-FP8",
+            "quantization": "FP8",
+            "release_date": "2026-01-19"
+          },
+          "limits": {
+            "model_size_billions": 358
+          },
+          "lists": {
+            "aliases": [
+              "deepseek-r1",
+              "glm",
+              "glm-4.6",
+              "glm-4.7",
+              "glm/4.6",
+              "glm/4.7",
+              "glm4.6",
+              "glm4.7",
+              "unsloth/MAI-DS-R1-GGUF",
+              "zai-org/GLM-4.7",
+              "zai/glm-4.6",
+              "zai/glm-4.7"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        },
+        {
+          "id": "zai-org/GLM-5.2",
+          "provider": "berget",
+          "name": "GLM-5.2",
+          "kind": "chat",
+          "prices": [
+            {
+              "metric": "input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 1.4,
+              "currency": "EUR"
+            },
+            {
+              "metric": "output_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 4.4,
+              "currency": "EUR"
+            }
+          ],
+          "attrs": {
+            "author": "zai-org",
+            "license": "MIT",
+            "lifecycle_state": "stable",
+            "model_path": "zai-org/GLM-5.2",
+            "quantization": "FP8",
+            "release_date": "2026-06-20"
+          },
+          "limits": {
+            "model_size_billions": 753
+          },
+          "lists": {
+            "aliases": [
+              "glm-5.2",
+              "glm/5.2",
+              "glm5.2",
+              "zai-org/GLM-5.2",
+              "zai/glm-5.2"
+            ],
+            "features": [
+              "formatted_output",
+              "function_calling",
+              "json_mode",
+              "streaming"
+            ]
+          },
+          "sources": [
+            "https://api.berget.ai/v1/models"
+          ]
+        }
+      ]
+    },
+    {
       "id": "cerebras",
       "name": "Cerebras",
       "models": [

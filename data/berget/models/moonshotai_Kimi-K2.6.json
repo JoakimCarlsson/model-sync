@@ -1,0 +1,52 @@
+{
+  "id": "moonshotai/Kimi-K2.6",
+  "provider": "berget",
+  "name": "Kimi-K2.6",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.5,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "moonshotai",
+    "license": "Other",
+    "lifecycle_state": "stable",
+    "model_path": "moonshotai/Kimi-K2.6",
+    "quantization": "FP16",
+    "release_date": "2026-04-14"
+  },
+  "limits": {
+    "model_size_billions": 1100
+  },
+  "lists": {
+    "aliases": [
+      "kimi-2.6",
+      "kimi-k2-6",
+      "kimi/2.6",
+      "kimi2.6",
+      "moonshot/kimi-2.6",
+      "moonshotai/Kimi-K2",
+      "moonshotai/Kimi-K2.6"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

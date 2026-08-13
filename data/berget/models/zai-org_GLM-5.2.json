@@ -1,0 +1,49 @@
+{
+  "id": "zai-org/GLM-5.2",
+  "provider": "berget",
+  "name": "GLM-5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "zai-org",
+    "license": "MIT",
+    "lifecycle_state": "stable",
+    "model_path": "zai-org/GLM-5.2",
+    "quantization": "FP8",
+    "release_date": "2026-06-20"
+  },
+  "limits": {
+    "model_size_billions": 753
+  },
+  "lists": {
+    "aliases": [
+      "glm-5.2",
+      "glm/5.2",
+      "glm5.2",
+      "zai-org/GLM-5.2",
+      "zai/glm-5.2"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

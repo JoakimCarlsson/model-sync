@@ -1,0 +1,50 @@
+{
+  "id": "NbAiLab/nb-whisper-large",
+  "provider": "berget",
+  "name": "nb-whisper-large",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_second",
+      "amount": 0.000033,
+      "currency": "EUR",
+      "dims": {
+        "direction": "input"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_second",
+      "amount": 0.000033,
+      "currency": "EUR",
+      "dims": {
+        "direction": "output"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "NbAiLab",
+    "license": "Apache 2.0",
+    "lifecycle_state": "stable",
+    "model_path": "NbAiLab/nb-whisper-large",
+    "quantization": "FP16",
+    "release_date": "2026-07-14"
+  },
+  "limits": {
+    "model_size_billions": 2
+  },
+  "lists": {
+    "aliases": [
+      "nb-whisper",
+      "nb/whisper",
+      "norwegian/whisper"
+    ],
+    "features": [
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

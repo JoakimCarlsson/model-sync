@@ -1,0 +1,52 @@
+{
+  "id": "Systran/faster-whisper-large-v3",
+  "provider": "berget",
+  "name": "faster-whisper-large-v3",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_second",
+      "amount": 0.000033,
+      "currency": "EUR",
+      "dims": {
+        "direction": "input"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_second",
+      "amount": 0.000033,
+      "currency": "EUR",
+      "dims": {
+        "direction": "output"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Systran",
+    "license": "MIT",
+    "lifecycle_state": "stable",
+    "model_path": "Systran/faster-whisper-large-v3",
+    "quantization": "FP16",
+    "release_date": "2026-07-14"
+  },
+  "limits": {
+    "model_size_billions": 2
+  },
+  "lists": {
+    "aliases": [
+      "openai/whisper",
+      "openai/whisper-large",
+      "openai/whisper-large-v3",
+      "whisper-large",
+      "whisper/v3"
+    ],
+    "features": [
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

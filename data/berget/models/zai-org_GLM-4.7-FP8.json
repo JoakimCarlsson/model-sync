@@ -1,0 +1,56 @@
+{
+  "id": "zai-org/GLM-4.7-FP8",
+  "provider": "berget",
+  "name": "GLM-4.7-FP8",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.7,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "zai-org",
+    "license": "MIT",
+    "lifecycle_state": "stable",
+    "model_path": "zai-org/GLM-4.7-FP8",
+    "quantization": "FP8",
+    "release_date": "2026-01-19"
+  },
+  "limits": {
+    "model_size_billions": 358
+  },
+  "lists": {
+    "aliases": [
+      "deepseek-r1",
+      "glm",
+      "glm-4.6",
+      "glm-4.7",
+      "glm/4.6",
+      "glm/4.7",
+      "glm4.6",
+      "glm4.7",
+      "unsloth/MAI-DS-R1-GGUF",
+      "zai-org/GLM-4.7",
+      "zai/glm-4.6",
+      "zai/glm-4.7"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

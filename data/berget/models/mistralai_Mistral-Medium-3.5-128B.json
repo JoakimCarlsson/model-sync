@@ -1,0 +1,50 @@
+{
+  "id": "mistralai/Mistral-Medium-3.5-128B",
+  "provider": "berget",
+  "name": "Mistral-Medium-3.5-128B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "mistralai",
+    "license": "Other",
+    "lifecycle_state": "eval",
+    "model_path": "mistralai/Mistral-Medium-3.5-128B",
+    "quantization": "FP8",
+    "release_date": "2026-04-29"
+  },
+  "limits": {
+    "model_size_billions": 128
+  },
+  "lists": {
+    "aliases": [
+      "mistral-medium",
+      "mistral-medium-3.5",
+      "mistral/3.5",
+      "mistral/medium",
+      "mistral/medium-3.5"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

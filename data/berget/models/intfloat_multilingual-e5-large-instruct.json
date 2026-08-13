@@ -1,0 +1,45 @@
+{
+  "id": "intfloat/multilingual-e5-large-instruct",
+  "provider": "berget",
+  "name": "multilingual-e5-large-instruct",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "intfloat",
+    "license": "MIT",
+    "lifecycle_state": "stable",
+    "model_path": "intfloat/multilingual-e5-large-instruct",
+    "quantization": "FP16",
+    "release_date": "2025-04-27"
+  },
+  "limits": {
+    "model_size_billions": 1
+  },
+  "lists": {
+    "aliases": [
+      "e5-instruct",
+      "e5-large-instruct",
+      "multilingual-e5-large-instruct"
+    ],
+    "features": [
+      "embeddings",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

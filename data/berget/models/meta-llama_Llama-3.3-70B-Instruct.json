@@ -1,0 +1,48 @@
+{
+  "id": "meta-llama/Llama-3.3-70B-Instruct",
+  "provider": "berget",
+  "name": "Llama-3.3-70B-Instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "meta-llama",
+    "license": "Llama 3.3",
+    "lifecycle_state": "stable",
+    "model_path": "meta-llama/Llama-3.3-70B-Instruct",
+    "quantization": "FP16",
+    "release_date": "2026-07-14"
+  },
+  "limits": {
+    "model_size_billions": 70
+  },
+  "lists": {
+    "aliases": [
+      "llama-3.3",
+      "llama-3.3-70b",
+      "meta/llama-3.3",
+      "meta/llama-3.3-70b"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

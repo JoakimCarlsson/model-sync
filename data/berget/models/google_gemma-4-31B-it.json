@@ -1,0 +1,54 @@
+{
+  "id": "google/gemma-4-31B-it",
+  "provider": "berget",
+  "name": "gemma-4-31B-it",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "license": "Apache 2.0",
+    "lifecycle_state": "stable",
+    "model_path": "google/gemma-4-31B-it",
+    "quantization": "FP16",
+    "release_date": "2026-04-02"
+  },
+  "limits": {
+    "model_size_billions": 31
+  },
+  "lists": {
+    "aliases": [
+      "gemma",
+      "gemma-4",
+      "gemma-4-31b",
+      "gemma/4",
+      "gemma/4-31b",
+      "gemma4",
+      "gemma4-31b",
+      "google/gemma-4",
+      "google/gemma4"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming",
+      "vision"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}

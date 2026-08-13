@@ -1,0 +1,48 @@
+{
+  "id": "openai/gpt-oss-120b",
+  "provider": "berget",
+  "name": "gpt-oss-120b",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "license": "Apache 2.0",
+    "lifecycle_state": "stable",
+    "model_path": "openai/gpt-oss-120b",
+    "quantization": "INT4",
+    "release_date": "2025-08-05"
+  },
+  "limits": {
+    "model_size_billions": 120
+  },
+  "lists": {
+    "aliases": [
+      "gpt-oss",
+      "gpt-oss-120b",
+      "openai/120b",
+      "openai/gpt-oss"
+    ],
+    "features": [
+      "formatted_output",
+      "function_calling",
+      "json_mode",
+      "streaming"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/v1/models"
+  ]
+}
