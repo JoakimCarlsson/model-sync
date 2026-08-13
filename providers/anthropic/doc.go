@@ -22,4 +22,13 @@
 //   - the pricing page, whose standard, batch and fast-mode tables carry the
 //     rates, and whose prose carries the server-side tool prices. It names
 //     models only by display name, which is why it is read last.
+//
+// What a model takes and returns is not in the comparison table. The overview
+// states it once, in a sentence above the table saying that every current model
+// takes text and images and returns text, and that sentence is the only place
+// Anthropic states it outside the Models API, which needs a key. It is read and
+// then applied after every document, with its own scope: every chat model still
+// served, including the one the overview describes in prose and only the
+// pricing page names. Its mention of vision is the image modality under another
+// word and is not recorded twice.
 package anthropic

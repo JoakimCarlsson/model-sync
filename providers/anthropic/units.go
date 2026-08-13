@@ -68,9 +68,21 @@ const (
 
 // Enumeration keys the documents populate.
 const (
-	ListFeatures = "features"
-	ListAliases  = "aliases"
+	ListFeatures         = "features"
+	ListAliases          = "aliases"
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
 )
+
+// modalityWords map a word of the overview's modality sentence onto the
+// catalog's vocabulary.
+var modalityWords = map[string]string{
+	"text":  "text",
+	"image": "image",
+	"audio": "audio",
+	"video": "video",
+	"pdf":   "file",
+}
 
 var (
 	linkRe   = regexp.MustCompile(`\[([^\]]*)\]\([^)]*\)`)
@@ -78,6 +90,16 @@ var (
 	priceRe  = regexp.MustCompile(
 		`\$([\d,]+(?:\.\d+)?)\s*(?:/\s*([A-Za-z][\w \-]*))?`,
 	)
+	// modalitySentenceRe matches the sentence stating what every current model
+	// takes and returns, which the comparison table has no row for.
+	modalitySentenceRe = regexp.MustCompile(
+		`(?i)all current claude models support ([^.]+)\.`,
+	)
+	// modalityClauseRe matches one clause of that sentence, which names the
+	// direction after the modalities travelling in it.
+	modalityClauseRe = regexp.MustCompile(`(?i)([a-z ,]+?)(input|output)\b`)
+	// wordRe matches one word of such a clause.
+	wordRe         = regexp.MustCompile(`[a-z]+`)
 	footnoteRe     = regexp.MustCompile(`^(.*[a-zA-Z)])\d{1,2}$`)
 	footnoteYearRe = regexp.MustCompile(`^(.*\d{4})\d{1,2}$`)
 	tokenSizeRe    = regexp.MustCompile(`(?i)^([\d.,]+)\s*([kKmM])?\s*tokens?$`)

@@ -1,6 +1,7 @@
 package anthropic
 
 import (
+	"slices"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -30,6 +31,61 @@ func (b *builder) applyOverview(doc catalog.Document) {
 			b.applyOverviewRow(rowLabel(row), row, ids)
 		}
 	}
+	b.readModalities(string(doc.Body))
+}
+
+// readModalities reads the sentence stating what a current model takes and
+// returns, which the comparison table has no row for and which is the only
+// place Anthropic states it outside the Models API, which needs a key.
+//
+// It is kept rather than applied, because the pricing page read after this one
+// names a model the overview describes only in prose, and that model is as
+// current as the rest.
+func (b *builder) readModalities(body string) {
+	sentence := modalitySentenceRe.FindStringSubmatch(body)
+	if sentence == nil {
+		return
+	}
+	b.inputModalities, b.outputModalities = modalitiesOf(sentence[1])
+}
+
+// applyModalities records what the overview's sentence stated against every
+// model it covers. Its scope is every model still served, which is every chat
+// model the documents name that has not retired; the server-side tools are not
+// models and are left alone.
+func (b *builder) applyModalities() {
+	in, out := b.inputModalities, b.outputModalities
+	for _, id := range b.order {
+		m := b.models[id]
+		if m.Kind != KindChat || m.Attrs[AttrState] == stateRetired {
+			continue
+		}
+		m.AddList(ListInputModalities, in...)
+		m.AddList(ListOutputModalities, out...)
+	}
+}
+
+// modalitiesOf reads the clauses of that sentence, which name each direction
+// after the modalities travelling in it: "text and image input, text output".
+func modalitiesOf(sentence string) (in, out []string) {
+	for _, clause := range modalityClauseRe.FindAllStringSubmatch(sentence, -1) {
+		var named []string
+		for _, word := range wordRe.FindAllString(
+			strings.ToLower(clause[1]),
+			-1,
+		) {
+			if name, ok := modalityWords[word]; ok &&
+				!slices.Contains(named, name) {
+				named = append(named, name)
+			}
+		}
+		if strings.EqualFold(clause[2], "input") {
+			in = append(in, named...)
+			continue
+		}
+		out = append(out, named...)
+	}
+	return in, out
 }
 
 // columnIDs locates the API identifier of each model column, and reports none

@@ -58,6 +58,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			}
 		}
 	}
+	b.applyModalities()
 	return b.result(), nil
 }
 
@@ -74,6 +75,11 @@ type builder struct {
 	nameToID  map[string]string
 	byTokens  map[string]string
 	ambiguous map[string]bool
+	// inputModalities and outputModalities are what the overview states every
+	// current model takes and returns, held until every document has been read
+	// because the last of them names a model the overview does not tabulate.
+	inputModalities  []string
+	outputModalities []string
 }
 
 func newBuilder() *builder {

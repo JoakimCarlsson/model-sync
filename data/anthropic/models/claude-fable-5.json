@@ -91,6 +91,13 @@
     ],
     "features": [
       "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "notes": [

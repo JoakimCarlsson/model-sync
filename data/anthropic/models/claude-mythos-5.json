@@ -73,6 +73,15 @@
   "attrs": {
     "availability": "limited availability"
   },
+  "lists": {
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/pricing.md"
   ]
