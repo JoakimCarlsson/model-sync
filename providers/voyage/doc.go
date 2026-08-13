@@ -24,11 +24,18 @@
 // Which of those pages a model is documented on is also the only thing Voyage
 // says about modality: the multimodal page is the one whose models vectorize
 // text and pictures together, and the rest are text. No page states an output
-// modality, and none is recorded, because an embedding model returns a vector
-// and a reranker returns a score rather than a modality.
+// modality. Text is recorded as the output of every model that has an input,
+// because the medium each of them works in is text on both sides, and the two
+// sides are always set together: a consumer reading one alone cannot tell an
+// unstated modality from a model that takes or returns nothing.
+//
+// What that does not record is the shape of the return value. An embedding is a
+// vector and a reranking is a set of scores, and neither is a modality the
+// catalog has a word for, so neither is stated here.
 //
 // What Voyage does not publish: a capability list, for any model; a modality
 // for a model that has fallen off the capability pages and survives only in the
-// rate tables; and a rate for the model whose weights it publishes, which costs
-// it nothing to state because running it is the reader's own affair.
+// rate tables, which therefore carries neither side; and a rate for the model
+// whose weights it publishes, which costs it nothing to state because running
+// it is the reader's own affair.
 package voyage

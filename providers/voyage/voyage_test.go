@@ -54,9 +54,25 @@ func TestParseModalities(t *testing.T) {
 		if !slices.Equal(got, want) {
 			t.Errorf("%s: got %v, want %v", id, got, want)
 		}
-		if len(m.Lists["output_modalities"]) != 0 {
-			t.Errorf("%s: got an output modality", id)
+		if out := m.Lists[ListOutputModalities]; !slices.Equal(
+			out,
+			[]string{"text"},
+		) {
+			t.Errorf("%s: got output %v, want [text]", id, out)
 		}
+	}
+}
+
+// TestParseModalitiesUnstated covers a model that survives only in the rate
+// tables, which carries neither side rather than an output on its own.
+func TestParseModalitiesUnstated(t *testing.T) {
+	m, ok := parse(t)["voyage-code-2"]
+	if !ok {
+		t.Skip("voyage-code-2: not in the fixtures")
+	}
+	if len(m.Lists[ListInputModalities]) != 0 ||
+		len(m.Lists[ListOutputModalities]) != 0 {
+		t.Errorf("voyage-code-2: got %v", m.Lists)
 	}
 }
 

@@ -64,8 +64,9 @@ const (
 
 // Enumeration keys the documents populate.
 const (
-	ListDimensions      = "embedding_dimensions"
-	ListInputModalities = "input_modalities"
+	ListDimensions       = "embedding_dimensions"
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
 )
 
 // Modalities Voyage's capability pages account for.
@@ -78,13 +79,31 @@ const (
 //
 // Voyage states this by which page a model is documented on and nowhere else:
 // the multimodal page is the one whose models vectorize text and pictures
-// together, and every other page is text. No page states an output modality,
-// because an embedding model returns a vector and a reranker returns a score.
+// together, and every other page is text.
 func pageModalities(url string) []string {
 	if strings.Contains(url, "multimodal") {
 		return []string{ModalityText, ModalityImage}
 	}
 	return []string{ModalityText}
+}
+
+// addModalities records what a model takes and what it gives back.
+//
+// No Voyage page states an output modality. Every model here vectorizes or
+// scores text, so the medium it works in is text on both sides, and that is
+// what is recorded rather than the shape of the return value: an embedding is a
+// vector and a reranking is a set of scores, but neither is a modality and the
+// catalog has no word for either.
+//
+// Both sides are set together, so a model surviving only in the rate tables
+// carries neither. A consumer reading one side alone cannot tell an unstated
+// modality from a model that takes or returns nothing.
+func addModalities(m *catalog.Model, in []string) {
+	if len(in) == 0 {
+		return
+	}
+	m.AddList(ListInputModalities, in...)
+	m.AddList(ListOutputModalities, ModalityText)
 }
 
 var (
