@@ -244,8 +244,9 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 		case "maximum output tokens":
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))
 		case "dimensions":
-			m.AddList(ListDimensions, splitList(value)...)
-			m.SetAttr(AttrDefaultDimension, firstOf(splitList(value)))
+			widths, def := parseDimensions(value)
+			m.AddList(ListDimensions, widths...)
+			m.SetAttr(AttrDefaultDimension, def)
 		case "similarity metric":
 			m.SetAttr(AttrSimilarityMetric, value)
 		case "maximum file size":
@@ -254,6 +255,32 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 			m.AddList(ListEndpoints, splitList(value)...)
 		}
 	}
+}
+
+// dimensionRe matches one vector width and the marker that follows the width a
+// model returns unless asked for another.
+var dimensionRe = regexp.MustCompile(`(\d[\d,]*)\s*(\(default\))?`)
+
+// parseDimensions reads the vector widths an embedding model offers and which
+// of them it returns by default.
+//
+// A model offering one width states the number alone. A model offering a choice
+// states the whole set as a sentence, "One of '[256, 512, 1024, 1536
+// (default)]'", which cannot be taken as the cell split on its commas: that
+// leaves the prose and the brackets attached to the first and last width, and it
+// makes the first width the default when the cell says the last one is.
+func parseDimensions(value string) (widths []string, def string) {
+	for _, match := range dimensionRe.FindAllStringSubmatch(clean(value), -1) {
+		width := strings.ReplaceAll(match[1], ",", "")
+		widths = append(widths, width)
+		if match[2] != "" {
+			def = width
+		}
+	}
+	if def == "" && len(widths) == 1 {
+		def = widths[0]
+	}
+	return widths, def
 }
 
 // splitList divides a comma separated cell.
@@ -265,14 +292,6 @@ func splitList(value string) []string {
 		}
 	}
 	return out
-}
-
-// firstOf returns the first item, or the empty string.
-func firstOf(items []string) string {
-	if len(items) == 0 {
-		return ""
-	}
-	return items[0]
 }
 
 // firstSentence trims a description to its opening sentence, since Cohere's

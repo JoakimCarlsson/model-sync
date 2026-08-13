@@ -3,6 +3,7 @@ package cohere
 import (
 	"os"
 	"path/filepath"
+	"slices"
 	"testing"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -208,8 +209,35 @@ func TestParseOverview(t *testing.T) {
 	if got := m.Limits[LimitMaxOutputTokens]; got != 8000 {
 		t.Errorf("got max output %d", got)
 	}
-	if got := byID["embed-v4.0"].Lists[ListDimensions]; len(got) != 4 {
-		t.Errorf("got embedding dimensions %v", got)
+	if got := byID["command-r-03-2024"].Attrs[AttrState]; got !=
+		StateDeprecated {
+		t.Errorf("got state %q", got)
+	}
+}
+
+// TestParseDimensions covers the two shapes the embed table's width column is
+// written in: a bare number, and the whole set as a sentence with one of them
+// marked as the one returned by default.
+func TestParseDimensions(t *testing.T) {
+	byID := parse(t)
+	cases := []struct {
+		id     string
+		widths []string
+		def    string
+	}{
+		{"embed-v4.0", []string{"256", "512", "1024", "1536"}, "1536"},
+		{"embed-english-v3.0", []string{"1024"}, "1024"},
+		{"embed-english-light-v3.0", []string{"384"}, "384"},
+		{"embed-multilingual-v3.0", []string{"1024"}, "1024"},
+	}
+	for _, c := range cases {
+		m := byID[c.id]
+		if got := m.Lists[ListDimensions]; !slices.Equal(got, c.widths) {
+			t.Errorf("%s: got widths %q, want %q", c.id, got, c.widths)
+		}
+		if got := m.Attrs[AttrDefaultDimension]; got != c.def {
+			t.Errorf("%s: got default width %q, want %q", c.id, got, c.def)
+		}
 	}
 	if got := byID["command-r-03-2024"].Attrs[AttrState]; got !=
 		StateDeprecated {

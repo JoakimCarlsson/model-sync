@@ -60,7 +60,7 @@
     "amazon_bedrock_id": "(Coming Soon)",
     "amazon_sagemaker_id": "Unique per deployment",
     "azure_ai_foundry_id": "cohere-embed-v-4-plan",
-    "default_embedding_dimension": "One of '\\[256",
+    "default_embedding_dimension": "1536",
     "family": "embed",
     "modality": "Text, Images, Mixed texts/images (i.e. PDFs)",
     "oracle_oci_id": "(Coming Soon)",
@@ -73,9 +73,9 @@
   "lists": {
     "embedding_dimensions": [
       "1024",
-      "1536 (default)]'",
-      "512",
-      "One of '\\[256"
+      "1536",
+      "256",
+      "512"
     ],
     "endpoints": [
       "Embed",
