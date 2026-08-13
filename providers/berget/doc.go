@@ -31,6 +31,11 @@
 // What Berget does not publish:
 //
 //   - A bound on output length, for any model.
+//   - A context window for a model the overview has not caught up with. The
+//     endpoint carries no bound at all, and the overview's cards are the only
+//     place one is stated, so a model the endpoint serves and the overview does
+//     not card carries none. Kimi-K3 is in that position, listed by the
+//     endpoint in an eval lifecycle state with no card written for it yet.
 //   - The width of the vector an embedding model returns. Its endpoint carries
 //     the rate, licence, quantization, capabilities and parameter count of both
 //     embedding models and no width, and the documentation card for each states
