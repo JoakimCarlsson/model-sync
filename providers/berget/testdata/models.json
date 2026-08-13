@@ -1,0 +1,303 @@
+{
+ "object": "list",
+ "data": [
+  {
+   "id": "openai/gpt-oss-120b",
+   "object": "model",
+   "created": 1754352000000,
+   "owned_by": "openai",
+   "name": "gpt-oss-120b",
+   "pricing": {
+    "currency": "EUR",
+    "input": 0.2,
+    "output": 0.75,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": true,
+    "function_calling": true,
+    "json_mode": true,
+    "streaming": true,
+    "vision": false
+   },
+   "quantization": "INT4",
+   "aliases": [
+    "openai/gpt-oss",
+    "gpt-oss",
+    "gpt-oss-120b",
+    "openai/120b"
+   ],
+   "license": "Apache 2.0",
+   "lifecycle_state": "stable",
+   "model_path": "openai/gpt-oss-120b",
+   "model_size": 120,
+   "model_type": "text",
+   "parent": null,
+   "permission": [],
+   "root": "openai/gpt-oss-120b",
+   "status": {
+    "up": true,
+    "latency": 18
+   },
+   "release_date": "2025-08-05"
+  },
+  {
+   "id": "BAAI/bge-reranker-v2-m3",
+   "object": "model",
+   "created": 1745366400000,
+   "owned_by": "BAAI",
+   "name": "bge-reranker-v2-m3",
+   "pricing": {
+    "currency": "EUR",
+    "input": 0.1,
+    "output": 0.1,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": false,
+    "function_calling": false,
+    "json_mode": false,
+    "streaming": true,
+    "vision": false
+   },
+   "quantization": "FP16",
+   "aliases": [
+    "bge-reranker",
+    "reranker",
+    "BAAI/bge-reranker-base",
+    "bge-reranker-base"
+   ],
+   "license": "Apache 2.0",
+   "lifecycle_state": "stable",
+   "model_path": "BAAI/bge-reranker-v2-m3",
+   "model_size": 1,
+   "model_type": "rerank",
+   "parent": null,
+   "permission": [],
+   "root": "BAAI/bge-reranker-v2-m3",
+   "status": {
+    "up": true,
+    "latency": 88
+   },
+   "release_date": "2025-04-23"
+  },
+  {
+   "id": "KBLab/kb-whisper-large",
+   "object": "model",
+   "created": 1745712000000,
+   "owned_by": "KBLab",
+   "name": "kb-whisper-large",
+   "pricing": {
+    "currency": "EUR",
+    "input": 3.3e-05,
+    "output": 3.3e-05,
+    "unit": "\u20ac / second"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": false,
+    "function_calling": false,
+    "json_mode": false,
+    "streaming": true,
+    "vision": false
+   },
+   "quantization": "FP16",
+   "aliases": [
+    "kb/whisper",
+    "whisper",
+    "kb-whisper"
+   ],
+   "license": "Apache 2.0",
+   "lifecycle_state": "stable",
+   "model_path": "KBLab/kb-whisper-large",
+   "model_size": 2,
+   "model_type": "speech-to-text",
+   "parent": null,
+   "permission": [],
+   "root": "KBLab/kb-whisper-large",
+   "status": {
+    "up": true,
+    "latency": 101
+   },
+   "release_date": "2025-04-27"
+  },
+  {
+   "id": "intfloat/multilingual-e5-large",
+   "object": "model",
+   "created": 1757548800000,
+   "owned_by": "intfloat",
+   "name": "multilingual-e5-large",
+   "pricing": {
+    "currency": "EUR",
+    "input": 0.03,
+    "output": 0,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": true,
+    "formatted_output": false,
+    "function_calling": false,
+    "json_mode": false,
+    "streaming": true,
+    "vision": false
+   },
+   "quantization": "FP16",
+   "aliases": [
+    "e5",
+    "e5-large",
+    "multilingual-e5-large"
+   ],
+   "license": "MIT",
+   "lifecycle_state": "stable",
+   "model_path": "intfloat/multilingual-e5-large",
+   "model_size": 1,
+   "model_type": "embedding",
+   "parent": null,
+   "permission": [],
+   "root": "intfloat/multilingual-e5-large",
+   "status": {
+    "up": true,
+    "latency": 4
+   },
+   "release_date": "2025-09-11"
+  },
+  {
+   "id": "mistralai/Mistral-Medium-3.5-128B",
+   "object": "model",
+   "created": 1777420800000,
+   "owned_by": "mistralai",
+   "name": "Mistral-Medium-3.5-128B",
+   "pricing": {
+    "currency": "EUR",
+    "input": 1.5,
+    "output": 5,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": true,
+    "function_calling": true,
+    "json_mode": true,
+    "streaming": true,
+    "vision": true
+   },
+   "quantization": "FP8",
+   "aliases": [
+    "mistral/medium",
+    "mistral-medium",
+    "mistral/medium-3.5",
+    "mistral-medium-3.5",
+    "mistral/3.5"
+   ],
+   "license": "Other",
+   "lifecycle_state": "eval",
+   "model_path": "mistralai/Mistral-Medium-3.5-128B",
+   "model_size": 128,
+   "model_type": "text",
+   "parent": null,
+   "permission": [],
+   "root": "mistralai/Mistral-Medium-3.5-128B",
+   "status": {
+    "up": true,
+    "latency": 13
+   },
+   "release_date": "2026-04-29"
+  },
+  {
+   "id": "moonshotai/Kimi-K2.6",
+   "object": "model",
+   "created": 1776124800000,
+   "owned_by": "moonshotai",
+   "name": "Kimi-K2.6",
+   "pricing": {
+    "currency": "EUR",
+    "input": 0.75,
+    "output": 3.5,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": true,
+    "function_calling": true,
+    "json_mode": true,
+    "streaming": true,
+    "vision": true
+   },
+   "quantization": "FP16",
+   "aliases": [
+    "kimi-k2-6",
+    "kimi-2.6",
+    "kimi/2.6",
+    "kimi2.6",
+    "moonshot/kimi-2.6",
+    "moonshotai/Kimi-K2",
+    "moonshotai/Kimi-K2.6"
+   ],
+   "license": "Other",
+   "lifecycle_state": "stable",
+   "model_path": "moonshotai/Kimi-K2.6",
+   "model_size": 1100,
+   "model_type": "text",
+   "parent": null,
+   "permission": [],
+   "root": "moonshotai/Kimi-K2.6",
+   "status": {
+    "up": true,
+    "latency": 25
+   },
+   "release_date": "2026-04-14"
+  },
+  {
+   "id": "moonshotai/Kimi-K3",
+   "object": "model",
+   "created": 1785196800000,
+   "owned_by": "moonshotai",
+   "name": "Kimi-K3",
+   "pricing": {
+    "currency": "EUR",
+    "input": 3,
+    "output": 15,
+    "unit": "\u20ac / M Token"
+   },
+   "capabilities": {
+    "classification": false,
+    "embeddings": false,
+    "formatted_output": true,
+    "function_calling": true,
+    "json_mode": true,
+    "streaming": true,
+    "vision": true
+   },
+   "quantization": "INT4",
+   "aliases": [
+    "kimi-k3",
+    "kimi-3",
+    "kimi/3",
+    "kimi3",
+    "moonshot/kimi-3",
+    "moonshotai/Kimi-K3"
+   ],
+   "license": "Other",
+   "lifecycle_state": "eval",
+   "model_path": "moonshotai/Kimi-K3",
+   "model_size": 2800,
+   "model_type": "text",
+   "parent": null,
+   "permission": [],
+   "root": "moonshotai/Kimi-K3",
+   "status": {
+    "up": false,
+    "latency": 92
+   },
+   "release_date": "2026-07-28"
+  }
+ ]
+}

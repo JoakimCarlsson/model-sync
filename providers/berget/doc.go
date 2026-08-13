@@ -21,5 +21,16 @@
 // vision capability, which is the one capability naming a modality rather than
 // an API feature and is recorded as both.
 //
-// What Berget does not publish: a bound on output length, for any model.
+// An embedding or reranking model records what it takes and nothing about what
+// it gives back, because what it gives back is a vector and a relevance score
+// rather than a modality. Naming those would invent a word no other provider
+// here uses for them.
+//
+// What Berget does not publish:
+//
+//   - A bound on output length, for any model.
+//   - The width of the vector an embedding model returns. Its endpoint carries
+//     the rate, licence, quantization, capabilities and parameter count of both
+//     embedding models and no width, and the documentation card for each states
+//     the identifier, a token limit and the rates and stops there.
 package berget
