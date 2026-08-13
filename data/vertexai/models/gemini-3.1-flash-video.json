@@ -2,7 +2,7 @@
   "id": "gemini-3.1-flash-video",
   "provider": "vertexai",
   "name": "gemini 3.1 flash video",
-  "kind": "chat",
+  "kind": "video",
   "prices": [
     {
       "metric": "input_tokens",

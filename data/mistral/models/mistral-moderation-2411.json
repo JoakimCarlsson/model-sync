@@ -2,7 +2,7 @@
   "id": "mistral-moderation-2411",
   "provider": "mistral",
   "name": "Mistral Moderation",
-  "kind": "chat",
+  "kind": "moderation",
   "attrs": {
     "deprecated_on": "2026-03-31",
     "recommended_replacement": "Mistral Moderation 2",

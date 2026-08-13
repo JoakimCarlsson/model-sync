@@ -19,8 +19,41 @@ const (
 // UnitPer1MTokens is the denominator every rate read here is quoted at.
 const UnitPer1MTokens catalog.Unit = "per_1m_tokens"
 
-// KindChat is what these SKUs price.
-const KindChat catalog.Kind = "chat"
+// Kinds these SKUs price. Vertex bills embeddings, image models and document
+// readers by the token exactly as it bills chat, so the rate cannot say which
+// a model is and the name has to.
+const (
+	KindChat      catalog.Kind = "chat"
+	KindEmbedding catalog.Kind = "embedding"
+	KindImage     catalog.Kind = "image"
+	KindVideo     catalog.Kind = "video"
+	KindOCR       catalog.Kind = "ocr"
+)
+
+// nameKinds map a fragment of a model's name onto what it does.
+var nameKinds = []struct {
+	fragment string
+	kind     catalog.Kind
+}{
+	{"ocr", KindOCR},
+	{"embed", KindEmbedding},
+	{"e5", KindEmbedding},
+	{"imagen", KindImage},
+	{"image", KindImage},
+	{"veo", KindVideo},
+	{"video", KindVideo},
+}
+
+// kindFor reports what a model does, read from its name.
+func kindFor(model string) catalog.Kind {
+	lower := strings.ToLower(model)
+	for _, entry := range nameKinds {
+		if strings.Contains(lower, entry.fragment) {
+			return entry.kind
+		}
+	}
+	return KindChat
+}
 
 // Dimension keys Vertex's prices vary along.
 const (

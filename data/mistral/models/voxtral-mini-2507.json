@@ -2,7 +2,7 @@
   "id": "voxtral-mini-2507",
   "provider": "mistral",
   "name": "Voxtral Mini Transcribe",
-  "kind": "chat",
+  "kind": "transcription",
   "attrs": {
     "deprecated_on": "2026-02-27",
     "recommended_replacement": "Voxtral Mini Transcribe 2",

@@ -1,6 +1,7 @@
 {
   "id": "dall-e-3",
   "provider": "openai",
+  "kind": "image",
   "attrs": {
     "recommended_replacement": "gpt-image-2, gpt-image-1, or gpt-image-1-mini",
     "shutdown_date": "2026-05-12",

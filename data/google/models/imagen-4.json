@@ -1,7 +1,7 @@
 {
   "id": "imagen-4",
   "provider": "google",
-  "kind": "chat",
+  "kind": "image",
   "prices": [
     {
       "metric": "image_output",

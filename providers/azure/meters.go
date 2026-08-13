@@ -39,6 +39,8 @@ const (
 	KindTranscription catalog.Kind = "transcription"
 	KindRealtime      catalog.Kind = "realtime"
 	KindAudio         catalog.Kind = "audio"
+	KindOCR           catalog.Kind = "ocr"
+	KindRerank        catalog.Kind = "rerank"
 )
 
 // productKinds are the families whose every meter is one kind, whatever the
@@ -66,6 +68,8 @@ var kindWords = []struct {
 	{[]string{"rt", "realtime"}, KindRealtime},
 	{[]string{"aud", "audio"}, KindAudio},
 	{[]string{"embed", "embedding", "embeddings", "ada"}, KindEmbedding},
+	{[]string{"ocr"}, KindOCR},
+	{[]string{"rerank"}, KindRerank},
 }
 
 // kindFor reports what a meter's model does, read from the family it belongs

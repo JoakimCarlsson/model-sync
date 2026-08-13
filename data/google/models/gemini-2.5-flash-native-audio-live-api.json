@@ -1,7 +1,7 @@
 {
   "id": "gemini-2.5-flash-native-audio-live-api",
   "provider": "google",
-  "kind": "chat",
+  "kind": "audio",
   "prices": [
     {
       "metric": "input_tokens",

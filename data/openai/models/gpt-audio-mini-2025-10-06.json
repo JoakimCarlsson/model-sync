@@ -1,6 +1,7 @@
 {
   "id": "gpt-audio-mini-2025-10-06",
   "provider": "openai",
+  "kind": "audio",
   "attrs": {
     "recommended_replacement": "gpt-audio-1.5",
     "shutdown_date": "2026-07-23",

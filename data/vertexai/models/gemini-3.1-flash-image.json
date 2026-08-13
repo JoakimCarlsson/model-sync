@@ -2,7 +2,7 @@
   "id": "gemini-3.1-flash-image",
   "provider": "vertexai",
   "name": "gemini 3.1 flash image",
-  "kind": "chat",
+  "kind": "image",
   "prices": [
     {
       "metric": "input_tokens",

@@ -1,7 +1,7 @@
 {
   "id": "gemini-2.5-flash-image-nano-banana",
   "provider": "google",
-  "kind": "chat",
+  "kind": "image",
   "prices": [
     {
       "metric": "input_tokens",

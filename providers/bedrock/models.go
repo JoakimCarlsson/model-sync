@@ -34,12 +34,33 @@ const (
 	UnitPerTextUnit catalog.Unit = "per_text_unit"
 )
 
-// KindChat is the kind of most of what Bedrock serves; image models are told
-// apart by the metric they are billed on.
+// Kinds Bedrock serves. Most are chat, but the same price list carries
+// embeddings, image and video generation and speech models, all of them
+// billed by the token, so the rate cannot say which and the name has to.
 const (
-	KindChat  catalog.Kind = "chat"
-	KindImage catalog.Kind = "image"
+	KindChat          catalog.Kind = "chat"
+	KindImage         catalog.Kind = "image"
+	KindVideo         catalog.Kind = "video"
+	KindEmbedding     catalog.Kind = "embedding"
+	KindTranscription catalog.Kind = "transcription"
+	KindRerank        catalog.Kind = "rerank"
 )
+
+// nameKinds map a fragment of the model name AWS gives onto what it does.
+var nameKinds = []struct {
+	fragment string
+	kind     catalog.Kind
+}{
+	{"embed", KindEmbedding},
+	{"rerank", KindRerank},
+	{"voxtral", KindTranscription},
+	{"transcribe", KindTranscription},
+	{"canvas", KindImage},
+	{"image", KindImage},
+	{"diffusion", KindImage},
+	{"reel", KindVideo},
+	{"video", KindVideo},
+}
 
 // Dimension keys Bedrock's prices vary along.
 const (
@@ -207,7 +228,7 @@ func (b *builder) applyRate(
 	if !ok {
 		return
 	}
-	m := b.model(id, kindFor(metric))
+	m := b.model(id, kindFor(metric, a.Model))
 	m.AddSource(source)
 	m.SetAttr(AttrAuthor, a.Provider)
 	m.SetAttr(AttrModel, a.Model)
@@ -282,10 +303,17 @@ func tierFor(inferenceType, feature string) string {
 	return ""
 }
 
-// kindFor reports what a model is from what it is billed on.
-func kindFor(metric catalog.Metric) catalog.Kind {
+// kindFor reports what a model is, from what it is billed on where that
+// settles it and from its name where it does not.
+func kindFor(metric catalog.Metric, model string) catalog.Kind {
 	if metric == MetricImageOutput {
 		return KindImage
+	}
+	lower := strings.ToLower(model)
+	for _, entry := range nameKinds {
+		if strings.Contains(lower, entry.fragment) {
+			return entry.kind
+		}
 	}
 	return KindChat
 }

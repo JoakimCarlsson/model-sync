@@ -1,6 +1,7 @@
 {
   "id": "sora-2-2025-10-06",
   "provider": "openai",
+  "kind": "video",
   "attrs": {
     "recommended_replacement": "---",
     "shutdown_date": "2026-09-24",

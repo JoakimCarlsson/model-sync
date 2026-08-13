@@ -1,6 +1,7 @@
 {
   "id": "gpt-4-32k-0314",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-4o",
     "shutdown_date": "2025-06-06",

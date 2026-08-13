@@ -126,7 +126,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		}
 	}
 	if m.Kind == "" {
-		m.Kind = kindFromEndpoints(m.Lists[ListEndpoints])
+		m.Kind = kindFor(m.ID, m.Lists[ListEndpoints])
 	}
 }
 
@@ -283,6 +283,39 @@ func hasMetric(m *catalog.Model, metric catalog.Metric) bool {
 		}
 	}
 	return false
+}
+
+// nameKinds map a fragment of an identifier onto what a model does, for the
+// models whose routes do not say. An audio model reached over the chat route
+// still works on audio.
+var nameKinds = []struct {
+	fragment string
+	kind     catalog.Kind
+}{
+	{"dall-e", KindImage},
+	{"image", KindImage},
+	{"sora", KindVideo},
+	{"moderation", KindModeration},
+	{"embedding", KindEmbedding},
+	{"whisper", KindTranscription},
+	{"transcribe", KindTranscription},
+	{"tts", KindAudio},
+	{"audio", KindAudio},
+}
+
+// kindFor settles what a model is, preferring the routes it serves and
+// falling back to its name.
+func kindFor(id string, endpoints []string) catalog.Kind {
+	if kind := kindFromEndpoints(endpoints); kind != KindChat {
+		return kind
+	}
+	lower := strings.ToLower(id)
+	for _, entry := range nameKinds {
+		if strings.Contains(lower, entry.fragment) {
+			return entry.kind
+		}
+	}
+	return KindChat
 }
 
 // kindFromEndpoints infers what a model is from the routes it serves, for

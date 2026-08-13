@@ -2,7 +2,7 @@
   "id": "deepseek-ocr",
   "provider": "vertexai",
   "name": "deepseek ocr",
-  "kind": "chat",
+  "kind": "ocr",
   "prices": [
     {
       "metric": "input_tokens",

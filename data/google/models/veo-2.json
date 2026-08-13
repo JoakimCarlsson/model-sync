@@ -1,7 +1,7 @@
 {
   "id": "veo-2",
   "provider": "google",
-  "kind": "chat",
+  "kind": "video",
   "prices": [
     {
       "metric": "video_output",

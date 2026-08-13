@@ -1,6 +1,7 @@
 {
   "id": "ft-davinci-002",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-5.6-terra",
     "shutdown_date": "2026-10-23",

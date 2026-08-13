@@ -1,7 +1,7 @@
 {
   "id": "gemini-3.1-flash-tts-preview",
   "provider": "google",
-  "kind": "chat",
+  "kind": "speech",
   "prices": [
     {
       "metric": "input_tokens",

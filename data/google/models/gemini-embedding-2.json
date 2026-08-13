@@ -1,7 +1,7 @@
 {
   "id": "gemini-embedding-2",
   "provider": "google",
-  "kind": "chat",
+  "kind": "embedding",
   "prices": [
     {
       "metric": "input_tokens",

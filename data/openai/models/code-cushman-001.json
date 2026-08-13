@@ -1,6 +1,7 @@
 {
   "id": "code-cushman-001",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-4o",
     "shutdown_date": "2023-03-23",

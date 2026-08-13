@@ -1,6 +1,7 @@
 {
   "id": "gpt-4-1106-vision-preview",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-4o",
     "shutdown_date": "2024-12-06",

@@ -1,7 +1,7 @@
 {
   "id": "nova-canvas",
   "provider": "bedrock",
-  "kind": "chat",
+  "kind": "image",
   "prices": [
     {
       "metric": "usage",

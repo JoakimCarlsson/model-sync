@@ -8,9 +8,38 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// KindChat is the kind recorded for every model, since the deprecation table
-// says nothing about modality.
-const KindChat catalog.Kind = "chat"
+// Kinds Mistral publishes. The deprecation table states no modality, so what
+// a model does is read from its name, which Mistral is consistent about:
+// Voxtral hears, Codestral writes code, and the rest say what they are.
+const (
+	KindChat          catalog.Kind = "chat"
+	KindTranscription catalog.Kind = "transcription"
+	KindEmbedding     catalog.Kind = "embedding"
+	KindModeration    catalog.Kind = "moderation"
+	KindOCR           catalog.Kind = "ocr"
+)
+
+// nameKinds map a fragment of a model's name onto what it does.
+var nameKinds = []struct {
+	fragment string
+	kind     catalog.Kind
+}{
+	{"voxtral", KindTranscription},
+	{"ocr", KindOCR},
+	{"moderation", KindModeration},
+	{"embed", KindEmbedding},
+}
+
+// kindFor reports what a model does, read from its identifier.
+func kindFor(id string) catalog.Kind {
+	lower := strings.ToLower(id)
+	for _, entry := range nameKinds {
+		if strings.Contains(lower, entry.fragment) {
+			return entry.kind
+		}
+	}
+	return KindChat
+}
 
 // StateRetired is the standing of everything in the table.
 const StateRetired = "retired"
@@ -60,7 +89,7 @@ func (b *builder) applyDeprecations(doc catalog.Document) {
 		if id == "" || strings.EqualFold(cells[colName], "model") {
 			continue
 		}
-		m := b.model(id, KindChat)
+		m := b.model(id, kindFor(id))
 		m.AddSource(doc.URL)
 		if m.Name == "" {
 			m.Name = cells[colName]

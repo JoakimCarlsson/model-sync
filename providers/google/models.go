@@ -31,8 +31,55 @@ const (
 // input, which Google states as separate rows on one table.
 const DimModality = "modality"
 
-// KindChat is the kind of everything on the Gemini pricing page.
-const KindChat catalog.Kind = "chat"
+// Kinds on the Gemini pricing page. It is not only chat: the same page prices
+// image and video generation, embeddings and speech.
+const (
+	KindChat      catalog.Kind = "chat"
+	KindImage     catalog.Kind = "image"
+	KindVideo     catalog.Kind = "video"
+	KindEmbedding catalog.Kind = "embedding"
+	KindSpeech    catalog.Kind = "speech"
+	KindAudio     catalog.Kind = "audio"
+)
+
+// nameKinds map a fragment of a model's name onto what it does, for the models
+// whose rates alone do not say. An embedding and a chat model are both charged
+// per input token.
+var nameKinds = []struct {
+	fragment string
+	kind     catalog.Kind
+}{
+	{"embedding", KindEmbedding},
+	{"tts", KindSpeech},
+	{"image", KindImage},
+	{"video", KindVideo},
+	{"audio", KindAudio},
+}
+
+// metricKinds map a rate onto what the model producing it does. A model
+// charged for image output makes images whatever its name suggests.
+var metricKinds = map[catalog.Metric]catalog.Kind{
+	MetricImageOutput: KindImage,
+	MetricVideoOutput: KindVideo,
+}
+
+// refineKind settles what a model is once a rate has been read for it. It only
+// ever replaces the chat default, so the first specific reading wins.
+func refineKind(m *catalog.Model, metric catalog.Metric) {
+	if m.Kind != "" && m.Kind != KindChat {
+		return
+	}
+	if kind, ok := metricKinds[metric]; ok {
+		m.Kind = kind
+		return
+	}
+	for _, entry := range nameKinds {
+		if strings.Contains(m.ID, entry.fragment) {
+			m.Kind = entry.kind
+			return
+		}
+	}
+}
 
 // Dimension keys Google's prices vary along. A rate needs both: the tier is
 // the serving path and the plan is what the account pays for.
@@ -219,6 +266,7 @@ func (b *builder) applyRow(
 			With(DimPlan, col.plan).
 			With(DimModality, modalityOf(label)).
 			With(DimVariant, variantOf(label))
+		refineKind(m, metric)
 		for _, r := range parseRates(cell) {
 			m.AddPrice(catalog.Price{
 				Metric:   metric,

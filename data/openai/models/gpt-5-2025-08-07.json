@@ -1,6 +1,7 @@
 {
   "id": "gpt-5-2025-08-07",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-5.6-sol",
     "shutdown_date": "2026-12-11",

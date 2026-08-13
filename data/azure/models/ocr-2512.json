@@ -1,7 +1,7 @@
 {
   "id": "ocr-2512",
   "provider": "azure",
-  "kind": "chat",
+  "kind": "ocr",
   "prices": [
     {
       "metric": "usage",

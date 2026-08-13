@@ -1,7 +1,7 @@
 {
   "id": "rerank-v4-fast",
   "provider": "azure",
-  "kind": "chat",
+  "kind": "rerank",
   "prices": [
     {
       "metric": "usage",

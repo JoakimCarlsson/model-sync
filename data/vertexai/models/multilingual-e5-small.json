@@ -2,7 +2,7 @@
   "id": "multilingual-e5-small",
   "provider": "vertexai",
   "name": "multilingual-e5-small",
-  "kind": "chat",
+  "kind": "embedding",
   "prices": [
     {
       "metric": "input_tokens",

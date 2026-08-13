@@ -1,6 +1,7 @@
 {
   "id": "gpt-4-0125-preview",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-5 or gpt-4.1*",
     "shutdown_date": "2026-03-26",

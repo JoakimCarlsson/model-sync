@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-realtime",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-realtime-2.1",
     "shutdown_date": "2027-01-20",

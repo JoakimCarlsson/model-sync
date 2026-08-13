@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-mini-transcribe-2025-03-20",
   "provider": "openai",
+  "kind": "transcription",
   "attrs": {
     "recommended_replacement": "gpt-4o-mini-transcribe-2025-12-15",
     "shutdown_date": "2027-01-20",

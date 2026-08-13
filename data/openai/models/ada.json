@@ -1,6 +1,7 @@
 {
   "id": "ada",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "babbage-002",
     "shutdown_date": "2024-01-04",

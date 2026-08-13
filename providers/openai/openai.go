@@ -63,7 +63,23 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			}
 		}
 	}
+	b.fillKinds()
 	return b.result(), nil
+}
+
+// fillKinds settles what the models left without one are.
+//
+// A model withdrawn before this catalog existed appears only in the
+// deprecations table, which lists an identifier and a date and nothing about
+// what the model did. Its name is the only evidence there is, and leaving the
+// kind empty would be read as a parsing gap rather than as the absence of a
+// model page.
+func (b *builder) fillKinds() {
+	for _, m := range b.models {
+		if m.Kind == "" {
+			m.Kind = kindFor(m.ID, m.Lists[ListEndpoints])
+		}
+	}
 }
 
 func isPricing(url string) bool { return strings.HasSuffix(url, "/pricing.md") }

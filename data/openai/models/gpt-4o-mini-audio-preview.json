@@ -2,7 +2,7 @@
   "id": "gpt-4o-mini-audio-preview",
   "provider": "openai",
   "name": "GPT-4o mini Audio",
-  "kind": "chat",
+  "kind": "audio",
   "prices": [
     {
       "metric": "input_tokens",

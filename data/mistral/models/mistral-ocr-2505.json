@@ -2,7 +2,7 @@
   "id": "mistral-ocr-2505",
   "provider": "mistral",
   "name": "OCR 2",
-  "kind": "chat",
+  "kind": "ocr",
   "attrs": {
     "deprecated_on": "2026-02-27",
     "recommended_replacement": "OCR 4",

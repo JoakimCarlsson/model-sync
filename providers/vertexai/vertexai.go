@@ -243,7 +243,7 @@ func (b *builder) applySKU(s sku, source string) {
 		return
 	}
 	id := slugID(read.model)
-	m := b.model(id, KindChat)
+	m := b.model(id, kindFor(read.model))
 	m.AddSource(source)
 	if m.Name == "" {
 		m.Name = read.model

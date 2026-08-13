@@ -1,7 +1,7 @@
 {
   "id": "mistral/voxtral-mini-1.0",
   "provider": "bedrock",
-  "kind": "chat",
+  "kind": "transcription",
   "prices": [
     {
       "metric": "input_tokens",

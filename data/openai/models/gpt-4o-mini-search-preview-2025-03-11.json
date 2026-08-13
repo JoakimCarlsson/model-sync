@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-mini-search-preview-2025-03-11",
   "provider": "openai",
+  "kind": "chat",
   "attrs": {
     "recommended_replacement": "gpt-5.6-terra",
     "shutdown_date": "2026-07-23",
