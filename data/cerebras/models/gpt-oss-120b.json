@@ -1,0 +1,19 @@
+{
+  "id": "gpt-oss-120b",
+  "provider": "cerebras",
+  "name": "OpenAI GPT OSS",
+  "kind": "chat",
+  "attrs": {
+    "model_url": "/models/openai-oss",
+    "parameters": "120 billion",
+    "state": "production",
+    "tokens_per_second": "~3000"
+  },
+  "limits": {
+    "context_window": 131000,
+    "context_window_free": 65000
+  },
+  "sources": [
+    "https://inference-docs.cerebras.ai/models/overview.md"
+  ]
+}

@@ -10,6 +10,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 	"github.com/joakimcarlsson/model-sync/providers/anthropic"
 	"github.com/joakimcarlsson/model-sync/providers/assemblyai"
+	"github.com/joakimcarlsson/model-sync/providers/cerebras"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
@@ -61,12 +62,15 @@ func run(data, api, cache string, timeout time.Duration) error {
 	assemblyaiSource.CacheDir = cache
 	perplexitySource := perplexity.New()
 	perplexitySource.CacheDir = cache
+	cerebrasSource := cerebras.New()
+	cerebrasSource.CacheDir = cache
 	fireworksSource := fireworks.New()
 	fireworksSource.CacheDir = cache
 	groqSource := groq.New()
 	groqSource.CacheDir = cache
 	sources := []catalog.Source{
 		assemblyaiSource,
+		cerebrasSource,
 		fireworksSource,
 		groqSource,
 		perplexitySource,
