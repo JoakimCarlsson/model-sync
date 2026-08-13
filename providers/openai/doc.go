@@ -18,7 +18,18 @@
 //   - the guides, whose per-image dollar tables are raw JSX with rowSpan and
 //     are invisible to a markdown table reader.
 //
-// What OpenAI does not publish: a display name for a snapshot or a withdrawn
+// Two models are priced only by reference. Daybreak Blue and Daybreak Red are
+// aliases pointing at whichever frontier model the program has reached, and the
+// rate table leaves their rows out, saying in a sentence beside it that an
+// alias is priced as its target. Their rates are therefore taken from the
+// snapshot their page names, with a note recording that they were.
+//
+// What OpenAI does not publish: a rate for gpt-5.4-cyber, whose row in the rate
+// table is a line of dashes, or for either open-weight gpt-oss model, which the
+// tables leave out entirely. Those three are served and documented and carry no
+// price for that reason.
+//
+// Nor does OpenAI publish a display name for a snapshot or a withdrawn
 // model. Every model it currently sells is named on a page of its own, and the
 // dated snapshots of those models and the models it has retired appear only in
 // the deprecation table, which lists identifiers and dates and no names. That

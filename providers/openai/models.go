@@ -26,6 +26,10 @@ const (
 	AttrDefaultSnapshot = "default_snapshot"
 )
 
+// notePricedAs opens the note recording that a rate was stated for the model
+// an alias points at rather than for the alias itself.
+const notePricedAs = "priced as "
+
 // Numeric keys the model pages populate. Rate limits are suffixed with the
 // usage tier they apply to, as in rpm_tier_1.
 const (

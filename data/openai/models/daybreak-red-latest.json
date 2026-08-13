@@ -3,6 +3,48 @@
   "provider": "openai",
   "name": "Daybreak Red",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15.625,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    }
+  ],
   "attrs": {
     "default_snapshot": "gpt-5.6-cyber",
     "knowledge_cutoff": "2026-02-16",
@@ -65,7 +107,12 @@
       "web_search"
     ]
   },
+  "notes": [
+    "priced as gpt-5.6-cyber"
+  ],
   "sources": [
-    "https://developers.openai.com/api/docs/models/daybreak-red-latest.md"
+    "https://developers.openai.com/api/docs/models/daybreak-red-latest.md",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-cyber.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

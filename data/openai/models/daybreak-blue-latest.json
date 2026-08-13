@@ -3,6 +3,328 @@
   "provider": "openai",
   "name": "Daybreak Blue",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.125,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.125,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 20,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 90,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "fast"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "context": "short",
+        "tier": "standard"
+      }
+    }
+  ],
   "attrs": {
     "default_snapshot": "gpt-5.6-sol",
     "knowledge_cutoff": "2026-02-16",
@@ -65,7 +387,12 @@
       "web_search"
     ]
   },
+  "notes": [
+    "priced as gpt-5.6-sol"
+  ],
   "sources": [
-    "https://developers.openai.com/api/docs/models/daybreak-blue-latest.md"
+    "https://developers.openai.com/api/docs/models/daybreak-blue-latest.md",
+    "https://developers.openai.com/api/docs/models/gpt-5.6-sol.md",
+    "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

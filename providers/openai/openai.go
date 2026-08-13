@@ -64,7 +64,35 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	b.fillKinds()
+	b.applyAliasRates()
 	return b.result(), nil
+}
+
+// applyAliasRates prices an alias from the model it points at.
+//
+// OpenAI sells two models under names that are aliases rather than models:
+// Daybreak Blue and Daybreak Red point at whichever frontier model the program
+// has reached, and the pricing page states their rates only as a sentence
+// saying the alias is priced as its target. The rate table leaves their rows
+// out entirely, so without this they read as free. The target is the snapshot
+// the model page already names, and the borrowing is recorded as a note so a
+// reader is not left thinking the table stated it.
+func (b *builder) applyAliasRates() {
+	for _, id := range b.order {
+		m := b.models[id]
+		target, ok := b.models[m.Attrs[AttrDefaultSnapshot]]
+		if len(m.Prices) > 0 || !ok || target.ID == id ||
+			len(target.Prices) == 0 {
+			continue
+		}
+		for _, price := range target.Prices {
+			m.AddPrice(price)
+		}
+		m.AddNote(notePricedAs + target.ID)
+		for _, source := range target.Sources {
+			m.AddSource(source)
+		}
+	}
 }
 
 // fillKinds settles what the models left without one are.
