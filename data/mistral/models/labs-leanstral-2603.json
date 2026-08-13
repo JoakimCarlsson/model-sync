@@ -1,0 +1,16 @@
+{
+  "id": "labs-leanstral-2603",
+  "provider": "mistral",
+  "name": "Leanstral",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-05-22",
+    "recommended_replacement": "Leanstral 1.5",
+    "retirement_date": "2026-06-30",
+    "state": "retired",
+    "version": "26.03"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

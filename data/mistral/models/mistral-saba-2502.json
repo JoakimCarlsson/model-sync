@@ -1,0 +1,16 @@
+{
+  "id": "mistral-saba-2502",
+  "provider": "mistral",
+  "name": "Mistral Saba",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-06-10",
+    "recommended_replacement": "Mistral Small 4",
+    "retirement_date": "2025-09-30",
+    "state": "retired",
+    "version": "25.02"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "codestral-2501",
+  "provider": "mistral",
+  "name": "Codestral",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-11-06",
+    "recommended_replacement": "Codestral",
+    "retirement_date": "2025-11-30",
+    "state": "retired",
+    "version": "25.01"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

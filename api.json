@@ -84814,6 +84814,652 @@
       ]
     },
     {
+      "id": "mistral",
+      "name": "Mistral AI",
+      "models": [
+        {
+          "id": "codestral-2405",
+          "provider": "mistral",
+          "name": "Codestral",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-12-02",
+            "recommended_replacement": "Codestral",
+            "retirement_date": "2025-06-16",
+            "state": "retired",
+            "version": "24.05"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "codestral-2501",
+          "provider": "mistral",
+          "name": "Codestral",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-11-06",
+            "recommended_replacement": "Codestral",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.01"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "devstral-2512",
+          "provider": "mistral",
+          "name": "Devstral 2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-07-31",
+            "state": "retired",
+            "version": "25.12"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "devstral-medium-2507",
+          "provider": "mistral",
+          "name": "Devstral Medium 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "25.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "devstral-small-2505",
+          "provider": "mistral",
+          "name": "Devstral Small 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-10-31",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.05"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "devstral-small-2507",
+          "provider": "mistral",
+          "name": "Devstral Small 1.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "25.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "labs-devstral-small-2512",
+          "provider": "mistral",
+          "name": "Devstral Small 2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-03-31",
+            "state": "retired",
+            "version": "25.12"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "labs-leanstral-2603",
+          "provider": "mistral",
+          "name": "Leanstral",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Leanstral 1.5",
+            "retirement_date": "2026-06-30",
+            "state": "retired",
+            "version": "26.03"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "labs-mistral-small-creative",
+          "provider": "mistral",
+          "name": "Mistral Small Creative",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-03-31",
+            "recommended_replacement": "Ministral 3 8B",
+            "retirement_date": "2026-04-30",
+            "state": "retired",
+            "version": "25.12"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-medium-2506",
+          "provider": "mistral",
+          "name": "Magistral Medium 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-10-31",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.06"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-medium-2507",
+          "provider": "mistral",
+          "name": "Magistral Medium 1.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-10-31",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-medium-2509",
+          "provider": "mistral",
+          "name": "Magistral Medium 1.2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-07-31",
+            "state": "retired",
+            "version": "25.09"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-small-2506",
+          "provider": "mistral",
+          "name": "Magistral Small 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-10-31",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.06"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-small-2507",
+          "provider": "mistral",
+          "name": "Magistral Small 1.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-10-31",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "magistral-small-2509",
+          "provider": "mistral",
+          "name": "Magistral Small 1.2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-04-30",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2026-07-31",
+            "state": "retired",
+            "version": "25.09"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "ministral-3b-2410",
+          "provider": "mistral",
+          "name": "Ministral 3B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-12-02",
+            "recommended_replacement": "Ministral 3 3B",
+            "retirement_date": "2025-12-31",
+            "state": "retired",
+            "version": "24.1"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "ministral-8b-2410",
+          "provider": "mistral",
+          "name": "Ministral 8B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-12-02",
+            "recommended_replacement": "Ministral 3 8B",
+            "retirement_date": "2025-12-31",
+            "state": "retired",
+            "version": "24.1"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-large-2402",
+          "provider": "mistral",
+          "name": "Mistral Large 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Large 3",
+            "retirement_date": "2025-06-16",
+            "state": "retired",
+            "version": "24.02"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-large-2407",
+          "provider": "mistral",
+          "name": "Mistral Large 2.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Large 3",
+            "retirement_date": "2025-03-30",
+            "state": "retired",
+            "version": "24.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-large-2411",
+          "provider": "mistral",
+          "name": "Mistral Large 2.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "24.11"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-medium-2312",
+          "provider": "mistral",
+          "name": "Mistral Medium 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2025-06-16",
+            "state": "retired",
+            "version": "23.12"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-medium-2505",
+          "provider": "mistral",
+          "name": "Mistral Medium 3",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-08-31",
+            "state": "retired",
+            "version": "25.05"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-medium-2508",
+          "provider": "mistral",
+          "name": "Mistral Medium 3.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-08-31",
+            "state": "retired",
+            "version": "25.08"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-moderation-2411",
+          "provider": "mistral",
+          "name": "Mistral Moderation",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-03-31",
+            "recommended_replacement": "Mistral Moderation 2",
+            "retirement_date": "2026-06-30",
+            "state": "retired",
+            "version": "24.11"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-ocr-2503",
+          "provider": "mistral",
+          "name": "OCR",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-12-02",
+            "recommended_replacement": "OCR 4",
+            "retirement_date": "2025-12-31",
+            "state": "retired",
+            "version": "25.03"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-ocr-2505",
+          "provider": "mistral",
+          "name": "OCR 2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "OCR 4",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "25.05"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-saba-2502",
+          "provider": "mistral",
+          "name": "Mistral Saba",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-06-10",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-09-30",
+            "state": "retired",
+            "version": "25.02"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-small-2402",
+          "provider": "mistral",
+          "name": "Mistral Small 1.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-06-16",
+            "state": "retired",
+            "version": "24.02"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-small-2409",
+          "provider": "mistral",
+          "name": "Mistral Small 2.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-11-06",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "24.09"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-small-2501",
+          "provider": "mistral",
+          "name": "Mistral Small 3.0",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-11-06",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.01"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-small-2503",
+          "provider": "mistral",
+          "name": "Mistral Small 3.1",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-11-06",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-11-30",
+            "state": "retired",
+            "version": "25.03"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "mistral-small-2506",
+          "provider": "mistral",
+          "name": "Mistral Small 3.2",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-04-30",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2026-07-31",
+            "state": "retired",
+            "version": "25.06"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "open-codestral-mamba",
+          "provider": "mistral",
+          "name": "Codestral Mamba 7B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-06-06",
+            "recommended_replacement": "Codestral",
+            "retirement_date": "2025-06-06",
+            "state": "retired",
+            "version": "0.1"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "open-mistral-7b",
+          "provider": "mistral",
+          "name": "Mistral 7B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Ministral 3 8B",
+            "retirement_date": "2025-03-30",
+            "state": "retired",
+            "version": "0.3"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "open-mistral-nemo-2407",
+          "provider": "mistral",
+          "name": "Mistral Nemo 12B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-05-22",
+            "recommended_replacement": "Ministral 3 8B",
+            "retirement_date": "2026-07-31",
+            "state": "retired",
+            "version": "24.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "open-mixtral-8x22b",
+          "provider": "mistral",
+          "name": "Mixtral 8x22B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-03-30",
+            "state": "retired",
+            "version": "0.1-0.3"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "open-mixtral-8x7b",
+          "provider": "mistral",
+          "name": "Mixtral 8x7B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2024-11-30",
+            "recommended_replacement": "Mistral Small 4",
+            "retirement_date": "2025-03-30",
+            "state": "retired",
+            "version": "0.1"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "pixtral-12b-2409",
+          "provider": "mistral",
+          "name": "Pixtral 12B",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2025-12-02",
+            "recommended_replacement": "Ministral 3 14B",
+            "retirement_date": "2025-12-31",
+            "state": "retired",
+            "version": "24.09"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "pixtral-large-2411",
+          "provider": "mistral",
+          "name": "Pixtral Large",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Mistral Medium 3.5",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "24.11"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        },
+        {
+          "id": "voxtral-mini-2507",
+          "provider": "mistral",
+          "name": "Voxtral Mini Transcribe",
+          "kind": "chat",
+          "attrs": {
+            "deprecated_on": "2026-02-27",
+            "recommended_replacement": "Voxtral Mini Transcribe 2",
+            "retirement_date": "2026-05-31",
+            "state": "retired",
+            "version": "25.07"
+          },
+          "sources": [
+            "https://docs.mistral.ai/models"
+          ]
+        }
+      ]
+    },
+    {
       "id": "ollama",
       "name": "Ollama",
       "models": [

@@ -1,0 +1,16 @@
+{
+  "id": "labs-mistral-small-creative",
+  "provider": "mistral",
+  "name": "Mistral Small Creative",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-03-31",
+    "recommended_replacement": "Ministral 3 8B",
+    "retirement_date": "2026-04-30",
+    "state": "retired",
+    "version": "25.12"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "open-mistral-7b",
+  "provider": "mistral",
+  "name": "Mistral 7B",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2024-11-30",
+    "recommended_replacement": "Ministral 3 8B",
+    "retirement_date": "2025-03-30",
+    "state": "retired",
+    "version": "0.3"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

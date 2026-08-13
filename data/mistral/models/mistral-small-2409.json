@@ -1,0 +1,16 @@
+{
+  "id": "mistral-small-2409",
+  "provider": "mistral",
+  "name": "Mistral Small 2.0",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-11-06",
+    "recommended_replacement": "Mistral Small 4",
+    "retirement_date": "2025-11-30",
+    "state": "retired",
+    "version": "24.09"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

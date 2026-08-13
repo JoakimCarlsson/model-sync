@@ -1,0 +1,16 @@
+{
+  "id": "voxtral-mini-2507",
+  "provider": "mistral",
+  "name": "Voxtral Mini Transcribe",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-02-27",
+    "recommended_replacement": "Voxtral Mini Transcribe 2",
+    "retirement_date": "2026-05-31",
+    "state": "retired",
+    "version": "25.07"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

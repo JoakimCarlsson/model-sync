@@ -1,0 +1,16 @@
+{
+  "id": "open-mistral-nemo-2407",
+  "provider": "mistral",
+  "name": "Mistral Nemo 12B",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-05-22",
+    "recommended_replacement": "Ministral 3 8B",
+    "retirement_date": "2026-07-31",
+    "state": "retired",
+    "version": "24.07"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "open-codestral-mamba",
+  "provider": "mistral",
+  "name": "Codestral Mamba 7B",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-06-06",
+    "recommended_replacement": "Codestral",
+    "retirement_date": "2025-06-06",
+    "state": "retired",
+    "version": "0.1"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "open-mixtral-8x22b",
+  "provider": "mistral",
+  "name": "Mixtral 8x22B",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2024-11-30",
+    "recommended_replacement": "Mistral Small 4",
+    "retirement_date": "2025-03-30",
+    "state": "retired",
+    "version": "0.1-0.3"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

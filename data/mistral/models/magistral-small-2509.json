@@ -1,0 +1,16 @@
+{
+  "id": "magistral-small-2509",
+  "provider": "mistral",
+  "name": "Magistral Small 1.2",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-04-30",
+    "recommended_replacement": "Mistral Small 4",
+    "retirement_date": "2026-07-31",
+    "state": "retired",
+    "version": "25.09"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

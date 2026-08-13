@@ -1,0 +1,16 @@
+{
+  "id": "devstral-small-2505",
+  "provider": "mistral",
+  "name": "Devstral Small 1.0",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-10-31",
+    "recommended_replacement": "Mistral Medium 3.5",
+    "retirement_date": "2025-11-30",
+    "state": "retired",
+    "version": "25.05"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

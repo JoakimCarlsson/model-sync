@@ -1,0 +1,16 @@
+{
+  "id": "pixtral-large-2411",
+  "provider": "mistral",
+  "name": "Pixtral Large",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2026-02-27",
+    "recommended_replacement": "Mistral Medium 3.5",
+    "retirement_date": "2026-05-31",
+    "state": "retired",
+    "version": "24.11"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

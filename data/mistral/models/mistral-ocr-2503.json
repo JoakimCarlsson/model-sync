@@ -1,0 +1,16 @@
+{
+  "id": "mistral-ocr-2503",
+  "provider": "mistral",
+  "name": "OCR",
+  "kind": "chat",
+  "attrs": {
+    "deprecated_on": "2025-12-02",
+    "recommended_replacement": "OCR 4",
+    "retirement_date": "2025-12-31",
+    "state": "retired",
+    "version": "25.03"
+  },
+  "sources": [
+    "https://docs.mistral.ai/models"
+  ]
+}

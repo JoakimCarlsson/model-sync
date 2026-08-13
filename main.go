@@ -20,6 +20,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
 	"github.com/joakimcarlsson/model-sync/providers/google"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
+	"github.com/joakimcarlsson/model-sync/providers/mistral"
 	"github.com/joakimcarlsson/model-sync/providers/ollama"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
 	"github.com/joakimcarlsson/model-sync/providers/openrouter"
@@ -54,6 +55,8 @@ func main() {
 // run syncs every source into the data tree, then rebuilds the aggregate from
 // the tree so that providers not synced by this run survive in it.
 func run(data, api, cache string, timeout time.Duration) error {
+	mistralSource := mistral.New()
+	mistralSource.CacheDir = cache
 	ollamaSource := ollama.New()
 	ollamaSource.CacheDir = cache
 	openaiSource := openai.New()
@@ -105,6 +108,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 		googleSource,
 		groqSource,
 		perplexitySource,
+		mistralSource,
 		ollamaSource,
 		openaiSource,
 		anthropicSource,
