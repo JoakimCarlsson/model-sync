@@ -67,11 +67,14 @@
 //     anywhere else Cohere publishes. The card headed Command A+ quotes nothing
 //     but zero for an API key and a model download, which is the open weight
 //     licence rather than a rate, and is not read as one.
-//   - Anything at all about a nightly build beyond its existence. The two
-//     nightly Command models appear only in the table of platform identifiers,
-//     which has no column for a context length, an output ceiling or a
-//     modality, so they carry none of the three. Cohere documents them nowhere
-//     else.
+//   - Anything at all about a model that survives only in a table of platform
+//     identifiers. Those tables list which identifier a model answers to on
+//     Bedrock, SageMaker, Azure and Oracle, and have no column for a context
+//     length, an output ceiling, a modality or a vector width. The two nightly
+//     Command builds are in that position, and so are the three second
+//     generation embedders, which is why those three state no width while the
+//     third and fourth generation ones do. Cohere documents none of the five
+//     anywhere else.
 //   - A capability list against a model. Neither the overview nor the pricing
 //     page has a capability column, and a model's own page describes what it
 //     can do in paragraphs rather than enumerating it. The two guides above are
