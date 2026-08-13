@@ -41,7 +41,6 @@
       "v1/responses"
     ],
     "features": [
-      "image_input",
       "predicted_outputs",
       "streaming"
     ],

@@ -50,7 +50,6 @@
     "features": [
       "evals",
       "file_uploads",
-      "image_input",
       "prompt_caching",
       "reasoning",
       "stored_completions",

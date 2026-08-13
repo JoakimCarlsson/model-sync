@@ -42,7 +42,6 @@
     ],
     "features": [
       "function_calling",
-      "image_input",
       "streaming"
     ],
     "input_modalities": [

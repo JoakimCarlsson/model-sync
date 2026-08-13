@@ -136,7 +136,6 @@
       "file_search",
       "file_uploads",
       "function_calling",
-      "image_input",
       "prompt_caching",
       "reasoning",
       "stored_completions",

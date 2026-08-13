@@ -138,7 +138,6 @@
       "file_uploads",
       "fine_tuning",
       "function_calling",
-      "image_input",
       "prompt_caching",
       "reasoning",
       "stored_completions",

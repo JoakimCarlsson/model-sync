@@ -115,7 +115,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 			case "model details":
 				applyDetail(m, bullet)
 			case "supported features":
-				m.AddList(ListFeatures, cleanToken(bullet))
+				applyFeature(m, cleanToken(bullet))
 			case "supported tools":
 				m.AddList(ListTools, cleanToken(bullet))
 			case "snapshots":
@@ -137,6 +137,23 @@ func pageID(url, body string) string {
 	}
 	base := url[strings.LastIndex(url, "/")+1:]
 	return strings.TrimSuffix(base, ".md")
+}
+
+// featureModalities map a listed feature onto the modality it really names.
+// OpenAI lists image input among a model's features and again among its input
+// modalities, and only the second is the form the rest of the catalog states
+// it in, so the feature is recorded there instead of twice.
+var featureModalities = map[string]string{
+	"image_input": "image",
+}
+
+// applyFeature records one bullet of the supported features list.
+func applyFeature(m *catalog.Model, feature string) {
+	if modality, ok := featureModalities[feature]; ok {
+		m.AddList(ListInputModalities, modality)
+		return
+	}
+	m.AddList(ListFeatures, feature)
 }
 
 // applyDetail reads one bullet from the Model details list. OpenAI writes

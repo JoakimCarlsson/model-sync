@@ -51,7 +51,6 @@
     ],
     "features": [
       "function_calling",
-      "image_input",
       "prompt_caching",
       "reasoning",
       "streaming",

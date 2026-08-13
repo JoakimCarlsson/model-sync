@@ -54,7 +54,6 @@
     "features": [
       "evals",
       "function_calling",
-      "image_input",
       "prompt_caching",
       "streaming",
       "structured_outputs",

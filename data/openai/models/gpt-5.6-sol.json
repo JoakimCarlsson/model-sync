@@ -360,7 +360,6 @@
     "features": [
       "file_search",
       "function_calling",
-      "image_input",
       "prompt_caching",
       "reasoning",
       "streaming",

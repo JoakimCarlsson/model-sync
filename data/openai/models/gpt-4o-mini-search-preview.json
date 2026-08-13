@@ -38,11 +38,11 @@
       "v1/chat/completions"
     ],
     "features": [
-      "image_input",
       "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [

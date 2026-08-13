@@ -44,7 +44,14 @@ const AttrModelCard = "model_card_url"
 var featureNames = map[string]string{
 	"tool calling":          "function_calling",
 	"parallel tool calling": "parallel_tool_calls",
-	"image inputs":          "image_input",
+}
+
+// capabilityModalities map a capability that names a modality onto the
+// modality it names. A model listed for image inputs takes an image, which is
+// what the formats it declares already say and what every provider stating
+// modalities calls it.
+var capabilityModalities = map[string]string{
+	"image inputs": "image",
 }
 
 // Patterns over the model information block. Each page ends with one call
@@ -91,6 +98,11 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	)
 	applyPricing(m, props["pricing"])
 	for _, name := range listRe.FindAllStringSubmatch(props["features"], -1) {
+		key := strings.ToLower(strings.TrimSpace(name[1]))
+		if modality, ok := capabilityModalities[key]; ok {
+			m.AddList(ListInputModalities, modality)
+			continue
+		}
 		m.AddList(ListFeatures, featureName(name[1]))
 	}
 	for _, name := range listRe.FindAllStringSubmatch(props["endpoints"], -1) {

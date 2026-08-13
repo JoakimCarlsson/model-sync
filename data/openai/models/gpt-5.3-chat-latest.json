@@ -52,7 +52,6 @@
     ],
     "features": [
       "function_calling",
-      "image_input",
       "streaming",
       "structured_outputs"
     ],

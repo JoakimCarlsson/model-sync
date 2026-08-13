@@ -76,7 +76,6 @@
       "file_search",
       "file_uploads",
       "function_calling",
-      "image_input",
       "reasoning",
       "streaming",
       "structured_outputs"

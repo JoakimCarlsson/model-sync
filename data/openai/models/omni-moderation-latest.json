@@ -24,9 +24,6 @@
       "v1/batch",
       "v1/moderations"
     ],
-    "features": [
-      "image_input"
-    ],
     "input_modalities": [
       "image",
       "text"

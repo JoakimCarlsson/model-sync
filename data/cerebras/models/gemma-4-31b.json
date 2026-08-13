@@ -37,7 +37,6 @@
     ],
     "features": [
       "function_calling",
-      "image_input",
       "parallel_tool_calls",
       "prompt_caching",
       "reasoning",

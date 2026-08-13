@@ -124,7 +124,6 @@
       "file_uploads",
       "fine_tuning",
       "function_calling",
-      "image_input",
       "predicted_outputs",
       "streaming",
       "structured_outputs",

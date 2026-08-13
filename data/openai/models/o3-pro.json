@@ -62,7 +62,6 @@
     ],
     "features": [
       "function_calling",
-      "image_input",
       "reasoning",
       "structured_outputs"
     ],
