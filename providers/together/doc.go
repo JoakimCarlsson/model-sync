@@ -20,8 +20,11 @@
 // also takes images — every one of them is in the chat table too — so the two
 // readings are merged rather than one replacing the other. The audio table is
 // the only one whose models run in two directions, and it has a column saying
-// which. An embedding model returns a vector and a reranker returns a score, so
-// neither states an output modality.
+// which. An embedding model and a reranker are recorded as working in text on
+// both sides, which names the medium and not the return value: one answers with
+// a vector and the other with a set of scores, and the catalog has a word for
+// neither. Both sides are always set together, since a consumer reading one
+// alone cannot tell an unstated output from a model that returns nothing.
 //
 // What Together does not publish: a bound on output length, for any model. Its
 // tables state a context length and nothing else about how much a model may

@@ -90,8 +90,11 @@ type flow struct {
 // that also takes images, which is why the two are merged rather than one
 // overriding the other.
 //
-// An embedding model returns a vector rather than a modality, and a reranker
-// returns a score, so neither states an output.
+// An embedding model returns a vector and a reranker a set of scores, and the
+// catalog has a word for neither, so both are recorded as working in text on
+// both sides. That names the medium rather than the return value, and it keeps
+// the two sides together: a consumer reading one alone cannot tell an unstated
+// output from a model that returns nothing.
 var sectionFlows = map[string]flow{
 	"chat models": {
 		In:  []string{ModalityText},
@@ -109,8 +112,14 @@ var sectionFlows = map[string]flow{
 		In:  []string{ModalityText},
 		Out: []string{ModalityVideo},
 	},
-	"embedding models": {In: []string{ModalityText}},
-	"rerank models":    {In: []string{ModalityText}},
+	"embedding models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityText},
+	},
+	"rerank models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityText},
+	},
 	"moderation models": {
 		In:  []string{ModalityText},
 		Out: []string{ModalityText},
