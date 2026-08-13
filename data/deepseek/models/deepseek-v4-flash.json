@@ -1,0 +1,46 @@
+{
+  "id": "deepseek-v4-flash",
+  "provider": "deepseek",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0028,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "model_version": "DeepSeek-V4-Flash-0731",
+    "thinking_mode": "Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch"
+  },
+  "limits": {
+    "concurrency_limit": 2500,
+    "context_window": 1000000,
+    "max_output_tokens": 384000
+  },
+  "lists": {
+    "features": [
+      "anthropic api",
+      "chat prefix completion（beta）",
+      "json output",
+      "responses api",
+      "tool calls"
+    ]
+  },
+  "sources": [
+    "https://api-docs.deepseek.com/quick_start/pricing"
+  ]
+}

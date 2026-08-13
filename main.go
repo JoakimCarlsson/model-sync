@@ -13,6 +13,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/cerebras"
 	"github.com/joakimcarlsson/model-sync/providers/cohere"
 	"github.com/joakimcarlsson/model-sync/providers/deepgram"
+	"github.com/joakimcarlsson/model-sync/providers/deepseek"
 	"github.com/joakimcarlsson/model-sync/providers/elevenlabs"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
@@ -71,6 +72,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	cohereSource.CacheDir = cache
 	deepgramSource := deepgram.New()
 	deepgramSource.CacheDir = cache
+	deepseekSource := deepseek.New()
+	deepseekSource.CacheDir = cache
 	elevenlabsSource := elevenlabs.New()
 	elevenlabsSource.CacheDir = cache
 	fireworksSource := fireworks.New()
@@ -82,6 +85,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 		cerebrasSource,
 		cohereSource,
 		deepgramSource,
+		deepseekSource,
 		elevenlabsSource,
 		fireworksSource,
 		groqSource,
