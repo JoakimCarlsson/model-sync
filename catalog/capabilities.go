@@ -38,3 +38,30 @@ const (
 	// consumer asking how far does not have to guess.
 	CapabilityJSONMode = "json_mode"
 )
+
+// Capabilities of a model that listens. They are here for the same reason as
+// the three above: more than one provider states them, none of them states
+// them as a name, and two packages inventing a name each is how a catalog ends
+// up with two words for diarization.
+const (
+	// CapabilityDiarization is set where the model tells speakers apart.
+	CapabilityDiarization = "speaker_diarization"
+	// CapabilityKeyterms is set where the caller may supply terms to bias the
+	// transcription towards.
+	CapabilityKeyterms = "keyterm_prompting"
+	// CapabilityWordTimestamps is set where each word is timed, not just each
+	// segment.
+	CapabilityWordTimestamps = "word_timestamps"
+	// CapabilityRealtime is set where the model transcribes a live connection
+	// rather than a finished recording.
+	CapabilityRealtime = "realtime"
+	// CapabilityLanguageDetection is set where the model identifies the
+	// language rather than being told it.
+	CapabilityLanguageDetection = "language_detection"
+	// CapabilityCodeSwitching is set where the model follows a speaker who
+	// changes language mid-utterance.
+	CapabilityCodeSwitching = "code_switching"
+	// CapabilityEntityDetection is set where the model labels entities in what
+	// it transcribes.
+	CapabilityEntityDetection = "entity_detection"
+)

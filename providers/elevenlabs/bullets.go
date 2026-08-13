@@ -27,16 +27,20 @@ const (
 // rounding that away would state a precision it did not.
 const AttrLatency = "latency"
 
-// Capabilities a card's bullets name.
+// Capabilities a card's bullets name. All but the last are shared with the
+// other provider that sells transcription, so they are the catalog's names for
+// them rather than names invented here.
 const (
-	FeatureDiarization   = "speaker_diarization"
-	FeatureKeyterms      = "keyterm_prompting"
-	FeatureEntities      = "entity_detection"
-	FeatureTimestamps    = "word_timestamps"
-	FeatureRealtime      = "realtime"
-	FeatureLangDetection = "language_detection"
-	FeatureCodeSwitching = "code_switching"
-	FeatureDialogue      = "multi_speaker_dialogue"
+	FeatureDiarization   = catalog.CapabilityDiarization
+	FeatureKeyterms      = catalog.CapabilityKeyterms
+	FeatureEntities      = catalog.CapabilityEntityDetection
+	FeatureTimestamps    = catalog.CapabilityWordTimestamps
+	FeatureRealtime      = catalog.CapabilityRealtime
+	FeatureLangDetection = catalog.CapabilityLanguageDetection
+	FeatureCodeSwitching = catalog.CapabilityCodeSwitching
+	// FeatureDialogue is ElevenLabs' own: it is a speech model writing several
+	// voices into one performance, which no transcription model does.
+	FeatureDialogue = "multi_speaker_dialogue"
 )
 
 // bulletRules read one card bullet.
