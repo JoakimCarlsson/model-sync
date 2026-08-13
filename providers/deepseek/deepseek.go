@@ -22,7 +22,12 @@ const (
 )
 
 // PricingURL is the page stating DeepSeek's models and rates.
-const PricingURL = "https://api-docs.deepseek.com/quick_start/pricing"
+//
+// The trailing slash is load bearing. Without it the site answers with its home
+// page, the guide to a first API call, at a 200 and with no redirect, so the
+// fetch succeeds and the document carries one table of base URLs and no model.
+// That is indistinguishable from a parser failure except by reading the page.
+const PricingURL = "https://api-docs.deepseek.com/quick_start/pricing/"
 
 // cacheFile is where a fetched document is kept.
 const cacheFile = "deepseek_pricing.html"
