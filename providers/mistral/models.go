@@ -179,6 +179,30 @@ func applyModalities(m *catalog.Model, body string) {
 		}
 		m.AddList(key, name)
 	}
+	closeModalities(m)
+}
+
+// unstatedOutputs name what a model gives back for the kinds whose pages state
+// an input and stop. An embedding model answers with a vector and a moderation
+// model with a set of category scores; neither is a modality, and what both
+// work in is text.
+var unstatedOutputs = map[catalog.Kind][]string{
+	KindEmbedding:  {"text"},
+	KindModeration: {"text"},
+}
+
+// closeModalities records the side a model's page leaves out.
+//
+// Mistral labels the modalities on a page as inputs and outputs, so what it
+// states is read directly and this fills only what no page states. Recording
+// one side alone leaves a consumer unable to tell an unstated output from a
+// model that returns nothing, which is why the two go together.
+func closeModalities(m *catalog.Model) {
+	if len(m.Lists[ListInputModalities]) == 0 ||
+		len(m.Lists[ListOutputModalities]) > 0 {
+		return
+	}
+	m.AddList(ListOutputModalities, unstatedOutputs[m.Kind]...)
 }
 
 // applyPrices records the rate card.

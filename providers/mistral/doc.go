@@ -24,6 +24,14 @@
 // identifier are one model: Mistral documents Voxtral Mini twice, once for
 // chat and once for transcription, and both describe one served model.
 //
+// A model page labels its modalities as inputs and outputs, so both sides are
+// read as stated. The embedding and moderation pages label an input and stop,
+// and those models are recorded as returning text: that is the medium they work
+// in, not the return value, which is a vector for one and a set of category
+// scores for the other. The two sides are never set apart, because a consumer
+// reading one alone cannot tell an unstated output from a model that returns
+// nothing.
+//
 // What Mistral does not publish:
 //
 //   - A rate for a deprecated model. The price card is removed from the page
