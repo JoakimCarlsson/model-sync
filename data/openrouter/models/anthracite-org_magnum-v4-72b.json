@@ -28,9 +28,9 @@
     "tokenizer": "Qwen"
   },
   "limits": {
-    "context_window": 16384,
-    "max_output_tokens": 2048,
-    "top_provider_context_window": 16384
+    "context_window": 32768,
+    "max_output_tokens": 4096,
+    "top_provider_context_window": 32768
   },
   "lists": {
     "features": [

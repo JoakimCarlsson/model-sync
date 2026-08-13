@@ -32,7 +32,7 @@
     "tokenizer": "Other"
   },
   "limits": {
-    "context_window": 1000000,
+    "context_window": 1048576,
     "max_output_tokens": 262144,
     "top_provider_context_window": 262144
   },

@@ -1,7 +1,7 @@
 {
-  "id": "grok-voice-think-fast-1.0",
+  "id": "speech-to-speech-grok-voice-think-fast-1.0-deprecated",
   "provider": "xai",
-  "name": "Speech to Speech",
+  "name": "Speech to Speech (grok-voice-think-fast-1.0) — Deprecated",
   "kind": "voice",
   "prices": [
     {
@@ -9,7 +9,7 @@
       "amount": 0.004,
       "currency": "USD",
       "dims": {
-        "mode": "speech-to-speech"
+        "mode": "speech-to-speech-grok-voice-think-fast-1.0-deprecated"
       },
       "note": "text input"
     },
@@ -19,27 +19,13 @@
       "amount": 0.05,
       "currency": "USD",
       "dims": {
-        "mode": "speech-to-speech"
+        "mode": "speech-to-speech-grok-voice-think-fast-1.0-deprecated"
       },
       "note": "($3.00 / hr) audio"
     }
   ],
-  "lists": {
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
-    ],
-    "regions": [
-      "eu-west-1",
-      "us-east-1",
-      "us-saltlake-2"
-    ]
-  },
   "sources": [
     "https://docs.x.ai/developers/models.md",
-    "https://docs.x.ai/developers/models/grok-voice-think-fast-1.0.md",
     "https://docs.x.ai/developers/pricing.md"
   ]
 }
