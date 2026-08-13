@@ -3964,7 +3964,6 @@
   "attrs": {
     "knowledge_cutoff": "Oct 2025",
     "lifecycle_state": "active",
-    "model_name": "Nova 2.0 Lite",
     "released": "Dec 02, 2025",
     "retirement_date": "N/A",
     "summary": "Nova 2 Lite is Amazon's cost-efficient multimodal model for simple automation, document processing, and customer support across text, images, and video. For more information about model development and performance, see the model/service card."

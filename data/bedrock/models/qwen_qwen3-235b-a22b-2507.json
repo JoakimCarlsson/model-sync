@@ -1202,7 +1202,6 @@
   "attrs": {
     "author": "Qwen",
     "lifecycle_state": "active",
-    "model_name": "Qwen3 235B A22B 2507",
     "released": "Apr 28, 2025",
     "retirement_date": "N/A",
     "summary": "Qwen3 235B A22B is Qwen's 235-billion parameter mixture-of-experts model with 22 billion active parameters, supporting text and code generation with a 256K context window. For more information about model development and performance, see the model/service card."

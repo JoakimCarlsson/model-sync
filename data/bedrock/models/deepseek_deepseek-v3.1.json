@@ -1163,7 +1163,6 @@
     "author": "DeepSeek",
     "knowledge_cutoff": "Jan 2025",
     "lifecycle_state": "active",
-    "model_name": "DeepSeek V3.1",
     "released": "Aug 21, 2025",
     "retirement_date": "N/A",
     "summary": "DeepSeek-V3.1 is DeepSeek's 685B parameter mixture-of-experts model with strong performance across coding, math, and general reasoning tasks. For more information about model development and performance, see the model/service card."

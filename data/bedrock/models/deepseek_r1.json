@@ -66,8 +66,7 @@
     }
   ],
   "attrs": {
-    "author": "DeepSeek",
-    "model_name": "R1"
+    "author": "DeepSeek"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

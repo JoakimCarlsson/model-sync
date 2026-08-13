@@ -898,7 +898,6 @@
   "attrs": {
     "knowledge_cutoff": "Oct 2024",
     "lifecycle_state": "active",
-    "model_name": "Nova Micro",
     "released": "Dec 05, 2024",
     "retirement_date": "No sooner than 12/4/2025",
     "summary": "Nova Micro is Amazon's fastest text-only model, optimized for speed and low cost in tasks like summarization, translation, and classification. For more information about model development and performance, see the model/service card."

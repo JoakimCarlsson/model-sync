@@ -1200,8 +1200,7 @@
     }
   ],
   "attrs": {
-    "author": "Mistral",
-    "model_name": "Magistral Small 1.2"
+    "author": "Mistral"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

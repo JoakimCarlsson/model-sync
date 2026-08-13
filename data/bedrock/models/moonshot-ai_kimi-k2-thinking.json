@@ -1022,7 +1022,6 @@
   "attrs": {
     "author": "Moonshot AI",
     "lifecycle_state": "active",
-    "model_name": "Kimi K2 Thinking",
     "released": "Nov 06, 2025",
     "retirement_date": "N/A",
     "summary": "Kimi K2 Thinking is Moonshot AI's reasoning model with chain-of-thought capabilities for complex problem solving in math, coding, and logic. For more information about model development and performance, see the model/service card."

@@ -149,7 +149,6 @@
     "author": "Meta",
     "knowledge_cutoff": "Dec 2023",
     "lifecycle_state": "active",
-    "model_name": "Llama 3 8B",
     "released": "Apr 18, 2024",
     "retirement_date": "No sooner than 4/23/2025",
     "summary": "Llama 3 8B Instruct is Meta's 8-billion parameter instruction-tuned model with an 8K context window, designed for efficient deployment on smaller infrastructure. For more information about model development and performance, see the model/service card."

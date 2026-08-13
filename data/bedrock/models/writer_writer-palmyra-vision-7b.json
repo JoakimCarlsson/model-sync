@@ -1280,8 +1280,7 @@
     }
   ],
   "attrs": {
-    "author": "Writer",
-    "model_name": "Writer Palmyra Vision 7B"
+    "author": "Writer"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

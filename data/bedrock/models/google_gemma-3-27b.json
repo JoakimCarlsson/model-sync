@@ -1202,7 +1202,6 @@
   "attrs": {
     "author": "Google",
     "lifecycle_state": "active",
-    "model_name": "Gemma 3 27B",
     "released": "Mar 12, 2025",
     "retirement_date": "N/A",
     "summary": "Gemma 3 27B PT is Google's 27-billion parameter open model, the largest in the Gemma 3 family, with multimodal capabilities and a 128K context window. For more information about model development and performance, see the model/service card."

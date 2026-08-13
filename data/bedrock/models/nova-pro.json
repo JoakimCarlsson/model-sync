@@ -2418,7 +2418,6 @@
   "attrs": {
     "knowledge_cutoff": "Oct 2024",
     "lifecycle_state": "active",
-    "model_name": "Nova Pro",
     "released": "Dec 05, 2024",
     "retirement_date": "No sooner than 12/4/2025",
     "summary": "Nova Pro is Amazon's balanced multimodal model offering strong accuracy, speed, and cost for a wide range of tasks across text, images, and video. For more information about model development and performance, see the model/service card."

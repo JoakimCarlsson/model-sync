@@ -1396,8 +1396,7 @@
     }
   ],
   "attrs": {
-    "author": "Nvidia",
-    "model_name": "NVIDIA Nemotron Nano 2"
+    "author": "Nvidia"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

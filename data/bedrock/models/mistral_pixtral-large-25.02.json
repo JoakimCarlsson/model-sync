@@ -148,7 +148,6 @@
   "attrs": {
     "author": "Mistral",
     "lifecycle_state": "active",
-    "model_name": "Pixtral Large 25.02",
     "released": "Nov 19, 2024",
     "retirement_date": "No sooner than 4/8/2026",
     "summary": "Pixtral Large is Mistral AI's 124-billion parameter multimodal model that processes text and images for visual reasoning and document understanding. For more information about model development and performance, see the model/service card."

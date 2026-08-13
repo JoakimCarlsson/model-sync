@@ -89,7 +89,6 @@
     "author": "Meta",
     "knowledge_cutoff": "Dec 2023",
     "lifecycle_state": "legacy",
-    "model_name": "Llama 3.2 90B",
     "released": "Sep 25, 2024",
     "retirement_date": "July 7, 2026",
     "summary": "Llama 3.2 90B Instruct is Meta's 90-billion parameter multimodal model that processes text and images for visual reasoning and document understanding. For more information about model development and performance, see the model/service card."

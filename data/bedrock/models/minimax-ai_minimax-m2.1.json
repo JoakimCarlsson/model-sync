@@ -1282,7 +1282,6 @@
   "attrs": {
     "author": "Minimax AI",
     "lifecycle_state": "active",
-    "model_name": "Minimax M2.1",
     "released": "Dec 23, 2025",
     "retirement_date": "N/A",
     "summary": "MiniMax M2.1 is MiniMax's updated model with improved reasoning, coding, and instruction following over M2. For more information about model development and performance, see the model/service card."

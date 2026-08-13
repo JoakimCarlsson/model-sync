@@ -1202,7 +1202,6 @@
   "attrs": {
     "author": "OpenAI",
     "lifecycle_state": "active",
-    "model_name": "GPT OSS Safeguard 20B",
     "released": "Oct 29, 2025",
     "retirement_date": "N/A",
     "summary": "GPT OSS Safeguard 20B is OpenAI's compact 20-billion parameter open-source safety model for lightweight content moderation and guardrail tasks. For more information about model development and performance, see the model/service card."

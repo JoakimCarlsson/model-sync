@@ -26,8 +26,7 @@
     }
   ],
   "attrs": {
-    "author": "Anthropic",
-    "model_name": "Claude 2.0"
+    "author": "Anthropic"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

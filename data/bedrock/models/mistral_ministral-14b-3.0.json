@@ -1202,7 +1202,6 @@
   "attrs": {
     "author": "Mistral",
     "lifecycle_state": "active",
-    "model_name": "Ministral 14B 3.0",
     "released": "Dec 2, 2025",
     "retirement_date": "N/A",
     "summary": "Ministral 14B 3.0 is Mistral AI's 14-billion parameter edge model optimized for on-device deployment with strong performance on knowledge and reasoning tasks. For more information about model development and performance, see the model/service card."

@@ -7307,9 +7307,6 @@
       }
     }
   ],
-  "attrs": {
-    "model_name": "Nova 2.0 Omni"
-  },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

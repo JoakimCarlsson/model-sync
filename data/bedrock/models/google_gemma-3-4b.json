@@ -1202,7 +1202,6 @@
   "attrs": {
     "author": "Google",
     "lifecycle_state": "active",
-    "model_name": "Gemma 3 4B",
     "released": "Mar 12, 2025",
     "retirement_date": "N/A",
     "summary": "Gemma 3 4B IT is Google's compact 4-billion parameter open model with instruction tuning, designed for on-device and edge deployment. For more information about model development and performance, see the model/service card."

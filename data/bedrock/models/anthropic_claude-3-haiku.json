@@ -29,7 +29,6 @@
     "author": "Anthropic",
     "knowledge_cutoff": "Aug 2023",
     "lifecycle_state": "legacy (certain regions)",
-    "model_name": "Claude 3 Haiku",
     "released": "Mar 13, 2024",
     "retirement_date": "September 10, 2026",
     "summary": "Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized for speed and efficiency in near-instant responses. For more information about model development and performance, see the model/service card."

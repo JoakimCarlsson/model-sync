@@ -1078,7 +1078,6 @@
   "attrs": {
     "knowledge_cutoff": "Oct 2024",
     "lifecycle_state": "active",
-    "model_name": "Nova Lite",
     "released": "Dec 05, 2024",
     "retirement_date": "No sooner than 12/4/2025",
     "summary": "Nova Lite is Amazon's low-cost multimodal model that processes text, images, and video inputs for tasks like document analysis and visual Q&A. For more information about model development and performance, see the model/service card."

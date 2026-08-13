@@ -127,7 +127,6 @@
   ],
   "attrs": {
     "lifecycle_state": "legacy",
-    "model_name": "Nova Sonic",
     "released": "Mar 2025",
     "retirement_date": "September 14, 2026",
     "summary": "Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time voice conversations with low latency and support for multiple languages. For more information about model development and performance, see the model/service card."

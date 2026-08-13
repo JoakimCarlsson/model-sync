@@ -1283,7 +1283,6 @@
     "author": "DeepSeek",
     "knowledge_cutoff": "Mar 2025",
     "lifecycle_state": "active",
-    "model_name": "DeepSeek v3.2",
     "released": "Dec 01, 2025",
     "retirement_date": "N/A",
     "summary": "DeepSeek V3.2 is DeepSeek's mixture-of-experts model with improved reasoning, coding, and instruction following capabilities. For more information about model development and performance, see the model/service card."

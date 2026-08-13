@@ -48,7 +48,6 @@
   "attrs": {
     "author": "Mistral",
     "lifecycle_state": "active",
-    "model_name": "Mistral Small",
     "released": "Dec 16, 2025",
     "retirement_date": "No sooner than 5/24/2025",
     "summary": "Mistral Small is Mistral AI's cost-efficient model optimized for low-latency tasks like classification, translation, and customer support. For more information about model development and performance, see the model/service card."

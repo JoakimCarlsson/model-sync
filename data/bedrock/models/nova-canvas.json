@@ -97,7 +97,6 @@
   ],
   "attrs": {
     "lifecycle_state": "legacy (certain regions)",
-    "model_name": "Nova Canvas",
     "released": "Dec 3, 2024",
     "retirement_date": "September 30, 2026",
     "summary": "Nova Canvas is Amazon's image generation model that creates studio-quality images from text and image prompts with built-in controls for watermarking and content moderation. For more information about model development and performance, see the model/service card."

@@ -1458,7 +1458,6 @@
   "attrs": {
     "author": "OpenAI",
     "lifecycle_state": "active",
-    "model_name": "gpt-oss-20b",
     "released": "Aug 05, 2025",
     "retirement_date": "N/A",
     "summary": "GPT OSS 20B is OpenAI's 20-billion parameter open-source model for efficient text generation and coding at lower compute cost. For more information about model development and performance, see the model/service card."

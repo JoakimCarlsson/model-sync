@@ -396,8 +396,7 @@
     }
   ],
   "attrs": {
-    "author": "Google",
-    "model_name": "google.gemma-4-31b"
+    "author": "Google"
   },
   "sources": [
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"

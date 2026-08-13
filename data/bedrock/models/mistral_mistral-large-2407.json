@@ -48,7 +48,6 @@
   "attrs": {
     "author": "Mistral",
     "lifecycle_state": "active",
-    "model_name": "Mistral Large 2407",
     "released": "Feb 26, 2024",
     "retirement_date": "No sooner than 4/3/2025",
     "summary": "Mistral Large is Mistral AI's flagship model with strong reasoning, multilingual support, and a 32K context window for complex enterprise tasks. For more information about model development and performance, see the model/service card."

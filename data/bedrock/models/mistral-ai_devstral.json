@@ -1282,7 +1282,6 @@
   "attrs": {
     "author": "Mistral AI",
     "lifecycle_state": "active",
-    "model_name": "Devstral",
     "released": "Jun 2025",
     "retirement_date": "N/A",
     "summary": "Devstral 2 123B is Mistral AI's 123-billion parameter coding model optimized for software engineering tasks including code generation, debugging, and refactoring. For more information about model development and performance, see the model/service card."
