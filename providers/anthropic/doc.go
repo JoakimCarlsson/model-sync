@@ -10,7 +10,7 @@
 // models in one cell when they share a rate. Its capability table is also
 // transposed: models are columns and features are rows.
 //
-// Three documents are read, in this order, because the later ones depend on
+// Five documents are read, in this order, because the later ones depend on
 // identifiers the earlier ones establish:
 //
 //   - the deprecations page, whose status table is the only place every
@@ -21,7 +21,16 @@
 //     models and carries context windows, cutoffs and capabilities.
 //   - the pricing page, whose standard, batch and fast-mode tables carry the
 //     rates, and whose prose carries the server-side tool prices. It names
-//     models only by display name, which is why it is read last.
+//     models only by display name, which is why it is read after both pages
+//     that state identifiers.
+//   - the structured outputs guide, whose compatibility block lists the API
+//     identifiers the capability is available on. The comparison table has no
+//     row for it, and this list is the only place Anthropic states it per
+//     model.
+//   - the tool use guide, which states tool calling of Claude rather than of
+//     any list of models: tool use lets Claude call the functions a caller
+//     defines, with no exception named for any model. Its scope is therefore
+//     the same as the modality sentence's, every chat model still served.
 //
 // What a model takes and returns is not in the comparison table. The overview
 // states it once, in a sentence above the table saying that every current model

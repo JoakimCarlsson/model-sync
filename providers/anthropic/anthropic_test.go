@@ -10,7 +10,9 @@ import (
 )
 
 // fixtures returns the documents to parse, read from disk so the test never
-// touches the network.
+// touches the network. The two guides are kept as the passage that states the
+// capability and no further: the rest of each is worked examples, which say
+// nothing about which models support anything.
 func fixtures(t *testing.T) []catalog.Document {
 	t.Helper()
 	files := []struct {
@@ -20,6 +22,8 @@ func fixtures(t *testing.T) []catalog.Document {
 		{DeprecationsURL, "deprecations.md"},
 		{OverviewURL, "overview.md"},
 		{PricingURL, "pricing.md"},
+		{StructuredOutputsURL, "structured-outputs.md"},
+		{ToolUseURL, "tool-use-overview.md"},
 	}
 	docs := make([]catalog.Document, 0, len(files))
 	for _, f := range files {
@@ -148,4 +152,52 @@ func sorted(values []string) []string {
 	out := slices.Clone(values)
 	slices.Sort(out)
 	return out
+}
+
+// TestParseStructuredOutputs covers the guide that lists the identifiers it
+// supports. It states them exactly, so nothing is resolved, and an identifier
+// no other document established is not created by it.
+func TestParseStructuredOutputs(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"claude-fable-5",
+		"claude-opus-5",
+		"claude-haiku-4-5-20251001",
+	} {
+		features := byID[id].Lists[ListFeatures]
+		if !slices.Contains(features, catalog.CapabilityStructuredOutputs) {
+			t.Errorf("%s: got features %q, want structured output", id, features)
+		}
+	}
+}
+
+// TestParseToolUse covers the capability Anthropic states of Claude rather
+// than of a list of models. Every model still served has it, and a retired one
+// does not, since the page describes what Claude does today.
+func TestParseToolUse(t *testing.T) {
+	byID := parse(t)
+	served, retired := 0, 0
+	for _, m := range byID {
+		if m.Kind != KindChat {
+			continue
+		}
+		has := slices.Contains(
+			m.Lists[ListFeatures],
+			catalog.CapabilityFunctionCalling,
+		)
+		if m.Attrs[AttrState] == stateRetired {
+			if has {
+				t.Errorf("%s: retired and claiming tool calling", m.ID)
+			}
+			retired++
+			continue
+		}
+		if !has {
+			t.Errorf("%s: served and stating no tool calling", m.ID)
+		}
+		served++
+	}
+	if served == 0 || retired == 0 {
+		t.Fatalf("got %d served and %d retired, want both covered", served, retired)
+	}
 }

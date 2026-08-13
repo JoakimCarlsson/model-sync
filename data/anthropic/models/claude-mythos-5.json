@@ -82,7 +82,9 @@
       "claude-fable-5"
     ],
     "features": [
-      "reasoning"
+      "function_calling",
+      "reasoning",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",
@@ -93,6 +95,8 @@
     ]
   },
   "sources": [
-    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+    "https://platform.claude.com/docs/en/about-claude/pricing.md",
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md",
+    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs.md"
   ]
 }

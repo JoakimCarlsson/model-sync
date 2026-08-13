@@ -41,7 +41,9 @@ func (p *Provider) Name() string { return providerName }
 // arrive in. The pricing tables name models only by display name, so both
 // pages that state API identifiers are read first: deprecations, which lists
 // every model that has ever existed, then the overview, which is authoritative
-// for the current ones.
+// for the current ones. The two capability guides come last, because each
+// attaches a capability to models the earlier pages established and neither
+// establishes one of its own.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, stage := range []struct {
@@ -51,6 +53,13 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		{"/model-deprecations", b.applyDeprecations},
 		{"/models/", b.applyOverview},
 		{"/pricing", b.applyPricing},
+		{"/structured-outputs", func(doc catalog.Document) {
+			b.applySupportedModels(
+				doc,
+				catalog.CapabilityStructuredOutputs,
+			)
+		}},
+		{"/tool-use/", b.applyToolUse},
 	} {
 		for _, doc := range docs {
 			if strings.Contains(doc.URL, stage.match) {

@@ -23,16 +23,23 @@ const (
 	PricingURL      = baseURL + "/about-claude/pricing.md"
 )
 
-// Fetch retrieves the three pages. None is redundant: the pricing page names
+// Fetch retrieves the five pages. None is redundant: the pricing page names
 // models only by display name, the overview states identifiers for current
-// models only, and the deprecations page is the sole source of identifiers and
-// lifecycle for retired ones.
+// models only, the deprecations page is the sole source of identifiers and
+// lifecycle for retired ones, and the two guides state the capabilities the
+// overview's comparison table has no row for.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	var (
 		docs     []catalog.Document
 		failures []error
 	)
-	for _, url := range []string{DeprecationsURL, OverviewURL, PricingURL} {
+	for _, url := range []string{
+		DeprecationsURL,
+		OverviewURL,
+		PricingURL,
+		StructuredOutputsURL,
+		ToolUseURL,
+	} {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
