@@ -6,11 +6,32 @@
   "attrs": {
     "deprecated_on": "2026-03-31",
     "recommended_replacement": "Ministral 3 8B",
+    "released": "2025-12-11",
     "retirement_date": "2026-04-30",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "An experimental specialized small model trained on meticulously curated data, designed for creative writing, narrative generation, roleplay and character-driven dialog, general-purpose instruction following and conversational agents.",
     "version": "25.12"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-small-creative-25-12"
   ]
 }

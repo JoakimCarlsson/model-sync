@@ -1,0 +1,59 @@
+{
+  "id": "mistral-medium-3-5",
+  "provider": "mistral",
+  "name": "Mistral Medium 3.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Modified MIT",
+    "open_weights": "true",
+    "released": "2026-04-28",
+    "state": "active",
+    "summary": "Our frontier-class multimodal model optimized for agentic and coding use cases. Released as open weights under a Modified MIT license.",
+    "version": "26.04"
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "mistral-medium-3",
+      "mistral-medium-latest"
+    ],
+    "features": [
+      "agents",
+      "batching",
+      "document_qna",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "reasoning",
+      "streaming",
+      "structured_outputs",
+      "tools"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/mistral-medium-3-5-26-04"
+  ]
+}

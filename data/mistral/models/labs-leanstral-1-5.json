@@ -1,0 +1,49 @@
+{
+  "id": "labs-leanstral-1-5",
+  "provider": "mistral",
+  "name": "Leanstral 1.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "released": "2026-06-30",
+    "state": "preview",
+    "summary": "An updated Lean 4 formal proof engineering model optimised for automated theorem proving and autoformalization. 119B total parameters, 6.5B active.",
+    "version": "1.5"
+  },
+  "limits": {
+    "context_window": 256000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "features": [
+      "agents",
+      "function_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/leanstral-1-5"
+  ]
+}

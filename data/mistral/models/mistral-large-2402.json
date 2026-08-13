@@ -6,11 +6,25 @@
   "attrs": {
     "deprecated_on": "2024-11-30",
     "recommended_replacement": "Mistral Large 3",
+    "released": "2024-02-26",
     "retirement_date": "2025-06-16",
     "state": "retired",
+    "summary": "Our first and larger SOTA model for enterprise use cases with powerfull chat capabilities.",
     "version": "24.02"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-large-1-0-24-02"
   ]
 }

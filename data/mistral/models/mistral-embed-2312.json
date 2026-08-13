@@ -1,0 +1,38 @@
+{
+  "id": "mistral-embed-2312",
+  "provider": "mistral",
+  "name": "Mistral Embed",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "released": "2023-12-11",
+    "state": "active",
+    "summary": "Our state-of-the-art semantic for extracting representation of code extracts",
+    "version": "23.12"
+  },
+  "limits": {
+    "context_window": 8000
+  },
+  "lists": {
+    "aliases": [
+      "mistral-embed"
+    ],
+    "features": [
+      "batching",
+      "embeddings"
+    ],
+    "input_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/mistral-embed-23-12"
+  ]
+}

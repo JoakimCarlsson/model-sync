@@ -1,0 +1,56 @@
+{
+  "id": "mistral-large-2512",
+  "provider": "mistral",
+  "name": "Mistral Large 3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "open_weights": "true",
+    "released": "2025-12-02",
+    "state": "active",
+    "summary": "Mistral Large 3, is a state-of-the-art, open-weight, general-purpose multimodal model with a granular Mixture-of-Experts architecture. It features 41B active parameters and 675B total parameters.",
+    "version": "25.12"
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "mistral-large-latest"
+    ],
+    "features": [
+      "agents",
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs",
+      "tools"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/mistral-large-3-25-12"
+  ]
+}

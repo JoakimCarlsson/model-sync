@@ -5,12 +5,34 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2026-05-22",
+    "license": "Apache 2.0",
     "recommended_replacement": "Leanstral 1.5",
+    "released": "2026-03-16",
     "retirement_date": "2026-06-30",
     "state": "retired",
+    "summary": "Our first open-source code agent designed for Lean 4, built for formal proof engineering in realistic repositories. 119B parameters with 6.5B active.",
     "version": "26.03"
   },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "agents",
+      "function_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/leanstral-26-03"
   ]
 }

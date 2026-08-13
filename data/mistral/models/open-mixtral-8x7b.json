@@ -5,12 +5,28 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2024-11-30",
+    "license": "Apache 2.0",
+    "open_weights": "true",
     "recommended_replacement": "Mistral Small 4",
+    "released": "2023-12-11",
     "retirement_date": "2025-03-30",
     "state": "retired",
+    "summary": "Our first open MoE model, SOTA competing against models up to 2 to 3x larger.",
     "version": "0.1"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mixtral-8x7b-0-1"
   ]
 }

@@ -5,12 +5,29 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2024-11-30",
+    "license": "Apache 2.0",
+    "open_weights": "true",
     "recommended_replacement": "Ministral 3 8B",
+    "released": "2023-12-11",
     "retirement_date": "2025-03-30",
     "state": "retired",
-    "version": "0.3"
+    "summary": "An update to our first open model with better context.",
+    "version": "0.2"
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-7b-0-2",
+    "https://docs.mistral.ai/models/mistral-7b-0-3"
   ]
 }

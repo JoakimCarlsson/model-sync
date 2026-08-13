@@ -5,12 +5,39 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2026-02-27",
+    "license": "Apache 2.0",
     "recommended_replacement": "Mistral Medium 3.5",
+    "released": "2025-12-09",
     "retirement_date": "2026-03-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "Our open source model that excels at using tools to explore codebases, editing multiple files and power software engineering agents.",
     "version": "25.12"
   },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "devstral-small-latest"
+    ],
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/devstral-small-2-25-12"
   ]
 }

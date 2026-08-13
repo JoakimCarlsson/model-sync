@@ -1,0 +1,53 @@
+{
+  "id": "codestral-2508",
+  "provider": "mistral",
+  "name": "Codestral",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "released": "2025-07-30",
+    "state": "active",
+    "summary": "Our cutting-edge language model for code completion released end of July 2025, Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM) and code generation.",
+    "version": "25.08"
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "aliases": [
+      "codestral-latest"
+    ],
+    "features": [
+      "batching",
+      "document_qna",
+      "fill_in_the_middle",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/codestral-25-08"
+  ]
+}

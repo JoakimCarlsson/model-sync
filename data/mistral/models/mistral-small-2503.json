@@ -5,12 +5,40 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2025-11-06",
+    "license": "Apache 2.0",
+    "open_weights": "true",
     "recommended_replacement": "Mistral Small 4",
+    "released": "2025-03-17",
     "retirement_date": "2025-11-30",
     "state": "retired",
+    "summary": "A new leader in the small models category with image understanding capabilities, released March 2025.",
     "version": "25.03"
   },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "agents",
+      "batching",
+      "document_qna",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "streaming",
+      "structured_outputs",
+      "tools"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-small-3-1-25-03"
   ]
 }

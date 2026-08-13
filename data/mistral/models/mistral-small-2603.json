@@ -1,0 +1,57 @@
+{
+  "id": "mistral-small-2603",
+  "provider": "mistral",
+  "name": "Mistral Small 4",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "open_weights": "true",
+    "released": "2026-03-16",
+    "state": "active",
+    "summary": "Our powerful hybrid model unifying instruct, reasoning, and coding capabilities in a single model. 119B parameters with 6.5B active.",
+    "version": "26.03"
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "mistral-small-latest"
+    ],
+    "features": [
+      "agents",
+      "batching",
+      "document_qna",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "streaming",
+      "structured_outputs",
+      "tools"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/mistral-small-4-0-26-03"
+  ]
+}

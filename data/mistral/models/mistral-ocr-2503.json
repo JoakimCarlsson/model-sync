@@ -6,11 +6,24 @@
   "attrs": {
     "deprecated_on": "2025-12-02",
     "recommended_replacement": "OCR 4",
+    "released": "2025-03-06",
     "retirement_date": "2025-12-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "Our first OCR optimized model.",
     "version": "25.03"
   },
+  "lists": {
+    "input_modalities": [
+      "file",
+      "image"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/ocr-25-03"
   ]
 }

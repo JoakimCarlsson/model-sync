@@ -6,11 +6,33 @@
   "attrs": {
     "deprecated_on": "2026-02-27",
     "recommended_replacement": "Mistral Medium 3.5",
+    "released": "2025-07-10",
     "retirement_date": "2026-05-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "An enterprise grade text model, that excels at using tools to explore codebases, editing multiple files and power software engineering agents.",
     "version": "25.07"
   },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/devstral-medium-1-0-25-07"
   ]
 }

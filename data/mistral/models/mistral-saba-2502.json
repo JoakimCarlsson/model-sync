@@ -6,11 +6,28 @@
   "attrs": {
     "deprecated_on": "2025-06-10",
     "recommended_replacement": "Mistral Small 4",
+    "released": "2025-02-17",
     "retirement_date": "2025-09-30",
     "state": "retired",
+    "summary": "A finetuned Small model trained on meticulously curated datasets from across the Middle East and South Asia.",
     "version": "25.02"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "aliases": [
+      "mistral-saba-latest"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-saba-25-02"
   ]
 }

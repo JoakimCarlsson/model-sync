@@ -1,0 +1,47 @@
+{
+  "id": "voxtral-mini-tts-2603",
+  "provider": "mistral",
+  "name": "Voxtral TTS",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1m_characters",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "speech",
+      "unit": "per_1m_characters",
+      "amount": 16,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "CC BY-NC 4.0",
+    "open_weights": "true",
+    "released": "2026-03-23",
+    "state": "active",
+    "summary": "Our state-of-the-art text-to-speech model with zero-shot voice cloning. Supports 9 languages, streaming with ~90ms time-to-first-audio, and no transcript required for voice prompts.",
+    "version": "26.03"
+  },
+  "lists": {
+    "aliases": [
+      "voxtral-mini-tts-latest"
+    ],
+    "features": [
+      "tts",
+      "voice_cloning"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/voxtral-tts-26-03"
+  ]
+}

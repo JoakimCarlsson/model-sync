@@ -1,0 +1,60 @@
+{
+  "id": "voxtral-small-2507",
+  "provider": "mistral",
+  "name": "Voxtral Small",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "audio_input",
+      "unit": "per_minute",
+      "amount": 0.004,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "open_weights": "true",
+    "released": "2025-07-15",
+    "state": "active",
+    "summary": "Our first model with audio input capabilities for instruct use cases.",
+    "version": "25.07"
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "aliases": [
+      "voxtral-small-latest"
+    ],
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/voxtral-small-25-07"
+  ]
+}

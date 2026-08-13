@@ -1,0 +1,57 @@
+{
+  "id": "zai-glm-5-2",
+  "provider": "mistral",
+  "name": "Z.ai GLM 5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "open_weights": "true",
+    "released": "2026-08-06",
+    "state": "preview",
+    "summary": "A third-party open source text model from Z.ai, hosted by Mistral for long-context coding and agentic workflows. The model is served without Mistral modifications.",
+    "version": "5.2"
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/zai-glm-5-2"
+  ]
+}

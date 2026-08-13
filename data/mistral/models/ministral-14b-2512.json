@@ -1,0 +1,54 @@
+{
+  "id": "ministral-14b-2512",
+  "provider": "mistral",
+  "name": "Ministral 3 14B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "open_weights": "true",
+    "released": "2025-12-02",
+    "state": "active",
+    "summary": "Ministral 3 14B is the largest model in the Ministral 3 family, offering state-of-the-art capabilities and performance comparable to its larger Mistral Small 3.2 24B counterpart. Optimized for local deployment, it delivers high performance across diverse hardware, including local setups.",
+    "version": "25.12"
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "ministral-14b-latest"
+    ],
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/ministral-3-14b-25-12"
+  ]
+}

@@ -6,11 +6,26 @@
   "attrs": {
     "deprecated_on": "2026-03-31",
     "recommended_replacement": "Mistral Moderation 2",
+    "released": "2024-11-06",
     "retirement_date": "2026-06-30",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "Our moderation service that enables our users to detect harmful text content",
     "version": "24.11"
   },
+  "limits": {
+    "context_window": 8000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "moderations"
+    ],
+    "input_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-moderation-24-11"
   ]
 }

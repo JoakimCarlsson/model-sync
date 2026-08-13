@@ -5,12 +5,36 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2026-02-27",
+    "license": "MRL",
     "recommended_replacement": "Mistral Medium 3.5",
+    "released": "2024-11-18",
     "retirement_date": "2026-05-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "Our top-tier large model for high-complexity tasks with the lastest version released November 2024.",
     "version": "24.11"
   },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "predicted_outputs",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/mistral-large-2-1-24-11"
   ]
 }

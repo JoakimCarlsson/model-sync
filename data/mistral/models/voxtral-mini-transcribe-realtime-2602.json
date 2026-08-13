@@ -1,0 +1,39 @@
+{
+  "id": "voxtral-mini-transcribe-realtime-2602",
+  "provider": "mistral",
+  "name": "Voxtral Mini Transcribe Realtime",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio_input",
+      "unit": "per_minute",
+      "amount": 0.006,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "license": "Apache 2.0",
+    "open_weights": "true",
+    "released": "2026-02-04",
+    "state": "active",
+    "summary": "An efficient audio input model, pre-trained and optimized for live transcription purposes only.",
+    "version": "26.02"
+  },
+  "lists": {
+    "aliases": [
+      "voxtral-mini-transcribe-realtime-latest"
+    ],
+    "features": [
+      "transcriptions"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02"
+  ]
+}

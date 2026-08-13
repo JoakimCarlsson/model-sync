@@ -1,0 +1,50 @@
+{
+  "id": "mistral-ocr-2512",
+  "provider": "mistral",
+  "name": "OCR 3",
+  "kind": "ocr",
+  "prices": [
+    {
+      "metric": "ocr",
+      "unit": "per_1k_pages",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "page_kind": "annotated"
+      }
+    },
+    {
+      "metric": "ocr",
+      "unit": "per_1k_pages",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "page_kind": "plain"
+      }
+    }
+  ],
+  "attrs": {
+    "released": "2025-12-18",
+    "state": "active",
+    "summary": "Our OCR service powering our Document AI stack that enables our users to extract interleaved text and images. OCR 4 is available as the newer model. OCR 3 remains available for existing integrations and production workloads.",
+    "version": "25.12"
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "ocr",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/ocr-3-25-12"
+  ]
+}

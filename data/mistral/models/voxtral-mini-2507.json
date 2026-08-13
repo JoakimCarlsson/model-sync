@@ -1,16 +1,46 @@
 {
   "id": "voxtral-mini-2507",
   "provider": "mistral",
-  "name": "Voxtral Mini Transcribe",
-  "kind": "transcription",
+  "name": "Voxtral Mini",
+  "kind": "chat",
   "attrs": {
     "deprecated_on": "2026-02-27",
+    "license": "Apache 2.0",
+    "open_weights": "true",
     "recommended_replacement": "Voxtral Mini Transcribe 2",
+    "released": "2025-07-15",
     "retirement_date": "2026-05-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "A mini version of our first audio input model.",
     "version": "25.07"
   },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "aliases": [
+      "voxtral-mini-latest"
+    ],
+    "features": [
+      "batching",
+      "document_qna",
+      "prefix",
+      "streaming",
+      "structured_outputs",
+      "timestamps",
+      "transcriptions"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/voxtral-mini-25-07",
+    "https://docs.mistral.ai/models/voxtral-mini-transcribe-25-07"
   ]
 }

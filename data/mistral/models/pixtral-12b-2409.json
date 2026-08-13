@@ -5,12 +5,37 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2025-12-02",
+    "license": "Apache 2.0",
+    "open_weights": "true",
     "recommended_replacement": "Ministral 3 14B",
+    "released": "2024-09-11",
     "retirement_date": "2025-12-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "A 12B model with image understanding capabilities in addition to text.",
     "version": "24.09"
   },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/pixtral-12b-24-09"
   ]
 }

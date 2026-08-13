@@ -5,12 +5,34 @@
   "kind": "chat",
   "attrs": {
     "deprecated_on": "2025-12-02",
+    "license": "MRL",
     "recommended_replacement": "Ministral 3 8B",
+    "released": "2024-10-09",
     "retirement_date": "2025-12-31",
-    "state": "retired",
+    "state": "deprecated",
     "version": "24.1"
   },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "features": [
+      "batching",
+      "document_qna",
+      "function_calling",
+      "prefix",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/ministral-8b-24-1"
   ]
 }

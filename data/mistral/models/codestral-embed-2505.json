@@ -1,0 +1,38 @@
+{
+  "id": "codestral-embed-2505",
+  "provider": "mistral",
+  "name": "Codestral Embed",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "released": "2025-05-28",
+    "state": "active",
+    "summary": "Our state-of-the-art semantic for extracting representation of code extracts",
+    "version": "25.05"
+  },
+  "limits": {
+    "context_window": 8000
+  },
+  "lists": {
+    "aliases": [
+      "codestral-embed"
+    ],
+    "features": [
+      "batching",
+      "embeddings"
+    ],
+    "input_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/codestral-embed-25-05"
+  ]
+}

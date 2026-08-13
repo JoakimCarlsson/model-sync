@@ -1,13 +1,9 @@
 package mistral
 
 import (
-	"context"
-	"fmt"
-	"io"
 	"net/http"
-	"os"
-	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -18,18 +14,12 @@ const (
 	providerName = "Mistral AI"
 )
 
-// ModelsURL is the page carrying the deprecation table.
-const ModelsURL = "https://docs.mistral.ai/models"
-
-// cacheFile is where a fetched document is kept.
-const cacheFile = "mistral_models.html"
-
 // Provider reads Mistral's model documentation. The zero value is not usable;
 // call New.
 type Provider struct {
-	// Client performs the fetch.
+	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
+	// CacheDir, when set, backs every fetch with a file on disk.
 	CacheDir string
 }
 
@@ -44,66 +34,30 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page.
-func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, ModelsURL, nil)
-	if err != nil {
-		return nil, err
-	}
-	client := p.Client
-	if client == nil {
-		client = http.DefaultClient
-	}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", ModelsURL, err)
-	}
-	defer func() { _ = resp.Body.Close() }()
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", ModelsURL, resp.Status)
-	}
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", ModelsURL, err)
-	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
-}
-
-// Parse reads the models page.
+// Parse reads the model pages first, because they state the identifier a model
+// is billed and called under and everything known about it. The index comes
+// last and adds only lifecycle dates, to models the pages already established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyDeprecations(doc)
+		if isModelPage(doc.URL) {
+			b.applyModelPage(doc)
+		}
+	}
+	for _, doc := range docs {
+		if !isModelPage(doc.URL) {
+			b.applyDeprecations(doc)
+		}
 	}
 	return b.result(), nil
 }
 
-// readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
-	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
-	return body, err == nil
+// isModelPage reports whether a URL is one model's page rather than the index.
+func isModelPage(url string) bool {
+	return strings.HasPrefix(url, modelPagePre)
 }
 
-// writeCache stores a document, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
-	if p.CacheDir == "" {
-		return
-	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
-}
-
-// builder accumulates models.
+// builder accumulates models across documents.
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string

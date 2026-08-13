@@ -6,11 +6,30 @@
   "attrs": {
     "deprecated_on": "2026-02-27",
     "recommended_replacement": "OCR 4",
+    "released": "2025-05-22",
     "retirement_date": "2026-05-31",
-    "state": "retired",
+    "state": "deprecated",
+    "summary": "Our OCR service powering our Document AI stack that enables our users to extract interleaved text and images",
     "version": "25.05"
   },
+  "lists": {
+    "features": [
+      "batching",
+      "bbox_extraction",
+      "ocr",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.mistral.ai/models"
+    "https://docs.mistral.ai/models",
+    "https://docs.mistral.ai/models/ocr-2-25-05"
   ]
 }
