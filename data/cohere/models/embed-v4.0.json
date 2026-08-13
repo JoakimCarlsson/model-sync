@@ -86,6 +86,9 @@
       "file",
       "image",
       "text"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

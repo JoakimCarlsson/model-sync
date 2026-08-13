@@ -261,8 +261,12 @@ func TestParseModalities(t *testing.T) {
 		{"c4ai-aya-vision-32b", []string{"image", "text"}, []string{"text"}},
 		{"tiny-aya-global", []string{"text"}, []string{"text"}},
 		{"command-nightly", nil, nil},
-		{"embed-v4.0", []string{"file", "image", "text"}, nil},
-		{"rerank-v4.0-pro", []string{"text"}, nil},
+		{
+			"embed-v4.0",
+			[]string{"file", "image", "text"},
+			[]string{"text"},
+		},
+		{"rerank-v4.0-pro", []string{"text"}, []string{"text"}},
 	}
 	for _, c := range cases {
 		m := byID[c.id]
@@ -277,8 +281,8 @@ func TestParseModalities(t *testing.T) {
 	for id, m := range byID {
 		in := len(m.Lists[ListInputModalities])
 		out := len(m.Lists[ListOutputModalities])
-		if out > 0 && in == 0 {
-			t.Errorf("%s: returns something and takes nothing", id)
+		if (in == 0) != (out == 0) {
+			t.Errorf("%s: takes %d modalities and returns %d", id, in, out)
 		}
 	}
 }

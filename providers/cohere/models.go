@@ -137,24 +137,25 @@ func (b *builder) applyOverview(doc catalog.Document) {
 	}
 }
 
-// setOutputModality records what a chat model gives back.
+// setOutputModality records what a model gives back.
 //
-// The modality column states only what a model takes. What it returns is in the
-// paragraph above the table: Command "takes a user instruction (or command) and
-// generates text following the instruction", and the Aya models answer on the
-// same Chat endpoint, one of them taking images and text and giving back "a
-// single coherent response". Both families return text.
+// The modality column states only what a model takes. What a chat model returns
+// is in the paragraph above the table: Command "takes a user instruction (or
+// command) and generates text following the instruction", and the Aya models
+// answer on the same Chat endpoint, one of them taking images and text and
+// giving back "a single coherent response". Both families return text, and so
+// do the embedding and rerank families, which vectorize and score text.
 //
-// Nothing is recorded for embed or rerank, which return a vector and a set of
-// relevance scores. Neither is a modality, and naming them here would put a
-// value in a field that no other provider's embedding models carry.
+// That is the medium a model works in and not the shape of its return value: an
+// embedding is a vector and a reranking is a set of relevance scores, and the
+// catalog has a word for neither.
 //
 // A model the overview states no input modality for gets no output modality
 // either. The nightly builds appear only in the table of platform identifiers,
 // which has no modality column, and recording that one returns text while saying
 // nothing about what it takes would read as a model that takes nothing.
 func setOutputModality(m *catalog.Model) {
-	if m.Kind != KindChat || len(m.Lists[ListInputModalities]) == 0 {
+	if len(m.Lists[ListInputModalities]) == 0 {
 		return
 	}
 	m.AddList(ListOutputModalities, ModalityText)

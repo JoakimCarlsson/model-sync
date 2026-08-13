@@ -51,5 +51,12 @@
 //     own page, not enumerated, so no features are recorded. The endpoints
 //     column is the nearest thing the overview states and is kept as one.
 //   - An output modality. The modality column states what a model accepts and
-//     says nothing about what it returns.
+//     says nothing about what it returns. Text is recorded for every model that
+//     has an input, because the medium each family works in is text on both
+//     sides: Command generates text following an instruction, and the embedding
+//     and rerank families vectorize and score it. That is not a claim about the
+//     return value, which is a vector for one and a set of scores for the other,
+//     and the catalog has a word for neither. The two sides are set together, so
+//     the nightly builds, which appear only in the table of platform
+//     identifiers and have no modality column, carry neither.
 package cohere
