@@ -52,4 +52,9 @@
 // and metered with no context window, capability or modality stated anywhere
 // outside the portal's own model cards, which need an account to read. Ninety
 // of the 224 chat models carry rates and nothing else for that reason.
+//
+// Nor does Azure publish a display name for a model anywhere. Its tables state
+// a Model ID and a description, and the headings above them name a family
+// rather than a model, since GPT-5.6 heads three of them. No Azure model
+// therefore carries a name.
 package azure
