@@ -31,7 +31,12 @@ const baseURL = "https://docs.perplexity.ai"
 var documentURLs = []string{
 	baseURL + "/getting-started/pricing.md",
 	baseURL + "/docs/agent-api/models.md",
+	SonarIndexURL,
 }
+
+// SonarIndexURL lists the models Perplexity serves itself and links to the
+// page each of them has, which is the only place a context window is stated.
+const SonarIndexURL = baseURL + "/docs/sonar/models.md"
 
 // Provider reads Perplexity's pricing documentation. The zero value is not
 // usable; call New.
@@ -67,15 +72,34 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 			continue
 		}
 		docs = append(docs, doc)
+		if url != SonarIndexURL {
+			continue
+		}
+		for _, page := range sonarModelURLs(doc) {
+			model, err := p.get(ctx, page)
+			if err != nil {
+				failures = append(failures, err)
+				continue
+			}
+			docs = append(docs, model)
+		}
 	}
 	return docs, errors.Join(failures...)
 }
 
-// Parse reads the documents.
+// Parse reads the rate documents first, because they are the only ones naming
+// the models, then the Sonar model pages onto what they established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyDocument(doc)
+		if !strings.HasPrefix(doc.URL, sonarModelPre) {
+			b.applyDocument(doc)
+		}
+	}
+	for _, doc := range docs {
+		if strings.HasPrefix(doc.URL, sonarModelPre) {
+			b.applySonarPage(doc)
+		}
 	}
 	return b.result(), nil
 }

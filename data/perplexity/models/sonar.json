@@ -44,7 +44,11 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 128000
+  },
   "sources": [
+    "https://docs.perplexity.ai/docs/sonar/models/sonar.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]
 }
