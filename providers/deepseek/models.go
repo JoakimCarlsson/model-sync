@@ -34,8 +34,43 @@ const (
 	LimitConcurrency     = "concurrency_limit"
 )
 
-// ListFeatures holds the capabilities marked as supported.
-const ListFeatures = "features"
+// Enumeration keys the pricing table populates.
+const (
+	// ListFeatures holds the capabilities marked as supported.
+	ListFeatures = "features"
+	// ListEndpoints holds the APIs a model answers on, which DeepSeek marks
+	// as supported in the same column as its capabilities.
+	ListEndpoints = "endpoints"
+)
+
+// featureNames map a row label onto the catalog's vocabulary. DeepSeek heads a
+// row with prose, so the label is not an identifier and is translated into
+// one; anything not listed keeps DeepSeek's own words with its punctuation and
+// spacing reduced.
+var featureNames = map[string]string{
+	"tool calls":                   "function_calling",
+	"json output":                  "json_mode",
+	"chat prefix completion（beta）": "prefix",
+}
+
+// endpointLabels are the rows naming an API a model answers on rather than
+// something the model can do.
+var endpointLabels = map[string]string{
+	"anthropic api": "Anthropic",
+	"responses api": "Responses",
+}
+
+// labelWordRe matches whatever in a row label is not part of an identifier,
+// including the full-width brackets DeepSeek writes a qualifier in.
+var labelWordRe = regexp.MustCompile(`[^a-z0-9]+`)
+
+// featureName rewrites a row label into the catalog's vocabulary.
+func featureName(label string) string {
+	if name, ok := featureNames[label]; ok {
+		return name
+	}
+	return strings.Trim(labelWordRe.ReplaceAllString(label, "_"), "_")
+}
 
 // supported is the mark DeepSeek uses for a capability a model has.
 const supported = "✓"
@@ -93,6 +128,17 @@ func parseCount(cell string) int64 {
 }
 
 // applyPricing reads the pricing page.
+//
+// The page carries two tables and only the first describes models. It is laid
+// out with a model per column, so its heading row names them and every row
+// below states one fact about each. The second is the off-peak discount table,
+// which transposes that: it heads its columns with the denominations and its
+// rows with the models. Both tables head their first cell "MODEL", so reading
+// past the first would take the denominations for models and enter three of
+// them into the catalog.
+//
+// The second heading therefore ends the reading. What it introduces is a
+// discount this parser does not record.
 func (b *builder) applyPricing(doc catalog.Document) {
 	var ids []string
 	for _, match := range rowRe.FindAllStringSubmatch(string(doc.Body), -1) {
@@ -101,6 +147,9 @@ func (b *builder) applyPricing(doc catalog.Document) {
 			continue
 		}
 		if strings.EqualFold(cells[0], "model") {
+			if len(ids) > 0 {
+				return
+			}
 			ids = cells[1:]
 			for _, id := range ids {
 				b.model(id, KindChat).AddSource(doc.URL)
@@ -164,9 +213,14 @@ func (b *builder) applyValue(id, label, value string) {
 	case "concurrency limit":
 		m.SetLimit(LimitConcurrency, parseCount(value))
 	default:
-		if strings.Contains(value, supported) && label != "" {
-			m.AddList(ListFeatures, label)
+		if !strings.Contains(value, supported) || label == "" {
+			return
 		}
+		if endpoint, ok := endpointLabels[label]; ok {
+			m.AddList(ListEndpoints, endpoint)
+			return
+		}
+		m.AddList(ListFeatures, featureName(label))
 	}
 }
 

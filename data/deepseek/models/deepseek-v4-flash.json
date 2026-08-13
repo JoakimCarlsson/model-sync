@@ -32,12 +32,14 @@
     "max_output_tokens": 384000
   },
   "lists": {
+    "endpoints": [
+      "Anthropic",
+      "Responses"
+    ],
     "features": [
-      "anthropic api",
-      "chat prefix completion（beta）",
-      "json output",
-      "responses api",
-      "tool calls"
+      "function_calling",
+      "json_mode",
+      "prefix"
     ]
   },
   "sources": [
