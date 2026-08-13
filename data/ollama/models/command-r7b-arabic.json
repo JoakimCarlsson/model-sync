@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "200.3K",
     "summary": "A new state-of-the-art version of the lightweight Command R7B model that excels in advanced Arabic language capabilities for enterprises in the Middle East and Northern Africa."
-  },
-  "limits": {
-    "pulls": 200300
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "585.3K",
     "summary": "Great code generation model based on Llama2."
-  },
-  "limits": {
-    "pulls": 585300
   },
   "lists": {
     "parameter_sizes": [

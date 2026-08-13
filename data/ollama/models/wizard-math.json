@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1M",
     "summary": "Model focused on math and logic problems"
-  },
-  "limits": {
-    "pulls": 1000000
   },
   "lists": {
     "parameter_sizes": [

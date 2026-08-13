@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "362K",
     "summary": "DBRX is an open, general-purpose LLM created by Databricks."
-  },
-  "limits": {
-    "pulls": 362000
   },
   "lists": {
     "parameter_sizes": [

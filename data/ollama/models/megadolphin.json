@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "559.8K",
     "summary": "MegaDolphin-2.2-120b is a transformation of Dolphin-2.2-70b created by interleaving the model with itself."
-  },
-  "limits": {
-    "pulls": 559800
   },
   "lists": {
     "parameter_sizes": [

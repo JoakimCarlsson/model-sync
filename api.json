@@ -10426,11 +10426,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "237.1K",
             "summary": "A robust conversational model designed to be used for both chat and instruct use cases."
-          },
-          "limits": {
-            "pulls": 237100
           },
           "lists": {
             "parameter_sizes": [
@@ -10446,11 +10442,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "3.4M",
             "summary": "Embedding models on very large sentence level datasets."
-          },
-          "limits": {
-            "pulls": 3400000
           },
           "lists": {
             "capabilities": [
@@ -10470,11 +10462,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "580.7K",
             "summary": "Athene-V2 is a 72B parameter model which excels at code completion, mathematics, and log extraction tasks."
-          },
-          "limits": {
-            "pulls": 580700
           },
           "lists": {
             "capabilities": [
@@ -10493,11 +10481,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "Aya 23, released by Cohere, is a new family of state-of-the-art, multilingual models that support 23 languages."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -10514,11 +10498,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "991.6K",
             "summary": "Cohere For AI&#39;s language models trained to perform well across 23 different languages."
-          },
-          "limits": {
-            "pulls": 991600
           },
           "lists": {
             "capabilities": [
@@ -10538,11 +10518,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "875.6K",
             "summary": "BakLLaVA is a multimodal model consisting of the Mistral 7B base model augmented with the LLaVA architecture."
-          },
-          "limits": {
-            "pulls": 875600
           },
           "lists": {
             "capabilities": [
@@ -10561,11 +10537,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "519.5K",
             "summary": "A state-of-the-art fact-checking model developed by Bespoke Labs."
-          },
-          "limits": {
-            "pulls": 519500
           },
           "lists": {
             "parameter_sizes": [
@@ -10581,11 +10553,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "279.6K",
             "summary": "Embedding model from BAAI mapping texts to vectors."
-          },
-          "limits": {
-            "pulls": 279600
           },
           "lists": {
             "capabilities": [
@@ -10604,11 +10572,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "5.8M",
             "summary": "BGE-M3 is a new model from BAAI distinguished for its versatility in Multi-Functionality, Multi-Linguality, and Multi-Granularity."
-          },
-          "limits": {
-            "pulls": 5800000
           },
           "lists": {
             "capabilities": [
@@ -10627,11 +10591,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "492.2K",
             "summary": "A high-performing code instruct model created by merging two existing code models."
-          },
-          "limits": {
-            "pulls": 492200
           },
           "lists": {
             "parameter_sizes": [
@@ -10647,11 +10607,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "680.8K",
             "summary": "A versatile model for AI software development scenarios, including code completion."
-          },
-          "limits": {
-            "pulls": 680800
           },
           "lists": {
             "parameter_sizes": [
@@ -10667,11 +10623,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3.1M",
             "summary": "CodeGemma is a collection of powerful, lightweight models that can perform a variety of coding tasks like fill-in-the-middle code completion, code generation, natural language understanding, mathematical reasoning, and instruction following."
-          },
-          "limits": {
-            "pulls": 3100000
           },
           "lists": {
             "parameter_sizes": [
@@ -10688,11 +10640,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "5.9M",
             "summary": "A large language model that can use text prompts to generate and discuss code."
-          },
-          "limits": {
-            "pulls": 5900000
           },
           "lists": {
             "parameter_sizes": [
@@ -10711,11 +10659,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "CodeQwen1.5 is a large language model pretrained on a large amount of code data."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -10731,11 +10675,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.3M",
             "summary": "Codestral is Mistral AI’s first-ever code model designed for code generation tasks."
-          },
-          "limits": {
-            "pulls": 1300000
           },
           "lists": {
             "parameter_sizes": [
@@ -10751,11 +10691,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "585.3K",
             "summary": "Great code generation model based on Llama2."
-          },
-          "limits": {
-            "pulls": 585300
           },
           "lists": {
             "parameter_sizes": [
@@ -10771,11 +10707,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.1M",
             "summary": "Cogito v1 Preview is a family of hybrid reasoning models by Deep Cogito that outperform the best available open models of the same size, including counterparts from LLaMA, DeepSeek, and Qwen across most standard benchmarks."
-          },
-          "limits": {
-            "pulls": 2100000
           },
           "lists": {
             "capabilities": [
@@ -10798,11 +10730,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "220.2K",
             "summary": "The Cogito v2.1 LLMs are instruction tuned generative models. All models are released under MIT license for commercial use."
-          },
-          "limits": {
-            "pulls": 220200
           },
           "lists": {
             "parameter_sizes": [
@@ -10818,11 +10746,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "223.9K",
             "summary": "111 billion parameter model optimized for demanding enterprises that require fast, secure, and high-quality AI"
-          },
-          "limits": {
-            "pulls": 223900
           },
           "lists": {
             "capabilities": [
@@ -10841,11 +10765,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.5M",
             "summary": "Command R is a Large Language Model optimized for conversational interaction and long context tasks."
-          },
-          "limits": {
-            "pulls": 1500000
           },
           "lists": {
             "capabilities": [
@@ -10864,11 +10784,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "788.2K",
             "summary": "Command R&#43; is a powerful, scalable large language model purpose-built to excel at real-world enterprise use cases."
-          },
-          "limits": {
-            "pulls": 788200
           },
           "lists": {
             "capabilities": [
@@ -10887,11 +10803,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "292.6K",
             "summary": "The smallest model in Cohere&#39;s R series delivers top-tier speed, efficiency, and quality to build powerful AI applications on commodity GPUs and edge devices."
-          },
-          "limits": {
-            "pulls": 292600
           },
           "lists": {
             "capabilities": [
@@ -10910,11 +10822,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "200.3K",
             "summary": "A new state-of-the-art version of the lightweight Command R7B model that excels in advanced Arabic language capabilities for enterprises in the Middle East and Northern Africa."
-          },
-          "limits": {
-            "pulls": 200300
           },
           "lists": {
             "capabilities": [
@@ -10933,11 +10841,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "362K",
             "summary": "DBRX is an open, general-purpose LLM created by Databricks."
-          },
-          "limits": {
-            "pulls": 362000
           },
           "lists": {
             "parameter_sizes": [
@@ -10953,11 +10857,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "940.2K",
             "summary": "DeepCoder is a fully open-Source 14B coder model at O3-mini level, with a 1.5B version also available."
-          },
-          "limits": {
-            "pulls": 940200
           },
           "lists": {
             "parameter_sizes": [
@@ -10974,11 +10874,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.3M",
             "summary": "A fine-tuned version of Deepseek-R1-Distilled-Qwen-1.5B that surpasses the performance of OpenAI’s o1-preview with just 1.5B parameters on popular math evaluations."
-          },
-          "limits": {
-            "pulls": 1300000
           },
           "lists": {
             "parameter_sizes": [
@@ -10994,11 +10890,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "4.5M",
             "summary": "DeepSeek Coder is a capable coding model trained on two trillion code and natural language tokens."
-          },
-          "limits": {
-            "pulls": 4500000
           },
           "lists": {
             "parameter_sizes": [
@@ -11016,11 +10908,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3M",
             "summary": "An open-source Mixture-of-Experts code language model that achieves performance comparable to GPT4-Turbo in code-specific tasks."
-          },
-          "limits": {
-            "pulls": 3000000
           },
           "lists": {
             "parameter_sizes": [
@@ -11037,11 +10925,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "An advanced language model crafted with 2 trillion bilingual tokens."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -11058,11 +10942,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "511.2K",
             "summary": "DeepSeek-OCR is a vision-language model that can perform token-efficient OCR."
-          },
-          "limits": {
-            "pulls": 511200
           },
           "lists": {
             "capabilities": [
@@ -11081,11 +10961,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "91.3M",
             "summary": "DeepSeek-R1 is a family of open reasoning models with performance approaching that of leading models, such as O3 and Gemini 2.5 Pro."
-          },
-          "limits": {
-            "pulls": 91300000
           },
           "lists": {
             "capabilities": [
@@ -11111,11 +10987,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "A strong, economical, and efficient Mixture-of-Experts language model."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -11132,11 +11004,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "284.5K",
             "summary": "An upgraded version of DeekSeek-V2 that integrates the general and coding abilities of both DeepSeek-V2-Chat and DeepSeek-Coder-V2-Instruct."
-          },
-          "limits": {
-            "pulls": 284500
           },
           "lists": {
             "parameter_sizes": [
@@ -11152,11 +11020,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3.8M",
             "summary": "A strong Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token."
-          },
-          "limits": {
-            "pulls": 3800000
           },
           "lists": {
             "parameter_sizes": [
@@ -11172,11 +11036,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "720.4K",
             "summary": "DeepSeek-V3.1-Terminus is a hybrid model that supports both thinking mode and non-thinking mode."
-          },
-          "limits": {
-            "pulls": 720400
           },
           "lists": {
             "capabilities": [
@@ -11196,11 +11056,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "358.4K",
             "summary": "DeepSeek-V4-Flash is a preview of the DeepSeek-V4 series, a Mixture-of-Experts model with 284B total parameters and 13B activated, built for efficient reasoning across a 1M-token context window."
-          },
-          "limits": {
-            "pulls": 358400
           },
           "lists": {
             "capabilities": [
@@ -11217,11 +11073,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "323.3K",
             "summary": "DeepSeek-V4-Pro is a frontier Mixture-of-Experts model with a large context window and three reasoning modes."
-          },
-          "limits": {
-            "pulls": 323300
           },
           "lists": {
             "capabilities": [
@@ -11238,11 +11090,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Devstral: the best open source model for coding agents"
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "capabilities": [
@@ -11261,11 +11109,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "351K",
             "summary": "123B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
-          },
-          "limits": {
-            "pulls": 351000
           },
           "lists": {
             "capabilities": [
@@ -11284,11 +11128,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "934.3K",
             "summary": "24B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
-          },
-          "limits": {
-            "pulls": 934300
           },
           "lists": {
             "capabilities": [
@@ -11308,11 +11148,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.1M",
             "summary": "Dolphin 2.9 is a new model with 8B and 70B sizes by Eric Hartford based on Llama 3 that has a variety of instruction, conversational, and coding skills."
-          },
-          "limits": {
-            "pulls": 2100000
           },
           "lists": {
             "parameter_sizes": [
@@ -11329,11 +11165,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.6M",
             "summary": "The uncensored Dolphin model based on Mistral that excels at coding tasks. Updated to version 2.8."
-          },
-          "limits": {
-            "pulls": 1600000
           },
           "lists": {
             "parameter_sizes": [
@@ -11349,11 +11181,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.9M",
             "summary": "Uncensored, 8x7b and 8x22b fine-tuned models based on the Mixtral mixture of experts models that excels at coding tasks. Created by Eric Hartford."
-          },
-          "limits": {
-            "pulls": 1900000
           },
           "lists": {
             "capabilities": [
@@ -11370,11 +11198,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.6M",
             "summary": "2.7B uncensored Dolphin model by Eric Hartford, based on the Phi language model by Microsoft Research."
-          },
-          "limits": {
-            "pulls": 1600000
           },
           "lists": {
             "parameter_sizes": [
@@ -11390,11 +11214,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "4M",
             "summary": "Dolphin 3.0 Llama 3.1 8B 🐬 is the next generation of the Dolphin series of instruct-tuned models designed to be the ultimate general purpose local model, enabling coding, math, agentic, function calling, and general use cases."
-          },
-          "limits": {
-            "pulls": 4000000
           },
           "lists": {
             "parameter_sizes": [
@@ -11410,11 +11230,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "991.4K",
             "summary": "A 7B and 15B uncensored variant of the Dolphin model family that excels at coding, based on StarCoder2."
-          },
-          "limits": {
-            "pulls": 991400
           },
           "lists": {
             "parameter_sizes": [
@@ -11431,11 +11247,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "518.6K",
             "summary": "7B parameter text-to-SQL model made by MotherDuck and Numbers Station."
-          },
-          "limits": {
-            "pulls": 518600
           },
           "lists": {
             "parameter_sizes": [
@@ -11451,11 +11263,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "1.7M",
             "summary": "EmbeddingGemma is a 300M parameter embedding model from Google."
-          },
-          "limits": {
-            "pulls": 1700000
           },
           "lists": {
             "capabilities": [
@@ -11474,11 +11282,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "556.4K",
             "summary": "Uncensored Llama2 based model with support for a 16K context window."
-          },
-          "limits": {
-            "pulls": 556400
           },
           "lists": {
             "parameter_sizes": [
@@ -11494,11 +11298,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "757.9K",
             "summary": "EXAONE Deep exhibits superior capabilities in various reasoning tasks including math and coding benchmarks, ranging from 2.4B to 32B parameters developed and released by LG AI Research."
-          },
-          "limits": {
-            "pulls": 757900
           },
           "lists": {
             "parameter_sizes": [
@@ -11516,11 +11316,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "542.7K",
             "summary": "EXAONE 3.5 is a collection of instruction-tuned bilingual (English and Korean) generative models ranging from 2.4B to 32B parameters, developed and released by LG AI Research."
-          },
-          "limits": {
-            "pulls": 542700
           },
           "lists": {
             "parameter_sizes": [
@@ -11538,11 +11334,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "A large language model built by the Technology Innovation Institute (TII) for use in summarization, text generation, and chat bots."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -11560,11 +11352,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "531.9K",
             "summary": "Falcon2 is an 11B parameters causal decoder-only model built by TII and trained over 5T tokens."
-          },
-          "limits": {
-            "pulls": 531900
           },
           "lists": {
             "parameter_sizes": [
@@ -11580,11 +11368,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.6M",
             "summary": "A family of efficient AI models under 10B parameters performant in science, math, and coding through innovative training techniques."
-          },
-          "limits": {
-            "pulls": 2600000
           },
           "lists": {
             "parameter_sizes": [
@@ -11603,11 +11387,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "514.9K",
             "summary": "An open weights function calling model based on Llama 3, competitive with GPT-4o function calling capabilities."
-          },
-          "limits": {
-            "pulls": 514900
           },
           "lists": {
             "capabilities": [
@@ -11626,11 +11406,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "179.8K",
             "summary": "FunctionGemma is a specialized version of Google&#39;s Gemma 3 270M model fine-tuned explicitly for function calling."
-          },
-          "limits": {
-            "pulls": 179800
           },
           "lists": {
             "capabilities": [
@@ -11649,11 +11425,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "7.3M",
             "summary": "Gemma is a family of lightweight, state-of-the-art open models built by Google DeepMind. Updated to version 1.1"
-          },
-          "limits": {
-            "pulls": 7300000
           },
           "lists": {
             "parameter_sizes": [
@@ -11670,11 +11442,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "30M",
             "summary": "Google Gemma 2 is a high-performing and efficient model available in three sizes: 2B, 9B, and 27B."
-          },
-          "limits": {
-            "pulls": 30000000
           },
           "lists": {
             "parameter_sizes": [
@@ -11692,11 +11460,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "39.4M",
             "summary": "The current, most capable model that runs on a single GPU."
-          },
-          "limits": {
-            "pulls": 39400000
           },
           "lists": {
             "capabilities": [
@@ -11719,11 +11483,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2M",
             "summary": "Gemma 3n models are designed for efficient execution on everyday devices such as laptops, tablets or phones."
-          },
-          "limits": {
-            "pulls": 2000000
           },
           "lists": {
             "capabilities": [
@@ -11740,11 +11500,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "21.8M",
             "summary": "Gemma 4 models are designed to deliver frontier-level performance at each size. They are well-suited for reasoning, agentic workflows, coding, and multimodal understanding."
-          },
-          "limits": {
-            "pulls": 21800000
           },
           "lists": {
             "capabilities": [
@@ -11770,11 +11526,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "As the strongest model in the 30B class, GLM-4.7-Flash offers a new option for lightweight deployment that balances performance and efficiency."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "capabilities": [
@@ -11791,11 +11543,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.3M",
             "summary": "GLM-5.1 is our next-generation flagship model for agentic engineering, with significantly stronger coding capabilities than its predecessor. It achieves state-of-the-art performance on SWE-Bench Pro and leads GLM-5 by a wide margin."
-          },
-          "limits": {
-            "pulls": 2300000
           },
           "lists": {
             "capabilities": [
@@ -11812,11 +11560,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "309.8K",
             "summary": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks."
-          },
-          "limits": {
-            "pulls": 309800
           },
           "lists": {
             "capabilities": [
@@ -11833,11 +11577,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "7M",
             "summary": "GLM-OCR is a multimodal OCR model for complex document understanding, built on the GLM-V encoder–decoder architecture."
-          },
-          "limits": {
-            "pulls": 7000000
           },
           "lists": {
             "capabilities": [
@@ -11854,11 +11594,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "A strong multi-lingual general language model with competitive performance to Llama 3."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -11874,11 +11610,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "471.1K",
             "summary": "A language model created by combining two fine-tuned Llama 2 70B models into one."
-          },
-          "limits": {
-            "pulls": 471100
           },
           "sources": [
             "https://ollama.com/library"
@@ -11889,11 +11621,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "11.7M",
             "summary": "OpenAI’s open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases."
-          },
-          "limits": {
-            "pulls": 11700000
           },
           "lists": {
             "capabilities": [
@@ -11914,11 +11642,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "150.7K",
             "summary": "gpt-oss-safeguard-20b and gpt-oss-safeguard-120b are safety reasoning models built-upon gpt-oss"
-          },
-          "limits": {
-            "pulls": 150700
           },
           "lists": {
             "capabilities": [
@@ -11939,11 +11663,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.5M",
             "summary": "A family of open foundation models by IBM for Code Intelligence"
-          },
-          "limits": {
-            "pulls": 1500000
           },
           "lists": {
             "parameter_sizes": [
@@ -11962,11 +11682,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "351K",
             "summary": "The IBM Granite Embedding 30M and 278M models models are text-only dense biencoder embedding models, with 30M available in English only and 278M serving multilingual use cases."
-          },
-          "limits": {
-            "pulls": 351000
           },
           "lists": {
             "capabilities": [
@@ -11986,11 +11702,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "The IBM Granite 2B and 8B models are designed to support tool-based use cases and support for retrieval augmented generation (RAG), streamlining code generation, translation and bug fixing."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "capabilities": [
@@ -12010,11 +11722,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "330.1K",
             "summary": "The IBM Granite Guardian 3.0 2B and 8B models are designed to detect risks in prompts and/or responses."
-          },
-          "limits": {
-            "pulls": 330100
           },
           "lists": {
             "parameter_sizes": [
@@ -12031,11 +11739,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "937.5K",
             "summary": "The IBM Granite 1B and 3B models are the first mixture of experts (MoE) Granite models from IBM designed for low latency usage."
-          },
-          "limits": {
-            "pulls": 937500
           },
           "lists": {
             "capabilities": [
@@ -12055,11 +11759,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "The IBM Granite 2B and 8B models are text-only dense LLMs trained on over 12 trillion tokens of data, demonstrated significant improvements over their predecessors in performance and speed in IBM’s initial testing."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "capabilities": [
@@ -12079,11 +11779,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3M",
             "summary": "The IBM Granite 1B and 3B models are long-context mixture of experts (MoE) Granite models from IBM designed for low latency usage."
-          },
-          "limits": {
-            "pulls": 3000000
           },
           "lists": {
             "capabilities": [
@@ -12103,11 +11799,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "449.7K",
             "summary": "Granite-3.2 is a family of long-context AI models from IBM Granite fine-tuned for thinking capabilities."
-          },
-          "limits": {
-            "pulls": 449700
           },
           "lists": {
             "capabilities": [
@@ -12127,11 +11819,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "971.2K",
             "summary": "A compact and efficient vision-language model, specifically designed for visual document understanding, enabling automated content extraction from tables, charts, infographics, plots, diagrams, and more."
-          },
-          "limits": {
-            "pulls": 971200
           },
           "lists": {
             "capabilities": [
@@ -12151,11 +11839,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "IBM Granite 2B and 8B models are 128K context length language models that have been fine-tuned for improved reasoning and instruction-following capabilities."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "capabilities": [
@@ -12175,11 +11859,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "Granite 4 features improved instruction following (IF) and tool-calling capabilities, making them more effective in enterprise applications."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "capabilities": [
@@ -12200,11 +11880,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "331.8K",
             "summary": "IBM Granite Models are a family of enterprise-ready, open foundation models that support multilingual capabilities, coding, retrieval-augmented generation (RAG), tool use, and structured JSON output. Released under Apache 2.0 license."
-          },
-          "limits": {
-            "pulls": 331800
           },
           "lists": {
             "capabilities": [
@@ -12225,11 +11901,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "8,708",
             "summary": "Granite Guardian 4.1 is a specialized safety and judging model from IBM Research that evaluates whether LLM prompts and responses meet specified harm criteria."
-          },
-          "limits": {
-            "pulls": 8708
           },
           "lists": {
             "capabilities": [
@@ -12249,11 +11921,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.6M",
             "summary": "Hermes 3 is the latest version of the flagship Hermes series of LLMs by Nous Research"
-          },
-          "limits": {
-            "pulls": 1600000
           },
           "lists": {
             "capabilities": [
@@ -12275,11 +11943,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "993.3K",
             "summary": "InternLM2.5 is a 7B parameter model tailored for practical scenarios with outstanding reasoning capability."
-          },
-          "limits": {
-            "pulls": 993300
           },
           "lists": {
             "parameter_sizes": [
@@ -12298,11 +11962,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "429.2K",
             "summary": "Kimi K2.6 is an open-source, native multimodal agentic model that advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration."
-          },
-          "limits": {
-            "pulls": 429200
           },
           "lists": {
             "capabilities": [
@@ -12320,11 +11980,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "213.2K",
             "summary": "Kimi K2.7 Code is Moonshot AI&#39;s coding-focused agentic model built upon Kimi K2.6, with substantial improvements on real-world long-horizon coding tasks and roughly 30% lower thinking-token usage."
-          },
-          "limits": {
-            "pulls": 213200
           },
           "lists": {
             "capabilities": [
@@ -12342,11 +11998,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "34.5K",
             "summary": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date."
-          },
-          "limits": {
-            "pulls": 34500
           },
           "lists": {
             "capabilities": [
@@ -12364,11 +12016,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "73.4K",
             "summary": "Our most capable model to date, designed for long-horizon work. 70.2% on Terminal-Bench 2.1 at 118B-A8B."
-          },
-          "limits": {
-            "pulls": 73400
           },
           "lists": {
             "capabilities": [
@@ -12385,11 +12033,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "89.1K",
             "summary": "Laguna XS 2.1 is a 33B total parameter Mixture-of-Experts model with 3B activated parameters per token designed for agentic coding and long-horizon work on a local machine."
-          },
-          "limits": {
-            "pulls": 89100
           },
           "lists": {
             "capabilities": [
@@ -12406,11 +12050,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "25.1K",
             "summary": "Laguna XS.2 is a 33B total parameter Mixture-of-Experts model with 3B activated parameters per token designed for agentic coding and long-horizon work on a local machine."
-          },
-          "limits": {
-            "pulls": 25100
           },
           "lists": {
             "capabilities": [
@@ -12427,11 +12067,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "LFM2 is a family of hybrid models designed for on-device deployment. LFM2-24B-A2B is the largest model in the family, scaling the architecture to 24 billion parameters while keeping inference efficient."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "capabilities": [
@@ -12450,11 +12086,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "113.4K",
             "summary": "LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware."
-          },
-          "limits": {
-            "pulls": 113400
           },
           "lists": {
             "capabilities": [
@@ -12474,11 +12106,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.3M",
             "summary": "LFM2.5 is a new family of hybrid models designed for on-device deployment."
-          },
-          "limits": {
-            "pulls": 1300000
           },
           "lists": {
             "capabilities": [
@@ -12498,11 +12126,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Llama Guard 3 is a series of models fine-tuned for content safety classification of LLM inputs and responses."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -12519,11 +12143,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "896.3K",
             "summary": "An expansion of Llama 2 that specializes in integrating both general language understanding and domain-specific knowledge, particularly in programming and mathematics."
-          },
-          "limits": {
-            "pulls": 896300
           },
           "sources": [
             "https://ollama.com/library"
@@ -12534,11 +12154,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "7.3M",
             "summary": "Llama 2 is a collection of foundation language models ranging from 7B to 70B parameters."
-          },
-          "limits": {
-            "pulls": 7300000
           },
           "lists": {
             "parameter_sizes": [
@@ -12556,11 +12172,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "Llama 2 based model fine tuned to improve Chinese dialogue ability."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -12577,11 +12189,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.7M",
             "summary": "Uncensored Llama 2 model by George Sung and Jarrad Hope."
-          },
-          "limits": {
-            "pulls": 2700000
           },
           "lists": {
             "parameter_sizes": [
@@ -12598,11 +12206,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "25M",
             "summary": "Meta Llama 3: The most capable openly available LLM to date"
-          },
-          "limits": {
-            "pulls": 25000000
           },
           "lists": {
             "parameter_sizes": [
@@ -12619,11 +12223,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "A model from NVIDIA based on Llama 3 that excels at conversational question answering (QA) and retrieval-augmented generation (RAG)."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -12640,11 +12240,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "984.7K",
             "summary": "This model extends LLama-3 8B&#39;s context length from 8k to over 1m tokens."
-          },
-          "limits": {
-            "pulls": 984700
           },
           "lists": {
             "parameter_sizes": [
@@ -12661,11 +12257,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "979K",
             "summary": "A series of models from Groq that represent a significant advancement in open-source AI capabilities for tool use/function calling."
-          },
-          "limits": {
-            "pulls": 979000
           },
           "lists": {
             "capabilities": [
@@ -12685,11 +12277,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "118.4M",
             "summary": "Llama 3.1 is a new state-of-the-art model from Meta available in 8B, 70B and 405B parameter sizes."
-          },
-          "limits": {
-            "pulls": 118400000
           },
           "lists": {
             "capabilities": [
@@ -12710,11 +12298,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "79.9M",
             "summary": "Meta&#39;s Llama 3.2 goes small with 1B and 3B models."
-          },
-          "limits": {
-            "pulls": 79900000
           },
           "lists": {
             "capabilities": [
@@ -12734,11 +12318,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "5M",
             "summary": "Llama 3.2 Vision is a collection of instruction-tuned image reasoning generative models in 11B and 90B sizes."
-          },
-          "limits": {
-            "pulls": 5000000
           },
           "lists": {
             "capabilities": [
@@ -12758,11 +12338,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "4.1M",
             "summary": "New state of the art 70B model. Llama 3.3 70B offers similar performance compared to the Llama 3.1 405B model."
-          },
-          "limits": {
-            "pulls": 4099999
           },
           "lists": {
             "capabilities": [
@@ -12781,11 +12357,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "1.8M",
             "summary": "Meta&#39;s latest collection of multimodal models."
-          },
-          "limits": {
-            "pulls": 1800000
           },
           "lists": {
             "capabilities": [
@@ -12804,11 +12376,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "14.6M",
             "summary": "🌋 LLaVA is a novel end-to-end trained large multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding. Updated to version 1.6."
-          },
-          "limits": {
-            "pulls": 14600000
           },
           "lists": {
             "capabilities": [
@@ -12829,11 +12397,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "2.3M",
             "summary": "A LLaVA model fine-tuned from Llama 3 Instruct with better scores in several benchmarks."
-          },
-          "limits": {
-            "pulls": 2300000
           },
           "lists": {
             "capabilities": [
@@ -12852,11 +12416,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "304.6K",
             "summary": "A new small LLaVA model fine-tuned from Phi 3 Mini."
-          },
-          "limits": {
-            "pulls": 304600
           },
           "lists": {
             "capabilities": [
@@ -12875,11 +12435,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "545.7K",
             "summary": "🎩 Magicoder is a family of 7B parameter models trained on 75K synthetic instruction data using OSS-Instruct, a novel approach to enlightening LLMs with open-source code snippets."
-          },
-          "limits": {
-            "pulls": 545700
           },
           "lists": {
             "parameter_sizes": [
@@ -12895,11 +12451,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "Magistral is a small, efficient reasoning model with 24B parameters."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "capabilities": [
@@ -12919,11 +12471,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "209.5K",
             "summary": "An open large reasoning model for real-world solutions by the Alibaba International Digital Commerce Group (AIDC-AI)."
-          },
-          "limits": {
-            "pulls": 209500
           },
           "lists": {
             "parameter_sizes": [
@@ -12939,11 +12487,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "539.8K",
             "summary": "MathΣtral: a 7B model designed for math reasoning and scientific discovery by Mistral AI."
-          },
-          "limits": {
-            "pulls": 539800
           },
           "lists": {
             "parameter_sizes": [
@@ -12959,11 +12503,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "265.2K",
             "summary": "MedGemma is a collection of Gemma 3 variants that are trained for performance on medical text and image comprehension."
-          },
-          "limits": {
-            "pulls": 265200
           },
           "lists": {
             "capabilities": [
@@ -12983,11 +12523,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "124.6K",
             "summary": "MedGemma 1.5 4B is an updated version of the MedGemma 4B model."
-          },
-          "limits": {
-            "pulls": 124600
           },
           "lists": {
             "capabilities": [
@@ -13006,11 +12542,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "814.2K",
             "summary": "Open-source medical large language model adapted from Llama 2 to the medical domain."
-          },
-          "limits": {
-            "pulls": 814200
           },
           "lists": {
             "parameter_sizes": [
@@ -13027,11 +12559,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "651.1K",
             "summary": "Fine-tuned Llama 2 model to answer medical questions based on an open source medical dataset."
-          },
-          "limits": {
-            "pulls": 651100
           },
           "lists": {
             "parameter_sizes": [
@@ -13047,11 +12575,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "559.8K",
             "summary": "MegaDolphin-2.2-120b is a transformation of Dolphin-2.2-70b created by interleaving the model with itself."
-          },
-          "limits": {
-            "pulls": 559800
           },
           "lists": {
             "parameter_sizes": [
@@ -13067,11 +12591,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "5.4M",
             "summary": "A series of multimodal LLMs (MLLMs) designed for vision-language understanding."
-          },
-          "limits": {
-            "pulls": 5400000
           },
           "lists": {
             "capabilities": [
@@ -13090,11 +12610,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "25.2K",
             "summary": "A GPT-4o Level MLLM for Single Image, Multi Image and High-FPS Video Understanding on Your Phone"
-          },
-          "limits": {
-            "pulls": 25200
           },
           "lists": {
             "capabilities": [
@@ -13113,11 +12629,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "32.1K",
             "summary": "A Pocket-Sized MLLM for Ultra-Efficient Image and Video Understanding on Your Phone"
-          },
-          "limits": {
-            "pulls": 32100
           },
           "lists": {
             "capabilities": [
@@ -13136,11 +12648,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.3M",
             "summary": "MiniMax&#39;s M2-series model for coding, agentic workflows, and professional productivity."
-          },
-          "limits": {
-            "pulls": 2300000
           },
           "lists": {
             "capabilities": [
@@ -13157,11 +12665,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "402.2K",
             "summary": "MiniMax M3: Coding &amp; Agentic Frontier. 1M context window. Native Multimodality."
-          },
-          "limits": {
-            "pulls": 402200
           },
           "lists": {
             "capabilities": [
@@ -13179,11 +12683,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "The Ministral 3 family is designed for edge deployment, capable of running on a wide range of hardware."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "capabilities": [
@@ -13205,11 +12705,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "31.8M",
             "summary": "The 7B model released by Mistral AI, updated to version 0.3."
-          },
-          "limits": {
-            "pulls": 31800000
           },
           "lists": {
             "capabilities": [
@@ -13228,11 +12724,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.3M",
             "summary": "Mistral Large 2 is Mistral&#39;s new flagship model that is significantly more capable in code generation, mathematics, and reasoning with 128k context window and support for dozens of languages."
-          },
-          "limits": {
-            "pulls": 1300000
           },
           "lists": {
             "capabilities": [
@@ -13251,11 +12743,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "89.8K",
             "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads."
-          },
-          "limits": {
-            "pulls": 89800
           },
           "lists": {
             "capabilities": [
@@ -13272,11 +12760,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "321K",
             "summary": "Mistral Medium 3.5 is the first flagship model of Mistral AI that merged instruction-following, reasoning, and coding in a single set of 128B weights."
-          },
-          "limits": {
-            "pulls": 321000
           },
           "lists": {
             "capabilities": [
@@ -13297,11 +12781,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "5.6M",
             "summary": "A state-of-the-art 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA."
-          },
-          "limits": {
-            "pulls": 5600000
           },
           "lists": {
             "capabilities": [
@@ -13320,11 +12800,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "670.9K",
             "summary": "Mistral OpenOrca is a 7 billion parameter model, fine-tuned on top of the Mistral 7B model using the OpenOrca dataset."
-          },
-          "limits": {
-            "pulls": 670900
           },
           "lists": {
             "parameter_sizes": [
@@ -13340,11 +12816,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3.1M",
             "summary": "Mistral Small 3 sets a new benchmark in the “small” Large Language Models category below 70B."
-          },
-          "limits": {
-            "pulls": 3100000
           },
           "lists": {
             "capabilities": [
@@ -13364,11 +12836,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "776.9K",
             "summary": "Building upon Mistral Small 3, Mistral Small 3.1 (2503) adds state-of-the-art vision understanding and enhances long context capabilities up to 128k tokens without compromising text performance."
-          },
-          "limits": {
-            "pulls": 776900
           },
           "lists": {
             "capabilities": [
@@ -13388,11 +12856,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "2.4M",
             "summary": "An update to Mistral Small that improves on function calling, instruction following, and less repetition errors."
-          },
-          "limits": {
-            "pulls": 2400000
           },
           "lists": {
             "capabilities": [
@@ -13412,11 +12876,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "515.3K",
             "summary": "MistralLite is a fine-tuned model based on Mistral with enhanced capabilities of processing long contexts."
-          },
-          "limits": {
-            "pulls": 515299
           },
           "lists": {
             "parameter_sizes": [
@@ -13432,11 +12892,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.8M",
             "summary": "A set of Mixture of Experts (MoE) model with open weights by Mistral AI in 8x7b and 8x22b parameter sizes."
-          },
-          "limits": {
-            "pulls": 2800000
           },
           "lists": {
             "capabilities": [
@@ -13454,11 +12910,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "1.5M",
             "summary": "moondream2 is a small vision language model designed to run efficiently on edge devices."
-          },
-          "limits": {
-            "pulls": 1500000
           },
           "lists": {
             "capabilities": [
@@ -13477,11 +12929,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "44.2K",
             "summary": "Meta&#39;s latest open model built for always-on local agents. 30B parameters, licensed under Apache 2.0 and runs on a single GPU — tuned for tool use, long tasks, and failure recovery."
-          },
-          "limits": {
-            "pulls": 44200
           },
           "lists": {
             "capabilities": [
@@ -13502,11 +12950,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "13.5M",
             "summary": "State-of-the-art large embedding model from mixedbread.ai"
-          },
-          "limits": {
-            "pulls": 13500000
           },
           "lists": {
             "capabilities": [
@@ -13525,11 +12969,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "605.9K",
             "summary": "Llama-3.1-Nemotron-70B-Instruct is a large language model customized by NVIDIA to improve the helpfulness of LLM generated responses to user queries."
-          },
-          "limits": {
-            "pulls": 605900
           },
           "lists": {
             "capabilities": [
@@ -13548,11 +12988,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "685K",
             "summary": "Nemotron-3-Nano is a new Standard for Efficient, Open, and Intelligent Agentic Models, now updated with a 4B parameter count model."
-          },
-          "limits": {
-            "pulls": 685000
           },
           "lists": {
             "capabilities": [
@@ -13573,11 +13009,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.9M",
             "summary": "NVIDIA Nemotron 3 Super is a 120B open MoE model activating just 12B parameters to deliver maximum compute efficiency and accuracy for complex multi-agent applications."
-          },
-          "limits": {
-            "pulls": 2900000
           },
           "lists": {
             "capabilities": [
@@ -13597,11 +13029,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "46.2K",
             "summary": "NVIDIA Nemotron 3 Ultra is built for high-throughput reasoning and long-running agent workflows."
-          },
-          "limits": {
-            "pulls": 46200
           },
           "lists": {
             "capabilities": [
@@ -13618,11 +13046,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "17.1K",
             "summary": "NVIDIA Nemotron 3.5 Lightning is an open 30B mixture-of-experts (MoE) model with 3B active parameters built for always-on agents."
-          },
-          "limits": {
-            "pulls": 17100
           },
           "lists": {
             "capabilities": [
@@ -13642,11 +13066,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "140.8K",
             "summary": "An open 30B MoE model from NVIDIA with 3B activated parameters that delivers strong reasoning and agentic capabilities."
-          },
-          "limits": {
-            "pulls": 140800
           },
           "lists": {
             "capabilities": [
@@ -13666,11 +13086,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "697.9K",
             "summary": "A commercial-friendly small language model by NVIDIA optimized for roleplay, RAG QA, and function calling."
-          },
-          "limits": {
-            "pulls": 697900
           },
           "lists": {
             "capabilities": [
@@ -13689,11 +13105,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "642.3K",
             "summary": "NVIDIA Nemotron 3 Nano Omni is a multimodal large language model that unifies video, audio, image, and text understanding to support enterprise-grade Q&amp;A, summarization, transcription, and document intelligence workflows."
-          },
-          "limits": {
-            "pulls": 642300
           },
           "lists": {
             "capabilities": [
@@ -13714,11 +13126,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "A fine-tuned model based on Mistral with good coverage of domain and language."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -13734,11 +13142,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "882.1K",
             "summary": "Nexus Raven is a 13B instruction tuned model for function calling tasks."
-          },
-          "limits": {
-            "pulls": 882100
           },
           "lists": {
             "parameter_sizes": [
@@ -13754,11 +13158,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "82.1M",
             "summary": "A high-performing open embedding model with a large token context window."
-          },
-          "limits": {
-            "pulls": 82100000
           },
           "lists": {
             "capabilities": [
@@ -13774,11 +13174,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "700.7K",
             "summary": "nomic-embed-text-v2-moe is a multilingual MoE text embedding model that excels at multilingual retrieval."
-          },
-          "limits": {
-            "pulls": 700700
           },
           "lists": {
             "capabilities": [
@@ -13794,11 +13190,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "39.9K",
             "summary": "North Mini Code is Cohere&#39;s first model for developers — a 30B Mixture-of-Experts model with 3B active parameters, built for agentic software engineering."
-          },
-          "limits": {
-            "pulls": 39900
           },
           "lists": {
             "capabilities": [
@@ -13815,11 +13207,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "530.6K",
             "summary": "A 7B chat model fine-tuned with high-quality data and based on Zephyr."
-          },
-          "limits": {
-            "pulls": 530600
           },
           "lists": {
             "parameter_sizes": [
@@ -13835,11 +13223,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "529.4K",
             "summary": "A top-performing mixture of experts model, fine-tuned with high-quality data."
-          },
-          "limits": {
-            "pulls": 529400
           },
           "lists": {
             "capabilities": [
@@ -13855,11 +13239,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "General use models based on Llama and Llama 2 from Nous Research."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -13876,11 +13256,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "The powerful family of models by Nous Research that excels at scientific discussion and coding tasks."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -13897,11 +13273,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "581.6K",
             "summary": "The Nous Hermes 2 model from Nous Research, now trained over Mixtral."
-          },
-          "limits": {
-            "pulls": 581600
           },
           "lists": {
             "capabilities": [
@@ -13917,11 +13289,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "530.4K",
             "summary": "A 3.8B model fine-tuned on a private high-quality synthetic dataset for information extraction, based on Phi-3."
-          },
-          "limits": {
-            "pulls": 530400
           },
           "lists": {
             "parameter_sizes": [
@@ -13937,11 +13305,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "448.4K",
             "summary": "Olmo is a series of Open language models designed to enable the science of language models. These models are pre-trained on the Dolma 3 dataset and post-trained on the Dolci datasets."
-          },
-          "limits": {
-            "pulls": 448400
           },
           "lists": {
             "capabilities": [
@@ -13962,11 +13326,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "284.4K",
             "summary": "Olmo is a series of Open language models designed to enable the science of language models. These models are pre-trained on the Dolma 3 dataset and post-trained on the Dolci datasets."
-          },
-          "limits": {
-            "pulls": 284400
           },
           "lists": {
             "capabilities": [
@@ -13986,11 +13346,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3.7M",
             "summary": "OLMo 2 is a new family of 7B and 13B models trained on up to 5T tokens. These models are on par with or better than equivalently sized fully open models, and competitive with open-weight models such as Llama 3.1 on English academic benchmarks."
-          },
-          "limits": {
-            "pulls": 3700000
           },
           "lists": {
             "parameter_sizes": [
@@ -14007,11 +13363,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "501.6K",
             "summary": "Merge of the Open Orca OpenChat model and the Garage-bAInd Platypus 2 model. Designed for chat and code generation."
-          },
-          "limits": {
-            "pulls": 501600
           },
           "lists": {
             "parameter_sizes": [
@@ -14027,11 +13379,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.3M",
             "summary": "A family of open-source models trained on a wide variety of data, surpassing ChatGPT on various benchmarks. Updated to version 3.5-0106."
-          },
-          "limits": {
-            "pulls": 1300000
           },
           "lists": {
             "parameter_sizes": [
@@ -14047,11 +13395,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "626.2K",
             "summary": "OpenCoder is an open and reproducible code LLM family which includes 1.5B and 8B models, supporting chat in English and Chinese languages."
-          },
-          "limits": {
-            "pulls": 626200
           },
           "lists": {
             "parameter_sizes": [
@@ -14068,11 +13412,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "OpenHermes 2.5 is a 7B model fine-tuned by Teknium on Mistral with fully open datasets."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "sources": [
             "https://ollama.com/library"
@@ -14083,11 +13423,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "A fully open-source family of reasoning models built using a dataset derived by distilling DeepSeek-R1."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -14104,11 +13440,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3M",
             "summary": "A general-purpose model ranging from 3 billion parameters to 70 billion, suitable for entry-level hardware."
-          },
-          "limits": {
-            "pulls": 3000000
           },
           "lists": {
             "parameter_sizes": [
@@ -14127,11 +13459,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "920.2K",
             "summary": "Orca 2 is built by Microsoft research, and are a fine-tuned version of Meta&#39;s Llama 2 models. The model is designed to excel particularly in reasoning."
-          },
-          "limits": {
-            "pulls": 920200
           },
           "lists": {
             "parameter_sizes": [
@@ -14148,11 +13476,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "370.7K",
             "summary": "A self-improving family of open-source models for agentic coding"
-          },
-          "limits": {
-            "pulls": 370700
           },
           "lists": {
             "capabilities": [
@@ -14172,11 +13496,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "934.2K",
             "summary": "Sentence-transformers model that can be used for tasks like clustering or semantic search."
-          },
-          "limits": {
-            "pulls": 934200
           },
           "lists": {
             "capabilities": [
@@ -14195,11 +13515,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.5M",
             "summary": "Phi-2: a 2.7B language model by Microsoft Research that demonstrates outstanding reasoning and language understanding capabilities."
-          },
-          "limits": {
-            "pulls": 1500000
           },
           "lists": {
             "parameter_sizes": [
@@ -14215,11 +13531,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "18M",
             "summary": "Phi-3 is a family of lightweight 3B (Mini) and 14B (Medium) state-of-the-art open models by Microsoft."
-          },
-          "limits": {
-            "pulls": 18000000
           },
           "lists": {
             "parameter_sizes": [
@@ -14236,11 +13548,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "A lightweight AI model with 3.8 billion parameters with performance overtaking similarly and larger sized models."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -14256,11 +13564,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "7.7M",
             "summary": "Phi-4 is a 14B parameter, state-of-the-art open model from Microsoft."
-          },
-          "limits": {
-            "pulls": 7700000
           },
           "lists": {
             "parameter_sizes": [
@@ -14276,11 +13580,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "Phi-4-mini brings significant enhancements in multilingual support, reasoning, and mathematics, and now, the long-awaited function calling feature is finally supported."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "capabilities": [
@@ -14299,11 +13599,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "288.1K",
             "summary": "Phi 4 mini reasoning is a lightweight open model that balances efficiency with advanced reasoning ability."
-          },
-          "limits": {
-            "pulls": 288100
           },
           "lists": {
             "parameter_sizes": [
@@ -14319,11 +13615,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.7M",
             "summary": "Phi 4 reasoning and reasoning plus are 14-billion parameter open-weight reasoning models that rival much larger models on complex reasoning tasks."
-          },
-          "limits": {
-            "pulls": 1700000
           },
           "lists": {
             "parameter_sizes": [
@@ -14339,11 +13631,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "956.2K",
             "summary": "Code generation model based on Code Llama."
-          },
-          "limits": {
-            "pulls": 956200
           },
           "lists": {
             "parameter_sizes": [
@@ -14359,11 +13647,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "7.5M",
             "summary": "Qwen 1.5 is a series of large language models by Alibaba Cloud spanning from 0.5B to 110B parameters"
-          },
-          "limits": {
-            "pulls": 7500000
           },
           "lists": {
             "parameter_sizes": [
@@ -14386,11 +13670,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "6.1M",
             "summary": "Qwen2 is a new series of large language models from Alibaba group"
-          },
-          "limits": {
-            "pulls": 6100000
           },
           "lists": {
             "capabilities": [
@@ -14412,11 +13692,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.1M",
             "summary": "Qwen2 Math is a series of specialized math language models built upon the Qwen2 LLMs, which significantly outperforms the mathematical capabilities of open-source models and even closed-source models (e.g., GPT4o)."
-          },
-          "limits": {
-            "pulls": 1100000
           },
           "lists": {
             "parameter_sizes": [
@@ -14434,11 +13710,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "36.8M",
             "summary": "Qwen2.5 models are pretrained on Alibaba&#39;s latest large-scale dataset, encompassing up to 18 trillion tokens. The model supports up to 128K tokens and has multilingual support."
-          },
-          "limits": {
-            "pulls": 36800000
           },
           "lists": {
             "capabilities": [
@@ -14463,11 +13735,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "20.3M",
             "summary": "The latest series of Code-Specific Qwen models, with significant improvements in code generation, code reasoning, and code fixing."
-          },
-          "limits": {
-            "pulls": 20300000
           },
           "lists": {
             "capabilities": [
@@ -14491,11 +13759,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "4.1M",
             "summary": "Flagship vision-language model of Qwen and also a significant leap from the previous Qwen2-VL."
-          },
-          "limits": {
-            "pulls": 4099999
           },
           "lists": {
             "capabilities": [
@@ -14517,11 +13781,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "34M",
             "summary": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models."
-          },
-          "limits": {
-            "pulls": 34000000
           },
           "lists": {
             "capabilities": [
@@ -14548,11 +13808,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "8.2M",
             "summary": "Alibaba&#39;s performant long context models for agentic and coding tasks."
-          },
-          "limits": {
-            "pulls": 8199999
           },
           "lists": {
             "capabilities": [
@@ -14572,11 +13828,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2M",
             "summary": "Qwen3-Coder-Next is a coding-focused language model from Alibaba&#39;s Qwen team, optimized for agentic coding workflows and local development."
-          },
-          "limits": {
-            "pulls": 2000000
           },
           "lists": {
             "capabilities": [
@@ -14592,11 +13844,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "3.6M",
             "summary": "Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes"
-          },
-          "limits": {
-            "pulls": 3600000
           },
           "lists": {
             "capabilities": [
@@ -14617,11 +13865,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "579K",
             "summary": "The first installment in the Qwen3-Next series with strong performance in terms of both parameter efficiency and inference speed."
-          },
-          "limits": {
-            "pulls": 579000
           },
           "lists": {
             "capabilities": [
@@ -14641,11 +13885,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "5.1M",
             "summary": "The most powerful vision-language model in the Qwen model family to date."
-          },
-          "limits": {
-            "pulls": 5100000
           },
           "lists": {
             "capabilities": [
@@ -14671,11 +13911,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "17.4M",
             "summary": "Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance."
-          },
-          "limits": {
-            "pulls": 17400000
           },
           "lists": {
             "capabilities": [
@@ -14702,11 +13938,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "5.6M",
             "summary": "Qwen3.6 delivers substantial upgrades in agentic coding and thinking preservation than previous Qwen models."
-          },
-          "limits": {
-            "pulls": 5600000
           },
           "lists": {
             "capabilities": [
@@ -14728,11 +13960,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.3M",
             "summary": "QwQ is the reasoning model of the Qwen series."
-          },
-          "limits": {
-            "pulls": 2300000
           },
           "lists": {
             "capabilities": [
@@ -14751,11 +13979,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "415.6K",
             "summary": "A version of the DeepSeek-R1 model that has been post trained to provide unbiased, accurate, and factual information by Perplexity."
-          },
-          "limits": {
-            "pulls": 415600
           },
           "lists": {
             "parameter_sizes": [
@@ -14772,11 +13996,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "912.3K",
             "summary": "A series of models that convert HTML content to Markdown content, which is useful for content conversion tasks."
-          },
-          "limits": {
-            "pulls": 912300
           },
           "lists": {
             "parameter_sizes": [
@@ -14793,11 +14013,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "608.6K",
             "summary": "A high-performing model trained with a new technique called Reflection-tuning that teaches a LLM to detect mistakes in its reasoning and correct course."
-          },
-          "limits": {
-            "pulls": 608600
           },
           "lists": {
             "parameter_sizes": [
@@ -14813,11 +14029,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "501.6K",
             "summary": "Rnj-1 is a family of 8B parameter open-weight, dense models trained from scratch by Essential AI, optimized for code and STEM with capabilities on par with SOTA open-weight models."
-          },
-          "limits": {
-            "pulls": 501600
           },
           "lists": {
             "capabilities": [
@@ -14836,11 +14048,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "406.3K",
             "summary": "Sailor2 are multilingual language models made for South-East Asia. Available in 1B, 8B, and 20B parameter sizes."
-          },
-          "limits": {
-            "pulls": 406300
           },
           "lists": {
             "parameter_sizes": [
@@ -14858,11 +14066,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "985.5K",
             "summary": "A companion assistant trained in philosophy, psychology, and personal relationships. Based on Mistral."
-          },
-          "limits": {
-            "pulls": 985500
           },
           "lists": {
             "parameter_sizes": [
@@ -14878,11 +14082,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "912.8K",
             "summary": "ShieldGemma is set of instruction tuned models for evaluating the safety of text prompt input and text output responses against a set of defined safety policies."
-          },
-          "limits": {
-            "pulls": 912800
           },
           "lists": {
             "parameter_sizes": [
@@ -14900,11 +14100,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "254.9K",
             "summary": "A new small reasoning model fine-tuned from the Qwen 2.5 3B Instruct model."
-          },
-          "limits": {
-            "pulls": 254900
           },
           "lists": {
             "parameter_sizes": [
@@ -14920,11 +14116,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.1M",
             "summary": "🪐 A family of small models with 135M, 360M, and 1.7B parameters, trained on a new high-quality dataset."
-          },
-          "limits": {
-            "pulls": 2100000
           },
           "lists": {
             "parameter_sizes": [
@@ -14942,11 +14134,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "3.9M",
             "summary": "SmolLM2 is a family of compact language models available in three size: 135M, 360M, and 1.7B parameters."
-          },
-          "limits": {
-            "pulls": 3900000
           },
           "lists": {
             "capabilities": [
@@ -14967,11 +14155,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "3.1M",
             "summary": "A suite of text embedding models by Snowflake, optimized for performance."
-          },
-          "limits": {
-            "pulls": 3100000
           },
           "lists": {
             "capabilities": [
@@ -14994,11 +14178,7 @@
           "provider": "ollama",
           "kind": "embedding",
           "attrs": {
-            "pulls": "438.8K",
             "summary": "Snowflake&#39;s frontier embedding model. Arctic Embed 2.0 adds multilingual support without sacrificing English performance or scalability."
-          },
-          "limits": {
-            "pulls": 438800
           },
           "lists": {
             "capabilities": [
@@ -15017,11 +14197,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "950.5K",
             "summary": "A compact, yet powerful 10.7B large language model designed for single-turn conversation."
-          },
-          "limits": {
-            "pulls": 950500
           },
           "lists": {
             "parameter_sizes": [
@@ -15037,11 +14213,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "549.2K",
             "summary": "Solar Pro Preview: an advanced large language model (LLM) with 22 billion parameters designed to fit into a single GPU"
-          },
-          "limits": {
-            "pulls": 549200
           },
           "lists": {
             "parameter_sizes": [
@@ -15057,11 +14229,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.5M",
             "summary": "SQLCoder is a code completion model fined-tuned on StarCoder for SQL generation tasks"
-          },
-          "limits": {
-            "pulls": 1500000
           },
           "lists": {
             "parameter_sizes": [
@@ -15078,11 +14246,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "921.8K",
             "summary": "Llama 2 based model fine tuned on an Orca-style dataset. Originally called Free Willy."
-          },
-          "limits": {
-            "pulls": 921800
           },
           "lists": {
             "parameter_sizes": [
@@ -15100,11 +14264,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Stable Code 3B is a coding model with instruct and code completion variants on par with models such as Code Llama 7B that are 2.5x larger."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -15120,11 +14280,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "524.1K",
             "summary": "A lightweight chat model allowing accurate, and responsive output without requiring high-end hardware."
-          },
-          "limits": {
-            "pulls": 524100
           },
           "lists": {
             "parameter_sizes": [
@@ -15140,11 +14296,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Stable LM 2 is a state-of-the-art 1.6B and 12B parameter language model trained on multilingual data in English, Spanish, German, Italian, French, Portuguese, and Dutch."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -15161,11 +14313,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "StarCoder is a code generation model trained on 80&#43; programming languages."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -15184,11 +14332,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "2.9M",
             "summary": "StarCoder2 is the next generation of transparently trained open code LLMs that comes in three sizes: 3B, 7B and 15B parameters."
-          },
-          "limits": {
-            "pulls": 2900000
           },
           "lists": {
             "parameter_sizes": [
@@ -15206,11 +14350,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "967.2K",
             "summary": "Starling is a large language model trained by reinforcement learning from AI feedback focused on improving chatbot helpfulness."
-          },
-          "limits": {
-            "pulls": 967200
           },
           "lists": {
             "parameter_sizes": [
@@ -15226,11 +14366,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "714.5K",
             "summary": "An experimental 1.1B parameter model trained on the new Dolphin 2.8 dataset by Eric Hartford and based on TinyLlama."
-          },
-          "limits": {
-            "pulls": 714500
           },
           "lists": {
             "parameter_sizes": [
@@ -15246,11 +14382,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "5.4M",
             "summary": "The TinyLlama project is an open endeavor to train a compact 1.1B Llama model on 3 trillion tokens."
-          },
-          "limits": {
-            "pulls": 5400000
           },
           "lists": {
             "parameter_sizes": [
@@ -15266,11 +14398,7 @@
           "provider": "ollama",
           "kind": "vision",
           "attrs": {
-            "pulls": "2M",
             "summary": "A new collection of open translation models built on Gemma 3, helping people communicate across 55 languages."
-          },
-          "limits": {
-            "pulls": 2000000
           },
           "lists": {
             "capabilities": [
@@ -15291,11 +14419,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "383K",
             "summary": "Tülu 3 is a leading instruction following model family, offering fully open-source data, code, and recipes by the The Allen Institute for AI."
-          },
-          "limits": {
-            "pulls": 383000
           },
           "lists": {
             "parameter_sizes": [
@@ -15312,11 +14436,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "General use chat model based on Llama and Llama 2 with 2K to 16K context sizes."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -15334,11 +14454,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Model focused on math and logic problems"
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -15356,11 +14472,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "509.3K",
             "summary": "Wizard Vicuna is a 13B parameter model based on Llama 2 trained by MelodysDreamj."
-          },
-          "limits": {
-            "pulls": 509300
           },
           "lists": {
             "parameter_sizes": [
@@ -15376,11 +14488,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "Wizard Vicuna Uncensored is a 7B, 13B, and 30B parameter model based on Llama 2 uncensored by Eric Hartford."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [
@@ -15398,11 +14506,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "State-of-the-art code generation model"
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -15418,11 +14522,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "884.7K",
             "summary": "General use model based on Llama 2."
-          },
-          "limits": {
-            "pulls": 884700
           },
           "sources": [
             "https://ollama.com/library"
@@ -15433,11 +14533,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "633.9K",
             "summary": "Uncensored version of Wizard LM model"
-          },
-          "limits": {
-            "pulls": 633900
           },
           "lists": {
             "parameter_sizes": [
@@ -15453,11 +14549,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "State of the art large language model from Microsoft AI with improved performance on complex chat, multilingual, reasoning and agent use cases."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "capabilities": [
@@ -15476,11 +14568,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "972.3K",
             "summary": "Conversational model based on Llama 2 that performs competitively on various benchmarks."
-          },
-          "limits": {
-            "pulls": 972300
           },
           "lists": {
             "parameter_sizes": [
@@ -15497,11 +14585,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "953.8K",
             "summary": "An extension of Llama 2 that supports a context of up to 128k tokens."
-          },
-          "limits": {
-            "pulls": 953800
           },
           "lists": {
             "parameter_sizes": [
@@ -15518,11 +14602,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "886.9K",
             "summary": "An extension of Mistral to support context windows of 64K or 128K."
-          },
-          "limits": {
-            "pulls": 886900
           },
           "lists": {
             "parameter_sizes": [
@@ -15538,11 +14618,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.4M",
             "summary": "Yi 1.5 is a high-performing, bilingual language model."
-          },
-          "limits": {
-            "pulls": 1400000
           },
           "lists": {
             "parameter_sizes": [
@@ -15560,11 +14636,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1M",
             "summary": "Yi-Coder is a series of open-source code language models that delivers state-of-the-art coding performance with fewer than 10 billion parameters."
-          },
-          "limits": {
-            "pulls": 1000000
           },
           "lists": {
             "parameter_sizes": [
@@ -15581,11 +14653,7 @@
           "provider": "ollama",
           "kind": "chat",
           "attrs": {
-            "pulls": "1.2M",
             "summary": "Zephyr is a series of fine-tuned versions of the Mistral and Mixtral models that are trained to act as helpful assistants."
-          },
-          "limits": {
-            "pulls": 1200000
           },
           "lists": {
             "parameter_sizes": [

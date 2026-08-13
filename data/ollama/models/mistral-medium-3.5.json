@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "321K",
     "summary": "Mistral Medium 3.5 is the first flagship model of Mistral AI that merged instruction-following, reasoning, and coding in a single set of 128B weights."
-  },
-  "limits": {
-    "pulls": 321000
   },
   "lists": {
     "capabilities": [

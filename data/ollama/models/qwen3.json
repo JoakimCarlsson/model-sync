@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "34M",
     "summary": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models."
-  },
-  "limits": {
-    "pulls": 34000000
   },
   "lists": {
     "capabilities": [

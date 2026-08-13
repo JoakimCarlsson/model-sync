@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.1M",
     "summary": "LFM2 is a family of hybrid models designed for on-device deployment. LFM2-24B-A2B is the largest model in the family, scaling the architecture to 24 billion parameters while keeping inference efficient."
-  },
-  "limits": {
-    "pulls": 1100000
   },
   "lists": {
     "capabilities": [

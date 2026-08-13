@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "265.2K",
     "summary": "MedGemma is a collection of Gemma 3 variants that are trained for performance on medical text and image comprehension."
-  },
-  "limits": {
-    "pulls": 265200
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "30M",
     "summary": "Google Gemma 2 is a high-performing and efficient model available in three sizes: 2B, 9B, and 27B."
-  },
-  "limits": {
-    "pulls": 30000000
   },
   "lists": {
     "parameter_sizes": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "1.8M",
     "summary": "Meta&#39;s latest collection of multimodal models."
-  },
-  "limits": {
-    "pulls": 1800000
   },
   "lists": {
     "capabilities": [

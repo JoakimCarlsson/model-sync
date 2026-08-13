@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "39.4M",
     "summary": "The current, most capable model that runs on a single GPU."
-  },
-  "limits": {
-    "pulls": 39400000
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.7M",
     "summary": "Phi 4 reasoning and reasoning plus are 14-billion parameter open-weight reasoning models that rival much larger models on complex reasoning tasks."
-  },
-  "limits": {
-    "pulls": 1700000
   },
   "lists": {
     "parameter_sizes": [

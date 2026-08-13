@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "7.3M",
     "summary": "Llama 2 is a collection of foundation language models ranging from 7B to 70B parameters."
-  },
-  "limits": {
-    "pulls": 7300000
   },
   "lists": {
     "parameter_sizes": [

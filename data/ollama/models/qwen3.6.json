@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "5.6M",
     "summary": "Qwen3.6 delivers substantial upgrades in agentic coding and thinking preservation than previous Qwen models."
-  },
-  "limits": {
-    "pulls": 5600000
   },
   "lists": {
     "capabilities": [

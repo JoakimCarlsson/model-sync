@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "254.9K",
     "summary": "A new small reasoning model fine-tuned from the Qwen 2.5 3B Instruct model."
-  },
-  "limits": {
-    "pulls": 254900
   },
   "lists": {
     "parameter_sizes": [

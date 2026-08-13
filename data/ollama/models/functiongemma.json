@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "179.8K",
     "summary": "FunctionGemma is a specialized version of Google&#39;s Gemma 3 270M model fine-tuned explicitly for function calling."
-  },
-  "limits": {
-    "pulls": 179800
   },
   "lists": {
     "capabilities": [

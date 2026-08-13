@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "979K",
     "summary": "A series of models from Groq that represent a significant advancement in open-source AI capabilities for tool use/function calling."
-  },
-  "limits": {
-    "pulls": 979000
   },
   "lists": {
     "capabilities": [

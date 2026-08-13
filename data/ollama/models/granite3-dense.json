@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1M",
     "summary": "The IBM Granite 2B and 8B models are designed to support tool-based use cases and support for retrieval augmented generation (RAG), streamlining code generation, translation and bug fixing."
-  },
-  "limits": {
-    "pulls": 1000000
   },
   "lists": {
     "capabilities": [

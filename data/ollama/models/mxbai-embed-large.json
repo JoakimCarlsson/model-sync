@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "13.5M",
     "summary": "State-of-the-art large embedding model from mixedbread.ai"
-  },
-  "limits": {
-    "pulls": 13500000
   },
   "lists": {
     "capabilities": [

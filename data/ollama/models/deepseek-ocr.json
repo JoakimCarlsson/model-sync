@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "511.2K",
     "summary": "DeepSeek-OCR is a vision-language model that can perform token-efficient OCR."
-  },
-  "limits": {
-    "pulls": 511200
   },
   "lists": {
     "capabilities": [

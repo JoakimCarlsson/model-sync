@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "529.4K",
     "summary": "A top-performing mixture of experts model, fine-tuned with high-quality data."
-  },
-  "limits": {
-    "pulls": 529400
   },
   "lists": {
     "capabilities": [

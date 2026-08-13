@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "39.9K",
     "summary": "North Mini Code is Cohere&#39;s first model for developers — a 30B Mixture-of-Experts model with 3B active parameters, built for agentic software engineering."
-  },
-  "limits": {
-    "pulls": 39900
   },
   "lists": {
     "capabilities": [

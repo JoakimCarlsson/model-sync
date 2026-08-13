@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "7.7M",
     "summary": "Phi-4 is a 14B parameter, state-of-the-art open model from Microsoft."
-  },
-  "limits": {
-    "pulls": 7700000
   },
   "lists": {
     "parameter_sizes": [

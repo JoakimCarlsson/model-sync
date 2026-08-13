@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "2.3M",
     "summary": "A LLaVA model fine-tuned from Llama 3 Instruct with better scores in several benchmarks."
-  },
-  "limits": {
-    "pulls": 2300000
   },
   "lists": {
     "capabilities": [

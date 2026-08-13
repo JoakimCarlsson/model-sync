@@ -2,7 +2,6 @@ package ollama
 
 import (
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -15,14 +14,13 @@ const (
 	KindVision    catalog.Kind = "vision"
 )
 
-// Scalar keys the library populates.
-const (
-	AttrSummary = "summary"
-	AttrPulls   = "pulls"
-)
-
-// LimitPulls is the download count as a number.
-const LimitPulls = "pulls"
+// AttrSummary is the description Ollama gives a model.
+//
+// The download count shown beside it is deliberately not recorded. It rises
+// continuously, so committing it would rewrite every model's file on most
+// syncs for a reason that has nothing to do with the model, burying real
+// changes in churn.
+const AttrSummary = "summary"
 
 // Enumeration keys the library populates.
 const (
@@ -45,11 +43,6 @@ var (
 	summaryRe = regexp.MustCompile(`(?is)<p[^>]*text-md[^>]*>(.*?)</p>`)
 	tagRe     = regexp.MustCompile(
 		`(?is)<span[^>]*(?:text-indigo-600|text-blue-600)[^>]*>(.*?)</span>`,
-	)
-	// pullsRe matches the download count, which sits in a bare span ahead of
-	// a separate span holding the word itself.
-	pullsRe = regexp.MustCompile(
-		`(?is)<span\s*>\s*([\d.,]+[KMB]?)\s*</span>\s*<span[^>]*>\s*(?:&nbsp;|\s)*Pulls`,
 	)
 	markupRe = regexp.MustCompile(`(?s)<[^>]*>`)
 	// sizeRe matches a tag that states a parameter count rather than a
@@ -77,10 +70,6 @@ func (b *builder) applyLibrary(doc catalog.Document) {
 		if match := summaryRe.FindStringSubmatch(entry[2]); match != nil {
 			m.SetAttr(AttrSummary, text(match[1]))
 		}
-		if match := pullsRe.FindStringSubmatch(entry[2]); match != nil {
-			m.SetAttr(AttrPulls, strings.TrimSpace(match[1]))
-			m.SetLimit(LimitPulls, parsePulls(match[1]))
-		}
 		for _, tag := range tagRe.FindAllStringSubmatch(entry[2], -1) {
 			b.applyTag(m, text(tag[1]))
 		}
@@ -102,27 +91,4 @@ func (b *builder) applyTag(m *catalog.Model, tag string) {
 	if kind, ok := capabilityKinds[capability]; ok {
 		m.Kind = kind
 	}
-}
-
-// parsePulls expands Ollama's abbreviated download count, which it writes as
-// "1.2M", into a number a reader can sort on.
-func parsePulls(value string) int64 {
-	trimmed := strings.TrimSpace(value)
-	if trimmed == "" {
-		return 0
-	}
-	multiplier := 1.0
-	switch strings.ToUpper(trimmed[len(trimmed)-1:]) {
-	case "K":
-		multiplier, trimmed = 1_000, trimmed[:len(trimmed)-1]
-	case "M":
-		multiplier, trimmed = 1_000_000, trimmed[:len(trimmed)-1]
-	case "B":
-		multiplier, trimmed = 1_000_000_000, trimmed[:len(trimmed)-1]
-	}
-	n, err := strconv.ParseFloat(strings.ReplaceAll(trimmed, ",", ""), 64)
-	if err != nil {
-		return 0
-	}
-	return int64(n * multiplier)
 }

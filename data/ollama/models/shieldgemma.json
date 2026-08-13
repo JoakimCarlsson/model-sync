@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "912.8K",
     "summary": "ShieldGemma is set of instruction tuned models for evaluating the safety of text prompt input and text output responses against a set of defined safety policies."
-  },
-  "limits": {
-    "pulls": 912800
   },
   "lists": {
     "parameter_sizes": [

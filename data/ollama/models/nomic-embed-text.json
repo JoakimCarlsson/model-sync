@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "82.1M",
     "summary": "A high-performing open embedding model with a large token context window."
-  },
-  "limits": {
-    "pulls": 82100000
   },
   "lists": {
     "capabilities": [

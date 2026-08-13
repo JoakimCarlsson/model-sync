@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "492.2K",
     "summary": "A high-performing code instruct model created by merging two existing code models."
-  },
-  "limits": {
-    "pulls": 492200
   },
   "lists": {
     "parameter_sizes": [

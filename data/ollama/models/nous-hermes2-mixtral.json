@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "581.6K",
     "summary": "The Nous Hermes 2 model from Nous Research, now trained over Mixtral."
-  },
-  "limits": {
-    "pulls": 581600
   },
   "lists": {
     "capabilities": [

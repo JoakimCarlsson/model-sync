@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "875.6K",
     "summary": "BakLLaVA is a multimodal model consisting of the Mistral 7B base model augmented with the LLaVA architecture."
-  },
-  "limits": {
-    "pulls": 875600
   },
   "lists": {
     "capabilities": [

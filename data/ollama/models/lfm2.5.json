@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "113.4K",
     "summary": "LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware."
-  },
-  "limits": {
-    "pulls": 113400
   },
   "lists": {
     "capabilities": [

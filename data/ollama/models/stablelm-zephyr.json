@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "524.1K",
     "summary": "A lightweight chat model allowing accurate, and responsive output without requiring high-end hardware."
-  },
-  "limits": {
-    "pulls": 524100
   },
   "lists": {
     "parameter_sizes": [

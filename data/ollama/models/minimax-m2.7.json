@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "2.3M",
     "summary": "MiniMax&#39;s M2-series model for coding, agentic workflows, and professional productivity."
-  },
-  "limits": {
-    "pulls": 2300000
   },
   "lists": {
     "capabilities": [

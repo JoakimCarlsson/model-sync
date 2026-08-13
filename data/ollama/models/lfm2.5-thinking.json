@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.3M",
     "summary": "LFM2.5 is a new family of hybrid models designed for on-device deployment."
-  },
-  "limits": {
-    "pulls": 1300000
   },
   "lists": {
     "capabilities": [

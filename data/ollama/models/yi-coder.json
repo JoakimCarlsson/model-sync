@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1M",
     "summary": "Yi-Coder is a series of open-source code language models that delivers state-of-the-art coding performance with fewer than 10 billion parameters."
-  },
-  "limits": {
-    "pulls": 1000000
   },
   "lists": {
     "parameter_sizes": [

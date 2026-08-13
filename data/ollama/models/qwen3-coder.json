@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "8.2M",
     "summary": "Alibaba&#39;s performant long context models for agentic and coding tasks."
-  },
-  "limits": {
-    "pulls": 8199999
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "3M",
     "summary": "A general-purpose model ranging from 3 billion parameters to 70 billion, suitable for entry-level hardware."
-  },
-  "limits": {
-    "pulls": 3000000
   },
   "lists": {
     "parameter_sizes": [

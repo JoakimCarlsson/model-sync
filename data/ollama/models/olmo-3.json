@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "448.4K",
     "summary": "Olmo is a series of Open language models designed to enable the science of language models. These models are pre-trained on the Dolma 3 dataset and post-trained on the Dolci datasets."
-  },
-  "limits": {
-    "pulls": 448400
   },
   "lists": {
     "capabilities": [

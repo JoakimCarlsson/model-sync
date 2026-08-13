@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.5M",
     "summary": "SQLCoder is a code completion model fined-tuned on StarCoder for SQL generation tasks"
-  },
-  "limits": {
-    "pulls": 1500000
   },
   "lists": {
     "parameter_sizes": [

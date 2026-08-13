@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.6M",
     "summary": "The uncensored Dolphin model based on Mistral that excels at coding tasks. Updated to version 2.8."
-  },
-  "limits": {
-    "pulls": 1600000
   },
   "lists": {
     "parameter_sizes": [

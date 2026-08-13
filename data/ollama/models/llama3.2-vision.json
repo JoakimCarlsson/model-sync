@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "5M",
     "summary": "Llama 3.2 Vision is a collection of instruction-tuned image reasoning generative models in 11B and 90B sizes."
-  },
-  "limits": {
-    "pulls": 5000000
   },
   "lists": {
     "capabilities": [

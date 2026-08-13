@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "697.9K",
     "summary": "A commercial-friendly small language model by NVIDIA optimized for roleplay, RAG QA, and function calling."
-  },
-  "limits": {
-    "pulls": 697900
   },
   "lists": {
     "capabilities": [

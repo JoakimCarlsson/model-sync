@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.1M",
     "summary": "IBM Granite 2B and 8B models are 128K context length language models that have been fine-tuned for improved reasoning and instruction-following capabilities."
-  },
-  "limits": {
-    "pulls": 1100000
   },
   "lists": {
     "capabilities": [

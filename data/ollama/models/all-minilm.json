@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "3.4M",
     "summary": "Embedding models on very large sentence level datasets."
-  },
-  "limits": {
-    "pulls": 3400000
   },
   "lists": {
     "capabilities": [

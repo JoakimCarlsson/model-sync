@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1M",
     "summary": "Stable Code 3B is a coding model with instruct and code completion variants on par with models such as Code Llama 7B that are 2.5x larger."
-  },
-  "limits": {
-    "pulls": 1000000
   },
   "lists": {
     "parameter_sizes": [

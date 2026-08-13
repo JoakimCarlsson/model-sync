@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "292.6K",
     "summary": "The smallest model in Cohere&#39;s R series delivers top-tier speed, efficiency, and quality to build powerful AI applications on commodity GPUs and edge devices."
-  },
-  "limits": {
-    "pulls": 292600
   },
   "lists": {
     "capabilities": [

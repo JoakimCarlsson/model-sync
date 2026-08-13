@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "633.9K",
     "summary": "Uncensored version of Wizard LM model"
-  },
-  "limits": {
-    "pulls": 633900
   },
   "lists": {
     "parameter_sizes": [

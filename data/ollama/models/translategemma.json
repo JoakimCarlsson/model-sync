@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "2M",
     "summary": "A new collection of open translation models built on Gemma 3, helping people communicate across 55 languages."
-  },
-  "limits": {
-    "pulls": 2000000
   },
   "lists": {
     "capabilities": [

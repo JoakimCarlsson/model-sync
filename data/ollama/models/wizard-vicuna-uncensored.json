@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.2M",
     "summary": "Wizard Vicuna Uncensored is a 7B, 13B, and 30B parameter model based on Llama 2 uncensored by Eric Hartford."
-  },
-  "limits": {
-    "pulls": 1200000
   },
   "lists": {
     "parameter_sizes": [

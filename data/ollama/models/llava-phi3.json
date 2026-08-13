@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "304.6K",
     "summary": "A new small LLaVA model fine-tuned from Phi 3 Mini."
-  },
-  "limits": {
-    "pulls": 304600
   },
   "lists": {
     "capabilities": [

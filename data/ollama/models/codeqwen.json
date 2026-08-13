@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.1M",
     "summary": "CodeQwen1.5 is a large language model pretrained on a large amount of code data."
-  },
-  "limits": {
-    "pulls": 1100000
   },
   "lists": {
     "parameter_sizes": [

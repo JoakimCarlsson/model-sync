@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "991.6K",
     "summary": "Cohere For AI&#39;s language models trained to perform well across 23 different languages."
-  },
-  "limits": {
-    "pulls": 991600
   },
   "lists": {
     "capabilities": [

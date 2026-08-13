@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "971.2K",
     "summary": "A compact and efficient vision-language model, specifically designed for visual document understanding, enabling automated content extraction from tables, charts, infographics, plots, diagrams, and more."
-  },
-  "limits": {
-    "pulls": 971200
   },
   "lists": {
     "capabilities": [

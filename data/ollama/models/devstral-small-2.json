@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "934.3K",
     "summary": "24B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
-  },
-  "limits": {
-    "pulls": 934300
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "402.2K",
     "summary": "MiniMax M3: Coding &amp; Agentic Frontier. 1M context window. Native Multimodality."
-  },
-  "limits": {
-    "pulls": 402200
   },
   "lists": {
     "capabilities": [

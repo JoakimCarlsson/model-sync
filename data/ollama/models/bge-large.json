@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "279.6K",
     "summary": "Embedding model from BAAI mapping texts to vectors."
-  },
-  "limits": {
-    "pulls": 279600
   },
   "lists": {
     "capabilities": [

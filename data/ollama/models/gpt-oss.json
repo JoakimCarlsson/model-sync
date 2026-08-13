@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "11.7M",
     "summary": "OpenAI’s open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases."
-  },
-  "limits": {
-    "pulls": 11700000
   },
   "lists": {
     "capabilities": [

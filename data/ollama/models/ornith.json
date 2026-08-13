@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "370.7K",
     "summary": "A self-improving family of open-source models for agentic coding"
-  },
-  "limits": {
-    "pulls": 370700
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "5.1M",
     "summary": "The most powerful vision-language model in the Qwen model family to date."
-  },
-  "limits": {
-    "pulls": 5100000
   },
   "lists": {
     "capabilities": [

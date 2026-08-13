@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "18M",
     "summary": "Phi-3 is a family of lightweight 3B (Mini) and 14B (Medium) state-of-the-art open models by Microsoft."
-  },
-  "limits": {
-    "pulls": 18000000
   },
   "lists": {
     "parameter_sizes": [

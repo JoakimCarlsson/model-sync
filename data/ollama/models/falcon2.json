@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "531.9K",
     "summary": "Falcon2 is an 11B parameters causal decoder-only model built by TII and trained over 5T tokens."
-  },
-  "limits": {
-    "pulls": 531900
   },
   "lists": {
     "parameter_sizes": [

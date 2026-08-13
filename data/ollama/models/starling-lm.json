@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "967.2K",
     "summary": "Starling is a large language model trained by reinforcement learning from AI feedback focused on improving chatbot helpfulness."
-  },
-  "limits": {
-    "pulls": 967200
   },
   "lists": {
     "parameter_sizes": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.1M",
     "summary": "A fine-tuned model based on Mistral with good coverage of domain and language."
-  },
-  "limits": {
-    "pulls": 1100000
   },
   "lists": {
     "parameter_sizes": [

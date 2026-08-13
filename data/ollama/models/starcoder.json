@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.2M",
     "summary": "StarCoder is a code generation model trained on 80&#43; programming languages."
-  },
-  "limits": {
-    "pulls": 1200000
   },
   "lists": {
     "parameter_sizes": [

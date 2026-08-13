@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "351K",
     "summary": "123B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
-  },
-  "limits": {
-    "pulls": 351000
   },
   "lists": {
     "capabilities": [

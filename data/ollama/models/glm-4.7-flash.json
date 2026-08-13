@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.4M",
     "summary": "As the strongest model in the 30B class, GLM-4.7-Flash offers a new option for lightweight deployment that balances performance and efficiency."
-  },
-  "limits": {
-    "pulls": 1400000
   },
   "lists": {
     "capabilities": [

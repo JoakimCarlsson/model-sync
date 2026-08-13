@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "288.1K",
     "summary": "Phi 4 mini reasoning is a lightweight open model that balances efficiency with advanced reasoning ability."
-  },
-  "limits": {
-    "pulls": 288100
   },
   "lists": {
     "parameter_sizes": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.6M",
     "summary": "Hermes 3 is the latest version of the flagship Hermes series of LLMs by Nous Research"
-  },
-  "limits": {
-    "pulls": 1600000
   },
   "lists": {
     "capabilities": [

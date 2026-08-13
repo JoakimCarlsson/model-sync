@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "237.1K",
     "summary": "A robust conversational model designed to be used for both chat and instruct use cases."
-  },
-  "limits": {
-    "pulls": 237100
   },
   "lists": {
     "parameter_sizes": [

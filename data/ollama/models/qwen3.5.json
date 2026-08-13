@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "17.4M",
     "summary": "Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance."
-  },
-  "limits": {
-    "pulls": 17400000
   },
   "lists": {
     "capabilities": [

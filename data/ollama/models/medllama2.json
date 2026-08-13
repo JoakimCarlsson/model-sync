@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "651.1K",
     "summary": "Fine-tuned Llama 2 model to answer medical questions based on an open source medical dataset."
-  },
-  "limits": {
-    "pulls": 651100
   },
   "lists": {
     "parameter_sizes": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "3.1M",
     "summary": "A suite of text embedding models by Snowflake, optimized for performance."
-  },
-  "limits": {
-    "pulls": 3100000
   },
   "lists": {
     "capabilities": [

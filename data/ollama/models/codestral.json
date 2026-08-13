@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.3M",
     "summary": "Codestral is Mistral AI’s first-ever code model designed for code generation tasks."
-  },
-  "limits": {
-    "pulls": 1300000
   },
   "lists": {
     "parameter_sizes": [

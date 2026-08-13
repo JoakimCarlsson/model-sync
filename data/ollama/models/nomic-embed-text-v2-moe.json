@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "700.7K",
     "summary": "nomic-embed-text-v2-moe is a multilingual MoE text embedding model that excels at multilingual retrieval."
-  },
-  "limits": {
-    "pulls": 700700
   },
   "lists": {
     "capabilities": [

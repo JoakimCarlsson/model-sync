@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "17.1K",
     "summary": "NVIDIA Nemotron 3.5 Lightning is an open 30B mixture-of-experts (MoE) model with 3B active parameters built for always-on agents."
-  },
-  "limits": {
-    "pulls": 17100
   },
   "lists": {
     "capabilities": [

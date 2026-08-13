@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "150.7K",
     "summary": "gpt-oss-safeguard-20b and gpt-oss-safeguard-120b are safety reasoning models built-upon gpt-oss"
-  },
-  "limits": {
-    "pulls": 150700
   },
   "lists": {
     "capabilities": [

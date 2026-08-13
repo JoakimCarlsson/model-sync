@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "2.9M",
     "summary": "StarCoder2 is the next generation of transparently trained open code LLMs that comes in three sizes: 3B, 7B and 15B parameters."
-  },
-  "limits": {
-    "pulls": 2900000
   },
   "lists": {
     "parameter_sizes": [

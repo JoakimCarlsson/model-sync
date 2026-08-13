@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "720.4K",
     "summary": "DeepSeek-V3.1-Terminus is a hybrid model that supports both thinking mode and non-thinking mode."
-  },
-  "limits": {
-    "pulls": 720400
   },
   "lists": {
     "capabilities": [

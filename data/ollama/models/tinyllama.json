@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "5.4M",
     "summary": "The TinyLlama project is an open endeavor to train a compact 1.1B Llama model on 3 trillion tokens."
-  },
-  "limits": {
-    "pulls": 5400000
   },
   "lists": {
     "parameter_sizes": [

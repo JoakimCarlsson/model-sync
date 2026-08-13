@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "5.6M",
     "summary": "A state-of-the-art 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA."
-  },
-  "limits": {
-    "pulls": 5600000
   },
   "lists": {
     "capabilities": [

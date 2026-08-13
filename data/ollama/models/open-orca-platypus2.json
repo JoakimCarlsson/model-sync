@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "501.6K",
     "summary": "Merge of the Open Orca OpenChat model and the Garage-bAInd Platypus 2 model. Designed for chat and code generation."
-  },
-  "limits": {
-    "pulls": 501600
   },
   "lists": {
     "parameter_sizes": [

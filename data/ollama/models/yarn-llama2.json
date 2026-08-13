@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "953.8K",
     "summary": "An extension of Llama 2 that supports a context of up to 128k tokens."
-  },
-  "limits": {
-    "pulls": 953800
   },
   "lists": {
     "parameter_sizes": [

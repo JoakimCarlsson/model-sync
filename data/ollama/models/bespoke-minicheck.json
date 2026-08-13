@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "519.5K",
     "summary": "A state-of-the-art fact-checking model developed by Bespoke Labs."
-  },
-  "limits": {
-    "pulls": 519500
   },
   "lists": {
     "parameter_sizes": [

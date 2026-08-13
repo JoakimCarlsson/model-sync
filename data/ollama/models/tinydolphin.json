@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "714.5K",
     "summary": "An experimental 1.1B parameter model trained on the new Dolphin 2.8 dataset by Eric Hartford and based on TinyLlama."
-  },
-  "limits": {
-    "pulls": 714500
   },
   "lists": {
     "parameter_sizes": [

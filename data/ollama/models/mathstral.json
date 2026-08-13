@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "539.8K",
     "summary": "MathΣtral: a 7B model designed for math reasoning and scientific discovery by Mistral AI."
-  },
-  "limits": {
-    "pulls": 539800
   },
   "lists": {
     "parameter_sizes": [

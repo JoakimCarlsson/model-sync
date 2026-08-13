@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.4M",
     "summary": "Magistral is a small, efficient reasoning model with 24B parameters."
-  },
-  "limits": {
-    "pulls": 1400000
   },
   "lists": {
     "capabilities": [

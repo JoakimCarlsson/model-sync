@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "8,708",
     "summary": "Granite Guardian 4.1 is a specialized safety and judging model from IBM Research that evaluates whether LLM prompts and responses meet specified harm criteria."
-  },
-  "limits": {
-    "pulls": 8708
   },
   "lists": {
     "capabilities": [

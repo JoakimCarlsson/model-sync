@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "985.5K",
     "summary": "A companion assistant trained in philosophy, psychology, and personal relationships. Based on Mistral."
-  },
-  "limits": {
-    "pulls": 985500
   },
   "lists": {
     "parameter_sizes": [

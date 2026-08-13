@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "2.1M",
     "summary": "🪐 A family of small models with 135M, 360M, and 1.7B parameters, trained on a new high-quality dataset."
-  },
-  "limits": {
-    "pulls": 2100000
   },
   "lists": {
     "parameter_sizes": [

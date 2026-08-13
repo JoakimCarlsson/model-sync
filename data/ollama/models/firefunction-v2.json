@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "514.9K",
     "summary": "An open weights function calling model based on Llama 3, competitive with GPT-4o function calling capabilities."
-  },
-  "limits": {
-    "pulls": 514900
   },
   "lists": {
     "capabilities": [

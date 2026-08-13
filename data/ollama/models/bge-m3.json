@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
-    "pulls": "5.8M",
     "summary": "BGE-M3 is a new model from BAAI distinguished for its versatility in Multi-Functionality, Multi-Linguality, and Multi-Granularity."
-  },
-  "limits": {
-    "pulls": 5800000
   },
   "lists": {
     "capabilities": [

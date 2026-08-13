@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.9M",
     "summary": "Uncensored, 8x7b and 8x22b fine-tuned models based on the Mixtral mixture of experts models that excels at coding tasks. Created by Eric Hartford."
-  },
-  "limits": {
-    "pulls": 1900000
   },
   "lists": {
     "capabilities": [

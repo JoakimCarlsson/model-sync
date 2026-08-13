@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "vision",
   "attrs": {
-    "pulls": "1.4M",
     "summary": "The Ministral 3 family is designed for edge deployment, capable of running on a wide range of hardware."
-  },
-  "limits": {
-    "pulls": 1400000
   },
   "lists": {
     "capabilities": [

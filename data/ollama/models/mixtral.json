@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "2.8M",
     "summary": "A set of Mixture of Experts (MoE) model with open weights by Mistral AI in 8x7b and 8x22b parameter sizes."
-  },
-  "limits": {
-    "pulls": 2800000
   },
   "lists": {
     "capabilities": [

@@ -3,11 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "pulls": "1.4M",
     "summary": "Phi-4-mini brings significant enhancements in multilingual support, reasoning, and mathematics, and now, the long-awaited function calling feature is finally supported."
-  },
-  "limits": {
-    "pulls": 1400000
   },
   "lists": {
     "capabilities": [
