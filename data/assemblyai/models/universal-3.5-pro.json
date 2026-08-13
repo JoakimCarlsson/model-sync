@@ -25,6 +25,12 @@
       "Keyterms prompting up to 1,000 words",
       "Native code switching",
       "Supports 18 languages"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

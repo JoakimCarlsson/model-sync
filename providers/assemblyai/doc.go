@@ -11,4 +11,20 @@
 // The models themselves are not in a table. They are MDX cards carrying a
 // title and a list of capabilities, and only the rate tables are markdown, so
 // the two are read separately and joined on the display name.
+//
+// Everything it sells hears audio and writes text, so that is what every model
+// records as its modalities.
+//
+// One model is priced elsewhere. The documentation says of the medical add-on
+// only that it is billed separately and points at the pricing page, which is
+// HTML and quotes an add-on once per model it runs with, in a column each. The
+// column heads name models by the same display name, so the mode each of those
+// models was recorded under becomes the rate's dimension — an hour of audio for
+// a pre-recorded model, an hour of connection for a streaming one.
+//
+// What this does not read from that page: the add-on columns headed by a model
+// the documentation does not list under that name, since there is nothing to
+// tie the rate to; and the LLM gateway tables, where AssemblyAI resells GPT,
+// Claude, Gemini and Qwen models at per-token rates under display names with no
+// identifier beside them.
 package assemblyai

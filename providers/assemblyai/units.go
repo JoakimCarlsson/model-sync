@@ -44,6 +44,20 @@ const (
 // ListCapabilities holds the bullet points a model card lists.
 const ListCapabilities = "capabilities"
 
+// Enumeration keys holding what a model takes and returns.
+const (
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+)
+
+// Modalities every AssemblyAI model handles. It sells transcription only, so
+// each one hears audio and writes text, whether it is given a recording or a
+// connection.
+const (
+	ModalityText  = "text"
+	ModalityAudio = "audio"
+)
+
 var (
 	cardRe = regexp.MustCompile(
 		`(?is)<Card\s+title="([^"]*)"[^>]*?(?:href="([^"]*)")?[^>]*>(.*?)</Card>`,

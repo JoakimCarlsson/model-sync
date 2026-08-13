@@ -25,6 +25,12 @@
       "Fastest word emissions",
       "Highest accuracy for voice agents",
       "Keyterms prompting up to 100 words"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

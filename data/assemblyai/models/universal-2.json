@@ -24,6 +24,12 @@
       "High accuracy, low latency",
       "Keyterms prompting up to 200 words",
       "Support across 99 languages"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

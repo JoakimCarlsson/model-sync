@@ -24,6 +24,12 @@
       "Good balance of speed and cost-effectiveness",
       "Intelligent endpointing",
       "Keyterms prompting up to 100 words"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

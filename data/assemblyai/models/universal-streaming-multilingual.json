@@ -24,6 +24,12 @@
       "Good balance of speed and cost-effectiveness",
       "Keyterms prompting up to 100 words",
       "Multilingual real-time transcription"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [

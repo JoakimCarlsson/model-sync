@@ -46,6 +46,8 @@ func (b *builder) applyCards(body, source string) {
 			}
 			m := b.model(slugID(name), KindTranscription)
 			m.AddSource(source)
+			m.AddList(ListInputModalities, ModalityAudio)
+			m.AddList(ListOutputModalities, ModalityText)
 			if m.Name == "" {
 				m.Name = name
 			}
@@ -92,6 +94,8 @@ func (b *builder) applyRateRow(
 	}
 	m := b.model(slugID(name), KindTranscription)
 	m.AddSource(source)
+	m.AddList(ListInputModalities, ModalityAudio)
+	m.AddList(ListOutputModalities, ModalityText)
 	if m.Name == "" {
 		m.Name = name
 	}
