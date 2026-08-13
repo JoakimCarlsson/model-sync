@@ -20,6 +20,13 @@
 // The record's quotes arrive escaped, and how many times depends on how deeply
 // the page nested it, so the escaping is matched rather than undone.
 //
+// The record flags tool use and image input and no other capability. One more
+// is stated, in the guide to it rather than against a model: Fireworks works
+// an example of grammar-constrained output through one model by name and then
+// says the feature is not particular to it, all its models support it. That
+// sentence is matched and the capability recorded for every model, which is
+// why it needs no flag of its own.
+//
 // Two of the page's tables are not model tables at all: they price by
 // parameter count band, with rows like "4B - 16B parameters". They are rate
 // cards rather than catalog entries and there is nothing to key them to, so
@@ -34,6 +41,11 @@
 //     context length as zero and renders it as "N/A", which is Fireworks
 //     stating that it has none to give rather than a page this parser fails to
 //     read.
+//   - Which models reason. Fireworks has a reasoning guide, and it is written
+//     against a placeholder: every example calls a model named
+//     "<reasoning-model>", and the three it names outright are illustrations
+//     rather than a list. Reading a capability out of an example would claim
+//     it for whichever model the example happened to use, so none is recorded.
 //   - Anything at all about its embedding model beyond the rate. Its row on the
 //     pricing page links to no model page, so it carries neither a context
 //     window nor the width of the vector it returns.

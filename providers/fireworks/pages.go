@@ -26,7 +26,33 @@ const (
 )
 
 // FeatureFunctionCalling is the one capability a model page states as a flag.
-const FeatureFunctionCalling = "function_calling"
+const FeatureFunctionCalling = catalog.CapabilityFunctionCalling
+
+// everyModelRe matches the sentence the structured outputs guide states its
+// scope in, which is every model Fireworks serves. It is matched rather than
+// assumed: the guide worked through one model by name and then said the
+// feature is not particular to it, and a guide rewritten to name a list stops
+// yielding the capability for all of them.
+var everyModelRe = regexp.MustCompile(
+	`(?i)all fireworks models support this feature`,
+)
+
+// applyStructuredOutputs records the capability against every model.
+//
+// This is the one capability Fireworks states outside the model record. That
+// record carries a flag for tool use and one for image input and nothing for
+// this, and the guide explains why: the answer is the same for every model, so
+// there is nothing to flag per model.
+func (b *builder) applyStructuredOutputs(doc catalog.Document) {
+	if !everyModelRe.Match(doc.Body) {
+		return
+	}
+	for _, id := range b.order {
+		m := b.models[id]
+		m.AddList(ListFeatures, catalog.CapabilityStructuredOutputs)
+		m.AddSource(doc.URL)
+	}
+}
 
 // Fields of the model record a page carries.
 //

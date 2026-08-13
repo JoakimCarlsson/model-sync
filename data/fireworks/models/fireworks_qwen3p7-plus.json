@@ -39,7 +39,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",
@@ -51,6 +52,7 @@
   },
   "sources": [
     "https://app.fireworks.ai/models/fireworks/qwen3p7-plus",
-    "https://docs.fireworks.ai/serverless/pricing.md"
+    "https://docs.fireworks.ai/serverless/pricing.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
   ]
 }

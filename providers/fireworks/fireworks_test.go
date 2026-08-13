@@ -19,6 +19,7 @@ func parse(t *testing.T) map[string]catalog.Model {
 	}{
 		{PricingURL, "pricing.md"},
 		{modelPagePre + "fireworks/minimax-m3", "minimax-m3.html"},
+		{StructuredOutputsURL, "structured-outputs.md"},
 	}
 	docs := make([]catalog.Document, 0, len(files))
 	for _, f := range files {
@@ -81,6 +82,25 @@ func TestParseNoOutputBound(t *testing.T) {
 	for id, m := range parse(t) {
 		if _, ok := m.Limits["max_output_tokens"]; ok {
 			t.Errorf("%s: got an output ceiling", id)
+		}
+	}
+}
+
+// TestParseStructuredOutputs covers the capability Fireworks states for every
+// model at once rather than as a flag on each. It reaches models the pricing
+// page priced without linking to a page of their own, since the guide's scope
+// is the models Fireworks serves and not the ones with a record.
+func TestParseStructuredOutputs(t *testing.T) {
+	byID := parse(t)
+	if len(byID) == 0 {
+		t.Fatal("no models parsed")
+	}
+	for id, m := range byID {
+		if !slices.Contains(
+			m.Lists[ListFeatures],
+			catalog.CapabilityStructuredOutputs,
+		) {
+			t.Errorf("%s: got features %q, want structured output", id, m.Lists[ListFeatures])
 		}
 	}
 }

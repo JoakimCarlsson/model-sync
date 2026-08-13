@@ -69,7 +69,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"
@@ -80,6 +81,7 @@
   },
   "sources": [
     "https://app.fireworks.ai/models/fireworks/gpt-oss-120b",
-    "https://docs.fireworks.ai/serverless/pricing.md"
+    "https://docs.fireworks.ai/serverless/pricing.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
   ]
 }

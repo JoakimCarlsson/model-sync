@@ -28,6 +28,12 @@ const (
 // PricingURL is the page listing every serverless rate.
 const PricingURL = "https://docs.fireworks.ai/serverless/pricing.md"
 
+// StructuredOutputsURL is the guide stating which models can be constrained to
+// a shape. A model's own page carries a flag for tool use and for image input
+// and none for this, so the guide is where its scope is stated.
+const StructuredOutputsURL = "https://docs.fireworks.ai/structured-responses/" +
+	"structured-output-grammar-based.md"
+
 // modelPagePre prefixes the page each priced model is linked to.
 const modelPagePre = "https://app.fireworks.ai/models/"
 
@@ -66,7 +72,8 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	if err != nil {
 		return nil, err
 	}
-	pages, failures := p.getAll(ctx, modelPageURLs(pricing))
+	urls := append(modelPageURLs(pricing), StructuredOutputsURL)
+	pages, failures := p.getAll(ctx, urls)
 	return append([]catalog.Document{pricing}, pages...),
 		errors.Join(failures...)
 }
@@ -162,7 +169,9 @@ func (p *Provider) get(
 }
 
 // Parse reads the pricing page first, because it is the only document naming
-// the models and the only one linking to their pages.
+// the models and the only one linking to their pages. Everything else it
+// fetched is either one of those pages or the structured outputs guide, which
+// states a capability for models the pricing page has already established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -171,7 +180,11 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL != PricingURL {
+		switch doc.URL {
+		case PricingURL:
+		case StructuredOutputsURL:
+			b.applyStructuredOutputs(doc)
+		default:
 			b.applyModelPage(doc)
 		}
 	}
