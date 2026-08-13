@@ -14,4 +14,19 @@
 //
 // Rates also vary by plan rather than by anything about the model, so the plan
 // is a dimension.
+//
+// Two cells hold a word where the others hold an amount. "Included" is a rate
+// of nothing, charged on top of the transcription the add-on runs on, and is
+// recorded as zero with a note rather than left looking unpriced. "Contact
+// Sales" is Deepgram declining to publish one, and is recorded as an attribute
+// against a model that then correctly carries no price.
+//
+// What a model takes and returns is said by the product heading its table sits
+// under: speech to text hears and writes, text to speech reads and speaks, an
+// agent does both at once, and an add-on or an intelligence feature runs on the
+// audio and answers in text.
+//
+// What Deepgram does not publish: a capability list or a context window for any
+// model. Its pricing page describes a model in one sentence of prose and its
+// documentation enumerates nothing per model.
 package deepgram

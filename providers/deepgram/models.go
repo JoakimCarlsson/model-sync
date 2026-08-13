@@ -88,6 +88,8 @@ func (b *builder) applyRow(
 	}
 	m := b.model(slugID(name), kind)
 	m.AddSource(source)
+	m.AddList(ListInputModalities, kindFlows[kind].in...)
+	m.AddList(ListOutputModalities, kindFlows[kind].out...)
 	if m.Name == "" {
 		m.Name = name
 	}
@@ -116,6 +118,18 @@ func (b *builder) applyCell(
 	}
 	if strings.EqualFold(plain, "included") {
 		m.SetAttr(AttrIncluded, "true")
+		m.AddPrice(catalog.Price{
+			Metric:   metricFor(kind, ""),
+			Unit:     UnitPerMinute,
+			Amount:   0,
+			Currency: currency,
+			Dims:     catalog.Dims{}.With(DimPlan, plan),
+			Note:     noteIncluded,
+		})
+		return
+	}
+	if strings.Contains(strings.ToLower(plain), contactSales) {
+		m.SetAttr(AttrAccess, contactSales)
 		return
 	}
 	struck := struckAmounts(c.html)

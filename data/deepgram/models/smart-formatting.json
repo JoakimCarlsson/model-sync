@@ -3,9 +3,39 @@
   "provider": "deepgram",
   "name": "Smart Formatting",
   "kind": "add-on",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      },
+      "note": "included in the base rate"
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      },
+      "note": "included in the base rate"
+    }
+  ],
   "attrs": {
     "included": "true",
     "product": "speech-to-text add-ons"
+  },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
     "https://deepgram.com/pricing"

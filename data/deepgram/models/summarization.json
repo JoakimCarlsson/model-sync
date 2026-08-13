@@ -44,6 +44,14 @@
   "attrs": {
     "product": "audio intelligence"
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

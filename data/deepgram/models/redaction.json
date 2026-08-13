@@ -26,6 +26,14 @@
   "attrs": {
     "product": "speech-to-text add-ons"
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

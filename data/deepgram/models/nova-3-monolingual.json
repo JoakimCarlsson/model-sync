@@ -28,6 +28,14 @@
     "product": "speech to text",
     "summary": "Our highest performing model. Recommended for most use cases, especially audio with multiple languages, background noise, crosstalk and far field audio."
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

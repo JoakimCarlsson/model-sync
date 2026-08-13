@@ -4,8 +4,17 @@
   "name": "Custom",
   "kind": "transcription",
   "attrs": {
+    "access": "contact sales",
     "product": "speech to text",
     "summary": "Custom speech-to-text models trained on proprietary or novel datasets for maximum accuracy in edge-case scenarios."
+  },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
     "https://deepgram.com/pricing"

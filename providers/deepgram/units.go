@@ -51,11 +51,61 @@ func isPromotional(raw string) bool {
 	return strings.Contains(strings.ToLower(raw), promotionalMarker)
 }
 
+// noteIncluded marks a rate of zero that Deepgram writes as "Included",
+// meaning the add-on costs nothing beyond the transcription it runs on.
+const noteIncluded = "included in the base rate"
+
+// contactSales is what Deepgram writes where another model has a rate, for the
+// models it will only price in a conversation.
+const contactSales = "contact sales"
+
+// Enumeration keys the pricing page populates.
+const (
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+)
+
+// Modalities Deepgram's models handle.
+const (
+	ModalityText  = "text"
+	ModalityAudio = "audio"
+)
+
+// kindFlows say what each kind of model takes and returns. Deepgram states it
+// by which product a model is sold under: speech to text hears and writes,
+// text to speech reads and speaks, an agent does both, and an add-on or an
+// intelligence feature runs on the transcription and answers in text.
+var kindFlows = map[catalog.Kind]struct{ in, out []string }{
+	KindTranscription: {
+		[]string{ModalityAudio},
+		[]string{ModalityText},
+	},
+	KindSpeech: {
+		[]string{ModalityText},
+		[]string{ModalityAudio},
+	},
+	KindAgent: {
+		[]string{ModalityAudio, ModalityText},
+		[]string{ModalityAudio, ModalityText},
+	},
+	KindAddOn: {
+		[]string{ModalityAudio},
+		[]string{ModalityText},
+	},
+	KindIntelligence: {
+		[]string{ModalityAudio},
+		[]string{ModalityText},
+	},
+}
+
 // Scalar keys the pricing page populates.
 const (
 	AttrSummary  = "summary"
 	AttrSection  = "product"
 	AttrIncluded = "included"
+	// AttrAccess records that a model is sold by arrangement rather than at a
+	// published rate.
+	AttrAccess = "access"
 	// AttrPreviousRate keeps the struck-through amount, which is what
 	// Deepgram charged before the current rate.
 	AttrPreviousRate = "previous_rate"

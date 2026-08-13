@@ -28,6 +28,14 @@
     "product": "speech to text",
     "summary": "Our highest-accuracy multilingual model with automatic language detection. Recommended for audio with multiple languages, background noise, crosstalk, and far-field input."
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

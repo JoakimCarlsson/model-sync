@@ -48,6 +48,16 @@
   "attrs": {
     "product": "voice agent api"
   },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

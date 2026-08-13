@@ -26,6 +26,14 @@
   "attrs": {
     "product": "text to speech"
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]

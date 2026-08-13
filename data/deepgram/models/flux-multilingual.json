@@ -27,6 +27,14 @@
     "product": "speech to text",
     "summary": "Conversational speech recognition for real-time voice agents that handle multiple languages within a single conversation, with built-in turn detection, natural interruption handling, and ultra-low latency."
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://deepgram.com/pricing"
   ]
