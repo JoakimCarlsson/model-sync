@@ -54,6 +54,10 @@
     "aliases": [
       "Gemini API gemini-2.5-computer-use-preview-10-2025"
     ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
     "output_modalities": [
       "text"
     ],

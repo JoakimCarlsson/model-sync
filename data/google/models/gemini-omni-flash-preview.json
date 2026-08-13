@@ -47,6 +47,11 @@
     "aliases": [
       "Gemini API gemini-omni-flash-preview"
     ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
     "output_modalities": [
       "video"
     ]

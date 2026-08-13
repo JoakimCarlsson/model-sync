@@ -206,12 +206,36 @@ func (b *builder) applyPricing(doc catalog.Document) {
 				continue
 			}
 			if header, ok := planHeader(cells); ok {
-				columns = header
+				columns = fillUnits(header)
 				continue
 			}
 			b.applyRow(model, tier, columns, cells)
 		}
 	}
+}
+
+// fillUnits gives every column of a table the denominator its rates are quoted
+// against.
+//
+// Google states it in one column's heading only: "Paid Tier, per 1M tokens in
+// USD" beside a bare "Free Tier". Both columns price the same rows, so the one
+// denominator the table states is the denominator of all of them. Without this
+// the free plan's rates are dropped for want of a unit, which is why every
+// model Google gives away read as unpriced.
+func fillUnits(columns []column) []column {
+	stated := catalog.Unit("")
+	for _, col := range columns {
+		if col.unit != "" {
+			stated = col.unit
+			break
+		}
+	}
+	for i := range columns {
+		if columns[i].unit == "" {
+			columns[i].unit = stated
+		}
+	}
+	return columns
 }
 
 // column is one plan and the denominator its heading states.

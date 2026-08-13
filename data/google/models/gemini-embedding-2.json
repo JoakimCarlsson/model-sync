@@ -7,6 +7,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "free",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 3.25,
       "currency": "USD",
       "dims": {
@@ -47,6 +58,17 @@
       "dims": {
         "modality": "audio",
         "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "free",
         "tier": "standard"
       }
     },
@@ -99,6 +121,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "plan": "free",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.1,
       "currency": "USD",
       "dims": {
@@ -115,6 +148,17 @@
       "dims": {
         "modality": "text",
         "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "free",
         "tier": "standard"
       }
     },
@@ -176,6 +220,18 @@
   "lists": {
     "aliases": [
       "Gemini API gemini-embedding-2"
+    ],
+    "embedding_dimensions": [
+      "1536",
+      "3072",
+      "768"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
     ],
     "snapshots": [
       "gemini-embedding-2"

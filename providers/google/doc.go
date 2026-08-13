@@ -9,7 +9,14 @@
 // Google states rates twice over: a model has one table per serving tier, and
 // each table has one column per plan. A single rate therefore needs both a tier
 // and a plan to identify it, and the free plan's "Free of charge" is a real
-// rate of zero rather than an absence. Neither the model nor the tier appears
+// rate of zero rather than an absence. Only one column of a table states the
+// denominator its rates are quoted against — "Paid Tier, per 1M tokens in USD"
+// beside a bare "Free Tier" — and since both price the same rows, the one
+// denominator stated is the denominator of all of them. Without that the free
+// plan's rates have no unit and are dropped, which is what left the open Gemma
+// models, whose only rate is a free one, reading as unpriced.
+//
+// Neither the model nor the tier appears
 // inside its table — both are headings above it — so the pricing page is read
 // as a running state of which model and which tier are in force rather than as
 // a list of self-describing tables.
@@ -17,7 +24,10 @@
 // A model page is the opposite: one table of properties, each row a labelled
 // fact, with the capabilities enumerated and marked supported or not. Only the
 // supported ones are recorded, and one marked supported in preview counts as
-// supported.
+// supported. An embedding model's page labels the same field in the singular,
+// "Input" where a chat model's says "Inputs", and adds the width of the vector
+// it returns: a range followed by the widths Google recommends. Only the named
+// widths are recorded, since a range is not a list of values to pick from.
 //
 // Joining the two takes care. The pricing page heads a model with the name it
 // sells under and the model page addresses it by the identifier the API

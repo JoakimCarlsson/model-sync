@@ -7,6 +7,15 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.002,
       "currency": "USD",
       "dims": {
@@ -48,6 +57,15 @@
       "dims": {
         "plan": "paid",
         "resolution": "text"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free"
       }
     },
     {

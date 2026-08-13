@@ -90,6 +90,10 @@
   "lists": {
     "aliases": [
       "Gemini API veo-3.1-generate-preview veo-3.1-fast-generate-preview"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
     ]
   },
   "sources": [

@@ -33,19 +33,32 @@ const (
 
 // Rows of the property table this parser reads, named as Google labels them.
 const (
-	rowModelCode  = "model code"
-	rowDataTypes  = "supported data types"
-	rowTokens     = "token limits"
-	rowCaps       = "capabilities"
-	rowConsuming  = "consumption options"
-	rowVersions   = "versions"
-	rowUpdated    = "latest update"
-	rowModelCard  = "model card"
-	fieldInputs   = "inputs"
+	rowModelCode = "model code"
+	rowDataTypes = "supported data types"
+	rowTokens    = "token limits"
+	rowCaps      = "capabilities"
+	rowConsuming = "consumption options"
+	rowVersions  = "versions"
+	rowUpdated   = "latest update"
+	rowModelCard = "model card"
+	fieldInputs  = "inputs"
+	// fieldInput is the same field on an embedding model's page, which writes
+	// the label in the singular.
+	fieldInput    = "input"
 	fieldOutput   = "output"
 	fieldInLimit  = "input token limit"
 	fieldOutLimit = "output token limit"
+	// fieldDimension is the width of the vector an embedding model returns.
+	fieldDimension = "output dimension size"
 )
+
+// ListDimensions holds the widths an embedding model can be asked for.
+const ListDimensions = "embedding_dimensions"
+
+// recommendedMarker introduces the widths Google names inside a field that
+// otherwise states a range. A range is not a set of values a consumer can ask
+// for, so only the widths named after this word are recorded.
+const recommendedMarker = "recommended:"
 
 // supported is how Google marks a capability a model has. It writes the same
 // word with a qualifier for one still in preview, which is still a capability.
@@ -108,6 +121,8 @@ var (
 	)
 	hrefRe  = regexp.MustCompile(`(?is)<a href="([^"]+)"`)
 	countRe = regexp.MustCompile(`^([\d,]+)`)
+	// widthRe matches one width of the list an embedding model's field names.
+	widthRe = regexp.MustCompile(`\d[\d,]*`)
 )
 
 // applyModelPage reads one model's page onto the model the pricing page
@@ -162,7 +177,7 @@ func applyFields(m *catalog.Model, cell string) {
 	for _, field := range sectionRe.FindAllStringSubmatch(cell, -1) {
 		value := text(field[2])
 		switch strings.ToLower(text(field[1])) {
-		case fieldInputs:
+		case fieldInputs, fieldInput:
 			addModalities(m, ListInputModalities, value)
 		case fieldOutput:
 			addModalities(m, ListOutputModalities, value)
@@ -170,8 +185,28 @@ func applyFields(m *catalog.Model, cell string) {
 			m.SetLimit(LimitContextWindow, parseCount(value))
 		case fieldOutLimit:
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))
+		case fieldDimension:
+			m.AddList(ListDimensions, dimensionsOf(value)...)
 		}
 	}
+}
+
+// dimensionsOf reads the widths an embedding model can return.
+//
+// Google states them as a range and then names the ones it recommends, as
+// "Flexible, supports: 128 - 3072, Recommended: 768, 1536, 3072". Only the
+// named widths are recorded: the range says what the model will accept and the
+// list says what a reader can pick from, and a range is not a list.
+func dimensionsOf(value string) []string {
+	_, named, ok := strings.Cut(strings.ToLower(value), recommendedMarker)
+	if !ok {
+		named = value
+	}
+	var out []string
+	for _, width := range widthRe.FindAllString(named, -1) {
+		out = append(out, strings.ReplaceAll(width, ",", ""))
+	}
+	return out
 }
 
 // applyCapabilities records the capabilities a model has, and drops the ones

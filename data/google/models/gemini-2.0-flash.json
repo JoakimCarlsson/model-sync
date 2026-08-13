@@ -7,6 +7,16 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.025,
       "currency": "USD",
       "dims": {
@@ -61,6 +71,16 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free",
         "tier": "standard"
       }
     },
@@ -111,6 +131,16 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD",
       "dims": {
@@ -125,6 +155,16 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free",
         "tier": "standard"
       }
     },
