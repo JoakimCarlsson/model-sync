@@ -59,6 +59,12 @@ const noteIncluded = "included in the base rate"
 // models it will only price in a conversation.
 const contactSales = "contact sales"
 
+// noteContactSales records that a model has no published rate. The access key
+// already says so, but nothing reading the aggregate can see a package comment
+// and a model with no amount otherwise reads as a free one.
+const noteContactSales = "sold by arrangement; " +
+	"the pricing page states no amount"
+
 // Enumeration keys the pricing page populates.
 const (
 	ListInputModalities  = "input_modalities"

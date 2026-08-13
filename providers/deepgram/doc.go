@@ -28,5 +28,8 @@
 //
 // What Deepgram does not publish: a capability list or a context window for any
 // model. Its pricing page describes a model in one sentence of prose and its
-// documentation enumerates nothing per model.
+// documentation enumerates nothing per model. Nor does it state a rate for the
+// custom models it trains on a customer's own data, writing "contact sales"
+// where an amount goes; that is kept as a note so the model does not read as a
+// free one.
 package deepgram

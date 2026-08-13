@@ -88,6 +88,9 @@ func TestParseContactSales(t *testing.T) {
 	if len(m.Prices) != 0 {
 		t.Errorf("got %d prices, want none", len(m.Prices))
 	}
+	if len(m.Notes) != 1 {
+		t.Errorf("got notes %v, want one saying why there is no rate", m.Notes)
+	}
 }
 
 // TestParseRates covers the two plan columns and the promotional rate written

@@ -130,6 +130,7 @@ func (b *builder) applyCell(
 	}
 	if strings.Contains(strings.ToLower(plain), contactSales) {
 		m.SetAttr(AttrAccess, contactSales)
+		m.AddNote(noteContactSales)
 		return
 	}
 	struck := struckAmounts(c.html)
