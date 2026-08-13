@@ -1,0 +1,189 @@
+{
+  "id": "gpt-35-trb16k-125",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "australiaeast",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "northcentralus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus3",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "australiaeast",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "northcentralus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus3",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00075,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

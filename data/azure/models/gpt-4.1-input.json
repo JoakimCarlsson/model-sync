@@ -1,0 +1,421 @@
+{
+  "id": "gpt-4.1-input",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000605,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00055,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "id": "phi-4-mini-mm",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "malaysiawest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "qatarcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "malaysiawest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "qatarcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00032,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure Phi Models"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

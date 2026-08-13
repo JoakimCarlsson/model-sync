@@ -1,0 +1,53 @@
+{
+  "id": "gpt4-turbo-128k",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0375,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

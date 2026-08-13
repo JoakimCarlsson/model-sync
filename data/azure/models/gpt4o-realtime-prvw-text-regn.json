@@ -1,0 +1,173 @@
+{
+  "id": "gpt4o-realtime-prvw-text-regn",
+  "provider": "azure",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0066,
+      "currency": "USD",
+      "dims": {
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00605,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0264,
+      "currency": "USD",
+      "dims": {
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0242,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

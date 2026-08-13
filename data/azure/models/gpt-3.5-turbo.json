@@ -1,0 +1,23 @@
+{
+  "id": "gpt-3.5-turbo",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.002,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

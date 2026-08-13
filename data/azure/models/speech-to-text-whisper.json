@@ -1,0 +1,222 @@
+{
+  "id": "speech-to-text-whisper",
+  "provider": "azure",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "northcentralus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "northeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "norwayeast",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "southindia",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "spaincentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.396,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "eastus2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.396,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "northcentralus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4752,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "northeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4356,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "norwayeast",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.396,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "southindia",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4356,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4356,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "switzerlandnorth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4356,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "uaenorth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.4752,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "westeurope",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.396,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "westus2",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

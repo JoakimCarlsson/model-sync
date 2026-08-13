@@ -1,0 +1,24 @@
+{
+  "id": "gpt4o-mn-tts-in-rg-1215",
+  "provider": "azure",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 0.792,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI Media"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

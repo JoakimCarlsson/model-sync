@@ -1,0 +1,33 @@
+{
+  "id": "unit",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 17.167,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "provisioned"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 17.167,
+      "currency": "USD",
+      "dims": {
+        "region": "US Gov",
+        "tier": "provisioned"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Foundry Local Azure Open AI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

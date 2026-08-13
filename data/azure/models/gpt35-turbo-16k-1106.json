@@ -1,0 +1,53 @@
+{
+  "id": "gpt35-turbo-16k-1106",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.002,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

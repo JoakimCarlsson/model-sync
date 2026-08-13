@@ -11,6 +11,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 	"github.com/joakimcarlsson/model-sync/providers/anthropic"
 	"github.com/joakimcarlsson/model-sync/providers/assemblyai"
+	"github.com/joakimcarlsson/model-sync/providers/azure"
 	"github.com/joakimcarlsson/model-sync/providers/bedrock"
 	"github.com/joakimcarlsson/model-sync/providers/berget"
 	"github.com/joakimcarlsson/model-sync/providers/cerebras"
@@ -79,6 +80,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	assemblyaiSource.CacheDir = cache
 	perplexitySource := perplexity.New()
 	perplexitySource.CacheDir = cache
+	azureSource := azure.New()
+	azureSource.CacheDir = cache
 	bedrockSource := bedrock.New()
 	bedrockSource.CacheDir = cache
 	bergetSource := berget.New()
@@ -101,6 +104,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 	groqSource.CacheDir = cache
 	sources := []catalog.Source{
 		assemblyaiSource,
+		azureSource,
 		bedrockSource,
 		bergetSource,
 		cerebrasSource,

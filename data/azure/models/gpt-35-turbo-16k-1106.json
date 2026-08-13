@@ -1,0 +1,211 @@
+{
+  "id": "gpt-35-turbo-16k-1106",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00121,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00121,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00121,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00121,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "usgovarizona",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00242,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00242,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00242,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00242,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "usgovarizona",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

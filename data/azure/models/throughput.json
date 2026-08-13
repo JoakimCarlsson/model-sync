@@ -1,0 +1,33 @@
+{
+  "id": "throughput",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "region": "Global",
+        "tier": "provisioned"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "provisioned"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

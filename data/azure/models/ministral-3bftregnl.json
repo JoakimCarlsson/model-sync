@@ -1,0 +1,33 @@
+{
+  "id": "ministral-3bftregnl",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.715,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure Mistral Models"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

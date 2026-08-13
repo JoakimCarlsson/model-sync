@@ -1,0 +1,68 @@
+{
+  "id": "speech-text-to-speech-hd",
+  "provider": "azure",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 39.6,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 36.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "id": "gpt-35-trb16k",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "francecentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "southafricanorth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "uksouth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0005,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "eastus",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "francecentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "southafricanorth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "swedencentral",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "uksouth",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "region": "westus",
+        "tier": "batch"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

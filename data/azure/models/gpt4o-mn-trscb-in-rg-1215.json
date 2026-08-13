@@ -1,0 +1,35 @@
+{
+  "id": "gpt4o-mn-trscb-in-rg-1215",
+  "provider": "azure",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 3.96,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 1.65,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI Media"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

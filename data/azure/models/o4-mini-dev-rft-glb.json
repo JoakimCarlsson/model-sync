@@ -1,0 +1,933 @@
+{
+  "id": "o4-mini-dev-rft-glb",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000275,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0011,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0044,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_hour",
+      "amount": 50,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI Reasoning"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

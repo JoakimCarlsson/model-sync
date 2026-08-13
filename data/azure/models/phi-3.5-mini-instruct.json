@@ -1,0 +1,233 @@
+{
+  "id": "phi-3.5-mini-instruct",
+  "provider": "azure",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.003,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure Phi Models"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}
