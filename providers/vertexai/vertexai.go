@@ -114,14 +114,88 @@ type unitPrice struct {
 	Nanos        int64  `json:"nanos"`
 }
 
-// Fetch walks the catalog and returns every SKU as one document.
+// Fetch walks the billing catalog, then reads the model documentation.
+//
+// The catalog needs a credential and the documentation does not, but the
+// documentation alone describes no rate and names no model this catalog
+// holds, so the credential is still what the run depends on.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
+	skus, err := p.fetchSKUs(ctx)
+	if err != nil {
+		return nil, err
+	}
+	docs := []catalog.Document{skus}
+	index, err := p.getPage(ctx, ModelsURL)
+	if err != nil {
+		return docs, err
+	}
+	docs = append(docs, index)
+	var failures []error
+	for _, url := range modelPageURLs(index) {
+		page, err := p.getPage(ctx, url)
+		if err != nil {
+			failures = append(failures, err)
+			continue
+		}
+		docs = append(docs, page)
+	}
+	return docs, errors.Join(failures...)
+}
+
+// getPage retrieves one documentation page, which needs no credential.
+func (p *Provider) getPage(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCacheFile(cacheName(url)); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
+	}
+	client := p.Client
+	if client == nil {
+		client = http.DefaultClient
+	}
+	resp, err := client.Do(req)
+	if err != nil {
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
+	}
+	defer func() { _ = resp.Body.Close() }()
+	if resp.StatusCode != http.StatusOK {
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
+	}
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
+	}
+	p.writeCacheFile(cacheName(url), body)
+	return catalog.Document{URL: url, Body: body}, nil
+}
+
+// cacheName turns a documentation URL into a flat filename.
+func cacheName(url string) string {
+	trimmed := strings.TrimPrefix(url, docsBase+"/")
+	return providerID + "_" + strings.Map(func(r rune) rune {
+		switch {
+		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
+			return r
+		case r == '.', r == '-', r == '_':
+			return r
+		}
+		return '_'
+	}, trimmed)
+}
+
+// fetchSKUs walks the catalog and returns every SKU as one document.
+func (p *Provider) fetchSKUs(ctx context.Context) (catalog.Document, error) {
 	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: catalogURL, Body: body}}, nil
+		return catalog.Document{URL: catalogURL, Body: body}, nil
 	}
 	token, err := p.accessToken(ctx)
 	if err != nil {
-		return nil, err
+		return catalog.Document{}, err
 	}
 	var (
 		skus []sku
@@ -130,11 +204,15 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	for pages := 0; pages < maxPages; pages++ {
 		body, err := p.get(ctx, token, next)
 		if err != nil {
-			return nil, err
+			return catalog.Document{}, err
 		}
 		var current page
 		if err := json.Unmarshal(body, &current); err != nil {
-			return nil, fmt.Errorf("decode %s: %w", catalogURL, err)
+			return catalog.Document{}, fmt.Errorf(
+				"decode %s: %w",
+				catalogURL,
+				err,
+			)
 		}
 		skus = append(skus, current.SKUs...)
 		next = current.NextPageToken
@@ -144,10 +222,10 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	body, err := json.Marshal(page{SKUs: skus})
 	if err != nil {
-		return nil, err
+		return catalog.Document{}, err
 	}
 	p.writeCache(body)
-	return []catalog.Document{{URL: catalogURL, Body: body}}, nil
+	return catalog.Document{URL: catalogURL, Body: body}, nil
 }
 
 // accessToken finds a credential, preferring one given outright, then the
@@ -197,11 +275,17 @@ func (p *Provider) get(
 	return io.ReadAll(resp.Body)
 }
 
-// Parse reads the collected SKUs.
+// Parse reads the SKUs first, because they are the only document naming the
+// models Vertex bills for, then the model pages onto what they established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	var failures []error
+	var pages []catalog.Document
 	for _, doc := range docs {
+		if doc.URL != catalogURL {
+			pages = append(pages, doc)
+			continue
+		}
 		var current page
 		if err := json.Unmarshal(doc.Body, &current); err != nil {
 			failures = append(failures, fmt.Errorf("decode: %w", err))
@@ -211,6 +295,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applySKU(s, doc.URL)
 		}
 	}
+	b.applyModelPages(pages)
 	return b.result(), errors.Join(failures...)
 }
 
@@ -275,23 +360,33 @@ const defaultCurrency = "USD"
 
 // readCache returns a previously fetched listing.
 func (p *Provider) readCache() ([]byte, bool) {
+	return p.readCacheFile(cacheFile)
+}
+
+// writeCache stores a listing.
+func (p *Provider) writeCache(body []byte) {
+	p.writeCacheFile(cacheFile, body)
+}
+
+// readCacheFile returns a previously fetched body.
+func (p *Provider) readCacheFile(name string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, name))
 	return body, err == nil
 }
 
-// writeCache stores a listing, ignoring failures because the cache is an
+// writeCacheFile stores a body, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCacheFile(name string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, name), body, 0o644)
 }
 
 // builder accumulates models.
