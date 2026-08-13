@@ -43,8 +43,7 @@
       "formatted_output",
       "function_calling",
       "json_mode",
-      "streaming",
-      "vision"
+      "streaming"
     ],
     "input_modalities": [
       "image",

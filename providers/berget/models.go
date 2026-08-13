@@ -124,7 +124,7 @@ func (b *builder) applyEntry(e entry, source string) {
 	m.SetLimit(AttrModelSize, e.ModelSize)
 	m.AddList(ListAliases, e.Aliases...)
 	for capability, present := range e.Capabilities {
-		if present {
+		if present && capability != FeatureVision {
 			m.AddList(ListFeatures, capability)
 		}
 	}

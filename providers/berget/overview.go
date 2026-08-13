@@ -19,8 +19,9 @@ const (
 )
 
 // FeatureVision is the capability Berget marks a model that reads images by.
-// It names a modality rather than an API feature, so it is recorded as one as
-// well, since that is the form four consumer-side booleans are read from.
+// It names a modality rather than an API feature, so it is recorded as an
+// input modality instead of joining the capability list, where it would be the
+// one provider spelling image input that way.
 const FeatureVision = "vision"
 
 // typeModalities map Berget's model type onto what a model of that type takes
