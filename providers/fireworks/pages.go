@@ -37,18 +37,28 @@ var everyModelRe = regexp.MustCompile(
 	`(?i)all fireworks models support this feature`,
 )
 
-// applyStructuredOutputs records the capability against every model.
+// applyStructuredOutputs records the capability against every model that
+// generates a response.
 //
 // This is the one capability Fireworks states outside the model record. That
 // record carries a flag for tool use and one for image input and nothing for
 // this, and the guide explains why: the answer is the same for every model, so
 // there is nothing to flag per model.
+//
+// The guide says all of them, and it means all the models it is about. It
+// constrains what a model writes, and an embedding model writes nothing: it
+// returns a vector, which no schema describes and no grammar could constrain.
+// Reading "all" past the models the sentence is about would state a capability
+// that cannot be exercised.
 func (b *builder) applyStructuredOutputs(doc catalog.Document) {
 	if !everyModelRe.Match(doc.Body) {
 		return
 	}
 	for _, id := range b.order {
 		m := b.models[id]
+		if m.Kind != KindChat {
+			continue
+		}
 		m.AddList(ListFeatures, catalog.CapabilityStructuredOutputs)
 		m.AddSource(doc.URL)
 	}

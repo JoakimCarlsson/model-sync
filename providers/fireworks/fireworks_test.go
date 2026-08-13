@@ -88,19 +88,29 @@ func TestParseNoOutputBound(t *testing.T) {
 
 // TestParseStructuredOutputs covers the capability Fireworks states for every
 // model at once rather than as a flag on each. It reaches models the pricing
-// page priced without linking to a page of their own, since the guide's scope
-// is the models Fireworks serves and not the ones with a record.
+// page priced without linking to a page of their own, since the guide needs no
+// model record, and stops at the models the guide is about: an embedding model
+// returns a vector, which no schema constrains.
 func TestParseStructuredOutputs(t *testing.T) {
-	byID := parse(t)
-	if len(byID) == 0 {
-		t.Fatal("no models parsed")
-	}
-	for id, m := range byID {
-		if !slices.Contains(
+	chat, embedding := 0, 0
+	for id, m := range parse(t) {
+		has := slices.Contains(
 			m.Lists[ListFeatures],
 			catalog.CapabilityStructuredOutputs,
-		) {
+		)
+		if m.Kind == KindEmbedding {
+			if has {
+				t.Errorf("%s: an embedding model claiming structured output", id)
+			}
+			embedding++
+			continue
+		}
+		if !has {
 			t.Errorf("%s: got features %q, want structured output", id, m.Lists[ListFeatures])
 		}
+		chat++
+	}
+	if chat == 0 || embedding == 0 {
+		t.Fatalf("got %d chat and %d embedding, want both covered", chat, embedding)
 	}
 }

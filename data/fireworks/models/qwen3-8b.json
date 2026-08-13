@@ -11,13 +11,7 @@
       "currency": "USD"
     }
   ],
-  "lists": {
-    "features": [
-      "structured_outputs"
-    ]
-  },
   "sources": [
-    "https://docs.fireworks.ai/serverless/pricing.md",
-    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+    "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

@@ -24,8 +24,10 @@
 // is stated, in the guide to it rather than against a model: Fireworks works
 // an example of grammar-constrained output through one model by name and then
 // says the feature is not particular to it, all its models support it. That
-// sentence is matched and the capability recorded for every model, which is
-// why it needs no flag of its own.
+// sentence is matched and the capability recorded for every model that
+// generates a response, which is why it needs no flag of its own. It stops
+// there: the sentence says all of them and means all the models the guide is
+// about, and an embedding model returns a vector, which no schema describes.
 //
 // Two of the page's tables are not model tables at all: they price by
 // parameter count band, with rows like "4B - 16B parameters". They are rate
