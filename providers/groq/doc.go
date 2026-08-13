@@ -10,4 +10,15 @@
 // Groq serves speech as well as text, so the same column states dollars per
 // million tokens, per million characters, and per hour of audio, and only the
 // label after the amount says which.
+//
+// The table says nothing about what a model takes or can do. Each row links to
+// the model's own page, which states both under headings written in capitals
+// with the value on the line below, and that page names the identifier the
+// API answers to, so the two need no matching. Vision is listed there as a
+// capability, and is recorded as an image input instead, which is what every
+// provider stating modalities calls it.
+//
+// What Groq does not publish: a page for every model in its table. Three of
+// the eleven chat models are listed with rates and limits and no page, and
+// carry no capabilities for that reason.
 package groq

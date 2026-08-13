@@ -18,6 +18,7 @@
     }
   ],
   "attrs": {
+    "model_card_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
     "state": "production",
     "tokens_per_second": "560"
   },
@@ -27,7 +28,20 @@
     "requests_per_minute": 1000,
     "tokens_per_minute": 250000
   },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/llama-3.1-8b-instant.md",
     "https://console.groq.com/docs/models.md"
   ]
 }

@@ -20,7 +20,19 @@
     "requests_per_minute": 250,
     "tokens_per_minute": 50000
   },
+  "lists": {
+    "features": [
+      "speech"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/canopylabs/orpheus-v1-english.md",
     "https://console.groq.com/docs/models.md"
   ]
 }

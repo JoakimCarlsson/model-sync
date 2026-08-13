@@ -13,13 +13,26 @@
   ],
   "attrs": {
     "max_file_size": "100 MB",
+    "model_card_url": "https://huggingface.co/openai/whisper-large-v3",
     "state": "production"
   },
   "limits": {
     "audio_seconds_per_hour": 200000,
     "requests_per_minute": 300
   },
+  "lists": {
+    "features": [
+      "transcription"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/whisper-large-v3.md",
     "https://console.groq.com/docs/models.md"
   ]
 }

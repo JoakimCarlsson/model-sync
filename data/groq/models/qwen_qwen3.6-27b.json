@@ -19,6 +19,7 @@
   ],
   "attrs": {
     "max_file_size": "20 MB",
+    "model_card_url": "https://huggingface.co/Qwen/Qwen3.6-27B",
     "state": "preview",
     "tokens_per_second": "500"
   },
@@ -28,7 +29,22 @@
     "requests_per_minute": 1000,
     "tokens_per_minute": 250000
   },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/qwen/qwen3.6-27b.md",
     "https://console.groq.com/docs/models.md"
   ]
 }

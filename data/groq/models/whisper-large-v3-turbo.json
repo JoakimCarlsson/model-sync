@@ -12,13 +12,26 @@
     }
   ],
   "attrs": {
+    "model_card_url": "https://huggingface.co/openai/whisper-large-v3-turbo",
     "state": "production"
   },
   "limits": {
     "audio_seconds_per_hour": 400000,
     "requests_per_minute": 400
   },
+  "lists": {
+    "features": [
+      "transcription"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/whisper-large-v3-turbo.md",
     "https://console.groq.com/docs/models.md"
   ]
 }

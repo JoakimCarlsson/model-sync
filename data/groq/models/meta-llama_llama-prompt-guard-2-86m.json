@@ -18,6 +18,7 @@
     }
   ],
   "attrs": {
+    "model_card_url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M",
     "state": "preview"
   },
   "limits": {
@@ -26,7 +27,20 @@
     "requests_per_minute": 100,
     "tokens_per_minute": 30000
   },
+  "lists": {
+    "features": [
+      "content_moderation",
+      "json_mode"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://console.groq.com/docs/model/meta-llama/llama-prompt-guard-2-86m.md",
     "https://console.groq.com/docs/models.md"
   ]
 }
