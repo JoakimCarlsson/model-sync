@@ -1,0 +1,103 @@
+{
+  "id": "nova-canvas",
+  "provider": "bedrock",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_image",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    }
+  ],
+  "attrs": {
+    "model_name": "Nova Canvas"
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
+  ]
+}

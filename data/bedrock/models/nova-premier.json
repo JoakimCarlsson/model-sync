@@ -1,0 +1,343 @@
+{
+  "id": "nova-premier",
+  "provider": "bedrock",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0003125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00109375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0003125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00109375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0003125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00109375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    }
+  ],
+  "attrs": {
+    "model_name": "Nova Premier"
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
+  ]
+}

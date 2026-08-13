@@ -1,0 +1,5963 @@
+{
+  "id": "nova-2.0-pro",
+  "provider": "bedrock",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00131,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022925,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00132,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00231,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00133,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001463,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0023275,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00256025,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00141,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001551,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0024675,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00271425,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00163,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028525,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00201,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0035175,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00138,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.002415,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00143,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00176,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00308,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00184,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00322,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00156,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00273,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00161,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001771,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00309925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00131,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022925,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00132,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00231,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00133,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001463,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0023275,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00256025,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00141,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001551,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0024675,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00271425,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00163,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028525,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00201,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0035175,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00138,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.002415,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00143,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00176,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00308,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00184,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00322,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00156,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00273,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00161,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001771,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00309925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00131,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022925,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00132,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00231,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00133,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001463,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0023275,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00256025,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00141,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001551,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0024675,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00271425,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00163,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028525,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00201,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0035175,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00138,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.002415,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00143,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00176,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00308,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00184,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00322,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00156,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00273,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00161,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001771,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00309925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.021875,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0125,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00625,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.021875,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00592,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01184,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00592,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02072,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0059,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0118,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0059,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02065,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01356,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02373,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005255,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01051,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005255,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0183925,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00528,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01056,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00528,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01848,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00542,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01084,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00542,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01897,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01356,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02373,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01356,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00678,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02373,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00533,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01066,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005863,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00533,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005863,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.011726,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.018655,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0205205,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00563,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01126,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.006193,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00563,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.006193,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.012386,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.019705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0216755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00654,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01308,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00654,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02289,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005435,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01087,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005435,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0190225,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.008025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01605,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.008025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0280875,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00551,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01102,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00551,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.019285,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005735,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01147,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005735,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0200725,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.007035,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01407,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.007035,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0246225,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00737,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01474,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00737,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.025795,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.006255,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01251,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.006255,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0218925,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00501,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01002,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00501,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.017535,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.011,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.011,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00642,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01284,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.007062,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00642,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.007062,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.014124,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.02247,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.024717,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0055,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.011,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.01925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00151,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000755,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0026425,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00148,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00074,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00259,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00131,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000655,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0022925,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00132,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00066,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00231,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00169,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000845,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0029575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00133,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000665,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007315,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001463,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0023275,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00256025,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00141,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000705,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007755,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001551,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0024675,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00271425,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00163,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000815,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028525,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00136,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00068,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00238,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00201,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001005,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0035175,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00138,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.002415,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00143,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000715,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0025025,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00176,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00308,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00184,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00092,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00322,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00156,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00078,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00273,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00161,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000805,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0008855,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001771,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0028175,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00309925,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.000625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.0021875,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "video_input",
+      "unit": "per_1k_tokens",
+      "amount": 0.00240625,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    }
+  ],
+  "attrs": {
+    "model_name": "Nova 2.0 Pro"
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
+  ]
+}

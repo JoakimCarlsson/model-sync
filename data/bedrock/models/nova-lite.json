@@ -1,0 +1,1083 @@
+{
+  "id": "nova-lite",
+  "provider": "bedrock",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000018,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001775,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001775,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00002025,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001575,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001625,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000018,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000018,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000016,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000195,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001625,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000024,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000165,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001725,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000022,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00001875,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000015,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000015,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "custom"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000015,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000015,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000018,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000015,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000036,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000072,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000036,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000072,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000355,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000071,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000355,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000071,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000405,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000081,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000315,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000063,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000325,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000072,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000072,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000032,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000064,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000039,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000078,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000325,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000096,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000066,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000345,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000069,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000084,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000044,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000088,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0000375,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000075,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00003,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00003,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "custom"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00003,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000036,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000072,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000077,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00003,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000144,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000144,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000288,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000142,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000284,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-northeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000142,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000284,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000162,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000324,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000126,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000252,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00013,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00026,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-4",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000288,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-5",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000288,
+      "currency": "USD",
+      "dims": {
+        "region": "ap-southeast-7",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000128,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000256,
+      "currency": "USD",
+      "dims": {
+        "region": "ca-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000156,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000312,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00013,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00026,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-north-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000384,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000264,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-south-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000138,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000276,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000336,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000176,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000352,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-west-3",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00015,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0003,
+      "currency": "USD",
+      "dims": {
+        "region": "il-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "me-central-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "custom"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000144,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000288,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000308,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-1",
+        "tier": "on-demand"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "on-demand"
+      }
+    }
+  ],
+  "attrs": {
+    "model_name": "Nova Lite"
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
+  ]
+}

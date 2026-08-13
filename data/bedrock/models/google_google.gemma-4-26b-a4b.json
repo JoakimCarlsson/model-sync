@@ -1,0 +1,404 @@
+{
+  "id": "google/google.gemma-4-26b-a4b",
+  "provider": "bedrock",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000156,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000078,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000078,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000273,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00013,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002275,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00013,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002275,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000156,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000078,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000078,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000273,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00013,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.000065,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002275,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00048,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00084,
+      "currency": "USD",
+      "dims": {
+        "region": "eu-central-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0004,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0004,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007,
+      "currency": "USD",
+      "dims": {
+        "region": "us-east-2",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00048,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00084,
+      "currency": "USD",
+      "dims": {
+        "region": "us-gov-west-1",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0004,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0002,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0007,
+      "currency": "USD",
+      "dims": {
+        "region": "us-west-2",
+        "tier": "priority"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Google",
+    "model_name": "google.gemma-4-26b-a4b"
+  },
+  "sources": [
+    "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
+  ]
+}
