@@ -35,6 +35,13 @@
 // tables leave out entirely. Those three are served and documented and carry no
 // price for that reason.
 //
+// Nor does it publish a page for every model it prices. Six chat models are in
+// the rate table and have no page: gpt-5-search-api, the two cyber models and
+// three dated snapshots of the older GPT-4 and GPT-3.5 releases. A page is the
+// only place OpenAI states a context window or an output ceiling, so those six
+// carry rates and neither bound. That is OpenAI's silence rather than a document
+// this parser fails to read.
+//
 // Nor does OpenAI publish a display name for a snapshot or a withdrawn
 // model. Every model it currently sells is named on a page of its own, and the
 // dated snapshots of those models and the models it has retired appear only in
