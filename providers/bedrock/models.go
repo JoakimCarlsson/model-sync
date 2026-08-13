@@ -82,7 +82,6 @@ const (
 // Scalar keys the price list populates.
 const (
 	AttrAuthor = "author"
-	AttrModel  = "model_name"
 )
 
 // tierWords are the serving paths AWS names inside the metric field.
@@ -231,8 +230,7 @@ func (b *builder) applyRate(
 	m := b.model(id, kindFor(metric, a.Model))
 	m.AddSource(source)
 	m.SetAttr(AttrAuthor, a.Provider)
-	m.SetAttr(AttrModel, a.Model)
-	if m.Name == "" {
+	if preferName(m.Name, a.Model) {
 		m.Name = a.Model
 	}
 	m.AddPrice(catalog.Price{
@@ -245,6 +243,30 @@ func (b *builder) applyRate(
 			With(DimTier, tierFor(a.InferenceType, a.Feature)),
 	})
 }
+
+// preferName reports whether a candidate should replace the name a model
+// already carries.
+//
+// The price list can name one model two ways, writing the display name against
+// some of its meters and the bare identifier against others, and the meters
+// arrive in no fixed order. The prose name is the one kept, recognized by its
+// having words in it, and two of a kind are settled by order so that a run is
+// reproducible.
+func preferName(current, candidate string) bool {
+	if candidate == "" {
+		return false
+	}
+	if current == "" {
+		return true
+	}
+	if prose(current) != prose(candidate) {
+		return prose(candidate)
+	}
+	return candidate < current
+}
+
+// prose reports whether a name reads as one rather than as an identifier.
+func prose(name string) bool { return strings.Contains(name, " ") }
 
 // amountOf reads the rate, which AWS states as a decimal string per currency.
 // A rate of zero is not recorded: the list carries zero-priced rows for

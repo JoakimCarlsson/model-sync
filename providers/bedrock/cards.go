@@ -130,7 +130,7 @@ func (b *builder) applyCards(docs []catalog.Document) {
 	}
 	for _, id := range b.order {
 		m := b.models[id]
-		best, ok := bestCard(cards, compareTokens(m.Attrs[AttrModel]))
+		best, ok := bestCard(cards, compareTokens(m.Name))
 		if !ok {
 			continue
 		}
