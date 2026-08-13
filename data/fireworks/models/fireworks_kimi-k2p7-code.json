@@ -90,9 +90,27 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k2p7-code"
+    "hugging_face_id": "moonshotai/Kimi-K2.7-Code",
+    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k2p7-code",
+    "summary": "Kimi K2.7 Code is a coding-focused agentic model built upon Kimi K2.6. With substantial improvements on real-world long-horizon coding tasks, it strengthens end-to-end task completion across complex software engineering workflows while improving token efficiency, reducing thinking-token usage by approximately 30% compared with Kimi K2.6."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/kimi-k2p7-code",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

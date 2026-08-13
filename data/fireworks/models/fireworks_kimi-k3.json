@@ -150,9 +150,27 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k3"
+    "hugging_face_id": "moonshotai/Kimi-K3",
+    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k3",
+    "summary": "Kimi K3 is Kimi’s most capable flagship model to date, with 2.8 trillion parameters. It is built on Kimi Delta Attention (KDA), a hybrid linear attention mechanism, and Attention Residuals, with native visual understanding and a 1M-token context window. It is the world’s first open-source model in the 3-trillion-parameter class, designed for frontier intelligence scenarios including long-horizon coding, knowledge work, and reasoning."
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/kimi-k3",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

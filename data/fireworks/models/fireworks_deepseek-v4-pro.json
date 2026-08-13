@@ -60,9 +60,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-pro"
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro",
+    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-pro",
+    "summary": "DeepSeek-V4-Pro is a flagship open-source Mixture-of-Experts model designed for frontier reasoning, advanced coding, and long-context intelligence at scale (up to 1M tokens). It introduces a hybrid attention architecture that dramatically improves long-context efficiency while reducing KV and compute overhead, along with stability and training enhancements for deep multi-step reasoning. It represents a top-tier open-source system for complex agentic workflows, high-precision reasoning, and demanding production workloads."
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/deepseek-v4-pro",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

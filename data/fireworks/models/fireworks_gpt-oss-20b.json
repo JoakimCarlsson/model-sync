@@ -33,9 +33,23 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-20b"
+    "hugging_face_id": "openai/gpt-oss-20b",
+    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-20b",
+    "summary": "Welcome to the gpt-oss series, OpenAI's open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases. gpt-oss-20b is used for lower latency, and local or specialized use-cases."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/gpt-oss-20b",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

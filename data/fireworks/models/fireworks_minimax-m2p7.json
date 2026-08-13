@@ -60,9 +60,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/minimax-m2p7"
+    "hugging_face_id": "MiniMaxAI/MiniMax-M2.7",
+    "model_url": "https://app.fireworks.ai/models/fireworks/minimax-m2p7",
+    "summary": "Mixture-of-Experts language model. M2.7 is capable of building complex agent harnesses and completing highly elaborate productivity tasks, leveraging Agent Teams, complex Skills, and dynamic tool search."
+  },
+  "limits": {
+    "context_window": 196608
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/minimax-m2p7",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

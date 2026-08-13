@@ -60,9 +60,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-120b"
+    "hugging_face_id": "openai/gpt-oss-120b",
+    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-120b",
+    "summary": "Welcome to the gpt-oss series, OpenAI's open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases. gpt-oss-120b is used for production, general purpose, high reasoning use-cases that fits into a single H100 GPU."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/gpt-oss-120b",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

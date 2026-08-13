@@ -60,9 +60,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash"
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash",
+    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash",
+    "summary": "DeepSeek-V4-Flash is a streamlined open-source Mixture-of-Experts model optimized for fast, cost-efficient inference while preserving strong reasoning and coding performance at 1M token context scale. It leverages the same hybrid attention innovations as Pro but is tuned for lower latency and higher throughput in real-time applications. It delivers near-Pro reasoning quality under sufficient compute budget, making it ideal for interactive agents and high-volume production workloads."
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

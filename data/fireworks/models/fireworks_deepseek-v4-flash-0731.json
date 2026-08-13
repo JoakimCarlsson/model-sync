@@ -60,9 +60,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash-0731"
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Flash-0731",
+    "model_url": "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash-0731",
+    "summary": "DeepSeek-V4-Flash-0731 is the official release of DeepSeek-V4-Flash, superseding the preview version, with substantially enhanced agentic capabilities. It has the same model structure as DeepSeek-V4-Flash-DSpark, i.e. it comes with a speculative decoding module attached."
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/deepseek-v4-flash-0731",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

@@ -90,9 +90,27 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k2p6"
+    "hugging_face_id": "moonshotai/Kimi-K2.6",
+    "model_url": "https://app.fireworks.ai/models/fireworks/kimi-k2p6",
+    "summary": "Kimi K2.6 is an open-source, native multimodal agentic model that advances practical capabilities in long-horizon coding, coding-driven design, proactive autonomous execution, and swarm-based task orchestration."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/kimi-k2p6",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }

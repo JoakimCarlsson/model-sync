@@ -120,9 +120,26 @@
     }
   ],
   "attrs": {
-    "model_url": "https://app.fireworks.ai/models/fireworks/glm-5p2"
+    "hugging_face_id": "zai-org/GLM-5.2",
+    "model_url": "https://app.fireworks.ai/models/fireworks/glm-5p2",
+    "summary": "GLM-5.2 introduces a robust 1M-token context and advanced, multi-effort coding capabilities to significantly enhance performance on long-horizon tasks. Its new IndexShare architecture and improved MTP layer simultaneously boost efficiency by reducing per-token FLOPs and increasing speculative decoding lengths."
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://app.fireworks.ai/models/fireworks/glm-5p2",
     "https://docs.fireworks.ai/serverless/pricing.md"
   ]
 }
