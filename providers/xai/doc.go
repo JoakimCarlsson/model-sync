@@ -18,4 +18,8 @@
 //   - one page per model, discovered from the identifiers found in the pricing
 //     tables, carrying modalities, context window, capabilities, aliases, rate
 //     limits and regions.
+//
+// What xAI does not publish: a bound on output length. A model page states a
+// context window, the rate limits and the regions, and stops there, so no
+// model carries a maximum output.
 package xai
