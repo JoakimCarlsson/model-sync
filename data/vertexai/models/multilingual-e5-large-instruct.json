@@ -23,7 +23,13 @@
       }
     }
   ],
+  "lists": {
+    "input_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/e5/multilingual-e5-large",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

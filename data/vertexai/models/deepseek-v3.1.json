@@ -51,7 +51,24 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 163840,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v31",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

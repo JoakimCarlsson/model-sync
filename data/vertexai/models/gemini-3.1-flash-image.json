@@ -137,7 +137,33 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "features": [
+      "content_credentials_c2pa",
+      "count_tokens",
+      "edit_images",
+      "image_generation",
+      "interleaved_images_and_text",
+      "prompt_caching",
+      "reasoning",
+      "system_instructions"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

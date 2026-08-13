@@ -14,7 +14,11 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 8192
+  },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

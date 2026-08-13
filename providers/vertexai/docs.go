@@ -78,12 +78,22 @@ var (
 		`(?is)class="geap-modality-label">(.*?)</span>.*?` +
 			`class="geap-supported-modality">(.*?)</span>`,
 	)
+	// specCapabilityRe matches the row listing what a model can do. The table
+	// carries a second list in the same shape below it, of the ways the model
+	// may be bought, and those are not capabilities.
+	specCapabilityRe = regexp.MustCompile(
+		`(?is)<th id="capabilities">.*?</tr>`,
+	)
 	// specFeatureRe matches one capability and whether the model has it. The
 	// page states the answer in a class rather than only in the text.
 	specFeatureRe = regexp.MustCompile(
 		`(?is)<li class="geap-feature">(.*?)</li>`,
 	)
-	specSupportedRe = regexp.MustCompile(`(?is)class="geap-supported"`)
+	// specFeatureNameRe matches the capability's own name, which the page
+	// links and follows with a break and the variants of it the model offers.
+	// Those variants are the capability rather than more of them.
+	specFeatureNameRe = regexp.MustCompile(`(?is)^(.*?)(?:<br|$)`)
+	specSupportedRe   = regexp.MustCompile(`(?is)class="geap-supported"`)
 	// specHeadRe matches a labelled row of the table. The heading may not run
 	// across markup: a row stating a bound carries two headings, the group's
 	// and the bound's, and it is the second that names the value beside it.
@@ -253,29 +263,35 @@ func readModalities(page *documented, table string) {
 	}
 }
 
-// readFeatures records the capabilities a model has. A page lists the ones it
-// lacks as plainly as the ones it has, marking each in a class of its own, so
-// only the supported ones are kept.
+// readFeatures records the capabilities a model has.
+//
+// A page lists the ones it lacks as plainly as the ones it has, marking each
+// in a class of its own, so only the supported ones are kept. Only the
+// capabilities row is read: the table carries a second list in the same shape
+// below it, of the ways the model may be bought, and provisioned throughput is
+// a billing arrangement rather than something the model can do.
 func readFeatures(page *documented, table string) {
-	for _, match := range specFeatureRe.FindAllStringSubmatch(table, -1) {
+	row := specCapabilityRe.FindString(table)
+	for _, match := range specFeatureRe.FindAllStringSubmatch(row, -1) {
 		if !specSupportedRe.MatchString(match[1]) {
 			continue
 		}
-		name, _, _ := strings.Cut(specText(match[1]), "Supported")
+		name := specText(firstOf(specFeatureNameRe, match[1]))
 		page.Features = appendNew(page.Features, featureName(name))
 	}
 }
 
-// featureName rewrites a capability into the catalog's vocabulary. A page
-// writes the variants of a capability under its own name, which are the
-// capability rather than more of them.
+// featureWordRe matches whatever in a capability's name is not part of an
+// identifier, including the brackets Google writes an abbreviation in.
+var featureWordRe = regexp.MustCompile(`[^a-z0-9]+`)
+
+// featureName rewrites a capability into the catalog's vocabulary.
 func featureName(name string) string {
-	head, _, _ := strings.Cut(strings.ToLower(strings.TrimSpace(name)), ",")
-	head = strings.TrimSpace(head)
+	head := strings.ToLower(strings.TrimSpace(name))
 	if mapped, ok := featureNames[head]; ok {
 		return mapped
 	}
-	return strings.ReplaceAll(head, " ", "_")
+	return strings.Trim(featureWordRe.ReplaceAllString(head, "_"), "_")
 }
 
 // servingSuffixes are what the documentation appends to a model's name that
