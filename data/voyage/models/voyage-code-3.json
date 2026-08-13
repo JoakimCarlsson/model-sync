@@ -19,13 +19,11 @@
   "attrs": {
     "batch_discount": "33%",
     "default_embedding_dimension": "1024",
-    "free_allowance": "200 million",
-    "state": "current",
+    "state": "older",
     "summary": "Optimized for code retrieval."
   },
   "limits": {
-    "context_window": 32000,
-    "free_tokens": 200000000
+    "context_window": 32000
   },
   "lists": {
     "embedding_dimensions": [
@@ -33,6 +31,9 @@
       "2048",
       "256",
       "512"
+    ],
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

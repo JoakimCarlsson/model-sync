@@ -30,6 +30,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 			for _, id := range splitModels(cellAt(row, idCol)) {
 				m := b.model(id, kindFor(id))
 				m.AddSource(t.Source)
+				m.AddList(ListInputModalities, pageModalities(doc.URL)...)
 				m.SetLimit(
 					LimitContextWindow,
 					parseCount(cellAt(row, contextCol)),

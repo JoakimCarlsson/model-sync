@@ -17,6 +17,7 @@
     }
   ],
   "attrs": {
+    "batch_discount": "33%",
     "default_embedding_dimension": "1024",
     "free_allowance": "200 million",
     "state": "current",
@@ -33,9 +34,13 @@
       "2048",
       "256",
       "512"
+    ],
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://docs.voyageai.com/docs/batch-inference.md",
     "https://docs.voyageai.com/docs/contextualized-chunk-embeddings.md",
     "https://docs.voyageai.com/docs/pricing.md"
   ]

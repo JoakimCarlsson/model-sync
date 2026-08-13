@@ -26,6 +26,9 @@
   "lists": {
     "embedding_dimensions": [
       "1024"
+    ],
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

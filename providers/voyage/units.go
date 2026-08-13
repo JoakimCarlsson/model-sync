@@ -58,8 +58,28 @@ const (
 
 // Enumeration keys the documents populate.
 const (
-	ListDimensions = "embedding_dimensions"
+	ListDimensions      = "embedding_dimensions"
+	ListInputModalities = "input_modalities"
 )
+
+// Modalities Voyage's capability pages account for.
+const (
+	ModalityText  = "text"
+	ModalityImage = "image"
+)
+
+// pageModalities reports what the models on one capability page take.
+//
+// Voyage states this by which page a model is documented on and nowhere else:
+// the multimodal page is the one whose models vectorize text and pictures
+// together, and every other page is text. No page states an output modality,
+// because an embedding model returns a vector and a reranker returns a score.
+func pageModalities(url string) []string {
+	if strings.Contains(url, "multimodal") {
+		return []string{ModalityText, ModalityImage}
+	}
+	return []string{ModalityText}
+}
 
 var (
 	linkRe    = regexp.MustCompile(`\[([^\]]*)\]\([^)]*\)`)

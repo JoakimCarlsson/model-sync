@@ -20,4 +20,15 @@
 //   - the embeddings, multimodal, contextualized-chunk and reranker pages, for
 //     context lengths, embedding dimensions and descriptions.
 //   - the batch inference page, for the list of models the discount covers.
+//
+// Which of those pages a model is documented on is also the only thing Voyage
+// says about modality: the multimodal page is the one whose models vectorize
+// text and pictures together, and the rest are text. No page states an output
+// modality, and none is recorded, because an embedding model returns a vector
+// and a reranker returns a score rather than a modality.
+//
+// What Voyage does not publish: a capability list, for any model; a modality
+// for a model that has fallen off the capability pages and survives only in the
+// rate tables; and a rate for the model whose weights it publishes, which costs
+// it nothing to state because running it is the reader's own affair.
 package voyage

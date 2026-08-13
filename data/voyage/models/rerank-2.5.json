@@ -27,6 +27,11 @@
     "context_window": 32000,
     "free_tokens": 200000000
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://docs.voyageai.com/docs/batch-inference.md",
     "https://docs.voyageai.com/docs/pricing.md",

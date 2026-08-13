@@ -31,6 +31,9 @@
       "2048",
       "256",
       "512"
+    ],
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

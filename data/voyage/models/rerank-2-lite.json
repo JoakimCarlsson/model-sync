@@ -23,6 +23,11 @@
   "limits": {
     "context_window": 8000
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://docs.voyageai.com/docs/pricing.md",
     "https://docs.voyageai.com/docs/reranker.md"
