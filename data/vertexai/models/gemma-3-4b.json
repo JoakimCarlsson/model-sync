@@ -1,0 +1,20 @@
+{
+  "id": "gemma-3-4b",
+  "provider": "vertexai",
+  "name": "gemma 3 4b",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training",
+      "unit": "per_1m_tokens",
+      "amount": 1.14,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

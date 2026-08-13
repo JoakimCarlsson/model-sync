@@ -1,0 +1,29 @@
+{
+  "id": "multilingual-e5-large-instruct",
+  "provider": "vertexai",
+  "name": "multilingual-e5-large-instruct",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

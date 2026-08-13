@@ -1,0 +1,341 @@
+{
+  "id": "gemini-3.5-flash-lite",
+  "provider": "vertexai",
+  "name": "gemini 3.5 flash lite",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "audio",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.54,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "audio",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.54,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.54,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.54,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.594,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.594,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.594,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.594,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.375,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.95,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.75,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

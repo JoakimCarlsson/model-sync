@@ -2,6 +2,7 @@ package catalog
 
 import (
 	"context"
+	"errors"
 	"maps"
 	"slices"
 	"strings"
@@ -221,6 +222,11 @@ type Document struct {
 	URL  string
 	Body []byte
 }
+
+// ErrUnconfigured reports that a source needs a credential it was not given.
+// It is not a failed run: a caller syncing every source should say so and move
+// on, since one source needing an account should not stop the rest.
+var ErrUnconfigured = errors.New("source is not configured")
 
 // Source is one vendor. Fetch and Parse are separate so a parser can be driven
 // from documents on disk without touching the network.

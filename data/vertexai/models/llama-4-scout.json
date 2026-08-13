@@ -1,0 +1,38 @@
+{
+  "id": "llama-4-scout",
+  "provider": "vertexai",
+  "name": "llama 4 scout",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "training",
+      "unit": "per_1m_tokens",
+      "amount": 5.77,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

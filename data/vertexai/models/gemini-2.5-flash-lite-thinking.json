@@ -1,0 +1,31 @@
+{
+  "id": "gemini-2.5-flash-lite-thinking",
+  "provider": "vertexai",
+  "name": "gemini 2.5 flash lite thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.72,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

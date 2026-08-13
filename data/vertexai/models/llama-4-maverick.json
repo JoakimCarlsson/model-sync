@@ -1,0 +1,29 @@
+{
+  "id": "llama-4-maverick",
+  "provider": "vertexai",
+  "name": "llama 4 maverick",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.175,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.575,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

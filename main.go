@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"errors"
 	"flag"
 	"fmt"
 	"os"
@@ -26,6 +27,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/openrouter"
 	"github.com/joakimcarlsson/model-sync/providers/perplexity"
 	"github.com/joakimcarlsson/model-sync/providers/together"
+	"github.com/joakimcarlsson/model-sync/providers/vertexai"
 	"github.com/joakimcarlsson/model-sync/providers/voyage"
 	"github.com/joakimcarlsson/model-sync/providers/xai"
 	"github.com/joakimcarlsson/model-sync/store"
@@ -65,6 +67,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	anthropicSource.CacheDir = cache
 	xaiSource := xai.New()
 	xaiSource.CacheDir = cache
+	vertexaiSource := vertexai.New()
+	vertexaiSource.CacheDir = cache
 	voyageSource := voyage.New()
 	voyageSource.CacheDir = cache
 	openrouterSource := openrouter.New()
@@ -113,6 +117,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 		openaiSource,
 		anthropicSource,
 		xaiSource,
+		vertexaiSource,
 		voyageSource,
 		openrouterSource,
 		togetherSource,
@@ -151,6 +156,15 @@ func run(data, api, cache string, timeout time.Duration) error {
 // one document should not withdraw every model the others describe.
 func sync(ctx context.Context, data string, source catalog.Source) error {
 	docs, err := source.Fetch(ctx)
+	if errors.Is(err, catalog.ErrUnconfigured) {
+		fmt.Fprintf(
+			os.Stderr,
+			"model-sync: %s: skipped, %v\n",
+			source.ID(),
+			err,
+		)
+		return nil
+	}
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "model-sync: %s: %v\n", source.ID(), err)
 	}

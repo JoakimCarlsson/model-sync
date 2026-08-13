@@ -1,0 +1,53 @@
+{
+  "id": "gemini-2.5-pro-thinking",
+  "provider": "vertexai",
+  "name": "gemini 2.5 pro thinking",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

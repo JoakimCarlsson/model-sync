@@ -1,0 +1,29 @@
+{
+  "id": "llama-3.3-70b-maverick",
+  "provider": "vertexai",
+  "name": "llama 3.3 70b maverick",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "tier": "batch"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

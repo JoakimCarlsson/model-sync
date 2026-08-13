@@ -1,0 +1,176 @@
+{
+  "id": "gemini-3.1-flash-lite-tuned",
+  "provider": "vertexai",
+  "name": "gemini 3.1 flash lite tuned",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.412,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.485,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.825,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.206,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.742,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.412,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.206,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.742,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.412,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.206,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.742,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.412,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.237,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.455,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.475,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

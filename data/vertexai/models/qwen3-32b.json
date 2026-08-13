@@ -1,0 +1,20 @@
+{
+  "id": "qwen3-32b",
+  "provider": "vertexai",
+  "name": "qwen3 32b",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training",
+      "unit": "per_1m_tokens",
+      "amount": 6.57,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

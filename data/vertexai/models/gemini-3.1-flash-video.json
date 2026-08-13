@@ -1,0 +1,22 @@
+{
+  "id": "gemini-3.1-flash-video",
+  "provider": "vertexai",
+  "name": "gemini 3.1 flash video",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

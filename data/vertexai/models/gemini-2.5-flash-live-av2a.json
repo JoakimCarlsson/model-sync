@@ -1,0 +1,21 @@
+{
+  "id": "gemini-2.5-flash-live-av2a",
+  "provider": "vertexai",
+  "name": "gemini 2.5 flash live (av2a)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}
