@@ -52,10 +52,26 @@ Every model records the URLs it was read from.
 
 ```sh
 make sync                 # fetch everything, rewrite data/ and api.json
+make coverage             # what share of each field every provider populates
 go run . -cache .cache    # reuse fetched documents instead of refetching
 make fmt
 make lint
 ```
+
+`make coverage` reads `api.json` and reports, per provider and kind, how many
+models carry a price, a context window, an output ceiling, a feature list, both
+modality lists, a display name and an embedding width. It counts only models
+still served, since a retired model has no rate to find and counting it would
+report a shortfall that can never close. A count is marked `!` when it falls
+short of the bucket, so the gaps are what stands out:
+
+```
+  provider   kind   live  priced  ctx  maxout  feats  inmod  outmod  name
+    cohere   chat     16      4!  14!     14!     0!    14!      0!    8!
+```
+
+It takes `-kind`, `-provider`, `-api`, `-data` and `-all`, the last counting
+withdrawn models too.
 
 The generated data is committed. Output is byte-identical for unchanged input,
 so a sync produces a diff only where a provider actually changed something.

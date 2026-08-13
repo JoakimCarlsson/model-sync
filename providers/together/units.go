@@ -121,8 +121,14 @@ var sectionFlows = map[string]flow{
 // table whose models run in two directions, onto what each direction takes and
 // returns.
 var modalityFlows = map[string]flow{
-	"text-to-speech": {In: []string{ModalityText}, Out: []string{ModalityAudio}},
-	"speech-to-text": {In: []string{ModalityAudio}, Out: []string{ModalityText}},
+	"text-to-speech": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityAudio},
+	},
+	"speech-to-text": {
+		In:  []string{ModalityAudio},
+		Out: []string{ModalityText},
+	},
 }
 
 // Capabilities the catalog's columns report on.

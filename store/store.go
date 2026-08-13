@@ -119,6 +119,18 @@ func WriteAggregate(path string, cat *catalog.Catalog) error {
 	return writeJSON(path, cat)
 }
 
+// DecodeAggregate reads the single-document form back. A consumer of this
+// repository has the aggregate and not the tree, so anything reporting on the
+// catalog should be able to run from the same document they hold.
+func DecodeAggregate(body []byte) (*catalog.Catalog, error) {
+	cat := &catalog.Catalog{}
+	body = bytes.TrimPrefix(body, bom)
+	if err := json.Unmarshal(body, cat); err != nil {
+		return nil, fmt.Errorf("decode aggregate: %w", err)
+	}
+	return cat, nil
+}
+
 // uniqueName returns the filename for a model identifier, disambiguating
 // identifiers that differ only in ways a case-insensitive filesystem cannot
 // represent.
