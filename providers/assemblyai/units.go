@@ -41,8 +41,14 @@ const (
 	AttrDocumentationURL = "documentation_url"
 )
 
-// ListCapabilities holds the bullet points a model card lists.
-const ListCapabilities = "capabilities"
+// ListFeatures holds the capabilities a model card's bullets name. The bullets
+// themselves are sentences and are not kept: each is read for the capability
+// in it, the ceiling it states and the languages it lists.
+const ListFeatures = catalog.ListFeatures
+
+// ListLanguages holds the languages a card names. A card that counts them
+// without naming them states LimitLanguageCount instead.
+const ListLanguages = "languages"
 
 // Enumeration keys holding what a model takes and returns.
 const (

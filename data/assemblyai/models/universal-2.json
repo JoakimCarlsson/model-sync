@@ -18,12 +18,14 @@
     "mode": "pre-recorded",
     "volume_discounts": "available"
   },
+  "limits": {
+    "language_count": 99,
+    "max_keyterms": 200
+  },
   "lists": {
-    "capabilities": [
-      "Code switching",
-      "High accuracy, low latency",
-      "Keyterms prompting up to 200 words",
-      "Support across 99 languages"
+    "features": [
+      "code_switching",
+      "keyterm_prompting"
     ],
     "input_modalities": [
       "audio"

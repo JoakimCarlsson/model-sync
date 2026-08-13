@@ -17,15 +17,18 @@
   "attrs": {
     "mode": "add-on"
   },
+  "limits": {
+    "language_count": 4
+  },
   "lists": {
-    "capabilities": [
-      "4 languages: en, es, de, fr",
-      "Improved accuracy for medical terminology",
-      "Medications, procedures, conditions, and dosages",
-      "Works with pre-recorded and streaming models"
-    ],
     "input_modalities": [
       "audio"
+    ],
+    "languages": [
+      "de",
+      "en",
+      "es",
+      "fr"
     ],
     "output_modalities": [
       "text"

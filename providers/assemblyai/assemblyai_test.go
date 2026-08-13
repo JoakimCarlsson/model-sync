@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
 	"testing"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -108,29 +109,72 @@ func TestParseCards(t *testing.T) {
 	if m.Name != "Universal-3.5 Pro" {
 		t.Errorf("got name %q", m.Name)
 	}
-	if len(m.Lists[ListCapabilities]) == 0 {
-		t.Error("no capabilities")
-	}
 	if m.Attrs[AttrMode] != ModePrerecorded {
 		t.Errorf("got mode %q", m.Attrs[AttrMode])
 	}
 }
 
-// TestParseNoBounds pins the absence of every numeric bound. AssemblyAI meters
-// hours of audio and hours of connection, so a context window appearing here
-// later means the page gained something it has never stated, not that this
-// parser had been missing it.
-func TestParseNoBounds(t *testing.T) {
+// TestParseNoTokenBounds pins the absence of the bounds a chat provider
+// states. AssemblyAI meters hours of audio and hours of connection, so a
+// context window appearing here later means the page gained something it has
+// never stated, not that this parser had been missing it. The bounds its cards
+// do state are counts of terms and of languages, which are covered below.
+func TestParseNoTokenBounds(t *testing.T) {
 	for id, m := range parse(t) {
-		if len(m.Limits) != 0 {
-			t.Errorf("%s: got limits %v, want none published", id, m.Limits)
+		for _, key := range []string{
+			"context_window",
+			"max_output_tokens",
+			"max_input_tokens",
+		} {
+			if got, ok := m.Limits[key]; ok {
+				t.Errorf("%s: got %s %d, want none published", id, key, got)
+			}
 		}
-		if len(m.Lists["features"]) != 0 {
+	}
+}
+
+// TestParseBullets covers the split every card bullet goes through. A card is
+// sales copy with specification mixed into it, so a bullet is read for the
+// capability it names, the ceiling it states and the languages it lists, and
+// nothing goes in as written.
+func TestParseBullets(t *testing.T) {
+	byID := parse(t)
+	for _, c := range []struct {
+		id    string
+		key   string
+		value int64
+	}{
+		{"universal-2", LimitKeyterms, 200},
+		{"universal-2", LimitLanguageCount, 99},
+		{"medical-mode", LimitLanguageCount, 4},
+	} {
+		if got := byID[c.id].Limits[c.key]; got != c.value {
+			t.Errorf("%s: got %s %d, want %d", c.id, c.key, got, c.value)
+		}
+	}
+	if got := byID["medical-mode"].Lists[ListLanguages]; !slices.Equal(
+		got,
+		[]string{"en", "es", "de", "fr"},
+	) {
+		t.Errorf("got languages %q, want the four the card names", got)
+	}
+	for _, want := range []string{FeatureKeyterms, FeatureCodeSwitching} {
+		if !slices.Contains(byID["universal-2"].Lists[ListFeatures], want) {
 			t.Errorf(
-				"%s: got features %v, want capabilities as written instead",
-				id,
-				m.Lists["features"],
+				"universal-2: got %q, want %q",
+				byID["universal-2"].Lists[ListFeatures],
+				want,
 			)
+		}
+	}
+	for id, m := range byID {
+		for _, feature := range m.Lists[ListFeatures] {
+			if strings.ContainsAny(feature, " ,:") {
+				t.Errorf("%s: prose in the capability list: %q", id, feature)
+			}
+		}
+		if len(m.Lists["capabilities"]) != 0 {
+			t.Errorf("%s: bullets still recorded as written", id)
 		}
 	}
 }

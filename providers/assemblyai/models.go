@@ -54,7 +54,7 @@ func (b *builder) applyCards(body, source string) {
 			m.SetAttr(AttrMode, mode)
 			m.SetAttr(AttrDocumentationURL, strings.TrimSpace(card[2]))
 			for _, item := range listItemRe.FindAllStringSubmatch(card[3], -1) {
-				m.AddList(ListCapabilities, clean(item[1]))
+				applyBullet(m, clean(item[1]))
 			}
 		}
 	}

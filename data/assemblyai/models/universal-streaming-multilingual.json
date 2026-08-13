@@ -18,15 +18,25 @@
     "mode": "streaming",
     "volume_discounts": "available"
   },
+  "limits": {
+    "language_count": 6,
+    "max_keyterms": 100
+  },
   "lists": {
-    "capabilities": [
-      "6 languages: en, es, pt, de, fr, it",
-      "Good balance of speed and cost-effectiveness",
-      "Keyterms prompting up to 100 words",
-      "Multilingual real-time transcription"
+    "features": [
+      "keyterm_prompting",
+      "realtime"
     ],
     "input_modalities": [
       "audio"
+    ],
+    "languages": [
+      "de",
+      "en",
+      "es",
+      "fr",
+      "it",
+      "pt"
     ],
     "output_modalities": [
       "text"

@@ -18,13 +18,14 @@
     "mode": "pre-recorded",
     "volume_discounts": "available"
   },
+  "limits": {
+    "language_count": 18,
+    "max_keyterms": 1000
+  },
   "lists": {
-    "capabilities": [
-      "Contextual prompting capabilities",
-      "Highest accuracy, fastest model",
-      "Keyterms prompting up to 1,000 words",
-      "Native code switching",
-      "Supports 18 languages"
+    "features": [
+      "code_switching",
+      "keyterm_prompting"
     ],
     "input_modalities": [
       "audio"

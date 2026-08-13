@@ -30,12 +30,20 @@
 //
 // What AssemblyAI does not publish:
 //
-//   - A capability list. A card's bullets are sentences with the size of the
-//     thing inside them, as "Keyterms prompting up to 200 words" and "Support
-//     across 99 languages", so they are kept verbatim under capabilities rather
-//     than reduced to feature names, which would invent a vocabulary AssemblyAI
-//     never used and state less than the sentence did.
-//   - Any bound at all: no context window, no token limit and no ceiling on the
-//     length of an audio file. Nothing it sells is billed or bounded by tokens,
-//     so the fields that hold those bounds stay empty for every model.
+//   - A capability list, as a list. A card's bullets are sentences with the
+//     size of the thing inside them, as "Keyterms prompting up to 200 words"
+//     and "6 languages: en, es, pt, de, fr, it", so each is split where the
+//     sentence divides: the capability it names, the ceiling it states and the
+//     languages it lists all go where a consumer can use them, and the
+//     sentence itself is not kept. A capability list holding sentences is one
+//     nothing can be keyed on.
+//
+//     Most bullets survive none of that. A card is sales copy with
+//     specification mixed into it, and "Good balance of speed and
+//     cost-effectiveness" states nothing to record, so it is dropped.
+//
+//   - Any bound a chat provider would state: no context window, no token limit
+//     and no ceiling on the length of an audio file. Nothing it sells is
+//     billed or bounded by tokens, so those fields stay empty for every model.
+//     The bounds its cards do state are counts of terms and of languages.
 package assemblyai

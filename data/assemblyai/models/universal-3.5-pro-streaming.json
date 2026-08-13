@@ -18,13 +18,14 @@
     "mode": "streaming",
     "volume_discounts": "available"
   },
+  "limits": {
+    "language_count": 18,
+    "max_keyterms": 100
+  },
   "lists": {
-    "capabilities": [
-      "18 languages with native code switching",
-      "Advanced prompting capabilities",
-      "Fastest word emissions",
-      "Highest accuracy for voice agents",
-      "Keyterms prompting up to 100 words"
+    "features": [
+      "code_switching",
+      "keyterm_prompting"
     ],
     "input_modalities": [
       "audio"
