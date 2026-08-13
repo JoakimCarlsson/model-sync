@@ -2,6 +2,28 @@
   "id": "rerank-v3.5",
   "provider": "cohere",
   "kind": "rerank",
+  "prices": [
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_month",
+      "amount": 3250,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "cohere.rerank-v3-5:0",
     "amazon_sagemaker_id": "Unique per deployment",
@@ -23,6 +45,7 @@
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

@@ -33,9 +33,18 @@ var (
 		`(Aya Expanse) models \([^)]*\) on the API are charged at ` +
 			`\$([\d.]+)/1M tokens for input and \$([\d.]+)/1M tokens for output`,
 	)
+	// instanceRe matches the rate a card quotes for a dedicated instance,
+	// which Cohere writes as a sentence inside the card rather than as one of
+	// the card's amounts.
+	instanceRe = regexp.MustCompile(
+		`\$+([\d,]*\.?\d+)\s*/\s*(hour|month)\s*/\s*instance`,
+	)
 	pushRe = regexp.MustCompile(
 		`(?s)self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)`,
 	)
+	// textRe matches the text of one span, which is the leaf everything the
+	// page renders as prose is written in.
+	textRe = regexp.MustCompile(`"text":"((?:[^"\\]|\\.)*)"`)
 )
 
 // cardRate is one amount on a rate card, with the wording Cohere labels it by.
@@ -61,8 +70,12 @@ func (b *builder) applyPricing(doc catalog.Document) {
 	body := flight(doc.Body)
 	for card := range strings.SplitSeq(body, cardMarker) {
 		name := cardNameRe.FindStringSubmatch(card)
+		if name == nil {
+			continue
+		}
+		b.addInstanceRate(doc, name[1], card)
 		rates := cardRatesRe.FindStringSubmatch(card)
-		if name == nil || rates == nil {
+		if rates == nil {
 			continue
 		}
 		var parsed []cardRate
@@ -73,6 +86,7 @@ func (b *builder) applyPricing(doc catalog.Document) {
 			b.addCard(doc, name[1], name[2], r)
 		}
 	}
+	b.addVault(doc, body)
 	for _, match := range legacyRe.FindAllStringSubmatch(body, -1) {
 		b.addTokenRates(doc, match[1], match[2], match[3])
 	}
@@ -107,7 +121,11 @@ func (b *builder) addCard(
 			metric = quoted.Metric
 		}
 		for _, id := range b.identify(product) {
-			b.price(doc, id, metric, quoted.Unit, *side.amount)
+			b.price(doc, id, catalog.Price{
+				Metric: metric,
+				Unit:   quoted.Unit,
+				Amount: *side.amount,
+			})
 		}
 	}
 }
@@ -115,32 +133,184 @@ func (b *builder) addCard(
 // addTokenRates records the pair of per-token amounts a sentence states.
 func (b *builder) addTokenRates(doc catalog.Document, product, in, out string) {
 	for _, id := range b.identify(product) {
-		b.price(doc, id, MetricInputTokens, UnitPer1MTokens, amount(in))
-		b.price(doc, id, MetricOutputTokens, UnitPer1MTokens, amount(out))
+		b.price(doc, id, catalog.Price{
+			Metric: MetricInputTokens,
+			Unit:   UnitPer1MTokens,
+			Amount: amount(in),
+		})
+		b.price(doc, id, catalog.Price{
+			Metric: MetricOutputTokens,
+			Unit:   UnitPer1MTokens,
+			Amount: amount(out),
+		})
+	}
+}
+
+// addInstanceRate records the rate a card quotes for running the model on a
+// dedicated instance, which Cohere states only as a sentence and only as a
+// floor: the card for its transcription model says what an instance starts at
+// and the vault table, which states the rest, does not list the model.
+func (b *builder) addInstanceRate(
+	doc catalog.Document,
+	product, card string,
+) {
+	match := instanceRe.FindStringSubmatch(card)
+	if match == nil {
+		return
+	}
+	unit, ok := instanceUnits[match[2]]
+	if !ok {
+		return
+	}
+	for _, id := range b.identify(product) {
+		b.price(doc, id, catalog.Price{
+			Metric: MetricHosting,
+			Unit:   unit,
+			Amount: amount(strings.ReplaceAll(match[1], ",", "")),
+			Dims:   catalog.Dims{DimDeployment: DeploymentVault},
+			Note:   noteStartingRate,
+		})
+	}
+}
+
+// addVault reads the table of dedicated deployment rates, which quotes an
+// hourly and a monthly amount per instance for each performance tier a model is
+// offered in.
+func (b *builder) addVault(doc catalog.Document, body string) {
+	for _, row := range scanVault(body) {
+		for _, quoted := range []struct {
+			unit  catalog.Unit
+			value string
+		}{
+			{UnitPerHour, row.Hourly},
+			{UnitPerMonth, row.Monthly},
+		} {
+			value := amount(strings.ReplaceAll(quoted.value, ",", ""))
+			if value == 0 {
+				continue
+			}
+			for _, id := range b.identify(row.Model) {
+				b.price(doc, id, catalog.Price{
+					Metric: MetricHosting,
+					Unit:   quoted.unit,
+					Amount: value,
+					Dims: catalog.Dims{
+						DimDeployment: DeploymentVault,
+					}.With(DimTier, strings.ToLower(row.Tier)),
+				})
+			}
+		}
 	}
 }
 
 // price records one rate against a model the overview established. A retired
 // model is left unpriced whatever the page still says about it: the page's
 // questions and answers outlive the models they answer for.
-func (b *builder) price(
-	doc catalog.Document,
-	id string,
-	metric catalog.Metric,
-	unit catalog.Unit,
-	value float64,
-) {
+func (b *builder) price(doc catalog.Document, id string, p catalog.Price) {
 	m, ok := b.models[id]
 	if !ok || strings.HasPrefix(m.Attrs[AttrState], "retired") {
 		return
 	}
+	p.Currency = currency
 	m.AddSource(doc.URL)
-	m.AddPrice(catalog.Price{
-		Metric:   metric,
-		Unit:     unit,
-		Amount:   value,
-		Currency: currency,
-	})
+	m.AddPrice(p)
+}
+
+// Markers of the dedicated deployment table in the page's payload. It is the
+// only table the pricing page carries, and it is written as a header of cells
+// followed by rows of cells, each cell a block of spans.
+const (
+	headerCellMarker = `"_type":"headerTableCell"`
+	rowMarker        = `"_type":"row"`
+	cellMarker       = `"_type":"tableCell"`
+	rowsMarker       = `"rows":[`
+)
+
+// Headings the dedicated deployment table is written under.
+const (
+	vaultModelColumn   = "model"
+	vaultTierColumn    = "performance tier"
+	vaultHourlyColumn  = "hourly rate per instance"
+	vaultMonthlyColumn = "monthly rate per instance"
+)
+
+// vaultRow is one line of the dedicated deployment table.
+type vaultRow struct {
+	Model   string
+	Tier    string
+	Hourly  string
+	Monthly string
+}
+
+// scanVault reads the dedicated deployment table. Its columns are matched by
+// heading rather than by position, because the amounts are the two rightmost
+// cells and nothing else in a row says which denominator they are quoted
+// against.
+func scanVault(body string) []vaultRow {
+	start := strings.Index(body, headerCellMarker)
+	if start < 0 {
+		return nil
+	}
+	header, rest, ok := strings.Cut(body[start:], rowsMarker)
+	if !ok {
+		return nil
+	}
+	columns := map[string]int{}
+	for i, heading := range cellTexts(header, headerCellMarker) {
+		columns[strings.ToLower(heading)] = i
+	}
+	var out []vaultRow
+	for segment := range strings.SplitSeq(rest, rowMarker) {
+		cells := cellTexts(segment, cellMarker)
+		row := vaultRow{
+			Model:   column(cells, columns, vaultModelColumn),
+			Tier:    column(cells, columns, vaultTierColumn),
+			Hourly:  column(cells, columns, vaultHourlyColumn),
+			Monthly: column(cells, columns, vaultMonthlyColumn),
+		}
+		if row.Model == "" {
+			continue
+		}
+		out = append(out, row)
+	}
+	return out
+}
+
+// cellTexts returns the first span of each cell of one row, which is the cell's
+// value. A cell holds one block of one span wherever the table states a name,
+// a tier or an amount.
+func cellTexts(segment, marker string) []string {
+	var out []string
+	for i, cell := range strings.Split(segment, marker) {
+		if i == 0 {
+			continue
+		}
+		match := textRe.FindStringSubmatch(cell)
+		if match == nil {
+			out = append(out, "")
+			continue
+		}
+		out = append(out, unquote(match[1]))
+	}
+	return out
+}
+
+// column returns the cell under a heading.
+func column(cells []string, columns map[string]int, heading string) string {
+	i, ok := columns[heading]
+	if !ok || i >= len(cells) {
+		return ""
+	}
+	return strings.TrimSpace(strings.TrimLeft(cells[i], "$"))
+}
+
+// unquote resolves the escapes a JSON string carries.
+func unquote(value string) string {
+	var out string
+	if err := json.Unmarshal([]byte(`"`+value+`"`), &out); err != nil {
+		return value
+	}
+	return out
 }
 
 // identify reports which models a name on the pricing page refers to.

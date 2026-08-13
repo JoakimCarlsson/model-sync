@@ -1,10 +1,19 @@
 // Package cohere parses Cohere's model overview and pricing page into the
 // catalog model.
 //
-// The documentation publishes no rate at all. What rates Cohere states are on
-// its marketing site, and they are stated two ways there: as cards for the
-// products it sells today, and as sentences in the page's questions and
-// answers for the models it has withdrawn. Both are read.
+// The documentation publishes no rate at all: its pricing page explains how a
+// bill is counted and then points at the marketing site for the amounts. What
+// rates Cohere states are stated there four ways: as cards for the products it
+// sells today, as sentences in the page's questions and answers for the models
+// it has withdrawn, as a table of hourly and monthly rates for an instance of a
+// model held on its dedicated deployment platform, and as one sentence inside a
+// card giving what such an instance starts at. All four are read.
+//
+// A dedicated instance is billed for the time it is held rather than for
+// anything a request carries, so those rates are recorded as hosting and are
+// marked with the platform they belong to; without that they would read as a
+// second, contradictory rate for the same call. The one quoted as a floor
+// carries a note saying so.
 //
 // The two are not equally easy to attach to a model. A sentence names a model
 // precisely — "Command R+ 08-2024" is command-r-plus-08-2024 — and reduces to
@@ -31,9 +40,13 @@
 //
 // What Cohere does not publish:
 //
-//   - A rate for the Command A family, for Aya Vision, for Tiny Aya or for the
-//     nightly builds. Those models are served and documented, and no price is
-//     stated for any of them anywhere Cohere publishes.
+//   - A rate for the Command A family, for Aya Vision, for Tiny Aya, for the
+//     nightly builds, for the third generation embedding and rerank models or
+//     for anything older. Those models are served and documented, and no price
+//     is stated for any of them on the pricing page, on the model's own page or
+//     anywhere else Cohere publishes. The card headed Command A+ quotes nothing
+//     but zero for an API key and a model download, which is the open weight
+//     licence rather than a rate, and is not read as one.
 //   - A capability list. What a model can do is described in paragraphs on its
 //     own page, not enumerated, so no features are recorded. The endpoints
 //     column is the nearest thing the overview states and is kept as one.

@@ -3,6 +3,18 @@
   "provider": "cohere",
   "name": "Cohere Transcribe",
   "kind": "transcription",
+  "prices": [
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 3.75,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault"
+      },
+      "note": "quoted as a starting rate"
+    }
+  ],
   "attrs": {
     "family": "audio",
     "max_file_size": "25MB",
@@ -15,6 +27,7 @@
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

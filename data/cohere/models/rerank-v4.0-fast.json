@@ -4,6 +4,26 @@
   "kind": "rerank",
   "prices": [
     {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_month",
+      "amount": 3250,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
       "metric": "search_queries",
       "unit": "per_1k_searches",
       "amount": 2,

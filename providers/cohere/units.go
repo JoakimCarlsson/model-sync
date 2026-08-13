@@ -15,13 +15,40 @@ const (
 	MetricOutputTokens  catalog.Metric = "output_tokens"
 	MetricImageInput    catalog.Metric = "image_input"
 	MetricSearchQueries catalog.Metric = "search_queries"
+	// MetricHosting counts the time an instance is held rather than anything
+	// a request carries, which is how Cohere bills a dedicated deployment.
+	MetricHosting catalog.Metric = "hosting"
 )
 
 // Units Cohere quotes amounts against.
 const (
 	UnitPer1MTokens catalog.Unit = "per_1m_tokens"
 	UnitPer1KSearch catalog.Unit = "per_1k_searches"
+	UnitPerHour     catalog.Unit = "per_hour"
+	UnitPerMonth    catalog.Unit = "per_month"
 )
+
+// instanceUnits map the denominator a dedicated instance is quoted against
+// onto a unit.
+var instanceUnits = map[string]catalog.Unit{
+	"hour":  UnitPerHour,
+	"month": UnitPerMonth,
+}
+
+// Dimensions separating a dedicated deployment's rate from the rate of a call
+// to the shared API.
+const (
+	// DimDeployment records that a rate buys an instance rather than a call.
+	DimDeployment = "deployment"
+	// DeploymentVault is the platform Cohere sells those instances on.
+	DeploymentVault = "model-vault"
+	// DimTier records the performance tier an instance is sized at.
+	DimTier = "tier"
+)
+
+// noteStartingRate marks an amount Cohere quotes as a floor rather than as the
+// rate itself, which it writes as "From".
+const noteStartingRate = "quoted as a starting rate"
 
 // modalityNames map the wording of the overview's modality column onto the
 // catalog's vocabulary. Cohere names a mixed document by the formats it may
@@ -54,8 +81,10 @@ var cardModels = map[string][]string{
 	"command r":     {"command-r-08-2024"},
 	"command r7b":   {"command-r7b-12-2024"},
 	"embed 4":       {"embed-v4.0"},
+	"rerank 3.5":    {"rerank-v3.5"},
 	"rerank 4 fast": {"rerank-v4.0-fast"},
 	"rerank 4 pro":  {"rerank-v4.0-pro"},
+	"transcribe":    {"cohere-transcribe-03-2026"},
 	"aya expanse":   {"c4ai-aya-expanse-8b", "c4ai-aya-expanse-32b"},
 }
 

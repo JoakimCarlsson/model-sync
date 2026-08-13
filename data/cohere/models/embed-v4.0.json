@@ -4,6 +4,46 @@
   "kind": "embedding",
   "prices": [
     {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_month",
+      "amount": 3250,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "small"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_month",
+      "amount": 2500,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "small"
+      }
+    },
+    {
       "metric": "image_input",
       "unit": "per_1m_tokens",
       "amount": 0.47,
