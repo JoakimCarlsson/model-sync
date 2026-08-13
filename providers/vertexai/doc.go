@@ -49,9 +49,13 @@
 //
 // What Google does not publish: a page for every model Vertex bills for. The
 // Gemma variants offered for self-deployment and the older Llama releases are
-// metered with none, and carry rates alone. Nor does it state an output modality
-// for an embedding model: the table marks embeddings as the output, which is
-// what the model returns rather than a modality it returns it in.
+// metered with none, and carry rates alone.
+//
+// An embedding page marks "Embeddings" as its output, which is what the model
+// returns rather than a modality it returns it in. The catalog has no word for a
+// vector, so it is read as the text the model works in: skipping it left those
+// models stating what they take and nothing about what they give back, and a
+// consumer cannot tell that from a model that returns nothing.
 //
 // Reading the catalog needs a Google credential, which no other provider here
 // does.

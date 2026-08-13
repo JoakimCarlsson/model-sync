@@ -91,8 +91,8 @@ func TestParseEmbeddingSpecs(t *testing.T) {
 
 // TestParseModalityDirections covers the modality table, which names every
 // modality it knows of and says of each whether it flows in, out or neither. An
-// embedding model takes text and returns vectors, so text must not come back as
-// an output modality.
+// embedding page marks "Embeddings" as its output, which is read as the text the
+// model works in, so both sides come back set.
 func TestParseModalityDirections(t *testing.T) {
 	m := parse(t)["multilingual-e5-large-instruct"]
 	if got := m.Lists[ListInputModalities]; !slices.Equal(
@@ -101,8 +101,11 @@ func TestParseModalityDirections(t *testing.T) {
 	) {
 		t.Errorf("got input %q, want [text]", got)
 	}
-	if got := m.Lists[ListOutputModalities]; len(got) != 0 {
-		t.Errorf("got output %q, want none", got)
+	if got := m.Lists[ListOutputModalities]; !slices.Equal(
+		got,
+		[]string{"text"},
+	) {
+		t.Errorf("got output %q, want [text]", got)
 	}
 }
 

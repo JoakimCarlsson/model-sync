@@ -60,11 +60,18 @@ var featureNames = map[string]string{
 }
 
 // modalityNames map a modality a page names onto the catalog's vocabulary.
+//
+// An embedding page marks "Embeddings" as an output, which is the model's
+// return value rather than a modality. The catalog has no word for a vector, so
+// it is read as the text the model works in; skipping it left those models
+// stating what they take and nothing about what they give back, which a
+// consumer cannot tell from a model that returns nothing.
 var modalityNames = map[string]string{
-	"text":  "text",
-	"image": "image",
-	"audio": "audio",
-	"video": "video",
+	"text":       "text",
+	"image":      "image",
+	"audio":      "audio",
+	"video":      "video",
+	"embeddings": "text",
 }
 
 var (
