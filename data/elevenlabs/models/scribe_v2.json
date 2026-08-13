@@ -15,15 +15,19 @@
     "state": "current",
     "summary": "State-of-the-art speech recognition model"
   },
+  "limits": {
+    "entity_types": 65,
+    "language_count": 90,
+    "max_keyterms": 1000,
+    "max_speakers": 32
+  },
   "lists": {
-    "capabilities": [
-      "Accurate transcription in 90+ languages",
-      "Dynamic audio tagging",
-      "Entity detection, 65 entity types",
-      "Keyterm prompting, up to 1000 terms",
-      "Precise word-level timestamps",
-      "Smart language detection",
-      "Speaker diarization, up to 32 speakers"
+    "features": [
+      "entity_detection",
+      "keyterm_prompting",
+      "language_detection",
+      "speaker_diarization",
+      "word_timestamps"
     ],
     "input_modalities": [
       "audio"

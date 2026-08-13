@@ -17,14 +17,12 @@
     "summary": "Human-like and expressive speech generation"
   },
   "limits": {
-    "character_limit": 5000
+    "character_limit": 5000,
+    "language_count": 70
   },
   "lists": {
-    "capabilities": [
-      "5,000 character limit",
-      "70+ languages supported",
-      "Dramatic delivery and performance",
-      "Support for natural multi-speaker dialogue"
+    "features": [
+      "multi_speaker_dialogue"
     ],
     "input_modalities": [
       "text"

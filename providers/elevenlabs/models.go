@@ -40,11 +40,11 @@ const ListLanguages = "languages"
 
 // Enumeration keys the flagship cards populate.
 const (
-	// ListCapabilities holds a card's bullets as written. ElevenLabs
+	// ListFeatures holds the capabilities a card's bullets name. ElevenLabs
 	// enumerates nothing: it writes a sentence per capability, with the size
-	// of the thing inside it, so a bullet is kept whole rather than reduced to
-	// a name it never gave.
-	ListCapabilities     = "capabilities"
+	// of the thing inside it, so each sentence is split into the capability it
+	// names and the bound it states.
+	ListFeatures         = catalog.ListFeatures
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 )

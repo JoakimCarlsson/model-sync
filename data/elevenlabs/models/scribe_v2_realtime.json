@@ -12,16 +12,19 @@
     }
   ],
   "attrs": {
+    "latency": "~150ms†",
     "state": "current",
     "summary": "Real-time speech recognition model"
   },
+  "limits": {
+    "entity_types": 65,
+    "language_count": 90
+  },
   "lists": {
-    "capabilities": [
-      "Accurate transcription in 90+ languages",
-      "Entity detection, 65 entity types",
-      "Low latency (~150ms†)",
-      "Precise word-level timestamps",
-      "Real-time transcription"
+    "features": [
+      "entity_detection",
+      "realtime",
+      "word_timestamps"
     ],
     "input_modalities": [
       "audio"

@@ -13,19 +13,15 @@
   ],
   "attrs": {
     "approximate_audio_duration": "~40 minutes",
+    "latency": "~75ms†",
     "state": "current",
     "summary": "Ultra-fast model optimized for real-time use (~75ms†)"
   },
   "limits": {
-    "character_limit": 40000
+    "character_limit": 40000,
+    "language_count": 32
   },
   "lists": {
-    "capabilities": [
-      "32 languages supported",
-      "40,000 character limit",
-      "Faster model, 50% lower price per character for API generations",
-      "Ultra-low latency (~75ms†)"
-    ],
     "input_modalities": [
       "text"
     ],

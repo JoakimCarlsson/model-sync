@@ -36,9 +36,22 @@
 //
 // The page opens with a card per flagship model, and that is the only place
 // ElevenLabs states a display name or says what a model can do. Six of the
-// eighteen models have one; the rest keep no name. A card's bullets are kept as
-// written, under capabilities rather than features, because ElevenLabs
+// eighteen models have one; the rest keep no name.
+//
+// A card's bullets are sentences rather than capability names. ElevenLabs
 // enumerates nothing: it writes a sentence per capability with the size of the
-// thing inside it, as "Speaker diarization, up to 32 speakers", and reducing
-// that to a name would invent a vocabulary it never used.
+// thing inside it, as "Speaker diarization, up to 32 speakers". Each is split
+// where that sentence divides, into the capability it names and the bound it
+// states, so the capability list holds capabilities and the bound is a number
+// a consumer can compare. "40,000 character limit" is a bound and no
+// capability at all; "Accurate transcription in 90+ languages" is a count of
+// languages, which is not the list of them the models table already carries;
+// and the delay a card quotes is kept as written, footnote marker and all,
+// because ElevenLabs states it as an approximation and rounding that away
+// would claim a precision it did not give.
+//
+// A bullet that states no fact of any of those kinds is dropped. Several are
+// marketing rather than specification, as "Most stable on long-form
+// generations" is, and a capability list is the wrong place for a sentence
+// nothing can be derived from.
 package elevenlabs

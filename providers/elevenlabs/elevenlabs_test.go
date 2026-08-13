@@ -4,6 +4,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
 	"testing"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -179,12 +180,61 @@ func TestParseCards(t *testing.T) {
 		if got := byID[id].Name; got != name {
 			t.Errorf("%s: got name %q, want %q", id, got, name)
 		}
-		if len(byID[id].Lists[ListCapabilities]) == 0 {
-			t.Errorf("%s: no capabilities", id)
-		}
 	}
 	if got := byID["eleven_flash_v2"].Name; got != "" {
 		t.Errorf("eleven_flash_v2: got name %q, want none", got)
+	}
+}
+
+// TestParseBullets covers the split every card bullet goes through. A bullet
+// is a sentence with a fact in it, and each half of the fact lands where a
+// consumer can use it: the bound as a number, the capability as a name, and
+// the sentence itself nowhere.
+func TestParseBullets(t *testing.T) {
+	byID := parse(t)
+	for _, c := range []struct {
+		id    string
+		key   string
+		value int64
+	}{
+		{"eleven_v3", LimitCharacterLimit, 5_000},
+		{"eleven_v3", LimitLanguageCount, 70},
+		{"eleven_flash_v2_5", LimitCharacterLimit, 40_000},
+		{"scribe_v2_realtime", LimitLanguageCount, 90},
+		{"scribe_v2_realtime", LimitEntityTypes, 65},
+	} {
+		if got := byID[c.id].Limits[c.key]; got != c.value {
+			t.Errorf("%s: got %s %d, want %d", c.id, c.key, got, c.value)
+		}
+	}
+	features := byID["scribe_v2_realtime"].Lists[ListFeatures]
+	for _, want := range []string{
+		FeatureRealtime,
+		FeatureTimestamps,
+		FeatureEntities,
+	} {
+		if !slices.Contains(features, want) {
+			t.Errorf("got features %q, want %q among them", features, want)
+		}
+	}
+	if got := byID["scribe_v2_realtime"].Attrs[AttrLatency]; got == "" {
+		t.Error("no latency recorded from the bullet quoting one")
+	}
+	if v3 := byID["eleven_v3"].Lists[ListFeatures]; !slices.Contains(
+		v3,
+		FeatureDialogue,
+	) {
+		t.Errorf("got %q, want the dialogue bullet named", v3)
+	}
+	for id, m := range byID {
+		for _, feature := range m.Lists[ListFeatures] {
+			if strings.ContainsAny(feature, " ,(") {
+				t.Errorf("%s: prose in the capability list: %q", id, feature)
+			}
+		}
+		if len(m.Lists["capabilities"]) != 0 {
+			t.Errorf("%s: bullets still recorded as written", id)
+		}
 	}
 }
 
@@ -284,5 +334,69 @@ func TestParseWithoutPricingPage(t *testing.T) {
 		if slices.Contains(m.Notes, noteNoCard) {
 			t.Errorf("%s: marked uncovered with no pricing page read", m.ID)
 		}
+	}
+}
+
+// TestApplyBulletSplits covers each shape of bullet ElevenLabs writes, taken
+// from the cards as published. The models page carries whichever of them its
+// current flagships happen to have, so the rules are exercised here rather
+// than left to whatever the fixture caught.
+func TestApplyBulletSplits(t *testing.T) {
+	cases := []struct {
+		bullet  string
+		feature string
+		key     string
+		value   int64
+	}{
+		{"40,000 character limit", "", LimitCharacterLimit, 40_000},
+		{
+			"Speaker diarization, up to 32 speakers",
+			FeatureDiarization,
+			LimitSpeakers,
+			32,
+		},
+		{
+			"Keyterm prompting, up to 1000 terms",
+			FeatureKeyterms,
+			LimitKeyterms,
+			1_000,
+		},
+		{
+			"Entity detection, 65 entity types",
+			FeatureEntities,
+			LimitEntityTypes,
+			65,
+		},
+		{"Accurate transcription in 90+ languages", "", LimitLanguageCount, 90},
+		{"32 languages supported", "", LimitLanguageCount, 32},
+		{"Smart language detection", FeatureLangDetection, "", 0},
+		{"Precise word-level timestamps", FeatureTimestamps, "", 0},
+	}
+	for _, c := range cases {
+		var m catalog.Model
+		applyBullet(&m, c.bullet)
+		if c.key != "" && m.Limits[c.key] != c.value {
+			t.Errorf(
+				"%q: got %s %d, want %d",
+				c.bullet,
+				c.key,
+				m.Limits[c.key],
+				c.value,
+			)
+		}
+		if c.feature == "" {
+			if len(m.Lists[ListFeatures]) != 0 {
+				t.Errorf("%q: named %q", c.bullet, m.Lists[ListFeatures])
+			}
+			continue
+		}
+		if !slices.Contains(m.Lists[ListFeatures], c.feature) {
+			t.Errorf("%q: got %q, want %q", c.bullet, m.Lists[ListFeatures], c.feature)
+		}
+	}
+	var m catalog.Model
+	applyBullet(&m, "Most stable on long-form generations")
+	if len(m.Lists[ListFeatures]) != 0 || len(m.Limits) != 0 {
+		t.Errorf("a bullet stating no fact was recorded: %+v", m)
 	}
 }

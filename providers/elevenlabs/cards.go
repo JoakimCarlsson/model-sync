@@ -31,7 +31,9 @@ func (b *builder) applyCards(doc catalog.Document) {
 		if m.Name == "" {
 			m.Name = c.Name
 		}
-		m.AddList(ListCapabilities, c.Capabilities...)
+		for _, bullet := range c.Capabilities {
+			applyBullet(m, bullet)
+		}
 	}
 }
 
