@@ -115,3 +115,22 @@ func TestParseCards(t *testing.T) {
 		t.Errorf("got mode %q", m.Attrs[AttrMode])
 	}
 }
+
+// TestParseNoBounds pins the absence of every numeric bound. AssemblyAI meters
+// hours of audio and hours of connection, so a context window appearing here
+// later means the page gained something it has never stated, not that this
+// parser had been missing it.
+func TestParseNoBounds(t *testing.T) {
+	for id, m := range parse(t) {
+		if len(m.Limits) != 0 {
+			t.Errorf("%s: got limits %v, want none published", id, m.Limits)
+		}
+		if len(m.Lists["features"]) != 0 {
+			t.Errorf(
+				"%s: got features %v, want capabilities as written instead",
+				id,
+				m.Lists["features"],
+			)
+		}
+	}
+}

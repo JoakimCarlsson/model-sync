@@ -27,4 +27,15 @@
 // tie the rate to; and the LLM gateway tables, where AssemblyAI resells GPT,
 // Claude, Gemini and Qwen models at per-token rates under display names with no
 // identifier beside them.
+//
+// What AssemblyAI does not publish:
+//
+//   - A capability list. A card's bullets are sentences with the size of the
+//     thing inside them, as "Keyterms prompting up to 200 words" and "Support
+//     across 99 languages", so they are kept verbatim under capabilities rather
+//     than reduced to feature names, which would invent a vocabulary AssemblyAI
+//     never used and state less than the sentence did.
+//   - Any bound at all: no context window, no token limit and no ceiling on the
+//     length of an audio file. Nothing it sells is billed or bounded by tokens,
+//     so the fields that hold those bounds stay empty for every model.
 package assemblyai
