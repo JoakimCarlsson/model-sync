@@ -2,6 +2,7 @@ package bedrock
 
 import (
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -106,17 +107,86 @@ var (
 	cardWordRe = regexp.MustCompile(`[^a-z0-9]+`)
 )
 
-// applyCard reads one model card onto the model the price list established.
-func (b *builder) applyCard(doc catalog.Document) {
-	body := string(doc.Body)
-	title := first(cardTitleRe, body)
-	m, ok := b.byName(title)
-	if !ok {
-		return
+// applyCards reads every model card onto the models the price list
+// established.
+//
+// The cards are collected before any is applied, because which card describes
+// a model is decided by comparing it against all of them: a model takes the
+// most specific card that names it, and one card can describe several models,
+// since a latency-optimized variant is the same model on a faster path and is
+// carded under the plain name.
+func (b *builder) applyCards(docs []catalog.Document) {
+	cards := make([]card, 0, len(docs))
+	for _, doc := range docs {
+		title := first(cardTitleRe, string(doc.Body))
+		if title == "" {
+			continue
+		}
+		cards = append(cards, card{
+			doc:    doc,
+			title:  title,
+			tokens: compareTokens(title),
+		})
 	}
-	m.AddSource(doc.URL)
+	for _, id := range b.order {
+		m := b.models[id]
+		best, ok := bestCard(cards, compareTokens(m.Attrs[AttrModel]))
+		if !ok {
+			continue
+		}
+		applyCard(m, best)
+	}
+}
+
+// card is one model card with its title reduced to the form the two documents
+// can be compared in.
+type card struct {
+	doc    catalog.Document
+	title  string
+	tokens []string
+}
+
+// bestCard returns the most specific card naming a model.
+//
+// Neither document carries the other's identifier, so the comparison is on the
+// prose name, and the two disagree in small ways: the price list writes "Llama
+// 3.1 70B" where the card writes "Llama 3.1 70B Instruct", and "Nova 2.0 Lite"
+// where the card writes "Nova 2 Lite". Both names are reduced to their words,
+// with the serving words dropped and a one-place version's trailing zero taken
+// off, and either word list may then begin the other.
+//
+// Comparing words rather than the letters run together is what keeps Claude
+// Opus 4 from claiming Claude Opus 4.1, whose name it would otherwise begin.
+func bestCard(cards []card, want []string) (card, bool) {
+	var best card
+	found := false
+	for _, c := range cards {
+		if !beginsWith(c.tokens, want) && !beginsWith(want, c.tokens) {
+			continue
+		}
+		if !found || len(c.tokens) > len(best.tokens) ||
+			(len(c.tokens) == len(best.tokens) && c.title < best.title) {
+			best, found = c, true
+		}
+	}
+	return best, found
+}
+
+// beginsWith reports whether the first word list opens with the second, and is
+// false for an empty second list so that an unnamed model matches nothing.
+func beginsWith(items, prefix []string) bool {
+	if len(prefix) == 0 || len(prefix) > len(items) {
+		return false
+	}
+	return slices.Equal(items[:len(prefix)], prefix)
+}
+
+// applyCard records one card against one model.
+func applyCard(m *catalog.Model, c card) {
+	body := string(c.doc.Body)
+	m.AddSource(c.doc.URL)
 	if m.Name == "" {
-		m.Name = title
+		m.Name = c.title
 	}
 	m.SetAttr(AttrSummary, linkText(first(cardSummaryRe, body)))
 	applyDetails(m, body)
@@ -245,45 +315,12 @@ func featureName(name string) string {
 	return strings.ReplaceAll(name, " ", "_")
 }
 
-// byName returns the model a card's title names.
-//
-// The price list names a model in prose and so does a card, and the two
-// disagree in small ways: the list writes "Llama 3.1 70B" where the card
-// writes "Llama 3.1 70B Instruct", and "Nova 2.0 Lite" where the card writes
-// "Nova 2 Lite". Both names are reduced to letters and digits with the
-// serving words dropped and a trailing zero taken off each version, and either
-// may then be a prefix of the other, since the list names a serving variant
-// the card does not have and the card names a tuning the list does not.
-func (b *builder) byName(title string) (*catalog.Model, bool) {
-	want := compareName(title)
-	if want == "" {
-		return nil, false
-	}
-	var found *catalog.Model
-	for _, id := range b.order {
-		m := b.models[id]
-		got := compareName(m.Attrs[AttrModel])
-		if got == "" {
-			continue
-		}
-		if got != want &&
-			!strings.HasPrefix(got, want) &&
-			!strings.HasPrefix(want, got) {
-			continue
-		}
-		if found == nil || len(compareName(found.Attrs[AttrModel])) < len(got) {
-			found = m
-		}
-	}
-	return found, found != nil
-}
-
-// compareName reduces a model's prose name to the form the two documents can
-// be compared in.
-func compareName(name string) string {
+// compareTokens reduces a model's prose name to the words the two documents
+// can be compared by.
+func compareTokens(name string) []string {
 	s := cardZeroRe.ReplaceAllString(strings.ToLower(name), "$1")
 	s = cardDropRe.ReplaceAllString(s, " ")
-	return cardWordRe.ReplaceAllString(s, "")
+	return strings.Fields(cardWordRe.ReplaceAllString(s, " "))
 }
 
 // parseCount reads a quantity such as "200K tokens" or "64K".

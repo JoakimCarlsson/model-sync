@@ -192,11 +192,13 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			failures = append(failures, err)
 		}
 	}
+	var cards []catalog.Document
 	for _, doc := range docs {
 		if strings.HasPrefix(doc.URL, cardPre) {
-			b.applyCard(doc)
+			cards = append(cards, doc)
 		}
 	}
+	b.applyCards(cards)
 	return b.result(), errors.Join(failures...)
 }
 
