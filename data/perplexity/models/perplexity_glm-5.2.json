@@ -1,0 +1,33 @@
+{
+  "id": "perplexity/glm-5.2",
+  "provider": "perplexity",
+  "name": "perplexity/glm-5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "perplexity",
+    "summary": "GLM"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}

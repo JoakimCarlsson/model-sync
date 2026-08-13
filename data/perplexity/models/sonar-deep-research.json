@@ -1,0 +1,41 @@
+{
+  "id": "sonar-deep-research",
+  "provider": "perplexity",
+  "name": "Sonar Deep Research",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "citation_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD"
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "search_queries",
+      "unit": "per_1k_requests",
+      "amount": 5,
+      "currency": "USD"
+    }
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

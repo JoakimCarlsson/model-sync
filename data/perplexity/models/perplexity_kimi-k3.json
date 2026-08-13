@@ -1,0 +1,33 @@
+{
+  "id": "perplexity/kimi-k3",
+  "provider": "perplexity",
+  "name": "perplexity/kimi-k3",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "perplexity",
+    "summary": "Kimi K3"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}

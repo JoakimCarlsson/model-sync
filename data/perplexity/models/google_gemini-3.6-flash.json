@@ -1,0 +1,33 @@
+{
+  "id": "google/gemini-3.6-flash",
+  "provider": "perplexity",
+  "name": "google/gemini-3.6-flash",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "summary": "Gemini 3.6 Flash"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "search-api",
+  "provider": "perplexity",
+  "name": "Search API",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "summary": "Raw web search results with advanced filtering"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

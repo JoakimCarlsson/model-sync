@@ -1,0 +1,20 @@
+{
+  "id": "finance-search",
+  "provider": "perplexity",
+  "name": "finance_search",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "tool_call",
+      "unit": "per_invocation",
+      "amount": 0.005,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "summary": "Retrieves financial data and market information. $5 per 1,000 tool invocations"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "sonar",
+  "provider": "perplexity",
+  "name": "Sonar",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "high"
+      }
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "low"
+      }
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "medium"
+      }
+    }
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

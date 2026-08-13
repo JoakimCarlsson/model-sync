@@ -1,0 +1,26 @@
+{
+  "id": "pplx-embed-context-v1-0.6b",
+  "provider": "perplexity",
+  "name": "pplx-embed-context-v1-0.6b",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.008,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "contextualized": "true",
+    "default_embedding_dimension": "1024"
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024"
+    ]
+  },
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "web-search",
+  "provider": "perplexity",
+  "name": "web_search",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "tool_call",
+      "unit": "per_invocation",
+      "amount": 0.0025,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "summary": "Performs web searches to retrieve current information"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

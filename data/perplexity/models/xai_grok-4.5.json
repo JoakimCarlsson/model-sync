@@ -1,0 +1,33 @@
+{
+  "id": "xai/grok-4.5",
+  "provider": "perplexity",
+  "name": "xai/grok-4.5",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "xai",
+    "summary": "Grok 4.5"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "fetch-url",
+  "provider": "perplexity",
+  "name": "fetch_url",
+  "kind": "tool",
+  "prices": [
+    {
+      "metric": "tool_call",
+      "unit": "per_invocation",
+      "amount": 0.00025,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "summary": "Fetches and extracts content from specific URLs"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

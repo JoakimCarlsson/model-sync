@@ -1,0 +1,50 @@
+{
+  "id": "sonar-reasoning-pro",
+  "provider": "perplexity",
+  "name": "Sonar Reasoning Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD"
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "high"
+      }
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "low"
+      }
+    },
+    {
+      "metric": "request",
+      "unit": "per_1k_requests",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "search_context_size": "medium"
+      }
+    }
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/getting-started/pricing.md"
+  ]
+}

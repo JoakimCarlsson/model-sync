@@ -1,0 +1,33 @@
+{
+  "id": "openai/gpt-5.4-nano",
+  "provider": "perplexity",
+  "name": "openai/gpt-5.4-nano",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "summary": "GPT-5.4 Nano"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}

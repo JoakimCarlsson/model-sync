@@ -1,0 +1,33 @@
+{
+  "id": "perplexity/nemotron-3.5-lightning-30b-a3b",
+  "provider": "perplexity",
+  "name": "perplexity/nemotron-3.5-lightning-30b-a3b",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00115,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0115,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.17,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "perplexity",
+    "summary": "Nemotron 3.5 Lightning"
+  },
+  "sources": [
+    "https://docs.perplexity.ai/docs/agent-api/models.md"
+  ]
+}
