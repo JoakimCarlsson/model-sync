@@ -38,6 +38,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "logit_bias",
@@ -57,14 +70,6 @@
       "top_k",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "audio",
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

@@ -115,6 +115,20 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "include_reasoning",
       "logprobs",
       "max_tokens",
@@ -127,14 +141,6 @@
       "tools",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text",
-      "video"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

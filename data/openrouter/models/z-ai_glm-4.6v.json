@@ -38,6 +38,20 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
@@ -52,14 +66,6 @@
       "tools",
       "top_k",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text",
-      "video"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

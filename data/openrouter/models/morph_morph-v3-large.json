@@ -31,6 +31,16 @@
   },
   "lists": {
     "features": [
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "logprobs",
       "max_tokens",
       "response_format",
@@ -38,12 +48,6 @@
       "structured_outputs",
       "temperature",
       "top_logprobs"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

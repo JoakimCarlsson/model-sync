@@ -24,7 +24,7 @@ const (
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListAliases          = "aliases"
 	ListSnapshots        = "snapshots"
 	ListInputModalities  = "input_modalities"

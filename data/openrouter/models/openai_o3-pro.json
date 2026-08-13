@@ -39,14 +39,10 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
-      "max_tokens",
+      "function_calling",
+      "json_mode",
       "reasoning",
-      "response_format",
-      "seed",
-      "structured_outputs",
-      "tool_choice",
-      "tools"
+      "structured_outputs"
     ],
     "input_modalities": [
       "file",
@@ -55,6 +51,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "seed",
+      "structured_outputs",
+      "tool_choice",
+      "tools"
     ]
   },
   "sources": [

@@ -23,7 +23,7 @@ const (
 
 // Enumeration keys the documentation populates.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListEndpoints        = "endpoints"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
@@ -51,16 +51,22 @@ const (
 // the features it states. Azure writes several capabilities into one bullet,
 // so a bullet yields a list rather than a single name.
 var capabilityFeatures = map[string][]string{
-	"reasoning":                 {"reasoning"},
-	"structured outputs":        {"structured_outputs"},
-	"json mode":                 {"json_mode"},
-	"streaming":                 {"streaming"},
-	"computer use":              {"computer_use"},
-	"function calling":          {"function_calling"},
-	"functions and tools":       {"function_calling"},
-	"parallel function calling": {"function_calling", "parallel_tool_calls"},
+	"reasoning":          {catalog.CapabilityReasoning},
+	"structured outputs": {catalog.CapabilityStructuredOutputs},
+	"json mode": {
+		catalog.CapabilityStructuredOutputs,
+		catalog.CapabilityJSONMode,
+	},
+	"streaming":           {"streaming"},
+	"computer use":        {"computer_use"},
+	"function calling":    {catalog.CapabilityFunctionCalling},
+	"functions and tools": {catalog.CapabilityFunctionCalling},
+	"parallel function calling": {
+		catalog.CapabilityFunctionCalling,
+		"parallel_tool_calls",
+	},
 	"functions, tools, and parallel tool calling": {
-		"function_calling",
+		catalog.CapabilityFunctionCalling,
 		"parallel_tool_calls",
 	},
 }

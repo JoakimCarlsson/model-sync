@@ -80,6 +80,19 @@
   },
   "lists": {
     "features": [
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "parameters": [
       "include_reasoning",
       "max_tokens",
       "reasoning",
@@ -89,14 +102,6 @@
       "structured_outputs",
       "temperature",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "image",
-      "text"
     ]
   },
   "sources": [

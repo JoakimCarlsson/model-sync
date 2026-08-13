@@ -45,6 +45,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "max_completion_tokens",
       "max_tokens",
       "response_format",
@@ -54,14 +67,6 @@
       "tool_choice",
       "tools",
       "top_p"
-    ],
-    "input_modalities": [
-      "file",
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

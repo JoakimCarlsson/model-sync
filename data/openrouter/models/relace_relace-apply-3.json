@@ -30,16 +30,16 @@
     "top_provider_context_window": 256000
   },
   "lists": {
-    "features": [
-      "max_tokens",
-      "seed",
-      "stop"
-    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "seed",
+      "stop"
     ]
   },
   "sources": [

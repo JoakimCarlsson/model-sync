@@ -3,6 +3,7 @@ package openrouter
 import (
 	"os"
 	"path/filepath"
+	"slices"
 	"testing"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -127,5 +128,43 @@ func TestParseCapabilities(t *testing.T) {
 	}
 	if len(m.Lists[ListFeatures]) == 0 {
 		t.Error("no features")
+	}
+}
+
+// TestParseSeparatesParametersFromCapabilities covers the one thing OpenRouter
+// publishes that reads like a capability list and is not. The parameter names
+// stay parameter names, and what they imply about the model is recorded
+// separately in the vocabulary every other provider uses.
+func TestParseSeparatesParametersFromCapabilities(t *testing.T) {
+	m, ok := parse(t)["anthropic/claude-opus-5"]
+	if !ok {
+		t.Fatal("anthropic/claude-opus-5: not parsed")
+	}
+	for _, want := range []string{"tools", "response_format", "max_tokens"} {
+		if !slices.Contains(m.Lists[ListParameters], want) {
+			t.Errorf(
+				"got parameters %q, want %q among them",
+				m.Lists[ListParameters],
+				want,
+			)
+		}
+	}
+	features := m.Lists[ListFeatures]
+	for _, want := range []string{
+		catalog.CapabilityFunctionCalling,
+		catalog.CapabilityStructuredOutputs,
+	} {
+		if !slices.Contains(features, want) {
+			t.Errorf("got features %q, want %q among them", features, want)
+		}
+	}
+	for _, unwanted := range []string{"tools", "max_tokens", "temperature"} {
+		if slices.Contains(features, unwanted) {
+			t.Errorf(
+				"got features %q, want the parameter %q kept out of them",
+				features,
+				unwanted,
+			)
+		}
 	}
 }

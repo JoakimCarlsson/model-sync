@@ -33,14 +33,8 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
-      "max_tokens",
-      "reasoning",
-      "seed",
-      "temperature",
-      "tool_choice",
-      "tools",
-      "top_p"
+      "function_calling",
+      "reasoning"
     ],
     "input_modalities": [
       "audio",
@@ -50,6 +44,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "seed",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
     ]
   },
   "sources": [

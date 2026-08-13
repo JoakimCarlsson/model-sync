@@ -18,6 +18,7 @@
     "features": [
       "code_execution",
       "json_mode",
+      "structured_outputs",
       "visit_website",
       "web_search",
       "wolfram_alpha"

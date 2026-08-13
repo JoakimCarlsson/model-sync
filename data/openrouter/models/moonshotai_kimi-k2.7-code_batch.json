@@ -38,6 +38,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "logit_bias",
@@ -54,13 +67,6 @@
       "tools",
       "top_k",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

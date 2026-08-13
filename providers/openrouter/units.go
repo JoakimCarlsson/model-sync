@@ -72,11 +72,39 @@ const (
 
 // Enumeration keys the API populates.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
+	ListParameters       = catalog.ListParameters
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	ListVoices           = "voices"
 )
+
+// parameterFeatures map a request parameter OpenRouter states a model accepts
+// onto the capability accepting it implies.
+//
+// OpenRouter publishes no capability list. What it publishes is the set of
+// parameters its API will forward for a model, which is a different thing:
+// "accepts a response_format parameter" is a fact about the request, and
+// "supports structured output" is a fact about the model. The two are recorded
+// separately, and this is the one bridge between them, so that a consumer
+// asking either question of OpenRouter gets the same answer it gets of every
+// other provider.
+//
+// response_format is OpenRouter's parameter for the weaker mode, which
+// constrains the answer to JSON without constraining its shape, so it implies
+// both the capability and the marker that says how far it goes.
+var parameterFeatures = map[string][]string{
+	"tools":              {catalog.CapabilityFunctionCalling},
+	"tool_choice":        {catalog.CapabilityFunctionCalling},
+	"structured_outputs": {catalog.CapabilityStructuredOutputs},
+	"response_format": {
+		catalog.CapabilityStructuredOutputs,
+		catalog.CapabilityJSONMode,
+	},
+	"reasoning":         {catalog.CapabilityReasoning},
+	"include_reasoning": {catalog.CapabilityReasoning},
+	"reasoning_effort":  {catalog.CapabilityReasoning},
+}
 
 // scale is how much a published per-unit rate is multiplied by to reach the
 // denominator the catalog records it at.

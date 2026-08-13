@@ -20,7 +20,7 @@ const LimitContextWindow = "context_window"
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 )

@@ -32,6 +32,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logit_bias",
       "logprobs",
@@ -49,14 +62,6 @@
       "top_logprobs",
       "top_p",
       "web_search_options"
-    ],
-    "input_modalities": [
-      "file",
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

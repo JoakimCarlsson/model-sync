@@ -44,14 +44,9 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
-      "max_tokens",
+      "json_mode",
       "reasoning",
-      "reasoning_effort",
-      "response_format",
-      "seed",
-      "temperature",
-      "top_p"
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",
@@ -60,6 +55,16 @@
     "output_modalities": [
       "image",
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_p"
     ]
   },
   "sources": [

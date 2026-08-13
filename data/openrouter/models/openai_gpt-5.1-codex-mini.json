@@ -43,6 +43,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "include_reasoning",
       "max_completion_tokens",
       "reasoning",
@@ -52,13 +65,6 @@
       "structured_outputs",
       "tool_choice",
       "tools"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

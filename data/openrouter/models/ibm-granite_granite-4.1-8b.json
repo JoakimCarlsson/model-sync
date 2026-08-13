@@ -38,6 +38,17 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logprobs",
       "max_tokens",
@@ -53,12 +64,6 @@
       "top_k",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

@@ -33,7 +33,13 @@
     "top_provider_context_window": 32768
   },
   "lists": {
-    "features": [
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logit_bias",
       "max_tokens",
@@ -45,12 +51,6 @@
       "temperature",
       "top_k",
       "top_p"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

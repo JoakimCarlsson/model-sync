@@ -40,7 +40,7 @@ const (
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	// ListDimensions holds the widths an embedding model can return, which is

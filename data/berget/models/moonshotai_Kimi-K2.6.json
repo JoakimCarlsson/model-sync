@@ -40,10 +40,9 @@
       "moonshotai/Kimi-K2.6"
     ],
     "features": [
-      "formatted_output",
       "function_calling",
-      "json_mode",
-      "streaming"
+      "streaming",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

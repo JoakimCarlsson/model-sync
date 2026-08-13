@@ -31,16 +31,16 @@
     "top_provider_context_window": 32768
   },
   "lists": {
-    "features": [
-      "max_tokens",
-      "temperature",
-      "top_p"
-    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "temperature",
+      "top_p"
     ]
   },
   "sources": [

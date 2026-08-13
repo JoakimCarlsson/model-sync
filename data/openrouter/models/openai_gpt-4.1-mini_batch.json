@@ -45,14 +45,9 @@
   },
   "lists": {
     "features": [
-      "max_tokens",
-      "response_format",
-      "seed",
-      "structured_outputs",
-      "temperature",
-      "tool_choice",
-      "tools",
-      "top_p"
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
     ],
     "input_modalities": [
       "file",
@@ -61,6 +56,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "response_format",
+      "seed",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
     ]
   },
   "sources": [

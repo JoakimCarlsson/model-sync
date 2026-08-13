@@ -62,7 +62,7 @@ const ListDimensions = "embedding_dimensions"
 
 // ListFeatures holds the capabilities the catalog reports on per model, which
 // it states as a yes-or-no column each.
-const ListFeatures = "features"
+const ListFeatures = catalog.ListFeatures
 
 // Enumeration keys holding what a model takes and returns.
 const (

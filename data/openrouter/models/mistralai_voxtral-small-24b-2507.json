@@ -43,6 +43,19 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "max_tokens",
       "presence_penalty",
@@ -54,14 +67,6 @@
       "tool_choice",
       "tools",
       "top_p"
-    ],
-    "input_modalities": [
-      "audio",
-      "file",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

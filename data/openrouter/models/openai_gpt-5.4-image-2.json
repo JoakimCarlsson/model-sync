@@ -50,6 +50,20 @@
   },
   "lists": {
     "features": [
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "logit_bias",
@@ -63,15 +77,6 @@
       "stop",
       "structured_outputs",
       "top_logprobs"
-    ],
-    "input_modalities": [
-      "file",
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "image",
-      "text"
     ]
   },
   "sources": [

@@ -37,7 +37,7 @@ const (
 // Enumeration keys the pricing table populates.
 const (
 	// ListFeatures holds the capabilities marked as supported.
-	ListFeatures = "features"
+	ListFeatures = catalog.ListFeatures
 	// ListEndpoints holds the APIs a model answers on, which DeepSeek marks
 	// as supported in the same column as its capabilities.
 	ListEndpoints = "endpoints"
@@ -48,8 +48,8 @@ const (
 // one; anything not listed keeps DeepSeek's own words with its punctuation and
 // spacing reduced.
 var featureNames = map[string]string{
-	"tool calls":                   "function_calling",
-	"json output":                  "json_mode",
+	"tool calls":                   catalog.CapabilityFunctionCalling,
+	"json output":                  catalog.CapabilityStructuredOutputs,
 	"chat prefix completion（beta）": "prefix",
 }
 

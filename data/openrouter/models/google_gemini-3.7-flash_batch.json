@@ -1,51 +1,70 @@
 {
-  "id": "google/gemini-3-flash-preview:batch",
+  "id": "google/gemini-3.7-flash:batch",
   "provider": "openrouter",
-  "name": "Google: Gemini 3 Flash Preview (batch)",
+  "name": "Google: Gemini 3.7 Flash (batch)",
   "kind": "chat",
   "prices": [
     {
       "metric": "audio_input",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 0.375,
+      "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0416666666666667,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
       "currency": "USD"
     },
     {
       "metric": "image_input",
       "unit": "per_image",
-      "amount": 2.5e-7,
+      "amount": 3.75e-7,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.25,
+      "amount": 0.375,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 1.875,
       "currency": "USD"
     },
     {
       "metric": "reasoning_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 1.875,
       "currency": "USD"
     },
     {
       "metric": "tool_call",
       "unit": "per_1k_calls",
-      "amount": 14,
+      "amount": 7,
       "currency": "USD"
     }
   ],
   "attrs": {
     "author": "google",
-    "canonical_slug": "google/gemini-3-flash-preview-20251217",
-    "released": "2025-12-17",
-    "summary": "Gemini 3 Flash Preview is a high speed, high value thinking model designed for agentic workflows, multi turn chat, and coding assistance.",
+    "canonical_slug": "google/gemini-3.7-flash-20260813",
+    "reasoning_mandatory": "true",
+    "released": "2026-08-13",
+    "summary": "Gemini 3.7 Flash is a multimodal model from Google for fast agentic workflows, coding, and complex multi-step reasoning.",
     "tokenizer": "Gemini"
   },
   "limits": {
@@ -79,10 +98,8 @@
       "seed",
       "stop",
       "structured_outputs",
-      "temperature",
       "tool_choice",
-      "tools",
-      "top_p"
+      "tools"
     ]
   },
   "sources": [

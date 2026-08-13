@@ -10,7 +10,7 @@ import (
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 )
@@ -29,17 +29,20 @@ const (
 // featureNames map a capability a page names onto the catalog's vocabulary.
 // Only the names that differ are listed; the rest keep Groq's own words with
 // their spacing reduced to an identifier.
-var featureNames = map[string]string{
-	"tool use":           "function_calling",
-	"json object mode":   "json_mode",
-	"json schema mode":   "structured_outputs",
-	"structured outputs": "structured_outputs",
-	"reasoning":          "reasoning",
-	"speech to text":     "transcription",
-	"text to speech":     "speech",
-	"prompt guard":       "moderation",
-	"browser search":     "web_search",
-	"code execution":     "code_execution",
+var featureNames = map[string][]string{
+	"tool use": {catalog.CapabilityFunctionCalling},
+	"json object mode": {
+		catalog.CapabilityStructuredOutputs,
+		catalog.CapabilityJSONMode,
+	},
+	"json schema mode":   {catalog.CapabilityStructuredOutputs},
+	"structured outputs": {catalog.CapabilityStructuredOutputs},
+	"reasoning":          {catalog.CapabilityReasoning},
+	"speech to text":     {"transcription"},
+	"text to speech":     {"speech"},
+	"prompt guard":       {"moderation"},
+	"browser search":     {"web_search"},
+	"code execution":     {"code_execution"},
 }
 
 // capabilityModalities map a capability that names a modality onto the
@@ -117,7 +120,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 			m.AddList(ListInputModalities, modality)
 			continue
 		}
-		m.AddList(ListFeatures, featureName(name))
+		m.AddList(ListFeatures, featureName(name)...)
 	}
 }
 
@@ -195,13 +198,15 @@ func splitList(value string) []string {
 	return out
 }
 
-// featureName rewrites a capability into the catalog's vocabulary.
-func featureName(name string) string {
+// featureName rewrites a capability into the catalog's vocabulary. One of
+// Groq's names can yield two values, because Groq documents both strengths of
+// structured output and the weaker one is recorded as both.
+func featureName(name string) []string {
 	key := strings.ToLower(strings.TrimSpace(name))
 	if mapped, ok := featureNames[key]; ok {
 		return mapped
 	}
-	return strings.ReplaceAll(key, " ", "_")
+	return []string{strings.ReplaceAll(key, " ", "_")}
 }
 
 // firstOf returns the first capture of re, or the empty string.

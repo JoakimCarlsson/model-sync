@@ -29,6 +29,23 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "logit_bias",
@@ -52,17 +69,6 @@
       "top_logprobs",
       "top_p",
       "web_search_options"
-    ],
-    "input_modalities": [
-      "audio",
-      "file",
-      "image",
-      "text",
-      "video"
-    ],
-    "output_modalities": [
-      "image",
-      "text"
     ]
   },
   "sources": [

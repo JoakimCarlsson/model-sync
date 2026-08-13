@@ -128,7 +128,10 @@ func (b *builder) applyEntry(e entry, source string) {
 
 	m.AddList(ListInputModalities, e.Architecture.InputModalities...)
 	m.AddList(ListOutputModalities, e.Architecture.OutputModalities...)
-	m.AddList(ListFeatures, e.SupportedParameters...)
+	m.AddList(ListParameters, e.SupportedParameters...)
+	for _, parameter := range e.SupportedParameters {
+		m.AddList(ListFeatures, parameterFeatures[parameter]...)
+	}
 	m.AddList(ListVoices, e.SupportedVoices...)
 
 	b.applyPricing(m, e.Pricing)

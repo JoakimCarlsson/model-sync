@@ -43,9 +43,21 @@ const (
 
 // Enumeration keys the endpoint populates.
 const (
-	ListFeatures = "features"
+	ListFeatures = catalog.ListFeatures
 	ListAliases  = "aliases"
 )
+
+// capabilityFeatures map a capability flag the endpoint sets onto the
+// catalog's vocabulary. A flag not listed keeps Berget's own word.
+//
+// Berget raises formatted_output and json_mode together on every model that
+// raises either, so the two are one capability under two names and both become
+// the canonical one. Neither says which of the two strengths is meant, so
+// neither yields the narrowing marker.
+var capabilityFeatures = map[string]string{
+	"formatted_output": catalog.CapabilityStructuredOutputs,
+	"json_mode":        catalog.CapabilityStructuredOutputs,
+}
 
 // typeKinds maps Berget's model type onto what the model does.
 var typeKinds = map[string]catalog.Kind{
@@ -124,9 +136,13 @@ func (b *builder) applyEntry(e entry, source string) {
 	m.SetLimit(AttrModelSize, e.ModelSize)
 	m.AddList(ListAliases, e.Aliases...)
 	for capability, present := range e.Capabilities {
-		if present && capability != FeatureVision {
-			m.AddList(ListFeatures, capability)
+		if !present || capability == FeatureVision {
+			continue
 		}
+		if name, ok := capabilityFeatures[capability]; ok {
+			capability = name
+		}
+		m.AddList(ListFeatures, capability)
 	}
 	applyModalities(m, e)
 	b.applyPricing(m, e.Pricing)

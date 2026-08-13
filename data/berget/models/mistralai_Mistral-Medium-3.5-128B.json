@@ -38,10 +38,9 @@
       "mistral/medium-3.5"
     ],
     "features": [
-      "formatted_output",
       "function_calling",
-      "json_mode",
-      "streaming"
+      "streaming",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

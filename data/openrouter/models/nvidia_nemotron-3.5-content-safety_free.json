@@ -33,12 +33,7 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
-      "max_tokens",
-      "reasoning",
-      "seed",
-      "temperature",
-      "top_p"
+      "reasoning"
     ],
     "input_modalities": [
       "image",
@@ -46,6 +41,14 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "seed",
+      "temperature",
+      "top_p"
     ]
   },
   "sources": [

@@ -32,11 +32,8 @@
   },
   "lists": {
     "features": [
-      "max_tokens",
-      "response_format",
-      "seed",
-      "temperature",
-      "top_p"
+      "json_mode",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",
@@ -45,6 +42,13 @@
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_p"
     ]
   },
   "sources": [

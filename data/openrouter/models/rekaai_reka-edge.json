@@ -32,6 +32,18 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logprobs",
       "max_tokens",
@@ -45,14 +57,6 @@
       "top_k",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text",
-      "video"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

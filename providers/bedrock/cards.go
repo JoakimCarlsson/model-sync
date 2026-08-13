@@ -26,7 +26,7 @@ const (
 
 // Enumeration keys the model cards populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListEndpoints        = "endpoints"
 	ListAliases          = "aliases"
 	ListInputModalities  = "input_modalities"
@@ -53,11 +53,15 @@ const supportedIcon = "icon-yes.png"
 // their spacing reduced to an identifier.
 var cardFeatures = map[string]string{
 	"response streaming":       "streaming",
-	"tool use":                 "function_calling",
-	"client-side tool calling": "function_calling",
+	"tool use":                 catalog.CapabilityFunctionCalling,
+	"client-side tool calling": catalog.CapabilityFunctionCalling,
 	"prompt caching":           "prompt_caching",
-	"structured outputs":       "structured_outputs",
+	"structured outputs":       catalog.CapabilityStructuredOutputs,
 	"computer use":             "computer_use",
+	// AWS distinguishes the tools a caller declares from the ones the service
+	// runs for the model. Only the first is function calling, so the second
+	// keeps AWS's own words, normalized like every other unmapped name.
+	"server-side tool calling": "server_side_tool_calling",
 }
 
 // cardModalities map a row of a card's modality matrix onto the catalog's

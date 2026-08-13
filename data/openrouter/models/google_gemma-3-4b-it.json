@@ -34,6 +34,17 @@
   },
   "lists": {
     "features": [
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logit_bias",
       "max_tokens",
@@ -47,13 +58,6 @@
       "temperature",
       "top_k",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

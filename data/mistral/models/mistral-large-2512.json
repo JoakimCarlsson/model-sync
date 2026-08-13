@@ -35,12 +35,12 @@
     "features": [
       "agents",
       "batching",
+      "connectors",
       "document_qna",
       "function_calling",
       "prefix",
       "streaming",
-      "structured_outputs",
-      "tools"
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

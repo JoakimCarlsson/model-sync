@@ -38,8 +38,8 @@
     ],
     "features": [
       "function_calling",
-      "json_mode",
-      "prefix"
+      "prefix",
+      "structured_outputs"
     ]
   },
   "sources": [

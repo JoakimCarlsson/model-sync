@@ -7,19 +7,19 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0945,
+      "amount": 0.091,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.63,
+      "amount": 0.49,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.98,
+      "amount": 1.54,
       "currency": "USD"
     }
   ],
@@ -33,10 +33,23 @@
   },
   "limits": {
     "context_window": 1048576,
-    "top_provider_context_window": 262144
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 1048576
   },
   "lists": {
     "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "logit_bias",
@@ -58,12 +71,6 @@
       "top_k",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

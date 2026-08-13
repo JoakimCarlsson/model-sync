@@ -256,7 +256,8 @@
     "features": [
       "function_calling",
       "json_mode",
-      "parallel_tool_calls"
+      "parallel_tool_calls",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

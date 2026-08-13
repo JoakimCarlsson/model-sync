@@ -30,7 +30,8 @@
   "lists": {
     "features": [
       "content_moderation",
-      "json_mode"
+      "json_mode",
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"

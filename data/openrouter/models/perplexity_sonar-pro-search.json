@@ -38,6 +38,17 @@
   },
   "lists": {
     "features": [
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
@@ -48,13 +59,6 @@
       "top_k",
       "top_p",
       "web_search_options"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

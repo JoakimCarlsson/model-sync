@@ -1554,7 +1554,8 @@
   },
   "lists": {
     "features": [
-      "json_mode"
+      "json_mode",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

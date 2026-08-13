@@ -33,18 +33,21 @@
   },
   "lists": {
     "features": [
-      "max_tokens",
-      "stop",
-      "temperature",
-      "tools",
-      "top_k",
-      "top_p"
+      "function_calling"
     ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "stop",
+      "temperature",
+      "tools",
+      "top_k",
+      "top_p"
     ]
   },
   "sources": [

@@ -75,7 +75,7 @@ const (
 
 // Enumeration keys the documents populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListAliases          = "aliases"
 	ListRegions          = "regions"
 	ListInputModalities  = "input_modalities"

@@ -76,7 +76,7 @@ const (
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListAliases          = "aliases"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
@@ -98,9 +98,8 @@ var badgeStates = map[string]string{
 // capability it was.
 var featureNames = map[string]string{
 	"agents-conversations":       "agents",
-	"annotations-structured-ocr": "structured_outputs",
+	"annotations-structured-ocr": catalog.CapabilityStructuredOutputs,
 	"chat-completions":           "streaming",
-	"connectors":                 "tools",
 	"fim":                        "fill_in_the_middle",
 	"predicted-outputs":          "predicted_outputs",
 }

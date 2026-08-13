@@ -38,10 +38,9 @@
       "moonshotai/Kimi-K3"
     ],
     "features": [
-      "formatted_output",
       "function_calling",
-      "json_mode",
-      "streaming"
+      "streaming",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

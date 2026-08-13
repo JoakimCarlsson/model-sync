@@ -132,6 +132,22 @@ func TestParseVisionIsNotAFeature(t *testing.T) {
 	}
 }
 
+// TestParseStructuredOutputHasOneName covers the two flags Berget raises for
+// one capability. Both become the canonical value, and neither survives under
+// the endpoint's own spelling, because a consumer keying on either of those
+// would find only Berget.
+func TestParseStructuredOutputHasOneName(t *testing.T) {
+	features := parse(t)["moonshotai/Kimi-K2.6"].Lists[ListFeatures]
+	if !slices.Contains(features, catalog.CapabilityStructuredOutputs) {
+		t.Errorf("got features %q, want structured output among them", features)
+	}
+	for _, spelling := range []string{"formatted_output", "json_mode"} {
+		if slices.Contains(features, spelling) {
+			t.Errorf("got features %q, want %q converged away", features, spelling)
+		}
+	}
+}
+
 // TestParseContextFromOverview covers the bound the endpoint omits and the
 // documentation site states, keyed by the same identifier, including the two
 // ways the cards write a quantity.

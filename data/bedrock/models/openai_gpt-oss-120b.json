@@ -1479,7 +1479,7 @@
       "function_calling",
       "guardrails",
       "projects",
-      "server-side_tool_calling",
+      "server_side_tool_calling",
       "streaming",
       "structured_outputs"
     ],

@@ -169,7 +169,10 @@ func TestParsePerModelRows(t *testing.T) {
 // the model can do.
 func TestParseFeaturesAndEndpoints(t *testing.T) {
 	for id, m := range parse(t) {
-		for _, want := range []string{"function_calling", "json_mode"} {
+		for _, want := range []string{
+			catalog.CapabilityFunctionCalling,
+			catalog.CapabilityStructuredOutputs,
+		} {
 			if !slices.Contains(m.Lists[ListFeatures], want) {
 				t.Errorf(
 					"%s: got features %q, want %q among them",

@@ -36,14 +36,14 @@
     "features": [
       "agents",
       "batching",
+      "connectors",
       "document_qna",
       "function_calling",
       "predicted_outputs",
       "prefix",
       "reasoning",
       "streaming",
-      "structured_outputs",
-      "tools"
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

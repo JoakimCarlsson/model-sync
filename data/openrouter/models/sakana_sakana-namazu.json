@@ -43,13 +43,9 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
+      "function_calling",
       "reasoning",
-      "reasoning_effort",
-      "structured_outputs",
-      "tool_choice",
-      "tools",
-      "web_search_options"
+      "structured_outputs"
     ],
     "input_modalities": [
       "file",
@@ -58,6 +54,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "reasoning",
+      "reasoning_effort",
+      "structured_outputs",
+      "tool_choice",
+      "tools",
+      "web_search_options"
     ]
   },
   "sources": [

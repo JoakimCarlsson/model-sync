@@ -1226,7 +1226,7 @@
       "model_evaluation",
       "projects",
       "prompt_management",
-      "server-side_tool_calling",
+      "server_side_tool_calling",
       "streaming",
       "structured_outputs"
     ],

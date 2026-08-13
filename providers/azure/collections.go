@@ -4,6 +4,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
 // Columns of the capability tables, named as Azure heads them. The other model
@@ -245,9 +247,13 @@ func readCapabilities(d *documented, cell string) {
 		case strings.HasPrefix(label, bulletContext):
 			d.Context = tokenCount(value)
 		case label == bulletTools && affirmative(value):
-			d.Features = appendNew(d.Features, "function_calling")
+			d.Features = appendNew(d.Features, catalog.CapabilityFunctionCalling)
 		case label == bulletFormats && mentionsJSON(value):
-			d.Features = appendNew(d.Features, "json_mode")
+			d.Features = appendNew(
+				d.Features,
+				catalog.CapabilityStructuredOutputs,
+				catalog.CapabilityJSONMode,
+			)
 		case label == bulletLanguages:
 			d.Languages = appendNew(d.Languages, languagesOf(part)...)
 		}

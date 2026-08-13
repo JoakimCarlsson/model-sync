@@ -10,7 +10,7 @@ import (
 
 // Enumeration keys the model pages populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListTools            = "tools"
 	ListEndpoints        = "endpoints"
 	ListInputModalities  = "input_modalities"

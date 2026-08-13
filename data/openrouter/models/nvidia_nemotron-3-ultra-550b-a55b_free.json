@@ -33,6 +33,16 @@
   },
   "lists": {
     "features": [
+      "function_calling",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "include_reasoning",
       "max_tokens",
       "reasoning",
@@ -42,12 +52,6 @@
       "tool_choice",
       "tools",
       "top_p"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

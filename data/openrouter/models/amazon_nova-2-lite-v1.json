@@ -32,15 +32,8 @@
   },
   "lists": {
     "features": [
-      "include_reasoning",
-      "max_tokens",
-      "reasoning",
-      "stop",
-      "temperature",
-      "tool_choice",
-      "tools",
-      "top_k",
-      "top_p"
+      "function_calling",
+      "reasoning"
     ],
     "input_modalities": [
       "file",
@@ -50,6 +43,17 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "stop",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
     ]
   },
   "sources": [

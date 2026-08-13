@@ -29,4 +29,12 @@ const (
 	// CapabilityFunctionCalling is set where the model can call tools the
 	// caller declares.
 	CapabilityFunctionCalling = "function_calling"
+	// CapabilityJSONMode narrows CapabilityStructuredOutputs and never
+	// replaces it. Some vendors document two strengths of the same capability,
+	// one constraining the answer to a caller-supplied schema and one only
+	// requiring it to be JSON, and a model offering the weaker one carries
+	// both values: CapabilityStructuredOutputs so that the consumer asking
+	// whether the answer can be constrained finds it, and this so that the
+	// consumer asking how far does not have to guess.
+	CapabilityJSONMode = "json_mode"
 )

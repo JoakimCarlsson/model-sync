@@ -17,7 +17,7 @@ const (
 
 // Enumeration keys the Sonar documentation populates.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 )

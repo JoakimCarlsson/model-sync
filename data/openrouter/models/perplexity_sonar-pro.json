@@ -36,7 +36,14 @@
     "top_provider_context_window": 200000
   },
   "lists": {
-    "features": [
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "max_tokens",
       "presence_penalty",
@@ -44,13 +51,6 @@
       "top_k",
       "top_p",
       "web_search_options"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

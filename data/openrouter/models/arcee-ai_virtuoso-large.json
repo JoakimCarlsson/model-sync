@@ -32,6 +32,15 @@
   },
   "lists": {
     "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logit_bias",
       "max_tokens",
@@ -44,12 +53,6 @@
       "tools",
       "top_k",
       "top_p"
-    ],
-    "input_modalities": [
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

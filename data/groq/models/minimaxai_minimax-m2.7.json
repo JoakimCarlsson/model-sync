@@ -17,7 +17,8 @@
     "features": [
       "function_calling",
       "json_mode",
-      "reasoning"
+      "reasoning",
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"

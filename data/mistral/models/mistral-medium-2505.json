@@ -18,13 +18,13 @@
     "features": [
       "agents",
       "batching",
+      "connectors",
       "document_qna",
       "function_calling",
       "predicted_outputs",
       "prefix",
       "streaming",
-      "structured_outputs",
-      "tools"
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",

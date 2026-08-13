@@ -39,6 +39,16 @@
   },
   "lists": {
     "features": [
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
       "frequency_penalty",
       "logit_bias",
       "logprobs",
@@ -52,13 +62,6 @@
       "top_k",
       "top_logprobs",
       "top_p"
-    ],
-    "input_modalities": [
-      "image",
-      "text"
-    ],
-    "output_modalities": [
-      "text"
     ]
   },
   "sources": [

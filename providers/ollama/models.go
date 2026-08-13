@@ -25,7 +25,7 @@ const AttrSummary = "summary"
 
 // Enumeration keys the library and the tag listings populate.
 const (
-	ListFeatures         = "features"
+	ListFeatures         = catalog.ListFeatures
 	ListParameterSizes   = "parameter_sizes"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
