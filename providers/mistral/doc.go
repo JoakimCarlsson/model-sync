@@ -42,6 +42,11 @@
 //   - Batch, priority and regional rates. The pricing page states them, but it
 //     renders them in the browser from data the document does not carry, so
 //     only the standard rate on each model page can be read.
+//   - The width of the vector an embedding model returns, as a stated fact. A
+//     model page's statistics carry the context window and the rates; the
+//     width appears only inside a sentence of marketing prose, in the same
+//     translated string table as every other sentence on the site, with
+//     nothing tying it to the model whose page is being read.
 //
 // The index's deprecation table states two dates in one cell with nothing
 // between them, so they are separated by position: the first is the
