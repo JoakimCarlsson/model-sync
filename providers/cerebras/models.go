@@ -2,6 +2,7 @@ package cerebras
 
 import (
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -39,8 +40,11 @@ var sectionStates = map[string]string{
 }
 
 var (
-	linkRe  = regexp.MustCompile(`\[([^\]]*)\]\(([^)]*)\)`)
-	tagRe   = regexp.MustCompile(`(?s)<[^>]*>`)
+	linkRe = regexp.MustCompile(`\[([^\]]*)\]\(([^)]*)\)`)
+	tagRe  = regexp.MustCompile(`(?s)<[^>]*>`)
+	// supRe matches a footnote marker with the digit inside it, which is not
+	// part of the name it is attached to.
+	supRe   = regexp.MustCompile(`(?is)<sup\b[^>]*>.*?</sup\s*>`)
 	countRe = regexp.MustCompile(
 		`(?i)([\d,]*\.?\d+)\s*(k|m|b|billion|million)?`,
 	)
@@ -50,6 +54,7 @@ var (
 // model names.
 func clean(cell string) string {
 	s := linkRe.ReplaceAllString(cell, "$1")
+	s = supRe.ReplaceAllString(s, "")
 	s = tagRe.ReplaceAllString(s, "")
 	s = strings.ReplaceAll(s, `\~`, "~")
 	s = strings.ReplaceAll(s, "**", "")
@@ -76,6 +81,30 @@ func parseCount(value string) int64 {
 		n *= 1_000_000_000
 	}
 	return int64(n)
+}
+
+// modelPageURLs derives the per-model pages the catalog links to. The link is
+// in the model name cell, alongside the identifier the model is called by.
+func modelPageURLs(index catalog.Document) []string {
+	var urls []string
+	for _, t := range scanTables(string(index.Body), index.URL) {
+		nameCol := columnOf(t.Headers, "model name")
+		if nameCol < 0 {
+			continue
+		}
+		for _, row := range t.Rows {
+			target := linkTarget(cellAt(row, nameCol))
+			if !strings.HasPrefix(target, "/models/") {
+				continue
+			}
+			url := baseURL + target + ".md"
+			if !slices.Contains(urls, url) {
+				urls = append(urls, url)
+			}
+		}
+	}
+	slices.Sort(urls)
+	return urls
 }
 
 // applyCatalog reads the model catalog page.

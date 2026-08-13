@@ -3,7 +3,22 @@
   "provider": "cerebras",
   "name": "OpenAI GPT OSS",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
+    "model_card_url": "https://openai.com/index/gpt-oss-model-card/",
     "model_url": "/models/openai-oss",
     "parameters": "120 billion",
     "state": "production",
@@ -11,9 +26,31 @@
   },
   "limits": {
     "context_window": 131000,
-    "context_window_free": 65000
+    "context_window_free": 65000,
+    "max_output_tokens": 40000,
+    "max_output_tokens_free": 32000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat Completions"
+    ],
+    "features": [
+      "function_calling",
+      "prompt_caching",
+      "reasoning",
+      "sampling_controls",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://inference-docs.cerebras.ai/models/openai-oss.md",
     "https://inference-docs.cerebras.ai/models/overview.md"
   ]
 }

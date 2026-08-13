@@ -3,7 +3,22 @@
   "provider": "cerebras",
   "name": "Gemma 4 31B",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.99,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.49,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
+    "model_card_url": "https://huggingface.co/google/gemma-4-31B-it",
     "model_url": "/models/gemma-4-31b",
     "parameters": "31 billion",
     "state": "preview",
@@ -11,9 +26,35 @@
   },
   "limits": {
     "context_window": 131000,
-    "context_window_free": 65000
+    "context_window_free": 65000,
+    "max_output_tokens": 40000,
+    "max_output_tokens_free": 32000
+  },
+  "lists": {
+    "endpoints": [
+      "Chat Completions",
+      "Completions"
+    ],
+    "features": [
+      "function_calling",
+      "image_input",
+      "parallel_tool_calls",
+      "prompt_caching",
+      "reasoning",
+      "sampling_controls",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://inference-docs.cerebras.ai/models/gemma-4-31b.md",
     "https://inference-docs.cerebras.ai/models/overview.md"
   ]
 }
