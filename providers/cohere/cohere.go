@@ -2,12 +2,14 @@ package cohere
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -18,18 +20,21 @@ const (
 	providerName = "Cohere"
 )
 
-// ModelsURL is the page listing every model Cohere serves.
-const ModelsURL = "https://docs.cohere.com/docs/models.md"
+// Documents Cohere publishes that this parser reads.
+const (
+	// ModelsURL lists every model Cohere serves and what it holds.
+	ModelsURL = "https://docs.cohere.com/docs/models.md"
+	// PricingURL states the rates. They are on the marketing site rather than
+	// in the documentation, which publishes none.
+	PricingURL = "https://cohere.com/pricing"
+)
 
-// cacheFile is where a fetched document is kept.
-const cacheFile = "cohere_models.md"
-
-// Provider reads Cohere's model overview. The zero value is not usable; call
-// New.
+// Provider reads Cohere's model overview and pricing page. The zero value is
+// not usable; call New.
 type Provider struct {
-	// Client performs the fetch.
+	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
+	// CacheDir, when set, backs every fetch with a file on disk.
 	CacheDir string
 }
 
@@ -44,14 +49,52 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page.
+// Fetch retrieves the model overview and the pricing page. A pricing page that
+// cannot be read costs the rates and nothing else, so the overview is returned
+// alone rather than the run failing.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, ModelsURL, nil)
+	overview, err := p.get(ctx, ModelsURL)
 	if err != nil {
 		return nil, err
+	}
+	docs := []catalog.Document{overview}
+	pricing, err := p.get(ctx, PricingURL)
+	if err != nil {
+		return docs, errors.Join(err)
+	}
+	return append(docs, pricing), nil
+}
+
+// Parse reads the overview first, because it is the only document naming the
+// identifiers the API answers to, and the pricing page second, which attaches
+// rates to models the overview established.
+func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
+	b := newBuilder()
+	for _, doc := range docs {
+		if doc.URL == ModelsURL {
+			b.applyOverview(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL == PricingURL {
+			b.applyPricing(doc)
+		}
+	}
+	return b.result(), nil
+}
+
+// get retrieves one document, reading from and writing to the cache directory
+// when one is configured.
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
 	}
 	client := p.Client
 	if client == nil {
@@ -59,51 +102,56 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", ModelsURL, resp.Status)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the models page.
-func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
-	b := newBuilder()
-	for _, doc := range docs {
-		b.applyOverview(doc)
-	}
-	return b.result(), nil
-}
-
-// readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
+// readCache returns a previously fetched body.
+func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheName(url)))
 	return body, err == nil
 }
 
-// writeCache stores a document, ignoring failures because the cache is an
+// writeCache stores a body, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCache(url string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheName(url)), body, 0o644)
 }
 
-// builder accumulates models.
+// cacheName turns a URL into a flat filename.
+func cacheName(url string) string {
+	trimmed := strings.TrimPrefix(url, "https://")
+	return providerID + "_" + strings.Map(func(r rune) rune {
+		switch {
+		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
+			return r
+		case r == '.', r == '-', r == '_':
+			return r
+		}
+		return '_'
+	}, trimmed)
+}
+
+// builder accumulates models across documents.
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string

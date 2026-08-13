@@ -1,14 +1,42 @@
-// Package cohere parses Cohere's model overview into the catalog model.
+// Package cohere parses Cohere's model overview and pricing page into the
+// catalog model.
 //
-// Cohere states rates only on its marketing site, in a layout with no reliable
-// tie between an amount and a model, so no prices are recorded. Guessing which
-// number belongs to which model would be worse than recording none.
+// The documentation publishes no rate at all. What rates Cohere states are on
+// its marketing site, and they are stated two ways there: as cards for the
+// products it sells today, and as sentences in the page's questions and
+// answers for the models it has withdrawn. Both are read.
 //
-// What it publishes properly is a catalog of five families with a different
-// table shape each: chat models carry a context length and an output ceiling,
-// embedding models carry the vector width and the similarity metric they are
-// trained for, rerankers carry a context length, and audio models carry a
-// maximum file size. A further table per family lists the identifier the same
-// model answers to on Bedrock, SageMaker, Azure and Oracle, which is recorded
-// against the model so a reader on one of those platforms can find it.
+// The two are not equally easy to attach to a model. A sentence names a model
+// precisely — "Command R+ 08-2024" is command-r-plus-08-2024 — and reduces to
+// an identifier on its own. A card names a product, and a product outlives the
+// model behind it: the card headed "Command R" states the rate of whichever
+// model serves under that name today, which is not the alias command-r that
+// points at the version the same page prices separately as legacy. Cards are
+// therefore looked up in a table of product names, and only names the overview
+// already established reach a model, so a card headed for a platform or a
+// deployment plan reaches nothing.
+//
+// The overview is the authority on everything else. It is five families with a
+// different table shape each: chat models carry a context length and an output
+// ceiling, embedding models carry the vector width and the similarity metric
+// they are trained for, rerankers carry a context length, and audio models
+// carry a maximum file size. A further table per family lists the identifier
+// the same model answers to on Bedrock, SageMaker, Azure and Oracle.
+//
+// Its tables state no display name, only the identifier, but the summary above
+// them names each model in prose and links it, and the link's address is the
+// identifier without its release date. That is the tie between the two, and it
+// covers the Command family. Models the summary does not name keep no display
+// name rather than one derived from their identifier.
+//
+// What Cohere does not publish:
+//
+//   - A rate for the Command A family, for Aya Vision, for Tiny Aya or for the
+//     nightly builds. Those models are served and documented, and no price is
+//     stated for any of them anywhere Cohere publishes.
+//   - A capability list. What a model can do is described in paragraphs on its
+//     own page, not enumerated, so no features are recorded. The endpoints
+//     column is the nearest thing the overview states and is kept as one.
+//   - An output modality. The modality column states what a model accepts and
+//     says nothing about what it returns.
 package cohere

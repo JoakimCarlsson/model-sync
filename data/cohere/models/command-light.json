@@ -2,14 +2,29 @@
   "id": "command-light",
   "provider": "cohere",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "cohere.command-light-text-v14",
     "amazon_sagemaker_id": "N/A",
     "azure_ai_foundry_id": "N/A",
+    "deprecated_on": "2025-09-15",
     "family": "command",
     "modality": "Text",
     "oracle_oci_id": "cohere.command-light v15.6",
-    "state": "deprecated sept 15, 2025",
+    "state": "deprecated",
     "summary": "A smaller, faster version of command."
   },
   "limits": {
@@ -20,11 +35,12 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

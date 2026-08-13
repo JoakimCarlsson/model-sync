@@ -5,7 +5,8 @@
   "attrs": {
     "family": "aya",
     "modality": "Text",
-    "state": "retired apr 4, 2026",
+    "retirement_date": "2026-04-04",
+    "state": "retired",
     "summary": "Aya Expanse is a highly performant 8B multilingual model, designed to rival monolingual performance through innovations in instruction tuning with data arbitrage, preference training, and model merging."
   },
   "limits": {
@@ -16,8 +17,8 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

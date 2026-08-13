@@ -1,9 +1,11 @@
 package cohere
 
 import (
+	"path"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -16,10 +18,19 @@ const (
 	KindTranscription catalog.Kind = "transcription"
 )
 
+// Standing a model can be in, read from the overview's status column.
+const (
+	StateLive       = "live"
+	StateDeprecated = "deprecated"
+	StateRetired    = "retired"
+)
+
 // Scalar keys the overview populates.
 const (
 	AttrSummary          = "summary"
 	AttrState            = "state"
+	AttrDeprecatedOn     = "deprecated_on"
+	AttrRetirementDate   = "retirement_date"
 	AttrModality         = "modality"
 	AttrSimilarityMetric = "similarity_metric"
 	AttrMaxFileSize      = "max_file_size"
@@ -44,9 +55,9 @@ const (
 
 // Enumeration keys the overview populates.
 const (
-	ListEndpoints  = "endpoints"
-	ListModalities = "modalities"
-	ListDimensions = "embedding_dimensions"
+	ListEndpoints       = "endpoints"
+	ListInputModalities = "input_modalities"
+	ListDimensions      = "embedding_dimensions"
 )
 
 // sectionKinds maps a family heading onto what its models do.
@@ -94,6 +105,7 @@ func parseCount(cell string) int64 {
 
 // applyOverview reads the model overview page.
 func (b *builder) applyOverview(doc catalog.Document) {
+	names := displayNames(string(doc.Body))
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
 		kind, ok := sectionKinds[family(t.Section)]
 		if !ok {
@@ -111,9 +123,79 @@ func (b *builder) applyOverview(doc catalog.Document) {
 			m := b.model(id, kind)
 			m.AddSource(t.Source)
 			m.SetAttr(AttrFamily, family(t.Section))
+			if m.Name == "" {
+				m.Name = names[undated(id)]
+			}
 			b.applyRow(m, t, row)
 		}
 	}
+}
+
+// docLinkRe matches a link from the overview's opening summary to a model,
+// which is where the model's display name is written.
+var docLinkRe = regexp.MustCompile(`\[([A-Z][^\]]*)\]\(([^)]+)\)`)
+
+// datedRe matches the release date Cohere suffixes an identifier with.
+var datedRe = regexp.MustCompile(`-\d{2}-\d{4}$`)
+
+// displayNames reads the display name of every model the overview links to,
+// keyed by the identifier the name belongs to without its release date.
+//
+// The tables state no name beyond the identifier, but the summary above them
+// names each model in prose and links it, and the link's address is the
+// identifier without its date: command-a-plus-05-2026 is the model the summary
+// calls Command A+. Where the summary links out to the marketing site instead,
+// the name itself reduces to the identifier, which covers the models that
+// carry no date at all.
+func displayNames(body string) map[string]string {
+	out := map[string]string{}
+	for _, match := range docLinkRe.FindAllStringSubmatch(body, -1) {
+		name := clean(match[1])
+		for _, key := range []string{path.Base(match[2]), slugID(name)} {
+			if _, ok := out[key]; !ok {
+				out[key] = name
+			}
+		}
+	}
+	return out
+}
+
+// statusRe matches the status column, which Cohere writes as a standing
+// followed, for a model on its way out, by the date it takes effect.
+var statusRe = regexp.MustCompile(`(?i)^(\w+)\s*(.*)$`)
+
+// splitStatus separates the standing from the date it takes effect. Cohere
+// writes them as one phrase, "Deprecated Sept 15, 2025", which would otherwise
+// become a state value no two models share.
+func splitStatus(value string) (state, date string) {
+	match := statusRe.FindStringSubmatch(strings.TrimSpace(value))
+	if match == nil {
+		return strings.ToLower(strings.TrimSpace(value)), ""
+	}
+	return strings.ToLower(match[1]), isoDate(match[2])
+}
+
+// dateLayouts are the date formats Cohere writes.
+var dateLayouts = []string{"Jan 2, 2006", "January 2, 2006", "2006-01-02"}
+
+// monthSpellings normalize the abbreviations Cohere writes that no calendar
+// layout matches. It shortens September to four letters and nothing else.
+var monthSpellings = strings.NewReplacer("Sept ", "Sep ")
+
+// isoDate rewrites a date into calendar order.
+func isoDate(value string) string {
+	text := monthSpellings.Replace(strings.TrimSpace(value))
+	for _, layout := range dateLayouts {
+		if t, err := time.Parse(layout, text); err == nil {
+			return t.Format("2006-01-02")
+		}
+	}
+	return text
+}
+
+// undated strips the release date from an identifier.
+func undated(id string) string {
+	return datedRe.ReplaceAllString(id, "")
 }
 
 // family reduces a heading to the model family it introduces, so that the
@@ -143,12 +225,20 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 		}
 		switch strings.ToLower(clean(header)) {
 		case "status":
-			m.SetAttr(AttrState, strings.ToLower(value))
+			state, date := splitStatus(value)
+			m.SetAttr(AttrState, state)
+			if state == StateRetired {
+				m.SetAttr(AttrRetirementDate, date)
+				continue
+			}
+			m.SetAttr(AttrDeprecatedOn, date)
 		case "description":
 			m.SetAttr(AttrSummary, firstSentence(value))
 		case "modality", "modalities":
 			m.SetAttr(AttrModality, value)
-			m.AddList(ListModalities, splitList(value)...)
+			for _, item := range splitList(value) {
+				m.AddList(ListInputModalities, modalityName(item))
+			}
 		case "context length":
 			m.SetLimit(LimitContextWindow, parseCount(value))
 		case "maximum output tokens":

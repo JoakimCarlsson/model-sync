@@ -1,6 +1,7 @@
 {
   "id": "command-a-plus-05-2026",
   "provider": "cohere",
+  "name": "Command A+",
   "kind": "chat",
   "attrs": {
     "amazon_bedrock_id": "N/A",
@@ -20,9 +21,9 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Images",
-      "Text"
+    "input_modalities": [
+      "image",
+      "text"
     ]
   },
   "sources": [

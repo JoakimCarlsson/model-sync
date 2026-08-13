@@ -1,7 +1,22 @@
 {
   "id": "command-r-plus-08-2024",
   "provider": "cohere",
+  "name": "Command R+",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "family": "command",
     "modality": "Text",
@@ -16,11 +31,12 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

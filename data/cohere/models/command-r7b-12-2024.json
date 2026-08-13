@@ -1,7 +1,22 @@
 {
   "id": "command-r7b-12-2024",
   "provider": "cohere",
+  "name": "Command R7B",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "N/A",
     "amazon_sagemaker_id": "N/A",
@@ -20,11 +35,12 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

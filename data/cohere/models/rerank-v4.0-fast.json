@@ -2,6 +2,14 @@
   "id": "rerank-v4.0-fast",
   "provider": "cohere",
   "kind": "rerank",
+  "prices": [
+    {
+      "metric": "search_queries",
+      "unit": "per_1k_searches",
+      "amount": 2,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "N/A",
     "amazon_sagemaker_id": "Unique per deployment",
@@ -18,11 +26,12 @@
     "endpoints": [
       "Rerank"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

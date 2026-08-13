@@ -18,8 +18,8 @@
     "endpoints": [
       "Rerank"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

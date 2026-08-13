@@ -1,11 +1,27 @@
 {
   "id": "command-r-plus-04-2024",
   "provider": "cohere",
+  "name": "Command R+",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
+    "deprecated_on": "2025-09-15",
     "family": "command",
     "modality": "Text",
-    "state": "deprecated sept 15, 2025",
+    "state": "deprecated",
     "summary": "Command R+ is an instruction-following conversational model that performs language tasks at a higher quality, more reliably, and with a longer context than previous models."
   },
   "limits": {
@@ -16,11 +32,12 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

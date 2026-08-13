@@ -2,6 +2,20 @@
   "id": "embed-v4.0",
   "provider": "cohere",
   "kind": "embedding",
+  "prices": [
+    {
+      "metric": "image_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.47,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "(Coming Soon)",
     "amazon_sagemaker_id": "Unique per deployment",
@@ -27,13 +41,14 @@
       "Embed",
       "Embed Jobs"
     ],
-    "modalities": [
-      "Images",
-      "Mixed texts/images (i.e. PDFs)",
-      "Text"
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

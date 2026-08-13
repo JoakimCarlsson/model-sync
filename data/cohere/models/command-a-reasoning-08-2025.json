@@ -1,6 +1,7 @@
 {
   "id": "command-a-reasoning-08-2025",
   "provider": "cohere",
+  "name": "Command A Reasoning",
   "kind": "chat",
   "attrs": {
     "family": "command",
@@ -16,8 +17,8 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

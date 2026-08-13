@@ -24,9 +24,9 @@
       "Embed",
       "Embed Jobs"
     ],
-    "modalities": [
-      "Images",
-      "Text"
+    "input_modalities": [
+      "image",
+      "text"
     ]
   },
   "sources": [

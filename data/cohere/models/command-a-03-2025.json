@@ -1,6 +1,7 @@
 {
   "id": "command-a-03-2025",
   "provider": "cohere",
+  "name": "Command A",
   "kind": "chat",
   "attrs": {
     "amazon_bedrock_id": "(Coming Soon)",
@@ -20,8 +21,8 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Text"
+    "input_modalities": [
+      "text"
     ]
   },
   "sources": [

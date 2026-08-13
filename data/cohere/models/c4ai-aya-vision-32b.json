@@ -16,9 +16,9 @@
     "endpoints": [
       "Chat"
     ],
-    "modalities": [
-      "Images",
-      "Text"
+    "input_modalities": [
+      "image",
+      "text"
     ]
   },
   "sources": [

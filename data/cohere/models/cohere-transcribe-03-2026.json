@@ -1,6 +1,7 @@
 {
   "id": "cohere-transcribe-03-2026",
   "provider": "cohere",
+  "name": "Cohere Transcribe",
   "kind": "transcription",
   "attrs": {
     "family": "audio",
