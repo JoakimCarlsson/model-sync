@@ -25,5 +25,20 @@
 // synthesis, the longest text a single request may carry, which differs
 // eightfold across the range. Its identifiers also encode what a model does — a
 // name containing sts changes one voice into another, ttv designs a voice from
-// a description, scribe transcribes — so the kind is read from the identifier.
+// a description, scribe transcribes — so the kind is read from the identifier,
+// and with it the direction: every kind here is a pairing of text and audio,
+// and which way round it runs is the whole of what the identifier says.
+//
+// A languages cell can name another model rather than a language, as "All
+// eleven_multilingual_v2 languages plus: hu, no, vi". That is a reference, so
+// the model it names supplies the rest of the list rather than being recorded
+// as a language of its own.
+//
+// The page opens with a card per flagship model, and that is the only place
+// ElevenLabs states a display name or says what a model can do. Six of the
+// eighteen models have one; the rest keep no name. A card's bullets are kept as
+// written, under capabilities rather than features, because ElevenLabs
+// enumerates nothing: it writes a sentence per capability with the size of the
+// thing inside it, as "Speaker diarization, up to 32 speakers", and reducing
+// that to a name would invent a vocabulary it never used.
 package elevenlabs

@@ -1,6 +1,7 @@
 {
   "id": "music_v2",
   "provider": "elevenlabs",
+  "name": "Eleven Music v2",
   "kind": "music",
   "prices": [
     {
@@ -15,11 +16,24 @@
     "summary": "Studio-grade music generation from text prompts, composition plans and previously generated songs"
   },
   "lists": {
+    "capabilities": [
+      "Complete control over genre, style, and structure",
+      "Edit the sound and lyrics of individual sections or the whole song",
+      "Multilingual, including English, Spanish, German, Japanese and more",
+      "Pricing",
+      "Vocals or just instrumental"
+    ],
+    "input_modalities": [
+      "text"
+    ],
     "languages": [
       "de",
       "en",
       "es",
       "ja"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

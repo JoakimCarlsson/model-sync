@@ -9,6 +9,14 @@
   "limits": {
     "character_limit": 10000
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
     "https://elevenlabs.io/docs/overview/models.md"
   ]

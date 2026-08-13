@@ -7,6 +7,9 @@
     "summary": "State-of-the-art multilingual voice designer model (Text to Voice)"
   },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
     "languages": [
       "ar",
       "bg",
@@ -37,6 +40,9 @@
       "tr",
       "uk",
       "zh"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

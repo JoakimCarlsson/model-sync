@@ -6,6 +6,14 @@
     "state": "deprecated",
     "summary": "First generation speech recognition (outclassed by v2 models)"
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://elevenlabs.io/docs/overview/models.md"
   ]

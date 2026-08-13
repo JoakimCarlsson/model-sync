@@ -15,8 +15,14 @@
     "summary": "First generation low-latency model (outclassed by Flash models)"
   },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
     "languages": [
       "en"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

@@ -1,6 +1,7 @@
 {
   "id": "scribe_v2_realtime",
   "provider": "elevenlabs",
+  "name": "Scribe v2 Realtime",
   "kind": "transcription",
   "prices": [
     {
@@ -13,6 +14,21 @@
   "attrs": {
     "state": "current",
     "summary": "Real-time speech recognition model"
+  },
+  "lists": {
+    "capabilities": [
+      "Accurate transcription in 90+ languages",
+      "Entity detection, 65 entity types",
+      "Low latency (~150ms†)",
+      "Precise word-level timestamps",
+      "Real-time transcription"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
     "https://elevenlabs.io/docs/overview/models.md",

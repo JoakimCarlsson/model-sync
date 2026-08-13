@@ -1,6 +1,7 @@
 {
   "id": "eleven_flash_v2_5",
   "provider": "elevenlabs",
+  "name": "Eleven Flash v2.5",
   "kind": "speech",
   "prices": [
     {
@@ -19,11 +20,51 @@
     "character_limit": 40000
   },
   "lists": {
+    "capabilities": [
+      "32 languages supported",
+      "40,000 character limit",
+      "Faster model, 50% lower price per character for API generations",
+      "Ultra-low latency (~75ms†)"
+    ],
+    "input_modalities": [
+      "text"
+    ],
     "languages": [
-      "eleven_multilingual_v2",
+      "ar",
+      "bg",
+      "cs",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fi",
+      "fil",
+      "fr",
+      "hi",
+      "hr",
       "hu",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl",
       "no",
-      "vi"
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "ta",
+      "tr",
+      "uk",
+      "vi",
+      "zh"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

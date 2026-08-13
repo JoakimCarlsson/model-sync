@@ -105,6 +105,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	for _, doc := range docs {
 		if doc.URL == ModelsURL {
 			b.applyModels(doc)
+			b.applyCards(doc)
 		}
 	}
 	for _, doc := range docs {

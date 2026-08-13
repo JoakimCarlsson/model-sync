@@ -164,3 +164,71 @@ func TestParseModels(t *testing.T) {
 func hasSource(m catalog.Model, url string) bool {
 	return slices.Contains(m.Sources, url)
 }
+
+// TestParseCards covers the flagship cards, which are the only place
+// ElevenLabs states a display name or what a model can do.
+func TestParseCards(t *testing.T) {
+	byID := parse(t)
+	names := map[string]string{
+		"eleven_v3":          "Eleven v3",
+		"eleven_flash_v2_5":  "Eleven Flash v2.5",
+		"scribe_v2_realtime": "Scribe v2 Realtime",
+		"music_v2":           "Eleven Music v2",
+	}
+	for id, name := range names {
+		if got := byID[id].Name; got != name {
+			t.Errorf("%s: got name %q, want %q", id, got, name)
+		}
+		if len(byID[id].Lists[ListCapabilities]) == 0 {
+			t.Errorf("%s: no capabilities", id)
+		}
+	}
+	if got := byID["eleven_flash_v2"].Name; got != "" {
+		t.Errorf("eleven_flash_v2: got name %q, want none", got)
+	}
+}
+
+// TestParseModalities covers what a model takes and returns, which its
+// identifier and the heading above its card say.
+func TestParseModalities(t *testing.T) {
+	byID := parse(t)
+	cases := map[string][2]string{
+		"eleven_v3":                  {"text", "audio"},
+		"scribe_v2":                  {"audio", "text"},
+		"eleven_multilingual_sts_v2": {"audio", "audio"},
+		"eleven_text_to_sound_v2":    {"text", "audio"},
+	}
+	for id, want := range cases {
+		m := byID[id]
+		if got := m.Lists[ListInputModalities]; !slices.Equal(
+			got,
+			[]string{want[0]},
+		) {
+			t.Errorf("%s: got input %v, want %v", id, got, want[0])
+		}
+		if got := m.Lists[ListOutputModalities]; !slices.Equal(
+			got,
+			[]string{want[1]},
+		) {
+			t.Errorf("%s: got output %v, want %v", id, got, want[1])
+		}
+	}
+}
+
+// TestParseLanguageReference covers the cell naming another model instead of a
+// language, which is a reference to that model's list rather than a code.
+func TestParseLanguageReference(t *testing.T) {
+	byID := parse(t)
+	flash := byID["eleven_flash_v2_5"].Lists[ListLanguages]
+	base := byID["eleven_multilingual_v2"].Lists[ListLanguages]
+	if len(base) == 0 {
+		t.Fatal("eleven_multilingual_v2: no languages")
+	}
+	if len(flash) != len(base)+3 {
+		t.Errorf("got %d languages, want the %d of its base plus three",
+			len(flash), len(base))
+	}
+	if slices.Contains(flash, "eleven_multilingual_v2") {
+		t.Errorf("a model identifier was recorded as a language: %v", flash)
+	}
+}

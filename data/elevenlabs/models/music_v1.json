@@ -15,11 +15,17 @@
     "summary": "Studio-grade music generation from text prompts. Outclassed by music_v2"
   },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
     "languages": [
       "de",
       "en",
       "es",
       "ja"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

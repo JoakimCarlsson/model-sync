@@ -1,6 +1,7 @@
 {
   "id": "eleven_v3",
   "provider": "elevenlabs",
+  "name": "Eleven v3",
   "kind": "speech",
   "prices": [
     {
@@ -17,6 +18,20 @@
   },
   "limits": {
     "character_limit": 5000
+  },
+  "lists": {
+    "capabilities": [
+      "5,000 character limit",
+      "70+ languages supported",
+      "Dramatic delivery and performance",
+      "Support for natural multi-speaker dialogue"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
   },
   "sources": [
     "https://elevenlabs.io/docs/overview/models.md",

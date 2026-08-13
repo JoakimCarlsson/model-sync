@@ -38,6 +38,36 @@ const LimitCharacterLimit = "character_limit"
 // them rather than giving a count.
 const ListLanguages = "languages"
 
+// Enumeration keys the flagship cards populate.
+const (
+	// ListCapabilities holds a card's bullets as written. ElevenLabs
+	// enumerates nothing: it writes a sentence per capability, with the size
+	// of the thing inside it, so a bullet is kept whole rather than reduced to
+	// a name it never gave.
+	ListCapabilities     = "capabilities"
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+)
+
+// Modalities ElevenLabs' models handle.
+const (
+	ModalityText  = "text"
+	ModalityAudio = "audio"
+)
+
+// kindFlows say what a kind of model takes and returns. ElevenLabs states this
+// in its identifiers and in the headings its flagship cards sit under: a name
+// containing sts turns speech into speech, ttv turns text into a voice, scribe
+// turns speech into text, and everything else turns text into audio.
+var kindFlows = map[catalog.Kind]struct{ in, out string }{
+	KindSpeech:        {ModalityText, ModalityAudio},
+	KindTranscription: {ModalityAudio, ModalityText},
+	KindVoiceChanger:  {ModalityAudio, ModalityAudio},
+	KindVoiceDesign:   {ModalityText, ModalityAudio},
+	KindMusic:         {ModalityText, ModalityAudio},
+	KindSoundEffects:  {ModalityText, ModalityAudio},
+}
+
 // sectionDeprecated is the heading above the models being withdrawn.
 const sectionDeprecated = "deprecated models"
 
@@ -116,10 +146,13 @@ func (b *builder) applyModels(doc catalog.Document) {
 			}
 			m := b.model(id, kindFor(id))
 			m.AddSource(t.Source)
+			flow := kindFlows[m.Kind]
+			m.AddList(ListInputModalities, flow.in)
+			m.AddList(ListOutputModalities, flow.out)
 			m.SetAttr(AttrSummary, clean(cellAt(row, descCol)))
 			m.SetAttr(AttrDuration, clean(cellAt(row, durCol)))
 			m.SetLimit(LimitCharacterLimit, parseCount(cellAt(row, limitCol)))
-			m.AddList(ListLanguages, languagesOf(cellAt(row, langCol))...)
+			m.AddList(ListLanguages, b.languagesOf(cellAt(row, langCol))...)
 			if t.Section == sectionDeprecated {
 				m.SetAttr(AttrState, StateDeprecated)
 			} else {
@@ -132,12 +165,23 @@ func (b *builder) applyModels(doc catalog.Document) {
 // languagesOf reads the languages cell, which names them as codes when they
 // are few and links to a list when they are many. Only named codes are
 // recorded, since a link says nothing a reader can use.
-func languagesOf(cell string) []string {
+//
+// A cell can also name another model instead of a language, as "All
+// eleven_multilingual_v2 languages plus: hu, no, vi". That is a reference and
+// not a code: the model it names supplies the rest of the list, which is why
+// the row it belongs to is looked up rather than its name being kept.
+func (b *builder) languagesOf(cell string) []string {
 	var out []string
 	for _, match := range codeRe.FindAllStringSubmatch(cell, -1) {
-		if code := strings.TrimSpace(match[1]); code != "" {
-			out = append(out, code)
+		code := strings.TrimSpace(match[1])
+		if code == "" {
+			continue
 		}
+		if referenced, ok := b.models[code]; ok {
+			out = append(out, referenced.Lists[ListLanguages]...)
+			continue
+		}
+		out = append(out, code)
 	}
 	return out
 }

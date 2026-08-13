@@ -19,8 +19,14 @@
     "character_limit": 10000
   },
   "lists": {
+    "input_modalities": [
+      "audio"
+    ],
     "languages": [
       "en"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [

@@ -15,6 +15,9 @@
     "summary": "State-of-the-art multilingual voice changer model (Speech to Speech)"
   },
   "lists": {
+    "input_modalities": [
+      "audio"
+    ],
     "languages": [
       "ar",
       "bg",
@@ -45,6 +48,9 @@
       "tr",
       "uk",
       "zh"
+    ],
+    "output_modalities": [
+      "audio"
     ]
   },
   "sources": [
