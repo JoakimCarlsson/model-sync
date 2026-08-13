@@ -2671,6 +2671,428 @@
       ]
     },
     {
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "models": [
+        {
+          "id": "eleven_english_sts_v1",
+          "provider": "elevenlabs",
+          "kind": "voice-changer",
+          "attrs": {
+            "approximate_audio_duration": "~10 minutes",
+            "state": "current"
+          },
+          "limits": {
+            "character_limit": 10000
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_english_sts_v2",
+          "provider": "elevenlabs",
+          "kind": "voice-changer",
+          "attrs": {
+            "approximate_audio_duration": "~10 minutes",
+            "state": "current",
+            "summary": "English-only voice changer model (Speech to Speech)"
+          },
+          "limits": {
+            "character_limit": 10000
+          },
+          "lists": {
+            "languages": [
+              "en"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_flash_v2",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "approximate_audio_duration": "~30 minutes",
+            "state": "current",
+            "summary": "Ultra-fast model optimized for real-time use (~75ms†)"
+          },
+          "limits": {
+            "character_limit": 30000
+          },
+          "lists": {
+            "languages": [
+              "en"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_flash_v2_5",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "approximate_audio_duration": "~40 minutes",
+            "state": "current",
+            "summary": "Ultra-fast model optimized for real-time use (~75ms†)"
+          },
+          "limits": {
+            "character_limit": 40000
+          },
+          "lists": {
+            "languages": [
+              "eleven_multilingual_v2",
+              "hu",
+              "no",
+              "vi"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_multilingual_sts_v2",
+          "provider": "elevenlabs",
+          "kind": "voice-changer",
+          "attrs": {
+            "state": "current",
+            "summary": "State-of-the-art multilingual voice changer model (Speech to Speech)"
+          },
+          "lists": {
+            "languages": [
+              "ar",
+              "bg",
+              "cs",
+              "da",
+              "de",
+              "el",
+              "en",
+              "es",
+              "fi",
+              "fil",
+              "fr",
+              "hi",
+              "hr",
+              "id",
+              "it",
+              "ja",
+              "ko",
+              "ms",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sv",
+              "ta",
+              "tr",
+              "uk",
+              "zh"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_multilingual_ttv_v2",
+          "provider": "elevenlabs",
+          "kind": "voice-design",
+          "attrs": {
+            "state": "current",
+            "summary": "State-of-the-art multilingual voice designer model (Text to Voice)"
+          },
+          "lists": {
+            "languages": [
+              "ar",
+              "bg",
+              "cs",
+              "da",
+              "de",
+              "el",
+              "en",
+              "es",
+              "fi",
+              "fil",
+              "fr",
+              "hi",
+              "hr",
+              "id",
+              "it",
+              "ja",
+              "ko",
+              "ms",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sv",
+              "ta",
+              "tr",
+              "uk",
+              "zh"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_multilingual_v1",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "approximate_audio_duration": "~10 minutes",
+            "state": "current"
+          },
+          "limits": {
+            "character_limit": 10000
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_multilingual_v2",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "approximate_audio_duration": "~10 minutes",
+            "state": "current",
+            "summary": "Our most lifelike model with rich emotional expression"
+          },
+          "limits": {
+            "character_limit": 10000
+          },
+          "lists": {
+            "languages": [
+              "ar",
+              "bg",
+              "cs",
+              "da",
+              "de",
+              "el",
+              "en",
+              "es",
+              "fi",
+              "fil",
+              "fr",
+              "hi",
+              "hr",
+              "id",
+              "it",
+              "ja",
+              "ko",
+              "ms",
+              "nl",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sv",
+              "ta",
+              "tr",
+              "uk",
+              "zh"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_text_to_sound_v2",
+          "provider": "elevenlabs",
+          "kind": "sound-effects",
+          "attrs": {
+            "state": "current",
+            "summary": "Sound effects generation from text prompts"
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_ttv_v3",
+          "provider": "elevenlabs",
+          "kind": "voice-design",
+          "attrs": {
+            "state": "current",
+            "summary": "Human-like and expressive voice design model (Text to Voice)"
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_turbo_v2",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "state": "deprecated",
+            "summary": "First generation low-latency model (outclassed by Flash models)"
+          },
+          "lists": {
+            "languages": [
+              "en"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_turbo_v2_5",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "state": "deprecated",
+            "summary": "First generation low-latency model (outclassed by Flash models)"
+          },
+          "lists": {
+            "languages": [
+              "ar",
+              "bg",
+              "cs",
+              "da",
+              "de",
+              "el",
+              "en",
+              "es",
+              "fi",
+              "fil",
+              "fr",
+              "hi",
+              "hr",
+              "hu",
+              "id",
+              "it",
+              "ja",
+              "ko",
+              "ms",
+              "nl",
+              "no",
+              "pl",
+              "pt",
+              "ro",
+              "ru",
+              "sk",
+              "sv",
+              "ta",
+              "tr",
+              "uk",
+              "vi",
+              "zh"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "eleven_v3",
+          "provider": "elevenlabs",
+          "kind": "speech",
+          "attrs": {
+            "approximate_audio_duration": "~5 minutes",
+            "state": "current",
+            "summary": "Human-like and expressive speech generation"
+          },
+          "limits": {
+            "character_limit": 5000
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "music_v1",
+          "provider": "elevenlabs",
+          "kind": "music",
+          "attrs": {
+            "state": "current",
+            "summary": "Studio-grade music generation from text prompts. Outclassed by music_v2"
+          },
+          "lists": {
+            "languages": [
+              "de",
+              "en",
+              "es",
+              "ja"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "music_v2",
+          "provider": "elevenlabs",
+          "kind": "music",
+          "attrs": {
+            "state": "current",
+            "summary": "Studio-grade music generation from text prompts, composition plans and previously generated songs"
+          },
+          "lists": {
+            "languages": [
+              "de",
+              "en",
+              "es",
+              "ja"
+            ]
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "scribe_v1",
+          "provider": "elevenlabs",
+          "kind": "transcription",
+          "attrs": {
+            "state": "deprecated",
+            "summary": "First generation speech recognition (outclassed by v2 models)"
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "scribe_v2",
+          "provider": "elevenlabs",
+          "kind": "transcription",
+          "attrs": {
+            "state": "current",
+            "summary": "State-of-the-art speech recognition model"
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        },
+        {
+          "id": "scribe_v2_realtime",
+          "provider": "elevenlabs",
+          "kind": "transcription",
+          "attrs": {
+            "state": "current",
+            "summary": "Real-time speech recognition model"
+          },
+          "sources": [
+            "https://elevenlabs.io/docs/overview/models.md"
+          ]
+        }
+      ]
+    },
+    {
       "id": "fireworks",
       "name": "Fireworks AI",
       "models": [

@@ -1,0 +1,20 @@
+{
+  "id": "music_v1",
+  "provider": "elevenlabs",
+  "kind": "music",
+  "attrs": {
+    "state": "current",
+    "summary": "Studio-grade music generation from text prompts. Outclassed by music_v2"
+  },
+  "lists": {
+    "languages": [
+      "de",
+      "en",
+      "es",
+      "ja"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

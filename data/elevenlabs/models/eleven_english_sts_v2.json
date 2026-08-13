@@ -1,0 +1,21 @@
+{
+  "id": "eleven_english_sts_v2",
+  "provider": "elevenlabs",
+  "kind": "voice-changer",
+  "attrs": {
+    "approximate_audio_duration": "~10 minutes",
+    "state": "current",
+    "summary": "English-only voice changer model (Speech to Speech)"
+  },
+  "limits": {
+    "character_limit": 10000
+  },
+  "lists": {
+    "languages": [
+      "en"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

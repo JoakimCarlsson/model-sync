@@ -1,0 +1,17 @@
+{
+  "id": "eleven_turbo_v2",
+  "provider": "elevenlabs",
+  "kind": "speech",
+  "attrs": {
+    "state": "deprecated",
+    "summary": "First generation low-latency model (outclassed by Flash models)"
+  },
+  "lists": {
+    "languages": [
+      "en"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

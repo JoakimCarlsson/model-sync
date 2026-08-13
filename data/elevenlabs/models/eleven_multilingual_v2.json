@@ -1,0 +1,49 @@
+{
+  "id": "eleven_multilingual_v2",
+  "provider": "elevenlabs",
+  "kind": "speech",
+  "attrs": {
+    "approximate_audio_duration": "~10 minutes",
+    "state": "current",
+    "summary": "Our most lifelike model with rich emotional expression"
+  },
+  "limits": {
+    "character_limit": 10000
+  },
+  "lists": {
+    "languages": [
+      "ar",
+      "bg",
+      "cs",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fi",
+      "fil",
+      "fr",
+      "hi",
+      "hr",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl",
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "ta",
+      "tr",
+      "uk",
+      "zh"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

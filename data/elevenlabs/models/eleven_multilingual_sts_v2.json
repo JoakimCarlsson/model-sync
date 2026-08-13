@@ -1,0 +1,45 @@
+{
+  "id": "eleven_multilingual_sts_v2",
+  "provider": "elevenlabs",
+  "kind": "voice-changer",
+  "attrs": {
+    "state": "current",
+    "summary": "State-of-the-art multilingual voice changer model (Speech to Speech)"
+  },
+  "lists": {
+    "languages": [
+      "ar",
+      "bg",
+      "cs",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fi",
+      "fil",
+      "fr",
+      "hi",
+      "hr",
+      "id",
+      "it",
+      "ja",
+      "ko",
+      "ms",
+      "nl",
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sk",
+      "sv",
+      "ta",
+      "tr",
+      "uk",
+      "zh"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

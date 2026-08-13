@@ -12,6 +12,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/assemblyai"
 	"github.com/joakimcarlsson/model-sync/providers/cerebras"
 	"github.com/joakimcarlsson/model-sync/providers/deepgram"
+	"github.com/joakimcarlsson/model-sync/providers/elevenlabs"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
@@ -67,6 +68,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	cerebrasSource.CacheDir = cache
 	deepgramSource := deepgram.New()
 	deepgramSource.CacheDir = cache
+	elevenlabsSource := elevenlabs.New()
+	elevenlabsSource.CacheDir = cache
 	fireworksSource := fireworks.New()
 	fireworksSource.CacheDir = cache
 	groqSource := groq.New()
@@ -75,6 +78,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 		assemblyaiSource,
 		cerebrasSource,
 		deepgramSource,
+		elevenlabsSource,
 		fireworksSource,
 		groqSource,
 		perplexitySource,

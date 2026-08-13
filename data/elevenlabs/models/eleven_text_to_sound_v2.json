@@ -1,0 +1,12 @@
+{
+  "id": "eleven_text_to_sound_v2",
+  "provider": "elevenlabs",
+  "kind": "sound-effects",
+  "attrs": {
+    "state": "current",
+    "summary": "Sound effects generation from text prompts"
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

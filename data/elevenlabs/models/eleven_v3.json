@@ -1,0 +1,16 @@
+{
+  "id": "eleven_v3",
+  "provider": "elevenlabs",
+  "kind": "speech",
+  "attrs": {
+    "approximate_audio_duration": "~5 minutes",
+    "state": "current",
+    "summary": "Human-like and expressive speech generation"
+  },
+  "limits": {
+    "character_limit": 5000
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

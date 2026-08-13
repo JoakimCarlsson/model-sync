@@ -1,0 +1,21 @@
+{
+  "id": "eleven_flash_v2",
+  "provider": "elevenlabs",
+  "kind": "speech",
+  "attrs": {
+    "approximate_audio_duration": "~30 minutes",
+    "state": "current",
+    "summary": "Ultra-fast model optimized for real-time use (~75ms†)"
+  },
+  "limits": {
+    "character_limit": 30000
+  },
+  "lists": {
+    "languages": [
+      "en"
+    ]
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

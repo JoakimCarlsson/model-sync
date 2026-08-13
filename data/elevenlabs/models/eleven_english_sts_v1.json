@@ -1,0 +1,15 @@
+{
+  "id": "eleven_english_sts_v1",
+  "provider": "elevenlabs",
+  "kind": "voice-changer",
+  "attrs": {
+    "approximate_audio_duration": "~10 minutes",
+    "state": "current"
+  },
+  "limits": {
+    "character_limit": 10000
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

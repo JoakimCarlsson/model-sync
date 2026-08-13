@@ -1,0 +1,12 @@
+{
+  "id": "eleven_ttv_v3",
+  "provider": "elevenlabs",
+  "kind": "voice-design",
+  "attrs": {
+    "state": "current",
+    "summary": "Human-like and expressive voice design model (Text to Voice)"
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}

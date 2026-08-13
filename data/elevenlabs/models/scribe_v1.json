@@ -1,0 +1,12 @@
+{
+  "id": "scribe_v1",
+  "provider": "elevenlabs",
+  "kind": "transcription",
+  "attrs": {
+    "state": "deprecated",
+    "summary": "First generation speech recognition (outclassed by v2 models)"
+  },
+  "sources": [
+    "https://elevenlabs.io/docs/overview/models.md"
+  ]
+}
