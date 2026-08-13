@@ -27,9 +27,43 @@
   ],
   "attrs": {
     "author": "Meta",
-    "model_name": "Llama 3.1 405B Latency Optimized"
+    "knowledge_cutoff": "Dec 2023",
+    "lifecycle_state": "legacy",
+    "model_name": "Llama 3.1 405B Latency Optimized",
+    "released": "Jul 23, 2024",
+    "retirement_date": "Legacy: July 7, 2026",
+    "summary": "Llama 3.1 405B Instruct is Meta's largest open model with 405 billion parameters and a 128K context window, supporting tool use and multilingual tasks. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "meta.llama3-1-405b-instruct-v1:0",
+      "us.meta.llama3-1-405b-instruct-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "prompt_management",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-1-405b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

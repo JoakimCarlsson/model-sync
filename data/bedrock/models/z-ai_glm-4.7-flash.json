@@ -1319,7 +1319,6 @@
   },
   "sources": [
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7-flash.md",
-    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

@@ -1281,9 +1281,44 @@
   ],
   "attrs": {
     "author": "Z AI",
-    "model_name": "GLM 4.7"
+    "lifecycle_state": "active",
+    "model_name": "GLM 4.7",
+    "released": "Jan 19, 2026",
+    "retirement_date": "N/A",
+    "summary": "GLM 4.7 Flash is Z.AI's lightweight model optimized for fast inference and low-latency tasks while maintaining strong general capabilities. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 203000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7-flash.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }
