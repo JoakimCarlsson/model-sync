@@ -282,3 +282,67 @@ func TestParseModalities(t *testing.T) {
 		}
 	}
 }
+
+// TestParseUnpricedCarryReason covers the served models the pricing page states
+// no amount for. Each says so, because a package comment is not visible to
+// anything reading the catalog and an unpriced model otherwise reads as free.
+func TestParseUnpricedCarryReason(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"command-a-03-2025",
+		"command-a-plus-05-2026",
+		"command-a-reasoning-08-2025",
+		"command-a-translate-08-2025",
+		"command-a-vision-07-2025",
+		"c4ai-aya-vision-32b",
+		"tiny-aya-global",
+		"command-nightly",
+		"embed-english-v3.0",
+		"rerank-english-v3.0",
+	} {
+		m, ok := byID[id]
+		if !ok {
+			t.Errorf("%s: not parsed", id)
+			continue
+		}
+		if len(m.Prices) != 0 {
+			t.Errorf("%s: got %d prices, want none", id, len(m.Prices))
+		}
+		if !slices.Contains(m.Notes, noteNoRate) {
+			t.Errorf("%s: got notes %v, want the no-rate note", id, m.Notes)
+		}
+	}
+	for id, m := range byID {
+		if !slices.Contains(m.Notes, noteNoRate) {
+			continue
+		}
+		if len(m.Prices) > 0 {
+			t.Errorf("%s: priced and marked as having no rate", id)
+		}
+		if withdrawn(&m) {
+			t.Errorf("%s: withdrawn and marked as having no rate", id)
+		}
+	}
+}
+
+// TestParseWithoutPricingPage covers the guard on that note. The overview is
+// fetched without the pricing page whenever the marketing site fails, and
+// marking every model unpriced then would report this parser's missing document
+// as a fact about Cohere.
+func TestParseWithoutPricingPage(t *testing.T) {
+	docs := []catalog.Document{}
+	for _, doc := range fixtures(t) {
+		if doc.URL != PricingURL {
+			docs = append(docs, doc)
+		}
+	}
+	models, err := New().Parse(docs)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, m := range models {
+		if slices.Contains(m.Notes, noteNoRate) {
+			t.Errorf("%s: marked unpriced with no pricing page read", m.ID)
+		}
+	}
+}

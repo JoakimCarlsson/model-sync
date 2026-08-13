@@ -95,6 +95,43 @@ func (b *builder) applyPricing(doc catalog.Document) {
 	}
 }
 
+// noteNoRate records that Cohere states no rate for a model it serves. Nothing
+// reading the aggregate can see a package comment, so without this a served
+// model with no amount is indistinguishable from a free one.
+const noteNoRate = "no rate stated on the pricing page"
+
+// noteUnpriced marks the served models the pricing page states no amount for.
+//
+// This is most of what Cohere serves: the whole Command A family, Aya Vision,
+// the four Tiny Aya models, the third generation embedding and rerank models and
+// the nightly builds. The page prices the products it sells today as cards and
+// the models it has withdrawn as sentences, and none of those models appears in
+// either. The card headed Command A+ quotes nothing but zero for an API key and
+// a model download, which is the open weight licence rather than a rate and is
+// not read as one, so that model is marked here too.
+//
+// A withdrawn model is skipped: its missing rate is correct, and the page's
+// questions and answers outlive the models they answer for.
+func (b *builder) noteUnpriced() {
+	for _, id := range b.order {
+		m := b.models[id]
+		if len(m.Prices) > 0 || withdrawn(m) {
+			continue
+		}
+		m.AddNote(noteNoRate)
+	}
+}
+
+// withdrawn reports whether Cohere has taken a model out of service, which its
+// status column states as deprecated or retired.
+func withdrawn(m *catalog.Model) bool {
+	switch m.Attrs[AttrState] {
+	case StateDeprecated, StateRetired:
+		return true
+	}
+	return false
+}
+
 // addCard records both amounts of one rate card.
 func (b *builder) addCard(
 	doc catalog.Document,

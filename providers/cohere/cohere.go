@@ -75,10 +75,15 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyOverview(doc)
 		}
 	}
+	priced := false
 	for _, doc := range docs {
 		if doc.URL == PricingURL {
 			b.applyPricing(doc)
+			priced = true
 		}
+	}
+	if priced {
+		b.noteUnpriced()
 	}
 	return b.result(), nil
 }

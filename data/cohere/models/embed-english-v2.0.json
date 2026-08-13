@@ -9,6 +9,9 @@
     "family": "embed",
     "oracle_oci_id": "N/A"
   },
+  "notes": [
+    "no rate stated on the pricing page"
+  ],
   "sources": [
     "https://docs.cohere.com/docs/models.md"
   ]
