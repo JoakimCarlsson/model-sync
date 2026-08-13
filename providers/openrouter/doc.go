@@ -18,4 +18,12 @@
 // uses, per million tokens and per thousand calls. The scaling is exact
 // rational arithmetic rather than floating point, so a rate of "0.000002"
 // records as 2 and not as 1.9999999999999998.
+//
+// A zero rate is ambiguous in this source: OpenRouter writes zero both for a
+// model that costs nothing and for a charge that does not apply to the model at
+// all, which is why a zero is otherwise dropped rather than recorded as a rate
+// of nothing. On the prompt and completion keys the ambiguity is gone, because
+// every model is billed on both. A model charged zero for both is free, and
+// that is recorded as a rate of zero as well as an attribute, so a consumer
+// reading prices can tell it apart from a model whose rate is unknown.
 package openrouter

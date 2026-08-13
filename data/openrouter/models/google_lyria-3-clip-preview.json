@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "Google: Lyria 3 Clip Preview",
   "kind": "audio",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "google",
     "canonical_slug": "google/lyria-3-clip-preview-20260330",

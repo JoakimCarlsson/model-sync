@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "nvidia",
     "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",

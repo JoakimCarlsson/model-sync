@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "LiquidAI: LFM2.5-2.6B (free)",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "liquid",
     "canonical_slug": "liquid/lfm-2.5-2.6b-20260811",

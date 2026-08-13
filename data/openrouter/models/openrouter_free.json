@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "Free Models Router",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "openrouter",
     "canonical_slug": "openrouter/free",

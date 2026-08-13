@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "OpenAI: gpt-oss-20b (free)",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "openai",
     "canonical_slug": "openai/gpt-oss-20b",

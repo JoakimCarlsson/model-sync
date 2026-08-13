@@ -37,7 +37,6 @@
   },
   "lists": {
     "features": [
-      "frequency_penalty",
       "logprobs",
       "max_tokens",
       "presence_penalty",

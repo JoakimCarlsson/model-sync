@@ -3,6 +3,20 @@
   "provider": "openrouter",
   "name": "Cohere: North Mini Code (free)",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "author": "cohere",
     "canonical_slug": "cohere/north-mini-code-20260617",

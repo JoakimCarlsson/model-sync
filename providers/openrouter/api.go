@@ -160,7 +160,7 @@ func (b *builder) applyPricing(
 	m *catalog.Model,
 	pricing map[string]json.RawMessage,
 ) {
-	free := true
+	free := isFree(pricing)
 	for key, raw := range pricing {
 		if key == "overrides" {
 			applyOverrides(m, raw)
@@ -170,14 +170,58 @@ func (b *builder) applyPricing(
 		if err := json.Unmarshal(raw, &rate); err != nil {
 			continue
 		}
-		if (key == "prompt" || key == "completion") && !isZeroRate(rate) {
-			free = false
+		if free && billedAlways[key] {
+			addZeroRate(m, key)
+			continue
 		}
 		addRate(m, key, rate, nil)
 	}
 	if free && len(pricing) > 0 {
 		m.SetAttr(AttrFree, "true")
 	}
+}
+
+// billedAlways are the keys every model is charged on, which is what makes a
+// zero in them a rate of nothing rather than a charge that does not apply.
+var billedAlways = map[string]bool{"prompt": true, "completion": true}
+
+// isFree reports whether a model is charged nothing for what every model is
+// charged for.
+func isFree(pricing map[string]json.RawMessage) bool {
+	for key, raw := range pricing {
+		if !billedAlways[key] {
+			continue
+		}
+		var rate string
+		if err := json.Unmarshal(raw, &rate); err != nil {
+			continue
+		}
+		if !isZeroRate(rate) {
+			return false
+		}
+	}
+	return true
+}
+
+// addZeroRate records that a free model is charged nothing.
+//
+// A zero rate is otherwise dropped, because OpenRouter writes zero both for a
+// model that is free and for a charge that does not apply to it. On the two
+// keys every model is billed on, the ambiguity is gone: a model charged nothing
+// for its prompt and nothing for its completion is free, and saying so as a
+// rate of zero is what tells it apart from a model whose rate is unknown.
+func addZeroRate(m *catalog.Model, key string) {
+	scaling, known := priceKeys[key]
+	if !known {
+		return
+	}
+	m.AddPrice(catalog.Price{
+		Metric:   scaling.metric,
+		Unit:     scaling.unit,
+		Amount:   0,
+		Currency: currency,
+		Dims:     scaling.dims,
+	})
 }
 
 // applyOverrides records the conditional rates.
