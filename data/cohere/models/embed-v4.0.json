@@ -1,6 +1,7 @@
 {
   "id": "embed-v4.0",
   "provider": "cohere",
+  "name": "Embed 4",
   "kind": "embedding",
   "prices": [
     {

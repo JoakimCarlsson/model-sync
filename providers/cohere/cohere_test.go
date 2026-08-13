@@ -346,3 +346,41 @@ func TestParseWithoutPricingPage(t *testing.T) {
 		}
 	}
 }
+
+// TestParseCardNames covers the display names Cohere states only as the product
+// a rate card is headed by, and the rule that a card heading two models names
+// neither of them.
+func TestParseCardNames(t *testing.T) {
+	byID := parse(t)
+	for id, want := range map[string]string{
+		"embed-v4.0":             "Embed 4",
+		"rerank-v4.0-fast":       "Rerank 4 Fast",
+		"rerank-v4.0-pro":        "Rerank 4 Pro",
+		"command-a-plus-05-2026": "Command A+",
+		"command-r-08-2024":      "Command R",
+	} {
+		if got := byID[id].Name; got != want {
+			t.Errorf("%s: got name %q, want %q", id, got, want)
+		}
+	}
+	if got := byID["c4ai-aya-expanse-32b"].Name; got != "" {
+		t.Errorf("a card heading two models named one of them %q", got)
+	}
+}
+
+// TestParseUnnamed pins the models Cohere publishes no display name for. Its
+// tables state only the identifier, and the models its prose does not name keep
+// none rather than one derived from the identifier.
+func TestParseUnnamed(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"tiny-aya-global",
+		"c4ai-aya-vision-32b",
+		"embed-english-v3.0",
+		"rerank-v3.5",
+	} {
+		if got := byID[id].Name; got != "" {
+			t.Errorf("%s: got name %q, want none published", id, got)
+		}
+	}
+}

@@ -73,6 +73,7 @@ func (b *builder) applyPricing(doc catalog.Document) {
 		if name == nil {
 			continue
 		}
+		b.nameFromCard(name[1])
 		b.addInstanceRate(doc, name[1], card)
 		rates := cardRatesRe.FindStringSubmatch(card)
 		if rates == nil {
@@ -92,6 +93,26 @@ func (b *builder) applyPricing(doc catalog.Document) {
 	}
 	for _, match := range ayaRe.FindAllStringSubmatch(body, -1) {
 		b.addTokenRates(doc, match[1], match[2], match[3])
+	}
+}
+
+// nameFromCard takes the product a rate card is headed by as a display name.
+//
+// The overview's tables state no name, only the identifier, and its prose names
+// the Command family and nothing else. The cards name what Cohere sells: the
+// model the API calls embed-v4.0 is "Embed 4" there and nowhere else it
+// publishes, and the same holds for both fourth generation rerankers.
+//
+// A card naming more than one model names neither of them. "Aya Expanse" heads
+// the rate of two models of different sizes, which is a family and not a display
+// name for either, so the lookup must resolve to exactly one model.
+func (b *builder) nameFromCard(product string) {
+	ids := b.identify(product)
+	if len(ids) != 1 {
+		return
+	}
+	if m := b.models[ids[0]]; m != nil && m.Name == "" {
+		m.Name = strings.TrimSpace(product)
 	}
 }
 

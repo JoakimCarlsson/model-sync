@@ -1,6 +1,7 @@
 {
   "id": "rerank-v4.0-fast",
   "provider": "cohere",
+  "name": "Rerank 4 Fast",
   "kind": "rerank",
   "prices": [
     {
