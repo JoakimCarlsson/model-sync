@@ -193,7 +193,7 @@ func (b *builder) applyToolTable(t mdTable) {
 		m.SetAttr(AttrSummary, clean(cellAt(row, descCol)))
 		a := parseAmount(cellAt(row, costCol))
 		if !a.Found {
-			m.AddNote(clean(cellAt(row, costCol)))
+			m.AddNote(noRateOfItsOwn + clean(cellAt(row, costCol)))
 			continue
 		}
 		m.AddPrice(catalog.Price{

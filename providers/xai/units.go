@@ -302,3 +302,10 @@ func slugID(name string) string {
 	}
 	return strings.Trim(s, "-")
 }
+
+// noRateOfItsOwn opens the note recording that a tool is billed, but not at a
+// rate of its own. The cost column of those rows holds words instead of an
+// amount, and the words alone read as a fragment: "Token-based" against an
+// unpriced tool says less than it looks like it does. Prefixed with this, the
+// row says what it means, which is that the charge lands somewhere else.
+const noRateOfItsOwn = "no rate of its own, charged as: "
