@@ -31,4 +31,14 @@
 // served, including the one the overview describes in prose and only the
 // pricing page names. Its mention of vision is the image modality under another
 // word and is not recorded twice.
+//
+// One model's bounds are stated the same way. Claude Mythos 5 is offered to
+// approved customers rather than generally, so it has no column in the
+// comparison table and one sentence instead: it "shares Claude Fable 5's specs
+// and pricing". That is Anthropic stating its context window and output ceiling
+// in the only place it states them, so both are taken from the model named,
+// along with its capabilities. Its rates are not, because the pricing page
+// lists the model itself. Like the modality sentence, this is applied after
+// every document, since the model reaches the catalog only when that page names
+// it.
 package anthropic

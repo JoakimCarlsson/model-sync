@@ -98,6 +98,13 @@ var (
 	// modalityClauseRe matches one clause of that sentence, which names the
 	// direction after the modalities travelling in it.
 	modalityClauseRe = regexp.MustCompile(`(?i)([a-z ,]+?)(input|output)\b`)
+	// sharedSpecsRe matches the sentence giving a model's bounds by naming
+	// another model rather than by stating them. It is how Anthropic documents
+	// a model held back from general release: Claude Mythos 5 has no column in
+	// the comparison table and is described only as sharing Claude Fable 5's.
+	sharedSpecsRe = regexp.MustCompile(
+		"(?i)\\(`([a-z0-9.-]+)`\\) shares ([A-Z][A-Za-z0-9. ]+?)'s specs",
+	)
 	// wordRe matches one word of such a clause.
 	wordRe         = regexp.MustCompile(`[a-z]+`)
 	footnoteRe     = regexp.MustCompile(`^(.*[a-zA-Z)])\d{1,2}$`)

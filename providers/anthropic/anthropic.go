@@ -59,6 +59,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	b.applyModalities()
+	b.applySharedSpecs()
 	return b.result(), nil
 }
 
@@ -80,6 +81,10 @@ type builder struct {
 	// because the last of them names a model the overview does not tabulate.
 	inputModalities  []string
 	outputModalities []string
+	// sharedSpecs pairs a model with the one the overview gives its bounds by
+	// naming, held for the same reason: the models it names are tabulated
+	// nowhere and arrive with the pricing page.
+	sharedSpecs [][2]string
 }
 
 func newBuilder() *builder {

@@ -32,6 +32,53 @@ func (b *builder) applyOverview(doc catalog.Document) {
 		}
 	}
 	b.readModalities(string(doc.Body))
+	b.readSharedSpecs(string(doc.Body))
+}
+
+// readSharedSpecs notes every model whose bounds the overview gives by naming
+// another model rather than by stating them.
+//
+// It is kept rather than applied, for the same reason the modality sentence is:
+// the model it describes is absent from the comparison table and reaches the
+// catalog only when the pricing page read after this one names it.
+func (b *builder) readSharedSpecs(body string) {
+	for _, match := range sharedSpecsRe.FindAllStringSubmatch(body, -1) {
+		b.sharedSpecs = append(b.sharedSpecs, [2]string{match[1], match[2]})
+	}
+}
+
+// applySharedSpecs records the bounds of a model the comparison table has no
+// column for, which Anthropic states by naming the model it matches.
+//
+// Claude Mythos 5 is offered to approved customers rather than generally, so it
+// is absent from the table and documented in one sentence: it "shares Claude
+// Fable 5's specs and pricing". That is Anthropic stating the bounds, in the
+// only place it states them, so they are taken from the model named.
+//
+// Only what the sentence claims is copied. The rates are not, because the
+// pricing page lists the model itself and is the authority on those, and the
+// modalities are not, because the sentence covering every current model already
+// reaches it.
+func (b *builder) applySharedSpecs() {
+	for _, pair := range b.sharedSpecs {
+		m, ok := b.models[pair[0]]
+		if !ok {
+			continue
+		}
+		source, ok := b.models[b.nameToID[strings.ToLower(clean(pair[1]))]]
+		if !ok || source == m {
+			continue
+		}
+		for key, value := range source.Limits {
+			m.SetLimit(key, value)
+		}
+		for key, values := range source.Lists {
+			if key == ListInputModalities || key == ListOutputModalities {
+				continue
+			}
+			m.AddList(key, values...)
+		}
+	}
 }
 
 // readModalities reads the sentence stating what a current model takes and

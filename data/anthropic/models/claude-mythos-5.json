@@ -73,7 +73,17 @@
   "attrs": {
     "availability": "limited availability"
   },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000
+  },
   "lists": {
+    "aliases": [
+      "claude-fable-5"
+    ],
+    "features": [
+      "reasoning"
+    ],
     "input_modalities": [
       "image",
       "text"

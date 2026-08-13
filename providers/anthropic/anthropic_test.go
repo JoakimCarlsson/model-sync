@@ -85,6 +85,30 @@ func TestParseModalitiesReachPricedOnlyModel(t *testing.T) {
 	}
 }
 
+// TestParseSharedSpecs covers the model the comparison table has no column
+// for, whose bounds the overview gives by naming the model it matches.
+func TestParseSharedSpecs(t *testing.T) {
+	byID := parse(t)
+	m, ok := byID["claude-mythos-5"]
+	if !ok {
+		t.Fatal("claude-mythos-5: not parsed")
+	}
+	source := byID["claude-fable-5"]
+	for _, key := range []string{LimitContextWindow, LimitMaxOutputTokens} {
+		if source.Limits[key] == 0 {
+			t.Fatalf("claude-fable-5: no %s to share", key)
+		}
+		if m.Limits[key] != source.Limits[key] {
+			t.Errorf(
+				"%s: got %d, want %d",
+				key,
+				m.Limits[key],
+				source.Limits[key],
+			)
+		}
+	}
+}
+
 // TestParseOverview covers the transposed comparison table.
 func TestParseOverview(t *testing.T) {
 	byID := parse(t)
