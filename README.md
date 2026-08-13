@@ -51,12 +51,24 @@ Every model records the URLs it was read from.
 ## Running it
 
 ```sh
-make sync                 # fetch everything, rewrite data/ and api.json
-make coverage             # what share of each field every provider populates
-go run . -cache .cache    # reuse fetched documents instead of refetching
+make sync                    # fetch everything, rewrite data/ and api.json
+make coverage                # what share of each field every provider populates
+go run . -provider cohere    # sync one provider, leaving the rest of the tree
+go run . -cache .cache       # reuse fetched documents instead of refetching
 make fmt
 make lint
 ```
+
+A full sync fetches something over six hundred documents, since several
+providers publish a page per model, and takes a good few minutes; `-timeout`
+bounds the whole run and defaults to thirty minutes. `-provider` syncs one and
+still rebuilds `api.json` from the whole tree, which is what keeps a change to
+one parser reviewable as its own diff.
+
+A source that fails is reported and the rest still sync, and the run exits
+non-zero. A source that fetched nothing, parsed nothing, or ran out of time
+writes nothing, so its existing files stay as they are: a vendor moving a page
+costs that provider a refresh rather than corrupting it.
 
 `make coverage` reads `api.json` and reports, per provider and kind, how many
 models carry a price, a context window, an output ceiling, a feature list, both
