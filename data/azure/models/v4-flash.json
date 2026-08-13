@@ -1,6 +1,7 @@
 {
   "id": "v4-flash",
   "provider": "azure",
+  "name": "DeepSeek-V4-Flash",
   "kind": "chat",
   "prices": [
     {

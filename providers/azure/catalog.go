@@ -117,6 +117,7 @@ var (
 
 // documented is what the documentation states about one model.
 type documented struct {
+	Name       string
 	Context    int64
 	MaxOut     int64
 	Training   string
@@ -173,6 +174,9 @@ func (b *builder) applySKUWindow(m *catalog.Model) {
 
 // apply records one documented model onto a catalog entry.
 func apply(m *catalog.Model, d documented) {
+	if d.Name != "" && d.Name != nameAmbiguous {
+		m.Name = d.Name
+	}
 	m.SetLimit(LimitContextWindow, d.Context)
 	m.SetLimit(LimitMaxOutputTokens, d.MaxOut)
 	m.SetAttr(AttrTrainingCutoff, d.Training)

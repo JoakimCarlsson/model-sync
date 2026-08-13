@@ -126,6 +126,33 @@ func TestParsePartnerDeploymentsUndocumented(t *testing.T) {
 	}
 }
 
+// TestParseNames covers the display name, which only the capability tables
+// state: they head a row the way the model's own vendor names it, and the
+// meters carry the same model with the vendor stripped off. A model the OpenAI
+// tables document keeps no name, and neither does one two rows name
+// differently.
+func TestParseNames(t *testing.T) {
+	byID := parse(t)
+	for _, c := range []struct{ id, name string }{
+		{"v4-pro", "DeepSeek-V4-Pro"},
+		{"llama-3.3-70b", "Llama-3.3-70B-Instruct"},
+		{"command-a", "Cohere-command-a"},
+		{"rerank-v4-pro", "Cohere-rerank-v4.0-pro"},
+		{"grok-4.2", ""},
+		{"gpt-5-mini", ""},
+		{"fw-kimi-k2.5", ""},
+	} {
+		m, ok := byID[c.id]
+		if !ok {
+			t.Errorf("%s: not parsed", c.id)
+			continue
+		}
+		if m.Name != c.name {
+			t.Errorf("%s: name %q, want %q", c.id, m.Name, c.name)
+		}
+	}
+}
+
 // TestParseEmbeddings covers the embedding tables, which head one bound with
 // the column the older chat tables state a pair under, and the alias that
 // reaches the model a SKU abbreviates past recognition.

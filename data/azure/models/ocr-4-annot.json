@@ -1,6 +1,7 @@
 {
   "id": "ocr-4-annot",
   "provider": "azure",
+  "name": "mistral-ocr-4-0",
   "kind": "ocr",
   "prices": [
     {

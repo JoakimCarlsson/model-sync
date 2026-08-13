@@ -1,6 +1,7 @@
 {
   "id": "flex",
   "provider": "azure",
+  "name": "FLUX.2-flex",
   "kind": "image",
   "prices": [
     {

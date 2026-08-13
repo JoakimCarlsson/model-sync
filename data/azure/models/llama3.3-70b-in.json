@@ -1,6 +1,7 @@
 {
   "id": "llama3.3-70b-in",
   "provider": "azure",
+  "name": "Llama-3.3-70B-Instruct",
   "kind": "chat",
   "prices": [
     {

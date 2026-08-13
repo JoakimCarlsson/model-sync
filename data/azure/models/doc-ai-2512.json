@@ -1,6 +1,7 @@
 {
   "id": "doc-ai-2512",
   "provider": "azure",
+  "name": "mistral-document-ai-2512",
   "kind": "chat",
   "prices": [
     {

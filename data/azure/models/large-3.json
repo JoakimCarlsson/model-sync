@@ -1,6 +1,7 @@
 {
   "id": "large-3",
   "provider": "azure",
+  "name": "Mistral-Large-3",
   "kind": "chat",
   "prices": [
     {

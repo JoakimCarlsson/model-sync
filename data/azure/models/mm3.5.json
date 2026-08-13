@@ -1,6 +1,7 @@
 {
   "id": "mm3.5",
   "provider": "azure",
+  "name": "mistral-medium-3-5",
   "kind": "chat",
   "prices": [
     {

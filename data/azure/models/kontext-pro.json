@@ -1,6 +1,7 @@
 {
   "id": "kontext-pro",
   "provider": "azure",
+  "name": "FLUX.1-Kontext-pro",
   "kind": "image",
   "prices": [
     {

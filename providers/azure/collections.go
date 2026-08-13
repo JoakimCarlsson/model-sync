@@ -161,16 +161,51 @@ func readCollectionRow(
 	at map[string]int,
 	cells [][]string,
 ) {
-	name := documentedName(cellText(cells, at[colModel]))
-	ids, ok := collectionModels[name]
+	cell := cellText(cells, at[colModel])
+	ids, ok := collectionModels[documentedName(cell)]
 	if !ok {
 		return
 	}
 	for _, id := range ids {
 		d := out[id]
+		d.Name = soleName(d.Name, displayName(cell))
 		readCapabilities(&d, cellAt(cells, at[colCapabilities]))
 		out[id] = d
 	}
+}
+
+// nameAmbiguous marks a model that more than one documented row names
+// differently, which is not a display name for either.
+const nameAmbiguous = "\x00ambiguous"
+
+// displayName is the name a capability table heads a row with, kept as the
+// vendor writes it and with only the preview marker and footnote number Azure
+// appends stripped off.
+//
+// This is the one display name Azure publishes. Its OpenAI tables head a Model
+// ID column, which is the identifier, but a capability table names a model the
+// way the lab that made it does, and the meters name the same model with the
+// vendor already stripped off: DeepSeek-V4-Pro is metered as v4-pro. Taking the
+// heading restores the part the SKU dropped.
+func displayName(cell string) string {
+	return strings.TrimSpace(annotationRe.ReplaceAllString(cell, ""))
+}
+
+// soleName keeps a name only while one documented row states it.
+//
+// Azure documents a reasoning and a non-reasoning variant of one metered model,
+// so two rows reach grok-4.2 naming it grok-4-20-reasoning and
+// grok-4-20-non-reasoning. Neither is the name of the model they are metered
+// as, so a model named two ways keeps no name, the same rule the row-to-meter
+// table already follows for capabilities.
+func soleName(existing, found string) string {
+	if existing == "" {
+		return found
+	}
+	if existing == found {
+		return existing
+	}
+	return nameAmbiguous
 }
 
 // documentedName reduces the name heading a row to what identifies the model,

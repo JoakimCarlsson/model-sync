@@ -75,8 +75,18 @@
 // Codestral, which are metered with no capability stated anywhere outside the
 // portal's own model cards, which need an account to read.
 //
-// Nor does Azure publish a display name for a model anywhere. Its tables state
-// a Model ID and a description, and the headings above them name a family
-// rather than a model, since GPT-5.6 heads three of them. No Azure model
-// therefore carries a name.
+// A display name is published for the other collections and not for the OpenAI
+// family. A capability table heads its rows with the name the lab that made the
+// model uses, and the meters carry the same model with the vendor stripped off,
+// so the heading is what restores it: v4-pro is DeepSeek-V4-Pro and flex is
+// FLUX.2-flex. The preview marker and the footnote number Azure appends to a
+// heading are not part of the name and are dropped. Where two documented rows
+// reach one meter naming it differently, as the reasoning and non-reasoning
+// variants of Grok 4.20 do, neither is the name of the model they are metered
+// as and the model keeps none.
+//
+// The OpenAI tables state no name. They head a Model ID column and a
+// description, and the headings above them name a family rather than a model,
+// since GPT-5.6 heads three of them. Those models carry the identifier alone,
+// and so do the meters Azure no longer documents.
 package azure

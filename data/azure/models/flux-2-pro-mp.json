@@ -1,6 +1,7 @@
 {
   "id": "flux-2-pro-mp",
   "provider": "azure",
+  "name": "FLUX.2-pro",
   "kind": "image",
   "prices": [
     {

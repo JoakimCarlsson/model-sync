@@ -1,6 +1,7 @@
 {
   "id": "rerank-v4-fast",
   "provider": "azure",
+  "name": "Cohere-rerank-v4.0-fast",
   "kind": "rerank",
   "prices": [
     {

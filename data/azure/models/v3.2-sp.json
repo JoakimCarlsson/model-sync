@@ -1,6 +1,7 @@
 {
   "id": "v3.2-sp",
   "provider": "azure",
+  "name": "DeepSeek-V3.2-Speciale",
   "kind": "chat",
   "prices": [
     {

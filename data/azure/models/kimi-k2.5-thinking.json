@@ -1,6 +1,7 @@
 {
   "id": "kimi-k2.5-thinking",
   "provider": "azure",
+  "name": "Kimi-K2.5",
   "kind": "chat",
   "prices": [
     {

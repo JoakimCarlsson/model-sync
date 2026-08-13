@@ -1,6 +1,7 @@
 {
   "id": "grok-4.3",
   "provider": "azure",
+  "name": "grok-4.3",
   "kind": "chat",
   "prices": [
     {

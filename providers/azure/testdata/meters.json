@@ -92,7 +92,7 @@
   },
   {
    "currencyCode": "USD",
-   "retailPrice": 0.000022,
+   "retailPrice": 2.2e-05,
    "armRegionName": "westeurope",
    "meterName": "text embedding 3 small DZ Tokens",
    "productName": "Azure OpenAI Embedding",
@@ -107,6 +107,15 @@
    "productName": "Azure OpenAI",
    "skuName": "gpt-4-32K-Output-regional",
    "unitOfMeasure": "1K"
+  },
+  {
+   "currencyCode": "USD",
+   "retailPrice": 3.0,
+   "armRegionName": "eastus",
+   "meterName": "4.2 Inp Glbl 1M Tokens",
+   "productName": "Azure Grok Models",
+   "skuName": "4.2 Inp Glbl",
+   "unitOfMeasure": "1M"
   }
  ]
 }

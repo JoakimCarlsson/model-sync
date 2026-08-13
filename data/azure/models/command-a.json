@@ -1,6 +1,7 @@
 {
   "id": "command-a",
   "provider": "azure",
+  "name": "Cohere-command-a",
   "kind": "chat",
   "prices": [
     {

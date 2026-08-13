@@ -1,6 +1,7 @@
 {
   "id": "embed-v4",
   "provider": "azure",
+  "name": "embed-v-4-0",
   "kind": "embedding",
   "prices": [
     {

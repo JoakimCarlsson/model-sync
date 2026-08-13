@@ -1,6 +1,7 @@
 {
   "id": "kimi-k2.6",
   "provider": "azure",
+  "name": "Kimi-K2.6",
   "kind": "chat",
   "prices": [
     {

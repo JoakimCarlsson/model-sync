@@ -1,6 +1,7 @@
 {
   "id": "kimi-k2.7-code",
   "provider": "azure",
+  "name": "Kimi-K2.7-Code",
   "kind": "chat",
   "prices": [
     {

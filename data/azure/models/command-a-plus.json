@@ -1,6 +1,7 @@
 {
   "id": "command-a-plus",
   "provider": "azure",
+  "name": "Cohere-command-a-plus-05-2026",
   "kind": "chat",
   "prices": [
     {
