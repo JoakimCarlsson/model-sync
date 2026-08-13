@@ -1,0 +1,20 @@
+{
+  "id": "medical-mode",
+  "provider": "assemblyai",
+  "name": "Medical Mode",
+  "kind": "transcription",
+  "attrs": {
+    "mode": "add-on"
+  },
+  "lists": {
+    "capabilities": [
+      "4 languages: en, es, de, fr",
+      "Improved accuracy for medical terminology",
+      "Medications, procedures, conditions, and dosages",
+      "Works with pre-recorded and streaming models"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/getting-started/models.md"
+  ]
+}

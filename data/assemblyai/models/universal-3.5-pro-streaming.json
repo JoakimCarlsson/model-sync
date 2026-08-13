@@ -1,0 +1,33 @@
+{
+  "id": "universal-3.5-pro-streaming",
+  "provider": "assemblyai",
+  "name": "Universal-3.5 Pro Streaming",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "session",
+      "unit": "per_hour",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "mode": "streaming"
+      }
+    }
+  ],
+  "attrs": {
+    "mode": "streaming",
+    "volume_discounts": "available"
+  },
+  "lists": {
+    "capabilities": [
+      "18 languages with native code switching",
+      "Advanced prompting capabilities",
+      "Fastest word emissions",
+      "Highest accuracy for voice agents",
+      "Keyterms prompting up to 100 words"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/getting-started/models.md"
+  ]
+}

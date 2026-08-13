@@ -1730,6 +1730,194 @@
       ]
     },
     {
+      "id": "assemblyai",
+      "name": "AssemblyAI",
+      "models": [
+        {
+          "id": "medical-mode",
+          "provider": "assemblyai",
+          "name": "Medical Mode",
+          "kind": "transcription",
+          "attrs": {
+            "mode": "add-on"
+          },
+          "lists": {
+            "capabilities": [
+              "4 languages: en, es, de, fr",
+              "Improved accuracy for medical terminology",
+              "Medications, procedures, conditions, and dosages",
+              "Works with pre-recorded and streaming models"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        },
+        {
+          "id": "universal-2",
+          "provider": "assemblyai",
+          "name": "Universal-2",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.15,
+              "currency": "USD",
+              "dims": {
+                "mode": "pre-recorded"
+              }
+            }
+          ],
+          "attrs": {
+            "mode": "pre-recorded",
+            "volume_discounts": "available"
+          },
+          "lists": {
+            "capabilities": [
+              "Code switching",
+              "High accuracy, low latency",
+              "Keyterms prompting up to 200 words",
+              "Support across 99 languages"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        },
+        {
+          "id": "universal-3.5-pro",
+          "provider": "assemblyai",
+          "name": "Universal-3.5 Pro",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "audio",
+              "unit": "per_hour",
+              "amount": 0.21,
+              "currency": "USD",
+              "dims": {
+                "mode": "pre-recorded"
+              }
+            }
+          ],
+          "attrs": {
+            "mode": "pre-recorded",
+            "volume_discounts": "available"
+          },
+          "lists": {
+            "capabilities": [
+              "Contextual prompting capabilities",
+              "Highest accuracy, fastest model",
+              "Keyterms prompting up to 1,000 words",
+              "Native code switching",
+              "Supports 18 languages"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        },
+        {
+          "id": "universal-3.5-pro-streaming",
+          "provider": "assemblyai",
+          "name": "Universal-3.5 Pro Streaming",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "session",
+              "unit": "per_hour",
+              "amount": 0.45,
+              "currency": "USD",
+              "dims": {
+                "mode": "streaming"
+              }
+            }
+          ],
+          "attrs": {
+            "mode": "streaming",
+            "volume_discounts": "available"
+          },
+          "lists": {
+            "capabilities": [
+              "18 languages with native code switching",
+              "Advanced prompting capabilities",
+              "Fastest word emissions",
+              "Highest accuracy for voice agents",
+              "Keyterms prompting up to 100 words"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        },
+        {
+          "id": "universal-streaming-english",
+          "provider": "assemblyai",
+          "name": "Universal-Streaming English",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "session",
+              "unit": "per_hour",
+              "amount": 0.15,
+              "currency": "USD",
+              "dims": {
+                "mode": "streaming"
+              }
+            }
+          ],
+          "attrs": {
+            "mode": "streaming",
+            "volume_discounts": "available"
+          },
+          "lists": {
+            "capabilities": [
+              "English transcription",
+              "Good balance of speed and cost-effectiveness",
+              "Intelligent endpointing",
+              "Keyterms prompting up to 100 words"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        },
+        {
+          "id": "universal-streaming-multilingual",
+          "provider": "assemblyai",
+          "name": "Universal-Streaming Multilingual",
+          "kind": "transcription",
+          "prices": [
+            {
+              "metric": "session",
+              "unit": "per_hour",
+              "amount": 0.15,
+              "currency": "USD",
+              "dims": {
+                "mode": "streaming"
+              }
+            }
+          ],
+          "attrs": {
+            "mode": "streaming",
+            "volume_discounts": "available"
+          },
+          "lists": {
+            "capabilities": [
+              "6 languages: en, es, pt, de, fr, it",
+              "Good balance of speed and cost-effectiveness",
+              "Keyterms prompting up to 100 words",
+              "Multilingual real-time transcription"
+            ]
+          },
+          "sources": [
+            "https://www.assemblyai.com/docs/getting-started/models.md"
+          ]
+        }
+      ]
+    },
+    {
       "id": "groq",
       "name": "Groq",
       "models": [
@@ -27893,19 +28081,19 @@
             {
               "metric": "cached_input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.0976,
+              "amount": 0.16,
               "currency": "USD"
             },
             {
               "metric": "input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.5795,
+              "amount": 0.95,
               "currency": "USD"
             },
             {
               "metric": "output_tokens",
               "unit": "per_1m_tokens",
-              "amount": 2.44,
+              "amount": 4,
               "currency": "USD"
             }
           ],
@@ -29154,7 +29342,7 @@
             "tokenizer": "Other"
           },
           "limits": {
-            "context_window": 262144,
+            "context_window": 1000000,
             "max_output_tokens": 262144,
             "top_provider_context_window": 262144
           },
@@ -29174,6 +29362,8 @@
               "stop",
               "structured_outputs",
               "temperature",
+              "tool_choice",
+              "tools",
               "top_k",
               "top_logprobs",
               "top_p"
@@ -29459,7 +29649,6 @@
           "attrs": {
             "author": "openai",
             "canonical_slug": "openai/gpt-3.5-turbo-16k",
-            "is_moderated": "true",
             "knowledge_cutoff": "2021-09-30",
             "released": "2023-08-28",
             "summary": "This model offers four times the context length of gpt-3.5-turbo, allowing it to support approximately 20 pages of text in a single request at a higher cost.",
@@ -39799,15 +39988,21 @@
           "kind": "chat",
           "prices": [
             {
+              "metric": "cached_input_tokens",
+              "unit": "per_1m_tokens",
+              "amount": 0.25,
+              "currency": "USD"
+            },
+            {
               "metric": "input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.14,
+              "amount": 0.25,
               "currency": "USD"
             },
             {
               "metric": "output_tokens",
               "unit": "per_1m_tokens",
-              "amount": 1,
+              "amount": 1.25,
               "currency": "USD"
             }
           ],
@@ -39868,19 +40063,19 @@
             {
               "metric": "cached_input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.3,
+              "amount": 0.045,
               "currency": "USD"
             },
             {
               "metric": "input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.5,
+              "amount": 0.45,
               "currency": "USD"
             },
             {
               "metric": "output_tokens",
               "unit": "per_1m_tokens",
-              "amount": 3.6,
+              "amount": 3,
               "currency": "USD"
             }
           ],
@@ -39894,7 +40089,7 @@
           },
           "limits": {
             "context_window": 262144,
-            "max_output_tokens": 262144,
+            "max_output_tokens": 65536,
             "top_provider_context_window": 262144
           },
           "lists": {
@@ -41030,7 +41225,7 @@
             "tokenizer": "Qwen"
           },
           "limits": {
-            "context_window": 262144,
+            "context_window": 1000000,
             "max_output_tokens": 52429,
             "top_provider_context_window": 262144
           },
@@ -41041,11 +41236,13 @@
               "logit_bias",
               "logprobs",
               "max_tokens",
+              "min_p",
               "presence_penalty",
               "reasoning",
               "reasoning_effort",
               "repetition_penalty",
               "response_format",
+              "seed",
               "stop",
               "structured_outputs",
               "temperature",
@@ -43693,19 +43890,19 @@
             {
               "metric": "cached_input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.11,
+              "amount": 0.1,
               "currency": "USD"
             },
             {
               "metric": "input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.55,
+              "amount": 0.5,
               "currency": "USD"
             },
             {
               "metric": "output_tokens",
               "unit": "per_1m_tokens",
-              "amount": 2.2,
+              "amount": 2,
               "currency": "USD"
             }
           ],
@@ -43721,7 +43918,7 @@
           "limits": {
             "context_window": 204800,
             "max_output_tokens": 131072,
-            "top_provider_context_window": 204800
+            "top_provider_context_window": 202752
           },
           "lists": {
             "features": [
@@ -44177,19 +44374,19 @@
             {
               "metric": "cached_input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.091,
+              "amount": 0.1,
               "currency": "USD"
             },
             {
               "metric": "input_tokens",
               "unit": "per_1m_tokens",
-              "amount": 0.49,
+              "amount": 0.5,
               "currency": "USD"
             },
             {
               "metric": "output_tokens",
               "unit": "per_1m_tokens",
-              "amount": 1.54,
+              "amount": 3.15,
               "currency": "USD"
             }
           ],

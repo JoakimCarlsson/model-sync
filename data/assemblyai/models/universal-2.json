@@ -1,0 +1,32 @@
+{
+  "id": "universal-2",
+  "provider": "assemblyai",
+  "name": "Universal-2",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "mode": "pre-recorded"
+      }
+    }
+  ],
+  "attrs": {
+    "mode": "pre-recorded",
+    "volume_discounts": "available"
+  },
+  "lists": {
+    "capabilities": [
+      "Code switching",
+      "High accuracy, low latency",
+      "Keyterms prompting up to 200 words",
+      "Support across 99 languages"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/getting-started/models.md"
+  ]
+}

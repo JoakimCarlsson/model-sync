@@ -33,7 +33,7 @@
     "tokenizer": "Qwen"
   },
   "limits": {
-    "context_window": 262144,
+    "context_window": 1000000,
     "max_output_tokens": 52429,
     "top_provider_context_window": 262144
   },
@@ -44,11 +44,13 @@
       "logit_bias",
       "logprobs",
       "max_tokens",
+      "min_p",
       "presence_penalty",
       "reasoning",
       "reasoning_effort",
       "repetition_penalty",
       "response_format",
+      "seed",
       "stop",
       "structured_outputs",
       "temperature",

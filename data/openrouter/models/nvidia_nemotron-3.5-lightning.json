@@ -32,7 +32,7 @@
     "tokenizer": "Other"
   },
   "limits": {
-    "context_window": 262144,
+    "context_window": 1000000,
     "max_output_tokens": 262144,
     "top_provider_context_window": 262144
   },
@@ -52,6 +52,8 @@
       "stop",
       "structured_outputs",
       "temperature",
+      "tool_choice",
+      "tools",
       "top_k",
       "top_logprobs",
       "top_p"

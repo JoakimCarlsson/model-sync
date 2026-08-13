@@ -1,0 +1,33 @@
+{
+  "id": "universal-3.5-pro",
+  "provider": "assemblyai",
+  "name": "Universal-3.5 Pro",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.21,
+      "currency": "USD",
+      "dims": {
+        "mode": "pre-recorded"
+      }
+    }
+  ],
+  "attrs": {
+    "mode": "pre-recorded",
+    "volume_discounts": "available"
+  },
+  "lists": {
+    "capabilities": [
+      "Contextual prompting capabilities",
+      "Highest accuracy, fastest model",
+      "Keyterms prompting up to 1,000 words",
+      "Native code switching",
+      "Supports 18 languages"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/getting-started/models.md"
+  ]
+}

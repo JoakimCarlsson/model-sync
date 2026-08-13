@@ -1,0 +1,32 @@
+{
+  "id": "universal-streaming-multilingual",
+  "provider": "assemblyai",
+  "name": "Universal-Streaming Multilingual",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "session",
+      "unit": "per_hour",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "mode": "streaming"
+      }
+    }
+  ],
+  "attrs": {
+    "mode": "streaming",
+    "volume_discounts": "available"
+  },
+  "lists": {
+    "capabilities": [
+      "6 languages: en, es, pt, de, fr, it",
+      "Good balance of speed and cost-effectiveness",
+      "Keyterms prompting up to 100 words",
+      "Multilingual real-time transcription"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/getting-started/models.md"
+  ]
+}
