@@ -117,4 +117,38 @@ func TestParseEmbeddingDimensions(t *testing.T) {
 	if len(m.Lists[ListInputModalities]) < 2 {
 		t.Errorf("got input modalities %v", m.Lists[ListInputModalities])
 	}
+	if out := m.Lists[ListOutputModalities]; !slices.Equal(
+		out,
+		[]string{"text"},
+	) {
+		t.Errorf("got output modalities %v, want [text]", out)
+	}
+}
+
+// TestParseProseModalities covers the wordings Google states a modality list
+// in, where "Text embeddings" is the text an embedding model works in and the
+// "with" of "Video with audio" names a second modality rather than a quality of
+// the first.
+func TestParseProseModalities(t *testing.T) {
+	for _, c := range []struct {
+		value string
+		want  []string
+	}{
+		{"Text embeddings", []string{"text"}},
+		{"Video with audio", []string{"video", "audio"}},
+		{"Text, Image, Video, Audio, and PDF", []string{
+			"text",
+			"image",
+			"video",
+			"audio",
+			"file",
+		}},
+		{"Audio (translated speech) and Text", []string{"audio", "text"}},
+	} {
+		m := &catalog.Model{}
+		addModalities(m, ListOutputModalities, c.value)
+		if got := m.Lists[ListOutputModalities]; !slices.Equal(got, c.want) {
+			t.Errorf("%q: got %v, want %v", c.value, got, c.want)
+		}
+	}
 }

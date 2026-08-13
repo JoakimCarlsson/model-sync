@@ -6,6 +6,14 @@
 // window, no capability and no modality. Each model's own page states all
 // three and no rate at all.
 //
+// A model page writes its modalities as prose rather than as a list, and the
+// wordings matter. "Video with audio" names two modalities and not a quality of
+// one, so the video models return both. "Text embeddings" is the return value
+// of an embedding model, and since the catalog has no word for a vector it is
+// read as the text those models work in; dropping it left them stating what
+// they take and nothing about what they give back, which a consumer cannot tell
+// from a model that returns nothing.
+//
 // Google states rates twice over: a model has one table per serving tier, and
 // each table has one column per plan. A single rate therefore needs both a tier
 // and a plan to identify it, and the free plan's "Free of charge" is a real

@@ -94,6 +94,10 @@
     "input_modalities": [
       "image",
       "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "video"
     ]
   },
   "sources": [

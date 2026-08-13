@@ -82,13 +82,19 @@ var featureNames = map[string]string{
 // Google writes them in prose, in the singular or the plural and with a
 // parenthesis saying what a modality is carrying, so each is reduced to its
 // bare noun before being looked up.
+//
+// "Text embeddings" is what the embedding pages state as their output. The
+// embedding is the return value rather than a modality, and the catalog has no
+// word for a vector, so the phrase is read as the text those models work in.
+// Dropping it left them stating what they take and nothing about what they give
+// back.
 var modalityNames = map[string]string{
-	"text":       "text",
-	"image":      "image",
-	"video":      "video",
-	"audio":      "audio",
-	"pdf":        "file",
-	"embeddings": "",
+	"text":            "text",
+	"image":           "image",
+	"video":           "video",
+	"audio":           "audio",
+	"pdf":             "file",
+	"text embeddings": "text",
 }
 
 var (
@@ -235,12 +241,17 @@ func addModalities(m *catalog.Model, key, value string) {
 	}
 }
 
-// proseSeparators divide a list written for a reader. Google writes one three
-// ways and mixes them in a single line: "Text and Image / PDF".
+// proseSeparators divide a list written for a reader. Google writes one four
+// ways and mixes them in a single line: "Text and Image / PDF". The fourth is
+// the "with" of "Video with audio", which is how the video models state that
+// they return a soundtrack alongside the picture; it names a second modality
+// and not a quality of the first.
 var proseSeparators = strings.NewReplacer(
 	",",
 	"\x00",
 	" and ",
+	"\x00",
+	" with ",
 	"\x00",
 	"/",
 	"\x00",
@@ -266,10 +277,10 @@ var parenRe = regexp.MustCompile(`\([^)]*\)`)
 func bareNoun(value string) string {
 	s := strings.ToLower(strings.TrimSpace(parenRe.ReplaceAllString(value, "")))
 	s = strings.TrimSpace(s)
-	if s != "embeddings" {
-		s = strings.TrimSuffix(s, "s")
+	if _, ok := modalityNames[s]; ok {
+		return s
 	}
-	return s
+	return strings.TrimSuffix(s, "s")
 }
 
 // featureName rewrites a capability into the catalog's vocabulary.

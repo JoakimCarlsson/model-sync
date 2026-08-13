@@ -233,6 +233,9 @@
       "text",
       "video"
     ],
+    "output_modalities": [
+      "text"
+    ],
     "snapshots": [
       "gemini-embedding-2"
     ]

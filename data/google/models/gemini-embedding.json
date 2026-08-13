@@ -55,6 +55,9 @@
     "input_modalities": [
       "text"
     ],
+    "output_modalities": [
+      "text"
+    ],
     "snapshots": [
       "gemini-embedding-001"
     ]
