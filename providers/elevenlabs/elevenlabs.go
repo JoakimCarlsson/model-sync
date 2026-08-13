@@ -100,6 +100,11 @@ func (p *Provider) get(
 
 // Parse reads the models page first, because it is the only document naming an
 // identifier, then prices the families the pricing page quotes.
+//
+// The models the cards leave out are marked only when the pricing page was one
+// of the documents. A fetch that lost it would otherwise mark every model as
+// uncovered, which would be this parser reporting its own missing document as a
+// fact about ElevenLabs.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -108,10 +113,15 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyCards(doc)
 		}
 	}
+	priced := false
 	for _, doc := range docs {
 		if doc.URL == PricingURL {
 			b.applyPricing(doc)
+			priced = true
 		}
+	}
+	if priced {
+		b.noteUnpriced()
 	}
 	return b.result(), nil
 }

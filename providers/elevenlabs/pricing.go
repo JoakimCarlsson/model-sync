@@ -173,6 +173,31 @@ func familyOf(id string) (family, bool) {
 	return best, found
 }
 
+// noteNoCard records that no card on the API pricing page covers a model, which
+// is the whole of why it carries no rate. Without it a served model with no
+// amount reads as a free one.
+const noteNoCard = "no card on the API pricing page covers this model"
+
+// noteUnpriced marks the served models the cards leave out.
+//
+// Two kinds fall outside every card. Voice design has no card at all: the
+// pricing page describes the product without quoting an amount for it. The
+// first generation speech model has none either, because the card covering the
+// multilingual line is headed for its second and third versions and this parser
+// will not read a rate quoted for one version onto another.
+//
+// A deprecated model is skipped. ElevenLabs drops a model from its cards when it
+// withdraws it, so the absence there is the withdrawal and not an omission.
+func (b *builder) noteUnpriced() {
+	for _, id := range b.order {
+		m := b.models[id]
+		if len(m.Prices) > 0 || m.Attrs[AttrState] == StateDeprecated {
+			continue
+		}
+		m.AddNote(noteNoCard)
+	}
+}
+
 // applyPricing reads the API pricing page onto the models the models page
 // established, because a card names a family and never an identifier.
 func (b *builder) applyPricing(doc catalog.Document) {

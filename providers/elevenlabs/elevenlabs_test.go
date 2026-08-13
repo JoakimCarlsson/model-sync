@@ -232,3 +232,57 @@ func TestParseLanguageReference(t *testing.T) {
 		t.Errorf("a model identifier was recorded as a language: %v", flash)
 	}
 }
+
+// TestParseUnpricedCarryReason covers the served models no card covers. Voice
+// design has no card at all, and the card covering the multilingual line is
+// headed for its later versions, so the first generation model falls outside it.
+// Each carries a note saying so rather than reading as free.
+func TestParseUnpricedCarryReason(t *testing.T) {
+	byID := parse(t)
+	for _, id := range []string{
+		"eleven_multilingual_ttv_v2",
+		"eleven_ttv_v3",
+		"eleven_multilingual_v1",
+	} {
+		m, ok := byID[id]
+		if !ok {
+			t.Errorf("%s: not parsed", id)
+			continue
+		}
+		if len(m.Prices) != 0 {
+			t.Errorf("%s: got %d prices, want none", id, len(m.Prices))
+		}
+		if !slices.Contains(m.Notes, noteNoCard) {
+			t.Errorf("%s: got notes %v, want the uncovered note", id, m.Notes)
+		}
+	}
+	for id, m := range byID {
+		if len(m.Prices) > 0 && slices.Contains(m.Notes, noteNoCard) {
+			t.Errorf("%s: priced and marked uncovered", id)
+		}
+		if m.Attrs[AttrState] == StateDeprecated &&
+			slices.Contains(m.Notes, noteNoCard) {
+			t.Errorf("%s: withdrawn and marked uncovered", id)
+		}
+	}
+}
+
+// TestParseWithoutPricingPage covers the guard on that note: losing the pricing
+// page must not turn every model into one ElevenLabs states no rate for.
+func TestParseWithoutPricingPage(t *testing.T) {
+	docs := []catalog.Document{}
+	for _, doc := range fixtures(t) {
+		if doc.URL != PricingURL {
+			docs = append(docs, doc)
+		}
+	}
+	models, err := New().Parse(docs)
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, m := range models {
+		if slices.Contains(m.Notes, noteNoCard) {
+			t.Errorf("%s: marked uncovered with no pricing page read", m.ID)
+		}
+	}
+}
