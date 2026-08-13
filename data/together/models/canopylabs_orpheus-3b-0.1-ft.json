@@ -15,6 +15,14 @@
     "author": "Canopy Labs",
     "modality": "Text-to-Speech"
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
   ]

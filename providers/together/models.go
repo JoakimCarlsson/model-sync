@@ -168,6 +168,8 @@ func (b *builder) applyRow(
 	}
 	m := b.model(id, kind)
 	m.AddSource(t.Source)
+	m.AddList(ListInputModalities, sectionFlows[t.Section].In...)
+	m.AddList(ListOutputModalities, sectionFlows[t.Section].Out...)
 	dims := catalog.Dims{}
 	for i, col := range cols {
 		cell := cellAt(row, i)
@@ -183,6 +185,9 @@ func (b *builder) applyRow(
 			if k, ok := modalityKind(cell); ok {
 				m.Kind = k
 			}
+			direction := modalityFlows[strings.ToLower(clean(cell))]
+			m.AddList(ListInputModalities, direction.In...)
+			m.AddList(ListOutputModalities, direction.Out...)
 		case roleContext:
 			m.SetLimit(LimitContextWindow, parseCount(cell))
 		case roleDimension:

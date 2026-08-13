@@ -30,6 +30,14 @@
   "limits": {
     "context_window": 131072
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
   ]

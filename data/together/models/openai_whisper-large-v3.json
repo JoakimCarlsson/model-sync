@@ -15,6 +15,14 @@
     "author": "OpenAI",
     "modality": "Speech-to-Text"
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
   ]

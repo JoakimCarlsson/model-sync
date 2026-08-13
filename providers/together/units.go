@@ -64,6 +64,67 @@ const ListDimensions = "embedding_dimensions"
 // it states as a yes-or-no column each.
 const ListFeatures = "features"
 
+// Enumeration keys holding what a model takes and returns.
+const (
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+)
+
+// Modalities Together's tables account for.
+const (
+	ModalityText  = "text"
+	ModalityImage = "image"
+	ModalityVideo = "video"
+	ModalityAudio = "audio"
+)
+
+// flow is what a table's models take and what they return.
+type flow struct {
+	In  []string
+	Out []string
+}
+
+// sectionFlows map a heading onto the modalities every model under it handles.
+// Together states this by which table a model is listed in and nowhere else: a
+// model appearing in both the chat table and the vision table is a chat model
+// that also takes images, which is why the two are merged rather than one
+// overriding the other.
+//
+// An embedding model returns a vector rather than a modality, and a reranker
+// returns a score, so neither states an output.
+var sectionFlows = map[string]flow{
+	"chat models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityText},
+	},
+	"vision models": {
+		In:  []string{ModalityText, ModalityImage},
+		Out: []string{ModalityText},
+	},
+	"image models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityImage},
+	},
+	"video models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityVideo},
+	},
+	"embedding models": {In: []string{ModalityText}},
+	"rerank models":    {In: []string{ModalityText}},
+	"moderation models": {
+		In:  []string{ModalityText},
+		Out: []string{ModalityText},
+	},
+}
+
+// modalityFlows map the Modality column of the audio table, which is the only
+// table whose models run in two directions, onto what each direction takes and
+// returns.
+var modalityFlows = map[string]flow{
+	"text-to-speech": {In: []string{ModalityText}, Out: []string{ModalityAudio}},
+	"speech-to-text": {In: []string{ModalityAudio}, Out: []string{ModalityText}},
+}
+
 // Capabilities the catalog's columns report on.
 const (
 	FeatureFunctionCalling   = "function_calling"

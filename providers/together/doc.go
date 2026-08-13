@@ -15,7 +15,15 @@
 // are recorded: a model answering no to both carries no capability list, which
 // is as close as the catalog comes to saying it has neither.
 //
-// What Together does not publish: a bound on output length, for any model, and
-// any modality for a chat model. Its modality column appears on the audio
-// table alone, where it says which direction the model runs in.
+// What a model takes and returns is stated by which of the eight tables it is
+// listed in, and nowhere else. A model in the vision table is a chat model that
+// also takes images — every one of them is in the chat table too — so the two
+// readings are merged rather than one replacing the other. The audio table is
+// the only one whose models run in two directions, and it has a column saying
+// which. An embedding model returns a vector and a reranker returns a score, so
+// neither states an output modality.
+//
+// What Together does not publish: a bound on output length, for any model. Its
+// tables state a context length and nothing else about how much a model may
+// generate, and its listing API, which might, needs an account.
 package together

@@ -15,6 +15,14 @@
     "author": "Black Forest Labs",
     "default_steps": "28"
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
+  },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
   ]
