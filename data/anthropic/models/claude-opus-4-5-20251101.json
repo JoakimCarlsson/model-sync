@@ -89,9 +89,12 @@
       "claude-opus-4-5"
     ],
     "features": [
-      "extended_thinking_(thinking_type:_\"enabled\")"
+      "reasoning"
     ]
   },
+  "notes": [
+    "reasoning is extended thinking (thinking.type: \"enabled\")"
+  ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",

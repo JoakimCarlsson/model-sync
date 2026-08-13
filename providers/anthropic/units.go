@@ -222,6 +222,10 @@ func parseTokenCount(value string) int64 {
 	return int64(n)
 }
 
+// FeatureReasoning is the catalog's word for a model that thinks before it
+// answers. Anthropic offers two kinds of it and names neither this.
+const FeatureReasoning = "reasoning"
+
 // slugID turns a display name such as "Claude Opus 4.1" into the identifier
 // form Anthropic uses for aliases, which replaces the dot in a version with a
 // dash. It is the fallback for models the overview does not list.

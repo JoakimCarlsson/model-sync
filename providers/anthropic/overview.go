@@ -100,16 +100,40 @@ func (b *builder) applyOverviewRow(
 }
 
 // applyCapability records a Yes or No row as a feature the model has or lacks.
-// Anthropic qualifies some answers, as in "Yes (always on)", which is kept as
-// a note so the qualification is not lost.
+//
+// Anthropic writes a capability as prose with the parameter that turns it on
+// in the middle of it, so the row's own wording is not an identifier and is
+// translated into one. Where the wording is lost by that — Anthropic offers
+// two kinds of thinking and the catalog has one word for both — the row's
+// heading is kept as a note.
+//
+// Some answers are qualified, as in "Yes (always on)", which is kept as a note
+// too so the qualification is not lost.
 func applyCapability(m *catalog.Model, label, value string) {
 	answer, qualifier, _ := strings.Cut(value, " ")
 	if !strings.EqualFold(answer, "yes") {
 		return
 	}
-	feature := strings.ReplaceAll(slugID(label), "-", "_")
+	feature, renamed := featureName(label)
 	m.AddList(ListFeatures, feature)
+	if renamed {
+		m.AddNote(feature + " is " + strings.ToLower(clean(label)))
+	}
 	if qualifier != "" {
 		m.AddNote(feature + " " + strings.Trim(qualifier, "()"))
 	}
+}
+
+// featureName translates a capability row's heading into the catalog's
+// vocabulary, reporting whether the translation lost anything.
+//
+// Both of Anthropic's thinking rows describe a model that reasons before it
+// answers, which every other provider spells "reasoning". A model has one or
+// the other and never both, so the two collapse onto that one word.
+func featureName(label string) (name string, renamed bool) {
+	text := strings.ToLower(clean(label))
+	if strings.Contains(text, "thinking") {
+		return FeatureReasoning, true
+	}
+	return strings.ReplaceAll(slugID(label), "-", "_"), false
 }

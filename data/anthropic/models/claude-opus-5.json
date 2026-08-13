@@ -108,9 +108,12 @@
       "claude-opus-5"
     ],
     "features": [
-      "adaptive_thinking"
+      "reasoning"
     ]
   },
+  "notes": [
+    "reasoning is adaptive thinking"
+  ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",

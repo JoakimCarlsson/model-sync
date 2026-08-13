@@ -89,12 +89,13 @@
       "claude-opus-4-6"
     ],
     "features": [
-      "adaptive_thinking",
-      "extended_thinking_(thinking_type:_\"enabled\")"
+      "reasoning"
     ]
   },
   "notes": [
-    "extended_thinking_(thinking_type:_\"enabled\") deprecated"
+    "reasoning deprecated",
+    "reasoning is adaptive thinking",
+    "reasoning is extended thinking (thinking.type: \"enabled\")"
   ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",

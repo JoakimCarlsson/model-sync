@@ -90,11 +90,12 @@
       "claude-fable-5"
     ],
     "features": [
-      "adaptive_thinking"
+      "reasoning"
     ]
   },
   "notes": [
-    "adaptive_thinking always on"
+    "reasoning always on",
+    "reasoning is adaptive thinking"
   ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
