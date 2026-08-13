@@ -18,10 +18,17 @@
     }
   ],
   "attrs": {
-    "author": "Qwen"
+    "author": "Qwen",
+    "quantization": "FP8"
   },
   "limits": {
     "context_window": 32768
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"

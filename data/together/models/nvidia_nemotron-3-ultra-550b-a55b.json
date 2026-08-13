@@ -24,10 +24,17 @@
     }
   ],
   "attrs": {
-    "author": "NVIDIA"
+    "author": "NVIDIA",
+    "quantization": "NVFP4"
   },
   "limits": {
     "context_window": 512300
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"

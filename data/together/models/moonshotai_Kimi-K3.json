@@ -29,6 +29,12 @@
   "limits": {
     "context_window": 1000000
   },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
+  },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
   ]

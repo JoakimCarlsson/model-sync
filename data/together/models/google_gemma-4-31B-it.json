@@ -18,10 +18,17 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "quantization": "FP8"
   },
   "limits": {
     "context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"

@@ -18,10 +18,17 @@
     }
   ],
   "attrs": {
-    "author": "Meta"
+    "author": "Meta",
+    "quantization": "FP8"
   },
   "limits": {
     "context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"

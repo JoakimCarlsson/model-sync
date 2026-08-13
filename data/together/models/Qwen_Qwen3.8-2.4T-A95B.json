@@ -24,7 +24,8 @@
     }
   ],
   "attrs": {
-    "author": "Qwen"
+    "author": "Qwen",
+    "quantization": "FP4"
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"

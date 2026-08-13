@@ -9,4 +9,13 @@
 // duration, an audio model per million characters or per minute of audio
 // depending on which direction it runs, and an embedding model per million
 // tokens beside the width of the vector it returns.
+//
+// The chat table also reports two capabilities and the quantization a model is
+// served at. The capabilities are a yes-or-no column each, and only the yeses
+// are recorded: a model answering no to both carries no capability list, which
+// is as close as the catalog comes to saying it has neither.
+//
+// What Together does not publish: a bound on output length, for any model, and
+// any modality for a chat model. Its modality column appears on the audio
+// table alone, where it says which direction the model runs in.
 package together

@@ -51,6 +51,7 @@ const (
 	AttrModelSize        = "model_size"
 	AttrDefaultSteps     = "default_steps"
 	AttrDefaultDimension = "default_embedding_dimension"
+	AttrQuantization     = "quantization"
 )
 
 // Numeric keys the catalog page populates.
@@ -58,6 +59,16 @@ const LimitContextWindow = "context_window"
 
 // Enumeration keys the catalog page populates.
 const ListDimensions = "embedding_dimensions"
+
+// ListFeatures holds the capabilities the catalog reports on per model, which
+// it states as a yes-or-no column each.
+const ListFeatures = "features"
+
+// Capabilities the catalog's columns report on.
+const (
+	FeatureFunctionCalling   = "function_calling"
+	FeatureStructuredOutputs = "structured_outputs"
+)
 
 var (
 	linkRe   = regexp.MustCompile(`\[!?\[?([^\]]*)\]?\]\([^)]*\)`)

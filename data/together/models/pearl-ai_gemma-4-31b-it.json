@@ -18,7 +18,8 @@
     }
   ],
   "attrs": {
-    "author": "Pearl AI"
+    "author": "Pearl AI",
+    "quantization": "INT8"
   },
   "limits": {
     "context_window": 32000

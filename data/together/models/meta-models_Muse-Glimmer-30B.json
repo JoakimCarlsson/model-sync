@@ -24,7 +24,8 @@
     }
   ],
   "attrs": {
-    "author": "Meta"
+    "author": "Meta",
+    "quantization": "FP8"
   },
   "limits": {
     "context_window": 131072

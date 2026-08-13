@@ -43,6 +43,8 @@ const (
 	roleModelSize
 	roleSteps
 	roleGeometry
+	roleQuantization
+	roleFeature
 	rolePrice
 )
 
@@ -51,6 +53,8 @@ type column struct {
 	role   role
 	metric catalog.Metric
 	unit   catalog.Unit
+	// feature is the capability a yes-or-no column reports on.
+	feature string
 }
 
 // headerColumn maps one of Together's column headings onto its meaning. The
@@ -76,18 +80,48 @@ func headerColumn(header string) column {
 		return column{role: roleSteps}
 	case "resolution / duration":
 		return column{role: roleGeometry}
+	case "quantization":
+		return column{role: roleQuantization}
+	case "function calling":
+		return column{role: roleFeature, feature: FeatureFunctionCalling}
+	case "structured outputs":
+		return column{role: roleFeature, feature: FeatureStructuredOutputs}
 	case "input pricing (per 1m tokens)":
-		return column{rolePrice, MetricInputTokens, UnitPer1MTokens}
+		return column{
+			role:   rolePrice,
+			metric: MetricInputTokens,
+			unit:   UnitPer1MTokens,
+		}
 	case "cached input pricing (per 1m tokens)":
-		return column{rolePrice, MetricCachedInputTokens, UnitPer1MTokens}
+		return column{
+			role:   rolePrice,
+			metric: MetricCachedInputTokens,
+			unit:   UnitPer1MTokens,
+		}
 	case "output pricing (per 1m tokens)":
-		return column{rolePrice, MetricOutputTokens, UnitPer1MTokens}
+		return column{
+			role:   rolePrice,
+			metric: MetricOutputTokens,
+			unit:   UnitPer1MTokens,
+		}
 	case "pricing (per 1m tokens)":
-		return column{rolePrice, MetricInputTokens, UnitPer1MTokens}
+		return column{
+			role:   rolePrice,
+			metric: MetricInputTokens,
+			unit:   UnitPer1MTokens,
+		}
 	case "price per mp":
-		return column{rolePrice, MetricImageOutput, UnitPerMegapixel}
+		return column{
+			role:   rolePrice,
+			metric: MetricImageOutput,
+			unit:   UnitPerMegapixel,
+		}
 	case "price per video":
-		return column{rolePrice, MetricVideoOutput, UnitPerVideo}
+		return column{
+			role:   rolePrice,
+			metric: MetricVideoOutput,
+			unit:   UnitPerVideo,
+		}
 	case "pricing":
 		return column{role: rolePrice, metric: MetricAudio}
 	}
@@ -162,6 +196,12 @@ func (b *builder) applyRow(
 			m.SetAttr(AttrDefaultSteps, valueOrEmpty(cell))
 		case roleGeometry:
 			dims = dims.Merge(geometryDims(cell))
+		case roleQuantization:
+			m.SetAttr(AttrQuantization, valueOrEmpty(cell))
+		case roleFeature:
+			if strings.EqualFold(clean(cell), "yes") {
+				m.AddList(ListFeatures, col.feature)
+			}
 		}
 	}
 	for i, col := range cols {

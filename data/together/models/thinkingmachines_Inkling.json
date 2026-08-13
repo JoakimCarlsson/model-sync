@@ -24,10 +24,17 @@
     }
   ],
   "attrs": {
-    "author": "Thinking Machines"
+    "author": "Thinking Machines",
+    "quantization": "NVFP4"
   },
   "limits": {
     "context_window": 524288
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ]
   },
   "sources": [
     "https://docs.together.ai/docs/serverless-models.md"
