@@ -47,6 +47,11 @@
 //     anywhere else Cohere publishes. The card headed Command A+ quotes nothing
 //     but zero for an API key and a model download, which is the open weight
 //     licence rather than a rate, and is not read as one.
+//   - Anything at all about a nightly build beyond its existence. The two
+//     nightly Command models appear only in the table of platform identifiers,
+//     which has no column for a context length, an output ceiling or a
+//     modality, so they carry none of the three. Cohere documents them nowhere
+//     else.
 //   - A capability list. What a model can do is described in paragraphs on its
 //     own page, not enumerated, so no features are recorded. The endpoints
 //     column is the nearest thing the overview states and is kept as one.
