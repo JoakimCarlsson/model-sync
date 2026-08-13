@@ -1,0 +1,55 @@
+{
+  "id": "mistral-ocr-4-1",
+  "provider": "mistral",
+  "name": "OCR 4.1",
+  "kind": "ocr",
+  "prices": [
+    {
+      "metric": "ocr",
+      "unit": "per_1k_pages",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "page_kind": "annotated"
+      }
+    },
+    {
+      "metric": "ocr",
+      "unit": "per_1k_pages",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "page_kind": "plain"
+      }
+    }
+  ],
+  "attrs": {
+    "released": "2026-07-16",
+    "state": "preview",
+    "summary": "Our latest OCR service powering our Document AI stack, with native paragraph-level bounding box extraction, structural block labels, and block-level confidence scores.",
+    "version": "4.1"
+  },
+  "lists": {
+    "aliases": [
+      "mistral-ocr-4",
+      "mistral-ocr-latest"
+    ],
+    "features": [
+      "batching",
+      "bbox_extraction",
+      "ocr",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "file",
+      "image"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.mistral.ai/models/ocr-4-1"
+  ]
+}

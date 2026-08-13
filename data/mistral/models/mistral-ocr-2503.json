@@ -5,7 +5,7 @@
   "kind": "ocr",
   "attrs": {
     "deprecated_on": "2025-12-02",
-    "recommended_replacement": "OCR 4",
+    "recommended_replacement": "OCR 4.1",
     "released": "2025-03-06",
     "retirement_date": "2025-12-31",
     "state": "deprecated",

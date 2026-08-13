@@ -1,7 +1,7 @@
 {
   "id": "mistral-ocr-4-0",
   "provider": "mistral",
-  "name": "OCR 4",
+  "name": "OCR 4.0",
   "kind": "ocr",
   "prices": [
     {
@@ -30,10 +30,6 @@
     "version": "4.0"
   },
   "lists": {
-    "aliases": [
-      "mistral-ocr-4",
-      "mistral-ocr-latest"
-    ],
     "features": [
       "batching",
       "bbox_extraction",

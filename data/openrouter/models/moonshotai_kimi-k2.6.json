@@ -7,19 +7,19 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.16,
+      "amount": 0.0976,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.95,
+      "amount": 0.5795,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 4,
+      "amount": 2.44,
       "currency": "USD"
     }
   ],

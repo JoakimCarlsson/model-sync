@@ -29,7 +29,7 @@
     "tokenizer": "DeepSeek"
   },
   "limits": {
-    "context_window": 163840,
+    "context_window": 64000,
     "max_output_tokens": 16000,
     "top_provider_context_window": 64000
   },
@@ -37,7 +37,6 @@
     "features": [
       "frequency_penalty",
       "include_reasoning",
-      "max_completion_tokens",
       "max_tokens",
       "presence_penalty",
       "reasoning",
