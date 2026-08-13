@@ -1,0 +1,43 @@
+{
+  "id": "gemini-omni-flash-preview",
+  "provider": "google",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text-image-video-audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 17.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "video",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

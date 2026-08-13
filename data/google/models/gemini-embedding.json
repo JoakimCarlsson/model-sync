@@ -1,0 +1,30 @@
+{
+  "id": "gemini-embedding",
+  "provider": "google",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

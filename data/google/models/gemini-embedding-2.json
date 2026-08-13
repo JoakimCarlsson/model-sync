@@ -1,0 +1,170 @@
+{
+  "id": "gemini-embedding-2",
+  "provider": "google",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.25,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "paid",
+        "resolution": "0.00008-per-second",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.5,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "paid",
+        "resolution": "0.00016-per-second",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00008,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00016,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "paid",
+        "resolution": "0.00006-per-image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "paid",
+        "resolution": "0.00012-per-image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "paid",
+        "resolution": "0.000395-per-frame",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "paid",
+        "resolution": "0.00079-per-frame",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.000395,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00079,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

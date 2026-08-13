@@ -1,0 +1,40 @@
+{
+  "id": "imagen-4",
+  "provider": "google",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "variant": "fast"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "variant": "standard"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "variant": "ultra"
+      }
+    }
+  ],
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

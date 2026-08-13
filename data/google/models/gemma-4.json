@@ -1,0 +1,8 @@
+{
+  "id": "gemma-4",
+  "provider": "google",
+  "kind": "chat",
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

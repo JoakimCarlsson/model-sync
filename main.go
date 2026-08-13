@@ -16,6 +16,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/deepseek"
 	"github.com/joakimcarlsson/model-sync/providers/elevenlabs"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
+	"github.com/joakimcarlsson/model-sync/providers/google"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
 	"github.com/joakimcarlsson/model-sync/providers/openai"
 	"github.com/joakimcarlsson/model-sync/providers/openrouter"
@@ -78,6 +79,8 @@ func run(data, api, cache string, timeout time.Duration) error {
 	elevenlabsSource.CacheDir = cache
 	fireworksSource := fireworks.New()
 	fireworksSource.CacheDir = cache
+	googleSource := google.New()
+	googleSource.CacheDir = cache
 	groqSource := groq.New()
 	groqSource.CacheDir = cache
 	sources := []catalog.Source{
@@ -88,6 +91,7 @@ func run(data, api, cache string, timeout time.Duration) error {
 		deepseekSource,
 		elevenlabsSource,
 		fireworksSource,
+		googleSource,
 		groqSource,
 		perplexitySource,
 		openaiSource,
