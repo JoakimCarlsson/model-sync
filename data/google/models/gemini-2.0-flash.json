@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.0-flash",
   "provider": "google",
+  "name": "Gemini 2.0 Flash",
   "kind": "chat",
   "prices": [
     {
@@ -158,7 +159,39 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "February 2025",
+    "model_code": "gemini-2.0-flash"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 8192
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.0-flash"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "function_calling",
+      "grounding_with_google_maps",
+      "prompt_caching",
+      "structured_outputs",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

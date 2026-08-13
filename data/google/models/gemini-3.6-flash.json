@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.6-flash",
   "provider": "google",
+  "name": "Gemini 3.6 Flash",
   "kind": "chat",
   "prices": [
     {
@@ -204,7 +205,51 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "July 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-6-flash/",
+    "model_code": "gemini-3.6-flash",
+    "summary": "Gemini 3.6 Flash provides sustained frontier-level intelligence optimized for real-world tasks at a higher speed and lower cost. Designed for the agentic era, it excels at code generation, agentic execution, and spatial reasoning. This model is particularly effective for rapid agentic loops involving complex coding cycles and iterations."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.6-flash"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "computer_use",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.6-flash"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

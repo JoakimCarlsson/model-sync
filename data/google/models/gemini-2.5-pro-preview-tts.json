@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.5-pro-preview-tts",
   "provider": "google",
+  "name": "Gemini 2.5 Pro Text-to-Speech",
   "kind": "speech",
   "prices": [
     {
@@ -48,7 +49,32 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "December 2025",
+    "model_code": "gemini-2.5-pro-preview-tts",
+    "summary": "Our premium engine for studio-quality speech synthesis, offering high-fidelity and sophisticated audio generation. Gemini 2.5 Pro TTS is best for long-form content, professional narrations, and complex creative workflows that require the highest level of vocal clarity and natural prosody."
+  },
+  "limits": {
+    "context_window": 8192,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.5-pro-preview-tts"
+    ],
+    "features": [
+      "audio_generation",
+      "batch"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

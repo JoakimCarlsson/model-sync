@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.1-flash-live-preview",
   "provider": "google",
+  "name": "Gemini 3.1 Flash Live Preview",
   "kind": "chat",
   "prices": [
     {
@@ -87,7 +88,43 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "March 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/",
+    "model_code": "gemini-3.1-flash-live-preview",
+    "summary": "Gemini 3.1 Flash Live Preview is our low-latency, audio-to-audio model optimized for real-time dialogue and voice-first AI applications with acoustic nuance detection, numeric precision, and multimodal awareness."
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.1-flash-live-preview"
+    ],
+    "features": [
+      "audio_generation",
+      "function_calling",
+      "live_api",
+      "reasoning",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.1-flash-live-preview"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.5-flash",
   "provider": "google",
+  "name": "Gemini 3.5 Flash",
   "kind": "chat",
   "prices": [
     {
@@ -204,7 +205,52 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "May 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-5-flash/",
+    "model_code": "gemini-3.5-flash",
+    "summary": "Gemini 3.5 Flash provides sustained frontier-level intelligence optimized for real-world tasks at a higher speed and lower cost. Designed for the agentic era, it excels at sub-agent deployment, multi-step workflows, and long-horizon tasks at scale. This model is particularly effective for rapid agentic loops involving complex coding cycles and iterations."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.5-flash"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "computer_use",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3-flash-preview",
+      "gemini-3.5-flash"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "gemini-embedding-2",
   "provider": "google",
+  "name": "Gemini Embedding 2 model",
   "kind": "embedding",
   "prices": [
     {
@@ -164,7 +165,24 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "April 2026",
+    "model_code": "Gemini API gemini-embedding-2",
+    "summary": "Our first multimodal embedding model, providing efficient numerical mapping of text, images, video, audio, and PDFs into a single unified embedding space. The Gemini Embedding 2 model is best for cross-modal semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large multimodal datasets."
+  },
+  "limits": {
+    "context_window": 8192
+  },
+  "lists": {
+    "aliases": [
+      "Gemini API gemini-embedding-2"
+    ],
+    "snapshots": [
+      "gemini-embedding-2"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

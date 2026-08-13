@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.1-pro-preview",
   "provider": "google",
+  "name": "Gemini 3.1 Pro Preview",
   "kind": "chat",
   "prices": [
     {
@@ -324,7 +325,51 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "February 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
+    "model_code": "gemini-3.1-pro-preview",
+    "summary": "Built to refine the performance and reliability of the Gemini 3 Pro series, Gemini 3.1 Pro Preview provides better thinking, improved token efficiency, and a more grounded, factually consistent experience. It&#39;s optimized for software engineering behavior and usability, as well as agentic workflows requiring precise tool usage and reliable multi-step execution across real-world domains."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.1-pro-preview"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-pro-preview-customtools"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

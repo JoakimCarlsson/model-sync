@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.5-flash-image-nano-banana",
   "provider": "google",
+  "name": "Gemini 2.5 Flash Image (Nano Banana)",
   "kind": "image",
   "prices": [
     {
@@ -88,7 +89,42 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "October 2025",
+    "model_code": "gemini-2.5-flash-image",
+    "summary": "Our best engine for high-velocity visual creation, offering state-of-the-art speed and efficiency. Gemini 2.5 Flash Image, also known as Nano Banana, is best for high-volume generation, conversational image editing, and low-latency creative workflows that require native multimodal understanding."
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.5-flash-image"
+    ],
+    "features": [
+      "batch",
+      "flex_inference",
+      "image_generation",
+      "priority_inference",
+      "prompt_caching",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-2.5-flash-image",
+      "gemini-2.5-flash-image-preview"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

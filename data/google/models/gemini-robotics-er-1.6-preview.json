@@ -1,6 +1,7 @@
 {
   "id": "gemini-robotics-er-1.6-preview",
   "provider": "google",
+  "name": "Gemini Robotics ER 1.6",
   "kind": "chat",
   "prices": [
     {
@@ -88,7 +89,49 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "December 2025",
+    "model_code": "gemini-robotics-er-1.6-preview",
+    "summary": "Gemini Robotics ER 1.6 is a vision-language model (VLM) that brings Gemini&#39;s agentic capabilities to robotics. It&#39;s designed for advanced reasoning in the physical world, allowing robots to interpret complex visual data, perform spatial reasoning, and plan actions from natural language commands."
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-robotics-er-1.6-preview"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "computer_use",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-robotics-er-1.6-preview"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

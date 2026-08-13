@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.1-flash-lite",
   "provider": "google",
+  "name": "Gemini 3.1 Flash-Lite",
   "kind": "chat",
   "prices": [
     {
@@ -300,7 +301,47 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "May 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/",
+    "model_code": "gemini-3.1-flash-lite",
+    "summary": "Gemini 3.1 Flash-Lite is a low-latency, cost-effective multimodal model optimized for high-frequency, lightweight tasks. The model supports text, image, video, audio, and PDF inputs, and is designed for high-volume agentic workflows, simple data extraction, and applications where latency and API cost are the primary constraints."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.1-flash-lite"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

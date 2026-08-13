@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.5-computer-use-preview",
   "provider": "google",
+  "name": "Gemini 2.5 Computer Use model",
   "kind": "chat",
   "prices": [
     {
@@ -40,7 +41,28 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "October 2025",
+    "model_code": "Gemini API gemini-2.5-computer-use-preview-10-2025",
+    "summary": "An agentic capability model designed for direct interface interaction, allowing Gemini to perceive and navigate digital environments. Gemini 2.5 Computer Use is best for browser automation, multi-step software tasks, and UI testing that requires visual reasoning and precise cursor control."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 64000
+  },
+  "lists": {
+    "aliases": [
+      "Gemini API gemini-2.5-computer-use-preview-10-2025"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-2.5-computer-use-preview-10-2025"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

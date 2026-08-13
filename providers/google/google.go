@@ -1,13 +1,10 @@
 package google
 
 import (
-	"context"
-	"fmt"
-	"io"
+	"maps"
 	"net/http"
-	"os"
-	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -21,18 +18,12 @@ const (
 	providerName = "Google"
 )
 
-// PricingURL is the page stating the Gemini API's rates.
-const PricingURL = "https://ai.google.dev/gemini-api/docs/pricing"
-
-// cacheFile is where a fetched document is kept.
-const cacheFile = "google_gemini_pricing.html"
-
-// Provider reads Google's Gemini pricing. The zero value is not usable; call
-// New.
+// Provider reads Google's Gemini pricing and model documentation. The zero
+// value is not usable; call New.
 type Provider struct {
-	// Client performs the fetch.
+	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
+	// CacheDir, when set, backs every fetch with a file on disk.
 	CacheDir string
 }
 
@@ -47,68 +38,100 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the pricing page.
-func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: PricingURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(
-		ctx,
-		http.MethodGet,
-		PricingURL,
-		nil,
-	)
-	if err != nil {
-		return nil, err
-	}
-	client := p.Client
-	if client == nil {
-		client = http.DefaultClient
-	}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", PricingURL, err)
-	}
-	defer func() { _ = resp.Body.Close() }()
-	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", PricingURL, resp.Status)
-	}
-	body, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", PricingURL, err)
-	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: PricingURL, Body: body}}, nil
-}
-
-// Parse reads the pricing page.
+// Parse reads the pricing page first, because it is the only document naming
+// every model the catalog holds, then attaches each model page to the model it
+// describes.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyPricing(doc)
+		if doc.URL == PricingURL {
+			b.applyPricing(doc)
+		}
+	}
+	pages := make([]catalog.Document, 0, len(docs))
+	for _, doc := range docs {
+		if strings.HasPrefix(doc.URL, modelPagePre) {
+			pages = append(pages, doc)
+		}
+	}
+	for i, id := range b.pair(pages) {
+		b.applyModelPage(pages[i], id)
 	}
 	return b.result(), nil
 }
 
-// readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
+// pair decides which model each page describes.
+//
+// The pricing page heads a model with the name it sells under and the model
+// page addresses it by the identifier the API answers to, and the two drift:
+// what pricing heads "Gemini 3.1 Flash Image (Nano Banana 2)" the API calls
+// gemini-3.1-flash-image. One is therefore a prefix of the other as often as
+// they are equal, in either direction, and matching on that alone would let
+// one model's page attach to another model, since gemini-2.5-flash prefixes
+// several models that are not it.
+//
+// The pairing is made one to one to prevent that. Pages that name a model
+// exactly are settled first, then those whose model extends the page's
+// address, then those whose address extends the model, and each round can only
+// claim a model no earlier round took. A page matching nothing left describes a
+// model the pricing page does not price, and is left unpaired.
+//
+// The result is indexed alongside pages, holding the empty string where a page
+// paired with nothing.
+func (b *builder) pair(pages []catalog.Document) []string {
+	out := make([]string, len(pages))
+	taken := map[string]bool{}
+	var rest []int
+	for i, doc := range pages {
+		id := pageID(doc)
+		if b.models[id] == nil || taken[id] {
+			rest = append(rest, i)
+			continue
+		}
+		out[i], taken[id] = id, true
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
-	return body, err == nil
+	for _, extends := range []func(page, id string) bool{
+		func(page, id string) bool { return strings.HasPrefix(id, page+"-") },
+		func(page, id string) bool { return strings.HasPrefix(page, id+"-") },
+	} {
+		remaining := rest[:0]
+		for _, i := range rest {
+			best := b.longestUnclaimed(pageID(pages[i]), taken, extends)
+			if best == "" {
+				remaining = append(remaining, i)
+				continue
+			}
+			out[i], taken[best] = best, true
+		}
+		rest = remaining
+	}
+	return out
 }
 
-// writeCache stores a document, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
-	if p.CacheDir == "" {
-		return
+// longestUnclaimed returns the longest model identifier still free that stands
+// in the given relation to a page's address, and the first in identifier order
+// where two are equally long, so that a run is reproducible.
+func (b *builder) longestUnclaimed(
+	page string,
+	taken map[string]bool,
+	extends func(page, id string) bool,
+) string {
+	best := ""
+	for _, id := range slices.Sorted(maps.Keys(b.models)) {
+		if taken[id] || !extends(page, id) {
+			continue
+		}
+		if len(id) > len(best) {
+			best = id
+		}
 	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	return best
+}
+
+// pageID returns the identifier a model page is addressed by, which is the
+// identifier the API answers to.
+func pageID(doc catalog.Document) string {
+	return strings.TrimPrefix(doc.URL, modelPagePre)
 }
 
 // builder accumulates models.

@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.5-live-translate",
   "provider": "google",
+  "name": "Gemini 3.5 Live Translate",
   "kind": "chat",
   "prices": [
     {
@@ -44,7 +45,37 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "June 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
+    "model_code": "gemini-3.5-live-translate-preview",
+    "summary": "Gemini 3.5 Live Translate is our low-latency, audio-to-audio model optimized for real-time translation of spoken conversations. It enables seamless, bidirectional translation with high accuracy and natural voice output."
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.5-live-translate-preview"
+    ],
+    "features": [
+      "audio_generation",
+      "live_api"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.5-live-translate-preview"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

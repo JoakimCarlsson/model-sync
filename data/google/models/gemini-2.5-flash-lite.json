@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.5-flash-lite",
   "provider": "google",
+  "name": "Gemini 2.5 Flash-Lite",
   "kind": "chat",
   "prices": [
     {
@@ -320,7 +321,49 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "July 2025",
+    "model_code": "gemini-2.5-flash-lite",
+    "summary": "Our most cost-efficient multimodal model, offering the fastest performance for high-frequency, lightweight tasks. Gemini 2.5 Flash-Lite is best for high-volume classification, simple data extraction, and extremely low-latency applications where budget and speed are the primary constraints."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.5-flash-lite"
+    ],
+    "features": [
+      "batch",
+      "code_execution",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-2.5-flash-lite"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

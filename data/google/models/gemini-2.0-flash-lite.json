@@ -1,6 +1,7 @@
 {
   "id": "gemini-2.0-flash-lite",
   "provider": "google",
+  "name": "Gemini 2.0 Flash-Lite",
   "kind": "chat",
   "prices": [
     {
@@ -44,7 +45,36 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "February 2025",
+    "model_code": "gemini-2.0-flash-lite"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 8192
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.0-flash-lite"
+    ],
+    "features": [
+      "batch",
+      "function_calling",
+      "prompt_caching",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.0-flash-lite",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

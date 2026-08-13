@@ -1,6 +1,7 @@
 {
   "id": "gemini-3-pro-image-nano-banana-pro",
   "provider": "google",
+  "name": "Gemini 3 Pro Image",
   "kind": "image",
   "prices": [
     {
@@ -226,7 +227,41 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "November 2025",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-pro-image/",
+    "model_code": "gemini-3-pro-image"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3-pro-image"
+    ],
+    "features": [
+      "batch",
+      "flex_inference",
+      "image_generation",
+      "priority_inference",
+      "reasoning",
+      "web_search"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3-pro-image"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

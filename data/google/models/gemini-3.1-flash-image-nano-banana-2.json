@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.1-flash-image-nano-banana-2",
   "provider": "google",
+  "name": "Gemini 3.1 Flash Image",
   "kind": "image",
   "prices": [
     {
@@ -160,7 +161,40 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "February 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/",
+    "model_code": "gemini-3.1-flash-image"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.1-flash-image"
+    ],
+    "features": [
+      "batch",
+      "image_generation",
+      "reasoning",
+      "web_search"
+    ],
+    "input_modalities": [
+      "file",
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.1-flash-image"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "gemini-3.1-flash-lite-image-nano-banana-2-lite",
   "provider": "google",
+  "name": "Gemini 3.1 Flash Lite Image",
   "kind": "image",
   "prices": [
     {
@@ -90,7 +91,40 @@
       }
     }
   ],
+  "attrs": {
+    "latest_update": "June 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/",
+    "model_code": "gemini-3.1-flash-lite-image"
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "aliases": [
+      "gemini-3.1-flash-lite-image"
+    ],
+    "features": [
+      "batch",
+      "function_calling",
+      "image_editing",
+      "image_generation",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.1-flash-lite-image"
+    ]
+  },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]
 }
