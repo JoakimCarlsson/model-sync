@@ -10,7 +10,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "structured_outputs"
     ],
     "input_modalities": [
       "image",
@@ -26,6 +27,7 @@
     ]
   },
   "sources": [
+    "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
     "https://ollama.com/library/ministral-3/tags"
   ]

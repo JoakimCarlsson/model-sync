@@ -26,6 +26,12 @@ const baseURL = "https://ollama.com"
 // LibraryURL is the page listing every model Ollama distributes.
 const LibraryURL = baseURL + "/library"
 
+// StructuredOutputsURL documents the one capability the library has no tag
+// for. It belongs to the runtime rather than to a model, which is why no model
+// is tagged with it.
+const StructuredOutputsURL = "https://docs.ollama.com/capabilities/" +
+	"structured-outputs.md"
+
 // fetchWorkers bounds the concurrent requests made for the tag listings.
 const fetchWorkers = 8
 
@@ -59,7 +65,8 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	if err != nil {
 		return nil, err
 	}
-	listings, failures := p.getAll(ctx, tagListingURLs(library))
+	urls := append(tagListingURLs(library), StructuredOutputsURL)
+	listings, failures := p.getAll(ctx, urls)
 	return append([]catalog.Document{library}, listings...),
 		errors.Join(failures...)
 }
@@ -155,7 +162,8 @@ func (p *Provider) get(
 }
 
 // Parse reads the library first, because it is the only document naming the
-// models, then each tag listing onto the model it belongs to.
+// models, then each tag listing onto the model it belongs to, and last the one
+// page stating a capability the library has no tag for.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -164,7 +172,11 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL != LibraryURL {
+		switch doc.URL {
+		case LibraryURL:
+		case StructuredOutputsURL:
+			b.applyStructuredOutputs(doc)
+		default:
 			b.applyTagListing(doc)
 		}
 	}

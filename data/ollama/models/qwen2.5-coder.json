@@ -10,7 +10,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "structured_outputs"
     ],
     "input_modalities": [
       "text"
@@ -28,6 +29,7 @@
     ]
   },
   "sources": [
+    "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
     "https://ollama.com/library/qwen2.5-coder/tags"
   ]

@@ -9,6 +9,9 @@
     "context_window": 125000
   },
   "lists": {
+    "features": [
+      "structured_outputs"
+    ],
     "input_modalities": [
       "image",
       "text"
@@ -24,6 +27,7 @@
     ]
   },
   "sources": [
+    "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
     "https://ollama.com/library/qwen2.5vl/tags"
   ]

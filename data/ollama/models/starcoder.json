@@ -9,6 +9,9 @@
     "context_window": 8000
   },
   "lists": {
+    "features": [
+      "structured_outputs"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -23,6 +26,7 @@
     ]
   },
   "sources": [
+    "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
     "https://ollama.com/library/starcoder/tags"
   ]

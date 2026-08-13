@@ -17,6 +17,13 @@
 // an image — and are recorded as modalities instead. For the same reason a
 // model that reads images is a chat model here rather than a kind of its own.
 //
+// One capability has no tag, and would be the same tag on every model if it
+// had one. Ollama constrains the decoding itself, so a JSON schema holds for
+// whatever model is loaded, and it documents that once rather than per model.
+// The page saying so is read, and the capability recorded for every model
+// Ollama generates with. An embedding model returns a vector, which no schema
+// describes, and is left alone.
+//
 // The library states no bound on any model. Each model's tag listing does,
 // once per build, so the listings are read too. The builds differ, since a
 // quantization at one size may hold a shorter context than another, and the

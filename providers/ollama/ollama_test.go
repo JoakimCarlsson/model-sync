@@ -23,6 +23,7 @@ func fixtures(t *testing.T) []catalog.Document {
 			"tags-nomic-embed-text.html",
 		},
 		{LibraryURL + "/qwen3" + tagsPath, "tags-qwen3.html"},
+		{StructuredOutputsURL, "structured-outputs.md"},
 	} {
 		body, err := os.ReadFile(filepath.Join("testdata", f.file))
 		if err != nil {
@@ -48,6 +49,10 @@ func parse(t *testing.T) map[string]catalog.Model {
 
 // TestParseSizesAndCapabilities covers the rule the library forces: capabilities
 // and parameter sizes are tags in one list, told apart by shape.
+//
+// The features listed here are the tags alone. Structured output is not one:
+// it comes from another document, holds for every model Ollama generates with,
+// and is covered on its own below.
 func TestParseSizesAndCapabilities(t *testing.T) {
 	byID := parse(t)
 	cases := []struct {
@@ -75,14 +80,23 @@ func TestParseSizesAndCapabilities(t *testing.T) {
 		if !slices.Equal(got, want) {
 			t.Errorf("%s: got sizes %q, want %q", c.id, got, want)
 		}
-		got = slices.Clone(m.Lists[ListFeatures])
+		got = tagged(m.Lists[ListFeatures])
 		want = slices.Clone(c.features)
 		slices.Sort(got)
 		slices.Sort(want)
 		if !slices.Equal(got, want) {
-			t.Errorf("%s: got features %q, want %q", c.id, got, want)
+			t.Errorf("%s: got tagged features %q, want %q", c.id, got, want)
 		}
 	}
+}
+
+// tagged returns the features the library tagged, dropping the one the runtime
+// gives every model regardless of its tags.
+func tagged(features []string) []string {
+	out := slices.Clone(features)
+	return slices.DeleteFunc(out, func(f string) bool {
+		return f == catalog.CapabilityStructuredOutputs
+	})
 }
 
 // TestParseVisionIsAModality covers the two tags that name a modality rather
@@ -164,5 +178,33 @@ func TestParseNoPricesOrWidths(t *testing.T) {
 		if got := m.Lists["embedding_dimensions"]; len(got) != 0 {
 			t.Errorf("%s: got widths %q, want none published", id, got)
 		}
+	}
+}
+
+// TestParseStructuredOutputs covers the capability the library has no tag for,
+// because it belongs to the runtime and would be the same tag on every model.
+// It stops at the models Ollama generates with: an embedding model returns a
+// vector, which no schema describes.
+func TestParseStructuredOutputs(t *testing.T) {
+	chat, embedding := 0, 0
+	for id, m := range parse(t) {
+		has := slices.Contains(
+			m.Lists[ListFeatures],
+			catalog.CapabilityStructuredOutputs,
+		)
+		if m.Kind == KindEmbedding {
+			if has {
+				t.Errorf("%s: an embedding model claiming structured output", id)
+			}
+			embedding++
+			continue
+		}
+		if !has {
+			t.Errorf("%s: got features %q, want structured output", id, m.Lists[ListFeatures])
+		}
+		chat++
+	}
+	if chat == 0 || embedding == 0 {
+		t.Fatalf("got %d chat and %d embedding, want both covered", chat, embedding)
 	}
 }

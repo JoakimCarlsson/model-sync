@@ -41,9 +41,40 @@ var capabilityKinds = map[string]catalog.Kind{
 // capabilityFeatures map a capability tag onto the catalog's vocabulary.
 // Ollama's own words for these are shared with no other provider.
 var capabilityFeatures = map[string]string{
-	"tools":    "function_calling",
-	"thinking": "reasoning",
+	"tools":    catalog.CapabilityFunctionCalling,
+	"thinking": catalog.CapabilityReasoning,
 	"insert":   "fill_in_the_middle",
+}
+
+// schemaRe matches the sentence stating what structured outputs do, which is
+// the whole of what Ollama says about which models have them: the capability
+// belongs to the runtime, so the sentence names none. It is matched rather
+// than assumed, so a page rewritten to name particular models stops yielding
+// the capability for all of them.
+var schemaRe = regexp.MustCompile(
+	`(?i)Structured outputs let you enforce a JSON schema on model responses`,
+)
+
+// applyStructuredOutputs records the capability against every model that
+// generates a response.
+//
+// The library tags each model with what it can do and has no tag for this, and
+// the reason is that it would be the same tag on every one of them: Ollama
+// constrains the decoding itself, so a schema holds for whatever model is
+// loaded. That makes its scope the models Ollama generates with. An embedding
+// model returns a vector, which no schema describes, and is left alone.
+func (b *builder) applyStructuredOutputs(doc catalog.Document) {
+	if !schemaRe.Match(doc.Body) {
+		return
+	}
+	for _, id := range b.order {
+		m := b.models[id]
+		if m.Kind == KindEmbedding {
+			continue
+		}
+		m.AddList(ListFeatures, catalog.CapabilityStructuredOutputs)
+		m.AddSource(doc.URL)
+	}
 }
 
 // capabilityModalities map a capability tag onto the modality it really names.
