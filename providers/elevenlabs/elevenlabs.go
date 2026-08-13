@@ -21,11 +21,18 @@ const (
 // ModelsURL is the page listing every model ElevenLabs serves.
 const ModelsURL = "https://elevenlabs.io/docs/overview/models.md"
 
-// cacheFile is where a fetched document is kept.
-const cacheFile = "elevenlabs_models.md"
+// PricingURL is the only page stating a rate in dollars. The documentation
+// quotes credits, which are a plan allowance rather than a price.
+const PricingURL = "https://elevenlabs.io/pricing/api"
 
-// Provider reads ElevenLabs' models page. The zero value is not usable; call
-// New.
+// cacheFiles is where each fetched document is kept.
+var cacheFiles = map[string]string{
+	ModelsURL:  "elevenlabs_models.md",
+	PricingURL: "elevenlabs_pricing_api.html",
+}
+
+// Provider reads ElevenLabs' models and pricing pages. The zero value is not
+// usable; call New.
 type Provider struct {
 	// Client performs the fetch.
 	Client *http.Client
@@ -44,14 +51,32 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page.
+// Fetch retrieves the models page and the pricing page.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, ModelsURL, nil)
+	models, err := p.get(ctx, ModelsURL)
 	if err != nil {
 		return nil, err
+	}
+	docs := []catalog.Document{models}
+	pricing, err := p.get(ctx, PricingURL)
+	if err != nil {
+		return docs, err
+	}
+	return append(docs, pricing), nil
+}
+
+// get retrieves one document, reading from and writing to the cache directory
+// when one is configured.
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
 	}
 	client := p.Client
 	if client == nil {
@@ -59,48 +84,56 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", ModelsURL, resp.Status)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", ModelsURL, err)
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: ModelsURL, Body: body}}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the models page.
+// Parse reads the models page first, because it is the only document naming an
+// identifier, then prices the families the pricing page quotes.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyModels(doc)
+		if doc.URL == ModelsURL {
+			b.applyModels(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL == PricingURL {
+			b.applyPricing(doc)
+		}
 	}
 	return b.result(), nil
 }
 
 // readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
+func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFiles[url]))
 	return body, err == nil
 }
 
 // writeCache stores a document, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCache(url string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFiles[url]), body, 0o644)
 }
 
 // builder accumulates models.

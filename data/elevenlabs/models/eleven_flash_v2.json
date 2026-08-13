@@ -2,6 +2,14 @@
   "id": "eleven_flash_v2",
   "provider": "elevenlabs",
   "kind": "speech",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.05,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "approximate_audio_duration": "~30 minutes",
     "state": "current",
@@ -16,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://elevenlabs.io/docs/overview/models.md"
+    "https://elevenlabs.io/docs/overview/models.md",
+    "https://elevenlabs.io/pricing/api"
   ]
 }

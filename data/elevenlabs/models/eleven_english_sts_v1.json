@@ -2,6 +2,14 @@
   "id": "eleven_english_sts_v1",
   "provider": "elevenlabs",
   "kind": "voice-changer",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.12,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "approximate_audio_duration": "~10 minutes",
     "state": "current"
@@ -10,6 +18,7 @@
     "character_limit": 10000
   },
   "sources": [
-    "https://elevenlabs.io/docs/overview/models.md"
+    "https://elevenlabs.io/docs/overview/models.md",
+    "https://elevenlabs.io/pricing/api"
   ]
 }

@@ -2,6 +2,14 @@
   "id": "music_v1",
   "provider": "elevenlabs",
   "kind": "music",
+  "prices": [
+    {
+      "metric": "audio_output",
+      "unit": "per_minute",
+      "amount": 0.15,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "state": "current",
     "summary": "Studio-grade music generation from text prompts. Outclassed by music_v2"
@@ -15,6 +23,7 @@
     ]
   },
   "sources": [
-    "https://elevenlabs.io/docs/overview/models.md"
+    "https://elevenlabs.io/docs/overview/models.md",
+    "https://elevenlabs.io/pricing/api"
   ]
 }

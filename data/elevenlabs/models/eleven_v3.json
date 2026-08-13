@@ -2,6 +2,14 @@
   "id": "eleven_v3",
   "provider": "elevenlabs",
   "kind": "speech",
+  "prices": [
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0.1,
+      "currency": "USD"
+    }
+  ],
   "attrs": {
     "approximate_audio_duration": "~5 minutes",
     "state": "current",
@@ -11,6 +19,7 @@
     "character_limit": 5000
   },
   "sources": [
-    "https://elevenlabs.io/docs/overview/models.md"
+    "https://elevenlabs.io/docs/overview/models.md",
+    "https://elevenlabs.io/pricing/api"
   ]
 }
