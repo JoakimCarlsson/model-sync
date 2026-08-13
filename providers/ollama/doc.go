@@ -23,6 +23,20 @@
 // one recorded is the build Ollama serves by default, because that is what
 // running the model plainly gives.
 //
-// What Ollama does not publish: a display name distinct from the identifier,
-// and any bound on output length.
+// A context window is recorded as the listing writes it. A tag reading "2K
+// context window" becomes 2000 and not 2048: the rounded figure is what Ollama
+// states, and the exact one is in the model's own metadata, which its pages do
+// not carry.
+//
+// What Ollama does not publish, on any page:
+//
+//   - A display name distinct from the identifier.
+//   - Any bound on output length.
+//   - The width of the vector an embedding model returns. Twelve embedding
+//     models are in the library and none of its pages states one. The figure
+//     does exist, as the embedding_length of the GGUF metadata behind the
+//     registry, but nothing in the library or on a model's page links to it:
+//     reaching it means resolving a manifest against the registry service and
+//     then a blob, per model, rather than reading a document Ollama publishes.
+//     That is why the width is absent here rather than being derived.
 package ollama
