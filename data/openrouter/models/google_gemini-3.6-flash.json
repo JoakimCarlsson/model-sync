@@ -7,49 +7,49 @@
     {
       "metric": "audio_input",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 0.75,
       "currency": "USD"
     },
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0833333333333333,
+      "amount": 0.0416666666666667,
       "currency": "USD"
     },
     {
       "metric": "cached_audio_input",
       "unit": "per_1m_tokens",
-      "amount": 0.15,
+      "amount": 0.075,
       "currency": "USD"
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.15,
+      "amount": 0.075,
       "currency": "USD"
     },
     {
       "metric": "image_input",
       "unit": "per_image",
-      "amount": 0.0000015,
+      "amount": 7.5e-7,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 0.75,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 7.5,
+      "amount": 3.75,
       "currency": "USD"
     },
     {
       "metric": "reasoning_tokens",
       "unit": "per_1m_tokens",
-      "amount": 7.5,
+      "amount": 3.75,
       "currency": "USD"
     },
     {

@@ -13,7 +13,7 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0416666666666667,
+      "amount": 0.0208333333333333,
       "currency": "USD"
     },
     {

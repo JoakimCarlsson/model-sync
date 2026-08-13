@@ -7,19 +7,19 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0252,
+      "amount": 0.016,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.079996,
+      "amount": 0.072,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.252,
+      "amount": 0.144,
       "currency": "USD"
     }
   ],
@@ -32,7 +32,8 @@
   },
   "limits": {
     "context_window": 1048576,
-    "top_provider_context_window": 1048576
+    "max_output_tokens": 262144,
+    "top_provider_context_window": 262144
   },
   "lists": {
     "features": [

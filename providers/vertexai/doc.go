@@ -47,9 +47,18 @@
 // context_window finds an embedding model's input bound where it finds every
 // other model's.
 //
-// What Google does not publish: a page for every model Vertex bills for. The
-// Gemma variants offered for self-deployment and the older Llama releases are
-// metered with none, and carry rates alone.
+// What Google does not publish: a page for every model Vertex bills for. Half
+// its chat models carry rates alone, which is three groups rather than one.
+// The Gemma variants offered for self-deployment and the older Llama releases
+// never had a page. The older Gemini releases had one and no longer do, 2.0
+// Flash among them, because the index links the models Google documents today
+// and a model it still bills for can have fallen off it. And several SKUs name
+// no single model at all: "gemini-3.0-3.1-pro" is one meter covering two
+// releases, so there is no page it could be joined to.
+//
+// A model whose page is published after a sync stays in the first group until
+// the next one. That is not a gap in the join, which matches on the identifier
+// both documents state, and the fix for it is to sync again.
 //
 // An embedding page marks "Embeddings" as its output, which is what the model
 // returns rather than a modality it returns it in. The catalog has no word for a
