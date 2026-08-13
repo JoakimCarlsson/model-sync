@@ -19,7 +19,8 @@
   ],
   "attrs": {
     "author": "OpenAI",
-    "quantization": "MXFP4"
+    "quantization": "MXFP4",
+    "reasoning_mode": "adjustable effort"
   },
   "limits": {
     "context_window": 128000
@@ -27,6 +28,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -37,6 +39,7 @@
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/inference/chat/reasoning.md",
     "https://docs.together.ai/docs/serverless-models.md"
   ]
 }

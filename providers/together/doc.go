@@ -15,6 +15,15 @@
 // are recorded: a model answering no to both carries no capability list, which
 // is as close as the catalog comes to saying it has neither.
 //
+// The third capability has no column. Together states which models reason on a
+// page of its own, as a table of the models that do, so that page is read too
+// and its rows matched to the catalog's by the identifier both state. That
+// table says more than the fact: its type column separates a model that always
+// reasons from one that can be switched and one that takes an effort setting,
+// which is recorded alongside. A row naming a model the catalog does not carry
+// is skipped rather than creating one, because the page closes by naming
+// several more that run only on dedicated inference.
+//
 // What a model takes and returns is stated by which of the eight tables it is
 // listed in, and nowhere else. A model in the vision table is a chat model that
 // also takes images — every one of them is in the chat table too — so the two

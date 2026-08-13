@@ -9,19 +9,23 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// parse runs the parser over the catalog page, read from disk so the test
-// never touches the network.
+// parse runs the parser over both pages, read from disk so the test never
+// touches the network. The reasoning page is kept as the table that lists the
+// models and no further, the rest of it being worked examples.
 func parse(t *testing.T) map[string]catalog.Model {
 	t.Helper()
-	body, err := os.ReadFile(
-		filepath.Join("testdata", "serverless-models.md"),
-	)
-	if err != nil {
-		t.Fatal(err)
+	docs := []catalog.Document{}
+	for _, f := range []struct{ url, file string }{
+		{CatalogURL, "serverless-models.md"},
+		{ReasoningURL, "reasoning.md"},
+	} {
+		body, err := os.ReadFile(filepath.Join("testdata", f.file))
+		if err != nil {
+			t.Fatal(err)
+		}
+		docs = append(docs, catalog.Document{URL: f.url, Body: body})
 	}
-	models, err := New().Parse([]catalog.Document{
-		{URL: CatalogURL, Body: body},
-	})
+	models, err := New().Parse(docs)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -139,5 +143,32 @@ func TestParseNoOutputBound(t *testing.T) {
 				t.Errorf("%s: unexpected limit %q", id, key)
 			}
 		}
+	}
+}
+
+// TestParseReasoning covers the capability the catalog page has no column for,
+// which Together lists on a page of its own along with how it is controlled.
+func TestParseReasoning(t *testing.T) {
+	byID := parse(t)
+	for id, mode := range map[string]string{
+		"openai/gpt-oss-120b":               "adjustable effort",
+		"deepseek-ai/DeepSeek-V4-Pro":       "hybrid (on by default)",
+		"nvidia/nemotron-3-ultra-550b-a55b": "hybrid (on by default)",
+	} {
+		m, ok := byID[id]
+		if !ok {
+			t.Errorf("%s: not parsed", id)
+			continue
+		}
+		if !slices.Contains(m.Lists[ListFeatures], catalog.CapabilityReasoning) {
+			t.Errorf("%s: got features %q, want reasoning", id, m.Lists[ListFeatures])
+		}
+		if got := m.Attrs[AttrReasoningMode]; got != mode {
+			t.Errorf("%s: got mode %q, want %q", id, got, mode)
+		}
+	}
+	m := byID["meta-llama/Llama-3.3-70B-Instruct-Turbo"]
+	if slices.Contains(m.Lists[ListFeatures], catalog.CapabilityReasoning) {
+		t.Errorf("a model the page does not list got %q", m.Lists[ListFeatures])
 	}
 }

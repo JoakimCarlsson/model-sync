@@ -142,8 +142,8 @@ var modalityFlows = map[string]flow{
 
 // Capabilities the catalog's columns report on.
 const (
-	FeatureFunctionCalling   = "function_calling"
-	FeatureStructuredOutputs = "structured_outputs"
+	FeatureFunctionCalling   = catalog.CapabilityFunctionCalling
+	FeatureStructuredOutputs = catalog.CapabilityStructuredOutputs
 )
 
 var (

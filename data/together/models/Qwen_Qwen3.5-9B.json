@@ -19,7 +19,8 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "quantization": "FP8"
+    "quantization": "FP8",
+    "reasoning_mode": "hybrid (on by default)"
   },
   "limits": {
     "context_window": 262144
@@ -27,6 +28,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -38,6 +40,7 @@
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/inference/chat/reasoning.md",
     "https://docs.together.ai/docs/serverless-models.md"
   ]
 }

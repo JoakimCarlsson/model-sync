@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -24,8 +25,10 @@ const (
 // CatalogURL is the page listing every model Together serves and its rate.
 const CatalogURL = "https://docs.together.ai/docs/serverless-models.md"
 
-// cacheFile is where a fetched document is kept.
-const cacheFile = "together_serverless-models.md"
+// ReasoningURL is the page listing which of those models reason. The catalog
+// has a column for tool calling and one for structured output and none for
+// this, so it is stated here instead, in a table of its own.
+const ReasoningURL = "https://docs.together.ai/docs/inference/chat/reasoning.md"
 
 // Provider reads Together's model catalog. The zero value is not usable; call
 // New.
@@ -47,19 +50,33 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the catalog page.
+// Fetch retrieves the catalog page and the reasoning page. Only the catalog is
+// required: it is the one document naming the models, and a reasoning page
+// that cannot be read costs one capability rather than the whole provider.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return []catalog.Document{{URL: CatalogURL, Body: body}}, nil
-	}
-	req, err := http.NewRequestWithContext(
-		ctx,
-		http.MethodGet,
-		CatalogURL,
-		nil,
-	)
+	cat, err := p.get(ctx, CatalogURL)
 	if err != nil {
 		return nil, err
+	}
+	reasoning, err := p.get(ctx, ReasoningURL)
+	if err != nil {
+		return []catalog.Document{cat}, err
+	}
+	return []catalog.Document{cat, reasoning}, nil
+}
+
+// get retrieves one document, reading from and writing to the cache directory
+// when one is configured.
+func (p *Provider) get(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	if err != nil {
+		return catalog.Document{}, err
 	}
 	client := p.Client
 	if client == nil {
@@ -67,48 +84,70 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", CatalogURL, err)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", CatalogURL, resp.Status)
+		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
-		return nil, fmt.Errorf("read %s: %w", CatalogURL, err)
+		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(body)
-	return []catalog.Document{{URL: CatalogURL, Body: body}}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the catalog page.
+// Parse reads the catalog page first, because it is the only document naming
+// the models, then the reasoning page onto the models it established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		b.applyCatalog(doc)
+		if doc.URL != ReasoningURL {
+			b.applyCatalog(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL == ReasoningURL {
+			b.applyReasoning(doc)
+		}
 	}
 	return b.result(), nil
 }
 
 // readCache returns a previously fetched document.
-func (p *Provider) readCache() ([]byte, bool) {
+func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheName(url)))
 	return body, err == nil
 }
 
 // writeCache stores a document, ignoring failures because the cache is an
 // optimization and never the source of truth.
-func (p *Provider) writeCache(body []byte) {
+func (p *Provider) writeCache(url string, body []byte) {
 	if p.CacheDir == "" {
 		return
 	}
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheName(url)), body, 0o644)
+}
+
+// cacheName turns a URL into a flat filename.
+func cacheName(url string) string {
+	trimmed := strings.TrimPrefix(url, "https://")
+	return providerID + "_" + strings.Map(func(r rune) rune {
+		switch {
+		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
+			return r
+		case r == '.', r == '-', r == '_':
+			return r
+		}
+		return '_'
+	}, trimmed)
 }
 
 // builder accumulates models.

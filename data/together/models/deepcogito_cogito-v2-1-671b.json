@@ -18,12 +18,16 @@
     }
   ],
   "attrs": {
-    "author": "Deepcogito"
+    "author": "Deepcogito",
+    "reasoning_mode": "hybrid (on by default)"
   },
   "limits": {
     "context_window": 163840
   },
   "lists": {
+    "features": [
+      "reasoning"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -32,6 +36,7 @@
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/inference/chat/reasoning.md",
     "https://docs.together.ai/docs/serverless-models.md"
   ]
 }
