@@ -33,20 +33,23 @@
     "author": "google",
     "canonical_slug": "google/gemini-3.1-flash-lite-image-20260630",
     "knowledge_cutoff": "2025-01-01",
+    "reasoning_default_effort": "minimal",
+    "reasoning_default_enabled": "true",
     "released": "2026-06-30",
     "summary": "Nano Banana 2 Lite (Gemini 3.1 Flash Lite Image) is Google's fastest, most cost-efficient Gemini image model, built for high-velocity developer pipelines and rapid-fire visual exploration.",
     "tokenizer": "Gemini"
   },
   "limits": {
     "context_window": 65536,
-    "max_output_tokens": 65536,
+    "max_output_tokens": 66000,
     "top_provider_context_window": 65536
   },
   "lists": {
     "features": [
       "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",
@@ -65,6 +68,10 @@
       "seed",
       "temperature",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "minimal"
     ]
   },
   "sources": [

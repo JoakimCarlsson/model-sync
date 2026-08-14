@@ -38,10 +38,11 @@ var (
 // denominator each states.
 //
 // Both are read. A row states the same rate twice, per thousand tokens and per
-// million tokens, and the two do not always agree: voyage-context-4 is listed
-// at $0.00018 per thousand and $0.12 per million, which differ by half again.
-// Recording both keeps the disagreement visible instead of resolving it here
-// on a guess about which column is maintained.
+// million tokens, and the two have disagreed: voyage-context-4 was listed at
+// $0.00018 per thousand and $0.12 per million, differing by half again, until
+// Voyage corrected the thousand column. Recording both keeps such a
+// disagreement visible instead of resolving it here on a guess about which
+// column is maintained.
 var rateColumns = []struct {
 	header string
 	metric catalog.Metric

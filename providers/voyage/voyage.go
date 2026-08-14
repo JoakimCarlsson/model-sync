@@ -39,7 +39,9 @@ func (p *Provider) Name() string { return providerName }
 
 // Parse reads the pricing page first, so that the capability pages add to
 // models already priced rather than creating them in an order that depends on
-// which document arrived first.
+// which document arrived first. The overview follows them for the same reason
+// in reverse: it is read for what Voyage's own pages have stopped stating, and
+// a scalar already set from those pages is not overwritten.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, stage := range []struct {
@@ -48,6 +50,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}{
 		{isPricing, b.applyPricing},
 		{isCapabilityPage, b.applyModelPage},
+		{isOverview, b.applyModelPage},
 		{isBatch, b.applyBatch},
 	} {
 		for _, doc := range docs {
@@ -67,10 +70,12 @@ func isBatch(url string) bool {
 	return strings.HasSuffix(url, "/batch-inference.md")
 }
 
+func isOverview(url string) bool { return url == overviewURL }
+
 // isCapabilityPage reports whether a URL is one of the pages describing what a
 // family of models can do.
 func isCapabilityPage(url string) bool {
-	return !isPricing(url) && !isBatch(url)
+	return !isPricing(url) && !isBatch(url) && !isOverview(url)
 }
 
 // builder accumulates models across documents.

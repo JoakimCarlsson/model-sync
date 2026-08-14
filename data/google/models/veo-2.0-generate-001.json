@@ -1,0 +1,38 @@
+{
+  "id": "veo-2.0-generate-001",
+  "provider": "google",
+  "name": "Veo 2",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "April 2025",
+    "model_code": "veo-2.0-generate-001",
+    "summary": "Our robust and reliable stable video generation model, providing consistent performance for production-ready workflows. Veo 2.0 is best for standard 1080p content creation, social media assets, and high-volume video tasks that prioritize reliable character consistency and predictable sub-second generation speeds."
+  },
+  "lists": {
+    "aliases": [
+      "veo-2.0-generate-001"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

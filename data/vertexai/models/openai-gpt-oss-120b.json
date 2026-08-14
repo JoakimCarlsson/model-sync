@@ -41,7 +41,24 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 131072
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/openai/gpt-oss-120b",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

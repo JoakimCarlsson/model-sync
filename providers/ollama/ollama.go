@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path"
 	"path/filepath"
 	"slices"
 	"strings"
@@ -55,20 +56,81 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the library page, then the tag listing of every model on it.
+// Fetch retrieves the library page, then the tag listing of every model on it,
+// then the pages that answer what the library and the listings leave open.
 //
-// The library says which models exist and what each can do, and states no
-// bound on any of them. A model's tag listing states one per build, so the
-// listings are fetched too, one per model.
+// The library says which models exist, what each can do and where each runs,
+// and states no bound on any of them. A model's tag listing states one per
+// build, so the listings are fetched too, one per model.
+//
+// Two sets of pages are fetched on top of those, each for the models it says
+// anything about. A model Ollama runs itself is the only kind with a price, so
+// its own page is fetched for the rate or the usage level it quotes. And an
+// embedding model's width is on the metadata page of its model layer, which is
+// reached through the page of the build that layer belongs to.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	library, err := p.get(ctx, LibraryURL)
 	if err != nil {
 		return nil, err
 	}
+	index := newBuilder()
+	index.applyLibrary(library)
+
 	urls := append(tagListingURLs(library), StructuredOutputsURL)
-	listings, failures := p.getAll(ctx, urls)
-	return append([]catalog.Document{library}, listings...),
+	urls = append(urls, index.urlsWithAttr(AttrCloud)...)
+	docs, failures := p.getAll(ctx, urls)
+
+	widths, widthFailures := p.fetchWidths(ctx, index, docs)
+	docs = append(docs, widths...)
+	failures = append(failures, widthFailures...)
+
+	return append([]catalog.Document{library}, docs...),
 		errors.Join(failures...)
+}
+
+// urlsWithAttr gives the page of every model the library marked with attr.
+func (b *builder) urlsWithAttr(attr string) []string {
+	var urls []string
+	for _, id := range b.order {
+		if b.models[id].Attrs[attr] != "" {
+			urls = append(urls, baseURL+"/library/"+id)
+		}
+	}
+	return urls
+}
+
+// fetchWidths retrieves the metadata page of every embedding model's model
+// layer, which takes two rounds: the build's page is what names the layer, and
+// the layer's page is what states the width. The listings are the ones already
+// fetched, since they are what name the build.
+func (p *Provider) fetchWidths(
+	ctx context.Context,
+	index *builder,
+	listings []catalog.Document,
+) ([]catalog.Document, []error) {
+	var builds []string
+	for _, doc := range listings {
+		if !strings.HasSuffix(doc.URL, tagsPath) {
+			continue
+		}
+		m, ok := index.models[path.Base(strings.TrimSuffix(doc.URL, tagsPath))]
+		if !ok || m.Kind != KindEmbedding {
+			continue
+		}
+		if row := defaultRow(doc.Body); row != nil {
+			builds = append(builds, baseURL+"/library/"+row[1])
+		}
+	}
+	docs, failures := p.getAll(ctx, builds)
+
+	var layers []string
+	for _, doc := range docs {
+		if match := modelBlobRe.FindSubmatch(doc.Body); match != nil {
+			layers = append(layers, baseURL+string(match[1]))
+		}
+	}
+	pages, layerFailures := p.getAll(ctx, layers)
+	return pages, append(failures, layerFailures...)
 }
 
 // tagListingURLs derives the tag listing of every model the library names.
@@ -162,8 +224,10 @@ func (p *Provider) get(
 }
 
 // Parse reads the library first, because it is the only document naming the
-// models, then each tag listing onto the model it belongs to, and last the one
-// page stating a capability the library has no tag for.
+// models, then every other document onto the model it belongs to, which its
+// URL says: a tag listing is filed under the model, a layer's metadata under
+// the build it came from, and the one page stating a capability the library
+// has no tag for is filed under neither.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -172,12 +236,16 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		switch doc.URL {
-		case LibraryURL:
-		case StructuredOutputsURL:
+		switch {
+		case doc.URL == LibraryURL:
+		case doc.URL == StructuredOutputsURL:
 			b.applyStructuredOutputs(doc)
-		default:
+		case strings.Contains(doc.URL, blobsPath):
+			b.applyBlob(doc)
+		case strings.HasSuffix(doc.URL, tagsPath):
 			b.applyTagListing(doc)
+		default:
+			b.applyModelPage(doc)
 		}
 	}
 	return b.result(), nil

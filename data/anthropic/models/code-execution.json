@@ -11,10 +11,23 @@
       "currency": "USD",
       "dims": {
         "tier": "standard"
-      }
+      },
+      "note": "1,550 hours per organization each month are free"
     }
   ],
+  "attrs": {
+    "execution": "server",
+    "release_status": "GA"
+  },
+  "lists": {
+    "versions": [
+      "code_execution_20250825",
+      "code_execution_20260120",
+      "code_execution_20260521"
+    ]
+  },
   "sources": [
-    "https://platform.claude.com/docs/en/about-claude/pricing.md"
+    "https://platform.claude.com/docs/en/about-claude/pricing.md",
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md"
   ]
 }

@@ -34,6 +34,8 @@
     "canonical_slug": "openai/gpt-5.4-nano-20260317",
     "is_moderated": "true",
     "knowledge_cutoff": "2025-08-31",
+    "reasoning_default_effort": "medium",
+    "reasoning_default_enabled": "false",
     "released": "2026-03-17",
     "summary": "GPT-5.4 nano is the most lightweight and cost-efficient variant of the GPT-5.4 family, optimized for speed-critical and high-volume tasks.",
     "tokenizer": "GPT"
@@ -47,8 +49,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -69,6 +73,13 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "none",
+      "xhigh"
     ]
   },
   "sources": [

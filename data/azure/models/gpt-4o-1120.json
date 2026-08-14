@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-1120",
   "provider": "azure",
+  "name": "GPT-4o (Omni)",
   "kind": "chat",
   "prices": [
     {

@@ -1,5 +1,6 @@
-// Package elevenlabs parses ElevenLabs' models page and its API pricing page
-// into the catalog model.
+// Package elevenlabs parses ElevenLabs' models page, its API pricing page, the
+// help center page listing model identifiers and three endpoint references into
+// the catalog model.
 //
 // The documentation talks in credits, which are a plan allowance rather than a
 // price, and never quotes a model in dollars. The pricing page is the one place
@@ -34,9 +35,17 @@
 // the model it names supplies the rest of the list rather than being recorded
 // as a language of its own.
 //
-// The page opens with a card per flagship model, and that is the only place
-// ElevenLabs states a display name or says what a model can do. Six of the
-// eighteen models have one; the rest keep no name.
+// The page opens with a card per flagship model, and those cards are where
+// ElevenLabs writes what a model can do. Six of the eighteen models have one.
+// The names of the rest are on a help center page pairing a display name with
+// an identifier, which the parser reads for nothing else: a row there naming an
+// identifier the models page never listed is ignored rather than turning a name
+// into a model. Where both name a model the card's wording wins, being the
+// fuller of the two, so eleven_multilingual_v2 is "Eleven Multilingual v2"
+// rather than "Multilingual v2". That page names five models the cards leave
+// out, three of them still served. Seven are named nowhere at all: the two
+// voice design models, the sound effects model, Music v1, Scribe v1 and the two
+// first generation models the character limit table still lists.
 //
 // A card's bullets are sentences rather than capability names. ElevenLabs
 // enumerates nothing: it writes a sentence per capability with the size of the
@@ -54,4 +63,21 @@
 // marketing rather than specification, as "Most stable on long-form
 // generations" is, and a capability list is the wrong place for a sentence
 // nothing can be derived from.
+//
+// The endpoint references for voice design, sound effects and speech to text
+// are read for the one thing they say that no other document does: which of an
+// endpoint's models an ability belongs to. ElevenLabs writes that as a
+// restriction on a request parameter, as "Only supported when using the
+// eleven_ttv_v3 model", and only a parameter carrying such a restriction is
+// read, because the restriction is what makes it a fact about a model rather
+// than about the API. The parameter is recorded as the capability it names,
+// never as its own name. The same pages state the longest text the voice design
+// endpoint accepts, which belongs to both the models its model_id enumerates
+// and is the same per-request character limit the models page states for speech
+// synthesis.
+//
+// A context window in tokens is not something any of these models has. Every
+// one of them is a pairing of text and audio with no token vocabulary of its
+// own, and the bound ElevenLabs does publish, on the characters one request may
+// carry, is recorded under its own key rather than dressed up as one.
 package elevenlabs

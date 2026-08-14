@@ -1487,6 +1487,9 @@
     "max_output_tokens": 32000
   },
   "lists": {
+    "aliases": [
+      "nvidia.nemotron-super-3-120b"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

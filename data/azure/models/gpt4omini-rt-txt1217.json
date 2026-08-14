@@ -6,6 +6,149 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
       "amount": 0.0003,
       "currency": "USD",
       "dims": {
@@ -1325,9 +1468,25 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "product": "Azure OpenAI",
+    "training_data_cutoff": "October 2023"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

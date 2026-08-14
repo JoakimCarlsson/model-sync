@@ -24,6 +24,8 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/openai-whisper-large-v3",
+    "https://www.together.ai/models/whisper-large-v3-streaming"
   ]
 }

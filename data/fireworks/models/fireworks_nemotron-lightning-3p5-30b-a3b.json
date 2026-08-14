@@ -1,0 +1,60 @@
+{
+  "id": "fireworks/nemotron-lightning-3p5-30b-a3b",
+  "provider": "fireworks",
+  "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+    "model_url": "https://app.fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b",
+    "summary": "Nemotron-Lightning-3.5-30B-A3B is a 30B-parameter Mixture-of-Experts language model (3B active) from NVIDIA's Nemotron-H family, built on a hybrid Mamba-Transformer architecture for efficient long-context inference. Like other models in the family, it responds to queries by first generating a reasoning trace and then concluding with a final response, with reasoning behavior configurable through a flag in the chat template. It includes a multi-token prediction (MTP) speculative decoding head for low-latency serving."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://app.fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b",
+    "https://docs.fireworks.ai/serverless/pricing.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+  ]
+}

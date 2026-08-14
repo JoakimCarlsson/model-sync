@@ -1,7 +1,7 @@
 {
   "id": "google/google.gemma-4-31b",
   "provider": "bedrock",
-  "name": "google.gemma-4-31b",
+  "name": "Gemma 4 31B",
   "kind": "chat",
   "prices": [
     {
@@ -396,9 +396,40 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "lifecycle_state": "active",
+    "released": "Jun 10, 2025",
+    "retirement_date": "N/A",
+    "summary": "Gemma 4 31B is Google's 30.7-billion parameter dense model with built-in reasoning, native function calling, and multimodal input across text and image, supporting a 256K token context window. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "aliases": [
+      "google.gemma-4-31b"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "chat completions",
+      "responses"
+    ],
+    "features": [
+      "function_calling",
+      "projects",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-4-31b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

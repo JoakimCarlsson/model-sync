@@ -104,6 +104,7 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.7-flash-20260727",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-27",
     "summary": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba.",
     "tokenizer": "Qwen"
@@ -117,6 +118,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

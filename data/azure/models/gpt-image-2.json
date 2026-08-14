@@ -4687,7 +4687,17 @@
   "attrs": {
     "product": "Azure OpenAI Media"
   },
+  "lists": {
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

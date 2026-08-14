@@ -27,6 +27,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "json_mode",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -37,6 +38,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/llama-3-3-70b"
   ]
 }

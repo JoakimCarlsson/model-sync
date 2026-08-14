@@ -14,6 +14,11 @@ const (
 	sectionTools   = "tool invocation costs"
 )
 
+// voiceStateMark is the dash the voice table sets a mode's lifecycle off with.
+// It is written as an escape because the character itself is a long dash and
+// reads in source as a hyphen the cell does not contain.
+const voiceStateMark = "\u2014"
+
 // applyPricing reads the pricing page.
 func (b *builder) applyPricing(doc catalog.Document) {
 	body := string(doc.Body)
@@ -129,12 +134,14 @@ func (b *builder) applyVoiceTable(t mdTable) {
 		if mode == "" {
 			continue
 		}
-		id, label := voiceID(mode)
+		id, label, state := voiceID(mode)
 		m := b.model(id, KindVoice)
 		m.AddSource(t.Source)
 		if m.Name == "" {
 			m.Name = label
 		}
+		m.SetAttr(AttrState, state)
+		b.linkPage(slugID(label), id)
 		dims := catalog.Dims{}.With(DimMode, slugID(label))
 		for _, fragment := range splitFragments(cellAt(row, costCol)) {
 			for _, clause := range splitRates(fragment) {
@@ -158,14 +165,25 @@ func (b *builder) applyVoiceTable(t mdTable) {
 }
 
 // voiceID resolves the mode cell to an identifier, preferring the model named
-// in parentheses over the mode's own name.
-func voiceID(mode string) (id, label string) {
-	open := strings.Index(mode, "(")
-	if open < 0 || !strings.HasSuffix(mode, ")") {
-		return slugID(mode), strings.TrimSpace(mode)
+// in parentheses over the mode's own name, and returns any lifecycle word the
+// cell trails.
+//
+// The lifecycle is stated in the cell rather than in a column of its own, and
+// it has to come off before the parentheses are read: a cell ending in the
+// word no longer ends in the bracket that holds the model name, and reading it
+// whole yields neither the model nor the mode but a slug of both.
+func voiceID(mode string) (id, label, state string) {
+	text := strings.TrimSpace(mode)
+	if before, after, ok := strings.Cut(text, voiceStateMark); ok {
+		text = strings.TrimSpace(before)
+		state = strings.ToLower(clean(after))
 	}
-	inner := strings.TrimSpace(mode[open+1 : len(mode)-1])
-	return inner, strings.TrimSpace(mode[:open])
+	open := strings.Index(text, "(")
+	if open < 0 || !strings.HasSuffix(text, ")") {
+		return slugID(text), text, state
+	}
+	inner := strings.TrimSpace(text[open+1 : len(text)-1])
+	return inner, strings.TrimSpace(text[:open]), state
 }
 
 // applyToolTable reads the server-side tool rates. Tools whose cost is

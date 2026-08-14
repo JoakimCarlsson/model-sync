@@ -32,6 +32,7 @@
   "attrs": {
     "author": "openai",
     "canonical_slug": "openai/gpt-5.2-codex-20260114",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-01-14",
     "summary": "GPT-5.2-Codex is an upgraded version of GPT-5.1-Codex optimized for software engineering and coding workflows.",
@@ -46,8 +47,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",
@@ -66,6 +69,12 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

@@ -24,9 +24,17 @@
     }
   ],
   "attrs": {
+    "metered_on": "calculated based on websocket connection time.",
     "product": "voice agent api"
   },
+  "limits": {
+    "max_session_seconds": 7200
+  },
   "lists": {
+    "features": [
+      "function_calling",
+      "realtime"
+    ],
     "input_modalities": [
       "audio",
       "text"
@@ -37,6 +45,7 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/voice-agent-feature-overview.md"
   ]
 }

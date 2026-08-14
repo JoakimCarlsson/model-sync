@@ -67,21 +67,38 @@ const (
 	ListDimensions       = "embedding_dimensions"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	ListFeatures         = catalog.ListFeatures
+)
+
+// Capabilities Voyage states per model. None of the canonical capability values
+// applies to anything it sells: they describe what a model answering in words
+// can do, and nothing here answers in words.
+const (
+	// FeatureReducibleDims is set where a model offers more than one width, so
+	// that a caller can ask for a shorter vector than the default.
+	FeatureReducibleDims = "reducible_embedding_dimensions"
+	// FeatureQuantizedOutput is set where a model can return its vector in
+	// something narrower than a 32-bit float.
+	FeatureQuantizedOutput = "quantized_embeddings"
 )
 
 // Modalities Voyage's capability pages account for.
 const (
 	ModalityText  = "text"
 	ModalityImage = "image"
+	ModalityVideo = "video"
 )
 
-// pageModalities reports what the models on one capability page take.
+// modalitiesFor reports what the models in one table take.
 //
 // Voyage states this by which page a model is documented on and nowhere else:
 // the multimodal page is the one whose models vectorize text and pictures
-// together, and every other page is text.
-func pageModalities(url string) []string {
-	if strings.Contains(url, "multimodal") {
+// together, and every other page is text. MongoDB's overview gathers every
+// family onto one page, where the same thing is said by the heading above a
+// table rather than by the address of the page holding it.
+func modalitiesFor(url, section string) []string {
+	if strings.Contains(url, "multimodal") ||
+		strings.Contains(section, "multimodal") {
 		return []string{ModalityText, ModalityImage}
 	}
 	return []string{ModalityText}
@@ -95,9 +112,9 @@ func pageModalities(url string) []string {
 // vector and a reranking is a set of scores, but neither is a modality and the
 // catalog has no word for either.
 //
-// Both sides are set together, so a model surviving only in the rate tables
-// carries neither. A consumer reading one side alone cannot tell an unstated
-// modality from a model that takes or returns nothing.
+// Both sides are set together, so a model that survives in the rate tables and
+// in no model table at all carries neither. A consumer reading one side alone
+// cannot tell an unstated modality from a model that takes or returns nothing.
 func addModalities(m *catalog.Model, in []string) {
 	if len(in) == 0 {
 		return
@@ -116,6 +133,16 @@ var (
 	)
 	dimensionRe = regexp.MustCompile(`(\d+)\s*(\(default\))?`)
 	backtickRe  = regexp.MustCompile("`([^`]+)`")
+	// quantizedRe matches the sentence naming the models that can return a
+	// narrower vector. The list runs to the end of the line rather than to a
+	// full stop, because two of the models named have a stop in their name.
+	quantizedRe = regexp.MustCompile("(?i)`ubinary` are supported by ([^\n]+)")
+	// videoInputRe matches the sentence naming the models that take video,
+	// which the multimodal page states only to withhold it from the rest of
+	// its own table.
+	videoInputRe = regexp.MustCompile(
+		`(?i)videos? inputs? (?:are|is) only supported by ([^\n]+)`,
+	)
 )
 
 // clean strips the decoration Voyage wraps around cell values. Its markdown
@@ -200,6 +227,19 @@ func backtickedIDs(text string) []string {
 	var out []string
 	for _, match := range backtickRe.FindAllStringSubmatch(text, -1) {
 		out = append(out, strings.TrimSpace(match[1]))
+	}
+	return out
+}
+
+// modelIDs returns the identifiers in a passage that name a model. A sentence
+// granting something to a list of models writes each of them as code, and
+// writes the parameter it is talking about the same way.
+func modelIDs(text string) []string {
+	var out []string
+	for _, id := range backtickedIDs(text) {
+		if strings.HasPrefix(id, "voyage-") || strings.HasPrefix(id, "rerank") {
+			out = append(out, id)
+		}
 	}
 	return out
 }

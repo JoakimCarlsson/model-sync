@@ -1291,6 +1291,9 @@
     "max_output_tokens": 128000
   },
   "lists": {
+    "aliases": [
+      "zai.glm5"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

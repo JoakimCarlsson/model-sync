@@ -62,6 +62,8 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-flash-lite-preview-20260303",
+    "reasoning_default_effort": "minimal",
+    "reasoning_default_enabled": "true",
     "released": "2026-03-03",
     "summary": "Gemini 3.1 Flash Lite Preview is Google's high-efficiency model optimized for high-volume use cases.",
     "tokenizer": "Gemini"
@@ -75,8 +77,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -100,6 +104,12 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [

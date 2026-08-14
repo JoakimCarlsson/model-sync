@@ -3,6 +3,27 @@
   "provider": "cohere",
   "name": "Command A Translate",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 40,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 48,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "xl"
+      }
+    }
+  ],
   "attrs": {
     "family": "command",
     "modality": "Text",
@@ -18,7 +39,8 @@
       "Chat"
     ],
     "features": [
-      "function_calling"
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
       "text"
@@ -27,11 +49,10 @@
       "text"
     ]
   },
-  "notes": [
-    "no rate stated on the pricing page"
-  ],
   "sources": [
+    "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]
 }

@@ -45,6 +45,7 @@
     "author": "openai",
     "canonical_slug": "openai/gpt-5.4-pro-20260305",
     "is_moderated": "true",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-03-05",
     "summary": "GPT-5.4 Pro is OpenAI's most advanced model, building on GPT-5.4's unified architecture with enhanced reasoning capabilities for complex, high-stakes tasks.",
@@ -60,7 +61,8 @@
       "function_calling",
       "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -81,6 +83,11 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

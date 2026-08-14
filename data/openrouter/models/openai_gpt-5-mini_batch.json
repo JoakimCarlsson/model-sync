@@ -34,6 +34,7 @@
     "canonical_slug": "openai/gpt-5-mini-2025-08-07",
     "is_moderated": "true",
     "knowledge_cutoff": "2024-05-31",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2025-08-07",
     "summary": "GPT-5 Mini is a compact version of GPT-5, designed to handle lighter-weight reasoning tasks.",
@@ -48,8 +49,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -69,6 +72,12 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [

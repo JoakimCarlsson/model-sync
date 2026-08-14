@@ -15,6 +15,23 @@ const (
 	KindEmbedding catalog.Kind = "embedding"
 )
 
+// AttrCloud marks a model Ollama also runs on its own hardware. The library
+// tags it in a colour of its own, beside the capabilities, and it is the one
+// tag that says where a model runs rather than what it can do, which is why it
+// is an attribute and not a feature. It is also what tells the priced models
+// apart from the free ones: a rate exists only where Ollama does the running.
+const AttrCloud = "cloud"
+
+// AttrUsageLevel is how much of a plan's allowance a cloud model draws, which
+// Ollama states in words on the model's page, from "low" to "extra high". It
+// is the only thing most cloud models say about what they cost.
+const AttrUsageLevel = "usage_level"
+
+// AttrUsageRank is the same statement as a number. The page draws it as four
+// bars with as many filled as the level, and Ollama's pricing page numbers
+// them one to four, so both the word and the number are recorded.
+const AttrUsageRank = "usage_level_rank"
+
 // AttrSummary is the description Ollama gives a model.
 //
 // The download count shown beside it is deliberately not recorded. It rises
@@ -108,7 +125,8 @@ var (
 	)
 	summaryRe = regexp.MustCompile(`(?is)<p[^>]*text-md[^>]*>(.*?)</p>`)
 	tagRe     = regexp.MustCompile(
-		`(?is)<span[^>]*(?:text-indigo-600|text-blue-600)[^>]*>(.*?)</span>`,
+		`(?is)<span[^>]*(?:text-indigo-600|text-blue-600|text-cyan-500)` +
+			`[^>]*>(.*?)</span>`,
 	)
 	markupRe = regexp.MustCompile(`(?s)<[^>]*>`)
 	// sizeRe matches a tag that states a parameter count rather than a
@@ -144,8 +162,8 @@ func (b *builder) applyLibrary(doc catalog.Document) {
 	}
 }
 
-// applyTag records one tag as either a size the model comes in or something it
-// can do.
+// applyTag records one tag as a size the model comes in, where it runs, or
+// something it can do.
 //
 // A capability is translated rather than kept: Ollama's words for these are
 // shared with no other provider, and two of them name a modality rather than a
@@ -160,6 +178,10 @@ func (b *builder) applyTag(m *catalog.Model, tag string) {
 		return
 	}
 	capability := strings.ToLower(tag)
+	if capability == AttrCloud {
+		m.SetAttr(AttrCloud, "true")
+		return
+	}
 	if kind, ok := capabilityKinds[capability]; ok {
 		m.Kind = kind
 		return

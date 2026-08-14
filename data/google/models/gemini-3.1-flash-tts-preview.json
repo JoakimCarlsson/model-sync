@@ -1,7 +1,7 @@
 {
   "id": "gemini-3.1-flash-tts-preview",
   "provider": "google",
-  "name": "Gemini 3.1 Flash TTS (Text-to-Speech) Preview",
+  "name": "Gemini 3.1 Flash TTS Preview",
   "kind": "speech",
   "prices": [
     {
@@ -95,6 +95,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]

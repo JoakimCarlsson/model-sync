@@ -5,6 +5,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"unicode"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -16,6 +17,7 @@ const (
 	MetricCachedInputTokens catalog.Metric = "cached_input_tokens"
 	MetricVideoOutput       catalog.Metric = "video_output"
 	MetricImageOutput       catalog.Metric = "image_output"
+	MetricAudioOutput       catalog.Metric = "audio_output"
 	MetricToolCall          catalog.Metric = "tool_call"
 )
 
@@ -24,6 +26,7 @@ const (
 	UnitPer1MTokens   catalog.Unit = "per_1m_tokens"
 	UnitPerSecond     catalog.Unit = "per_second"
 	UnitPerImage      catalog.Unit = "per_image"
+	UnitPerRequest    catalog.Unit = "per_request"
 	UnitPer1KRequests catalog.Unit = "per_1k_requests"
 )
 
@@ -40,6 +43,7 @@ const (
 	KindEmbedding catalog.Kind = "embedding"
 	KindSpeech    catalog.Kind = "speech"
 	KindAudio     catalog.Kind = "audio"
+	KindMusic     catalog.Kind = "music"
 )
 
 // nameKinds map a fragment of a model's name onto what it does, for the models
@@ -51,9 +55,28 @@ var nameKinds = []struct {
 }{
 	{"embedding", KindEmbedding},
 	{"tts", KindSpeech},
+	{"lyria", KindMusic},
 	{"image", KindImage},
 	{"video", KindVideo},
 	{"audio", KindAudio},
+}
+
+// kindMetrics name what a model of each kind sells, for the rows that price a
+// model rather than one facet of its billing.
+var kindMetrics = map[catalog.Kind]catalog.Metric{
+	KindMusic: MetricAudioOutput,
+}
+
+// nameKind reads what a model does out of the identifier it answers to, which
+// is what settles the models no rate of theirs distinguishes. Everything else
+// is chat until a rate says otherwise.
+func nameKind(id string) catalog.Kind {
+	for _, entry := range nameKinds {
+		if strings.Contains(id, entry.fragment) {
+			return entry.kind
+		}
+	}
+	return KindChat
 }
 
 // metricKinds map a rate onto what the model producing it does. A model
@@ -73,12 +96,7 @@ func refineKind(m *catalog.Model, metric catalog.Metric) {
 		m.Kind = kind
 		return
 	}
-	for _, entry := range nameKinds {
-		if strings.Contains(m.ID, entry.fragment) {
-			m.Kind = entry.kind
-			return
-		}
-	}
+	m.Kind = nameKind(m.ID)
 }
 
 // Dimension keys Google's prices vary along. A rate needs both: the tier is
@@ -105,7 +123,9 @@ var tiers = map[string]string{
 
 // modelHeadingRe matches the heading that introduces a model rather than a
 // tier or a page section.
-var modelHeadingRe = regexp.MustCompile(`(?i)^(gemini|imagen|veo|gemma)\b`)
+var modelHeadingRe = regexp.MustCompile(
+	`(?i)^(gemini|imagen|veo|gemma|lyria)\b`,
+)
 
 // rowMetrics maps a fragment of a row label onto what the row's amounts are
 // charged for. The fragments are checked in order, since a label can contain
@@ -124,7 +144,9 @@ var rowMetrics = []struct {
 
 // headerUnits maps the denominator stated in a plan heading onto a unit.
 // Google writes it there rather than in the row, so one page states rates per
-// million tokens, per second, per image and per request.
+// million tokens, per second, per image and per request. The fragments are
+// checked in order, since Google quotes a request rate by the thousand as
+// often as singly and the longer reading is the one meant.
 var headerUnits = []struct {
 	fragment string
 	unit     catalog.Unit
@@ -132,15 +154,17 @@ var headerUnits = []struct {
 	{"per 1m tokens", UnitPer1MTokens},
 	{"per second", UnitPerSecond},
 	{"per image", UnitPerImage},
-	{"per request", UnitPer1KRequests},
+	{"per 1,000 requests", UnitPer1KRequests},
+	{"per 1k requests", UnitPer1KRequests},
+	{"per request", UnitPerRequest},
 }
 
 // modalities are the inputs Google prices separately on one model.
 var modalities = []string{"text", "image", "audio", "video"}
 
-// variants are the quality levels Google prices separately within one model,
-// naming them in the row label rather than as a model of their own.
-var variants = []string{"standard", "fast", "lite", "ultra", "pro"}
+// variants are the quality levels Google prices separately under one heading,
+// naming them in the row label rather than in a heading of their own.
+var variants = []string{"standard", "fast", "lite", "ultra", "pro", "clip"}
 
 // DimVariant separates those levels, and DimResolution the output sizes a
 // single rate cell can price differently.
@@ -151,10 +175,17 @@ const (
 
 var (
 	headingRe = regexp.MustCompile(`(?is)<h[234][^>]*>(.*?)</h[234]>`)
-	rowRe     = regexp.MustCompile(`(?is)<tr[^>]*>(.*?)</tr>`)
-	cellRe    = regexp.MustCompile(`(?is)<t[hd][^>]*>(.*?)</t[hd]\s*>`)
-	tagRe     = regexp.MustCompile(`(?s)<[^>]*>`)
-	amountRe  = regexp.MustCompile(`\$\s*([\d,]*\.?\d+)`)
+	// headingGroupRe matches the block heading a model, which carries the name
+	// Google sells it under and, beneath it, every endpoint the API answers to
+	// under that name.
+	headingGroupRe = regexp.MustCompile(
+		`(?is)<div class="heading-group">(.*?)</div\s*>`,
+	)
+	codeRe   = regexp.MustCompile(`(?is)<code[^>]*>(.*?)</code\s*>`)
+	rowRe    = regexp.MustCompile(`(?is)<tr[^>]*>(.*?)</tr>`)
+	cellRe   = regexp.MustCompile(`(?is)<t[hd][^>]*>(.*?)</t[hd]\s*>`)
+	tagRe    = regexp.MustCompile(`(?s)<[^>]*>`)
+	amountRe = regexp.MustCompile(`\$\s*([\d,]*\.?\d+)`)
 )
 
 // freeOfCharge is how Google writes a rate of zero.
@@ -185,7 +216,8 @@ func slugID(name string) string {
 func (b *builder) applyPricing(doc catalog.Document) {
 	var (
 		body    = string(doc.Body)
-		model   string
+		codes   = headingCodes(body)
+		ids     []string
 		tier    string
 		columns []column
 	)
@@ -193,14 +225,14 @@ func (b *builder) applyPricing(doc catalog.Document) {
 		switch {
 		case at.heading != "":
 			if modelHeadingRe.MatchString(at.heading) {
-				model, tier = slugID(at.heading), ""
-				b.model(model, KindChat).AddSource(doc.URL)
+				ids = b.begin(at.heading, codes[at.heading], doc.URL)
+				tier = ""
 				continue
 			}
 			if name, ok := tiers[strings.ToLower(at.heading)]; ok {
 				tier = name
 			}
-		case model != "":
+		case len(ids) > 0:
 			cells := rowCells(at.row)
 			if len(cells) < 2 {
 				continue
@@ -209,9 +241,156 @@ func (b *builder) applyPricing(doc catalog.Document) {
 				columns = fillUnits(header)
 				continue
 			}
-			b.applyRow(model, tier, columns, cells)
+			b.applyRow(ids, tier, columns, cells)
 		}
 	}
+}
+
+// begin starts a model heading, returning the endpoints its tables price.
+//
+// Google states them beneath the heading, one <code> apiece, and they are the
+// identifiers the API answers to and the model pages are addressed by. A
+// heading stating none is a model Google prices without naming an endpoint for
+// it, and is held under the name it is sold as.
+//
+// An endpoint the index says Google has withdrawn is not begun at all, so no
+// row of its tables is read and no page is attached to it. The rates outlast
+// the model: the pricing page still heads Gemini 2.0 Flash and still tabulates
+// what it charged, while the index marks it shut down, and what is left is a
+// price for something that no longer answers. Returning the endpoints kept is
+// what stops the rows below the heading landing anywhere.
+func (b *builder) begin(heading string, codes []string, src string) []string {
+	ids := codes
+	if len(ids) == 0 {
+		ids = []string{slugID(heading)}
+	}
+	kept := make([]string, 0, len(ids))
+	for _, id := range ids {
+		entry := b.entry(id, heading)
+		if slices.Contains(withdrawnStates, entry.state) {
+			continue
+		}
+		m := b.model(id, nameKind(id))
+		m.AddSource(src)
+		if entry != (indexEntry{}) {
+			m.AddSource(ModelsURL)
+		}
+		if m.Name == "" {
+			m.Name = modelName(heading, ids, entry)
+		}
+		m.SetAttr(AttrState, entry.state)
+		kept = append(kept, id)
+	}
+	if len(kept) > 0 {
+		b.groups = append(b.groups, kept)
+	}
+	return kept
+}
+
+// entry returns what the model index states about one endpoint, falling back
+// to what it states about the family for the endpoints it does not list one by
+// one.
+func (b *builder) entry(id, heading string) indexEntry {
+	if e, ok := b.index[id]; ok {
+		return e
+	}
+	return b.index[indexKey(heading)]
+}
+
+// modelName is what to call one of the endpoints a pricing heading covers. A
+// heading covering one names it, pictogram aside. A heading covering several
+// names the family, and the index is the only document telling those apart,
+// listing "Veo 3.1" and "Veo 3.1 Lite" as models of their own; the family name
+// stands in for the endpoints the index does not list.
+func modelName(heading string, ids []string, entry indexEntry) string {
+	if len(ids) > 1 && entry.name != "" {
+		return entry.name
+	}
+	return headingName(heading)
+}
+
+// headingName is the name a pricing heading states, without the pictogram
+// Google hangs off the end of the ones it is fond of.
+func headingName(heading string) string {
+	return strings.TrimRightFunc(heading, func(r rune) bool {
+		return !unicode.IsLetter(r) && !unicode.IsDigit(r) && r != ')'
+	})
+}
+
+// headingCodes maps each model heading of the pricing page onto the endpoints
+// stated beneath it. The two sit in one block, but the page is read as a
+// stream of headings and rows, so the block is indexed by its heading first.
+func headingCodes(body string) map[string][]string {
+	out := map[string][]string{}
+	for _, group := range headingGroupRe.FindAllStringSubmatch(body, -1) {
+		heading := text(first(headingRe, group[1]))
+		if heading == "" {
+			continue
+		}
+		out[heading] = codesIn(group[1])
+	}
+	return out
+}
+
+// pricingCodes returns every endpoint the pricing page names, which is what
+// addresses the page Google publishes for it.
+func pricingCodes(doc catalog.Document) []string {
+	var out []string
+	for _, codes := range headingCodes(string(doc.Body)) {
+		for _, code := range codes {
+			if !slices.Contains(out, code) {
+				out = append(out, code)
+			}
+		}
+	}
+	slices.Sort(out)
+	return out
+}
+
+// codesIn returns the endpoints a fragment of markup names.
+func codesIn(html string) []string {
+	var out []string
+	for _, match := range codeRe.FindAllStringSubmatch(html, -1) {
+		if id := text(match[1]); id != "" && !slices.Contains(out, id) {
+			out = append(out, id)
+		}
+	}
+	return out
+}
+
+// codesFor picks the endpoints a row prices.
+//
+// A heading covering several endpoints states the quality level in the row's
+// label and nowhere else, so a row naming one goes to the endpoint whose
+// identifier carries that word, and the level Google leaves out of an
+// identifier, its standard, goes to the endpoint carrying none of them. A row
+// naming no level prices every endpoint under the heading, which is how the
+// one model reached by two endpoint names is priced.
+func codesFor(ids []string, variant string) []string {
+	if variant == "" || len(ids) == 1 {
+		return ids
+	}
+	for _, id := range ids {
+		if strings.Contains(id, variant) {
+			return []string{id}
+		}
+	}
+	for _, id := range ids {
+		if nameVariant(id) == "" {
+			return []string{id}
+		}
+	}
+	return nil
+}
+
+// nameVariant reports the quality level an identifier carries, if any.
+func nameVariant(id string) string {
+	for _, variant := range variants {
+		if strings.Contains(id, variant) {
+			return variant
+		}
+	}
+	return ""
 }
 
 // fillUnits gives every column of a table the denominator its rates are quoted
@@ -265,18 +444,37 @@ func planHeader(cells []string) ([]column, bool) {
 	return columns, true
 }
 
-// applyRow records one row's amounts against each plan.
+// applyRow records one row's amounts against each plan, for each endpoint the
+// row prices.
 func (b *builder) applyRow(
-	model, tier string,
+	ids []string,
+	tier string,
 	columns []column,
 	cells []string,
 ) {
 	label := strings.ToLower(cells[0])
-	metric, ok := metricFor(label)
-	if !ok {
-		return
+	for _, id := range codesFor(ids, variantOf(label)) {
+		m := b.models[id]
+		if m == nil {
+			continue
+		}
+		metric, ok := metricFor(label, m.Kind)
+		if !ok {
+			continue
+		}
+		refineKind(m, metric)
+		addRates(m, metric, label, tier, columns, cells)
 	}
-	m := b.model(model, KindChat)
+}
+
+// addRates records one row's amounts against each plan of one model.
+func addRates(
+	m *catalog.Model,
+	metric catalog.Metric,
+	label, tier string,
+	columns []column,
+	cells []string,
+) {
 	for i, cell := range cells[1:] {
 		col := column{}
 		if i < len(columns) {
@@ -290,7 +488,6 @@ func (b *builder) applyRow(
 			With(DimPlan, col.plan).
 			With(DimModality, modalityOf(label)).
 			With(DimVariant, variantOf(label))
-		refineKind(m, metric)
 		for _, r := range parseRates(cell) {
 			m.AddPrice(catalog.Price{
 				Metric:   metric,
@@ -315,14 +512,21 @@ func variantOf(label string) string {
 	return ""
 }
 
-// metricFor maps a row label onto what its amounts are charged for.
-func metricFor(label string) (catalog.Metric, bool) {
+// metricFor maps a row label onto what its amounts are charged for. A label
+// naming a quality level and nothing else prices the model itself rather than
+// one facet of its billing, which is how Google prices the music models, and
+// what such a model sells is read from its kind.
+func metricFor(label string, kind catalog.Kind) (catalog.Metric, bool) {
 	for _, entry := range rowMetrics {
 		if strings.Contains(label, entry.fragment) {
 			return entry.metric, true
 		}
 	}
-	return "", false
+	if variantOf(label) == "" {
+		return "", false
+	}
+	metric, ok := kindMetrics[kind]
+	return metric, ok
 }
 
 // unitForHeader reads the denominator out of a plan heading.

@@ -72,10 +72,13 @@
     }
   ],
   "attrs": {
+    "alias_target": "openai/gpt-5.6-sol",
     "author": "~openai",
     "canonical_slug": "~openai/gpt-latest",
     "is_moderated": "true",
     "knowledge_cutoff": "2026-02-16",
+    "reasoning_default_effort": "medium",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-27",
     "summary": "This model always redirects to the latest model in the OpenAI GPT family.",
     "tokenizer": "Router"
@@ -89,8 +92,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -111,6 +116,14 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "none",
+      "xhigh"
     ]
   },
   "sources": [

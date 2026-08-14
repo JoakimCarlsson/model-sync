@@ -52,6 +52,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [

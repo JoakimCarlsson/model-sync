@@ -131,7 +131,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs = append(docs, index)
 	var failures []error
-	for _, url := range modelPageURLs(index) {
+	for _, url := range append(modelPageURLs(index), sidePages()...) {
 		page, err := p.getPage(ctx, url)
 		if err != nil {
 			failures = append(failures, err)

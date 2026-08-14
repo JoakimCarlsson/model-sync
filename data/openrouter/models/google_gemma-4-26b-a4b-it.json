@@ -27,6 +27,7 @@
     "author": "google",
     "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
     "hugging_face_id": "google/gemma-4-26B-A4B-it",
+    "reasoning_default_enabled": "false",
     "released": "2026-04-03",
     "summary": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind.",
     "tokenizer": "Gemma"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

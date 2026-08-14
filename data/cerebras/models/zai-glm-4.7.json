@@ -18,16 +18,20 @@
     }
   ],
   "attrs": {
+    "author": "Z.ai",
+    "deprecated_on": "2026-08-17",
     "model_card_url": "https://huggingface.co/zai-org/GLM-4.7",
     "model_url": "/models/zai-glm-47",
     "parameters": "355 billion",
+    "quantization": "FP16/8 (weights only)",
     "state": "preview",
+    "summary": "This model delivers strong coding performance with advanced reasoning capabilities, superior tool use, and enhanced real-world performance in agentic coding applications.",
     "tokens_per_second": "~1000"
   },
   "limits": {
-    "context_window": 131000,
+    "context_window": 131072,
     "context_window_free": 64000,
-    "max_output_tokens": 40000,
+    "max_output_tokens": 40960,
     "max_output_tokens_free": 40000
   },
   "lists": {
@@ -51,6 +55,7 @@
     ]
   },
   "sources": [
+    "https://api.cerebras.ai/public/v1/models",
     "https://inference-docs.cerebras.ai/models/overview.md",
     "https://inference-docs.cerebras.ai/models/zai-glm-47.md"
   ]

@@ -28,6 +28,7 @@
     "canonical_slug": "openai/gpt-oss-120b",
     "hugging_face_id": "openai/gpt-oss-120b",
     "knowledge_cutoff": "2024-06-30",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2025-08-05",
     "summary": "gpt-oss-120b is an open-weight, 117B-parameter Mixture-of-Experts (MoE) language model from OpenAI designed for high-reasoning, agentic, and general-purpose production use cases.",
@@ -42,6 +43,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -73,6 +75,11 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

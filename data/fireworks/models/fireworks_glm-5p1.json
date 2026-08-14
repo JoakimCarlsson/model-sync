@@ -100,6 +100,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -111,6 +112,7 @@
   },
   "sources": [
     "https://app.fireworks.ai/models/fireworks/glm-5p1",
+    "https://docs.fireworks.ai/api-reference/post-chatcompletions.md",
     "https://docs.fireworks.ai/serverless/pricing.md",
     "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
   ]

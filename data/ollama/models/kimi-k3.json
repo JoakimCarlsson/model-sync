@@ -2,7 +2,37 @@
   "id": "kimi-k3",
   "provider": "ollama",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "cloud"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "cloud"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "cloud"
+      }
+    }
+  ],
   "attrs": {
+    "cloud": "true",
     "summary": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date."
   },
   "limits": {
@@ -25,6 +55,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/kimi-k3",
     "https://ollama.com/library/kimi-k3/tags"
   ]
 }

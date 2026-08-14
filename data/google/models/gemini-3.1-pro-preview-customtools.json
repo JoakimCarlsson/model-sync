@@ -1,0 +1,372 @@
+{
+  "id": "gemini-3.1-pro-preview-customtools",
+  "provider": "google",
+  "name": "Gemini 3.1 Pro",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.36,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.72,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8.1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.6,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 21.6,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 32.4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1m_tokens",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1m_tokens",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1m_tokens",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1m_tokens",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "February 2026",
+    "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
+    "summary": "Built to refine the performance and reliability of the Gemini 3 Pro series, Gemini 3.1 Pro Preview provides better thinking, improved token efficiency, and a more grounded, factually consistent experience. It&#39;s optimized for software engineering behavior and usability, as well as agentic workflows requiring precise tool usage and reliable multi-step execution across real-world domains."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 65536
+  },
+  "lists": {
+    "features": [
+      "batch",
+      "code_execution",
+      "file_search",
+      "flex_inference",
+      "function_calling",
+      "grounding_with_google_maps",
+      "priority_inference",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs",
+      "url_context",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "file",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "snapshots": [
+      "gemini-3.1-pro-preview",
+      "gemini-3.1-pro-preview-customtools"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

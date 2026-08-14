@@ -15,6 +15,7 @@
     }
   ],
   "attrs": {
+    "default_embedding_dimension": "1536",
     "default_snapshot": "text-embedding-ada-002",
     "state": "active",
     "summary": "Older embedding model"

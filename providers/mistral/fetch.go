@@ -25,7 +25,15 @@ const (
 	ModelsURL = baseURL + "/models"
 	// modelPagePre prefixes one model's page.
 	modelPagePre = baseURL + "/models/"
+	// TextEmbeddingsURL and CodeEmbeddingsURL are the guides to the two
+	// embedding models, and the only documents stating the width of the vector
+	// either one returns.
+	TextEmbeddingsURL = baseURL + "/studio/knowledge-rag/embeddings/text_embeddings"
+	CodeEmbeddingsURL = baseURL + "/studio/knowledge-rag/embeddings/code_embeddings"
 )
+
+// guideURLs are the documents fetched alongside the model pages.
+var guideURLs = []string{TextEmbeddingsURL, CodeEmbeddingsURL}
 
 // notModels are the pages filed beside the model pages that describe no model.
 var notModels = []string{"overview", "model-selection-guide"}
@@ -36,17 +44,20 @@ const fetchWorkers = 8
 // modelHrefRe matches a link to one model's page in the index's navigation.
 var modelHrefRe = regexp.MustCompile(`"href":"/models/([a-z0-9._-]+)"`)
 
-// Fetch retrieves the index, then one page per model it links to.
+// Fetch retrieves the index, then one page per model it links to, then the
+// guides.
 //
 // The index names every model but describes none of them: what a model costs,
 // holds and can do is stated only on its own page. Fetching all of them is
-// therefore the whole of the data, not an optimization over a summary.
+// therefore the whole of the data, not an optimization over a summary. The
+// guides are fetched for the one fact no model page carries, the width of an
+// embedding.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	index, err := p.get(ctx, ModelsURL, false)
 	if err != nil {
 		return nil, err
 	}
-	pages, failures := p.getAll(ctx, modelPageURLs(index))
+	pages, failures := p.getAll(ctx, append(modelPageURLs(index), guideURLs...))
 	return append([]catalog.Document{index}, pages...), errors.Join(failures...)
 }
 

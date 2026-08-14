@@ -59,6 +59,8 @@
   "attrs": {
     "author": "x-ai",
     "canonical_slug": "x-ai/grok-4.5-20260708",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2026-07-08",
     "summary": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
@@ -72,8 +74,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -100,9 +104,15 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/x-ai/grok-4.5-20260708/endpoints"
   ]
 }

@@ -361,6 +361,9 @@
       }
     }
   ],
+  "attrs": {
+    "retirement_date": "October 20, 2026"
+  },
   "limits": {
     "context_window": 1048576,
     "max_output_tokens": 65536
@@ -369,6 +372,7 @@
     "features": [
       "chat_completions",
       "count_tokens",
+      "function_calling",
       "prompt_caching",
       "rag_engine",
       "reasoning",
@@ -388,7 +392,11 @@
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

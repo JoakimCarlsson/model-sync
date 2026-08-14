@@ -33,17 +33,20 @@
   "lists": {
     "features": [
       "function_calling",
+      "json_mode",
       "structured_outputs"
     ],
     "input_modalities": [
       "image",
-      "text"
+      "text",
+      "video"
     ],
     "output_modalities": [
       "text"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/kimi-k27-code"
   ]
 }

@@ -57,6 +57,7 @@ const (
 	AttrSummary         = "summary"
 	AttrKnowledgeCutoff = "knowledge_cutoff"
 	AttrBatchDiscount   = "batch_discount"
+	AttrState           = "state"
 )
 
 // Numeric keys the documents populate.
@@ -71,6 +72,7 @@ const (
 	LimitVideosPerMinute  = "videos_per_minute"
 	LimitSessionsPerHour  = "sessions_per_hour"
 	LimitMinutesPerMinute = "minutes_per_minute"
+	LimitSessionMinutes   = "max_session_minutes"
 )
 
 // Enumeration keys the documents populate.
@@ -80,6 +82,18 @@ const (
 	ListRegions          = "regions"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+)
+
+// Capabilities the voice pages name that the catalog has no word for. The
+// three searches and the MCP entry are the server-side tools a voice session
+// may call, and are named here as the tool identifiers xAI bills them under so
+// that a reader can follow one to its rate.
+const (
+	FeatureStreaming         = "streaming"
+	FeatureWebSearch         = "web_search"
+	FeatureXSearch           = "x_search"
+	FeatureCollectionsSearch = "collections_search"
+	FeatureRemoteMCP         = "remote_mcp"
 )
 
 var (
@@ -92,7 +106,11 @@ var (
 	amountRe = regexp.MustCompile(
 		`\$\s*([\d,]+(?:\.\d+)?)\s*(?:(?:/|per\b)\s*([A-Za-z0-9][\w ]*)?)?`,
 	)
-	countRe  = regexp.MustCompile(`^([\d,.]+)\s*([kKmM])?`)
+	// countRe matches a quantity and the scale letter xAI may abbreviate it
+	// with. The letter has to end a word: "120 minutes" is a hundred and
+	// twenty, and reading its m as a million is the difference between a two
+	// hour session and a session no clock could reach.
+	countRe  = regexp.MustCompile(`^([\d,.]+)\s*(?:([kKmM])\b)?`)
 	cutoffRe = regexp.MustCompile(
 		`(?i)knowledge cut-?off date of (.+?) is ([^.]+)\.`,
 	)

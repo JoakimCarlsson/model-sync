@@ -1291,6 +1291,9 @@
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "minimax.minimax-m2.1"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

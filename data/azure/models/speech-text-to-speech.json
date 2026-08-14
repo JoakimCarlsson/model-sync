@@ -6,6 +6,30 @@
     {
       "metric": "usage",
       "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "quality": "hd",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "quality": "hd",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD",
       "dims": {
@@ -21,6 +45,42 @@
       "currency": "USD",
       "dims": {
         "deployment": "global",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 33,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "quality": "hd",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 39.6,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "quality": "hd",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1m_tokens",
+      "amount": 36.3,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "quality": "hd",
         "region": "swedencentral",
         "tier": "standard"
       }
@@ -62,7 +122,16 @@
   "attrs": {
     "product": "Azure OpenAI"
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

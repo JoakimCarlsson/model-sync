@@ -14,6 +14,20 @@
       }
     }
   ],
+  "lists": {
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ],
+    "regions": [
+      "us-east-1"
+    ]
+  },
   "sources": [
     "https://docs.x.ai/developers/models.md",
     "https://docs.x.ai/developers/models/text-to-speech.md",

@@ -15,6 +15,13 @@ import (
 
 const baseURL = "https://docs.voyageai.com/docs"
 
+// overviewURL is the model overview MongoDB publishes, Voyage now being part of
+// MongoDB. It restates the same tables in the same shape, and it is read
+// because it is the only page that still carries the context length and the
+// embedding width of a model Voyage's own pages have dropped while continuing
+// to serve and to charge for it.
+const overviewURL = "https://www.mongodb.com/docs/voyageai/models.md"
+
 // Documents Voyage publishes that this parser reads. Appending .md to a doc
 // URL returns its markdown source.
 var documentURLs = []string{
@@ -24,6 +31,7 @@ var documentURLs = []string{
 	baseURL + "/contextualized-chunk-embeddings.md",
 	baseURL + "/reranker.md",
 	baseURL + "/batch-inference.md",
+	overviewURL,
 }
 
 // Fetch retrieves every document. The pricing page is required; the others

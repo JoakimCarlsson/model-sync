@@ -1202,15 +1202,18 @@
   "attrs": {
     "author": "Minimax AI",
     "lifecycle_state": "active",
-    "released": "Dec 23, 2025",
+    "released": "Oct 23, 2025",
     "retirement_date": "N/A",
-    "summary": "MiniMax M2.1 is MiniMax's updated model with improved reasoning, coding, and instruction following over M2. For more information about model development and performance, see the model/service card."
+    "summary": "MiniMax M2 is MiniMax's large language model with strong multilingual capabilities and solid performance on reasoning and coding benchmarks. For more information about model development and performance, see the model/service card."
   },
   "limits": {
-    "context_window": 196000,
+    "context_window": 1000000,
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "minimax.minimax-m2"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",
@@ -1225,7 +1228,6 @@
       "guardrails",
       "model_evaluation",
       "projects",
-      "prompt_caching",
       "prompt_management",
       "streaming",
       "structured_outputs"
@@ -1238,7 +1240,7 @@
     ]
   },
   "sources": [
-    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2-1.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-minimax-minimax-m2.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

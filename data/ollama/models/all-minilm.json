@@ -3,15 +3,27 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "384",
     "summary": "Embedding models on very large sentence level datasets."
   },
+  "limits": {
+    "context_window": 512
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "22m",
       "33m"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/all-minilm/tags",
+    "https://ollama.com/library/all-minilm:latest/blobs/797b70c4edf8"
   ]
 }

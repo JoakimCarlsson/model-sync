@@ -30,6 +30,9 @@
     "state": "active",
     "summary": "Text-to-speech model powered by GPT-4o mini"
   },
+  "limits": {
+    "max_input_tokens": 2000
+  },
   "lists": {
     "endpoints": [
       "v1/audio/speech"

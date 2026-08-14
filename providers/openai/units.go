@@ -285,9 +285,12 @@ func slugID(name string) string {
 }
 
 // qualifier is a parenthesized suffix OpenAI appends to a model name in a
-// pricing row, carrying a dimension rather than part of the identifier.
+// pricing row, carrying a dimension rather than part of the identifier. Name is
+// the cell as written, which is the identifier itself in a model row and a
+// display name in the tool table.
 type qualifier struct {
 	ID   string
+	Name string
 	Dims catalog.Dims
 	Note string
 }
@@ -298,11 +301,13 @@ func splitQualifier(cell string) qualifier {
 	raw := strings.TrimSpace(strings.ReplaceAll(cell, "`", ""))
 	open := strings.Index(raw, "(")
 	if open < 0 || !strings.HasSuffix(raw, ")") {
-		return qualifier{ID: slugID(raw)}
+		return qualifier{ID: slugID(raw), Name: raw}
 	}
 	inner := strings.TrimSpace(raw[open+1 : len(raw)-1])
+	name := strings.TrimSpace(raw[:open])
 	q := qualifier{
-		ID:   slugID(strings.TrimSpace(raw[:open])),
+		ID:   slugID(name),
+		Name: name,
 		Dims: catalog.Dims{},
 	}
 	switch {

@@ -1,0 +1,56 @@
+{
+  "id": "veo-3.1-generate-preview",
+  "provider": "google",
+  "name": "Veo 3.1",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "4k",
+        "variant": "standard"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "720p-and-1080p",
+        "variant": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "January 2026",
+    "model_code": "veo-3.1-generate-preview",
+    "summary": "A state-of-the-art cinematic engine designed for high-end creative storytelling and experimental video production. Veo 3.1 is best for professional-grade 4K output, natively synchronized audio generation, and complex camera movements that require the highest level of temporal consistency and artistic control."
+  },
+  "limits": {
+    "context_window": 1024
+  },
+  "lists": {
+    "aliases": [
+      "veo-3.1-generate-preview"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "video"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

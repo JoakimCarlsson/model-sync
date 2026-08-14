@@ -47,6 +47,18 @@ const (
 var cacheFiles = map[string]string{
 	retailPricesURL: "azure_foundry_meters.json",
 	ModelsURL:       "azure_foundry_models.html",
+	PartnersURL:     "azure_foundry_partners.html",
+	ImagesURL:       "azure_foundry_images.html",
+	VideoURL:        "azure_foundry_video.html",
+}
+
+// documentationURLs are the pages stating what a model holds and can do, in
+// the order they are read.
+var documentationURLs = []string{
+	ModelsURL,
+	PartnersURL,
+	ImagesURL,
+	VideoURL,
 }
 
 // defaultCurrency is what a meter is read in when it states none.
@@ -99,25 +111,34 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	if err != nil {
 		return nil, err
 	}
-	models, err := p.fetchModels(ctx)
-	if err != nil {
-		return []catalog.Document{meters}, err
+	docs := []catalog.Document{meters}
+	var failures []error
+	for _, url := range documentationURLs {
+		doc, err := p.fetchPage(ctx, url)
+		if err != nil {
+			failures = append(failures, err)
+			continue
+		}
+		docs = append(docs, doc)
 	}
-	return []catalog.Document{meters, models}, nil
+	return docs, errors.Join(failures...)
 }
 
-// fetchModels retrieves the model documentation, which is one page and needs
-// none of the pagination the price list does.
-func (p *Provider) fetchModels(ctx context.Context) (catalog.Document, error) {
-	if body, ok := p.readCache(ModelsURL); ok {
-		return catalog.Document{URL: ModelsURL, Body: body}, nil
+// fetchPage retrieves one documentation page, which needs none of the
+// pagination the price list does.
+func (p *Provider) fetchPage(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if body, ok := p.readCache(url); ok {
+		return catalog.Document{URL: url, Body: body}, nil
 	}
-	body, err := p.get(ctx, ModelsURL)
+	body, err := p.get(ctx, url)
 	if err != nil {
 		return catalog.Document{}, err
 	}
-	p.writeCache(ModelsURL, body)
-	return catalog.Document{URL: ModelsURL, Body: body}, nil
+	p.writeCache(url, body)
+	return catalog.Document{URL: url, Body: body}, nil
 }
 
 // fetchMeters walks every page of the meter listing and returns them as one
@@ -216,12 +237,22 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyMeter(m, doc.URL)
 		}
 	}
-	for _, doc := range docs {
-		if doc.URL == ModelsURL {
-			b.applyCatalog(doc)
+	b.applyCatalog(documentation(docs))
+	return b.result(), errors.Join(failures...)
+}
+
+// documentation returns the fetched documentation pages, in the order they are
+// read, so that a run missing one still applies the rest.
+func documentation(docs []catalog.Document) []catalog.Document {
+	var out []catalog.Document
+	for _, url := range documentationURLs {
+		for _, doc := range docs {
+			if doc.URL == url {
+				out = append(out, doc)
+			}
 		}
 	}
-	return b.result(), errors.Join(failures...)
+	return out
 }
 
 // applyMeter records one meter against the model named inside its SKU.
@@ -233,12 +264,15 @@ func (b *builder) applyMeter(m meter, source string) {
 	if !ok {
 		return
 	}
+	if nonModel(m.SkuName, m.ProductName) {
+		return
+	}
 	read := readSKU(m.SkuName, m.ProductName)
 	id := slugID(read.model)
 	if id == "" {
 		return
 	}
-	model := b.model(id, kindFor(m.SkuName, m.ProductName))
+	model := b.model(id, kindFor(read.model, m.ProductName))
 	model.AddSource(source)
 	model.SetAttr(AttrProduct, m.ProductName)
 	currency := m.CurrencyCode
@@ -256,6 +290,11 @@ func (b *builder) applyMeter(m meter, source string) {
 			With(DimContext, read.context).
 			With(DimModality, read.modality).
 			With(DimFineTuned, read.fineTuned).
+			With(DimModelGrader, read.grader).
+			With(DimQuality, read.quality).
+			With(DimResolution, read.resolution).
+			With(DimAspect, read.aspect).
+			With(DimDuration, read.duration).
 			With(DimRegion, m.ArmRegionName),
 	})
 }

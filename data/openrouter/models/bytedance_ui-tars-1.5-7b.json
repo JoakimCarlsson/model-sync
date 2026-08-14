@@ -39,6 +39,7 @@
   },
   "lists": {
     "features": [
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [

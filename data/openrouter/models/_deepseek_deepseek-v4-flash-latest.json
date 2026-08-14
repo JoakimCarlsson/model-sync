@@ -7,38 +7,42 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.016,
+      "amount": 0.0252,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.072,
+      "amount": 0.079996,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.144,
+      "amount": 0.252,
       "currency": "USD"
     }
   ],
   "attrs": {
+    "alias_target": "deepseek/deepseek-v4-flash-0731",
     "author": "~deepseek",
     "canonical_slug": "~deepseek/deepseek-v4-flash-latest",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-08-01",
     "summary": "This model always redirects to the latest model in the DeepSeek V4 Flash family.",
     "tokenizer": "Router"
   },
   "limits": {
     "context_window": 1048576,
-    "max_output_tokens": 262144,
-    "top_provider_context_window": 262144
+    "top_provider_context_window": 1048576
   },
   "lists": {
     "features": [
       "function_calling",
       "json_mode",
+      "parallel_tool_calls",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -71,9 +75,15 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/~deepseek/deepseek-v4-flash-latest/endpoints"
   ]
 }

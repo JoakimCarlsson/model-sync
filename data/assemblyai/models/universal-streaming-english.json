@@ -15,6 +15,7 @@
     }
   ],
   "attrs": {
+    "api_identifier": "universal-streaming-english",
     "mode": "streaming",
     "volume_discounts": "available"
   },
@@ -24,7 +25,11 @@
   "lists": {
     "features": [
       "endpointing",
-      "keyterm_prompting"
+      "keyterm_prompting",
+      "medical_vocabulary",
+      "partial_transcripts",
+      "realtime",
+      "speaker_diarization"
     ],
     "input_modalities": [
       "audio"
@@ -37,6 +42,8 @@
     ]
   },
   "sources": [
-    "https://www.assemblyai.com/docs/getting-started/models.md"
+    "https://www.assemblyai.com/docs/getting-started/models.md",
+    "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md",
+    "https://www.assemblyai.com/pricing"
   ]
 }

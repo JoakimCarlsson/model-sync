@@ -24,6 +24,15 @@ var embeddingDimRe = regexp.MustCompile(
 		" or `?(\\d+)`? for `?([\\w.-]+)`?",
 )
 
+// fixedDimRe matches the other sentence stating a width, which is how the guide
+// gives the width of the older ada embedding: not as its default but in passing,
+// comparing a shortened vector against "an unshortened `text-embedding-ada-002`
+// embedding with a size of 1536". That model predates the dimensions parameter,
+// so its width is the only one it returns.
+var fixedDimRe = regexp.MustCompile(
+	"(?i)`?([\\w.-]+)`? embedding with a size of `?(\\d+)`?",
+)
+
 // applyEmbeddingsGuide reads the embeddings guide.
 //
 // Unlike providers that offer a fixed set of widths, OpenAI exposes a
@@ -37,6 +46,9 @@ func (b *builder) applyEmbeddingsGuide(doc catalog.Document) {
 		b.setDimension(doc.URL, match[2], match[1])
 		b.setDimension(doc.URL, match[4], match[3])
 	}
+	for _, match := range fixedDimRe.FindAllStringSubmatch(body, -1) {
+		b.setFixedDimension(doc.URL, match[1], match[2])
+	}
 	for _, t := range scanMarkdownTables(doc) {
 		b.applyEmbeddingTable(t)
 	}
@@ -44,14 +56,28 @@ func (b *builder) applyEmbeddingsGuide(doc catalog.Document) {
 
 // setDimension records the default width of one model's embedding.
 func (b *builder) setDimension(source, id, dimension string) {
+	if m := b.dimensioned(source, id, dimension); m != nil {
+		m.AddList(ListFeatures, FeatureReducibleDims)
+	}
+}
+
+// setFixedDimension records the width of a model whose vector cannot be
+// shortened, which is the same fact without the feature that goes with it.
+func (b *builder) setFixedDimension(source, id, dimension string) {
+	b.dimensioned(source, id, dimension)
+}
+
+// dimensioned records a width against a model, and reports which model, so that
+// a caller can say what else the sentence stating it said.
+func (b *builder) dimensioned(source, id, dimension string) *catalog.Model {
 	id = strings.Trim(strings.TrimSpace(id), "`")
 	if id == "" || dimension == "" {
-		return
+		return nil
 	}
 	m := b.model(id, KindEmbedding)
 	m.AddSource(source)
 	m.SetAttr(AttrDefaultDimension, dimension)
-	m.AddList(ListFeatures, FeatureReducibleDims)
+	return m
 }
 
 // applyEmbeddingTable reads the guide's model table, whose only fact not

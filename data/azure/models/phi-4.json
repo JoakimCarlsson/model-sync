@@ -1,6 +1,7 @@
 {
   "id": "phi-4",
   "provider": "azure",
+  "name": "Phi-4",
   "kind": "chat",
   "prices": [
     {
@@ -707,7 +708,67 @@
   "attrs": {
     "product": "Azure Phi Models"
   },
+  "limits": {
+    "context_window": 16384,
+    "max_output_tokens": 16384
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "ar",
+      "bn",
+      "cs",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fa",
+      "fi",
+      "fr",
+      "gu",
+      "ha",
+      "he",
+      "hi",
+      "hu",
+      "id",
+      "it",
+      "ja",
+      "jv",
+      "kn",
+      "ko",
+      "ml",
+      "mr",
+      "nl",
+      "no",
+      "or",
+      "pa",
+      "pl",
+      "ps",
+      "pt",
+      "ro",
+      "ru",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "th",
+      "tl",
+      "tr",
+      "uk",
+      "ur",
+      "vi",
+      "yo",
+      "zh"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

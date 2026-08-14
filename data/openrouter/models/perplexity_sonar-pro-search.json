@@ -39,7 +39,8 @@
   "lists": {
     "features": [
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",

@@ -27,6 +27,7 @@
     "author": "moonshotai",
     "canonical_slug": "moonshotai/kimi-k2-thinking-20251106",
     "hugging_face_id": "moonshotai/Kimi-K2-Thinking",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2025-11-06",
     "summary": "Kimi K2 Thinking is Moonshot AI’s most advanced open reasoning model to date, extending the K2 series into agentic, long-horizon reasoning.",
@@ -41,6 +42,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

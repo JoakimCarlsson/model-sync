@@ -1,6 +1,7 @@
 {
   "id": "eleven_english_sts_v2",
   "provider": "elevenlabs",
+  "name": "English Speech to Speech",
   "kind": "voice-changer",
   "prices": [
     {
@@ -30,6 +31,7 @@
     ]
   },
   "sources": [
+    "https://elevenlabs.io/docs/help-center/technical/how-do-i-find-the-model-id.md",
     "https://elevenlabs.io/docs/overview/models.md",
     "https://elevenlabs.io/pricing/api"
   ]

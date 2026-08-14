@@ -3,10 +3,22 @@
   "provider": "cohere",
   "name": "Command A+",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 57.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "xl"
+      }
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "N/A",
     "amazon_sagemaker_id": "N/A",
-    "azure_ai_foundry_id": "'coherelabs-command-a-plus-05-2026-w4a4'",
+    "azure_ai_foundry_id": "coherelabs-command-a-plus-05-2026-w4a4",
     "family": "command",
     "modality": "Text, Images",
     "oracle_oci_id": "N/A",
@@ -24,6 +36,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -34,11 +47,10 @@
       "text"
     ]
   },
-  "notes": [
-    "no rate stated on the pricing page"
-  ],
   "sources": [
+    "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/structured-outputs.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]

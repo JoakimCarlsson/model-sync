@@ -32,9 +32,13 @@
       "256",
       "512"
     ],
+    "features": [
+      "reducible_embedding_dimensions"
+    ],
     "input_modalities": [
       "image",
-      "text"
+      "text",
+      "video"
     ],
     "output_modalities": [
       "text"
@@ -42,6 +46,7 @@
   },
   "sources": [
     "https://docs.voyageai.com/docs/multimodal-embeddings.md",
-    "https://docs.voyageai.com/docs/pricing.md"
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

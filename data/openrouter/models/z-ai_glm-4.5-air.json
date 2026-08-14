@@ -40,6 +40,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [

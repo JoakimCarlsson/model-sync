@@ -27,6 +27,7 @@
     "author": "z-ai",
     "canonical_slug": "z-ai/glm-5v-turbo-20260401",
     "expiration_date": "2098-12-31",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-01",
     "summary": "GLM-5V-Turbo is Z.ai’s first native multimodal agent foundation model, built for vision-based coding and agent-driven tasks.",
     "tokenizer": "Other"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

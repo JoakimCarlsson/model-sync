@@ -163,6 +163,7 @@
     "features": [
       "chat_completions",
       "count_tokens",
+      "function_calling",
       "prompt_caching",
       "rag_engine",
       "reasoning",
@@ -181,7 +182,10 @@
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-flash",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

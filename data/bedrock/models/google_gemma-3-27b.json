@@ -1211,6 +1211,9 @@
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "google.gemma-3-27b-it"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

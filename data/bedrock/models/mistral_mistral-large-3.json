@@ -1151,6 +1151,9 @@
     "max_output_tokens": 32000
   },
   "lists": {
+    "aliases": [
+      "mistral.mistral-large-3-675b-instruct"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

@@ -81,10 +81,31 @@ func isVariantPage(url string) bool {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// pages maps the slug of a page named after a mode onto the model that
+	// mode runs on. xAI documents its voice modes under the mode's name and
+	// names the model only in the pricing table, so without this the mode page
+	// would land on a model of its own and the model it describes would keep
+	// the near-empty page xAI generates under its identifier.
+	pages map[string]string
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models: map[string]*catalog.Model{},
+		pages:  map[string]string{},
+	}
+}
+
+// linkPage records that a page published under slug describes id. The first
+// model claiming a slug keeps it, which is what leaves a mode's page with the
+// model still served where two models share one mode.
+func (b *builder) linkPage(slug, id string) {
+	if slug == "" || slug == id {
+		return
+	}
+	if _, ok := b.pages[slug]; !ok {
+		b.pages[slug] = id
+	}
 }
 
 // model returns the entry for id, creating it if absent.

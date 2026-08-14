@@ -38,6 +38,7 @@
   },
   "sources": [
     "https://docs.voyageai.com/docs/multimodal-embeddings.md",
-    "https://docs.voyageai.com/docs/pricing.md"
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

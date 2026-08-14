@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "GLM-5.1 is our next-generation flagship model for agentic engineering, with significantly stronger coding capabilities than its predecessor. It achieves state-of-the-art performance on SWE-Bench Pro and leads GLM-5 by a wide margin."
+    "cloud": "true",
+    "summary": "GLM-5.1 is our next-generation flagship model for agentic engineering, with significantly stronger coding capabilities than its predecessor. It achieves state-of-the-art performance on SWE-Bench Pro and leads GLM-5 by a wide margin.",
+    "usage_level": "high",
+    "usage_level_rank": "3"
   },
   "limits": {
     "context_window": 198000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/glm-5.1",
     "https://ollama.com/library/glm-5.1/tags"
   ]
 }

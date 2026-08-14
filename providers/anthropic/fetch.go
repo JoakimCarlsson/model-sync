@@ -23,11 +23,12 @@ const (
 	PricingURL      = baseURL + "/about-claude/pricing.md"
 )
 
-// Fetch retrieves the five pages. None is redundant: the pricing page names
+// Fetch retrieves the six pages. None is redundant: the pricing page names
 // models only by display name, the overview states identifiers for current
 // models only, the deprecations page is the sole source of identifiers and
-// lifecycle for retired ones, and the two guides state the capabilities the
-// overview's comparison table has no row for.
+// lifecycle for retired ones, the two guides state the capabilities the
+// overview's comparison table has no row for, and the tool directory is the
+// only page describing a server tool as anything other than a rate.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	var (
 		docs     []catalog.Document
@@ -37,6 +38,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 		DeprecationsURL,
 		OverviewURL,
 		PricingURL,
+		ToolReferenceURL,
 		StructuredOutputsURL,
 		ToolUseURL,
 	} {

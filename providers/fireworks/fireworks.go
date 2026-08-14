@@ -34,8 +34,24 @@ const PricingURL = "https://docs.fireworks.ai/serverless/pricing.md"
 const StructuredOutputsURL = "https://docs.fireworks.ai/structured-responses/" +
 	"structured-output-grammar-based.md"
 
+// EmbeddingsGuideURL is the guide naming the embedding models Fireworks
+// serves. The pricing page prices its embedding model under a name and links
+// nothing, and this is the document tying that name to a model page.
+const EmbeddingsGuideURL = "https://docs.fireworks.ai/guides/" +
+	"querying-embeddings-models.md"
+
+// ChatCompletionsURL is the reference for the request every chat model
+// answers. Its reasoning_effort parameter is documented model family by model
+// family, which is where Fireworks states which of its models reason.
+const ChatCompletionsURL = "https://docs.fireworks.ai/api-reference/" +
+	"post-chatcompletions.md"
+
 // modelPagePre prefixes the page each priced model is linked to.
 const modelPagePre = "https://app.fireworks.ai/models/"
+
+// libraryPagePre prefixes the model library's page for a model, which states
+// in prose what the console record has no field for.
+const libraryPagePre = "https://fireworks.ai/models/"
 
 // fetchWorkers bounds the concurrent requests made for the model pages.
 const fetchWorkers = 8
@@ -60,22 +76,76 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the pricing page, then the page of every model it links to.
+// Fetch retrieves the pricing page, the guides that state what it does not,
+// then the page of every model either of them links to.
 //
 // The pricing page states rates and a link, and nothing about the model
 // itself. What a model holds and can take is on the page behind that link,
 // which states no rate. Several rows link to the same page, because a model
 // served three ways is one model with three rates, so each page is fetched
-// once.
+// once. The embedding model is the exception: it is priced under a name and
+// linked nowhere, so the guide to the embeddings API is read first for the
+// page it is served from.
+//
+// A last round fetches the model library's page for the few models whose
+// console record left something open, because that page states in prose what
+// the record has no field for.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	pricing, err := p.get(ctx, PricingURL)
 	if err != nil {
 		return nil, err
 	}
-	urls := append(modelPageURLs(pricing), StructuredOutputsURL)
-	pages, failures := p.getAll(ctx, urls)
-	return append([]catalog.Document{pricing}, pages...),
-		errors.Join(failures...)
+	guides, failures := p.getAll(ctx, []string{
+		EmbeddingsGuideURL,
+		StructuredOutputsURL,
+		ChatCompletionsURL,
+	})
+	embedding := embeddingPageURLs(pricing, guides)
+	pages, pageFailures := p.getAll(
+		ctx,
+		append(modelPageURLs(pricing), embedding...),
+	)
+	library, libraryFailures := p.getAll(
+		ctx,
+		libraryPageURLs(pages, embedding),
+	)
+	docs := append([]catalog.Document{pricing}, guides...)
+	docs = append(docs, pages...)
+	docs = append(docs, library...)
+	failures = append(failures, pageFailures...)
+	for _, failure := range libraryFailures {
+		if !errors.Is(failure, errNoPage) {
+			failures = append(failures, failure)
+		}
+	}
+	return docs, errors.Join(failures...)
+}
+
+// errNoPage marks a document the provider publishes no page for. The model
+// library carries a page for most models and not for all of them, and a model
+// it omits is one fewer place to read rather than a failed refresh.
+var errNoPage = errors.New("no page")
+
+// embeddingPageURLs derives the pages of the embedding models the pricing page
+// priced, which it names without linking. The guide is what links them, and
+// the pricing page is what says which of them Fireworks charges for.
+func embeddingPageURLs(
+	pricing catalog.Document,
+	guides []catalog.Document,
+) []string {
+	b := newBuilder()
+	b.applyPricing(pricing)
+	var urls []string
+	for _, doc := range guides {
+		if doc.URL != EmbeddingsGuideURL {
+			continue
+		}
+		for _, match := range b.matchEmbeddings(doc) {
+			urls = append(urls, match.Ref.URL)
+		}
+	}
+	slices.Sort(urls)
+	return slices.Compact(urls)
 }
 
 // modelPageURLs derives the model pages the pricing page links to.
@@ -157,6 +227,9 @@ func (p *Provider) get(
 		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
+	if resp.StatusCode == http.StatusNotFound {
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, errNoPage)
+	}
 	if resp.StatusCode != http.StatusOK {
 		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}
@@ -168,27 +241,58 @@ func (p *Provider) get(
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the pricing page first, because it is the only document naming
-// the models and the only one linking to their pages. Everything else it
-// fetched is either one of those pages or the structured outputs guide, which
-// states a capability for models the pricing page has already established.
+// Parse reads the documents in the order each one depends on the last. The
+// pricing page comes first, because it is the only document naming the models
+// and the only one pricing them; then the embeddings guide, which is what ties
+// the embedding model's name to a page; then the model pages; then the library
+// pages, which fill only what a model page left unstated; and last the two
+// documents stating a capability for models the pricing page has already
+// established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
-	for _, doc := range docs {
-		if doc.URL == PricingURL {
-			b.applyPricing(doc)
-		}
+	phases := []func(catalog.Document){
+		b.applyPricing,
+		b.applyEmbeddingsGuide,
+		b.applyModelPage,
+		b.applyLibraryPage,
+		b.applyCapabilities,
 	}
-	for _, doc := range docs {
-		switch doc.URL {
-		case PricingURL:
-		case StructuredOutputsURL:
-			b.applyStructuredOutputs(doc)
-		default:
-			b.applyModelPage(doc)
+	for phase, apply := range phases {
+		for _, doc := range docs {
+			if phaseOf(doc.URL) == phase {
+				apply(doc)
+			}
 		}
 	}
 	return b.result(), nil
+}
+
+// phaseOf says which pass over the documents reads url, and so which document
+// a reader has already applied by the time this one is read.
+func phaseOf(url string) int {
+	switch {
+	case url == PricingURL:
+		return 0
+	case url == EmbeddingsGuideURL:
+		return 1
+	case url == StructuredOutputsURL, url == ChatCompletionsURL:
+		return 4
+	case strings.HasPrefix(url, libraryPagePre):
+		return 3
+	default:
+		return 2
+	}
+}
+
+// applyCapabilities routes the two documents stating a capability against
+// something other than one model.
+func (b *builder) applyCapabilities(doc catalog.Document) {
+	switch doc.URL {
+	case StructuredOutputsURL:
+		b.applyStructuredOutputs(doc)
+	case ChatCompletionsURL:
+		b.applyReasoning(doc)
+	}
 }
 
 // readCache returns a previously fetched body.
@@ -249,6 +353,23 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 		m.Kind = kind
 	}
 	return m
+}
+
+// rename re-keys a model, for the embedding model the pricing page priced
+// under a display name before the guide stated the identifier it is served
+// under.
+func (b *builder) rename(from, to string) {
+	m, ok := b.models[from]
+	if !ok || to == "" || from == to {
+		return
+	}
+	if _, taken := b.models[to]; taken {
+		return
+	}
+	delete(b.models, from)
+	m.ID = to
+	b.models[to] = m
+	b.order[slices.Index(b.order, from)] = to
 }
 
 // result returns the accumulated models in identifier order.

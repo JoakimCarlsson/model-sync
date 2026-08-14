@@ -107,6 +107,7 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-pro-preview-20260219",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-02-19",
     "summary": "Gemini 3.1 Pro Preview is Google’s frontier reasoning model, delivering enhanced software engineering performance, improved agentic reliability, and more efficient token usage across complex workflows.",
@@ -121,8 +122,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -147,6 +150,11 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

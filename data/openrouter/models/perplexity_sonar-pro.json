@@ -36,6 +36,9 @@
     "top_provider_context_window": 200000
   },
   "lists": {
+    "features": [
+      "web_search"
+    ],
     "input_modalities": [
       "image",
       "text"

@@ -130,11 +130,13 @@ func (b *builder) applyCards(docs []catalog.Document) {
 			doc:    doc,
 			title:  title,
 			tokens: compareTokens(title),
+			sorted: slices.Sorted(slices.Values(compareTokens(title))),
+			ids:    cardModelIDs(string(doc.Body)),
 		})
 	}
 	for _, id := range b.order {
 		m := b.models[id]
-		best, ok := bestCard(cards, compareTokens(m.Name))
+		best, ok := matchCard(cards, m)
 		if !ok {
 			continue
 		}
@@ -148,6 +150,170 @@ type card struct {
 	doc    catalog.Document
 	title  string
 	tokens []string
+	sorted []string
+	ids    []string
+}
+
+// cardEndpointIDRe matches the identifier a card gives in its table of the
+// endpoints a model answers on, which is the one identifier both documents
+// state.
+var cardEndpointIDRe = regexp.MustCompile(
+	`(?m)^\|\s*bedrock-[a-z]+\s*\|\s*` +
+		"`?((?:[a-z0-9-]+\\.)+[a-z0-9.:-]+)`?" + `\s*\|`,
+)
+
+// cardVersionRe matches the release a card appends to an identifier where the
+// price list leaves it off.
+var cardVersionRe = regexp.MustCompile(`-v\d+:\d+$`)
+
+// cardModelIDs reads the identifiers a card claims, each also without the
+// release, so that an identifier written one way matches the other.
+func cardModelIDs(body string) []string {
+	var ids []string
+	for _, match := range cardEndpointIDRe.FindAllStringSubmatch(body, -1) {
+		for _, id := range []string{
+			match[1],
+			cardVersionRe.ReplaceAllString(match[1], ""),
+		} {
+			if !slices.Contains(ids, id) {
+				ids = append(ids, id)
+			}
+		}
+	}
+	return ids
+}
+
+// cardByID returns the card claiming an identifier the price list states too.
+//
+// It is tried before any reading of the name, because it is the only join the
+// two documents make themselves: a meter reaching a model through the
+// bedrock-mantle endpoint names it in its usage type, and every card names the
+// same identifier in the table of endpoints the model answers on. It is what
+// settles that the list's "NVIDIA Nemotron Nano 2" is the card's "NVIDIA
+// Nemotron Nano 9B v2", which no comparison of the two names would.
+func cardByID(cards []card, ids []string) (card, bool) {
+	for _, c := range cards {
+		for _, id := range c.ids {
+			if slices.Contains(ids, id) {
+				return c, true
+			}
+		}
+	}
+	return card{}, false
+}
+
+// matchCard finds the card describing a model, on the identifier where both
+// documents state one and on the name where only one of them does.
+//
+// The name is a poor key and is only the fallback: the price list gives it in
+// prose and so does a card, and the two disagree in small ways.
+//
+// The list names a model as the card does not: it writes "R1" where the card
+// writes "DeepSeek-R1", "Writer Palmyra Vision 7B" where the card writes
+// "Palmyra Vision 7B", and the bare "google.gemma-4-31b" where the card writes
+// "Gemma 4 31B". The author the list records beside the name settles all
+// three, so a name matching no card is tried again without its author's words
+// and then again with them.
+//
+// A name matching one card exactly wins over one that merely begins it,
+// whichever rewriting found it, because the exact match is the surer reading:
+// there is a Nova Sonic card and a Nova 2 Sonic card, and Nova Sonic 2.0
+// begins the first while naming the second.
+func matchCard(cards []card, m *catalog.Model) (card, bool) {
+	if c, ok := cardByID(cards, m.Lists[ListAliases]); ok {
+		return c, true
+	}
+	names := []string{
+		m.Name,
+		withoutAuthor(m.Name, m.Attrs[AttrAuthor]),
+		m.Attrs[AttrAuthor] + " " + m.Name,
+	}
+	wants := make([][]string, 0, len(names))
+	for _, name := range names {
+		wants = append(wants, compareTokens(name))
+	}
+	for _, want := range wants {
+		if c, ok := sameCard(cards, want); ok {
+			return c, true
+		}
+	}
+	for _, want := range wants {
+		if c, ok := bestCard(cards, want); ok {
+			return c, true
+		}
+	}
+	return soleCard(cards, withoutVersion(wants[0]))
+}
+
+// cardVendorRe matches the vendor an identifier-shaped name opens with, which
+// the price list writes and a card does not: openai.gpt-5.4 is carded as
+// GPT-5.4.
+var cardVendorRe = regexp.MustCompile(`(?i)^[a-z]+\.`)
+
+// withoutAuthor drops the lab from a name the price list either wrote as an
+// identifier or opened with the lab's own name.
+func withoutAuthor(name, author string) string {
+	if !strings.Contains(name, " ") && cardVendorRe.MatchString(name) {
+		return cardVendorRe.ReplaceAllString(name, "")
+	}
+	tokens, prefix := compareTokens(name), compareTokens(author)
+	if len(tokens) > len(prefix) && beginsWith(tokens, prefix) {
+		return strings.Join(tokens[len(prefix):], " ")
+	}
+	return name
+}
+
+// sameCard returns the one card naming exactly the words a model is named by,
+// in whatever order it puts them. Amazon writes the generation before the
+// family where the price list writes it after, calling Nova Sonic 2.0 the Nova
+// 2 Sonic, and Mistral does the same to Ministral 8B 3.0.
+func sameCard(cards []card, want []string) (card, bool) {
+	if len(want) == 0 {
+		return card{}, false
+	}
+	sorted := slices.Sorted(slices.Values(want))
+	var found card
+	matches := 0
+	for _, c := range cards {
+		if slices.Equal(c.sorted, sorted) {
+			found, matches = c, matches+1
+		}
+	}
+	return found, matches == 1
+}
+
+// soleCard returns the one card whose name opens with want, and nothing where
+// several do, since a name cut this short no longer tells them apart.
+func soleCard(cards []card, want []string) (card, bool) {
+	var found card
+	matches := 0
+	for _, c := range cards {
+		if beginsWith(c.tokens, want) {
+			found, matches = c, matches+1
+		}
+	}
+	return found, matches == 1
+}
+
+// withoutVersion drops the release a name ends in, which the two documents
+// date differently: the list's Voxtral Mini 1.0 is the card's Voxtral Mini 3B
+// 2507, and its Magistral Small 1.2 is the card's Magistral Small 2509. This
+// is the last thing tried, and only where one card is left, because a name
+// shortened to its family alone would otherwise take a sibling's card.
+func withoutVersion(tokens []string) []string {
+	for len(tokens) > 2 && isNumber(tokens[len(tokens)-1]) {
+		tokens = tokens[:len(tokens)-1]
+	}
+	return tokens
+}
+
+// isNumber reports whether a word is a bare number rather than a size or a
+// name, so that the 1.0 of Voxtral Mini 1.0 is droppable and the 7B of Palmyra
+// Vision 7B is not.
+func isNumber(word string) bool {
+	return word != "" && strings.IndexFunc(word, func(r rune) bool {
+		return r < '0' || r > '9'
+	}) < 0
 }
 
 // bestCard returns the most specific card naming a model.
@@ -189,7 +355,7 @@ func beginsWith(items, prefix []string) bool {
 func applyCard(m *catalog.Model, c card) {
 	body := string(c.doc.Body)
 	m.AddSource(c.doc.URL)
-	if m.Name == "" {
+	if !prose(m.Name) {
 		m.Name = c.title
 	}
 	m.SetAttr(AttrSummary, linkText(first(cardSummaryRe, body)))
@@ -218,8 +384,8 @@ func applyDetails(m *catalog.Model, body string) {
 		case fieldMaxOut:
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))
 		case fieldReasoning:
-			if strings.EqualFold(value, "supported") {
-				m.AddList(ListFeatures, "reasoning")
+			if strings.HasPrefix(strings.ToLower(value), "supported") {
+				m.AddList(ListFeatures, catalog.CapabilityReasoning)
 			}
 		}
 	}

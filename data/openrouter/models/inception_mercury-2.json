@@ -26,6 +26,8 @@
   "attrs": {
     "author": "inception",
     "canonical_slug": "inception/mercury-2-20260304",
+    "reasoning_default_effort": "medium",
+    "reasoning_default_enabled": "true",
     "released": "2026-03-04",
     "summary": "Mercury 2 is an extremely fast reasoning LLM, and the first reasoning diffusion LLM (dLLM).",
     "tokenizer": "Other"
@@ -39,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -59,6 +62,12 @@
       "temperature",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "none"
     ]
   },
   "sources": [

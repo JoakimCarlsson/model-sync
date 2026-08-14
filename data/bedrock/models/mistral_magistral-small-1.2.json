@@ -1200,9 +1200,50 @@
     }
   ],
   "attrs": {
-    "author": "Mistral"
+    "author": "Mistral",
+    "lifecycle_state": "active",
+    "released": "Sep 2025",
+    "retirement_date": "N/A",
+    "summary": "Magistral Small 2509 is Mistral AI's reasoning model that uses chain-of-thought to solve complex math, coding, and logic problems. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 40000
+  },
+  "lists": {
+    "aliases": [
+      "mistral.magistral-small-2509"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-magistral-small-2509.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

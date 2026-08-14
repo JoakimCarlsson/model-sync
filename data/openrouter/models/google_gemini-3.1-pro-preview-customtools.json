@@ -107,6 +107,7 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-pro-preview-customtools-20260219",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-02-25",
     "summary": "Gemini 3.1 Pro Preview Custom Tools is a variant of Gemini 3.1 Pro that improves tool selection behavior by preventing overuse of a general bash tool when more efficient third-party...",
@@ -121,8 +122,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -146,6 +149,11 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

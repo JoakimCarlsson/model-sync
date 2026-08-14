@@ -45,12 +45,15 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the catalog, then one page per model it links to.
+// Fetch retrieves the catalog, the public model list, then one page per model
+// the catalog links to.
 //
 // The catalog states what a model holds; its own page states what it costs,
-// what it can do and what it takes, none of which the catalog repeats. A page
-// that cannot be read costs that model its rates and nothing else, so the
-// failure is reported and the rest of the run continues.
+// what it can do and what it takes, none of which the catalog repeats; and the
+// public list is Cerebras answering which models it sells, with the two
+// ceilings both documents round. A page that cannot be read costs that model
+// its rates and nothing else, so the failure is reported and the rest of the
+// run continues.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	index, err := p.get(ctx, CatalogURL)
 	if err != nil {
@@ -58,7 +61,8 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{index}
 	var failures []error
-	for _, url := range modelPageURLs(index) {
+	urls := append([]string{PublicModelsURL}, modelPageURLs(index)...)
+	for _, url := range urls {
 		page, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
@@ -69,17 +73,28 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	return docs, errors.Join(failures...)
 }
 
-// Parse reads the catalog first, because it is the only document saying which
-// models Cerebras serves and under which standing.
+// Parse reads the public list first and the catalog second, because between
+// them they say which models Cerebras serves, how exactly each is bounded and
+// under which standing it is offered. A model page adds to a model one of them
+// has already named.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		if doc.URL == CatalogURL {
-			b.applyCatalog(doc)
+		if doc.URL != PublicModelsURL {
+			continue
+		}
+		if err := b.applyPublicModels(doc); err != nil {
+			return nil, err
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL != CatalogURL {
+		if doc.URL == CatalogURL {
+			b.applyCatalog(doc)
+			b.applyDeprecations(doc)
+		}
+	}
+	for _, doc := range docs {
+		if doc.URL != CatalogURL && doc.URL != PublicModelsURL {
 			b.applyModelPage(doc)
 		}
 	}

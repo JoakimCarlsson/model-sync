@@ -1,6 +1,7 @@
 {
   "id": "web-search",
   "provider": "openai",
+  "name": "Web search",
   "kind": "tool",
   "prices": [
     {

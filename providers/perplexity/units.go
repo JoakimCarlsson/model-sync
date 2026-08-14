@@ -40,21 +40,49 @@ const (
 // which is the only thing separating Perplexity's three request fees.
 const DimContextSize = "search_context_size"
 
+// DimPromptBand records the prompt length a rate applies under, which is what
+// separates the two amounts a brokered model's rate cell holds when the model
+// costs more on a long prompt.
+const DimPromptBand = "prompt_band"
+
 // Scalar keys the pricing pages populate.
 const (
 	AttrSummary          = "summary"
 	AttrAuthor           = "author"
 	AttrDefaultDimension = "default_embedding_dimension"
 	AttrContextualized   = "contextualized"
+	// AttrCacheDiscount holds a cache rate stated as a reduction of the input
+	// rate rather than as an amount. It is not a price, because the amount it
+	// reduces varies with the prompt for the models that state it this way, so
+	// resolving it here would invent a rate the table does not give.
+	AttrCacheDiscount = "cache_read_discount"
 )
 
-// ListDimensions holds the embedding width.
-const ListDimensions = "embedding_dimensions"
+// Enumerations the embedding table populates.
+const (
+	// ListDimensions holds the embedding width.
+	ListDimensions = "embedding_dimensions"
+	// ListQuantizations holds the encodings an embedding is returned in.
+	ListQuantizations = "quantizations"
+)
+
+// FeatureMatryoshka is what Perplexity's embedding table calls MRL: the vector
+// can be truncated to a shorter one that still means something.
+const FeatureMatryoshka = "matryoshka"
 
 var (
 	linkRe   = regexp.MustCompile(`\[([^\]]*)\]\([^)]*\)`)
 	tagRe    = regexp.MustCompile(`(?s)<[^>]*>`)
 	numberRe = regexp.MustCompile(`([\d,]*\.?\d+)`)
+	// countRe matches a cell holding a bare quantity, written either in full or
+	// with a thousands or millions suffix.
+	countRe = regexp.MustCompile(`(?i)^([\d,]+)\s*([km])?$`)
+	// bandRe matches one amount of a rate cell that states a rate per prompt
+	// length, which Perplexity writes as the amount and then the bound.
+	bandRe = regexp.MustCompile(`([\d,]*\.?\d+)\s*\(([^)]*)\)`)
+	// discountRe matches a rate cell stating a reduction of another rate rather
+	// than an amount of its own.
+	discountRe = regexp.MustCompile(`(?i)\d+%\s*off`)
 )
 
 // clean strips markdown and MDX decoration from a cell value.

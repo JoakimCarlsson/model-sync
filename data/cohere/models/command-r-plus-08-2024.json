@@ -34,6 +34,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -46,6 +47,7 @@
   "sources": [
     "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/structured-outputs.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]

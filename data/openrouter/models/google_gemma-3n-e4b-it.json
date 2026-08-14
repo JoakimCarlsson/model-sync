@@ -57,6 +57,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/google/gemma-3n-e4b-it/endpoints"
   ]
 }

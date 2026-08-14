@@ -42,6 +42,12 @@ const (
 // AttrModelURL is where the model can be inspected.
 const AttrModelURL = "model_url"
 
+// AttrDefaultDimension is the width of the vector an embedding model returns.
+// Fireworks states a range rather than a set of widths, because the vector can
+// be cut to any length the caller asks for, so what is recorded is the width
+// it returns when the caller asks for nothing.
+const AttrDefaultDimension = "default_embedding_dimension"
+
 // tripleOrder is what the three amounts in a cell mean, in the order the page
 // writes them.
 var tripleOrder = []catalog.Metric{
@@ -65,6 +71,15 @@ func clean(cell string) string {
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
 	return strings.Join(strings.Fields(s), " ")
+}
+
+// nameWords splits a display name into the words two names are compared on,
+// so that "GPT-OSS 120B" and "GPT OSS 120B" are the same three words while
+// "M2" and "M2.7" stay two different ones.
+func nameWords(name string) []string {
+	return strings.FieldsFunc(strings.ToLower(clean(name)), func(r rune) bool {
+		return !(r >= 'a' && r <= 'z' || r >= '0' && r <= '9' || r == '.')
+	})
 }
 
 // modelRef is what one model cell holds.

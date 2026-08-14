@@ -27,6 +27,7 @@
     "author": "poolside",
     "canonical_slug": "poolside/laguna-s-2.1-20260720",
     "hugging_face_id": "poolside/Laguna-S-2.1",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-21",
     "summary": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>).",
     "tokenizer": "Other"
@@ -39,6 +40,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [

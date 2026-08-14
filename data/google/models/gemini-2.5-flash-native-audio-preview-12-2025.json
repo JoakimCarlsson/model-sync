@@ -1,0 +1,104 @@
+{
+  "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+  "provider": "google",
+  "name": "Gemini 2.5 Flash Native Audio (Live API)",
+  "kind": "audio",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "audio-video"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "audio"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "September 2025",
+    "model_code": "gemini-2.5-flash-native-audio-preview-12-2025",
+    "summary": "The Live API enables low-latency, real-time voice and video interactions with Gemini 2.5 Flash. It processes continuous streams of audio, video, or text to deliver immediate, human-like spoken responses, creating a natural conversational experience for your users."
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 8192
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.5-flash-native-audio-preview-12-2025"
+    ],
+    "features": [
+      "audio_generation",
+      "function_calling",
+      "live_api",
+      "reasoning",
+      "web_search"
+    ],
+    "input_modalities": [
+      "audio",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-2.5-flash-native-audio-preview-12-2025"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

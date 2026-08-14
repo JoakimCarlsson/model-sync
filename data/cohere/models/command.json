@@ -37,7 +37,8 @@
       "Chat"
     ],
     "features": [
-      "function_calling"
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
       "text"
@@ -49,6 +50,7 @@
   "sources": [
     "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]
 }

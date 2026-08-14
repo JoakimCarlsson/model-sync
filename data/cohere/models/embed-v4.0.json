@@ -26,6 +26,16 @@
     },
     {
       "metric": "hosting",
+      "unit": "per_year",
+      "amount": 32500,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "medium"
+      }
+    },
+    {
+      "metric": "hosting",
       "unit": "per_hour",
       "amount": 4,
       "currency": "USD",
@@ -38,6 +48,16 @@
       "metric": "hosting",
       "unit": "per_month",
       "amount": 2500,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "small"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_year",
+      "amount": 25000,
       "currency": "USD",
       "dims": {
         "deployment": "model-vault",
@@ -93,6 +113,7 @@
   },
   "sources": [
     "https://cohere.com/pricing",
+    "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
     "https://docs.cohere.com/docs/models.md"
   ]
 }

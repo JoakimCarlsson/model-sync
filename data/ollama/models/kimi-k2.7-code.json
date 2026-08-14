@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "Kimi K2.7 Code is Moonshot AI&#39;s coding-focused agentic model built upon Kimi K2.6, with substantial improvements on real-world long-horizon coding tasks and roughly 30% lower thinking-token usage."
+    "cloud": "true",
+    "summary": "Kimi K2.7 Code is Moonshot AI&#39;s coding-focused agentic model built upon Kimi K2.6, with substantial improvements on real-world long-horizon coding tasks and roughly 30% lower thinking-token usage.",
+    "usage_level": "high",
+    "usage_level_rank": "3"
   },
   "limits": {
     "context_window": 256000
@@ -25,6 +28,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/kimi-k2.7-code",
     "https://ollama.com/library/kimi-k2.7-code/tags"
   ]
 }

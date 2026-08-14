@@ -14,8 +14,12 @@
   "attrs": {
     "author": "Black Forest Labs"
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -23,6 +27,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/flux-2-pro"
   ]
 }

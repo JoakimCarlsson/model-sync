@@ -34,6 +34,7 @@
     "canonical_slug": "openai/o3-mini-high-2025-01-31",
     "is_moderated": "true",
     "knowledge_cutoff": "2023-10-31",
+    "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",
     "released": "2025-02-12",
     "summary": "OpenAI o3-mini-high is the same model as [o3-mini](/openai/o3-mini) with reasoning_effort set to high.",
@@ -48,8 +49,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -68,6 +71,9 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high"
     ]
   },
   "sources": [

@@ -33,6 +33,7 @@
     "author": "meta",
     "canonical_slug": "meta/muse-spark-1.2-20260805",
     "is_moderated": "true",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-08-05",
     "summary": "Muse Spark 1.2 is a reasoning model from Meta, designed for complex agentic tasks.",
@@ -46,8 +47,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -72,9 +75,17 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal",
+      "xhigh"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/meta/muse-spark-1.2-20260805/endpoints"
   ]
 }

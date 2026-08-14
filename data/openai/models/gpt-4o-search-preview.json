@@ -53,6 +53,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/tools-web-search.md",
     "https://developers.openai.com/api/docs/models/gpt-4o-search-preview.md"
   ]
 }

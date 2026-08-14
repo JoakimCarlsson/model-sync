@@ -28,6 +28,7 @@
   },
   "limits": {
     "context_window": 1048576,
+    "max_output_tokens": 32768,
     "top_provider_context_window": 128000
   },
   "lists": {
@@ -64,6 +65,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/meta-llama/llama-4-maverick-17b-128e-instruct/endpoints"
   ]
 }

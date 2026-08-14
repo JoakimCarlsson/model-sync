@@ -26,9 +26,15 @@ const tagsPath = "/tags"
 // The three are matched together rather than separately because the listing
 // states them once per build and a model has many, so a row's own bounds are
 // what tie them to each other.
+//
+// The thousands suffix and the input column are both optional. A window under
+// a thousand is written plainly, "512 context window", which is how every
+// small embedding model states its own, and requiring the suffix lost the row
+// entirely rather than losing the suffix.
 var tagRowRe = regexp.MustCompile(
 	`(?is)href="/library/([^"]+)".{0,900}?` +
-		`([\d.]+)([KM])\s*context window.{0,200}?([A-Za-z, ]+?)\s*input`,
+		`([\d.]+)\s*([KM])?\s*context window` +
+		`(?:.{0,200}?([A-Za-z, ]+?)\s*input)?`,
 )
 
 // applyTagListing reads a model's tag listing.
@@ -43,16 +49,9 @@ func (b *builder) applyTagListing(doc catalog.Document) {
 	if !ok {
 		return
 	}
-	rows := tagRowRe.FindAllStringSubmatch(string(doc.Body), -1)
-	if len(rows) == 0 {
+	row := defaultRow(doc.Body)
+	if row == nil {
 		return
-	}
-	row := rows[0]
-	for _, candidate := range rows {
-		if strings.HasSuffix(candidate[1], ":"+defaultTag) {
-			row = candidate
-			break
-		}
 	}
 	m.AddSource(doc.URL)
 	m.SetLimit(LimitContextWindow, parseCount(row[2], row[3]))
@@ -62,8 +61,25 @@ func (b *builder) applyTagListing(doc catalog.Document) {
 	addModality(m, ListOutputModalities, "text")
 }
 
+// defaultRow returns the listing row of the build Ollama serves when a request
+// names no other, since that is what running the model plainly gives, and the
+// first row otherwise.
+func defaultRow(body []byte) []string {
+	rows := tagRowRe.FindAllStringSubmatch(string(body), -1)
+	if len(rows) == 0 {
+		return nil
+	}
+	for _, candidate := range rows {
+		if strings.HasSuffix(candidate[1], ":"+defaultTag) {
+			return candidate
+		}
+	}
+	return rows[0]
+}
+
 // parseCount reads a quantity written with a thousands or millions suffix,
-// which is the only way the listing writes one.
+// which the listing writes on every window of a thousand or more and on none
+// below it.
 func parseCount(digits, suffix string) int64 {
 	n, err := strconv.ParseFloat(digits, 64)
 	if err != nil {

@@ -20,7 +20,16 @@
   "attrs": {
     "author": "Qwen"
   },
+  "limits": {
+    "context_window": 1000000
+  },
   "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -29,6 +38,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/qwen37-max"
   ]
 }

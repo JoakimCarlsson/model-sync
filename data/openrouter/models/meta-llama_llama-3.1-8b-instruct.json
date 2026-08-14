@@ -42,6 +42,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [

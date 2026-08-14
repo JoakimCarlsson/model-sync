@@ -1,0 +1,88 @@
+{
+  "id": "fireworks/muse-glimmer-30b",
+  "provider": "fireworks",
+  "name": "Muse Glimmer 30B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.525,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.25,
+      "currency": "USD",
+      "dims": {
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "hugging_face_id": "meta-models/Muse-Glimmer-30B",
+    "model_url": "https://app.fireworks.ai/models/fireworks/muse-glimmer-30b",
+    "summary": "Muse Glimmer 30B is a dense causal language model distilled from Muse Spark and purpose-built for autonomous agentic work. It combines multi-step reasoning, reliable schema-based tool calling, and failure recovery with multimodal understanding via a ~1.8B ViT-G/14 perception encoder, supporting interleaved text and image input, a 131K+ context window, and selectable reasoning strength (low through xhigh). Trained on data from over 100 languages, Muse Glimmer performs strongly for its size class on agentic benchmarks including MCP Atlas, DeepSearch QA, Gaia2 and SWE-Bench Pro, and is released under Apache 2.0."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://app.fireworks.ai/models/fireworks/muse-glimmer-30b",
+    "https://docs.fireworks.ai/serverless/pricing.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+  ]
+}

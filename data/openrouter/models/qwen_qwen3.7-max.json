@@ -32,6 +32,7 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.7-max-20260520",
+    "reasoning_default_enabled": "true",
     "released": "2026-05-21",
     "summary": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series.",
     "tokenizer": "Qwen"
@@ -45,6 +46,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

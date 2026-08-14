@@ -3,10 +3,11 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "1024",
     "summary": "A suite of text embedding models by Snowflake, optimized for performance."
   },
   "limits": {
-    "context_window": 2000
+    "context_window": 512
   },
   "lists": {
     "input_modalities": [
@@ -25,6 +26,7 @@
   },
   "sources": [
     "https://ollama.com/library",
-    "https://ollama.com/library/snowflake-arctic-embed/tags"
+    "https://ollama.com/library/snowflake-arctic-embed/tags",
+    "https://ollama.com/library/snowflake-arctic-embed:latest/blobs/fb3b66c7bdf6"
   ]
 }

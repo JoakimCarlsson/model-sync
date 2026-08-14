@@ -17,6 +17,9 @@ const (
 	// ToolUseURL states which models can call tools, which it does by naming a
 	// family rather than by listing its members.
 	ToolUseURL = "https://docs.cohere.com/v2/docs/tool-use-overview.md"
+	// StreamingURL states which models return their answer a piece at a time,
+	// which it does by naming the endpoint that carries it.
+	StreamingURL = "https://docs.cohere.com/v2/docs/streaming.md"
 )
 
 // familyCommand is the family the tool use guide names.
@@ -43,6 +46,12 @@ var (
 	commandFamilyRe = regexp.MustCompile(
 		`(?i)tool use is a technique which allows developers to connect ` +
 			`Cohere.s Command family of models to external tools`,
+	)
+	// chatStreamsRe matches the sentence the streaming guide states its own
+	// scope in. Cohere names the endpoint rather than any model, so this is
+	// matched rather than assumed for the same reason the sentence above is.
+	chatStreamsRe = regexp.MustCompile(
+		`(?i)\[Chat API\]\([^)]*\) is capable of streaming events`,
 	)
 )
 
@@ -84,16 +93,41 @@ func (b *builder) applyToolUse(doc catalog.Document) {
 		return
 	}
 	for _, m := range b.models {
-		if m.Attrs[AttrFamily] != familyCommand {
-			continue
-		}
-		if !strings.Contains(
-			strings.Join(m.Lists[ListEndpoints], " "),
-			endpointChat,
-		) {
+		if m.Attrs[AttrFamily] != familyCommand || !onChat(m) {
 			continue
 		}
 		m.AddList(ListFeatures, catalog.CapabilityFunctionCalling)
 		m.AddSource(doc.URL)
 	}
+}
+
+// applyStreaming records streaming against every model answering on the
+// endpoint the guide names.
+//
+// This is the one capability Cohere states by endpoint alone. The guide says
+// the Chat API is capable of streaming events as they come, and the overview's
+// endpoint column says which models answer there, so the two together reach
+// every model that streams: the Command family and both Aya families, and not
+// the embedding and rerank models, whose endpoints the guide says nothing
+// about. The two nightly builds are listed only in the table of platform
+// identifiers, which states no endpoint, so they are not reached either.
+func (b *builder) applyStreaming(doc catalog.Document) {
+	if !chatStreamsRe.Match(doc.Body) {
+		return
+	}
+	for _, m := range b.models {
+		if !onChat(m) {
+			continue
+		}
+		m.AddList(ListFeatures, FeatureStreaming)
+		m.AddSource(doc.URL)
+	}
+}
+
+// onChat reports whether the overview gives a model the Chat endpoint.
+func onChat(m *catalog.Model) bool {
+	return strings.Contains(
+		strings.Join(m.Lists[ListEndpoints], " "),
+		endpointChat,
+	)
 }

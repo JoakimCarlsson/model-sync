@@ -53,6 +53,7 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.6-max-preview-20260420",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-27",
     "summary": "Qwen3.6-Max-Preview is a proprietary frontier model from Alibaba Cloud built on a sparse mixture-of-experts architecture with approximately 1 trillion total parameters.",
     "tokenizer": "Qwen"
@@ -66,6 +67,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

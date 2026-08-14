@@ -26,7 +26,13 @@ const (
 	UnitPer1KSearch catalog.Unit = "per_1k_searches"
 	UnitPerHour     catalog.Unit = "per_hour"
 	UnitPerMonth    catalog.Unit = "per_month"
+	UnitPerYear     catalog.Unit = "per_year"
 )
+
+// FeatureStreaming is set where a model returns what it generates a piece at a
+// time. The catalog declares no value for it, so the spelling here is the one
+// the other providers already use.
+const FeatureStreaming = "streaming"
 
 // instanceUnits map the denominator a dedicated instance is quoted against
 // onto a unit.
@@ -44,6 +50,9 @@ const (
 	DeploymentVault = "model-vault"
 	// DimTier records the performance tier an instance is sized at.
 	DimTier = "tier"
+	// TierXL is the tier the generative table names in a column heading rather
+	// than in a column of its own.
+	TierXL = "xl"
 )
 
 // noteStartingRate marks an amount Cohere quotes as a floor rather than as the
@@ -58,6 +67,7 @@ var modalityNames = map[string]string{
 	"images":                         "image",
 	"image":                          "image",
 	"audio":                          "audio",
+	"audio waveform":                 "audio",
 	"mixed texts/images (i.e. pdfs)": "file",
 }
 
@@ -80,16 +90,19 @@ func modalityName(value string) string {
 // legacy rates and most of that guide's list do, no entry is needed and the
 // name is reduced to an identifier instead.
 var productModels = map[string][]string{
-	"command a":     {"command-a-03-2025"},
-	"command a+":    {"command-a-plus-05-2026"},
-	"command r":     {"command-r-08-2024"},
-	"command r7b":   {"command-r7b-12-2024"},
-	"embed 4":       {"embed-v4.0"},
-	"rerank 3.5":    {"rerank-v3.5"},
-	"rerank 4 fast": {"rerank-v4.0-fast"},
-	"rerank 4 pro":  {"rerank-v4.0-pro"},
-	"transcribe":    {"cohere-transcribe-03-2026"},
-	"aya expanse":   {"c4ai-aya-expanse-8b", "c4ai-aya-expanse-32b"},
+	"command a":           {"command-a-03-2025"},
+	"command a+":          {"command-a-plus-05-2026"},
+	"command a reasoning": {"command-a-reasoning-08-2025"},
+	"command a translate": {"command-a-translate-08-2025"},
+	"command a vision":    {"command-a-vision-07-2025"},
+	"command r":           {"command-r-08-2024"},
+	"command r7b":         {"command-r7b-12-2024"},
+	"embed 4":             {"embed-v4.0"},
+	"rerank 3.5":          {"rerank-v3.5"},
+	"rerank 4 fast":       {"rerank-v4.0-fast"},
+	"rerank 4 pro":        {"rerank-v4.0-pro"},
+	"transcribe":          {"cohere-transcribe-03-2026"},
+	"aya expanse":         {"c4ai-aya-expanse-8b", "c4ai-aya-expanse-32b"},
 }
 
 // cardLabels map the wording of a rate's label onto what it counts. Cohere

@@ -22,12 +22,28 @@ const (
 // Capabilities a card's bullets name, in the catalog's words. AssemblyAI names
 // none of them: each is a sentence with the capability inside it.
 const (
-	FeatureKeyterms      = catalog.CapabilityKeyterms
-	FeatureRealtime      = catalog.CapabilityRealtime
-	FeatureCodeSwitching = catalog.CapabilityCodeSwitching
+	FeatureKeyterms          = catalog.CapabilityKeyterms
+	FeatureRealtime          = catalog.CapabilityRealtime
+	FeatureCodeSwitching     = catalog.CapabilityCodeSwitching
+	FeatureDiarization       = catalog.CapabilityDiarization
+	FeatureLanguageDetection = catalog.CapabilityLanguageDetection
 	// FeatureEndpointing is deciding when a speaker has finished, which only
 	// a model transcribing a live connection has to do.
 	FeatureEndpointing = "endpointing"
+	// FeaturePrompting is describing the audio in plain language to steer the
+	// transcription. AssemblyAI documents it beside keyterms prompting and as a
+	// different thing: one supplies the words to expect, the other the
+	// situation to expect them in.
+	FeaturePrompting = "prompting"
+	// FeatureMedicalVocabulary is transcribing medical terminology accurately,
+	// which is the whole of what the medical add-on states it does and what
+	// every model it can be turned on for gains.
+	FeatureMedicalVocabulary = "medical_vocabulary"
+	// FeatureVoiceIsolation is transcribing the speaker rather than the room.
+	FeatureVoiceIsolation = "voice_isolation"
+	// FeaturePartialTranscripts is emitting a transcript before the speaker has
+	// finished, which the streaming selection page answers per model.
+	FeaturePartialTranscripts = "partial_transcripts"
 )
 
 var (
@@ -58,6 +74,8 @@ var namedFeatures = []struct {
 	{regexp.MustCompile(`(?i)code switching`), FeatureCodeSwitching},
 	{regexp.MustCompile(`(?i)real-?time transcription`), FeatureRealtime},
 	{regexp.MustCompile(`(?i)intelligent endpointing`), FeatureEndpointing},
+	{regexp.MustCompile(`(?i)prompting capabilities`), FeaturePrompting},
+	{regexp.MustCompile(`(?i)medical terminology`), FeatureMedicalVocabulary},
 }
 
 // applyBullet records what one card bullet states.

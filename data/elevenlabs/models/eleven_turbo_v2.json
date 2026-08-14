@@ -1,6 +1,7 @@
 {
   "id": "eleven_turbo_v2",
   "provider": "elevenlabs",
+  "name": "Turbo v2",
   "kind": "speech",
   "prices": [
     {
@@ -26,6 +27,7 @@
     ]
   },
   "sources": [
+    "https://elevenlabs.io/docs/help-center/technical/how-do-i-find-the-model-id.md",
     "https://elevenlabs.io/docs/overview/models.md",
     "https://elevenlabs.io/pricing/api"
   ]

@@ -27,6 +27,7 @@
     "author": "meituan",
     "canonical_slug": "meituan/longcat-2.0-20260720",
     "hugging_face_id": "meituan-longcat/LongCat-2.0",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-20",
     "summary": "LongCat 2.0 is a sparse mixture-of-experts language model from Meituan, with 48B active parameters out of 1.6T total.",
     "tokenizer": "Other"
@@ -39,6 +40,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [

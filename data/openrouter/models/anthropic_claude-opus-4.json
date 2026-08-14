@@ -60,7 +60,9 @@
   "lists": {
     "features": [
       "function_calling",
-      "reasoning"
+      "prompt_caching",
+      "reasoning",
+      "web_search"
     ],
     "input_modalities": [
       "file",

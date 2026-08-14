@@ -11,44 +11,77 @@
 // the identifier comes from the link they share.
 //
 // The pricing page states nothing else about a model, but every row links to
-// the model's page, and that page carries a record of it as embedded JSON: the
-// context window, the display name, the description, where its weights are
-// published, and flags for image input and tool use. Those pages are fetched
-// too. The link is the join, so nothing has to be matched on names, and the
-// three rows of a model served three ways all reach the same page.
+// the model's page in the console, and that page carries a record of it as
+// embedded JSON: the context window, the display name, the description, where
+// its weights are published, and flags for image input and tool use. Those
+// pages are fetched too. The link is the join, so nothing has to be matched on
+// names, and the three rows of a model served three ways all reach the same
+// page.
 //
 // The record's quotes arrive escaped, and how many times depends on how deeply
 // the page nested it, so the escaping is matched rather than undone.
 //
-// The record flags tool use and image input and no other capability. One more
-// is stated, in the guide to it rather than against a model: Fireworks works
-// an example of grammar-constrained output through one model by name and then
-// says the feature is not particular to it, all its models support it. That
-// sentence is matched and the capability recorded for every model that
-// generates a response, which is why it needs no flag of its own. It stops
-// there: the sentence says all of them and means all the models the guide is
-// about, and an embedding model returns a vector, which no schema describes.
+// The pricing page prices one model it does not link: its embedding model,
+// which it prices as "Qwen3 8B". The guide to the embeddings API writes that
+// name out as "Qwen3 Embedding 8B", links the model and states the identifier
+// the API takes, so the guide is fetched first and the model is keyed by what
+// the guide found. Its tables list models that run only on a deployment of the
+// caller's own, and rerankers under names the embedding model's name is a
+// subset of, so a row is read only when it links a model, says serverless, and
+// is not under the reranking heading.
 //
-// Two of the page's tables are not model tables at all: they price by
-// parameter count band, with rows like "4B - 16B parameters". They are rate
-// cards rather than catalog entries and there is nothing to key them to, so
-// they are not read.
+// Two capabilities are stated somewhere other than against a model:
+//
+//   - Constrained output. Fireworks works an example of grammar-constrained
+//     output through one model by name and then says the feature is not
+//     particular to it, all its models support it. That sentence is matched
+//     and the capability recorded for every model that generates a response,
+//     which is why it needs no flag of its own. It stops there: the sentence
+//     says all of them and means all the models the guide is about, and an
+//     embedding model returns a vector, which no schema describes.
+//   - Reasoning. The reference for the chat completion request documents its
+//     reasoning_effort parameter model family by model family, down to which
+//     efforts each family accepts and whether reasoning is on when nothing is
+//     passed. A family documented there is one Fireworks says reasons, so the
+//     capability is read off that list and matched to models by name, word for
+//     word and adjacent: a paragraph about MiniMax M2 is not about MiniMax
+//     M2.7, which the reference does not document.
+//
+// Two of the pricing page's tables are not model tables at all: they price by
+// parameter count band, with rows like "4B - 16B parameters". Those bands are
+// what the rest of the model library costs, and Fireworks publishes no list of
+// which models fall in which band, so there is nothing to key them to and they
+// are not read. The catalog therefore holds the models Fireworks prices one by
+// one, which is every model on the pricing page and no more.
+//
+// A last document is fetched for the few models the console record left
+// something open on: the model library's page for the same model, at
+// fireworks.ai rather than app.fireworks.ai. It renders rather than embeds
+// what it states, and it rounds the context window for display, so it is read
+// only where the record has nothing: the context window of a model whose
+// record puts it at zero, and the width of the vector an embedding model
+// returns, which the record has no field for. Fireworks publishes no library
+// page for every model, and one it omits is a document less to read rather
+// than a failed refresh.
 //
 // What Fireworks does not publish:
 //
-//   - A bound on output length, for any model. The record on a model's page
-//     carries the context window and nothing about how much of it a reply may
-//     take, and the pricing page states no bound at all.
-//   - A context window for every model. The page of qwen3p7-plus records its
-//     context length as zero and renders it as "N/A", which is Fireworks
-//     stating that it has none to give rather than a page this parser fails to
-//     read.
-//   - Which models reason. Fireworks has a reasoning guide, and it is written
-//     against a placeholder: every example calls a model named
-//     "<reasoning-model>", and the three it names outright are illustrations
-//     rather than a list. Reading a capability out of an example would claim
-//     it for whichever model the example happened to use, so none is recorded.
-//   - Anything at all about its embedding model beyond the rate. Its row on the
-//     pricing page links to no model page, so it carries neither a context
-//     window nor the width of the vector it returns.
+//   - A bound on output length, for any model. Neither record nor page carries
+//     one, and the API reference says why: max_tokens is bounded by the
+//     context window alone, and a request asking for more than fits is lowered
+//     to fit rather than refused.
+//   - Which of the remaining models reason. The reference documents a
+//     reasoning effort for the DeepSeek, GLM and Harmony families and says
+//     nothing about the Kimi, MiniMax M2.7, Muse or Nemotron models it serves.
+//     The guide to reasoning is no help either: every example calls a model
+//     named "<reasoning-model>", and the one document that touches it
+//     otherwise says the "Kimi K2 family" produces long reasoning traces
+//     without naming a single model in it.
+//   - Any capability of its embedding model. It answers one endpoint with a
+//     vector: the record flags neither tools nor image input, its library page
+//     states outright that streaming and function calling are not supported,
+//     and constrained output is not something a vector can be asked for.
+//   - The number of widths its embedding model can return. The width is
+//     recorded as the one it returns unasked, because the vector can be cut to
+//     any length between 32 and that, which is a range rather than a set.
 package fireworks

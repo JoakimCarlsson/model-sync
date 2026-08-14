@@ -1291,6 +1291,9 @@
     "max_output_tokens": 16000
   },
   "lists": {
+    "aliases": [
+      "qwen.qwen3-coder-next"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

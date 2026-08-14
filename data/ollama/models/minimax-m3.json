@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "MiniMax M3: Coding &amp; Agentic Frontier. 1M context window. Native Multimodality."
+    "cloud": "true",
+    "summary": "MiniMax M3: Coding &amp; Agentic Frontier. 1M context window. Native Multimodality.",
+    "usage_level": "high",
+    "usage_level_rank": "3"
   },
   "limits": {
     "context_window": 512000
@@ -25,6 +28,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/minimax-m3",
     "https://ollama.com/library/minimax-m3/tags"
   ]
 }

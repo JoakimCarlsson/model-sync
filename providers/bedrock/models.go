@@ -3,6 +3,7 @@ package bedrock
 import (
 	"encoding/json"
 	"fmt"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -64,9 +65,14 @@ var nameKinds = []struct {
 
 // Dimension keys Bedrock's prices vary along.
 const (
-	DimRegion = "region"
-	DimTier   = "tier"
+	DimRegion   = "region"
+	DimTier     = "tier"
+	DimContext  = "context"
+	DimCacheTTL = "cache_ttl"
 )
+
+// ContextLong is the band of a rate AWS meters apart for a long prompt.
+const ContextLong = "long"
 
 // Serving paths Bedrock prices separately. The first three are named inside
 // the metric field; the rest come from the feature the product belongs to.
@@ -102,6 +108,18 @@ var featureTiers = []struct {
 	{"customization", TierCustom},
 	{"custom model", TierCustom},
 	{"on-demand", TierOnDemand},
+}
+
+// serviceTiers maps the serving path the newest meters state in a field of
+// their own. They are the only rates naming neither an inference type nor a
+// feature, so this is read last and only for them: a meter of the older shape
+// carries a service tier as well as an inference type naming the same path,
+// and reading it here too would price one path twice.
+var serviceTiers = map[string]string{
+	"standard": TierOnDemand,
+	"priority": TierPriority,
+	"flex":     TierFlex,
+	"batch":    TierBatch,
 }
 
 // metricWords maps a fragment of AWS's metric field onto what is counted. The
@@ -174,6 +192,12 @@ type attributes struct {
 	RegionCode    string `json:"regionCode"`
 	Feature       string `json:"feature"`
 	UsageType     string `json:"usagetype"`
+	// TokenType and ServiceTier are what the meters reaching the model through
+	// the bedrock-mantle endpoint state instead of an inference type and a
+	// feature. They carry the same two facts under different names, and a
+	// product stating them states neither of the others.
+	TokenType   string `json:"tokenType"`
+	ServiceTier string `json:"service_tier"`
 }
 
 // term is one offer against a product.
@@ -215,7 +239,7 @@ func (b *builder) applyRate(
 	if id == "" {
 		return
 	}
-	metric, ok := metricFor(a.InferenceType)
+	metric, ok := metricFor(a)
 	if !ok {
 		return
 	}
@@ -230,6 +254,7 @@ func (b *builder) applyRate(
 	m := b.model(id, kindFor(metric, a.Model))
 	m.AddSource(source)
 	m.SetAttr(AttrAuthor, a.Provider)
+	m.AddList(ListAliases, meterModelID(a.UsageType))
 	if preferName(m.Name, a.Model) {
 		m.Name = a.Model
 	}
@@ -240,7 +265,9 @@ func (b *builder) applyRate(
 		Currency: currency,
 		Dims: catalog.Dims{}.
 			With(DimRegion, a.RegionCode).
-			With(DimTier, tierFor(a.InferenceType, a.Feature)),
+			With(DimTier, tierFor(a)).
+			With(DimContext, contextBand(a.TokenType)).
+			With(DimCacheTTL, cacheTTL(a.TokenType)),
 	})
 }
 
@@ -296,34 +323,104 @@ func modelID(a attributes) string {
 	return model
 }
 
-// metricFor reads what a rate counts out of AWS's combined metric field.
-func metricFor(inferenceType string) (catalog.Metric, bool) {
-	field := strings.ToLower(inferenceType)
-	for _, entry := range metricWords {
-		if strings.Contains(field, entry.fragment) {
-			return entry.metric, true
-		}
+// metricFor reads what a rate counts out of AWS's combined metric field, or
+// out of the token type where the meter states it there instead.
+func metricFor(a attributes) (catalog.Metric, bool) {
+	if metric, ok := countedBy(a.InferenceType); ok {
+		return metric, true
 	}
-	if field == "" {
+	if metric, ok := countedBy(a.TokenType); ok {
+		return metric, true
+	}
+	if a.InferenceType == "" {
 		return "", false
 	}
 	return MetricUsage, true
 }
 
+// countedBy reads a metric out of one field, which AWS writes as prose in one
+// shape of meter and as an identifier in the other.
+func countedBy(field string) (catalog.Metric, bool) {
+	lower := strings.ToLower(fieldWords(field))
+	for _, entry := range metricWords {
+		if strings.Contains(lower, entry.fragment) {
+			return entry.metric, true
+		}
+	}
+	return "", false
+}
+
+// fieldWords separates the words of a field written as an identifier, so that
+// input_tokens_mantle reads the same as the "Input tokens" the older meters
+// state.
+func fieldWords(field string) string {
+	return strings.Map(func(r rune) rune {
+		if r == '_' || r == '-' {
+			return ' '
+		}
+		return r
+	}, field)
+}
+
 // tierFor reads the serving path, which AWS names inside the metric field for
-// some rates and only in the product's feature for the rest.
-func tierFor(inferenceType, feature string) string {
-	field := strings.ToLower(inferenceType)
+// some rates, in the product's feature for others and in a field of its own
+// for the newest.
+func tierFor(a attributes) string {
+	field := strings.ToLower(a.InferenceType)
 	for word, tier := range tierWords {
 		if strings.Contains(field, word) {
 			return tier
 		}
 	}
-	lower := strings.ToLower(feature)
+	feature := strings.ToLower(a.Feature)
 	for _, entry := range featureTiers {
-		if strings.Contains(lower, entry.fragment) {
+		if strings.Contains(feature, entry.fragment) {
 			return entry.tier
 		}
+	}
+	if field == "" && feature == "" {
+		return serviceTiers[strings.ToLower(a.ServiceTier)]
+	}
+	return ""
+}
+
+// meterIDRe matches the identifier a usage type names between the region it
+// bills in and the endpoint it reaches the model through: the meter
+// USE1-nvidia.nemotron-nano-9b-v2-mantle-input-tokens-standard is the only
+// place the price list states what a model is called.
+var meterIDRe = regexp.MustCompile(
+	`^[A-Z0-9]+-((?:[a-z0-9-]+\.)+[a-z0-9.-]+?)-mantle-`,
+)
+
+// meterModelID reads the model identifier out of a usage type, which is what
+// joins a rate to the card describing what it buys without going through the
+// two documents' disagreeing prose names.
+func meterModelID(usageType string) string {
+	match := meterIDRe.FindStringSubmatch(usageType)
+	if match == nil {
+		return ""
+	}
+	return match[1]
+}
+
+// tokenCacheTTLRe matches the cache lifetime a token type names.
+var tokenCacheTTLRe = regexp.MustCompile(`(?i)\b(\d+[smhd])\b`)
+
+// cacheTTL reads how long a cache write a rate covers is kept for, which the
+// token type states and nothing else does.
+func cacheTTL(tokenType string) string {
+	match := tokenCacheTTLRe.FindStringSubmatch(tokenType)
+	if match == nil {
+		return ""
+	}
+	return strings.ToLower(match[1])
+}
+
+// contextBand reports whether a rate is the one charged above the prompt
+// length AWS meters separately.
+func contextBand(tokenType string) string {
+	if strings.Contains(strings.ToLower(tokenType), "long-ctx") {
+		return ContextLong
 	}
 	return ""
 }

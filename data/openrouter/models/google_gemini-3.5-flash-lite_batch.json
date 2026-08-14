@@ -56,6 +56,8 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.5-flash-lite-20260721",
+    "reasoning_default_effort": "minimal",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2026-07-21",
     "summary": "Gemini 3.5 Flash Lite is a high-efficiency model from Google with upgraded agentic capabilities.",
@@ -70,8 +72,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -94,6 +98,12 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [

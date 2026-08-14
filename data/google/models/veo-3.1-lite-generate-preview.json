@@ -1,0 +1,56 @@
+{
+  "id": "veo-3.1-lite-generate-preview",
+  "provider": "google",
+  "name": "Veo 3.1 Lite",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "1080p",
+        "variant": "lite"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "720p",
+        "variant": "lite"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "March 2026",
+    "model_code": "veo-3.1-lite-generate-preview",
+    "summary": "Veo 3.1 Lite Preview is a high-efficiency, developer-first video model providing high-fidelity video generation, editing, and cinematic control. It leverages the state-of-the-art Veo 3.1 model to democratize professional-grade video AI by offering a scalable, programmable interface for creators and enterprises."
+  },
+  "limits": {
+    "context_window": 1024
+  },
+  "lists": {
+    "aliases": [
+      "veo-3.1-lite-generate-preview"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "video"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

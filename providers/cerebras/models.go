@@ -5,6 +5,7 @@ import (
 	"slices"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -141,6 +142,40 @@ func (b *builder) applyCatalog(doc catalog.Document) {
 			applyContext(m, cellAt(row, contextCol))
 		}
 	}
+}
+
+// AttrDeprecatedOn is the date Cerebras has said a model will go on. It is a
+// date rather than a state, because the model is served until it arrives and
+// recording it as withdrawn would drop from the catalog something still sold.
+const AttrDeprecatedOn = "deprecated_on"
+
+// deprecationRe matches the notice the catalog opens with when a model has a
+// date to go by. It names the model as the catalog's own tables name it.
+var deprecationRe = regexp.MustCompile(
+	`(?i)\*\*([^*]+)\*\*\s+is scheduled for deprecation on ([^.\n]+)`,
+)
+
+// applyDeprecations reads the notice above the tables.
+func (b *builder) applyDeprecations(doc catalog.Document) {
+	body := string(doc.Body)
+	for _, match := range deprecationRe.FindAllStringSubmatch(body, -1) {
+		name := clean(match[1])
+		for _, m := range b.models {
+			if m.Name == name {
+				m.SetAttr(AttrDeprecatedOn, isoDate(match[2]))
+				m.AddSource(doc.URL)
+			}
+		}
+	}
+}
+
+// isoDate normalizes the date the notice writes in prose.
+func isoDate(value string) string {
+	text := clean(value)
+	if t, err := time.Parse("January 2, 2006", text); err == nil {
+		return t.Format("2006-01-02")
+	}
+	return text
 }
 
 // applyContext reads the "65k / 131k" cell stating the free and paid ceilings.

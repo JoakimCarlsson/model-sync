@@ -2,6 +2,7 @@ package together
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"io"
 	"net/http"
@@ -9,6 +10,7 @@ import (
 	"path/filepath"
 	"slices"
 	"strings"
+	"sync"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -30,6 +32,10 @@ const CatalogURL = "https://docs.together.ai/docs/serverless-models.md"
 // this, so it is stated here instead, in a table of its own.
 const ReasoningURL = "https://docs.together.ai/docs/inference/chat/reasoning.md"
 
+// fetchWorkers bounds the concurrent requests made for the pages named by an
+// index.
+const fetchWorkers = 8
+
 // Provider reads Together's model catalog. The zero value is not usable; call
 // New.
 type Provider struct {
@@ -50,19 +56,83 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the catalog page and the reasoning page. Only the catalog is
-// required: it is the one document naming the models, and a reasoning page
-// that cannot be read costs one capability rather than the whole provider.
+// Fetch retrieves the catalog page, then everything that says more about the
+// models it names: the reasoning page, the per-model guides the documentation
+// index lists, and the page each model has in the model library.
+//
+// Only the catalog is required. It is the one document naming the models, and
+// every other page here answers about a model the catalog already established,
+// so one that cannot be read costs a field rather than the whole provider.
+//
+// Neither index is returned. A sitemap and a list of pages name documents and
+// state nothing about a model, so they are read here and no further.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	cat, err := p.get(ctx, CatalogURL)
 	if err != nil {
 		return nil, err
 	}
+	docs := []catalog.Document{cat}
+	var failures []error
 	reasoning, err := p.get(ctx, ReasoningURL)
 	if err != nil {
-		return []catalog.Document{cat}, err
+		failures = append(failures, err)
+	} else {
+		docs = append(docs, reasoning)
 	}
-	return []catalog.Document{cat, reasoning}, nil
+	for _, source := range []struct {
+		index string
+		urls  func(catalog.Document) []string
+	}{
+		{GuideIndexURL, guideURLs},
+		{LibraryIndexURL, libraryURLs},
+	} {
+		index, err := p.get(ctx, source.index)
+		if err != nil {
+			failures = append(failures, err)
+			continue
+		}
+		pages, errs := p.getAll(ctx, source.urls(index))
+		docs = append(docs, pages...)
+		failures = append(failures, errs...)
+	}
+	return docs, errors.Join(failures...)
+}
+
+// getAll retrieves urls concurrently, returning the documents in the order the
+// urls were given so a run is reproducible.
+func (p *Provider) getAll(
+	ctx context.Context,
+	urls []string,
+) ([]catalog.Document, []error) {
+	docs := make([]catalog.Document, len(urls))
+	errs := make([]error, len(urls))
+	var wg sync.WaitGroup
+	work := make(chan int)
+	for range min(fetchWorkers, len(urls)) {
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			for i := range work {
+				docs[i], errs[i] = p.get(ctx, urls[i])
+			}
+		}()
+	}
+	for i := range urls {
+		work <- i
+	}
+	close(work)
+	wg.Wait()
+
+	out := make([]catalog.Document, 0, len(urls))
+	var failures []error
+	for i := range urls {
+		if errs[i] != nil {
+			failures = append(failures, errs[i])
+			continue
+		}
+		out = append(out, docs[i])
+	}
+	return out, failures
 }
 
 // get retrieves one document, reading from and writing to the cache directory
@@ -99,17 +169,23 @@ func (p *Provider) get(
 }
 
 // Parse reads the catalog page first, because it is the only document naming
-// the models, then the reasoning page onto the models it established.
+// the models, then every other page onto the models it established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		if doc.URL != ReasoningURL {
+		if doc.URL == CatalogURL {
 			b.applyCatalog(doc)
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL == ReasoningURL {
+		switch {
+		case doc.URL == CatalogURL:
+		case doc.URL == ReasoningURL:
 			b.applyReasoning(doc)
+		case strings.HasPrefix(doc.URL, LibraryPre):
+			b.applyLibrary(doc)
+		default:
+			b.applyGuide(doc)
 		}
 	}
 	return b.result(), nil

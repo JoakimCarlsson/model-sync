@@ -56,6 +56,10 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 // name, returning the markdown pages and, separately, the rendered pages of
 // the generation models.
 //
+// A voice row names two pages, not one. xAI generates a page under the model's
+// identifier and writes the documentation under the mode's name, and only the
+// second states the modalities and capabilities, so both are fetched.
+//
 // The rendered page is fetched only for the Imagine models, and only because
 // their markdown is lossy: it states one headline rate where the page states a
 // matrix by resolution and quality. Every other model's markdown is complete,
@@ -79,7 +83,9 @@ func modelPageURLs(pricing catalog.Document) (markdown, variants []string) {
 			case sectionImagine:
 				id = clean(cellAt(row, at))
 			case sectionVoice:
-				id, _ = voiceID(clean(cellAt(row, at)))
+				model, label, _ := voiceID(clean(cellAt(row, at)))
+				id = model
+				add(&markdown, modelPagePre+slugID(label)+".md")
 			}
 			if id == "" || strings.Contains(id, " ") {
 				continue

@@ -22,6 +22,8 @@
     "canonical_slug": "nvidia/nemotron-3-super-120b-a12b-20230311",
     "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
     "is_free": "true",
+    "reasoning_default_effort": "medium",
+    "reasoning_default_enabled": "true",
     "released": "2026-03-11",
     "summary": "NVIDIA Nemotron 3 Super is a 120B-parameter open hybrid MoE model, activating just 12B parameters for maximum compute efficiency and accuracy in complex multi-agent applications.",
     "tokenizer": "Other"
@@ -56,6 +58,10 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "low",
+      "medium"
     ]
   },
   "sources": [

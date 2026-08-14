@@ -30,16 +30,25 @@ const baseURL = "https://docs.perplexity.ai"
 // brokers from other labs.
 var documentURLs = []string{
 	baseURL + "/getting-started/pricing.md",
-	baseURL + "/docs/agent-api/models.md",
+	AgentModelsURL,
+	EmbeddingsURL,
 	SonarIndexURL,
+	SonarAPIURL,
 	FeaturesURL,
 	MediaURL,
+	AgentOutputURL,
+	AgentRequestURL,
 }
 
 // guideURLs are the documents describing the Sonar API rather than any one
 // model, which are read only after the model pages have said which models the
 // API serves.
 var guideURLs = []string{FeaturesURL, MediaURL}
+
+// agentGuideURLs are the same thing for the Agent API: documents stating what
+// the API takes and does, naming no model, read onto the models its own model
+// page listed.
+var agentGuideURLs = []string{AgentOutputURL, AgentRequestURL}
 
 // SonarIndexURL lists the models Perplexity serves itself and links to the
 // page each of them has, which is the only place a context window is stated.
@@ -95,18 +104,21 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 }
 
 // Parse reads the rate documents first, because they are the only ones naming
-// the models, then the Sonar model pages onto what they established.
+// the models, then the model pages and finally the guides onto what they
+// established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		if !strings.HasPrefix(doc.URL, sonarModelPre) &&
-			!slices.Contains(guideURLs, doc.URL) {
+		if namesModels(doc.URL) {
 			b.applyDocument(doc)
 		}
 	}
 	for _, doc := range docs {
 		if strings.HasPrefix(doc.URL, sonarModelPre) {
 			b.applySonarPage(doc)
+		}
+		if doc.URL == AgentModelsURL {
+			b.applyAgentCards(doc)
 		}
 	}
 	for _, doc := range docs {
@@ -116,8 +128,29 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		if slices.Contains(guideURLs, doc.URL) {
 			b.applyGuide(doc)
 		}
+		if doc.URL == SonarAPIURL {
+			b.applySonarReference(doc)
+		}
+		if doc.URL == AgentOutputURL {
+			b.applyAgentGuide(doc)
+		}
+		if doc.URL == AgentRequestURL {
+			b.applyAgentSchema(doc)
+		}
 	}
 	return b.result(), nil
+}
+
+// namesModels reports whether a document holds the rate tables a model is
+// created from. The guides and the API references state things about models
+// already named and never name one themselves, and a model page is addressed
+// by an identifier the tables have already established.
+func namesModels(url string) bool {
+	if strings.HasPrefix(url, sonarModelPre) || url == SonarAPIURL {
+		return false
+	}
+	return !slices.Contains(guideURLs, url) &&
+		!slices.Contains(agentGuideURLs, url)
 }
 
 // get retrieves one document, reading from and writing to the cache directory
@@ -200,6 +233,9 @@ type builder struct {
 	// a page of their own. The guides describing what the Sonar API can do name
 	// no model, so this is what says who they are about.
 	sonar []string
+	// agent holds the models the Agent API serves, which are the ones its model
+	// page tabulates. The Agent API's own guides name no model either.
+	agent []string
 }
 
 func newBuilder() *builder {

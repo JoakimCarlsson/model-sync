@@ -15,6 +15,7 @@
     }
   ],
   "attrs": {
+    "api_identifier": "universal-streaming-multilingual",
     "mode": "streaming",
     "volume_discounts": "available"
   },
@@ -25,6 +26,8 @@
   "lists": {
     "features": [
       "keyterm_prompting",
+      "language_detection",
+      "partial_transcripts",
       "realtime"
     ],
     "input_modalities": [
@@ -43,6 +46,7 @@
     ]
   },
   "sources": [
-    "https://www.assemblyai.com/docs/getting-started/models.md"
+    "https://www.assemblyai.com/docs/getting-started/models.md",
+    "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md"
   ]
 }

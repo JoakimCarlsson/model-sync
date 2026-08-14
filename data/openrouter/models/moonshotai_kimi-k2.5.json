@@ -27,6 +27,7 @@
     "author": "moonshotai",
     "canonical_slug": "moonshotai/kimi-k2.5-0127",
     "hugging_face_id": "moonshotai/Kimi-K2.5",
+    "reasoning_default_enabled": "true",
     "released": "2026-01-27",
     "summary": "Kimi K2.5 is Moonshot AI's native multimodal model, delivering state-of-the-art visual coding capability and a self-directed agent swarm paradigm.",
     "tokenizer": "Other"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

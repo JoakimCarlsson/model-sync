@@ -119,17 +119,20 @@ func (b *builder) nameFromCard(product string) {
 // noteNoRate records that Cohere states no rate for a model it serves. Nothing
 // reading the aggregate can see a package comment, so without this a served
 // model with no amount is indistinguishable from a free one.
-const noteNoRate = "no rate stated on the pricing page"
+const noteNoRate = "no rate stated on the pricing or dedicated deployment pages"
 
-// noteUnpriced marks the served models the pricing page states no amount for.
+// noteUnpriced marks the served models neither pricing document states an
+// amount for.
 //
-// This is most of what Cohere serves: the whole Command A family, Aya Vision,
-// the four Tiny Aya models, the third generation embedding and rerank models and
-// the nightly builds. The page prices the products it sells today as cards and
-// the models it has withdrawn as sentences, and none of those models appears in
-// either. The card headed Command A+ quotes nothing but zero for an API key and
-// a model download, which is the open weight licence rather than a rate and is
-// not read as one, so that model is marked here too.
+// That is Aya Vision, the four Tiny Aya models, the third generation embedding
+// and rerank models, the nightly builds and the Arabic transcription model.
+// The marketing page prices the products it sells today as cards and the models
+// it has withdrawn as sentences, the dedicated deployment page prices an
+// instance of the models it can be given, and none of those models appears in
+// any of them. The card headed Command A+ quotes nothing but zero for an API
+// key and a model download, which is the open weight licence rather than a rate
+// and is not read as one, so what that model costs comes from the dedicated
+// deployment page alone.
 //
 // A withdrawn model is skipped: its missing rate is correct, and the page's
 // questions and answers outlive the models they answer for.
@@ -267,7 +270,7 @@ func (b *builder) addVault(doc catalog.Document, body string) {
 // questions and answers outlive the models they answer for.
 func (b *builder) price(doc catalog.Document, id string, p catalog.Price) {
 	m, ok := b.models[id]
-	if !ok || strings.HasPrefix(m.Attrs[AttrState], "retired") {
+	if !ok || !served(m) {
 		return
 	}
 	p.Currency = currency

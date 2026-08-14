@@ -38,7 +38,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "prompt_caching"
     ],
     "input_modalities": [
       "image",

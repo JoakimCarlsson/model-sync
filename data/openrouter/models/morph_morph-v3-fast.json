@@ -43,6 +43,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/morph/morph-v3-fast/endpoints"
   ]
 }

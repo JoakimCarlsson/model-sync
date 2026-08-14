@@ -36,6 +36,9 @@
     "top_provider_context_window": 65536
   },
   "lists": {
+    "features": [
+      "prompt_caching"
+    ],
     "input_modalities": [
       "text"
     ],

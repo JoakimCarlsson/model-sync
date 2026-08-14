@@ -56,6 +56,13 @@ var (
 
 // applyDeprecations reads the deprecation tables.
 //
+// A model OpenAI has shut down is not carried at all: the past deprecations
+// table is read to learn which models those are and they are then left out,
+// while the upcoming table marks the models it has merely deprecated, which
+// OpenAI still serves and still prices. That is why the table is still read
+// rather than skipped; it is also the only place a retirement date is stated
+// for a model still on sale.
+//
 // Deprecated snapshots become entries of their own rather than marking the
 // alias they belong to. OpenAI deprecates gpt-5-2025-08-07 while gpt-5 remains
 // current, so writing the snapshot's state onto gpt-5 would report a live
@@ -87,7 +94,10 @@ func (b *builder) applyDeprecations(doc catalog.Document) {
 	}
 }
 
-// applyDeprecationRow records one withdrawal.
+// applyDeprecationRow records one withdrawal. A row from the past deprecations
+// table names a model OpenAI no longer serves, which is withdrawn rather than
+// recorded: nothing it states about such a model describes something still on
+// sale.
 func (b *builder) applyDeprecationRow(
 	t deprecationTable,
 	row []string,
@@ -95,7 +105,11 @@ func (b *builder) applyDeprecationRow(
 	dateCol, modelCol, replCol int,
 ) {
 	id := unquote(cellAt(row, modelCol))
-	if !idShapeRe.MatchString(id) {
+	if !idShapeRe.MatchString(id) || b.statedDeprecation(id) {
+		return
+	}
+	if state == StateShutdown {
+		b.withdraw(id)
 		return
 	}
 	m := b.model(id, "")
@@ -105,6 +119,19 @@ func (b *builder) applyDeprecationRow(
 	if replCol >= 0 {
 		m.SetAttr(AttrReplacement, unquote(cellAt(row, replCol)))
 	}
+}
+
+// statedDeprecation reports whether a deprecation table has already said what
+// became of a model. The two sections overlap: gpt-4-1106-preview is listed as
+// an upcoming deprecation and again among the past ones, with different dates
+// and different replacements. The row read first is the one that stands, which
+// is the rule the scalar attributes already follow.
+func (b *builder) statedDeprecation(id string) bool {
+	if b.withdrawn[id] {
+		return true
+	}
+	m, ok := b.models[id]
+	return ok && m.Attrs[AttrState] != ""
 }
 
 // deprecationTable is one table together with the top level section it sits

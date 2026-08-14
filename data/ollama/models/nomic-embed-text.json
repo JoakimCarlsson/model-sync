@@ -3,6 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "768",
     "summary": "A high-performing open embedding model with a large token context window."
   },
   "limits": {
@@ -18,6 +19,7 @@
   },
   "sources": [
     "https://ollama.com/library",
-    "https://ollama.com/library/nomic-embed-text/tags"
+    "https://ollama.com/library/nomic-embed-text/tags",
+    "https://ollama.com/library/nomic-embed-text:latest/blobs/970aa74c0a90"
   ]
 }

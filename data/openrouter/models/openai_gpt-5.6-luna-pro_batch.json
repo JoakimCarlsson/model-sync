@@ -61,6 +61,8 @@
     "canonical_slug": "openai/gpt-5.6-luna-pro-20260709",
     "is_moderated": "true",
     "knowledge_cutoff": "2026-02-16",
+    "reasoning_default_effort": "medium",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-09",
     "summary": "GPT-5.6 Luna Pro is the same underlying model as [GPT-5.6 Luna](https://openrouter.ai/openai/gpt-5.6-luna), served with `reasoning.mode` set to `pro` for higher-quality responses on complex tasks.",
     "tokenizer": "GPT"
@@ -74,8 +76,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -95,6 +99,14 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "none",
+      "xhigh"
     ]
   },
   "sources": [

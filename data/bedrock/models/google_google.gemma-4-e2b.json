@@ -1,7 +1,7 @@
 {
   "id": "google/google.gemma-4-e2b",
   "provider": "bedrock",
-  "name": "google.gemma-4-e2b",
+  "name": "Gemma 4 E2B",
   "kind": "chat",
   "prices": [
     {
@@ -386,9 +386,41 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "lifecycle_state": "active",
+    "released": "Jun 10, 2025",
+    "retirement_date": "N/A",
+    "summary": "Gemma 4 E2B is Google's compact model with 5.1 billion total parameters and 2.3 billion effective parameters using Per-Layer Embeddings (PLE), designed for low-latency workloads with built-in reasoning, native function calling, and multimodal input across text and image, supporting a 128K token context window. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "aliases": [
+      "google.gemma-4-e2b"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "chat completions",
+      "responses"
+    ],
+    "features": [
+      "function_calling",
+      "projects",
+      "reasoning"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-google-gemma-4-e2b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

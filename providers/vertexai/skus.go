@@ -79,21 +79,24 @@ const AttrAuthor = "author"
 // anything else is not a token rate and is not read.
 const tokenQuantity = 1_000_000
 
-// Suffixes marking which of the two description forms a SKU uses.
-const (
-	predictionSuffix = " - predictions"
-	tokenSuffix      = " token"
-)
+// predictionSuffix marks the first of the two description forms a SKU uses.
+const predictionSuffix = " - predictions"
 
-// Prefixes the Model Garden puts in front of a model name.
-var gardenPrefixes = []string{
-	"cloud vertex ai model garden model as a service ",
-	"cloud vertex ai model garden managed oss fine tuning for ",
-}
+// tokenSuffixes mark the second. The Model Garden counts a rate in tokens
+// either way it spells the word, and reading only the singular dropped the
+// standard rate of every model whose meter is named for its tokens: Llama 3.3
+// 70B was left priced for tuning alone.
+var tokenSuffixes = []string{" tokens", " token"}
+
+// maasPrefix is the Model Garden form that prices inference.
+const maasPrefix = "cloud vertex ai model garden model as a service "
 
 // fineTuningPrefix is the Model Garden form that prices training rather than
 // inference.
 const fineTuningPrefix = "cloud vertex ai model garden managed oss fine tuning for "
+
+// Prefixes the Model Garden puts in front of a model name.
+var gardenPrefixes = []string{maasPrefix, fineTuningPrefix}
 
 // word is a term that may appear in a description and what it means.
 type word struct {
@@ -146,6 +149,24 @@ var longContextRe = regexp.MustCompile(`(?i)\s*\(long\)\s*`)
 // cachingRe matches the wording marking a rate as being for cached input.
 var cachingRe = regexp.MustCompile(`(?i)\s*(cache storage|caching|cached)\s*`)
 
+// spacedVersionRe matches a lab written against its version with no space, so
+// that both spellings of a model reach one entry. The catalog meters Llama 3.3
+// 70B as "Llama 3.3 70B" for tuning and as "Llama3.3 70B" for inference, and
+// reading them apart left one identifier priced for tuning alone and another
+// for inference alone. Only Llama is written both ways; Qwen is written
+// "Qwen3" throughout, which is also how its page names it.
+var spacedVersionRe = regexp.MustCompile(`(?i)\b(llama)(\d)`)
+
+// cutSuffix removes the first of the suffixes the value ends with.
+func cutSuffix(value string, suffixes []string) (string, bool) {
+	for _, suffix := range suffixes {
+		if trimmed, ok := strings.CutSuffix(value, suffix); ok {
+			return trimmed, true
+		}
+	}
+	return value, false
+}
+
 // reading is what one description says once taken apart.
 type reading struct {
 	model      string
@@ -162,16 +183,22 @@ type reading struct {
 // readDescription takes a SKU description apart, returning the model left once
 // every word naming a deployment, tier, modality or direction is removed.
 func readDescription(description string) (reading, bool) {
-	lower := strings.ToLower(strings.TrimSpace(description))
+	lower := spacedVersionRe.ReplaceAllString(
+		strings.ToLower(strings.TrimSpace(description)),
+		"$1 $2",
+	)
 	out := reading{tier: TierStandard}
+	trimmed, isTokens := cutSuffix(lower, tokenSuffixes)
 	switch {
 	case strings.HasSuffix(lower, predictionSuffix):
 		lower = strings.TrimSuffix(lower, predictionSuffix)
 	case strings.HasPrefix(lower, fineTuningPrefix):
 		out.training = true
 		lower = strings.TrimPrefix(lower, fineTuningPrefix)
-	case strings.HasSuffix(lower, tokenSuffix):
-		lower = strings.TrimSuffix(lower, tokenSuffix)
+	case isTokens:
+		lower = trimmed
+	case maasDirection(lower):
+		lower = strings.TrimPrefix(lower, maasPrefix)
 	default:
 		return reading{}, false
 	}
@@ -191,13 +218,64 @@ func readDescription(description string) (reading, bool) {
 	if stripped, tier := takeWord(lower, tierWords); tier != "" {
 		lower, out.tier = stripped, tier
 	}
-	lower, out.modality = takeWord(lower, modalities)
-	lower, out.direction = takeWord(lower, directions)
+	lower, out.modality, out.direction = takePair(lower)
 	for _, term := range noise {
 		lower = removeWord(lower, term)
 	}
 	out.model = strings.Join(strings.Fields(lower), " ")
 	return out, out.model != ""
+}
+
+// takePair removes the modality a rate covers and the side of the request it
+// falls on, which a description writes next to each other, "Text Input" or
+// "Input Text".
+//
+// The modality has to be taken from beside the direction rather than from
+// wherever it first appears, because a model can be named for a modality
+// itself: "Gemini 3.1 Flash Image Global Video Input" prices video input on
+// the image model, and taking the first modality left the model reading as a
+// Gemini 3.1 Flash Video, which Vertex does not serve.
+func takePair(rest string) (string, string, string) {
+	words := strings.Fields(rest)
+	for at, w := range words {
+		direction, ok := wordValue(w, directions)
+		if !ok {
+			continue
+		}
+		modality, from := neighbourModality(words, at)
+		kept := make([]string, 0, len(words))
+		for i, word := range words {
+			if i != at && i != from {
+				kept = append(kept, word)
+			}
+		}
+		return strings.Join(kept, " "), modality, direction
+	}
+	return rest, "", ""
+}
+
+// neighbourModality reports the modality written beside the direction, and
+// where it was written, so that only that occurrence of the word is removed.
+func neighbourModality(words []string, at int) (string, int) {
+	for _, beside := range []int{at - 1, at + 1} {
+		if beside < 0 || beside >= len(words) {
+			continue
+		}
+		if value, ok := wordValue(words[beside], modalities); ok {
+			return value, beside
+		}
+	}
+	return "", -1
+}
+
+// wordValue reports what a whole word means, where it is one of the terms.
+func wordValue(word string, words []word) (string, bool) {
+	for _, w := range words {
+		if word == w.term {
+			return w.value, true
+		}
+	}
+	return "", false
 }
 
 // takeWord removes the first matching term and reports what it meant.
@@ -226,6 +304,27 @@ func cutWord(rest, term string) (string, bool) {
 		return rest, false
 	}
 	return padded[:at+1] + padded[at+len(term)+2:], true
+}
+
+// maasDirection reports a Model Garden inference rate whose description stops
+// at the direction, "... Llama3.1 405B Input", where the rest of that form
+// carries on to the word it is counted in, "... Llama 4 Scout Input Tokens".
+//
+// The direction alone is only read under this prefix, and there it is
+// unambiguous: the Model Garden never writes the " - Predictions" suffix, which
+// is how Gemini's own meters end, so nothing under the prefix can be a
+// prediction rate whose suffix has been left off. Read without the prefix the
+// two forms cannot be told apart, and the same rule would take Google's
+// per-product meters, "CodeMender Gemini 3 Flash Global Text Input", for models
+// of their own. Llama 3.1 405B is metered this way and no other, so without
+// this it is billed for and absent from the catalog.
+func maasDirection(lower string) bool {
+	if !strings.HasPrefix(lower, maasPrefix) {
+		return false
+	}
+	fields := strings.Fields(lower)
+	_, ok := wordValue(fields[len(fields)-1], directions)
+	return ok
 }
 
 // metricFor reports what a rate counts.

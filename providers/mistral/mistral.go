@@ -35,8 +35,9 @@ func (p *Provider) ID() string { return providerID }
 func (p *Provider) Name() string { return providerName }
 
 // Parse reads the model pages first, because they state the identifier a model
-// is billed and called under and everything known about it. The index comes
-// last and adds only lifecycle dates, to models the pages already established.
+// is billed and called under and everything known about it. The index and the
+// guides come last and add to models the pages already established: lifecycle
+// dates from the one, embedding widths from the others.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -45,7 +46,11 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if !isModelPage(doc.URL) {
+		switch {
+		case isModelPage(doc.URL):
+		case slices.Contains(guideURLs, doc.URL):
+			b.applyEmbeddings(doc)
+		default:
 			b.applyDeprecations(doc)
 		}
 	}
@@ -82,13 +87,24 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 	return m
 }
 
-// result returns the accumulated models in identifier order.
+// result returns the models Mistral still serves, in identifier order.
+//
+// A model whose badge says it has been withdrawn is dropped here rather than
+// where it is read, because two documents name it: its own page states the
+// standing and the index's deprecation table lists the same identifier again,
+// so the standing is only settled once both have been read. Dropping it is
+// what removes its file, since the store deletes what the parser stops
+// emitting.
 func (b *builder) result() []catalog.Model {
 	ids := slices.Clone(b.order)
 	slices.Sort(ids)
 	out := make([]catalog.Model, 0, len(ids))
 	for _, id := range ids {
-		out = append(out, *b.models[id])
+		m := b.models[id]
+		if slices.Contains(withdrawnStates, m.Attrs[AttrState]) {
+			continue
+		}
+		out = append(out, *m)
 	}
 	return out
 }

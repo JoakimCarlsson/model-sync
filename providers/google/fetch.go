@@ -36,12 +36,26 @@ var modelHrefRe = regexp.MustCompile(
 	`href="/gemini-api/docs/models/([a-z0-9._-]+)"`,
 )
 
-// Fetch retrieves the pricing page, the model index and one page per model the
-// index links to.
+// errNoPage reports that Google publishes nothing at a URL this parser
+// derived from a model code rather than read from a link. Most codes have a
+// page and the ones that do not answer with a 404, which is an answer and not
+// a fault.
+var errNoPage = errors.New("no model page")
+
+// Fetch retrieves the pricing page, the model index and one page per model,
+// both the ones the index links to and the ones only the pricing page names.
 //
 // The pricing page is the authority on rates and names every model that costs
 // anything, but states nothing a model holds or can do. That is on the model's
-// own page, which states no rate. Neither document is enough alone.
+// own page, which states no rate. The index is the third: it is the only
+// document pairing the name a model is sold under with the endpoint it answers
+// to, and the only one saying which models Google has withdrawn.
+//
+// The index does not link every page. Four models it either omits or lists
+// without a link have a page all the same, addressed by the identifier the
+// pricing page states beneath the heading, so those addresses are tried too
+// and a 404 among them is read as Google having no page rather than as a
+// failed fetch.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	pricing, err := p.get(ctx, PricingURL)
 	if err != nil {
@@ -52,8 +66,13 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	if err != nil {
 		return docs, err
 	}
-	pages, failures := p.getAll(ctx, modelPageURLs(index))
-	return append(docs, pages...), errors.Join(failures...)
+	docs = append(docs, index)
+	linked := modelPageURLs(index)
+	pages, failures := p.getAll(ctx, linked)
+	docs = append(docs, pages...)
+	guessed, missing := p.getAll(ctx, codePageURLs(pricing, linked))
+	docs = append(docs, guessed...)
+	return docs, errors.Join(append(failures, published(missing)...)...)
 }
 
 // modelPageURLs derives the per-model pages the index links to.
@@ -70,6 +89,32 @@ func modelPageURLs(index catalog.Document) []string {
 	}
 	slices.Sort(urls)
 	return urls
+}
+
+// codePageURLs derives the page each endpoint the pricing page names would
+// have, less the ones the index already links.
+func codePageURLs(pricing catalog.Document, linked []string) []string {
+	var urls []string
+	for _, code := range pricingCodes(pricing) {
+		url := modelPagePre + code
+		if slices.Contains(linked, url) || slices.Contains(urls, url) {
+			continue
+		}
+		urls = append(urls, url)
+	}
+	return urls
+}
+
+// published drops the failures that are Google having no page at an address
+// this parser derived rather than read.
+func published(errs []error) []error {
+	var out []error
+	for _, err := range errs {
+		if !errors.Is(err, errNoPage) {
+			out = append(out, err)
+		}
+	}
+	return out
 }
 
 // getAll retrieves urls concurrently, returning the documents in the order the
@@ -131,6 +176,9 @@ func (p *Provider) get(
 		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
+	if resp.StatusCode == http.StatusNotFound {
+		return catalog.Document{}, fmt.Errorf("fetch %s: %w", url, errNoPage)
+	}
 	if resp.StatusCode != http.StatusOK {
 		return catalog.Document{}, fmt.Errorf("fetch %s: %s", url, resp.Status)
 	}

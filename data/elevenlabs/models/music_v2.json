@@ -16,6 +16,10 @@
     "summary": "Studio-grade music generation from text prompts, composition plans and previously generated songs"
   },
   "lists": {
+    "features": [
+      "instrumental_only",
+      "section_editing"
+    ],
     "input_modalities": [
       "text"
     ],

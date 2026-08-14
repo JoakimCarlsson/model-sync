@@ -25,6 +25,12 @@
     "context_window": 32000
   },
   "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -33,6 +39,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/gemma-4-31b-it-pearl"
   ]
 }

@@ -15,6 +15,13 @@ import (
 const (
 	colModel        = "model"
 	colCapabilities = "capabilities"
+	// colType is what the table says the model is, and is where these
+	// collections state that one reasons: Azure types DeepSeek-V4-Pro as
+	// "chat-completion (with reasoning content)" and DeepSeek-V3 as
+	// "chat-completion". The capability bullets never say it.
+	colType = "type"
+	// typeReasoning is how that column says the model reasons.
+	typeReasoning = "reasoning"
 )
 
 // Numeric and enumeration keys only the capability tables populate.
@@ -38,6 +45,7 @@ const (
 // and a non-reasoning variant of one metered model, and they agree on
 // everything this reads.
 var collectionModels = map[string][]string{
+	"codestral-2501":                         {"codestral"},
 	"cohere-command-a":                       {"command-a"},
 	"cohere-command-a-plus-05-2026":          {"command-a-plus"},
 	"cohere-rerank-v4.0-fast":                {"rerank-v4-fast"},
@@ -67,6 +75,12 @@ var collectionModels = map[string][]string{
 	"mistral-large-3":                        {"large-3"},
 	"mistral-medium-3-5":                     {"mm3.5"},
 	"mistral-ocr-4-0":                        {"ocr-4"},
+	"ministral-3b":                           {"ministral-3b"},
+	"phi-4":                                  {"phi-4"},
+	"phi-4-mini-instruct":                    {"phi-4-mini"},
+	"phi-4-mini-reasoning":                   {"phi-4-mini-reasoning"},
+	"phi-4-multimodal-instruct":              {"phi-4-mini-mm"},
+	"phi-4-reasoning":                        {"phi-4-reasoning"},
 }
 
 // bulletModalities map a word a capability bullet names a modality with onto
@@ -147,17 +161,110 @@ func readCollections(body string) map[string]documented {
 	return out
 }
 
+// Rows and columns of the guides' comparison tables, which are laid out the
+// other way round from every other table on the site: one column per model and
+// one row per fact. The two guides head the modality row differently and write
+// what it says differently with it.
+const (
+	colAspect      = "aspect"
+	rowModalities  = "input / output modalities"
+	rowSupportedIn = "modalities supported"
+)
+
+// readAspects reads the image and video guides' comparison tables, which are
+// the only place Azure states what those models take and return. Their model
+// tables state how long a prompt may be, in characters, and nothing else.
+func readAspects(body string) map[string]documented {
+	out := map[string]documented{}
+	for _, table := range docTableRe.FindAllStringSubmatch(body, -1) {
+		rows := docRowRe.FindAllStringSubmatch(table[1], -1)
+		if len(rows) < 2 {
+			continue
+		}
+		head := docCellRe.FindAllStringSubmatch(rows[0][1], -1)
+		if len(head) < 2 ||
+			!strings.EqualFold(docText(head[0][1]), colAspect) {
+			continue
+		}
+		for _, row := range rows[1:] {
+			readAspectRow(out, head, docCellRe.FindAllStringSubmatch(row[1], -1))
+		}
+	}
+	return out
+}
+
+// readAspectRow records one fact about every model heading a column, where
+// that fact is one this reads.
+func readAspectRow(out map[string]documented, head, cells [][]string) {
+	if len(cells) < 2 {
+		return
+	}
+	aspect := strings.ToLower(docText(cells[0][1]))
+	read := aspectFlow(aspect)
+	if read == nil {
+		return
+	}
+	for i := 1; i < len(head) && i < len(cells); i++ {
+		id := slugID(docText(head[i][1]))
+		d := out[id]
+		read(&d, docText(cells[i][1]))
+		out[id] = d
+	}
+}
+
+// aspectFlow returns how to read the row an aspect heads, or nothing where it
+// heads one this does not read.
+func aspectFlow(aspect string) func(*documented, string) {
+	switch {
+	case strings.HasPrefix(aspect, rowModalities):
+		return readSentenceFlow
+	case strings.HasPrefix(aspect, rowSupportedIn):
+		return readArrowFlow
+	}
+	return nil
+}
+
+// readSentenceFlow reads what one model takes and returns out of a sentence:
+// "Accepts text + image inputs; outputs images only in base64". The halves are
+// separated by a semicolon, and everything after it that names a modality is
+// what comes back.
+func readSentenceFlow(d *documented, cell string) {
+	before, after, ok := strings.Cut(cell, ";")
+	if !ok {
+		return
+	}
+	d.InputMod = appendNew(d.InputMod, modalitiesOf(before)...)
+	d.OutMod = appendNew(d.OutMod, modalitiesOf(after)...)
+}
+
+// readArrowFlow reads a list of conversions: "text to video, image to video,
+// video (generated) to video". Each names one thing the model takes and the
+// one thing it returns.
+func readArrowFlow(d *documented, cell string) {
+	for _, part := range strings.Split(cell, ",") {
+		before, after, ok := strings.Cut(part, "→")
+		if !ok {
+			continue
+		}
+		d.InputMod = appendNew(d.InputMod, modalitiesOf(before)...)
+		d.OutMod = appendNew(d.OutMod, modalitiesOf(after)...)
+	}
+}
+
 // collectionColumns locates the two columns this reads. The model column is
 // matched exactly, because the OpenAI tables head theirs "Model ID" and are
 // read elsewhere.
 func collectionColumns(row string) map[string]int {
-	at := map[string]int{colModel: -1, colCapabilities: -1}
+	at := map[string]int{colModel: -1, colCapabilities: -1, colType: -1}
 	for i, cell := range docCellRe.FindAllStringSubmatch(row, -1) {
 		header := strings.ToLower(docText(cell[1]))
 		for name := range at {
 			if at[name] < 0 && header == name {
 				at[name] = i
 			}
+		}
+		if at[colType] < 0 && strings.HasPrefix(header, colType+" ") {
+			at[colType] = i
 		}
 	}
 	return at
@@ -179,6 +286,12 @@ func readCollectionRow(
 		d := out[id]
 		d.Name = soleName(d.Name, displayName(cell))
 		readCapabilities(&d, cellAt(cells, at[colCapabilities]))
+		if strings.Contains(
+			strings.ToLower(cellText(cells, at[colType])),
+			typeReasoning,
+		) {
+			d.Features = appendNew(d.Features, catalog.CapabilityReasoning)
+		}
 		out[id] = d
 	}
 }

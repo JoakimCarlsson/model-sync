@@ -3,6 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "cloud": "true",
     "summary": "Gemma 4 models are designed to deliver frontier-level performance at each size. They are well-suited for reasoning, agentic workflows, coding, and multimodal understanding."
   },
   "limits": {

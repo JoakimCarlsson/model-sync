@@ -1,0 +1,63 @@
+{
+  "id": "topic-detection",
+  "provider": "deepgram",
+  "name": "Topic Detection",
+  "kind": "intelligence",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00024,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0003,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00048,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0006,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "audio intelligence"
+  },
+  "lists": {
+    "features": [
+      "batch",
+      "topic_detection"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/stt-pre-recorded-feature-overview.md"
+  ]
+}

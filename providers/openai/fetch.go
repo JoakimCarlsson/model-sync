@@ -25,17 +25,33 @@ const (
 	DeprecationsURL = baseURL + "/api/docs/deprecations.md"
 )
 
-// GuideURLs are guides carrying rates stated nowhere else. The image
+// GuideURLs are guides carrying facts stated nowhere else. The image
 // generation guide holds the per-image dollar prices, which the pricing page
 // states only per token.
 var GuideURLs = []string{
 	baseURL + "/api/docs/guides/image-generation.md",
 	EmbeddingsGuideURL,
+	WebSearchGuideURL,
+	TranscriptionGuideURL,
+	SpeechToTextGuideURL,
 }
 
 // EmbeddingsGuideURL is the only document stating how wide an OpenAI embedding
 // is and the longest input an embedding model takes.
 const EmbeddingsGuideURL = baseURL + "/api/docs/guides/embeddings.md"
+
+// WebSearchGuideURL is the only document stating the context window of the
+// search models OpenAI sells without a page of their own.
+const WebSearchGuideURL = baseURL + "/api/docs/guides/tools-web-search.md"
+
+// TranscriptionGuideURL and SpeechToTextGuideURL are where what a transcription
+// model can do is written. The model pages list at most "streaming" under
+// supported features, and everything else a listener does, diarization,
+// timestamps, translation, language detection, is stated in these two.
+const (
+	TranscriptionGuideURL = baseURL + "/api/docs/guides/transcription.md"
+	SpeechToTextGuideURL  = baseURL + "/api/docs/guides/speech-to-text.md"
+)
 
 // fetchWorkers bounds the concurrent requests made for the per-model pages.
 const fetchWorkers = 8

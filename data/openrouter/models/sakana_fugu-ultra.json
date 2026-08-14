@@ -59,6 +59,8 @@
   "attrs": {
     "author": "sakana",
     "canonical_slug": "sakana/fugu-ultra-20260615",
+    "reasoning_default_effort": "xhigh",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2026-06-24",
     "summary": "Fugu Ultra is the higher-performance model in Sakana AI's Fugu family.",
@@ -72,8 +74,10 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",
@@ -90,6 +94,11 @@
       "tool_choice",
       "tools",
       "web_search_options"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "max",
+      "xhigh"
     ]
   },
   "sources": [

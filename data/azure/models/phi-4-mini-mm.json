@@ -1,6 +1,7 @@
 {
   "id": "phi-4-mini-mm",
   "provider": "azure",
+  "name": "Phi-4-multimodal-instruct",
   "kind": "chat",
   "prices": [
     {
@@ -109,6 +110,149 @@
       "currency": "USD",
       "dims": {
         "fine_tuned": "true",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "malaysiawest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "qatarcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.004,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
         "region": "westus",
         "tier": "standard"
       }
@@ -707,7 +851,47 @@
   "attrs": {
     "product": "Azure Phi Models"
   },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "image",
+      "text"
+    ],
+    "languages": [
+      "ar",
+      "cs",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fi",
+      "fr",
+      "he",
+      "hu",
+      "it",
+      "ja",
+      "ko",
+      "nl",
+      "no",
+      "pl",
+      "pt",
+      "ru",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "zh"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

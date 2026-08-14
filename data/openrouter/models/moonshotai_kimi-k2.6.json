@@ -7,19 +7,19 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0944,
+      "amount": 0.16,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5605,
+      "amount": 0.95,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.36,
+      "amount": 4,
       "currency": "USD"
     }
   ],
@@ -27,6 +27,7 @@
     "author": "moonshotai",
     "canonical_slug": "moonshotai/kimi-k2.6-20260420",
     "hugging_face_id": "moonshotai/Kimi-K2.6",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-20",
     "summary": "Kimi K2.6 is Moonshot AI's next-generation multimodal model, designed for long-horizon coding, coding-driven UI/UX generation, and multi-agent orchestration.",
     "tokenizer": "Other"
@@ -40,6 +41,8 @@
     "features": [
       "function_calling",
       "json_mode",
+      "parallel_tool_calls",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

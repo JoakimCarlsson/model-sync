@@ -16,17 +16,43 @@
     {
       "metric": "speech",
       "unit": "per_1k_characters",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth",
+        "promotional": "true"
+      },
+      "note": "introductory rate through 9/12"
+    },
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
       "amount": 0.045,
       "currency": "USD",
       "dims": {
         "plan": "pay-as-you-go"
       }
+    },
+    {
+      "metric": "speech",
+      "unit": "per_1k_characters",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "pay-as-you-go",
+        "promotional": "true"
+      },
+      "note": "introductory rate through 9/12"
     }
   ],
   "attrs": {
-    "product": "text to speech"
+    "product": "text to speech",
+    "promotion_ends": "9/12"
   },
   "lists": {
+    "features": [
+      "streaming_audio_output"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -35,6 +61,7 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/tts-feature-overview.md"
   ]
 }

@@ -37,6 +37,9 @@
     "model_url": "https://app.fireworks.ai/models/fireworks/qwen3p7-plus",
     "summary": "Qwen 3.7 Plus is Alibaba's latest flagship closed model, available exclusively through Fireworks AI outside of Alibaba's own infrastructure. For dedicated instances or fine-tuning, please contact the Fireworks AI team."
   },
+  "limits": {
+    "context_window": 262000
+  },
   "lists": {
     "features": [
       "function_calling",
@@ -53,6 +56,7 @@
   "sources": [
     "https://app.fireworks.ai/models/fireworks/qwen3p7-plus",
     "https://docs.fireworks.ai/serverless/pricing.md",
-    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/qwen3p7-plus"
   ]
 }

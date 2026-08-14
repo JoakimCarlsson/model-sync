@@ -15,7 +15,11 @@
     "author": "OpenAI"
   },
   "lists": {
+    "features": [
+      "reasoning"
+    ],
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -23,6 +27,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/gpt-image-2"
   ]
 }

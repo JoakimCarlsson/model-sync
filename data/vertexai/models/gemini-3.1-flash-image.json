@@ -71,6 +71,17 @@
       }
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 30,
@@ -137,6 +148,9 @@
       }
     }
   ],
+  "attrs": {
+    "retirement_date": "May 28, 2027 or later"
+  },
   "limits": {
     "context_window": 131072,
     "max_output_tokens": 32768
@@ -164,6 +178,8 @@
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-image",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

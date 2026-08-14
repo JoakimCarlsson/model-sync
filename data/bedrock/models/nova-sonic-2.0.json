@@ -166,22 +166,29 @@
     }
   ],
   "attrs": {
-    "lifecycle_state": "legacy",
-    "released": "Mar 2025",
-    "retirement_date": "September 14, 2026",
-    "summary": "Nova Sonic is Amazon's speech-to-speech model that enables natural, real-time voice conversations with low latency and support for multiple languages. For more information about model development and performance, see the model/service card."
+    "lifecycle_state": "active",
+    "released": "Dec 2, 2025",
+    "retirement_date": "N/A",
+    "summary": "Nova 2 Sonic is Amazon's speech-to-speech foundation model for building natural, real-time voice conversation applications. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 64000
   },
   "lists": {
     "aliases": [
-      "amazon.nova-sonic-v1:0"
+      "amazon.nova-2-sonic-v1:0"
     ],
     "endpoints": [
       "bedrock-runtime",
-      "invoke",
       "invokemodelwithbidirectionalstream"
     ],
+    "features": [
+      "streaming"
+    ],
     "input_modalities": [
-      "audio"
+      "audio",
+      "text"
     ],
     "output_modalities": [
       "audio",
@@ -189,7 +196,7 @@
     ]
   },
   "sources": [
-    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-sonic.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-nova-2-sonic.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

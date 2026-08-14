@@ -1087,6 +1087,14 @@
   "attrs": {
     "product": "Azure OpenAI"
   },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio"
+    ]
+  },
   "sources": [
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"

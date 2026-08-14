@@ -2,6 +2,7 @@ package google
 
 import (
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -167,12 +168,44 @@ func (b *builder) applyModelPage(doc catalog.Document, id string) {
 	}
 }
 
+// pageCodes returns the endpoints a model page states it describes. A page
+// standing for a family lists every one of them, which is how the sizes of
+// Imagen and the fast build of Veo 3.1 reach a page of their own.
+func pageCodes(doc catalog.Document) []string {
+	table := tableRe.FindStringSubmatch(string(doc.Body))
+	if table == nil {
+		return nil
+	}
+	for _, row := range pageRowRe.FindAllStringSubmatch(table[1], -1) {
+		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
+		if len(cells) < 2 || label(cells[0][1]) != rowModelCode {
+			continue
+		}
+		return codesIn(cells[1][1])
+	}
+	return nil
+}
+
+// modelCode is the identifier a page states for the model it is read onto,
+// which is nothing where the page names another model instead. A page standing
+// for a family lists every endpoint in it, so the model's own is there to find;
+// where it is not, Google has copied a sibling's row onto the page, as the
+// streaming robotics page and the Lyria Pro page both do, and recording it
+// would give the model its sibling's identifier.
+func modelCode(id string, codes []string) string {
+	if slices.Contains(codes, id) {
+		return id
+	}
+	return ""
+}
+
 // applyProperty records one row of the property table.
 func applyProperty(m *catalog.Model, name, cell string) {
 	switch name {
 	case rowModelCode:
-		m.SetAttr(AttrModelCode, text(cell))
-		m.AddList(ListAliases, text(cell))
+		code := modelCode(m.ID, codesIn(cell))
+		m.SetAttr(AttrModelCode, code)
+		m.AddList(ListAliases, code)
 	case rowUpdated:
 		m.SetAttr(AttrLatestUpdte, text(cell))
 	case rowModelCard:

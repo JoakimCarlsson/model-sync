@@ -14,20 +14,57 @@
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.25,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<=200k"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">200k"
+      }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.5,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<=200k"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">200k"
+      }
     }
   ],
   "attrs": {
     "author": "xai",
     "summary": "Grok 4.3"
   },
+  "lists": {
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.perplexity.ai/docs/agent-api/models.md"
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/models.md",
+    "https://docs.perplexity.ai/docs/agent-api/output-control.md"
   ]
 }

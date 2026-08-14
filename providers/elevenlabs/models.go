@@ -97,6 +97,7 @@ func clean(cell string) string {
 	s := linkRe.ReplaceAllString(cell, "$1")
 	s = tagRe.ReplaceAllString(s, " ")
 	s = strings.ReplaceAll(s, `\~`, "~")
+	s = strings.ReplaceAll(s, `\_`, "_")
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
 	return strings.Join(strings.Fields(s), " ")

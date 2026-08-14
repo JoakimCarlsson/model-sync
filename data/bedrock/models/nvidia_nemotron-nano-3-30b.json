@@ -1407,6 +1407,9 @@
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "nvidia.nemotron-nano-3-30b"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

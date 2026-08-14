@@ -1,7 +1,7 @@
 {
   "id": "mistral-ai/devstral",
   "provider": "bedrock",
-  "name": "Devstral",
+  "name": "Devstral 2 123B",
   "kind": "chat",
   "prices": [
     {
@@ -1291,6 +1291,9 @@
     "max_output_tokens": 32000
   },
   "lists": {
+    "aliases": [
+      "mistral.devstral-2-123b"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

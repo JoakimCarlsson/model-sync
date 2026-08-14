@@ -38,6 +38,7 @@
   "sources": [
     "https://docs.voyageai.com/docs/batch-inference.md",
     "https://docs.voyageai.com/docs/pricing.md",
-    "https://docs.voyageai.com/docs/reranker.md"
+    "https://docs.voyageai.com/docs/reranker.md",
+    "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

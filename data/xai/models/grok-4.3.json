@@ -69,8 +69,7 @@
   },
   "lists": {
     "aliases": [
-      "grok-4.3-latest",
-      "grok-latest"
+      "grok-4.3-latest"
     ],
     "features": [
       "function_calling",

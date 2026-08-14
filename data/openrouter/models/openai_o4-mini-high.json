@@ -34,6 +34,7 @@
     "canonical_slug": "openai/o4-mini-high-2025-04-16",
     "is_moderated": "true",
     "knowledge_cutoff": "2024-06-30",
+    "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",
     "released": "2025-04-16",
     "summary": "OpenAI o4-mini-high is the same model as [o4-mini](/openai/o4-mini) with reasoning_effort set to high.",
@@ -48,8 +49,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -69,6 +72,9 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high"
     ]
   },
   "sources": [

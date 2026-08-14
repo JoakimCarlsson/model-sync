@@ -48,6 +48,8 @@
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-sonnet-5-20260630",
     "is_moderated": "true",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-06-30",
     "summary": "Sonnet 5 is Anthropic's most capable Sonnet-class model, with frontier performance across coding, agents, and professional work.",
     "tokenizer": "Claude"
@@ -61,8 +63,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -83,6 +87,13 @@
       "tool_choice",
       "tools",
       "verbosity"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

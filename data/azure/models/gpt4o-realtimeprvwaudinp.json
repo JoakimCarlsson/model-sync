@@ -1,7 +1,7 @@
 {
   "id": "gpt4o-realtimeprvwaudinp",
   "provider": "azure",
-  "kind": "chat",
+  "kind": "realtime",
   "prices": [
     {
       "metric": "usage",
@@ -148,9 +148,25 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "product": "Azure OpenAI",
+    "training_data_cutoff": "October 2023"
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

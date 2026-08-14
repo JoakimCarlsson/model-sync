@@ -1,0 +1,423 @@
+{
+  "id": "flux-2-ref",
+  "provider": "azure",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "australiaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "brazilsouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "canadacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "canadaeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "centralindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "eastasia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "germanynorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "indonesiacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "italynorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "japaneast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "japanwest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "jioindiawest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "koreacentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "malaysiawest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "norwayeast",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "qatarcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "southafricanorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "southeastasia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "southindia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandnorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "switzerlandwest",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "uaenorth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "uksouth",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.018,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovarizona",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.018,
+      "currency": "USD",
+      "dims": {
+        "region": "usgovvirginia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "westcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "westus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_unit",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure BFL Flux Models"
+  },
+  "sources": [
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

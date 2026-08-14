@@ -27,7 +27,21 @@
     "author": "perplexity",
     "summary": "GLM"
   },
+  "lists": {
+    "features": [
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.perplexity.ai/docs/agent-api/models.md"
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/models.md",
+    "https://docs.perplexity.ai/docs/agent-api/output-control.md"
   ]
 }

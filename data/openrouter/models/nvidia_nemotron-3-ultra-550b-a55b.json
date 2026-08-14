@@ -27,18 +27,22 @@
     "author": "nvidia",
     "canonical_slug": "nvidia/nemotron-3-ultra-550b-a55b-20260604",
     "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-06-04",
     "summary": "NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE).",
     "tokenizer": "Other"
   },
   "limits": {
     "context_window": 512288,
+    "max_output_tokens": 202800,
     "top_provider_context_window": 512288
   },
   "lists": {
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -67,9 +71,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "medium"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/nvidia/nemotron-3-ultra-550b-a55b-20260604/endpoints"
   ]
 }

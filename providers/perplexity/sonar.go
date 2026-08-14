@@ -10,9 +10,19 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// LimitContextWindow is the only bound Perplexity states for a model, and it
-// states it for its own models only.
-const LimitContextWindow = "context_window"
+// Bounds Perplexity states for a model.
+const (
+	// LimitContextWindow is what a model may be given.
+	LimitContextWindow = "context_window"
+	// LimitMaxOutputTokens is what it may answer with.
+	LimitMaxOutputTokens = "max_output_tokens"
+)
+
+// SonarAPIURL is the reference for the Sonar chat completions endpoint. It is
+// the only document bounding what a Sonar model may answer with, which it
+// states as the ceiling on the request's max_tokens, and it enumerates the
+// models the endpoint takes, which is what the ceiling applies to.
+const SonarAPIURL = baseURL + "/api-reference/sonar-post.md"
 
 // sonarModelPre prefixes the page each Sonar model has of its own.
 const sonarModelPre = baseURL + "/docs/sonar/models/"
@@ -20,9 +30,21 @@ const sonarModelPre = baseURL + "/docs/sonar/models/"
 var (
 	// sonarHrefRe matches a link from the Sonar index to one model's page.
 	sonarHrefRe = regexp.MustCompile(`/docs/sonar/models/([a-z0-9-]+)`)
-	// contextRe matches the context window, which a model page states in a
-	// heading rather than in a table.
-	contextRe = regexp.MustCompile(`(?i)(\d+)\s*([km])?\s*context length`)
+	// contextRe matches the context window, which is stated in prose rather
+	// than in a table: a model page heads a card with it, and the Agent API's
+	// model page writes it into a sentence.
+	contextRe = regexp.MustCompile(
+		`(?i)(\d+)\s*([km])?(?:-token)?\s*context\s+(?:length|window)`,
+	)
+	// maxTokensRe matches the ceiling the request schema puts on a completion.
+	maxTokensRe = regexp.MustCompile(
+		`(?s)max_tokens:\s*\n\s*anyOf:.*?maximum:\s*(\d+)`,
+	)
+	// modelEnumRe matches the identifiers the request schema accepts, which is
+	// how the reference says which models it is describing.
+	modelEnumRe = regexp.MustCompile(
+		`(?s)\n\s+model:\n.*?\n\s+enum:\n((?:\s+-\s+[^\n]+\n)+)`,
+	)
 )
 
 // sonarModelURLs derives the Sonar model pages the index links to.
@@ -66,9 +88,50 @@ func (b *builder) applySonarPage(doc catalog.Document) {
 	m.SetLimit(LimitContextWindow, parseTokens(match[1], match[2]))
 }
 
+// applySonarReference reads the output ceiling off the Sonar API reference.
+//
+// The ceiling is a property of the endpoint rather than of any one model, so
+// it is recorded against every model the endpoint's schema will accept, which
+// the schema itself enumerates.
+func (b *builder) applySonarReference(doc catalog.Document) {
+	body := string(doc.Body)
+	match := maxTokensRe.FindStringSubmatch(body)
+	if match == nil {
+		return
+	}
+	ceiling, err := strconv.ParseInt(match[1], 10, 64)
+	if err != nil {
+		return
+	}
+	for _, id := range referenceModels(body) {
+		m, ok := b.models[id]
+		if !ok {
+			continue
+		}
+		m.AddSource(doc.URL)
+		m.SetLimit(LimitMaxOutputTokens, ceiling)
+	}
+}
+
+// referenceModels returns the identifiers a request schema enumerates.
+func referenceModels(body string) []string {
+	match := modelEnumRe.FindStringSubmatch(body)
+	if match == nil {
+		return nil
+	}
+	var ids []string
+	for _, line := range strings.Split(match[1], "\n") {
+		id := strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(line), "-"))
+		if id != "" {
+			ids = append(ids, id)
+		}
+	}
+	return ids
+}
+
 // parseTokens reads a quantity written with a thousands or millions suffix.
 func parseTokens(digits, suffix string) int64 {
-	n, err := strconv.ParseInt(digits, 10, 64)
+	n, err := strconv.ParseInt(strings.ReplaceAll(digits, ",", ""), 10, 64)
 	if err != nil {
 		return 0
 	}

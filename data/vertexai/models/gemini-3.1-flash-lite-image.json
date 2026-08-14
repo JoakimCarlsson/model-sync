@@ -27,6 +27,17 @@
       }
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 30,
@@ -49,7 +60,11 @@
       }
     }
   ],
+  "attrs": {
+    "retirement_date": "No retirement date announced"
+  },
   "limits": {
+    "context_window": 65536,
     "max_output_tokens": 4096
   },
   "lists": {
@@ -75,6 +90,8 @@
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

@@ -3,6 +3,27 @@
   "provider": "cohere",
   "name": "Command A",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 40,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault"
+      }
+    },
+    {
+      "metric": "hosting",
+      "unit": "per_hour",
+      "amount": 48,
+      "currency": "USD",
+      "dims": {
+        "deployment": "model-vault",
+        "tier": "xl"
+      }
+    }
+  ],
   "attrs": {
     "amazon_bedrock_id": "(Coming Soon)",
     "amazon_sagemaker_id": "Unique per deployment",
@@ -24,6 +45,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -33,11 +55,10 @@
       "text"
     ]
   },
-  "notes": [
-    "no rate stated on the pricing page"
-  ],
   "sources": [
+    "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/structured-outputs.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]

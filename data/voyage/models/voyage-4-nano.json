@@ -17,6 +17,9 @@
       "256",
       "512"
     ],
+    "features": [
+      "reducible_embedding_dimensions"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -28,6 +31,7 @@
     "weights published; Voyage states no rate because it does not serve the model"
   ],
   "sources": [
-    "https://docs.voyageai.com/docs/embeddings.md"
+    "https://docs.voyageai.com/docs/embeddings.md",
+    "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

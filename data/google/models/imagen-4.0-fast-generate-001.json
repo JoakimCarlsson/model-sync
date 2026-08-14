@@ -1,0 +1,43 @@
+{
+  "id": "imagen-4.0-fast-generate-001",
+  "provider": "google",
+  "name": "Imagen 4",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "variant": "fast"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "June 2025",
+    "model_code": "imagen-4.0-fast-generate-001",
+    "state": "deprecated",
+    "summary": "A high-performance engine for advanced visual synthesis, offering sophisticated creative control and photorealistic output. Use Imagen 4 for professional branding, intricate scene composition, and high-fidelity design tasks that require precise text rendering and complex lighting."
+  },
+  "limits": {
+    "context_window": 480
+  },
+  "lists": {
+    "aliases": [
+      "imagen-4.0-fast-generate-001"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/imagen",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

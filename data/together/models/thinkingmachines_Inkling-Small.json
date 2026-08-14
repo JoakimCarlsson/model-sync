@@ -24,7 +24,13 @@
     "context_window": 524288
   },
   "lists": {
+    "features": [
+      "function_calling",
+      "reasoning"
+    ],
     "input_modalities": [
+      "audio",
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -32,6 +38,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/inkling-small"
   ]
 }

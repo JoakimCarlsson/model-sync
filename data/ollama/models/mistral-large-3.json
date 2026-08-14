@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads."
+    "cloud": "true",
+    "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads.",
+    "usage_level": "medium",
+    "usage_level_rank": "2"
   },
   "limits": {
     "context_window": 256000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/mistral-large-3",
     "https://ollama.com/library/mistral-large-3/tags"
   ]
 }

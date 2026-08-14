@@ -1,0 +1,28 @@
+{
+  "id": "cohere-transcribe-arabic-07-2026",
+  "provider": "cohere",
+  "name": "Cohere Transcribe Arabic",
+  "kind": "transcription",
+  "attrs": {
+    "family": "audio",
+    "max_file_size": "25MB",
+    "summary": "Cohere Transcribe Arabic is a finetuned version of Cohere Transcribe that is optimized for Arabic audio inputs."
+  },
+  "lists": {
+    "features": [
+      "code_switching"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "notes": [
+    "no rate stated on the pricing or dedicated deployment pages"
+  ],
+  "sources": [
+    "https://docs.cohere.com/docs/transcribe-arabic.md"
+  ]
+}

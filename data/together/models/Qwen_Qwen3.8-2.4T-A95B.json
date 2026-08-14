@@ -27,8 +27,18 @@
     "author": "Qwen",
     "quantization": "FP4"
   },
+  "limits": {
+    "context_window": 256000
+  },
   "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -36,6 +46,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/qwen3-8-max"
   ]
 }

@@ -111,6 +111,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrModelCard, firstOf(pageCardRe, body))
 	m.AddNote(composedPricing(body))
+	addPagePricing(m, body)
 	sections := readSections(body)
 	addModalities(m, ListInputModalities, sections[headInput])
 	addModalities(m, ListOutputModalities, sections[headOutput])

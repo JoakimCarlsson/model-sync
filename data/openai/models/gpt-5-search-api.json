@@ -31,7 +31,11 @@
       }
     }
   ],
+  "limits": {
+    "context_window": 200000
+  },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/tools-web-search.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]
 }

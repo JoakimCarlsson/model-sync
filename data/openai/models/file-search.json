@@ -1,6 +1,7 @@
 {
   "id": "file-search",
   "provider": "openai",
+  "name": "File search",
   "kind": "tool",
   "prices": [
     {

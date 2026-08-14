@@ -60,6 +60,7 @@
     "author": "x-ai",
     "canonical_slug": "x-ai/grok-4.20-20260309",
     "knowledge_cutoff": "2025-09-01",
+    "reasoning_default_enabled": "false",
     "released": "2026-03-31",
     "summary": "Grok 4.20 is a reasoning model from SpaceXAI with industry-leading speed and agentic tool calling capabilities.",
     "tokenizer": "Grok"
@@ -72,8 +73,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -99,6 +102,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/x-ai/grok-4.20-20260309/endpoints"
   ]
 }

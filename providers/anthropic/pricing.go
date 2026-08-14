@@ -1,6 +1,7 @@
 package anthropic
 
 import (
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -127,6 +128,14 @@ var proseRates = []struct {
 	metric  catalog.Metric
 	unit    catalog.Unit
 	pattern *regexp.Regexp
+	// allowance matches the quantity Anthropic grants before the rate starts
+	// applying, where it grants one. It is pricing that does not reduce to the
+	// amount, so it is kept as the price's note rather than dropped: a rate
+	// charged only past a monthly allowance is not the rate a reader would
+	// otherwise compute.
+	allowance *regexp.Regexp
+	// allowanceNote is the sentence that quantity is substituted into.
+	allowanceNote string
 }{
 	{
 		id:     "web-search",
@@ -145,6 +154,10 @@ var proseRates = []struct {
 		pattern: regexp.MustCompile(
 			`\$([\d.]+) USD per hour, per container`,
 		),
+		allowance: regexp.MustCompile(
+			`([\d,]+) free hours of usage per month`,
+		),
+		allowanceNote: "%s hours per organization each month are free",
 	},
 	{
 		id:     "managed-agents-session",
@@ -155,6 +168,20 @@ var proseRates = []struct {
 			`\$([\d.]+) per session-hour`,
 		),
 	},
+}
+
+// allowanceOf states the free allowance a rate applies past, and states nothing
+// where the document states nothing: a rate whose allowance is withdrawn loses
+// the note rather than keeping a stale one.
+func allowanceOf(pattern *regexp.Regexp, note, body string) string {
+	if pattern == nil {
+		return ""
+	}
+	match := pattern.FindStringSubmatch(body)
+	if match == nil {
+		return ""
+	}
+	return fmt.Sprintf(note, match[1])
 }
 
 // applyToolPricing records the rates stated only in prose.
@@ -178,6 +205,7 @@ func (b *builder) applyToolPricing(body, source string) {
 			Amount:   value,
 			Currency: currency,
 			Dims:     catalog.Dims{DimTier: TierStandard},
+			Note:     allowanceOf(rate.allowance, rate.allowanceNote, text),
 		})
 	}
 }

@@ -24,10 +24,17 @@
   "lists": {
     "endpoints": [
       "Audio Transcriptions"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
     ]
   },
   "sources": [
     "https://cohere.com/pricing",
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/transcribe.md"
   ]
 }

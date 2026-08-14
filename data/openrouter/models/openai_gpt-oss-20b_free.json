@@ -23,6 +23,7 @@
     "hugging_face_id": "openai/gpt-oss-20b",
     "is_free": "true",
     "knowledge_cutoff": "2024-06-30",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2025-08-05",
     "summary": "gpt-oss-20b is an open-weight 21B parameter model released by OpenAI under the Apache 2.0 license.",
@@ -65,6 +66,11 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

@@ -1,0 +1,131 @@
+{
+  "id": "gemini-2.5-flash-image",
+  "provider": "google",
+  "name": "Gemini 2.5 Flash Image (Nano Banana)",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text-image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text-image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.54,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text-image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "text-image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0195,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0195,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0702,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.039,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "latest_update": "October 2025",
+    "model_code": "gemini-2.5-flash-image",
+    "summary": "Our best engine for high-velocity visual creation, offering state-of-the-art speed and efficiency. Gemini 2.5 Flash Image, also known as Nano Banana, is best for high-volume generation, conversational image editing, and low-latency creative workflows that require native multimodal understanding."
+  },
+  "limits": {
+    "context_window": 65536,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "aliases": [
+      "gemini-2.5-flash-image"
+    ],
+    "features": [
+      "batch",
+      "flex_inference",
+      "image_generation",
+      "priority_inference",
+      "prompt_caching",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image",
+      "text"
+    ],
+    "snapshots": [
+      "gemini-2.5-flash-image",
+      "gemini-2.5-flash-image-preview"
+    ]
+  },
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image",
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

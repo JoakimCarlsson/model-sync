@@ -16,13 +16,17 @@
   },
   "lists": {
     "input_modalities": [
-      "text"
+      "audio",
+      "image",
+      "text",
+      "video"
     ],
     "output_modalities": [
       "video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/seedance-2-0"
   ]
 }

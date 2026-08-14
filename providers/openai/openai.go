@@ -77,11 +77,11 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 // two open-weight gpt-oss models have no row at all: their weights are
 // published for the reader to run, so there is no rate for OpenAI to state.
 //
-// Only models OpenAI still serves are marked. A withdrawn model's missing rate
-// is correct rather than unstated, and two of the shut down moderation models
-// keep a page of their own, so the standing is checked and not just the
-// documents. This runs after the aliases are priced, so a model that borrows its
-// target's rate is not marked as unpriced.
+// Only models OpenAI still serves are marked. A deprecated model's missing rate
+// is a rate OpenAI stopped stating rather than one it failed to state, so the
+// standing is checked and not just the documents. This runs after the aliases
+// are priced, so a model that borrows its target's rate is not marked as
+// unpriced.
 func (b *builder) noteUnpriced() {
 	for _, id := range b.order {
 		m := b.models[id]
@@ -92,12 +92,12 @@ func (b *builder) noteUnpriced() {
 	}
 }
 
-// served reports whether OpenAI still sells a model. A model reaches the catalog
-// from a page of its own or from a row in the rate table, and one that arrives
-// only through the deprecations table has been withdrawn.
+// served reports whether OpenAI still documents and sells a model as current. A
+// model reaches the catalog from a page of its own or from a row in the rate
+// table, and one that arrives only through the deprecations table is on its way
+// out.
 func served(m *catalog.Model) bool {
-	switch m.Attrs[AttrState] {
-	case StateDeprecated, StateShutdown:
+	if m.Attrs[AttrState] == StateDeprecated {
 		return false
 	}
 	return slices.ContainsFunc(m.Sources, func(url string) bool {
@@ -134,10 +134,10 @@ func (b *builder) applyAliasRates() {
 
 // fillKinds settles what the models left without one are.
 //
-// A model withdrawn before this catalog existed appears only in the
-// deprecations table, which lists an identifier and a date and nothing about
-// what the model did. Its name is the only evidence there is, and leaving the
-// kind empty would be read as a parsing gap rather than as the absence of a
+// A deprecated model whose page OpenAI has already taken down appears only in
+// the deprecations table, which lists an identifier and a date and nothing
+// about what the model did. Its name is the only evidence there is, and leaving
+// the kind empty would be read as a parsing gap rather than as the absence of a
 // model page.
 func (b *builder) fillKinds() {
 	for _, m := range b.models {
@@ -168,14 +168,23 @@ func (b *builder) applyPricingDoc(doc catalog.Document) {
 
 // applyGuide reads a guide. Each states something no other document does: the
 // image guide holds the per-image rate matrix, the embeddings guide the vector
-// width and the longest accepted input.
+// width and the longest accepted input, the web search guide the context
+// window of the search models, and the two transcription guides what a
+// listening model can do.
 func (b *builder) applyGuide(doc catalog.Document) {
-	if doc.URL == EmbeddingsGuideURL {
+	switch doc.URL {
+	case EmbeddingsGuideURL:
 		b.applyEmbeddingsGuide(doc)
-		return
-	}
-	for _, t := range scanJSXTables(doc) {
-		b.applyImageTable(t)
+	case WebSearchGuideURL:
+		b.applyWebSearchGuide(doc)
+	case TranscriptionGuideURL:
+		b.applyTranscriptionGuide(doc)
+	case SpeechToTextGuideURL:
+		b.applySpeechToTextGuide(doc)
+	default:
+		for _, t := range scanJSXTables(doc) {
+			b.applyImageTable(t)
+		}
 	}
 }
 
@@ -184,10 +193,23 @@ func (b *builder) applyGuide(doc catalog.Document) {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// withdrawn holds the identifiers OpenAI has stopped serving, which are
+	// dropped from the result however many documents describe them.
+	withdrawn map[string]bool
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models:    map[string]*catalog.Model{},
+		withdrawn: map[string]bool{},
+	}
+}
+
+// withdraw records that OpenAI has shut a model down, so that it is left out of
+// the result even when a page of its own still documents it. Two of the shut
+// down moderation models keep such a page, as do several dated snapshots.
+func (b *builder) withdraw(id string) {
+	b.withdrawn[id] = true
 }
 
 // model returns the entry for id, creating it if absent. A kind already
@@ -206,12 +228,16 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 	return m
 }
 
-// result returns the accumulated models in identifier order.
+// result returns the accumulated models in identifier order, less the ones
+// OpenAI has withdrawn.
 func (b *builder) result() []catalog.Model {
 	ids := slices.Clone(b.order)
 	slices.Sort(ids)
 	out := make([]catalog.Model, 0, len(ids))
 	for _, id := range ids {
+		if b.withdrawn[id] {
+			continue
+		}
 		out = append(out, *b.models[id])
 	}
 	return out

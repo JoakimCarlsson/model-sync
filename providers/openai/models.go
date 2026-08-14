@@ -49,9 +49,17 @@ var (
 		`(?i)^Reasoning\.effort supports:\s*(.+)$`,
 	)
 	numberLeadRe = regexp.MustCompile(`^([\d][\d,]*)\s+(.+)$`)
+	maxInputRe   = regexp.MustCompile(
+		`(?i)maximum number of input tokens is ([\d,]+)`,
+	)
 )
 
 // applyModelPage reads one /api/docs/models/<id>.md page.
+//
+// Nearly everything a page states is written as a bullet or a table row, and
+// the exceptions are read where they are: the reasoning efforts as a sentence
+// of their own, and the longest input a speech model takes as a clause of the
+// paragraph introducing it, which is the only place that bound appears.
 //
 // The pricing tables on these pages are deliberately not read as prices when
 // the pricing page already stated a rate for the same metric: the pricing page
@@ -102,6 +110,10 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		}
 		if match := reasoningRe.FindStringSubmatch(line); match != nil {
 			m.AddList(ListReasoningEfforts, splitEfforts(match[1])...)
+			continue
+		}
+		if match := maxInputRe.FindStringSubmatch(line); match != nil {
+			m.SetLimit(LimitMaxInputTokens, parseCount(match[1]))
 			continue
 		}
 		if strings.HasPrefix(line, "|") {

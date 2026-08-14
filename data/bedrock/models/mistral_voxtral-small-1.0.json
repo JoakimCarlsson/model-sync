@@ -1200,9 +1200,47 @@
     }
   ],
   "attrs": {
-    "author": "Mistral"
+    "author": "Mistral",
+    "lifecycle_state": "active",
+    "released": "Oct 30, 2025",
+    "retirement_date": "N/A",
+    "summary": "Voxtral Small 24B is Mistral AI's speech-to-text model with 24 billion parameters for high-accuracy transcription and voice understanding. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 32000
+  },
+  "lists": {
+    "aliases": [
+      "mistral.voxtral-small-24b-2507"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "function_calling",
+      "guardrails",
+      "model_evaluation",
+      "projects",
+      "prompt_management",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-voxtral-small-24b-2507.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

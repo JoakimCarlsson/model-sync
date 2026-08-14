@@ -49,6 +49,9 @@
     "endpoints": [
       "v1/audio/transcriptions"
     ],
+    "features": [
+      "speaker_diarization"
+    ],
     "input_modalities": [
       "audio",
       "text"
@@ -61,6 +64,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/transcription.md",
     "https://developers.openai.com/api/docs/models/gpt-4o-transcribe-diarize.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

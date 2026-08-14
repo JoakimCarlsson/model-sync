@@ -45,6 +45,10 @@
     "product": "audio intelligence"
   },
   "lists": {
+    "features": [
+      "batch",
+      "summarization"
+    ],
     "input_modalities": [
       "audio"
     ],
@@ -53,6 +57,7 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/stt-pre-recorded-feature-overview.md"
   ]
 }

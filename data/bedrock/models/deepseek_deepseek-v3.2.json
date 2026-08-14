@@ -1292,6 +1292,9 @@
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "deepseek.v3.2"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

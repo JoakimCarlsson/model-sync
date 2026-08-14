@@ -52,9 +52,45 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "audio",
+      "frequency_penalty",
+      "function_call",
+      "functions",
+      "json_mode",
+      "logit_bias",
+      "logprobs",
+      "max_completion_tokens",
+      "max_tokens",
+      "messages",
+      "min_p",
+      "modalities",
+      "model",
+      "n",
+      "parallel_tool_calls",
+      "presence_penalty",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "service_tier",
+      "stop",
+      "stop_token_ids",
+      "stream",
+      "stream_options",
+      "temperature",
+      "thinking",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p",
+      "user"
     ]
   },
   "sources": [
+    "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
     "https://docs.berget.ai/models/overview"
   ]

@@ -1,6 +1,7 @@
 package fireworks
 
 import (
+	"slices"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -107,6 +108,109 @@ func (b *builder) applySingleTable(t table) {
 			Currency: currency,
 		})
 	}
+}
+
+// embeddingMatch pairs a priced embedding model with the guide row naming the
+// same model, which is the row that links it to a page.
+type embeddingMatch struct {
+	ID  string
+	Ref modelRef
+}
+
+// applyEmbeddingsGuide gives the embedding model the identifier it is served
+// under and the page it is described on.
+//
+// The pricing page prices it as "Qwen3 8B" and links nothing, so on the
+// pricing page alone it is a name and a rate. The guide writes the name out,
+// links the model's page and states the identifier the API takes, so the model
+// is re-keyed onto that identifier and its page is read like any other. The
+// name is taken from the guide as well: "Qwen3 8B" is what the price list
+// calls it and also what Fireworks calls a chat model it serves, and the guide
+// is the document writing the two apart.
+func (b *builder) applyEmbeddingsGuide(doc catalog.Document) {
+	for _, match := range b.matchEmbeddings(doc) {
+		m := b.models[match.ID]
+		m.Name = match.Ref.Name
+		m.SetAttr(AttrModelURL, match.Ref.URL)
+		m.AddSource(doc.URL)
+		b.rename(match.ID, match.Ref.ID)
+	}
+}
+
+// matchEmbeddings pairs every embedding model the pricing page priced without
+// linking with the guide row naming it.
+func (b *builder) matchEmbeddings(doc catalog.Document) []embeddingMatch {
+	refs := guideModelRefs(doc)
+	var out []embeddingMatch
+	for _, id := range b.order {
+		m := b.models[id]
+		if m.Kind != KindEmbedding || m.Attrs[AttrModelURL] != "" {
+			continue
+		}
+		for _, ref := range refs {
+			if !namesSameModel(m.Name, ref.Name) {
+				continue
+			}
+			out = append(out, embeddingMatch{ID: id, Ref: ref})
+			break
+		}
+	}
+	return out
+}
+
+// guideModelRefs returns the models the embeddings guide both links and states
+// are served on serverless.
+//
+// The guide's tables also list models that run only on a deployment of the
+// caller's own, which the pricing page quotes no rate for, and its reranking
+// tables list models whose names an embedding model's name is a subset of. A
+// row is therefore read only when it links a model, says serverless, and is
+// not under the reranking heading.
+func guideModelRefs(doc catalog.Document) []modelRef {
+	var out []modelRef
+	for _, t := range scanTables(string(doc.Body), doc.URL) {
+		if strings.Contains(t.Section, "rerank") {
+			continue
+		}
+		for _, row := range t.Rows {
+			ref, ok := splitModelCell(cellAt(row, 0))
+			if !ok || !mentionsServerless(row) {
+				continue
+			}
+			out = append(out, ref)
+		}
+	}
+	return out
+}
+
+// mentionsServerless reports whether a row says the model is served without a
+// deployment of the caller's own.
+func mentionsServerless(row []string) bool {
+	for _, cell := range row {
+		if strings.Contains(strings.ToLower(cell), "serverless") {
+			return true
+		}
+	}
+	return false
+}
+
+// namesSameModel reports whether the guide's name is the pricing page's name
+// spelled out. The pricing table writes "Qwen3 8B" where the guide writes
+// "Qwen3 Embedding 8B", so a match is every word of the priced name appearing
+// in the listed one, in order.
+func namesSameModel(priced, listed string) bool {
+	want, have := nameWords(priced), nameWords(listed)
+	if len(want) == 0 {
+		return false
+	}
+	for _, word := range want {
+		at := slices.Index(have, word)
+		if at < 0 {
+			return false
+		}
+		have = have[at+1:]
+	}
+	return true
 }
 
 // scanTables walks a document and returns every pipe table, tracking the

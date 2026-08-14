@@ -50,6 +50,9 @@
       "v1/audio/transcriptions",
       "v1/realtime"
     ],
+    "features": [
+      "keyterm_prompting"
+    ],
     "input_modalities": [
       "audio",
       "text"
@@ -63,6 +66,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/speech-to-text.md",
     "https://developers.openai.com/api/docs/models/gpt-4o-mini-transcribe.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

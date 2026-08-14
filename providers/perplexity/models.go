@@ -1,10 +1,16 @@
 package perplexity
 
 import (
+	"slices"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
+
+// EmbeddingsURL is the Embeddings guide, whose model table is the pricing
+// page's with three more columns: the input bound, whether the vector can be
+// truncated, and what it is quantized to.
+const EmbeddingsURL = baseURL + "/docs/embeddings/quickstart.md"
 
 // table is one markdown table lifted out of a document.
 type table struct {
@@ -117,7 +123,9 @@ func (b *builder) applyRequestFees(t table) {
 }
 
 // applyEmbeddings reads an embedding table, which states the vector width
-// beside the rate.
+// beside the rate. The pricing page states the width and the rate and stops
+// there; the Embeddings guide restates both and adds the input bound, whether
+// the vector can be truncated and what it is quantized to.
 func (b *builder) applyEmbeddings(t table) {
 	priceCol := columnOf(t.Headers, "price ($/1m tokens)")
 	dimCol := columnOf(t.Headers, "dimensions")
@@ -133,6 +141,7 @@ func (b *builder) applyEmbeddings(t table) {
 		if strings.Contains(m.ID, "context") {
 			m.SetAttr(AttrContextualized, "true")
 		}
+		b.applyEmbeddingGuide(m, t, row)
 		if amount, ok := parseAmount(cellAt(row, priceCol)); ok {
 			m.AddPrice(catalog.Price{
 				Metric:   MetricInputTokens,
@@ -141,6 +150,38 @@ func (b *builder) applyEmbeddings(t table) {
 				Currency: currency,
 			})
 		}
+	}
+}
+
+// applyEmbeddingGuide reads the columns only the Embeddings guide carries. It
+// also records what an embedding model works in, which no column states and
+// the guide says in prose: these embed text, and the vector they answer with
+// is the return value rather than a medium the catalog has a word for, so text
+// stands on both sides the way it does for a reranker.
+func (b *builder) applyEmbeddingGuide(m *catalog.Model, t table, row []string) {
+	if t.Source != EmbeddingsURL {
+		return
+	}
+	m.AddList(ListInputModalities, ModalityText)
+	m.AddList(ListOutputModalities, ModalityText)
+	window := countRe.FindStringSubmatch(clean(cellAt(
+		row,
+		columnOf(t.Headers, "context"),
+	)))
+	if window != nil {
+		m.SetLimit(LimitContextWindow, parseTokens(window[1], window[2]))
+	}
+	if strings.EqualFold(
+		clean(cellAt(row, columnOf(t.Headers, "mrl"))),
+		"yes",
+	) {
+		m.AddList(ListFeatures, FeatureMatryoshka)
+	}
+	for _, format := range strings.Split(
+		clean(cellAt(row, columnOf(t.Headers, "quantization"))),
+		"/",
+	) {
+		m.AddList(ListQuantizations, strings.ToLower(strings.TrimSpace(format)))
 	}
 }
 
@@ -155,21 +196,67 @@ func (b *builder) applyBrokered(t table) {
 		}
 		m.SetAttr(AttrAuthor, authorOf(m.ID))
 		m.SetAttr(AttrSummary, clean(cellAt(row, docsCol)))
+		if !slices.Contains(b.agent, m.ID) {
+			b.agent = append(b.agent, m.ID)
+		}
 		for _, col := range brokeredColumns {
 			at := columnOf(t.Headers, col.header)
 			if at < 0 {
 				continue
 			}
-			if amount, ok := parseAmount(cellAt(row, at)); ok {
+			cell := clean(cellAt(row, at))
+			if discountRe.MatchString(cell) {
+				m.SetAttr(AttrCacheDiscount, cell)
+				continue
+			}
+			for _, rate := range rateBands(cell) {
 				m.AddPrice(catalog.Price{
 					Metric:   col.metric,
 					Unit:     UnitPer1MTokens,
-					Amount:   amount,
+					Amount:   rate.amount,
 					Currency: currency,
+					Dims:     catalog.Dims{}.With(DimPromptBand, rate.band),
 				})
 			}
 		}
 	}
+}
+
+// rate is one amount of a brokered model's rate cell, with the prompt length
+// it applies to where the cell states more than one.
+type rate struct {
+	amount float64
+	band   string
+}
+
+// rateBands reads a brokered rate cell. Most hold one amount, but a model
+// whose rate steps up on a long prompt has both amounts in the one cell, each
+// followed by the bound it applies under: reading the first alone would price
+// every long prompt at the short-prompt rate.
+func rateBands(cell string) []rate {
+	matches := bandRe.FindAllStringSubmatch(cell, -1)
+	if len(matches) == 0 {
+		amount, ok := parseAmount(cell)
+		if !ok {
+			return nil
+		}
+		return []rate{{amount: amount}}
+	}
+	rates := make([]rate, 0, len(matches))
+	for _, match := range matches {
+		amount, ok := parseAmount(match[1])
+		if !ok {
+			continue
+		}
+		rates = append(rates, rate{amount: amount, band: bandLabel(match[2])})
+	}
+	return rates
+}
+
+// bandLabel writes a bound the way the other providers state one, since
+// Perplexity writes its lower bound with a character no consumer will type.
+func bandLabel(bound string) string {
+	return strings.ReplaceAll(strings.Join(strings.Fields(bound), ""), "≤", "<=")
 }
 
 // applyTools reads the server-side tool rates, which are charged per

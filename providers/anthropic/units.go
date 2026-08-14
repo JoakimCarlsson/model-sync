@@ -64,6 +64,11 @@ const (
 const (
 	LimitContextWindow   = "context_window"
 	LimitMaxOutputTokens = "max_output_tokens"
+	// LimitMaxOutputTokensBatch is the higher ceiling the Batches API allows
+	// behind a beta header. It is a second key rather than a replacement
+	// because the comparison table's Max output row is the synchronous
+	// Messages API's and stays true of it.
+	LimitMaxOutputTokensBatch = "max_output_tokens_batch"
 )
 
 // Enumeration keys the documents populate.
@@ -72,6 +77,7 @@ const (
 	ListAliases          = "aliases"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	ListVersions         = "versions"
 )
 
 // modalityWords map a word of the overview's modality sentence onto the
@@ -104,6 +110,13 @@ var (
 	// the comparison table and is described only as sharing Claude Fable 5's.
 	sharedSpecsRe = regexp.MustCompile(
 		"(?i)\\(`([a-z0-9.-]+)`\\) shares ([A-Z][A-Za-z0-9. ]+?)'s specs",
+	)
+	// batchOutputRe matches the note raising the output ceiling on the Batches
+	// API, which the comparison table does not cover: its Max output row is
+	// the synchronous API's, and this note names the models that exceed it
+	// there and by how much.
+	batchOutputRe = regexp.MustCompile(
+		`(?i)Message Batches API[^,]*, (.+?) support up to ([\d.,]+[kKmM]?) output tokens`,
 	)
 	// wordRe matches one word of such a clause.
 	wordRe         = regexp.MustCompile(`[a-z]+`)
@@ -262,6 +275,25 @@ func slugID(name string) string {
 	s := strings.ToLower(clean(name))
 	s = strings.NewReplacer(".", "-", " ", "-", "/", "-").Replace(s)
 	return strings.Trim(s, "-")
+}
+
+// splitNames reads a prose list of models, which Anthropic writes with a comma
+// between each and "and" before the last, naming the vendor once and shortening
+// every name after the first: "Claude Opus 5, Opus 4.8, and Sonnet 4.6". The
+// shortened forms resolve anyway, because the index they are looked up in drops
+// the vendor prefix.
+func splitNames(text string) []string {
+	var out []string
+	for _, part := range strings.Split(clean(text), ",") {
+		name := strings.TrimSpace(part)
+		if trimmed, cut := strings.CutPrefix(name, "and "); cut {
+			name = strings.TrimSpace(trimmed)
+		}
+		if name != "" {
+			out = append(out, name)
+		}
+	}
+	return out
 }
 
 // modelRef is one model named by a pricing row, together with whatever the

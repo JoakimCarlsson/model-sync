@@ -1031,6 +1031,9 @@
     "max_output_tokens": 16000
   },
   "lists": {
+    "aliases": [
+      "moonshotai.kimi-k2-thinking"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

@@ -3,6 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "4096",
     "summary": "Building upon the foundational models of the Qwen3 series, Qwen3 Embedding provides a comprehensive range of text embeddings models in various sizes"
   },
   "limits": {
@@ -23,6 +24,7 @@
   },
   "sources": [
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3-embedding/tags"
+    "https://ollama.com/library/qwen3-embedding/tags",
+    "https://ollama.com/library/qwen3-embedding:latest/blobs/3fcd3febec8b"
   ]
 }

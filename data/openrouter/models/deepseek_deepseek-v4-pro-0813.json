@@ -27,6 +27,7 @@
     "author": "deepseek",
     "canonical_slug": "deepseek/deepseek-v4-pro-20260813",
     "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+    "reasoning_default_effort": "high",
     "released": "2026-08-12",
     "summary": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek.",
     "tokenizer": "DeepSeek"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -52,18 +54,29 @@
     "parameters": [
       "frequency_penalty",
       "include_reasoning",
+      "logit_bias",
       "logprobs",
       "max_tokens",
+      "min_p",
       "presence_penalty",
       "reasoning",
       "reasoning_effort",
+      "repetition_penalty",
       "response_format",
+      "seed",
       "stop",
+      "structured_outputs",
       "temperature",
       "tool_choice",
       "tools",
+      "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max"
     ]
   },
   "sources": [

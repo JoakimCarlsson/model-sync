@@ -12,6 +12,8 @@
     }
   ],
   "attrs": {
+    "default_embedding_dimension": "1536",
+    "max_embedding_dimension": "3072",
     "released": "2025-05-28",
     "state": "active",
     "summary": "Our state-of-the-art semantic for extracting representation of code extracts",
@@ -26,7 +28,8 @@
     ],
     "features": [
       "batching",
-      "embeddings"
+      "embeddings",
+      "reducible_embedding_dimensions"
     ],
     "input_modalities": [
       "text"
@@ -36,6 +39,7 @@
     ]
   },
   "sources": [
-    "https://docs.mistral.ai/models/codestral-embed-25-05"
+    "https://docs.mistral.ai/models/codestral-embed-25-05",
+    "https://docs.mistral.ai/studio/knowledge-rag/embeddings/code_embeddings"
   ]
 }

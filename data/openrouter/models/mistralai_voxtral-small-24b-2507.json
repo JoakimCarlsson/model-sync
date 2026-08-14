@@ -45,6 +45,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -70,6 +71,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/mistralai/voxtral-small-24b-2507/endpoints"
   ]
 }

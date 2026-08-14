@@ -54,6 +54,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/qwen/qwen-2.5-coder-32b-instruct/endpoints"
   ]
 }

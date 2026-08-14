@@ -1,6 +1,7 @@
 {
   "id": "codestral",
   "provider": "azure",
+  "name": "Codestral-2501",
   "kind": "chat",
   "prices": [
     {
@@ -1789,7 +1790,20 @@
   "attrs": {
     "product": "Azure Mistral Models"
   },
+  "limits": {
+    "context_window": 262144,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -33,6 +33,32 @@ func (b *builder) applyOverview(doc catalog.Document) {
 	}
 	b.readModalities(string(doc.Body))
 	b.readSharedSpecs(string(doc.Body))
+	b.readBatchOutput(string(doc.Body))
+}
+
+// readBatchOutput records the output ceiling the Batches API allows, which the
+// comparison table's Max output row is not: that row is the synchronous
+// Messages API's, and a note under the table names the models that go further
+// on batch and the beta header that lets them.
+//
+// It is applied here rather than held, because the note names models the table
+// above it has already established. A name it cannot place is skipped rather
+// than created, for the reason the capability guides skip one: this note states
+// a bound of a model, never that a model exists.
+func (b *builder) readBatchOutput(body string) {
+	match := batchOutputRe.FindStringSubmatch(body)
+	if match == nil {
+		return
+	}
+	limit := parseTokenCount(match[2] + " tokens")
+	if limit == 0 {
+		return
+	}
+	for _, name := range splitNames(match[1]) {
+		if m, ok := b.models[b.resolve(name)]; ok {
+			m.SetLimit(LimitMaxOutputTokensBatch, limit)
+		}
+	}
 }
 
 // readSharedSpecs notes every model whose bounds the overview gives by naming
@@ -104,7 +130,7 @@ func (b *builder) applyModalities() {
 	in, out := b.inputModalities, b.outputModalities
 	for _, id := range b.order {
 		m := b.models[id]
-		if m.Kind != KindChat || m.Attrs[AttrState] == stateRetired {
+		if m.Kind != KindChat || withdrawn(m) {
 			continue
 		}
 		m.AddList(ListInputModalities, in...)

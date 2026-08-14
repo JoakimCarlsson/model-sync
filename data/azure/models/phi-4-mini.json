@@ -1,6 +1,7 @@
 {
   "id": "phi-4-mini",
   "provider": "azure",
+  "name": "Phi-4-mini-instruct",
   "kind": "chat",
   "prices": [
     {
@@ -707,7 +708,45 @@
   "attrs": {
     "product": "Azure Phi Models"
   },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "ar",
+      "cs",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fi",
+      "fr",
+      "he",
+      "hu",
+      "it",
+      "ja",
+      "ko",
+      "nl",
+      "no",
+      "pl",
+      "pt",
+      "ru",
+      "sv",
+      "th",
+      "tr",
+      "uk",
+      "zh"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

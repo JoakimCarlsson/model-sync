@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-0806",
   "provider": "azure",
+  "name": "GPT-4o (Omni)",
   "kind": "chat",
   "prices": [
     {
@@ -108,6 +109,18 @@
         "deployment": "data-zone",
         "fine_tuned": "true",
         "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "fine_tuned": "true",
+        "region": "southeastasia",
         "tier": "standard"
       }
     },
@@ -333,6 +346,66 @@
       "dims": {
         "deployment": "data-zone",
         "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "southeastasia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "fine_tuned": "true",
+        "region": "swedencentral",
         "tier": "standard"
       }
     },
@@ -619,6 +692,66 @@
       "dims": {
         "deployment": "global",
         "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "centralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001375,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00165,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "southeastasia",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.001513,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "fine_tuned": "true",
+        "region": "swedencentral",
         "tier": "standard"
       }
     },

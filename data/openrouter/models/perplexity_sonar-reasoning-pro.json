@@ -37,7 +37,8 @@
   },
   "lists": {
     "features": [
-      "reasoning"
+      "reasoning",
+      "web_search"
     ],
     "input_modalities": [
       "image",
@@ -59,6 +60,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/perplexity/sonar-reasoning-pro/endpoints"
   ]
 }

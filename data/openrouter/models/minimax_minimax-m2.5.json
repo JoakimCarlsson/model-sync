@@ -41,6 +41,8 @@
     "features": [
       "function_calling",
       "json_mode",
+      "parallel_tool_calls",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

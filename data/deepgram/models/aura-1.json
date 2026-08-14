@@ -26,7 +26,13 @@
   "attrs": {
     "product": "text to speech"
   },
+  "limits": {
+    "max_input_characters": 2000
+  },
   "lists": {
+    "features": [
+      "streaming_audio_output"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -35,6 +41,8 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/text-to-speech.md",
+    "https://developers.deepgram.com/docs/tts-feature-overview.md"
   ]
 }

@@ -1272,6 +1272,7 @@
   },
   "lists": {
     "aliases": [
+      "qwen.qwen3-coder-30b-a3b-instruct",
       "qwen.qwen3-coder-30b-a3b-v1:0"
     ],
     "endpoints": [

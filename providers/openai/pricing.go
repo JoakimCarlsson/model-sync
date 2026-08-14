@@ -114,13 +114,16 @@ const (
 	roleCategory
 )
 
-// column is the meaning of one table column.
+// column is the meaning of one table column. named marks the identifier column
+// that holds a display name rather than an identifier, which is how OpenAI
+// writes the tool table and the only place it names a tool at all.
 type column struct {
 	role   role
 	metric catalog.Metric
 	unit   catalog.Unit
 	dimKey string
 	dims   catalog.Dims
+	named  bool
 }
 
 // headerColumn maps one of OpenAI's column headers onto its meaning. The
@@ -136,8 +139,10 @@ func headerColumn(header string) column {
 		}
 	}
 	switch h {
-	case "model", "tool":
+	case "model":
 		return column{role: roleID}
+	case "tool":
+		return column{role: roleID, named: true}
 	case "category":
 		return column{role: roleCategory}
 	case "modality":
@@ -210,6 +215,9 @@ func (b *builder) applyPricingRow(t mdTable, cols []column, row []string) {
 	m := b.model(q.ID, kind)
 	m.AddSource(t.Source)
 	m.AddNote(q.Note)
+	if m.Name == "" {
+		m.Name = q.Name
+	}
 	for i, col := range cols {
 		if col.role != rolePrice {
 			continue
@@ -293,6 +301,9 @@ func rowID(cols []column, row []string) (qualifier, bool) {
 			return qualifier{}, false
 		}
 		q := splitQualifier(cell)
+		if !col.named {
+			q.Name = ""
+		}
 		return q, q.ID != ""
 	}
 	return qualifier{}, false

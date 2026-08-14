@@ -5,12 +5,6 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 90,
-      "currency": "USD"
-    },
-    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.25,
@@ -25,9 +19,23 @@
   ],
   "attrs": {
     "author": "google",
+    "cache_read_discount": "90% off input",
     "summary": "Gemini 3.1 Flash Lite"
   },
+  "lists": {
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.perplexity.ai/docs/agent-api/models.md"
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/models.md",
+    "https://docs.perplexity.ai/docs/agent-api/output-control.md"
   ]
 }

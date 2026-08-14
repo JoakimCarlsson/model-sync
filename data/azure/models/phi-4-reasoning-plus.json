@@ -1,6 +1,7 @@
 {
   "id": "phi-4-reasoning-plus",
   "provider": "azure",
+  "name": "Phi-4-reasoning",
   "kind": "chat",
   "prices": [
     {
@@ -267,7 +268,26 @@
   "attrs": {
     "product": "Azure Phi Models"
   },
+  "limits": {
+    "context_window": 32768,
+    "max_output_tokens": 32768
+  },
+  "lists": {
+    "features": [
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

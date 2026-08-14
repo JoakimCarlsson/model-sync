@@ -38,6 +38,7 @@
   "attrs": {
     "author": "bytedance-seed",
     "canonical_slug": "bytedance-seed/seed-2.0-code-20260730",
+    "reasoning_default_effort": "medium",
     "released": "2026-08-12",
     "summary": "Seed 2.0 Code is a model from ByteDance Seed optimized for agentic coding.",
     "tokenizer": "Other"
@@ -75,6 +76,11 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

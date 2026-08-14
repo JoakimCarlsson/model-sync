@@ -1,7 +1,6 @@
 package google
 
 import (
-	"maps"
 	"net/http"
 	"slices"
 	"strings"
@@ -38,11 +37,17 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Parse reads the pricing page first, because it is the only document naming
-// every model the catalog holds, then attaches each model page to the model it
-// describes.
+// Parse reads the index first, since it names and dates every model the other
+// two documents only identify, then the pricing page, which is the only
+// document naming every model the catalog holds, and finally attaches each
+// model page to the models it describes.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
+	for _, doc := range docs {
+		if doc.URL == ModelsURL {
+			b.applyIndex(doc)
+		}
+	}
 	for _, doc := range docs {
 		if doc.URL == PricingURL {
 			b.applyPricing(doc)
@@ -54,78 +59,86 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			pages = append(pages, doc)
 		}
 	}
-	for i, id := range b.pair(pages) {
-		b.applyModelPage(pages[i], id)
+	for i, ids := range b.pair(pages) {
+		for _, id := range ids {
+			b.applyModelPage(pages[i], id)
+		}
 	}
 	return b.result(), nil
 }
 
-// pair decides which model each page describes.
+// pair decides which models each page describes, in three rounds, each able to
+// claim only what no earlier round took.
 //
-// The pricing page heads a model with the name it sells under and the model
-// page addresses it by the identifier the API answers to, and the two drift:
-// what pricing heads "Gemini 3.1 Flash Image (Nano Banana 2)" the API calls
-// gemini-3.1-flash-image. One is therefore a prefix of the other as often as
-// they are equal, in either direction, and matching on that alone would let
-// one model's page attach to another model, since gemini-2.5-flash prefixes
-// several models that are not it.
+// A page is addressed by the identifier the API answers to, so the first round
+// is that identifier and settles almost everything. It is settled first
+// because a page also states the identifiers it covers and a few pages state
+// the wrong one: the streaming robotics page and the Lyria Pro page both name
+// their sibling's endpoint, and taking that at face value would give one model
+// the other's page.
 //
-// The pairing is made one to one to prevent that. Pages that name a model
-// exactly are settled first, then those whose model extends the page's
-// address, then those whose address extends the model, and each round can only
-// claim a model no earlier round took. A page matching nothing left describes a
-// model the pricing page does not price, and is left unpaired.
+// The second round is those stated identifiers, which is what attaches the one
+// page Google publishes for a family to every endpoint in it: the Imagen page
+// names all three of its sizes and the Veo 3.1 page names both its own and the
+// fast build.
 //
-// The result is indexed alongside pages, holding the empty string where a page
-// paired with nothing.
-func (b *builder) pair(pages []catalog.Document) []string {
-	out := make([]string, len(pages))
-	taken := map[string]bool{}
-	var rest []int
+// The third round hands the endpoints still unclaimed to the page describing
+// the rest of the family the pricing page groups them with, which is how the
+// custom-tools endpoint of Gemini 3.1 Pro, sold under the same heading and
+// documented nowhere else, gets a page. Where two pages already split a family
+// the round does nothing, so the Veo 3.1 Lite page keeps its own model.
+//
+// The result is indexed alongside pages, holding nothing where a page
+// describes a model the pricing page does not price.
+func (b *builder) pair(pages []catalog.Document) [][]string {
+	out := make([][]string, len(pages))
+	taken := map[string]int{}
+	claim := func(i int, id string) {
+		if _, ok := b.models[id]; !ok {
+			return
+		}
+		if _, ok := taken[id]; ok {
+			return
+		}
+		taken[id] = i
+		out[i] = append(out[i], id)
+	}
 	for i, doc := range pages {
-		id := pageID(doc)
-		if b.models[id] == nil || taken[id] {
-			rest = append(rest, i)
+		claim(i, pageID(doc))
+	}
+	for i, doc := range pages {
+		for _, id := range pageCodes(doc) {
+			claim(i, id)
+		}
+	}
+	for _, group := range b.groups {
+		owner, ok := groupOwner(group, taken)
+		if !ok {
 			continue
 		}
-		out[i], taken[id] = id, true
-	}
-	for _, extends := range []func(page, id string) bool{
-		func(page, id string) bool { return strings.HasPrefix(id, page+"-") },
-		func(page, id string) bool { return strings.HasPrefix(page, id+"-") },
-	} {
-		remaining := rest[:0]
-		for _, i := range rest {
-			best := b.longestUnclaimed(pageID(pages[i]), taken, extends)
-			if best == "" {
-				remaining = append(remaining, i)
-				continue
-			}
-			out[i], taken[best] = best, true
+		for _, id := range group {
+			claim(owner, id)
 		}
-		rest = remaining
 	}
 	return out
 }
 
-// longestUnclaimed returns the longest model identifier still free that stands
-// in the given relation to a page's address, and the first in identifier order
-// where two are equally long, so that a run is reproducible.
-func (b *builder) longestUnclaimed(
-	page string,
-	taken map[string]bool,
-	extends func(page, id string) bool,
-) string {
-	best := ""
-	for _, id := range slices.Sorted(maps.Keys(b.models)) {
-		if taken[id] || !extends(page, id) {
+// groupOwner returns the one page already describing an endpoint of a family
+// the pricing page groups under a single heading, and reports false where none
+// does or where two pages split the family between them.
+func groupOwner(group []string, taken map[string]int) (int, bool) {
+	owner, found := 0, false
+	for _, id := range group {
+		at, ok := taken[id]
+		if !ok {
 			continue
 		}
-		if len(id) > len(best) {
-			best = id
+		if found && at != owner {
+			return 0, false
 		}
+		owner, found = at, true
 	}
-	return best
+	return owner, found
 }
 
 // pageID returns the identifier a model page is addressed by, which is the
@@ -138,10 +151,19 @@ func pageID(doc catalog.Document) string {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// groups holds the endpoints of each pricing heading, in the order the
+	// heading states them, which is what lets one page stand for a family.
+	groups [][]string
+	// index holds what the model index states, keyed by endpoint and by the
+	// name of the family the endpoint belongs to.
+	index map[string]indexEntry
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models: map[string]*catalog.Model{},
+		index:  map[string]indexEntry{},
+	}
 }
 
 // model returns the entry for id, creating it if absent.

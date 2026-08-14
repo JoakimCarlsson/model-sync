@@ -71,7 +71,7 @@ func (b *builder) applyToolUse(doc catalog.Document) {
 	}
 	for _, id := range b.order {
 		m := b.models[id]
-		if m.Kind != KindChat || m.Attrs[AttrState] == stateRetired {
+		if m.Kind != KindChat || withdrawn(m) {
 			continue
 		}
 		m.AddList(ListFeatures, catalog.CapabilityFunctionCalling)

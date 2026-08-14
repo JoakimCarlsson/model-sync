@@ -46,6 +46,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/writer/palmyra-x5-20250428/endpoints"
   ]
 }

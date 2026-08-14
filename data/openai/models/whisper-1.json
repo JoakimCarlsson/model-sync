@@ -25,6 +25,11 @@
       "v1/audio/transcriptions",
       "v1/audio/translations"
     ],
+    "features": [
+      "keyterm_prompting",
+      "translation",
+      "word_timestamps"
+    ],
     "input_modalities": [
       "audio"
     ],
@@ -36,6 +41,8 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/speech-to-text.md",
+    "https://developers.openai.com/api/docs/guides/transcription.md",
     "https://developers.openai.com/api/docs/models/whisper-1.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

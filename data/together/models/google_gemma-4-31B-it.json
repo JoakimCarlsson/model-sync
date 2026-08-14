@@ -27,6 +27,8 @@
   "lists": {
     "features": [
       "function_calling",
+      "json_mode",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -38,6 +40,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/gemma-4-31b"
   ]
 }

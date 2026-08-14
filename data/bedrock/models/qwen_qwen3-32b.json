@@ -1272,6 +1272,7 @@
   },
   "lists": {
     "aliases": [
+      "qwen.qwen3-32b",
       "qwen.qwen3-32b-v1:0"
     ],
     "endpoints": [

@@ -48,6 +48,8 @@
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-4.7-opus-20260416",
     "is_moderated": "true",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "false",
     "released": "2026-04-16",
     "summary": "Opus 4.7 is the next generation of Anthropic's Opus family, built for long-running, asynchronous agents.",
     "tokenizer": "Claude"
@@ -61,8 +63,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -84,6 +88,13 @@
       "tool_choice",
       "tools",
       "verbosity"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

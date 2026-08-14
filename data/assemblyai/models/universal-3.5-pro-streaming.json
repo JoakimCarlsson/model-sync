@@ -15,6 +15,7 @@
     }
   ],
   "attrs": {
+    "api_identifier": "universal-3-5-pro",
     "mode": "streaming",
     "volume_discounts": "available"
   },
@@ -25,16 +26,45 @@
   "lists": {
     "features": [
       "code_switching",
-      "keyterm_prompting"
+      "keyterm_prompting",
+      "language_detection",
+      "medical_vocabulary",
+      "partial_transcripts",
+      "prompting",
+      "realtime",
+      "speaker_diarization",
+      "voice_isolation"
     ],
     "input_modalities": [
       "audio"
+    ],
+    "languages": [
+      "ar",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fi",
+      "fr",
+      "he",
+      "hi",
+      "it",
+      "ja",
+      "nl",
+      "no",
+      "pt",
+      "sv",
+      "tr",
+      "vi",
+      "zh"
     ],
     "output_modalities": [
       "text"
     ]
   },
   "sources": [
-    "https://www.assemblyai.com/docs/getting-started/models.md"
+    "https://www.assemblyai.com/docs/getting-started/models.md",
+    "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md",
+    "https://www.assemblyai.com/pricing"
   ]
 }

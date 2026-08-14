@@ -7,6 +7,15 @@
     {
       "metric": "audio",
       "unit": "per_minute",
+      "amount": 0.0017,
+      "currency": "USD",
+      "dims": {
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
       "amount": 0.002,
       "currency": "USD",
       "dims": {
@@ -15,9 +24,15 @@
     }
   ],
   "attrs": {
-    "product": "speech-to-text add-ons"
+    "product": "speech-to-text add-ons",
+    "summary": "Detect multiple speakers and label who spoke when in the transcript."
   },
   "lists": {
+    "features": [
+      "batch",
+      "realtime",
+      "speaker_diarization"
+    ],
     "input_modalities": [
       "audio"
     ],
@@ -26,6 +41,8 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/stt-pre-recorded-feature-overview.md",
+    "https://developers.deepgram.com/docs/stt-streaming-feature-overview.md"
   ]
 }

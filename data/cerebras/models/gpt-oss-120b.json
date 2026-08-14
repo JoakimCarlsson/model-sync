@@ -18,16 +18,19 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
     "model_card_url": "https://openai.com/index/gpt-oss-model-card/",
     "model_url": "/models/openai-oss",
     "parameters": "120 billion",
+    "quantization": "FP16/8 (weights only)",
     "state": "production",
+    "summary": "This model excels at efficient reasoning across science, math, and coding applications. It's ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.",
     "tokens_per_second": "~3000"
   },
   "limits": {
-    "context_window": 131000,
+    "context_window": 131072,
     "context_window_free": 65000,
-    "max_output_tokens": 40000,
+    "max_output_tokens": 40960,
     "max_output_tokens_free": 32000
   },
   "lists": {
@@ -50,6 +53,7 @@
     ]
   },
   "sources": [
+    "https://api.cerebras.ai/public/v1/models",
     "https://inference-docs.cerebras.ai/models/openai-oss.md",
     "https://inference-docs.cerebras.ai/models/overview.md"
   ]

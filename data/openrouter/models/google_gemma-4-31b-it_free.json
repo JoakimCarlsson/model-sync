@@ -22,6 +22,7 @@
     "canonical_slug": "google/gemma-4-31b-it-20260402",
     "hugging_face_id": "google/gemma-4-31B-it",
     "is_free": "true",
+    "reasoning_default_enabled": "false",
     "released": "2026-04-02",
     "summary": "Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output.",
     "tokenizer": "Gemma"

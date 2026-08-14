@@ -38,9 +38,17 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "dimensions",
+      "encoding_format",
+      "input",
+      "model",
+      "user"
     ]
   },
   "sources": [
+    "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
     "https://docs.berget.ai/models/overview"
   ]

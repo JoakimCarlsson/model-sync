@@ -20,6 +20,7 @@
   "attrs": {
     "author": "mistralai",
     "canonical_slug": "mistralai/mistral-medium-3.5-20260430",
+    "reasoning_default_effort": "high",
     "released": "2026-04-30",
     "summary": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI.",
     "tokenizer": "Mistral"
@@ -58,9 +59,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "none"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/mistralai/mistral-medium-3.5-20260430/endpoints"
   ]
 }

@@ -6,7 +6,13 @@
     "state": "current",
     "summary": "Human-like and expressive voice design model (Text to Voice)"
   },
+  "limits": {
+    "character_limit": 1000
+  },
   "lists": {
+    "features": [
+      "audio_reference"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -18,6 +24,7 @@
     "no card on the API pricing page covers this model"
   ],
   "sources": [
+    "https://elevenlabs.io/docs/api-reference/text-to-voice/design.md",
     "https://elevenlabs.io/docs/overview/models.md"
   ]
 }

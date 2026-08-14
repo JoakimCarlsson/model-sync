@@ -2319,6 +2319,7 @@
     "features": [
       "function_calling",
       "parallel_tool_calls",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [

@@ -32,6 +32,8 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-flash-image-preview-20260226",
+    "reasoning_default_effort": "minimal",
+    "reasoning_default_enabled": "true",
     "released": "2026-02-26",
     "summary": "Gemini 3.1 Flash Image Preview, a.k.a.",
     "tokenizer": "Gemini"
@@ -45,7 +47,8 @@
     "features": [
       "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",
@@ -65,6 +68,10 @@
       "structured_outputs",
       "temperature",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "minimal"
     ]
   },
   "sources": [

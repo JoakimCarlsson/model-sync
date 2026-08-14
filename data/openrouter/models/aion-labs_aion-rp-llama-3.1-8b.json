@@ -44,6 +44,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/aion-labs/aion-rp-llama-3.1-8b/endpoints"
   ]
 }

@@ -1300,6 +1300,9 @@
     "max_output_tokens": 128000
   },
   "lists": {
+    "endpoints": [
+      "Responses"
+    ],
     "features": [
       "function_calling",
       "parallel_tool_calls",

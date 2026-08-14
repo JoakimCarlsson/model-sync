@@ -32,6 +32,8 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.8-max-20260803",
+    "reasoning_default_effort": "xhigh",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2026-08-03",
     "summary": "Qwen3.8 Max is the flagship model in Alibaba's Qwen3.8 series, the general-availability successor to the Qwen3.8 Max Preview.",
@@ -46,6 +48,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -75,6 +78,13 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal",
+      "xhigh"
     ]
   },
   "sources": [

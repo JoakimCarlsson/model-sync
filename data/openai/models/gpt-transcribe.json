@@ -26,6 +26,9 @@
       "v1/realtime/transcription_sessions"
     ],
     "features": [
+      "keyterm_prompting",
+      "language_detection",
+      "realtime",
       "streaming"
     ],
     "input_modalities": [
@@ -40,6 +43,8 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/guides/speech-to-text.md",
+    "https://developers.openai.com/api/docs/guides/transcription.md",
     "https://developers.openai.com/api/docs/models/gpt-transcribe.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

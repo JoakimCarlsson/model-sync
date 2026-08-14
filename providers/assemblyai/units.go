@@ -41,6 +41,12 @@ const (
 	AttrDocumentationURL = "documentation_url"
 )
 
+// AttrAPIIdentifier is the string a request selects the model with. The models
+// page names models for a reader and never states it; the two model-selection
+// pages give it a column of its own, and the add-on states it as the value of
+// the domain parameter that turns it on.
+const AttrAPIIdentifier = "api_identifier"
+
 // ListFeatures holds the capabilities a model card's bullets name. The bullets
 // themselves are sentences and are not kept: each is read for the capability
 // in it, the ceiling it states and the languages it lists.

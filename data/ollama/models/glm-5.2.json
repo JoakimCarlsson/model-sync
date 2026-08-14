@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks."
+    "cloud": "true",
+    "summary": "GLM-5.2 is Z.ai’s flagship model for the era of long-horizon tasks.",
+    "usage_level": "high",
+    "usage_level_rank": "3"
   },
   "limits": {
     "context_window": 976000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/glm-5.2",
     "https://ollama.com/library/glm-5.2/tags"
   ]
 }

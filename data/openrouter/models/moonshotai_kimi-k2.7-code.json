@@ -27,6 +27,7 @@
     "author": "moonshotai",
     "canonical_slug": "moonshotai/kimi-k2.7-code-20260612",
     "hugging_face_id": "moonshotai/Kimi-K2.7-Code",
+    "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
     "released": "2026-06-12",
     "summary": "MoonshotAI: Kimi K2.7 Code is a coding-focused model in Moonshot AI's Kimi K2 family, built to complete end-to-end programming tasks reliably over long contexts.",
@@ -41,6 +42,8 @@
     "features": [
       "function_calling",
       "json_mode",
+      "parallel_tool_calls",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -75,6 +78,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/moonshotai/kimi-k2.7-code-20260612/endpoints"
   ]
 }

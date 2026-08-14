@@ -3,6 +3,7 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "cloud": "true",
     "summary": "Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance."
   },
   "limits": {

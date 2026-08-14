@@ -1466,7 +1466,8 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "reasoning"
     ],
     "input_modalities": [
       "text"

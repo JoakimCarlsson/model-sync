@@ -1,6 +1,7 @@
 {
   "id": "fw-deepseek-v4-pro",
   "provider": "azure",
+  "name": "DeepSeek-V4-Pro",
   "kind": "chat",
   "prices": [
     {
@@ -733,7 +734,29 @@
   "attrs": {
     "product": "Azure Fireworks Models"
   },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 384000
+  },
+  "lists": {
+    "features": [
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "languages": [
+      "en",
+      "zh"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

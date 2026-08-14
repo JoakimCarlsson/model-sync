@@ -24,10 +24,27 @@
     }
   ],
   "limits": {
-    "context_window": 8192
+    "context_window": 128000,
+    "max_output_tokens": 8192
+  },
+  "lists": {
+    "features": [
+      "batch_predictions",
+      "function_calling",
+      "llama_guard",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

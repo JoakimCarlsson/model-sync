@@ -35,6 +35,8 @@ type entry struct {
 	KnowledgeCutoff     string                     `json:"knowledge_cutoff"`
 	ExpirationDate      string                     `json:"expiration_date"`
 	Reasoning           *reasoning                 `json:"reasoning"`
+	AliasTarget         *aliasTarget               `json:"alias_target"`
+	Links               links                      `json:"links"`
 }
 
 type architecture struct {
@@ -50,8 +52,42 @@ type topProvider struct {
 	IsModerated         bool  `json:"is_moderated"`
 }
 
+// reasoning is attached to a model that thinks before it answers, and to no
+// other, which makes its presence the statement of the capability and its
+// members the statement of how far the caller may turn the thinking up.
 type reasoning struct {
-	Mandatory bool `json:"mandatory"`
+	Mandatory        bool     `json:"mandatory"`
+	DefaultEnabled   *bool    `json:"default_enabled"`
+	DefaultEffort    string   `json:"default_effort"`
+	SupportedEfforts []string `json:"supported_efforts"`
+}
+
+// aliasTarget is what a moving identifier such as x-ai/grok-latest currently
+// resolves to.
+type aliasTarget struct {
+	Name string `json:"name"`
+	Slug string `json:"slug"`
+}
+
+// links are the sub-resources of a model, of which the endpoint document is
+// the only one carrying facts the listing does not.
+type links struct {
+	Details string `json:"details"`
+}
+
+// detailURL is the absolute address of a model's endpoint document.
+func detailURL(e entry) string {
+	if e.Links.Details == "" {
+		return ""
+	}
+	return baseURL + e.Links.Details
+}
+
+// needsDetail reports whether the listing left something the endpoint document
+// can state. It is asked before anything is fetched, so a model the listing
+// answers in full costs no request.
+func needsDetail(e entry) bool {
+	return e.TopProvider.MaxCompletionTokens <= 0 || len(featuresOf(e)) == 0
 }
 
 // override is a rate that replaces the standard one once a request is large
@@ -92,6 +128,9 @@ func (b *builder) applyListing(doc catalog.Document) error {
 	}
 	for _, e := range list.Data {
 		b.applyEntry(e, doc.URL)
+		if url := detailURL(e); url != "" {
+			b.details[url] = append(b.details[url], e.ID)
+		}
 	}
 	return nil
 }
@@ -117,9 +156,10 @@ func (b *builder) applyEntry(e entry, source string) {
 	if e.TopProvider.IsModerated {
 		m.SetAttr(AttrModerated, "true")
 	}
-	if e.Reasoning != nil && e.Reasoning.Mandatory {
-		m.SetAttr(AttrReasoningMandatory, "true")
+	if e.AliasTarget != nil {
+		m.SetAttr(AttrAliasTarget, e.AliasTarget.Slug)
 	}
+	applyReasoning(m, e.Reasoning)
 
 	m.SetLimit(LimitContextWindow, e.ContextLength)
 	m.SetLimit(LimitProviderContext, e.TopProvider.ContextLength)
@@ -129,12 +169,57 @@ func (b *builder) applyEntry(e entry, source string) {
 	m.AddList(ListInputModalities, e.Architecture.InputModalities...)
 	m.AddList(ListOutputModalities, e.Architecture.OutputModalities...)
 	m.AddList(ListParameters, e.SupportedParameters...)
-	for _, parameter := range e.SupportedParameters {
-		m.AddList(ListFeatures, parameterFeatures[parameter]...)
-	}
+	m.AddList(ListFeatures, featuresOf(e)...)
 	m.AddList(ListVoices, e.SupportedVoices...)
 
 	b.applyPricing(m, e.Pricing)
+}
+
+// applyReasoning records how far a model's thinking can be turned up, and that
+// it thinks at all.
+func applyReasoning(m *catalog.Model, r *reasoning) {
+	if r == nil {
+		return
+	}
+	if r.Mandatory {
+		m.SetAttr(AttrReasoningMandatory, "true")
+	}
+	if r.DefaultEnabled != nil {
+		m.SetAttr(
+			AttrReasoningDefaultEnabled,
+			strconv.FormatBool(*r.DefaultEnabled),
+		)
+	}
+	m.SetAttr(AttrReasoningDefaultEffort, r.DefaultEffort)
+	m.AddList(ListReasoningEfforts, r.SupportedEfforts...)
+}
+
+// featuresOf reports what a listing entry says a model can do.
+//
+// OpenRouter states it three ways and never as a capability list. A parameter
+// its API will forward implies the capability the parameter drives; a charge it
+// levies implies the capability being charged for, since nothing is billed for
+// reading a cache or running a search unless the model does it; and the
+// reasoning object is attached to a model that thinks and to no other.
+func featuresOf(e entry) []string {
+	var features []string
+	for _, parameter := range e.SupportedParameters {
+		features = append(features, parameterFeatures[parameter]...)
+	}
+	for key, raw := range e.Pricing {
+		var rate string
+		if err := json.Unmarshal(raw, &rate); err != nil {
+			continue
+		}
+		if isZeroRate(rate) {
+			continue
+		}
+		features = append(features, priceFeatures[key]...)
+	}
+	if e.Reasoning != nil {
+		features = append(features, catalog.CapabilityReasoning)
+	}
+	return features
 }
 
 // applyRequestLimits records any per-request ceiling, whose keys OpenRouter

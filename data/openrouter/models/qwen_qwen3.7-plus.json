@@ -68,6 +68,7 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.7-plus-20260602",
+    "reasoning_default_enabled": "true",
     "released": "2026-06-03",
     "summary": "Qwen3.7-Plus is a cost-effective model in Alibaba's Qwen3.7 series.",
     "tokenizer": "Qwen"
@@ -81,6 +82,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

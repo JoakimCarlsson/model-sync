@@ -46,6 +46,7 @@
     "canonical_slug": "openai/gpt-5.5-pro-20260423",
     "is_moderated": "true",
     "knowledge_cutoff": "2025-12-01",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-04-24",
     "summary": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads.",
@@ -61,7 +62,8 @@
       "function_calling",
       "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -81,6 +83,11 @@
       "structured_outputs",
       "tool_choice",
       "tools"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

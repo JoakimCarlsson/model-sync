@@ -41,9 +41,9 @@ func (p *Provider) Name() string { return providerName }
 // arrive in. The pricing tables name models only by display name, so both
 // pages that state API identifiers are read first: deprecations, which lists
 // every model that has ever existed, then the overview, which is authoritative
-// for the current ones. The two capability guides come last, because each
-// attaches a capability to models the earlier pages established and neither
-// establishes one of its own.
+// for the current ones. The tool directory and the two capability guides come
+// last, because each attaches something to models the earlier pages
+// established and none of them establishes one of its own.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, stage := range []struct {
@@ -53,13 +53,14 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		{"/model-deprecations", b.applyDeprecations},
 		{"/models/", b.applyOverview},
 		{"/pricing", b.applyPricing},
+		{"/tool-reference", b.applyToolReference},
 		{"/structured-outputs", func(doc catalog.Document) {
 			b.applySupportedModels(
 				doc,
 				catalog.CapabilityStructuredOutputs,
 			)
 		}},
-		{"/tool-use/", b.applyToolUse},
+		{"/tool-use/overview", b.applyToolUse},
 	} {
 		for _, doc := range docs {
 			if strings.Contains(doc.URL, stage.match) {
@@ -135,12 +136,22 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 	return m
 }
 
-// result returns the accumulated models in identifier order.
+// result returns the accumulated models in identifier order, less the ones
+// Anthropic no longer serves.
+//
+// A withdrawn model is read and then dropped rather than never read. The
+// deprecations page is the only place an API identifier is written for a model
+// the overview has stopped listing, and those identifiers are what a pricing
+// row's display name resolves against, so the rows have to be parsed even
+// though the models they name do not survive parsing.
 func (b *builder) result() []catalog.Model {
 	ids := slices.Clone(b.order)
 	slices.Sort(ids)
 	out := make([]catalog.Model, 0, len(ids))
 	for _, id := range ids {
+		if withdrawn(b.models[id]) {
+			continue
+		}
 		out = append(out, *b.models[id])
 	}
 	return out

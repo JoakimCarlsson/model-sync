@@ -1211,6 +1211,9 @@
     "max_output_tokens": 8000
   },
   "lists": {
+    "aliases": [
+      "qwen.qwen3-vl-235b-a22b-instruct"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

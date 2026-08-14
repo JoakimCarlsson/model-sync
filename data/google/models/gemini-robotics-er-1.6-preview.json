@@ -1,7 +1,7 @@
 {
   "id": "gemini-robotics-er-1.6-preview",
   "provider": "google",
-  "name": "Gemini Robotics ER 1.6",
+  "name": "Gemini Robotics ER 1.6 Preview",
   "kind": "chat",
   "prices": [
     {
@@ -151,6 +151,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]

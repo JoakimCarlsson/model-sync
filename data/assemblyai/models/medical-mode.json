@@ -12,15 +12,28 @@
       "dims": {
         "mode": "pre-recorded"
       }
+    },
+    {
+      "metric": "session",
+      "unit": "per_hour",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "mode": "streaming"
+      }
     }
   ],
   "attrs": {
+    "api_identifier": "medical-v1",
     "mode": "add-on"
   },
   "limits": {
     "language_count": 4
   },
   "lists": {
+    "features": [
+      "medical_vocabulary"
+    ],
     "input_modalities": [
       "audio"
     ],

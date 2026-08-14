@@ -41,7 +41,8 @@
     "features": [
       "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",

@@ -37,6 +37,7 @@
   },
   "sources": [
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/cogito-v2-1-671b"
   ]
 }

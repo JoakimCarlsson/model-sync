@@ -19,11 +19,13 @@ const (
 	KindTranscription catalog.Kind = "transcription"
 )
 
-// Standing a model can be in, read from the overview's status column.
+// Standing a model can be in, read from the overview's status column and from
+// the deprecation announcements. The deprecations page defines all four.
 const (
 	StateLive       = "live"
 	StateDeprecated = "deprecated"
 	StateRetired    = "retired"
+	StateShutdown   = "shutdown"
 )
 
 // Scalar keys the overview populates.
@@ -89,6 +91,16 @@ func clean(cell string) string {
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
 	return strings.Join(strings.Fields(s), " ")
+}
+
+// quoteMarks are what a cell wraps a value in. The platform tables quote the
+// identifier one model answers to on Azure and quote nothing else, so the marks
+// belong to the cell rather than to the identifier and are dropped.
+const quoteMarks = "'\""
+
+// unquoted strips the marks a cell wraps its value in.
+func unquoted(value string) string {
+	return strings.Trim(value, quoteMarks)
 }
 
 // parseCount reads a quantity such as "128,000" or "256k".
@@ -252,7 +264,7 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 			continue
 		}
 		if key, ok := platformAttrs[strings.ToLower(clean(header))]; ok {
-			m.SetAttr(key, value)
+			m.SetAttr(key, unquoted(value))
 			continue
 		}
 		switch strings.ToLower(clean(header)) {

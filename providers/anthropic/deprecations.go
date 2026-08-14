@@ -28,6 +28,24 @@ const notApplicable = "n/a"
 // stateRetired is the state of a model no longer served.
 const stateRetired = "retired"
 
+// stateShutdown is what the status table says of an endpoint already turned
+// off, which is the same fact as retirement said of the endpoint rather than
+// of the model.
+const stateShutdown = "shutdown"
+
+// withdrawn reports whether Anthropic has stopped serving a model, which is
+// the states saying the endpoint is gone and not the ones saying it is on its
+// way out. A deprecated, legacy or older model is still sold and still has a
+// published rate, so it stays in the catalog; a retired one has neither and is
+// not carried at all.
+func withdrawn(m *catalog.Model) bool {
+	switch m.Attrs[AttrState] {
+	case stateRetired, stateShutdown:
+		return true
+	}
+	return false
+}
+
 // dateSuffixRe matches the snapshot date Anthropic appends to a model
 // identifier but never to a display name.
 var dateSuffixRe = regexp.MustCompile(`^\d{8}$`)

@@ -1,6 +1,7 @@
 {
   "id": "gpt-4-turbo-vision-128k",
   "provider": "azure",
+  "name": "GPT-4 Turbo with Vision",
   "kind": "chat",
   "prices": [
     {
@@ -137,12 +138,15 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "product": "Azure OpenAI",
+    "training_data_cutoff": "December 2023"
   },
   "limits": {
-    "context_window": 128000
+    "context_window": 128000,
+    "max_output_tokens": 4096
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

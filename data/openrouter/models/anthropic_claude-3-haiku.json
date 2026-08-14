@@ -60,7 +60,9 @@
   },
   "lists": {
     "features": [
-      "function_calling"
+      "function_calling",
+      "prompt_caching",
+      "web_search"
     ],
     "input_modalities": [
       "image",

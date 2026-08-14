@@ -15,26 +15,56 @@
     }
   ],
   "attrs": {
+    "api_identifier": "universal-3-5-pro",
+    "max_file_size": "5GB",
+    "max_upload_file_size": "2.2GB",
     "mode": "pre-recorded",
     "volume_discounts": "available"
   },
   "limits": {
     "language_count": 18,
+    "max_audio_duration_seconds": 36000,
     "max_keyterms": 1000
   },
   "lists": {
     "features": [
       "code_switching",
-      "keyterm_prompting"
+      "keyterm_prompting",
+      "medical_vocabulary",
+      "prompting",
+      "speaker_diarization"
     ],
     "input_modalities": [
       "audio"
+    ],
+    "languages": [
+      "ar",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fi",
+      "fr",
+      "he",
+      "hi",
+      "it",
+      "ja",
+      "nl",
+      "no",
+      "pt",
+      "sv",
+      "tr",
+      "vi",
+      "zh"
     ],
     "output_modalities": [
       "text"
     ]
   },
   "sources": [
-    "https://www.assemblyai.com/docs/getting-started/models.md"
+    "https://www.assemblyai.com/docs/faq/are-there-any-limits-on-file-size-or-file-duration-for-files-submitted-to-the-api.md",
+    "https://www.assemblyai.com/docs/getting-started/models.md",
+    "https://www.assemblyai.com/docs/pre-recorded-audio/select-the-speech-model.md",
+    "https://www.assemblyai.com/pricing"
   ]
 }

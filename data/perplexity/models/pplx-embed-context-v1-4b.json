@@ -15,12 +15,29 @@
     "contextualized": "true",
     "default_embedding_dimension": "2560"
   },
+  "limits": {
+    "context_window": 32000
+  },
   "lists": {
     "embedding_dimensions": [
       "2560"
+    ],
+    "features": [
+      "matryoshka"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "quantizations": [
+      "binary",
+      "int8"
     ]
   },
   "sources": [
+    "https://docs.perplexity.ai/docs/embeddings/quickstart.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]
 }

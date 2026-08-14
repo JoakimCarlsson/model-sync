@@ -81,7 +81,9 @@
   "lists": {
     "features": [
       "json_mode",
-      "structured_outputs"
+      "prompt_caching",
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "image",

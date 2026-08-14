@@ -16,6 +16,7 @@
   },
   "lists": {
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -23,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/happyhorse-1-0-r2v"
   ]
 }

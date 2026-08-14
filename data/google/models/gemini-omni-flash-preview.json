@@ -1,7 +1,7 @@
 {
   "id": "gemini-omni-flash-preview",
   "provider": "google",
-  "name": "Gemini Omni Flash",
+  "name": "Gemini Omni Flash Preview",
   "kind": "chat",
   "prices": [
     {
@@ -40,7 +40,7 @@
   ],
   "attrs": {
     "latest_update": "June 2026",
-    "model_code": "Gemini API gemini-omni-flash-preview",
+    "model_code": "gemini-omni-flash-preview",
     "summary": "Gemini Omni Flash is a preview model designed for fast, conversational video generation and editing. It excels at turning text and images into video, lets you refine and edit generated videos through natural language conversations using the Interactions API."
   },
   "limits": {
@@ -48,7 +48,7 @@
   },
   "lists": {
     "aliases": [
-      "Gemini API gemini-omni-flash-preview"
+      "gemini-omni-flash-preview"
     ],
     "input_modalities": [
       "image",

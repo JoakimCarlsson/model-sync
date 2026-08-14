@@ -34,6 +34,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "json_mode",
       "reasoning",
       "structured_outputs"
     ],
@@ -46,6 +47,7 @@
   },
   "sources": [
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/nvidia-nemotron-3-ultra"
   ]
 }

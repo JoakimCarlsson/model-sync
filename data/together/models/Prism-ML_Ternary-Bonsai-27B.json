@@ -24,7 +24,13 @@
     "context_window": 262144
   },
   "lists": {
+    "features": [
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
     "input_modalities": [
+      "image",
       "text"
     ],
     "output_modalities": [
@@ -32,6 +38,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/prism-ml-ternary-bonsai-27b"
   ]
 }

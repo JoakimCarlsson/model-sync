@@ -49,11 +49,13 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the overview, the pricing page and the two capability
-// guides. Only the overview is required: it is the one document naming the
-// identifiers the API answers to, and without it nothing the others say can be
-// attached to anything. A document that cannot be read costs what it alone
-// states, so the rest are returned with the failure rather than instead of it.
+// Fetch retrieves the overview, the two pricing pages, the deprecation
+// announcements, the pages of the two transcription models and the three
+// capability guides. Only the overview is required: it is the one document
+// naming the identifiers the API answers to, and without it nothing the others
+// say can be attached to anything. A document that cannot be read costs what
+// it alone states, so the rest are returned with the failure rather than
+// instead of it.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	overview, err := p.get(ctx, ModelsURL)
 	if err != nil {
@@ -63,8 +65,13 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	var failures []error
 	for _, url := range []string{
 		PricingURL,
+		VaultPricingURL,
+		DeprecationsURL,
+		TranscribeURL,
+		TranscribeArabicURL,
 		StructuredOutputsURL,
 		ToolUseURL,
+		StreamingURL,
 	} {
 		doc, err := p.get(ctx, url)
 		if err != nil {
@@ -77,9 +84,13 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 }
 
 // Parse reads the overview first, because it is the only document naming the
-// identifiers the API answers to, and everything else second: the pricing page
-// attaches rates to models the overview established, and the two guides attach
-// capabilities to them the same way.
+// identifiers the API answers to, then the documents that say which models
+// exist and which are still served, and the rest last: the two pricing pages
+// attach rates to models the earlier documents established, and the three
+// guides attach capabilities to them the same way.
+//
+// A rate is never recorded against a withdrawn model, so the announcements
+// have to be read before the amounts are.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -87,19 +98,32 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyOverview(doc)
 		}
 	}
-	priced := false
+	for _, doc := range docs {
+		switch doc.URL {
+		case TranscribeURL, TranscribeArabicURL:
+			b.applyTranscribe(doc)
+		case DeprecationsURL:
+			b.applyLifecycle(doc)
+		}
+	}
+	priced := map[string]bool{}
 	for _, doc := range docs {
 		switch doc.URL {
 		case PricingURL:
 			b.applyPricing(doc)
-			priced = true
+			priced[doc.URL] = true
+		case VaultPricingURL:
+			b.applyVaultPricing(doc)
+			priced[doc.URL] = true
 		case StructuredOutputsURL:
 			b.applyStructuredOutputs(doc)
 		case ToolUseURL:
 			b.applyToolUse(doc)
+		case StreamingURL:
+			b.applyStreaming(doc)
 		}
 	}
-	if priced {
+	if priced[PricingURL] && priced[VaultPricingURL] {
 		b.noteUnpriced()
 	}
 	return b.result(), nil
@@ -198,13 +222,25 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 	return m
 }
 
-// result returns the accumulated models in identifier order.
+// result returns the accumulated models in identifier order, less the ones
+// Cohere no longer serves.
+//
+// A retired model is dropped rather than published with its standing attached.
+// The catalog says what can be called and what it costs, and a model that has
+// been shut down can be neither called nor bought; publishing it would offer a
+// reader something to choose that no longer exists. A deprecated model stays,
+// because Cohere goes on serving it and goes on stating its rate.
+//
+// The standing is read after every document has spoken, so a model the
+// announcements withdraw is dropped whichever document established it.
 func (b *builder) result() []catalog.Model {
 	ids := slices.Clone(b.order)
 	slices.Sort(ids)
 	out := make([]catalog.Model, 0, len(ids))
 	for _, id := range ids {
-		out = append(out, *b.models[id])
+		if m := b.models[id]; served(m) {
+			out = append(out, *m)
+		}
 	}
 	return out
 }

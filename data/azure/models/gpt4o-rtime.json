@@ -1,0 +1,437 @@
+{
+  "id": "gpt4o-rtime",
+  "provider": "azure",
+  "kind": "realtime",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "audio",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "francecentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "germanywestcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "polandcentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "spaincentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "westeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "data-zone",
+        "modality": "text",
+        "region": "westus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "eastus2",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "eastus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "northcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.0033,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "northeurope",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "southcentralus",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.003025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "swedencentral",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "westus3",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1k_tokens",
+      "amount": 0.00275,
+      "currency": "USD",
+      "dims": {
+        "deployment": "regional",
+        "modality": "text",
+        "region": "westus",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "product": "Azure OpenAI",
+    "training_data_cutoff": "October 2023"
+  },
+  "limits": {
+    "context_window": 32000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "audio",
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://prices.azure.com/api/retail/prices"
+  ]
+}

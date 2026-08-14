@@ -26,6 +26,7 @@
   "attrs": {
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ring-2.6-1t-20260508",
+    "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",
     "released": "2026-05-08",
     "summary": "Ring-2.6-1T is a 1T-parameter-scale thinking model with 63B active parameters, built for real-world agent workflows that require both strong capability and operational efficiency.",
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -65,6 +67,10 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "xhigh"
     ]
   },
   "sources": [

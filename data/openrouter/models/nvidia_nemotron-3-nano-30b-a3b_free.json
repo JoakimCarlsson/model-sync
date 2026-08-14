@@ -28,6 +28,7 @@
   },
   "limits": {
     "context_window": 256000,
+    "max_output_tokens": 262144,
     "top_provider_context_window": 256000
   },
   "lists": {
@@ -53,6 +54,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/nvidia/nemotron-3-nano-30b-a3b/endpoints"
   ]
 }

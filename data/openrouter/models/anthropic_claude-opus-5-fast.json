@@ -48,6 +48,8 @@
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-opus-5-fast-20260723",
     "is_moderated": "true",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-24",
     "summary": "Fast-mode variant of [Opus 5](/anthropic/claude-opus-5) - identical capabilities with higher output speed at 2x pricing relative to regular Opus 5.",
     "tokenizer": "Claude"
@@ -61,8 +63,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -83,6 +87,13 @@
       "tool_choice",
       "tools",
       "verbosity"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
     ]
   },
   "sources": [

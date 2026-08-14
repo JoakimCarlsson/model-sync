@@ -2446,6 +2446,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [

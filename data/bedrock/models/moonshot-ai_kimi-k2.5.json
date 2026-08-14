@@ -1291,6 +1291,9 @@
     "max_output_tokens": 16000
   },
   "lists": {
+    "aliases": [
+      "moonshotai.kimi-k2.5"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

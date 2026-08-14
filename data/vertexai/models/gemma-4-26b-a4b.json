@@ -33,6 +33,7 @@
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/google/gemma-4-26b-a4b-it",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

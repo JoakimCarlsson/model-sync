@@ -48,6 +48,7 @@
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-4.6-sonnet-20260217",
     "is_moderated": "true",
+    "reasoning_default_effort": "medium",
     "released": "2026-02-17",
     "summary": "Sonnet 4.6 is Anthropic's most capable Sonnet-class model yet, with frontier performance across coding, agents, and professional work.",
     "tokenizer": "Claude"
@@ -61,8 +62,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -85,6 +88,12 @@
       "tools",
       "top_p",
       "verbosity"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium"
     ]
   },
   "sources": [

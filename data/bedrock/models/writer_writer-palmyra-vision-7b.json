@@ -1280,9 +1280,44 @@
     }
   ],
   "attrs": {
-    "author": "Writer"
+    "author": "Writer",
+    "lifecycle_state": "active",
+    "released": "Mar 26, 2026",
+    "retirement_date": "N/A",
+    "summary": "Palmyra Vision 7B is Writer's advanced multimodal language model, designed to interpret and generate text from images and video, providing robust visual analysis capabilities for enterprise needs. It excels at extracting handwritten text, interpreting complex charts and graphs, image-based compliance checks, and product description generation. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 4000,
+    "max_output_tokens": 4000
+  },
+  "lists": {
+    "aliases": [
+      "writer.palmyra-vision-7b"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "chat completions",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "function_calling",
+      "guardrails",
+      "projects",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-vision-7b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

@@ -27,6 +27,7 @@
     "author": "poolside",
     "canonical_slug": "poolside/laguna-xs-2.1-20260625",
     "hugging_face_id": "poolside/Laguna-XS-2.1",
+    "reasoning_default_enabled": "true",
     "released": "2026-07-02",
     "summary": "Laguna XS 2.1 is the latest coding agent model in the 33B-A3B category from [Poolside](https://poolside.ai/) and a step forward from their Laguna XS.2 model (released in April 2026).",
     "tokenizer": "Other"
@@ -39,6 +40,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [

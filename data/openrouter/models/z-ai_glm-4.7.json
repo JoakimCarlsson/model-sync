@@ -27,6 +27,7 @@
     "author": "z-ai",
     "canonical_slug": "z-ai/glm-4.7-20251222",
     "hugging_face_id": "zai-org/GLM-4.7",
+    "reasoning_default_enabled": "true",
     "released": "2025-12-22",
     "summary": "GLM-4.7 is Z.ai’s latest flagship model, featuring upgrades in two key areas: enhanced programming capabilities and more stable multi-step reasoning/execution.",
     "tokenizer": "Other"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

@@ -53,7 +53,16 @@ const (
 	StatePreview    = "preview"
 	StateDeprecated = "deprecated"
 	StateRetired    = "retired"
+	StateShutdown   = "shutdown"
 )
+
+// withdrawnStates are the standings that mean Mistral has stopped serving a
+// model, so the catalog does not carry it. Mistral's badge writes only the
+// first of them today; the second is the other word for the same standing, and
+// is matched so a change of wording drops the model rather than reviving it.
+// Deprecated is deliberately not here: such a model still serves until its
+// retirement date and Mistral still publishes it.
+var withdrawnStates = []string{StateRetired, StateShutdown}
 
 // Scalar keys the documents populate.
 const (

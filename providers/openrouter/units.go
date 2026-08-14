@@ -59,6 +59,19 @@ const (
 	AttrModerated          = "is_moderated"
 	AttrReasoningMandatory = "reasoning_mandatory"
 	AttrFree               = "is_free"
+	AttrAliasTarget        = "alias_target"
+	// AttrReasoningDefaultEffort and AttrReasoningDefaultEnabled state what a
+	// reasoning model does when the caller asks for nothing in particular.
+	AttrReasoningDefaultEffort  = "reasoning_default_effort"
+	AttrReasoningDefaultEnabled = "reasoning_default_enabled"
+)
+
+// Capabilities OpenRouter states that catalog declares no canonical value for.
+// The spellings are the ones the rest of the catalog already uses.
+const (
+	FeaturePromptCaching     = "prompt_caching"
+	FeatureParallelToolCalls = "parallel_tool_calls"
+	FeatureWebSearch         = "web_search"
 )
 
 // Numeric keys the API populates.
@@ -77,6 +90,7 @@ const (
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	ListVoices           = "voices"
+	ListReasoningEfforts = "reasoning_efforts"
 )
 
 // parameterFeatures map a request parameter OpenRouter states a model accepts
@@ -101,9 +115,26 @@ var parameterFeatures = map[string][]string{
 		catalog.CapabilityStructuredOutputs,
 		catalog.CapabilityJSONMode,
 	},
-	"reasoning":         {catalog.CapabilityReasoning},
-	"include_reasoning": {catalog.CapabilityReasoning},
-	"reasoning_effort":  {catalog.CapabilityReasoning},
+	"reasoning":           {catalog.CapabilityReasoning},
+	"include_reasoning":   {catalog.CapabilityReasoning},
+	"reasoning_effort":    {catalog.CapabilityReasoning},
+	"parallel_tool_calls": {FeatureParallelToolCalls},
+	"web_search_options":  {FeatureWebSearch},
+}
+
+// priceFeatures map a rate OpenRouter charges onto the capability it is charged
+// for.
+//
+// It is the third way this source states a capability, and the only way it
+// states these two: no model carries a parameter saying it can cache or search,
+// and every model that can is billed for doing so. A zero rate says the charge
+// does not apply, so it implies nothing, in keeping with how a zero is read
+// everywhere else here.
+var priceFeatures = map[string][]string{
+	"input_cache_read":     {FeaturePromptCaching},
+	"input_cache_write":    {FeaturePromptCaching},
+	"input_cache_write_1h": {FeaturePromptCaching},
+	"web_search":           {FeatureWebSearch},
 }
 
 // scale is how much a published per-unit rate is multiplied by to reach the

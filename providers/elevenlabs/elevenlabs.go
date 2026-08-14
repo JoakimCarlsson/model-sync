@@ -27,9 +27,20 @@ const PricingURL = "https://elevenlabs.io/pricing/api"
 
 // cacheFiles is where each fetched document is kept.
 var cacheFiles = map[string]string{
-	ModelsURL:  "elevenlabs_models.md",
-	PricingURL: "elevenlabs_pricing_api.html",
+	ModelsURL:       "elevenlabs_models.md",
+	NamesURL:        "elevenlabs_model_ids.md",
+	VoiceDesignURL:  "elevenlabs_voice_design.md",
+	SoundEffectsURL: "elevenlabs_sound_effects.md",
+	SpeechToTextURL: "elevenlabs_speech_to_text.md",
+	PricingURL:      "elevenlabs_pricing_api.html",
 }
+
+// sourceURLs are the documents this provider reads, models page first because
+// it is the only one naming every identifier and the rest are read onto it.
+var sourceURLs = append(
+	[]string{ModelsURL, NamesURL},
+	append(endpointURLs, PricingURL)...,
+)
 
 // Provider reads ElevenLabs' models and pricing pages. The zero value is not
 // usable; call New.
@@ -51,18 +62,18 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page and the pricing page.
+// Fetch retrieves every document, keeping the ones it got when one fails so a
+// page ElevenLabs moved costs that page's facts rather than the whole sync.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	models, err := p.get(ctx, ModelsURL)
-	if err != nil {
-		return nil, err
+	var docs []catalog.Document
+	for _, url := range sourceURLs {
+		doc, err := p.get(ctx, url)
+		if err != nil {
+			return docs, err
+		}
+		docs = append(docs, doc)
 	}
-	docs := []catalog.Document{models}
-	pricing, err := p.get(ctx, PricingURL)
-	if err != nil {
-		return docs, err
-	}
-	return append(docs, pricing), nil
+	return docs, nil
 }
 
 // get retrieves one document, reading from and writing to the cache directory
@@ -99,7 +110,8 @@ func (p *Provider) get(
 }
 
 // Parse reads the models page first, because it is the only document naming an
-// identifier, then prices the families the pricing page quotes.
+// identifier and every other document is read onto the models it establishes,
+// then prices the families the pricing page quotes.
 //
 // The models the cards leave out are marked only when the pricing page was one
 // of the documents. A fetch that lost it would otherwise mark every model as
@@ -111,6 +123,14 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		if doc.URL == ModelsURL {
 			b.applyModels(doc)
 			b.applyCards(doc)
+		}
+	}
+	for _, doc := range docs {
+		switch {
+		case doc.URL == NamesURL:
+			b.applyNames(doc)
+		case slices.Contains(endpointURLs, doc.URL):
+			b.applyEndpoint(doc)
 		}
 	}
 	priced := false

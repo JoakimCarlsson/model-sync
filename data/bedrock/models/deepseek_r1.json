@@ -1,7 +1,7 @@
 {
   "id": "deepseek/r1",
   "provider": "bedrock",
-  "name": "R1",
+  "name": "DeepSeek-R1",
   "kind": "chat",
   "prices": [
     {
@@ -66,9 +66,44 @@
     }
   ],
   "attrs": {
-    "author": "DeepSeek"
+    "author": "DeepSeek",
+    "knowledge_cutoff": "Jan 2025",
+    "lifecycle_state": "active",
+    "released": "Jan 20, 2025",
+    "retirement_date": "No sooner than 3/10/2026",
+    "summary": "DeepSeek-R1 is DeepSeek's reasoning model that uses chain-of-thought to solve complex math, coding, and logic problems. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "aliases": [
+      "deepseek.r1-v1:0",
+      "us.deepseek.r1-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "agents",
+      "flows",
+      "guardrails",
+      "prompt_management",
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-deepseek-deepseek-r1.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

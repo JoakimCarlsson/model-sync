@@ -32,6 +32,8 @@
   "attrs": {
     "author": "sakana",
     "canonical_slug": "sakana/namazu-20260811",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-08-11",
     "summary": "Sakana Namazu is a Japanese-specialized reasoning model from Sakana AI, based on Kimi K2.6 with additional training for Japanese language and business contexts.",
     "tokenizer": "Other"
@@ -44,8 +46,10 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -63,6 +67,10 @@
       "tool_choice",
       "tools",
       "web_search_options"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "none"
     ]
   },
   "sources": [

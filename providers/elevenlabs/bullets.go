@@ -41,6 +41,12 @@ const (
 	// FeatureDialogue is ElevenLabs' own: it is a speech model writing several
 	// voices into one performance, which no transcription model does.
 	FeatureDialogue = "multi_speaker_dialogue"
+	// FeatureInstrumental is set where a composition can be asked for without
+	// vocals.
+	FeatureInstrumental = "instrumental_only"
+	// FeatureSectionEditing is set where a finished composition can be rewritten
+	// a section at a time rather than only as a whole.
+	FeatureSectionEditing = "section_editing"
 )
 
 // bulletRules read one card bullet.
@@ -103,6 +109,16 @@ var bulletRules = []struct {
 	{
 		regexp.MustCompile(`(?i)multi-speaker dialogue`),
 		FeatureDialogue,
+		"",
+	},
+	{
+		regexp.MustCompile(`(?i)vocals or just instrumental`),
+		FeatureInstrumental,
+		"",
+	},
+	{
+		regexp.MustCompile(`(?i)edit the sound and lyrics`),
+		FeatureSectionEditing,
 		"",
 	},
 }

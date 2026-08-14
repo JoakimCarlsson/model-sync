@@ -105,8 +105,10 @@
     }
   ],
   "attrs": {
+    "alias_target": "google/gemini-3.1-pro-preview",
     "author": "~google",
     "canonical_slug": "~google/gemini-pro-latest",
+    "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
     "released": "2026-04-27",
     "summary": "This model always redirects to the latest model in the Google Gemini Pro family.",
@@ -121,8 +123,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -147,6 +151,11 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [

@@ -83,7 +83,8 @@
   },
   "limits": {
     "context_window": 1000000,
-    "max_output_tokens": 128000
+    "max_output_tokens": 128000,
+    "max_output_tokens_batch": 300000
   },
   "lists": {
     "aliases": [

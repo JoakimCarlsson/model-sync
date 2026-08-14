@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "NVIDIA Nemotron 3 Ultra is built for high-throughput reasoning and long-running agent workflows."
+    "cloud": "true",
+    "summary": "NVIDIA Nemotron 3 Ultra is built for high-throughput reasoning and long-running agent workflows.",
+    "usage_level": "high",
+    "usage_level_rank": "3"
   },
   "limits": {
     "context_window": 256000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/nemotron-3-ultra",
     "https://ollama.com/library/nemotron-3-ultra/tags"
   ]
 }

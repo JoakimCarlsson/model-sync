@@ -10,17 +10,21 @@ import (
 
 // Metrics Groq bills on.
 const (
-	MetricInputTokens  catalog.Metric = "input_tokens"
-	MetricOutputTokens catalog.Metric = "output_tokens"
-	MetricAudio        catalog.Metric = "audio"
-	MetricSpeech       catalog.Metric = "speech"
+	MetricInputTokens       catalog.Metric = "input_tokens"
+	MetricOutputTokens      catalog.Metric = "output_tokens"
+	MetricCachedInputTokens catalog.Metric = "cached_input_tokens"
+	MetricAudio             catalog.Metric = "audio"
+	MetricSpeech            catalog.Metric = "speech"
+	MetricToolCall          catalog.Metric = "tool_call"
+	MetricRuntime           catalog.Metric = "runtime"
 )
 
 // Units Groq quotes amounts against.
 const (
-	UnitPer1MTokens catalog.Unit = "per_1m_tokens"
-	UnitPer1MChars  catalog.Unit = "per_1m_characters"
-	UnitPerHour     catalog.Unit = "per_hour"
+	UnitPer1MTokens   catalog.Unit = "per_1m_tokens"
+	UnitPer1MChars    catalog.Unit = "per_1m_characters"
+	UnitPerHour       catalog.Unit = "per_hour"
+	UnitPer1KRequests catalog.Unit = "per_1k_requests"
 )
 
 // Kinds of model Groq serves.

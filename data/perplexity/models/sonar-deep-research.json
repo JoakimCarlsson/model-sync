@@ -36,7 +36,8 @@
     }
   ],
   "limits": {
-    "context_window": 128000
+    "context_window": 128000,
+    "max_output_tokens": 128000
   },
   "lists": {
     "features": [
@@ -54,6 +55,7 @@
     ]
   },
   "sources": [
+    "https://docs.perplexity.ai/api-reference/sonar-post.md",
     "https://docs.perplexity.ai/docs/sonar/features.md",
     "https://docs.perplexity.ai/docs/sonar/media.md",
     "https://docs.perplexity.ai/docs/sonar/models/sonar-deep-research.md",

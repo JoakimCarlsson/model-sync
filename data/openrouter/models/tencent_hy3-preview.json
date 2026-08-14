@@ -27,6 +27,8 @@
     "author": "tencent",
     "canonical_slug": "tencent/hy3-preview-20260421",
     "hugging_face_id": "tencent/Hy3-preview",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-22",
     "summary": "Hy3 preview is a high-efficiency Mixture-of-Experts model from Tencent designed for agentic workflows and production use.",
     "tokenizer": "Other"
@@ -38,6 +40,7 @@
   "lists": {
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [
@@ -56,9 +59,15 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "none"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/tencent/hy3-preview-20260421/endpoints"
   ]
 }

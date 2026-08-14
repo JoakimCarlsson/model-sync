@@ -287,6 +287,14 @@
     "context_window": 32000,
     "max_output_tokens": 4096
   },
+  "lists": {
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"

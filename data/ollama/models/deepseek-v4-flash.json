@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "DeepSeek-V4-Flash is a preview of the DeepSeek-V4 series, a Mixture-of-Experts model with 284B total parameters and 13B activated, built for efficient reasoning across a 1M-token context window."
+    "cloud": "true",
+    "summary": "DeepSeek-V4-Flash is a preview of the DeepSeek-V4 series, a Mixture-of-Experts model with 284B total parameters and 13B activated, built for efficient reasoning across a 1M-token context window.",
+    "usage_level": "medium",
+    "usage_level_rank": "2"
   },
   "limits": {
     "context_window": 1000000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/deepseek-v4-flash",
     "https://ollama.com/library/deepseek-v4-flash/tags"
   ]
 }

@@ -24,6 +24,10 @@
     "context_window": 32768
   },
   "lists": {
+    "features": [
+      "json_mode",
+      "structured_outputs"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -32,6 +36,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/serverless-models.md",
+    "https://www.together.ai/models/liquid-lfm2-5-8b-a1b"
   ]
 }

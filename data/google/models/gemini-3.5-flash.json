@@ -310,6 +310,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]

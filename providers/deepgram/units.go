@@ -43,12 +43,56 @@ const DimPlan = "plan"
 // the two would be indistinguishable rates for the same thing.
 const DimPromotion = "promotional"
 
-// promotionalMarker is the word introducing the date an offer runs to.
-const promotionalMarker = "through"
+// freeMarker is what Deepgram writes where an offer costs nothing at all.
+const freeMarker = "free"
 
-// isPromotional reports whether a matched rate is the introductory one.
-func isPromotional(raw string) bool {
-	return strings.Contains(strings.ToLower(raw), promotionalMarker)
+var (
+	// offerRe matches the word introducing the rate an offer gives way to,
+	// which Deepgram writes on a line of its own inside the same cell.
+	offerRe = regexp.MustCompile(`(?i)\bthen\b`)
+	// offerEndRe matches the date an offer runs to, written either way
+	// Deepgram introduces it.
+	offerEndRe = regexp.MustCompile(
+		`(?i)\b(?:through|until)\s+(\d{1,2}/\d{1,2}(?:/\d{2,4})?)`,
+	)
+)
+
+// splitOffer divides a cell into the introductory rate and the rate that
+// replaces it. A cell naming no successor is all standard rate.
+func splitOffer(plain string) (offer, standard string) {
+	at := offerRe.FindStringIndex(plain)
+	if at == nil {
+		return "", plain
+	}
+	return strings.TrimSpace(plain[:at[0]]), strings.TrimSpace(plain[at[1]:])
+}
+
+// offerEnd reads the date an offer runs to.
+func offerEnd(offer string) string {
+	match := offerEndRe.FindStringSubmatch(offer)
+	if match == nil {
+		return ""
+	}
+	return match[1]
+}
+
+// offerNote says what an introductory rate is, since a consumer reading the
+// aggregate sees two amounts for one plan and nothing else to tell them apart.
+func offerNote(ends string) string {
+	if ends == "" {
+		return "introductory rate"
+	}
+	return "introductory rate through " + ends
+}
+
+// tooltip returns the note a cell carries behind its information icon, which
+// is where the Voice Agent tables say what an amount is metered against.
+func tooltip(html string) string {
+	match := titleRe.FindStringSubmatch(html)
+	if match == nil {
+		return ""
+	}
+	return text(match[1])
 }
 
 // noteIncluded marks a rate of zero that Deepgram writes as "Included",
@@ -115,7 +159,18 @@ const (
 	// AttrPreviousRate keeps the struck-through amount, which is what
 	// Deepgram charged before the current rate.
 	AttrPreviousRate = "previous_rate"
+	// AttrOfferEnds is the date the introductory rate lapses on.
+	AttrOfferEnds = "promotion_ends"
+	// AttrMetered keeps what the Voice Agent tables say behind their
+	// information icon, which is that a minute is a minute of connection
+	// rather than a minute of audio.
+	AttrMetered = "metered_on"
 )
+
+// planDescription is the column heading the add-on table puts between the
+// feature and its rates. It describes the feature rather than pricing it, so
+// what it holds is a summary and not an amount.
+const planDescription = "description"
 
 var (
 	tagRe    = regexp.MustCompile(`(?s)<[^>]*>`)
@@ -187,14 +242,48 @@ func parseRates(cell string) []rate {
 		if err != nil {
 			continue
 		}
-		unit, _ := unitFor(match[2])
+		denominator := trimDenominator(match[2])
+		unit, _ := unitFor(denominator)
 		out = append(out, rate{
 			Amount: value,
 			Unit:   unit,
-			Raw:    strings.TrimSpace(match[0]),
+			Raw:    raw(match[1], denominator),
 		})
 	}
 	return out
+}
+
+// denominatorStops are the words that follow a denominator rather than belong
+// to it. Deepgram writes the date an offer runs to straight after the unit, as
+// "$0.110/min through 9/12", and a denominator read up to the next slash would
+// otherwise swallow the first half of the date.
+var denominatorStops = map[string]bool{
+	"through": true,
+	"until":   true,
+	"then":    true,
+	"free":    true,
+	"i":       true,
+}
+
+// trimDenominator drops what follows the denominator in the same cell.
+func trimDenominator(denominator string) string {
+	fields := strings.Fields(denominator)
+	for i, field := range fields {
+		if denominatorStops[strings.ToLower(field)] {
+			fields = fields[:i]
+			break
+		}
+	}
+	return strings.Join(fields, " ")
+}
+
+// raw rewrites an amount as Deepgram quotes it, which is what a struck-through
+// rate is recognised by and what the previous rate is recorded as.
+func raw(amount, denominator string) string {
+	if denominator == "" {
+		return "$" + amount
+	}
+	return "$" + amount + "/" + denominator
 }
 
 // struckAmounts returns the amounts a cell shows struck through, which are the

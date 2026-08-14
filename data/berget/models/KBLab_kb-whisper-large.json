@@ -41,16 +41,42 @@
       "whisper"
     ],
     "features": [
-      "streaming"
+      "keyterm_prompting",
+      "speaker_diarization",
+      "streaming",
+      "word_timestamps"
     ],
     "input_modalities": [
       "audio"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "align",
+      "batch_size",
+      "chunk_size",
+      "chunking_strategy",
+      "diarize",
+      "file",
+      "highlight_words",
+      "hotwords",
+      "include",
+      "known_speaker_names",
+      "known_speaker_references",
+      "language",
+      "model",
+      "prompt",
+      "response_format",
+      "speaker_embeddings",
+      "stream",
+      "suppress_numerals",
+      "temperature",
+      "timestamp_granularities"
     ]
   },
   "sources": [
+    "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models"
   ]
 }

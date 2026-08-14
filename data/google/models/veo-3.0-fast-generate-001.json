@@ -1,0 +1,44 @@
+{
+  "id": "veo-3.0-fast-generate-001",
+  "provider": "google",
+  "name": "Veo 3",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.12,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "1080p",
+        "variant": "fast"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "4k",
+        "variant": "fast"
+      }
+    },
+    {
+      "metric": "video_output",
+      "unit": "per_second",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "resolution": "720p",
+        "variant": "fast"
+      }
+    }
+  ],
+  "sources": [
+    "https://ai.google.dev/gemini-api/docs/pricing"
+  ]
+}

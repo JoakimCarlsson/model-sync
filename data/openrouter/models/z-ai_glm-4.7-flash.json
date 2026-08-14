@@ -27,6 +27,7 @@
     "author": "z-ai",
     "canonical_slug": "z-ai/glm-4.7-flash-20260119",
     "hugging_face_id": "zai-org/GLM-4.7-Flash",
+    "reasoning_default_enabled": "true",
     "released": "2026-01-19",
     "summary": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency.",
     "tokenizer": "Other"
@@ -40,6 +41,7 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],

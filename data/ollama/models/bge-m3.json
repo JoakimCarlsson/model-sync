@@ -3,6 +3,7 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "1024",
     "summary": "BGE-M3 is a new model from BAAI distinguished for its versatility in Multi-Functionality, Multi-Linguality, and Multi-Granularity."
   },
   "limits": {
@@ -21,6 +22,7 @@
   },
   "sources": [
     "https://ollama.com/library",
-    "https://ollama.com/library/bge-m3/tags"
+    "https://ollama.com/library/bge-m3/tags",
+    "https://ollama.com/library/bge-m3:latest/blobs/daec91ffb5dd"
   ]
 }

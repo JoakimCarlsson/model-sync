@@ -3,7 +3,10 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "MiniMax&#39;s M2-series model for coding, agentic workflows, and professional productivity."
+    "cloud": "true",
+    "summary": "MiniMax&#39;s M2-series model for coding, agentic workflows, and professional productivity.",
+    "usage_level": "medium",
+    "usage_level_rank": "2"
   },
   "limits": {
     "context_window": 200000
@@ -24,6 +27,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
+    "https://ollama.com/library/minimax-m2.7",
     "https://ollama.com/library/minimax-m2.7/tags"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "mnstrl-3b",
   "provider": "azure",
+  "name": "Ministral-3B",
   "kind": "chat",
   "prices": [
     {
@@ -2053,7 +2054,25 @@
   "attrs": {
     "product": "Azure Mistral Models"
   },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

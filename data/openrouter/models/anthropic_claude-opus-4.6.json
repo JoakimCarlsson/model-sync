@@ -48,6 +48,8 @@
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-4.6-opus-20260205",
     "is_moderated": "true",
+    "reasoning_default_effort": "high",
+    "reasoning_default_enabled": "false",
     "released": "2026-02-04",
     "summary": "Opus 4.6 is Anthropic’s strongest model for coding and long-running professional tasks.",
     "tokenizer": "Claude"
@@ -61,8 +63,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -87,6 +91,12 @@
       "top_k",
       "top_p",
       "verbosity"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium"
     ]
   },
   "sources": [

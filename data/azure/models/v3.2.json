@@ -1797,6 +1797,7 @@
   "lists": {
     "features": [
       "json_mode",
+      "reasoning",
       "structured_outputs"
     ],
     "input_modalities": [

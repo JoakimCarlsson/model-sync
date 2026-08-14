@@ -1211,6 +1211,9 @@
     "max_output_tokens": 16000
   },
   "lists": {
+    "aliases": [
+      "openai.gpt-oss-safeguard-120b"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",

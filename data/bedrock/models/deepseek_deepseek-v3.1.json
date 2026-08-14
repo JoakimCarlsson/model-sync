@@ -1173,7 +1173,8 @@
   },
   "lists": {
     "aliases": [
-      "deepseek.v3-v1:0"
+      "deepseek.v3-v1:0",
+      "deepseek.v3.1"
     ],
     "endpoints": [
       "bedrock-mantle",

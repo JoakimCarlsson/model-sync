@@ -3,14 +3,26 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "default_embedding_dimension": "1024",
     "summary": "State-of-the-art large embedding model from mixedbread.ai"
   },
+  "limits": {
+    "context_window": 512
+  },
   "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
     "parameter_sizes": [
       "335m"
     ]
   },
   "sources": [
-    "https://ollama.com/library"
+    "https://ollama.com/library",
+    "https://ollama.com/library/mxbai-embed-large/tags",
+    "https://ollama.com/library/mxbai-embed-large:latest/blobs/819c2adf5ce6"
   ]
 }

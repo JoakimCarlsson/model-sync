@@ -41,7 +41,8 @@
     "features": [
       "function_calling",
       "json_mode",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "text"

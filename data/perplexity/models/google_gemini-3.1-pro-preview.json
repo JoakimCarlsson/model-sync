@@ -5,29 +5,61 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "cached_input_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 90,
-      "currency": "USD"
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<=200k"
+      }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
-      "currency": "USD"
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">200k"
+      }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 12,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "prompt_band": "<=200k"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "prompt_band": ">200k"
+      }
     }
   ],
   "attrs": {
     "author": "google",
+    "cache_read_discount": "90% off input",
     "summary": "Gemini 3.1 Pro"
   },
+  "lists": {
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
   "sources": [
-    "https://docs.perplexity.ai/docs/agent-api/models.md"
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/models.md",
+    "https://docs.perplexity.ai/docs/agent-api/output-control.md"
   ]
 }

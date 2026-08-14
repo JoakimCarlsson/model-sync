@@ -56,6 +56,8 @@
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-flash-lite-20260507",
+    "reasoning_default_effort": "minimal",
+    "reasoning_default_enabled": "true",
     "released": "2026-05-07",
     "summary": "Gemini 3.1 Flash Lite is Google’s GA high-efficiency multimodal model optimized for low-latency, high-volume workloads.",
     "tokenizer": "Gemini"
@@ -69,8 +71,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -95,6 +99,12 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [

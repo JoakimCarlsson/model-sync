@@ -38,6 +38,7 @@
   "attrs": {
     "author": "bytedance-seed",
     "canonical_slug": "bytedance-seed/seed-2.0-mini-20260224",
+    "reasoning_default_effort": "medium",
     "released": "2026-02-26",
     "summary": "Seed-2.0-mini targets latency-sensitive, high-concurrency, and cost-sensitive scenarios, emphasizing fast response and flexible inference deployment.",
     "tokenizer": "Other"
@@ -75,6 +76,12 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [

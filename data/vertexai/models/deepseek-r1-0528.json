@@ -30,6 +30,15 @@
       "dims": {
         "tier": "batch"
       }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
     }
   ],
   "limits": {
@@ -49,7 +58,9 @@
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/r1-0528",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

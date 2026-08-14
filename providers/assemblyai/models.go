@@ -1,9 +1,19 @@
 package assemblyai
 
 import (
+	"regexp"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
+)
+
+var (
+	// languageCodeRe matches one entry of the language table a model's section
+	// carries, which pairs a language with the code a request names it by.
+	languageCodeRe = regexp.MustCompile(`code:\s*"([A-Za-z_-]+)"`)
+	// domainRe matches the parameter value that turns the add-on on, which is
+	// the only identifier AssemblyAI publishes for it.
+	domainRe = regexp.MustCompile(`domain:\s*"([a-z0-9.-]+)"`)
 )
 
 // sectionModes maps a heading onto the mode of the models listed under it.
@@ -24,11 +34,37 @@ var sectionMetrics = map[string]catalog.Metric{
 }
 
 // applyModels reads the models page: first the cards describing each model,
-// then the rate tables, which name models the same way the cards do.
+// then the section each model has to itself, then the rate tables, which name
+// models the same way the cards do.
 func (b *builder) applyModels(doc catalog.Document) {
 	body := string(doc.Body)
 	b.applyCards(body, doc.URL)
+	b.applySections(body, doc.URL)
 	b.applyRateTables(body, doc.URL)
+}
+
+// applySections reads the passage each model has under "Choosing the right
+// model", which is headed by the model's own display name. A card counts the
+// languages a model covers and this is where they are named, in a table of a
+// language and its code, and it is where the add-on states the value that
+// turns it on.
+func (b *builder) applySections(body, source string) {
+	for _, block := range sectionBlocks(body) {
+		m, ok := b.models[slugID(block.heading)]
+		if !ok {
+			continue
+		}
+		m.AddSource(source)
+		for _, code := range languageCodeRe.FindAllStringSubmatch(
+			block.body,
+			-1,
+		) {
+			m.AddList(ListLanguages, strings.ToLower(code[1]))
+		}
+		if match := domainRe.FindStringSubmatch(block.body); match != nil {
+			m.SetAttr(AttrAPIIdentifier, match[1])
+		}
+	}
 }
 
 // applyCards reads the MDX cards, each of which is one model and its
@@ -51,7 +87,7 @@ func (b *builder) applyCards(body, source string) {
 			if m.Name == "" {
 				m.Name = name
 			}
-			m.SetAttr(AttrMode, mode)
+			applyMode(m, mode)
 			m.SetAttr(AttrDocumentationURL, strings.TrimSpace(card[2]))
 			for _, item := range listItemRe.FindAllStringSubmatch(card[3], -1) {
 				applyBullet(m, clean(item[1]))
@@ -99,7 +135,7 @@ func (b *builder) applyRateRow(
 	if m.Name == "" {
 		m.Name = name
 	}
-	m.SetAttr(AttrMode, mode)
+	applyMode(m, mode)
 	m.SetAttr(AttrVolumeDiscounts, strings.ToLower(clean(cellAt(row, 2))))
 	m.AddPrice(catalog.Price{
 		Metric:   metric,
@@ -108,6 +144,17 @@ func (b *builder) applyRateRow(
 		Currency: currency,
 		Dims:     catalog.Dims{DimMode: mode},
 	})
+}
+
+// applyMode records which of AssemblyAI's three lists a model was found in,
+// and the capability the streaming list is: a model listed there transcribes a
+// live connection, which is stated by the heading it appears under rather than
+// by any bullet of its card.
+func applyMode(m *catalog.Model, mode string) {
+	m.SetAttr(AttrMode, mode)
+	if mode == ModeStreaming {
+		m.AddList(ListFeatures, FeatureRealtime)
+	}
 }
 
 // block is one heading and everything under it up to the next heading.

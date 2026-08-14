@@ -29,6 +29,12 @@
     "summary": "Conversational speech recognition for real-time voice agents with built-in turn detection, natural interruption handling, and ultra-low latency."
   },
   "lists": {
+    "features": [
+      "keyterm_prompting",
+      "realtime",
+      "redaction",
+      "word_timestamps"
+    ],
     "input_modalities": [
       "audio"
     ],
@@ -37,6 +43,7 @@
     ]
   },
   "sources": [
-    "https://deepgram.com/pricing"
+    "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/flux/feature-overview.md"
   ]
 }

@@ -12,6 +12,7 @@
     }
   ],
   "attrs": {
+    "default_embedding_dimension": "1024",
     "released": "2023-12-11",
     "state": "active",
     "summary": "Our state-of-the-art semantic for extracting representation of code extracts",
@@ -36,6 +37,7 @@
     ]
   },
   "sources": [
-    "https://docs.mistral.ai/models/mistral-embed-23-12"
+    "https://docs.mistral.ai/models/mistral-embed-23-12",
+    "https://docs.mistral.ai/studio/knowledge-rag/embeddings/text_embeddings"
   ]
 }

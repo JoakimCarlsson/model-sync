@@ -58,6 +58,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/nvidia/nemotron-nano-9b-v2/endpoints"
   ]
 }

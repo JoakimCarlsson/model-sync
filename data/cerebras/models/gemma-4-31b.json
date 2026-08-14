@@ -18,16 +18,18 @@
     }
   ],
   "attrs": {
+    "author": "Google",
     "model_card_url": "https://huggingface.co/google/gemma-4-31B-it",
     "model_url": "/models/gemma-4-31b",
     "parameters": "31 billion",
     "state": "preview",
+    "summary": "This model excels at multimodal reasoning across screenshots, documents, diagrams, and design assets. Ideal for visual agentic workflows, image-aware copilots, and teams migrating from closed multimodal APIs to an open model.",
     "tokens_per_second": "~1850"
   },
   "limits": {
-    "context_window": 131000,
+    "context_window": 131072,
     "context_window_free": 65000,
-    "max_output_tokens": 40000,
+    "max_output_tokens": 40960,
     "max_output_tokens_free": 32000
   },
   "lists": {
@@ -53,6 +55,7 @@
     ]
   },
   "sources": [
+    "https://api.cerebras.ai/public/v1/models",
     "https://inference-docs.cerebras.ai/models/gemma-4-31b.md",
     "https://inference-docs.cerebras.ai/models/overview.md"
   ]

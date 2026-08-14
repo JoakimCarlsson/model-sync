@@ -26,8 +26,22 @@ const ModelsURL = "https://www.assemblyai.com/docs/getting-started/models.md"
 
 // cacheFiles are where each fetched document is kept.
 var cacheFiles = map[string]string{
-	ModelsURL:  "assemblyai_models.md",
-	PricingURL: "assemblyai_pricing.html",
+	ModelsURL:            "assemblyai_models.md",
+	PrerecordedModelsURL: "assemblyai_prerecorded_models.md",
+	StreamingModelsURL:   "assemblyai_streaming_models.md",
+	LimitsURL:            "assemblyai_limits.md",
+	PricingURL:           "assemblyai_pricing.html",
+}
+
+// sourceURLs are the documents this provider reads. The models page comes
+// first because it is the only one naming every model; the rest are read onto
+// what it established.
+var sourceURLs = []string{
+	ModelsURL,
+	PrerecordedModelsURL,
+	StreamingModelsURL,
+	LimitsURL,
+	PricingURL,
 }
 
 // Provider reads AssemblyAI's models page. The zero value is not usable; call
@@ -50,18 +64,18 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page and the pricing page.
+// Fetch retrieves the models page, the two model-selection pages and the
+// pricing page.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	models, err := p.get(ctx, ModelsURL)
-	if err != nil {
-		return nil, err
+	docs := make([]catalog.Document, 0, len(sourceURLs))
+	for _, url := range sourceURLs {
+		doc, err := p.get(ctx, url)
+		if err != nil {
+			return docs, err
+		}
+		docs = append(docs, doc)
 	}
-	docs := []catalog.Document{models}
-	pricing, err := p.get(ctx, PricingURL)
-	if err != nil {
-		return docs, err
-	}
-	return append(docs, pricing), nil
+	return docs, nil
 }
 
 // get retrieves one document, reading from and writing to the cache directory
@@ -98,12 +112,21 @@ func (p *Provider) get(
 }
 
 // Parse reads the models page first, because it is the only document naming
-// the models, then the pricing page onto what it established.
+// the models, then the selection pages and the pricing page onto what it
+// established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
 		if doc.URL == ModelsURL {
 			b.applyModels(doc)
+		}
+	}
+	for _, doc := range docs {
+		switch doc.URL {
+		case PrerecordedModelsURL, StreamingModelsURL:
+			b.applySelection(doc)
+		case LimitsURL:
+			b.applyLimits(doc)
 		}
 	}
 	for _, doc := range docs {

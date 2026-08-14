@@ -43,6 +43,18 @@ const (
 	ListEndpoints = "endpoints"
 )
 
+// Enumeration keys the Responses API guide populates.
+const (
+	ListInputModalities  = "input_modalities"
+	ListOutputModalities = "output_modalities"
+)
+
+// Modalities DeepSeek names a content part for.
+const (
+	ModalityText  = "text"
+	ModalityImage = "image"
+)
+
 // featureNames map a row label onto the catalog's vocabulary. DeepSeek heads a
 // row with prose, so the label is not an identifier and is translated into
 // one; anything not listed keeps DeepSeek's own words with its punctuation and
@@ -247,6 +259,96 @@ func rowLabel(cell string) string {
 			footnoteRe.ReplaceAllString(strings.TrimSpace(cell), ""),
 		),
 	)
+}
+
+// headingRe matches a section heading of the change log, which is where
+// DeepSeek writes a model's name.
+var headingRe = regexp.MustCompile(`(?is)<h[23][^>]*>(.*?)</h[23]\s*>`)
+
+// anchorRe matches the permalink the site puts inside every heading, which is
+// not part of the heading's text.
+var anchorRe = regexp.MustCompile(`(?is)<a\b.*?</a\s*>`)
+
+// updateSuffix is what the change log appends to a heading naming a model.
+const updateSuffix = " update"
+
+// applyChangeLog reads each model's name.
+//
+// The pricing table heads its columns with the identifier, so the name is not
+// on it. The change log heads the entry for a release with the model's name,
+// written as DeepSeek writes it rather than as the identifier is spelled, and
+// a heading is taken only where it is the identifier of a model the pricing
+// page already stated. That is what keeps "DeepSeek-V4", the heading of the
+// release that introduced both models, and the headings of the models
+// withdrawn before them, from naming anything.
+func (b *builder) applyChangeLog(doc catalog.Document) {
+	for _, match := range headingRe.FindAllStringSubmatch(string(doc.Body), -1) {
+		name := text(anchorRe.ReplaceAllString(match[1], ""))
+		id := strings.TrimSuffix(strings.ToLower(name), updateSuffix)
+		m, ok := b.models[id]
+		if !ok || m.Name != "" {
+			continue
+		}
+		m.Name = name[:len(id)]
+		m.AddSource(doc.URL)
+	}
+}
+
+// contentParts map a content part onto the modality it carries and the
+// enumeration that modality belongs in.
+var contentParts = map[string]struct {
+	list     string
+	modality string
+}{
+	"input_text":  {ListInputModalities, ModalityText},
+	"input_image": {ListInputModalities, ModalityImage},
+	"output_text": {ListOutputModalities, ModalityText},
+}
+
+// messageRow heads the row of the input item table stating what a message
+// carries, and unsupported marks a sentence denying support.
+const (
+	messageRow  = "message"
+	unsupported = "not supported"
+)
+
+// applyResponsesGuide reads what the models take and what they return.
+//
+// DeepSeek states no modality against a model, because both models answer the
+// one API. What it does state is the content parts that API carries, in a
+// table of input items whose message row names input_text and output_text and
+// then says, in the sentence after, that image and file inputs are not
+// supported. The row is therefore read a sentence at a time and a sentence
+// denying support is skipped, so that the input_image named inside that one is
+// not read as something the models accept.
+func (b *builder) applyResponsesGuide(doc catalog.Document) {
+	for _, match := range rowRe.FindAllStringSubmatch(string(doc.Body), -1) {
+		cells := rowCells(match[1])
+		if len(cells) < 2 || !strings.EqualFold(cells[0], messageRow) {
+			continue
+		}
+		for _, sentence := range strings.Split(cells[1], ". ") {
+			if strings.Contains(strings.ToLower(sentence), unsupported) {
+				continue
+			}
+			b.applyContentParts(doc.URL, sentence)
+		}
+	}
+}
+
+// applyContentParts records the modality of every content part one sentence
+// names, against every model, since the sentence describes the API rather than
+// a model.
+func (b *builder) applyContentParts(source, sentence string) {
+	for name, part := range contentParts {
+		if !strings.Contains(sentence, name) {
+			continue
+		}
+		for _, m := range b.models {
+			m.AddList(part.list, part.modality)
+			m.AddSource(source)
+		}
+	}
 }
 
 // rowCells returns the text of one row's cells.

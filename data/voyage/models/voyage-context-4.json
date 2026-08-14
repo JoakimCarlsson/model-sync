@@ -6,7 +6,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1k_tokens",
-      "amount": 0.00018,
+      "amount": 0.00012,
       "currency": "USD"
     },
     {
@@ -35,6 +35,9 @@
       "256",
       "512"
     ],
+    "features": [
+      "reducible_embedding_dimensions"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -45,6 +48,7 @@
   "sources": [
     "https://docs.voyageai.com/docs/batch-inference.md",
     "https://docs.voyageai.com/docs/contextualized-chunk-embeddings.md",
-    "https://docs.voyageai.com/docs/pricing.md"
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

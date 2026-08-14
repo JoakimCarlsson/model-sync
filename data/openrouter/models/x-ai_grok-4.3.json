@@ -59,6 +59,8 @@
   "attrs": {
     "author": "x-ai",
     "canonical_slug": "x-ai/grok-4.3-20260430",
+    "reasoning_default_effort": "low",
+    "reasoning_default_enabled": "true",
     "released": "2026-04-30",
     "summary": "Grok 4.3 is a reasoning model from SpaceXAI.",
     "tokenizer": "Grok"
@@ -71,8 +73,10 @@
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "file",
@@ -99,9 +103,16 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium",
+      "none"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/api/v1/models/x-ai/grok-4.3-20260430/endpoints"
   ]
 }

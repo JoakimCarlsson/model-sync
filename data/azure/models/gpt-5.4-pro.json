@@ -3513,6 +3513,7 @@
       "Responses"
     ],
     "features": [
+      "function_calling",
       "reasoning"
     ],
     "input_modalities": [

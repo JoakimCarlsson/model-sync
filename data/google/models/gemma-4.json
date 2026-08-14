@@ -1,6 +1,7 @@
 {
   "id": "gemma-4",
   "provider": "google",
+  "name": "Gemma 4",
   "kind": "chat",
   "prices": [
     {
