@@ -13,18 +13,33 @@
   ],
   "attrs": {
     "author": "Black Forest Labs",
-    "default_steps": "4"
+    "category": "Image",
+    "default_steps": "4",
+    "hugging_face_id": "black-forest-labs/FLUX.1-schnell",
+    "model_card_url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+    "parameter_count": "12B",
+    "release_date": "2024-07-31",
+    "summary": "Fastest available endpoint for the SOTA open-source image generation model by Black Forest Labs."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/flux-1-schnell-2"
   ]
 }

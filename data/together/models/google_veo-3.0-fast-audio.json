@@ -16,9 +16,15 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "category": "Video",
+    "last_updated": "2025-10-20",
+    "summary": "Fast 1080p video generation with integrated audio synthesis."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
@@ -26,10 +32,17 @@
     "output_modalities": [
       "audio",
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/google-veo-3-0-fast-audio"
   ]
 }

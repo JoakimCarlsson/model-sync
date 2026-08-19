@@ -13,6 +13,38 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.038,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD",
       "dims": {
@@ -33,6 +65,38 @@
       "unit": "per_1m_tokens",
       "amount": 0.006,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.006,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
     },
     {
       "metric": "cached_input_tokens",
@@ -61,6 +125,38 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD",
       "dims": {
@@ -85,6 +181,38 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.8,
       "currency": "USD",
       "dims": {
@@ -104,17 +232,34 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.7-flash-20260727",
+    "implicit_prompt_caching": "true",
+    "modality": "text+image+video->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-27",
+    "release_date": "2026-07-27",
     "summary": "Qwen3.7 Flash is a vision-language reasoning model from Alibaba.",
     "tokenizer": "Qwen"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 983616,
     "max_output_tokens": 65536,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "categories": [
+      "marketing/seo",
+      "translation"
+    ],
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -143,9 +288,16 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.7-flash-20260727/endpoints",
+    "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
+    "https://openrouter.ai/api/v1/models?category=translation",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

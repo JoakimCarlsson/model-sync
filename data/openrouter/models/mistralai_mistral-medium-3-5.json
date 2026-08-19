@@ -11,17 +11,41 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 7.5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "19.2",
+    "artificial_analysis_coding_index": "46.9",
+    "artificial_analysis_intelligence_index": "30.4",
     "author": "mistralai",
     "canonical_slug": "mistralai/mistral-medium-3.5-20260430",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
-    "released": "2026-04-30",
+    "release_date": "2026-04-30",
     "summary": "Mistral Medium 3.5 is a dense 128B instruction-following model from Mistral AI.",
     "tokenizer": "Mistral"
   },
@@ -30,6 +54,12 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "endpoint_tags": [
+      "mistral"
+    ],
+    "endpoints": [
+      "Mistral"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -60,13 +90,17 @@
       "tools",
       "top_p"
     ],
+    "provider_headquarters": [
+      "FR"
+    ],
     "reasoning_efforts": [
       "high",
       "none"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/mistralai/mistral-medium-3.5-20260430/endpoints"
+    "https://openrouter.ai/api/v1/models/mistralai/mistral-medium-3.5-20260430/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

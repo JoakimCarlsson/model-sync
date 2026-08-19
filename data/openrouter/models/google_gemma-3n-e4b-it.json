@@ -11,18 +11,40 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.12,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "3.2",
     "author": "google",
     "canonical_slug": "google/gemma-3n-e4b-it",
     "hugging_face_id": "google/gemma-3n-E4B-it",
     "knowledge_cutoff": "2024-08-31",
-    "released": "2025-05-20",
+    "modality": "text->text",
+    "release_date": "2025-05-20",
     "summary": "Gemma 3n E4B-it is optimized for efficient execution on mobile and low-resource devices, such as phones, laptops, and tablets.",
     "tokenizer": "Other"
   },
@@ -31,6 +53,12 @@
     "top_provider_context_window": 32768
   },
   "lists": {
+    "endpoint_tags": [
+      "together"
+    ],
+    "endpoints": [
+      "Together"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -54,10 +82,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/google/gemma-3n-e4b-it/endpoints"
+    "https://openrouter.ai/api/v1/models/google/gemma-3n-e4b-it/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

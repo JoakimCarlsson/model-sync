@@ -92,11 +92,17 @@
     }
   ],
   "attrs": {
-    "latest_update": "June 2026",
+    "default_thinking_level": "minimal",
+    "knowledge_cutoff": "2025-01",
+    "last_updated": "June 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/",
-    "model_code": "gemini-3.1-flash-lite-image"
+    "model_code": "gemini-3.1-flash-lite-image",
+    "state": "active"
   },
   "limits": {
+    "batch_enqueued_tokens_tier_1": 2000000,
+    "batch_enqueued_tokens_tier_2": 270000000,
+    "batch_enqueued_tokens_tier_3": 1000000000,
     "context_window": 65536,
     "max_output_tokens": 4096
   },
@@ -121,11 +127,18 @@
     ],
     "snapshots": [
       "gemini-3.1-flash-lite-image"
+    ],
+    "thinking_levels": [
+      "high",
+      "minimal"
     ]
   },
   "sources": [
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "https://ai.google.dev/gemini-api/docs/thinking",
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-lite-image/"
   ]
 }

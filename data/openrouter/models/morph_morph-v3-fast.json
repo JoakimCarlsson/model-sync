@@ -11,16 +11,37 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Morph",
+        "endpoint_tag": "morph"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Morph",
+        "endpoint_tag": "morph"
+      }
     }
   ],
   "attrs": {
     "author": "morph",
     "canonical_slug": "morph/morph-v3-fast",
-    "released": "2025-07-07",
+    "modality": "text->text",
+    "release_date": "2025-07-07",
     "summary": "Morph's fastest apply model for code edits.",
     "tokenizer": "Other"
   },
@@ -30,6 +51,15 @@
     "top_provider_context_window": 81920
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "morph"
+    ],
+    "endpoints": [
+      "Morph"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -40,10 +70,14 @@
       "max_tokens",
       "stop",
       "temperature"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/morph/morph-v3-fast/endpoints"
+    "https://openrouter.ai/api/v1/models/morph/morph-v3-fast/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

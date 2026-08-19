@@ -67,10 +67,11 @@
   ],
   "attrs": {
     "author": "DeepSeek",
-    "knowledge_cutoff": "Jan 2025",
-    "lifecycle_state": "active",
-    "released": "Jan 20, 2025",
-    "retirement_date": "No sooner than 3/10/2026",
+    "knowledge_cutoff": "2025-01",
+    "model_id": "deepseek.r1-v1:0",
+    "release_date": "2025-01-20",
+    "retirement_date": "2026-03-10",
+    "state": "active",
     "summary": "DeepSeek-R1 is DeepSeek's reasoning model that uses chain-of-thought to solve complex math, coding, and logic problems. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -95,11 +96,27 @@
       "reasoning",
       "streaming"
     ],
+    "geo_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "us.deepseek.r1-v1:0"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
     ]
   },
   "sources": [

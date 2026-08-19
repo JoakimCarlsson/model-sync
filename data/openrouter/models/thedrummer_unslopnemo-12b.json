@@ -11,10 +11,54 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.4,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +67,8 @@
     "hugging_face_id": "TheDrummer/UnslopNemo-12B-v4.1",
     "instruct_type": "mistral",
     "knowledge_cutoff": "2024-04-30",
-    "released": "2024-11-08",
+    "modality": "text->text",
+    "release_date": "2024-11-08",
     "summary": "UnslopNemo v4.1 is the latest addition from the creator of Rocinante, designed for adventure writing and role-play scenarios.",
     "tokenizer": "Mistral"
   },
@@ -33,6 +78,17 @@
     "top_provider_context_window": 1024000
   },
   "lists": {
+    "datacenter_countries": [
+      "ES"
+    ],
+    "endpoint_tags": [
+      "nextbit/fp8",
+      "parasail/bf16"
+    ],
+    "endpoints": [
+      "NextBit",
+      "Parasail"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -61,9 +117,19 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "ES",
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/thedrummer/unslopnemo-12b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

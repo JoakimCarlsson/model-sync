@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "deepseek2",
+    "default_snapshot": "deepseek-v3.1:latest",
+    "last_updated": "2025-09-27",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "671B",
+    "quantization": "Q4_K_M",
     "summary": "DeepSeek-V3.1-Terminus is a hybrid model that supports both thinking mode and non-thinking mode."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/deepseek-v3.1/tags"
+    "https://ollama.com/library/deepseek-v3.1/tags",
+    "https://ollama.com/library/deepseek-v3.1:latest"
   ]
 }

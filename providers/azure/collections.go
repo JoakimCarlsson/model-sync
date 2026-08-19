@@ -187,7 +187,11 @@ func readAspects(body string) map[string]documented {
 			continue
 		}
 		for _, row := range rows[1:] {
-			readAspectRow(out, head, docCellRe.FindAllStringSubmatch(row[1], -1))
+			readAspectRow(
+				out,
+				head,
+				docCellRe.FindAllStringSubmatch(row[1], -1),
+			)
 		}
 	}
 	return out
@@ -360,7 +364,10 @@ func readCapabilities(d *documented, cell string) {
 		case strings.HasPrefix(label, bulletContext):
 			d.Context = tokenCount(value)
 		case label == bulletTools && affirmative(value):
-			d.Features = appendNew(d.Features, catalog.CapabilityFunctionCalling)
+			d.Features = appendNew(
+				d.Features,
+				catalog.CapabilityFunctionCalling,
+			)
 		case label == bulletFormats && mentionsJSON(value):
 			d.Features = appendNew(
 				d.Features,

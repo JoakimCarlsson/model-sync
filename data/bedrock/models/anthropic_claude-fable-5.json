@@ -1,0 +1,147 @@
+{
+  "id": "anthropic/claude-fable-5",
+  "provider": "bedrock",
+  "name": "Claude Fable 5",
+  "kind": "chat",
+  "attrs": {
+    "author": "Anthropic",
+    "global_inference_id": "global.anthropic.claude-fable-5",
+    "knowledge_cutoff": "2026-01",
+    "marketplace_product_id": "prod-h6swdfybvty7y",
+    "model_id": "anthropic.claude-fable-5",
+    "reasoning_note": "adaptive thinking is always on and cannot be disabled; effort level is configurable",
+    "release_date": "2026-06-09",
+    "sampling_parameters": "temperature must be 1.0 or unset; top\\_p must be ≥ 0.99 and < 1.0, or unset; top\\_k is not supported",
+    "state": "active",
+    "summary": "Claude Fable 5 is Anthropic's next-generation model for complex knowledge work and coding, capable of sustained autonomous operation across multi-day tasks. It plans across stages, delegates to sub-agents, and self-verifies its work."
+  },
+  "limits": {
+    "context_window": 1000000,
+    "max_output_tokens": 128000,
+    "prompt_cache_max_checkpoints": 4,
+    "prompt_cache_min_tokens": 1024
+  },
+  "lists": {
+    "aliases": [
+      "anthropic.claude-fable-5"
+    ],
+    "endpoints": [
+      "bedrock-mantle",
+      "bedrock-runtime",
+      "converse",
+      "invoke",
+      "messages"
+    ],
+    "features": [
+      "prompt_caching",
+      "reasoning"
+    ],
+    "geo_regions": [
+      "ca-central-1",
+      "ca-west-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "global_regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "in_region_regions": [
+      "us-east-1"
+    ],
+    "inference_profile_ids": [
+      "global.anthropic.claude-fable-5",
+      "us.anthropic.claude-fable-5"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "prompt_cache_fields": [
+      "messages",
+      "system",
+      "tools"
+    ],
+    "prompt_cache_ttls": [
+      "1h",
+      "5m"
+    ],
+    "regions": [
+      "af-south-1",
+      "ap-east-2",
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "ap-southeast-5",
+      "ap-southeast-6",
+      "ap-southeast-7",
+      "ca-central-1",
+      "ca-west-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "il-central-1",
+      "me-central-1",
+      "me-south-1",
+      "mx-central-1",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-fable-5.md"
+  ]
+}

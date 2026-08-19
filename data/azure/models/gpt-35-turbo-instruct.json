@@ -1,6 +1,7 @@
 {
   "id": "gpt-35-turbo-instruct",
   "provider": "azure",
+  "name": "gpt-35-turbo-instruct",
   "kind": "chat",
   "prices": [
     {
@@ -71,9 +72,17 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "catalog_added_on": "2024-02-15",
+    "product": "Azure OpenAI",
+    "version": "800259"
+  },
+  "lists": {
+    "tasks": [
+      "chat-completions"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

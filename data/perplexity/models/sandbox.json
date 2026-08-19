@@ -12,9 +12,17 @@
     }
   ],
   "attrs": {
+    "api_type": "sandbox",
     "summary": "Isolated container for executing code during an Agent API request. A session covers up to 20 minutes of active use for billing purposes — this is the billing window, not a runtime cap. SDK search queries made from inside the sandbox are billed at $0.0025 per request (same as web_search)."
   },
+  "lists": {
+    "endpoints": [
+      "/v1/agent"
+    ]
+  },
   "sources": [
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/tools/overview.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]
 }

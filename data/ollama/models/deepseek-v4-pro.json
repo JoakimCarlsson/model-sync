@@ -4,6 +4,9 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
+    "default_snapshot": "deepseek-v4-pro:cloud",
+    "last_updated": "2026-08-13",
+    "parameter_count": "1.65T",
     "summary": "DeepSeek-V4-Pro is a frontier Mixture-of-Experts model with a large context window and three reasoning modes.",
     "usage_level": "extra high",
     "usage_level_rank": "4"

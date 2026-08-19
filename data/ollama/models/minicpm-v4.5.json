@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen3",
+    "default_snapshot": "minicpm-v4.5:latest",
+    "last_updated": "2026-06-02",
+    "open_weights": "true",
+    "parameter_count": "8.19B",
+    "quantization": "Q4_K_M",
     "summary": "A GPT-4o Level MLLM for Single Image, Multi Image and High-FPS Video Understanding on Your Phone"
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/minicpm-v4.5/tags"
+    "https://ollama.com/library/minicpm-v4.5/tags",
+    "https://ollama.com/library/minicpm-v4.5:latest"
   ]
 }

@@ -27,10 +27,12 @@
   ],
   "attrs": {
     "author": "Anthropic",
-    "knowledge_cutoff": "Aug 2023",
-    "lifecycle_state": "legacy (certain regions)",
-    "released": "Mar 13, 2024",
-    "retirement_date": "September 10, 2026",
+    "knowledge_cutoff": "2023-08",
+    "marketplace_product_id": "prod-ozonys2hmmpeu",
+    "model_id": "anthropic.claude-3-haiku-20240307-v1:0",
+    "release_date": "2024-03-13",
+    "retirement_date": "2026-09-10",
+    "state": "legacy (certain regions)",
     "summary": "Claude 3 Haiku is Anthropic's fastest and most compact Claude 3 model, optimized for speed and efficiency in near-instant responses. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -43,10 +45,59 @@
       "eu.anthropic.claude-3-haiku-20240307-v1:0",
       "us.anthropic.claude-3-haiku-20240307-v1:0"
     ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
     "endpoints": [
       "bedrock-runtime",
       "converse",
       "invoke"
+    ],
+    "features": [
+      "batch_inference"
+    ],
+    "geo_regions": [
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-3",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-east-1",
+      "us-west-2"
+    ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "eu.anthropic.claude-3-haiku-20240307-v1:0",
+      "us.anthropic.claude-3-haiku-20240307-v1:0"
     ],
     "input_modalities": [
       "image",
@@ -54,10 +105,34 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-south-1",
+      "ap-southeast-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-anthropic-claude-3-haiku.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]
 }

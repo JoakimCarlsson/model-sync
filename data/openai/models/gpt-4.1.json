@@ -88,12 +88,43 @@
   "attrs": {
     "default_snapshot": "gpt-4.1-2025-04-14",
     "knowledge_cutoff": "2024-06-01",
+    "last_updated": "2025-04-14",
     "state": "active",
     "summary": "Smartest non-reasoning model"
   },
   "limits": {
+    "batch_queue_limit_long_context_tier_1": 2000000,
+    "batch_queue_limit_long_context_tier_2": 20000000,
+    "batch_queue_limit_long_context_tier_3": 40000000,
+    "batch_queue_limit_long_context_tier_4": 100000000,
+    "batch_queue_limit_long_context_tier_5": 1000000000,
+    "batch_queue_limit_tier_1": 90000,
+    "batch_queue_limit_tier_2": 1350000,
+    "batch_queue_limit_tier_3": 50000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 5000000000,
     "context_window": 1047576,
-    "max_output_tokens": 32768
+    "max_output_tokens": 32768,
+    "requests_per_minute_long_context_tier_1": 100,
+    "requests_per_minute_long_context_tier_2": 250,
+    "requests_per_minute_long_context_tier_3": 500,
+    "requests_per_minute_long_context_tier_4": 1000,
+    "requests_per_minute_long_context_tier_5": 4000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_long_context_tier_1": 200000,
+    "tokens_per_minute_long_context_tier_2": 500000,
+    "tokens_per_minute_long_context_tier_3": 1000000,
+    "tokens_per_minute_long_context_tier_4": 5000000,
+    "tokens_per_minute_long_context_tier_5": 10000000,
+    "tokens_per_minute_tier_1": 30000,
+    "tokens_per_minute_tier_2": 450000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 2000000,
+    "tokens_per_minute_tier_5": 30000000
   },
   "lists": {
     "endpoints": [
@@ -134,6 +165,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-4.1.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

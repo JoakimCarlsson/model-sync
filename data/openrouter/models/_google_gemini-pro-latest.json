@@ -108,9 +108,10 @@
     "alias_target": "google/gemini-3.1-pro-preview",
     "author": "~google",
     "canonical_slug": "~google/gemini-pro-latest",
+    "modality": "text+image+file+audio+video->text",
     "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the Google Gemini Pro family.",
     "tokenizer": "Router"
   },
@@ -159,6 +160,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~google/gemini-pro-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

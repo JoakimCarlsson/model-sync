@@ -24,13 +24,22 @@
     }
   ],
   "attrs": {
+    "active_parameter_count": "41B",
     "author": "Thinking Machines",
-    "quantization": "NVFP4"
+    "category": "Code",
+    "parameter_count": "975B",
+    "quantization": "NVFP4",
+    "release_date": "2026-07-15",
+    "serverless_since": "2026-07-16",
+    "summary": "975B parameter (41B active) multimodal MoE model with native text, image, and audio understanding, variable thinking effort, 524K context, and open Apache 2.0 weights."
   },
   "limits": {
     "context_window": 524288
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -44,10 +53,17 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Audio",
+      "Chat",
+      "Reasoning",
+      "Vision"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/inkling"
   ]
 }

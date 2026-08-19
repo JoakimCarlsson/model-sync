@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "North Mini Code is Cohere&#39;s first model for developers — a 30B Mixture-of-Experts model with 3B active parameters, built for agentic software engineering."
+    "architecture": "cohere2moe",
+    "default_snapshot": "north-mini-code-1.0:latest",
+    "last_updated": "2026-06-18",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "30.5B",
+    "quantization": "Q4_K_M",
+    "summary": "North Mini Code is Cohere's first model for developers — a 30B Mixture-of-Experts model with 3B active parameters, built for agentic software engineering."
   },
   "limits": {
     "context_window": 488000
@@ -24,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/north-mini-code-1.0/tags"
+    "https://ollama.com/library/north-mini-code-1.0/tags",
+    "https://ollama.com/library/north-mini-code-1.0:latest"
   ]
 }

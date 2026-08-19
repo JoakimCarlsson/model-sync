@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen35",
+    "default_snapshot": "minicpm-v4.6:latest",
+    "last_updated": "2026-06-02",
+    "open_weights": "true",
+    "parameter_count": "752M",
+    "quantization": "Q4_K_M",
     "summary": "A Pocket-Sized MLLM for Ultra-Efficient Image and Video Understanding on Your Phone"
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/minicpm-v4.6/tags"
+    "https://ollama.com/library/minicpm-v4.6/tags",
+    "https://ollama.com/library/minicpm-v4.6:latest"
   ]
 }

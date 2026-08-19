@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "codestral:latest",
+    "last_updated": "2024-09-03",
+    "license": "Mistral AI Non-Production License",
+    "open_weights": "true",
+    "parameter_count": "22.2B",
+    "quantization": "Q4_0",
     "summary": "Codestral is Mistral AI’s first-ever code model designed for code generation tasks."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/codestral/tags"
+    "https://ollama.com/library/codestral/tags",
+    "https://ollama.com/library/codestral:latest"
   ]
 }

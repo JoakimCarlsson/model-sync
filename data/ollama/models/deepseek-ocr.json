@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "deepseekocr",
+    "default_snapshot": "deepseek-ocr:latest",
+    "last_updated": "2025-11-19",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "3.34B",
+    "quantization": "F16",
     "summary": "DeepSeek-OCR is a vision-language model that can perform token-efficient OCR."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/deepseek-ocr/tags"
+    "https://ollama.com/library/deepseek-ocr/tags",
+    "https://ollama.com/library/deepseek-ocr:latest"
   ]
 }

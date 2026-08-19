@@ -1,0 +1,90 @@
+{
+  "id": "fireworks/nous-hermes-2-yi-34b",
+  "provider": "fireworks",
+  "name": "Nous Hermes 2 Yi 34B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Nous",
+    "calibrated": "false",
+    "hugging_face_id": "NousResearch/Nous-Hermes-2-Yi-34B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/nous-hermes-2-yi-34b",
+    "model_url": "https://fireworks.ai/models/fireworks/nous-hermes-2-yi-34b",
+    "open_weights": "true",
+    "parameter_count": "34.3B",
+    "release_date": "2024-03-01",
+    "state": "active",
+    "summary": "Nous Research's fine-tuned version of the Yi 34B Large Language Model trained on 1,000,000 entries of primarily GPT-4 generated data, as well as other high quality data from open datasets across the AI landscape."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "fine_tuning",
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/nous-hermes-2-yi-34b",
+    "https://fireworks.ai/pricing"
+  ]
+}

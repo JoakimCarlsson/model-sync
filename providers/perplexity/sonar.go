@@ -43,7 +43,8 @@ var (
 	// modelEnumRe matches the identifiers the request schema accepts, which is
 	// how the reference says which models it is describing.
 	modelEnumRe = regexp.MustCompile(
-		`(?s)\n\s+model:\n.*?\n\s+enum:\n((?:\s+-\s+[^\n]+\n)+)`,
+		`(?s)\n\s+model:\n(?:[^\n]*\n){0,10}?\s+enum:\n` +
+			`((?:\s+-\s+[^\n]+\n)+)`,
 	)
 )
 
@@ -81,6 +82,7 @@ func (b *builder) applySonarPage(doc catalog.Document) {
 	if readsReasoning(string(doc.Body)) {
 		m.AddList(ListFeatures, featureReasoning)
 	}
+	b.applySonarNotice(m, doc)
 	match := contextRe.FindStringSubmatch(string(doc.Body))
 	if match == nil {
 		return
@@ -88,29 +90,18 @@ func (b *builder) applySonarPage(doc catalog.Document) {
 	m.SetLimit(LimitContextWindow, parseTokens(match[1], match[2]))
 }
 
-// applySonarReference reads the output ceiling off the Sonar API reference.
-//
-// The ceiling is a property of the endpoint rather than of any one model, so
-// it is recorded against every model the endpoint's schema will accept, which
-// the schema itself enumerates.
-func (b *builder) applySonarReference(doc catalog.Document) {
-	body := string(doc.Body)
+// outputCeiling returns the ceiling a request schema puts on a completion,
+// which is a property of the endpoint rather than of any one model.
+func outputCeiling(body string) int64 {
 	match := maxTokensRe.FindStringSubmatch(body)
 	if match == nil {
-		return
+		return 0
 	}
 	ceiling, err := strconv.ParseInt(match[1], 10, 64)
 	if err != nil {
-		return
+		return 0
 	}
-	for _, id := range referenceModels(body) {
-		m, ok := b.models[id]
-		if !ok {
-			continue
-		}
-		m.AddSource(doc.URL)
-		m.SetLimit(LimitMaxOutputTokens, ceiling)
-	}
+	return ceiling
 }
 
 // referenceModels returns the identifiers a request schema enumerates.
@@ -121,7 +112,9 @@ func referenceModels(body string) []string {
 	}
 	var ids []string
 	for _, line := range strings.Split(match[1], "\n") {
-		id := strings.TrimSpace(strings.TrimPrefix(strings.TrimSpace(line), "-"))
+		id := strings.TrimSpace(
+			strings.TrimPrefix(strings.TrimSpace(line), "-"),
+		)
 		if id != "" {
 			ids = append(ids, id)
 		}

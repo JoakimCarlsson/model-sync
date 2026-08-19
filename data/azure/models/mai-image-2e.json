@@ -1,6 +1,7 @@
 {
   "id": "mai-image-2e",
   "provider": "azure",
+  "name": "MAI-Image-2e",
   "kind": "image",
   "prices": [
     {
@@ -810,9 +811,54 @@
     }
   ],
   "attrs": {
-    "product": "MAI Models"
+    "author": "Microsoft AI",
+    "catalog_added_on": "2026-04-13",
+    "license": "custom",
+    "product": "MAI Models",
+    "publisher": "Microsoft",
+    "recommended_replacement": "MAI-Image-2.5-Flash",
+    "release_date": "2026-04-09",
+    "retirement_date": "2026-08-15",
+    "state": "preview",
+    "summary": "Built for creatives, delivering enhanced photorealism at scale.",
+    "version": "2026-04-09"
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Vision"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "regions": [
+      "eastus",
+      "southindia",
+      "swedencentral",
+      "uaenorth",
+      "westcentralus",
+      "westeurope",
+      "westus"
+    ],
+    "tasks": [
+      "text-to-image"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

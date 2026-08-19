@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "command-r",
+    "default_snapshot": "command-r:latest",
+    "last_updated": "2024-08-30",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "32.3B",
+    "quantization": "Q4_0",
     "summary": "Command R is a Large Language Model optimized for conversational interaction and long context tasks."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/command-r/tags"
+    "https://ollama.com/library/command-r/tags",
+    "https://ollama.com/library/command-r:latest"
   ]
 }

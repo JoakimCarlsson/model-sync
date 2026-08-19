@@ -11,16 +11,37 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.25,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
     }
   ],
   "attrs": {
     "author": "deepcogito",
     "canonical_slug": "deepcogito/cogito-v2.1-671b-20251118",
-    "released": "2025-11-13",
+    "modality": "text->text",
+    "release_date": "2025-11-13",
     "summary": "Cogito v2.1 671B MoE represents one of the strongest open models globally, matching performance of frontier closed and open models.",
     "tokenizer": "Other"
   },
@@ -29,6 +50,12 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "endpoint_tags": [
+      "together"
+    ],
+    "endpoints": [
+      "Together"
+    ],
     "features": [
       "json_mode",
       "reasoning",
@@ -55,10 +82,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/deepcogito/cogito-v2.1-671b-20251118/endpoints"
+    "https://openrouter.ai/api/v1/models/deepcogito/cogito-v2.1-671b-20251118/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

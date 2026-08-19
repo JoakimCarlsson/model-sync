@@ -1,0 +1,46 @@
+{
+  "id": "fireworks/glm-4p5",
+  "provider": "fireworks",
+  "name": "GLM-4.5",
+  "kind": "chat",
+  "attrs": {
+    "author": "Z.ai",
+    "calibrated": "true",
+    "hugging_face_id": "zai-org/GLM-4.5",
+    "license": "MIT",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/glm-4p5",
+    "model_url": "https://fireworks.ai/models/fireworks/glm-4p5",
+    "open_weights": "true",
+    "parameter_count": "352B",
+    "release_date": "2025-07-29",
+    "state": "active",
+    "summary": "The GLM-4.5 series models are foundation models designed for intelligent agents. GLM-4.5 has 355 billion total parameters with 32 billion active parameters, while GLM-4.5-Air adopts a more compact design with 106 billion total parameters and 12 billion active parameters. GLM-4.5 models unify reasoning, coding, and intelligent agent capabilities to meet the complex demands of intelligent agent applications."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/api-reference/post-chatcompletions.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/glm-4p5"
+  ]
+}

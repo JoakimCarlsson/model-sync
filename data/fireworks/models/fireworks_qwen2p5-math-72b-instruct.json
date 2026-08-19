@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/qwen2p5-math-72b-instruct",
+  "provider": "fireworks",
+  "name": "Qwen2.5-Math 72B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Qwen",
+    "calibrated": "false",
+    "hugging_face_id": "Qwen/Qwen2.5-Math-72B-Instruct",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/qwen2p5-math-72b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen2p5-math-72b-instruct",
+    "open_weights": "true",
+    "parameter_count": "72.7B",
+    "release_date": "2024-10-07",
+    "state": "active",
+    "summary": "Qwen2.5-Math series is expanded to support using both CoT and Tool-integrated Reasoning (TIR) to solve math problems in both Chinese and English"
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/qwen2p5-math-72b-instruct"
+  ]
+}

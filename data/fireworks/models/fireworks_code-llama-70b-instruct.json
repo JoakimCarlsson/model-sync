@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/code-llama-70b-instruct",
+  "provider": "fireworks",
+  "name": "Code Llama 70B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Code Llama",
+    "calibrated": "true",
+    "hugging_face_id": "codellama/CodeLlama-70b-Instruct-hf",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/code-llama-70b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/code-llama-70b-instruct",
+    "open_weights": "true",
+    "parameter_count": "68.9B",
+    "release_date": "2024-03-01",
+    "state": "active",
+    "summary": "Code Llama is a collection of pretrained and fine-tuned Large Language Models ranging in scale from 7 billion to 70 billion parameters, specializing in using both code and natural language prompts to generate code and natural language about code. This is the 70B instruction-tuned version."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/code-llama-70b-instruct"
+  ]
+}

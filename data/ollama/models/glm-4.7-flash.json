@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "glm4moelite",
+    "default_snapshot": "glm-4.7-flash:latest",
+    "last_updated": "2026-06-05",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "29.9B",
+    "quantization": "Q4_K_M",
     "summary": "As the strongest model in the 30B class, GLM-4.7-Flash offers a new option for lightweight deployment that balances performance and efficiency."
   },
   "limits": {
@@ -24,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/glm-4.7-flash/tags"
+    "https://ollama.com/library/glm-4.7-flash/tags",
+    "https://ollama.com/library/glm-4.7-flash:latest"
   ]
 }

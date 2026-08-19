@@ -1,0 +1,59 @@
+{
+  "id": "black-forest-labs/flux.2-max",
+  "provider": "openrouter",
+  "name": "Black Forest Labs: FLUX.2 Max",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00001708984375,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00001708984375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Black Forest Labs",
+        "endpoint_tag": "black-forest-labs/us-3"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "black-forest-labs",
+    "canonical_slug": "black-forest-labs/flux.2-max",
+    "modality": "text+image->image",
+    "release_date": "2025-12-16",
+    "summary": "FLUX.2 [max] is the new top-tier image model from Black Forest Labs, pushing image quality, prompt understanding, and editing consistency to the highest level yet.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 46864,
+    "top_provider_context_window": 46864
+  },
+  "lists": {
+    "endpoint_tags": [
+      "black-forest-labs/us-3"
+    ],
+    "endpoints": [
+      "Black Forest Labs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "parameters": [
+      "seed"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/black-forest-labs/flux.2-max/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

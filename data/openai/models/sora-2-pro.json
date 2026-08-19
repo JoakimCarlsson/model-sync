@@ -79,12 +79,26 @@
   ],
   "attrs": {
     "default_snapshot": "sora-2-pro-2025-10-06",
-    "recommended_replacement": "---",
-    "shutdown_date": "2026-09-24",
+    "deprecated_on": "2026-03-24",
+    "last_updated": "2026-03-12",
+    "release_date": "2025-10-06",
+    "retirement_date": "2026-09-24",
     "state": "deprecated",
     "summary": "Most advanced synced-audio video generation"
   },
+  "limits": {
+    "max_duration_seconds": 20,
+    "requests_per_minute_tier_1": 10,
+    "requests_per_minute_tier_2": 25,
+    "requests_per_minute_tier_3": 50,
+    "requests_per_minute_tier_4": 75,
+    "requests_per_minute_tier_5": 150
+  },
   "lists": {
+    "durations_seconds": [
+      "16",
+      "20"
+    ],
     "endpoints": [
       "v1/videos"
     ],
@@ -96,13 +110,28 @@
       "audio",
       "video"
     ],
+    "resolutions": [
+      "1024p",
+      "1080p",
+      "720p"
+    ],
+    "sizes": [
+      "1024x1792",
+      "1080x1920",
+      "1280x720",
+      "1792x1024",
+      "1920x1080",
+      "720x1280"
+    ],
     "snapshots": [
       "sora-2-pro",
       "sora-2-pro-2025-10-06"
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/deprecations.md",
+    "https://developers.openai.com/api/docs/guides/video-generation.md",
     "https://developers.openai.com/api/docs/models/sora-2-pro.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

@@ -1,6 +1,7 @@
 {
   "id": "mai-image-2",
   "provider": "azure",
+  "name": "MAI-Image-2",
   "kind": "image",
   "prices": [
     {
@@ -1270,9 +1271,15 @@
     }
   ],
   "attrs": {
-    "product": "MAI Models"
+    "product": "MAI Models",
+    "recommended_replacement": "MAI-Image-2.5",
+    "release_date": "2026-02-20",
+    "retirement_date": "2026-08-15",
+    "state": "retired",
+    "version": "2026-02-20"
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

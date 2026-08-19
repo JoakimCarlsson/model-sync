@@ -11,10 +11,50 @@
       "currency": "USD"
     },
     {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.375,
       "currency": "USD"
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     },
     {
       "metric": "cached_audio_input",
@@ -23,10 +63,50 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     },
     {
       "metric": "image_input",
@@ -35,10 +115,50 @@
       "currency": "USD"
     },
     {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.000002,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.000002,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "image_output",
       "unit": "per_image",
       "amount": 0.00012,
       "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00012,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     },
     {
       "metric": "input_tokens",
@@ -47,10 +167,50 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 12,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     },
     {
       "metric": "reasoning_tokens",
@@ -59,17 +219,58 @@
       "currency": "USD"
     },
     {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 14,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/global"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     }
   ],
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3-pro-image-20260528",
+    "modality": "text+image->text+image",
     "reasoning_mandatory": "true",
-    "released": "2026-06-18",
+    "release_date": "2026-06-18",
     "summary": "Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro.",
     "tokenizer": "Gemini"
   },
@@ -79,6 +280,14 @@
     "top_provider_context_window": 65536
   },
   "lists": {
+    "endpoint_tags": [
+      "google-ai-studio/global",
+      "google-vertex/global"
+    ],
+    "endpoints": [
+      "Google",
+      "Google AI Studio"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -107,9 +316,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemini-3-pro-image-20260528/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

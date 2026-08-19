@@ -20,7 +20,8 @@
   "attrs": {
     "author": "openrouter",
     "canonical_slug": "openrouter/bodybuilder",
-    "released": "2025-12-05",
+    "modality": "text->text",
+    "release_date": "2025-12-05",
     "summary": "Transform your natural language requests into structured OpenRouter API request objects.",
     "tokenizer": "Router"
   },
@@ -36,7 +37,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/openrouter/bodybuilder/endpoints"
+    "https://openrouter.ai/api/v1/models/openrouter/bodybuilder/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "llava-llama3:latest",
+    "last_updated": "2024-05-07",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
     "summary": "A LLaVA model fine-tuned from Llama 3 Instruct with better scores in several benchmarks."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/llava-llama3/tags"
+    "https://ollama.com/library/llava-llama3/tags",
+    "https://ollama.com/library/llava-llama3:latest"
   ]
 }

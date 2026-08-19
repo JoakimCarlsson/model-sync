@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/gpt-oss-safeguard-120b",
+  "provider": "fireworks",
+  "name": "OpenAI gpt-oss-safeguard-120b",
+  "kind": "chat",
+  "attrs": {
+    "author": "OpenAI",
+    "calibrated": "false",
+    "hugging_face_id": "openai/gpt-oss-safeguard-120b",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/gpt-oss-safeguard-120b",
+    "model_url": "https://fireworks.ai/models/fireworks/gpt-oss-safeguard-120b",
+    "open_weights": "true",
+    "parameter_count": "116B",
+    "release_date": "2025-11-07",
+    "state": "active",
+    "summary": "gpt-oss-safeguard-120b is a safety-focused language model with 117B total parameters and 5.1B active parameters. It is trained to interpret custom safety policies, label content, and provide transparent reasoning using the harmony response format."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/gpt-oss-safeguard-120b"
+  ]
+}

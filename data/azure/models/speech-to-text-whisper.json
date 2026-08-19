@@ -1,6 +1,7 @@
 {
   "id": "speech-to-text-whisper",
   "provider": "azure",
+  "name": "whisper",
   "kind": "transcription",
   "prices": [
     {
@@ -214,18 +215,42 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "author": "OpenAI",
+    "catalog_added_on": "2025-03-11",
+    "product": "Azure OpenAI",
+    "publisher": "OpenAI",
+    "retirement_date": "2026-12-15",
+    "state": "active",
+    "version": "001"
   },
   "lists": {
+    "deployment_types": [
+      "Standard"
+    ],
     "input_modalities": [
       "audio"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "eastus2",
+      "northcentralus",
+      "norwayeast",
+      "southindia",
+      "swedencentral",
+      "switzerlandnorth",
+      "uaenorth",
+      "westeurope"
+    ],
+    "tasks": [
+      "automatic-speech-recognition"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

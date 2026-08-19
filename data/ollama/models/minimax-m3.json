@@ -4,7 +4,9 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
-    "summary": "MiniMax M3: Coding &amp; Agentic Frontier. 1M context window. Native Multimodality.",
+    "default_snapshot": "minimax-m3:cloud",
+    "last_updated": "2026-06-01",
+    "summary": "MiniMax M3: Coding & Agentic Frontier. 1M context window. Native Multimodality.",
     "usage_level": "high",
     "usage_level_rank": "3"
   },

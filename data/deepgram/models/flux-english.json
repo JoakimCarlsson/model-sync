@@ -10,6 +10,7 @@
       "amount": 0.0057,
       "currency": "USD",
       "dims": {
+        "delivery": "streaming",
         "plan": "growth"
       }
     },
@@ -19,18 +20,20 @@
       "amount": 0.0065,
       "currency": "USD",
       "dims": {
+        "delivery": "streaming",
         "plan": "pay-as-you-go"
       }
     }
   ],
   "attrs": {
-    "previous_rate": "$0.0077/min",
     "product": "speech to text",
     "summary": "Conversational speech recognition for real-time voice agents with built-in turn detection, natural interruption handling, and ultra-low latency."
   },
   "lists": {
     "features": [
       "keyterm_prompting",
+      "numerals",
+      "profanity_filter",
       "realtime",
       "redaction",
       "word_timestamps"
@@ -40,6 +43,10 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "previous_rates": [
+      "$0.0065/min",
+      "$0.0077/min"
     ]
   },
   "sources": [

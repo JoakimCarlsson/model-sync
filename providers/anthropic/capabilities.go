@@ -2,17 +2,17 @@ package anthropic
 
 import (
 	"regexp"
-	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
 // Pages stating a capability the comparison table has no row for. That table
-// covers thinking and nothing else, so the other two capabilities a consumer
-// derives a boolean from are stated only in the guide to the capability.
+// covers thinking and nothing else, so every other capability a consumer
+// derives a boolean from is stated only in the guide to the capability.
 const (
-	// StructuredOutputsURL opens with the identifiers it supports, listed
-	// outright.
+	// StructuredOutputsURL opens with a compatibility block listing the
+	// identifiers it supports, which is the shape four of these guides share
+	// and which applyCompatibility reads.
 	StructuredOutputsURL = baseURL + "/build-with-claude/structured-outputs.md"
 	// ToolUseURL states tool calling for Claude rather than for a list of
 	// models.
@@ -21,7 +21,10 @@ const (
 
 var (
 	// supportedModelsRe matches the compatibility line a guide opens with,
-	// which names every identifier the capability is available on.
+	// which names every identifier the capability is available on. It is the
+	// one place Anthropic states a capability per model outside the comparison
+	// table, and it states it precisely: API identifiers rather than display
+	// names, so nothing has to be resolved.
 	supportedModelsRe = regexp.MustCompile(`(?m)^-\s*Supported models:\s*(.+)$`)
 	// backtickedRe matches one identifier of that line.
 	backtickedRe = regexp.MustCompile("`([^`]+)`")
@@ -33,29 +36,6 @@ var (
 		`(?i)Tool use lets Claude call functions that you define`,
 	)
 )
-
-// applySupportedModels records a capability against each identifier the guide
-// lists as supporting it.
-//
-// This is the one place Anthropic states a capability per model outside the
-// comparison table, and it states it precisely: the list is API identifiers,
-// not display names, so nothing has to be resolved. An identifier no document
-// has established is skipped rather than created, because the guides list
-// aliases the deprecations page and the overview do not.
-func (b *builder) applySupportedModels(doc catalog.Document, features ...string) {
-	line := supportedModelsRe.FindStringSubmatch(string(doc.Body))
-	if line == nil {
-		return
-	}
-	for _, match := range backtickedRe.FindAllStringSubmatch(line[1], -1) {
-		m, ok := b.models[strings.TrimSpace(match[1])]
-		if !ok {
-			continue
-		}
-		m.AddList(ListFeatures, features...)
-		m.AddSource(doc.URL)
-	}
-}
 
 // applyToolUse records tool calling against every model still served.
 //

@@ -1,0 +1,55 @@
+{
+  "id": "voyageai/voyage-code-4",
+  "provider": "openrouter",
+  "name": "VoyageAI by MongoDB: voyage-code-4",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "VoyageAI by MongoDB",
+        "endpoint_tag": "voyageai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "voyageai",
+    "canonical_slug": "voyageai/voyage-code-4-20260812",
+    "modality": "text->embeddings",
+    "release_date": "2026-08-13",
+    "summary": "voyage-code-4 is a code embedding model from Voyage AI, a MongoDB company.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32000,
+    "top_provider_context_window": 32000
+  },
+  "lists": {
+    "endpoint_tags": [
+      "voyageai"
+    ],
+    "endpoints": [
+      "VoyageAI by MongoDB"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/voyageai/voyage-code-4-20260812/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

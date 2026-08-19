@@ -78,10 +78,17 @@
     "family": "rerank",
     "modality": "Text",
     "oracle_oci_id": "N/A",
+    "release_date": "2025-12-11",
     "summary": "A multilingual model that allows for re-ranking English and non-english documents and semi-structured data (JSON)."
   },
   "limits": {
-    "context_window": 32000
+    "context_window": 32000,
+    "default_max_tokens_per_document": 4096,
+    "documents_per_search_unit": 100,
+    "recommended_max_documents": 1000,
+    "requests_per_minute_production": 1000,
+    "requests_per_minute_trial": 10,
+    "tokens_per_search_chunk": 500
   },
   "lists": {
     "endpoints": [
@@ -92,11 +99,22 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "documents",
+      "max_tokens_per_doc",
+      "model",
+      "priority",
+      "query",
+      "top_n"
     ]
   },
   "sources": [
     "https://cohere.com/pricing",
+    "https://docs.cohere.com/changelog/rerank-v4.0.md",
     "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/reference/rerank.md"
   ]
 }

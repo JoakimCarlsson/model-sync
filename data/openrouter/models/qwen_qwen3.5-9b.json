@@ -11,17 +11,129 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.17,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "7",
+    "artificial_analysis_coding_index": "28.7",
+    "artificial_analysis_intelligence_index": "21.8",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.5-9b-20260310",
     "hugging_face_id": "Qwen/Qwen3.5-9B",
-    "released": "2026-03-10",
+    "modality": "text+image+video->text",
+    "release_date": "2026-03-10",
     "summary": "Qwen3.5-9B is a multimodal foundation model from the Qwen3.5 family, designed to deliver strong reasoning, coding, and visual understanding in an efficient 9B-parameter architecture.",
     "tokenizer": "Qwen3"
   },
@@ -31,6 +143,23 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "deepinfra/bf16",
+      "parasail/bf16",
+      "siliconflow/fp8",
+      "together",
+      "venice/fp8"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Parasail",
+      "SiliconFlow",
+      "Together",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -65,9 +194,19 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.5-9b-20260310/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

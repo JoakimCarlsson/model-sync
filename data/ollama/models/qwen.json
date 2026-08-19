@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "qwen:latest",
+    "last_updated": "2024-04-26",
+    "license": "Tongyi Qianwen RESEARCH LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "3.95B",
+    "quantization": "Q4_0",
     "summary": "Qwen 1.5 is a series of large language models by Alibaba Cloud spanning from 0.5B to 110B parameters"
   },
   "limits": {
@@ -32,6 +39,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen/tags"
+    "https://ollama.com/library/qwen/tags",
+    "https://ollama.com/library/qwen:latest"
   ]
 }

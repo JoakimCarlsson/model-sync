@@ -1,0 +1,64 @@
+{
+  "id": "x-ai/grok-stt-1.0",
+  "provider": "openrouter",
+  "name": "SpaceXAI: Grok STT 1.0",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 100000,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 100000,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "x-ai",
+    "canonical_slug": "x-ai/grok-stt-20260723",
+    "modality": "audio->transcription",
+    "release_date": "2026-07-23",
+    "summary": "Grok STT is SpaceXAI's speech-to-text model, available via the REST /v1/stt endpoint.",
+    "tokenizer": "Grok"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "xai"
+    ],
+    "endpoints": [
+      "xAI"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "transcription"
+    ],
+    "parameters": [
+      "logprobs",
+      "max_tokens",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/x-ai/grok-stt-20260723/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

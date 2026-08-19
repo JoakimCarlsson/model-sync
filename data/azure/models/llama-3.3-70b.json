@@ -3792,15 +3792,32 @@
     }
   ],
   "attrs": {
-    "product": "Azure Llama Models"
+    "author": "Meta",
+    "catalog_added_on": "2026-07-02",
+    "license": "custom",
+    "product": "Azure Llama Models",
+    "publisher": "Meta",
+    "state": "active",
+    "summary": "Llama 3.3 70B Instruct offers enhanced reasoning, math, and instruction following with performance comparable to Llama 3.1 405B.",
+    "version": "10"
   },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 8192
   },
   "lists": {
+    "features": [
+      "agents",
+      "agents_v2",
+      "fine_tuning",
+      "function_calling",
+      "streaming"
+    ],
     "input_modalities": [
       "text"
+    ],
+    "keywords": [
+      "Conversation"
     ],
     "languages": [
       "de",
@@ -3814,10 +3831,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

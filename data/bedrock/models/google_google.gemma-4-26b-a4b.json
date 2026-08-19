@@ -397,9 +397,9 @@
   ],
   "attrs": {
     "author": "Google",
-    "lifecycle_state": "active",
-    "released": "Jun 10, 2025",
-    "retirement_date": "N/A",
+    "model_id": "google.gemma-4-26b-a4b",
+    "release_date": "2026-03-31",
+    "state": "active",
     "summary": "Gemma 4 26B-A4B is Google's mixture-of-experts model with 25.2 billion total parameters and 3.8 billion active per token, delivering cost-efficient inference with built-in reasoning, native function calling, and multimodal input across text and image, supporting a 256K token context window. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -419,6 +419,12 @@
       "projects",
       "reasoning"
     ],
+    "in_region_regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "input_modalities": [
       "image",
       "text",
@@ -426,6 +432,17 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "eu-central-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [

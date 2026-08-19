@@ -1,0 +1,15 @@
+{
+  "id": "google/gemini-3.1-flash-lite-preview",
+  "provider": "perplexity",
+  "name": "google/gemini-3.1-flash-lite-preview",
+  "kind": "chat",
+  "attrs": {
+    "state": "retired"
+  },
+  "notes": [
+    "google/gemini-3.1-flash-lite-preview has been retired: Google removed the underlying preview model from its API"
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/docs/resources/changelog.md"
+  ]
+}

@@ -12,18 +12,31 @@
     }
   ],
   "attrs": {
-    "author": "RunDiffusion"
+    "author": "RunDiffusion",
+    "category": "Image",
+    "model_card_url": "https://www.segmind.com/models/juggernaut-lightning-flux",
+    "release_date": "2025-03-05",
+    "summary": "Ultra-fast Flux variant optimized for speed at minimal cost."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/juggernaut-lightning-flux"
   ]
 }

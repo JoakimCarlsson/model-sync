@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "dolphin-mistral:latest",
+    "last_updated": "2024-03-31",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "The uncensored Dolphin model based on Mistral that excels at coding tasks. Updated to version 2.8."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/dolphin-mistral/tags"
+    "https://ollama.com/library/dolphin-mistral/tags",
+    "https://ollama.com/library/dolphin-mistral:latest"
   ]
 }

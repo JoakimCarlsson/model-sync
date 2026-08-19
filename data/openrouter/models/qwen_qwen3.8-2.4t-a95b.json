@@ -5,10 +5,93 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Modal",
+        "endpoint_tag": "modal/nvfp4",
+        "quantization": "nvfp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
     },
     {
       "metric": "input_tokens",
@@ -17,29 +100,205 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Modal",
+        "endpoint_tag": "modal/nvfp4",
+        "quantization": "nvfp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Modal",
+        "endpoint_tag": "modal/nvfp4",
+        "quantization": "nvfp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "57.1",
+    "artificial_analysis_coding_index": "71.9",
+    "artificial_analysis_intelligence_index": "57.7",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.8-2.4t-a95b-20260812",
+    "default_temperature": "1",
+    "default_top_k": "20",
+    "default_top_p": "0.95",
     "hugging_face_id": "Qwen/Qwen3.8-2.4T-A95B",
+    "modality": "text->text",
     "reasoning_default_effort": "xhigh",
     "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
-    "released": "2026-08-12",
+    "release_date": "2026-08-12",
     "summary": "Qwen3.8 2.4T A95B is an open-weight sparse mixture-of-experts model from Qwen and the open-weight variant of [Qwen3.8 Max](/qwen/qwen3.8-max), with 95 billion active parameters out of 2.4 trillion total.",
     "tokenizer": "Qwen"
   },
   "limits": {
-    "context_window": 1010000,
+    "context_window": 1048576,
     "max_output_tokens": 262144,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "endpoint_tags": [
+      "alibaba",
+      "deepinfra/fp4",
+      "digitalocean",
+      "modal/nvfp4",
+      "siliconflow/fp8",
+      "together",
+      "venice"
+    ],
+    "endpoints": [
+      "Alibaba",
+      "DeepInfra",
+      "DigitalOcean",
+      "Modal",
+      "SiliconFlow",
+      "Together",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -75,6 +334,15 @@
       "top_logprobs",
       "top_p"
     ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp4",
+      "fp8",
+      "nvfp4"
+    ],
     "reasoning_efforts": [
       "low",
       "medium",
@@ -82,6 +350,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.8-2.4t-a95b-20260812/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

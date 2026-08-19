@@ -11,17 +11,38 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
     }
   ],
   "attrs": {
     "author": "arcee-ai",
     "canonical_slug": "arcee-ai/virtuoso-large",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-05-05",
+    "modality": "text->text",
+    "release_date": "2025-05-05",
     "summary": "Virtuoso‑Large is Arcee's top‑tier general‑purpose LLM at 72 B parameters, tuned to tackle cross‑domain reasoning, creative writing and enterprise QA.",
     "tokenizer": "Other"
   },
@@ -31,6 +52,12 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "together"
+    ],
+    "endpoints": [
+      "Together"
+    ],
     "features": [
       "function_calling"
     ],
@@ -53,9 +80,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/arcee-ai/virtuoso-large/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

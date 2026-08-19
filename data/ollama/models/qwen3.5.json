@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen35",
     "cloud": "true",
+    "default_snapshot": "qwen3.5:latest",
+    "last_updated": "2026-05-21",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "9.65B",
+    "quantization": "Q4_K_M",
     "summary": "Qwen 3.5 is a family of open-source multimodal models that delivers exceptional utility and performance."
   },
   "limits": {
@@ -35,6 +42,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3.5/tags"
+    "https://ollama.com/library/qwen3.5/tags",
+    "https://ollama.com/library/qwen3.5:latest"
   ]
 }

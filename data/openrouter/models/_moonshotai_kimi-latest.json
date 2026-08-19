@@ -13,13 +13,13 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.8,
+      "amount": 2.6,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 14,
+      "amount": 13,
       "currency": "USD"
     }
   ],
@@ -27,16 +27,18 @@
     "alias_target": "moonshotai/kimi-k3",
     "author": "~moonshotai",
     "canonical_slug": "~moonshotai/kimi-latest",
+    "default_top_p": "0.95",
+    "modality": "text+image+video->text",
     "reasoning_default_effort": "max",
     "reasoning_default_enabled": "true",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the MoonshotAI Kimi family.",
     "tokenizer": "Router"
   },
   "limits": {
     "context_window": 1048576,
-    "max_output_tokens": 1048576,
-    "top_provider_context_window": 1048576
+    "max_output_tokens": 974842,
+    "top_provider_context_window": 974842
   },
   "lists": {
     "features": [
@@ -83,6 +85,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~moonshotai/kimi-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

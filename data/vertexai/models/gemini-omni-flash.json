@@ -1,0 +1,224 @@
+{
+  "id": "gemini-omni-flash",
+  "provider": "vertexai",
+  "name": "Gemini Omni Flash",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 17.5,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "release_date": "2026-06-30",
+    "retirement_date": "2027-06-30",
+    "state": "preview",
+    "summary": "Generate video from text or reference assets, or edit existing videos."
+  },
+  "limits": {
+    "context_window": 131072,
+    "max_output_tokens": 57920
+  },
+  "lists": {
+    "features": [
+      "content_credentials_c2pa",
+      "count_tokens",
+      "generate_videos_from_text",
+      "reasoning",
+      "reference_to_video",
+      "sound_generation",
+      "video_editing"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "languages": [
+      "af",
+      "am",
+      "ar",
+      "as",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "bs",
+      "ca",
+      "ceb",
+      "co",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "dv",
+      "el",
+      "en",
+      "eo",
+      "es",
+      "et",
+      "eu",
+      "fa",
+      "fi",
+      "fil",
+      "fr",
+      "fy",
+      "ga",
+      "gd",
+      "gl",
+      "gu",
+      "ha",
+      "haw",
+      "hi",
+      "hmn",
+      "hr",
+      "ht",
+      "hu",
+      "hy",
+      "id",
+      "ig",
+      "is",
+      "it",
+      "iw",
+      "ja",
+      "jv",
+      "ka",
+      "kk",
+      "km",
+      "kn",
+      "ko",
+      "kri",
+      "ku",
+      "ky",
+      "la",
+      "lb",
+      "lo",
+      "lt",
+      "lv",
+      "mg",
+      "mi",
+      "mk",
+      "ml",
+      "mn",
+      "mni-Mtei",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "ne",
+      "nl",
+      "no",
+      "ny",
+      "or",
+      "pa",
+      "pl",
+      "ps",
+      "pt",
+      "ro",
+      "ru",
+      "sd",
+      "si",
+      "sk",
+      "sl",
+      "sm",
+      "sn",
+      "so",
+      "sq",
+      "sr",
+      "st",
+      "su",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "tg",
+      "th",
+      "tr",
+      "ug",
+      "uk",
+      "ur",
+      "uz",
+      "vi",
+      "xh",
+      "yi",
+      "yo",
+      "zh",
+      "zu"
+    ],
+    "output_modalities": [
+      "text",
+      "video"
+    ],
+    "regions": [
+      "global"
+    ]
+  },
+  "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-flash-preview",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models",
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

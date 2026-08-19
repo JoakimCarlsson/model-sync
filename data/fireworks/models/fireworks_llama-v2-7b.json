@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/llama-v2-7b",
+  "provider": "fireworks",
+  "name": "Llama 2 7B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
+    "hugging_face_id": "meta-llama/Llama-2-7b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-v2-7b",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-v2-7b",
+    "open_weights": "true",
+    "parameter_count": "6.73B",
+    "release_date": "2023-08-12",
+    "state": "active",
+    "summary": "Meta's Llama 2 model family is a collection of pretrained and fine-tuned generative text models trained on 40% more data than Llama 1 with double the context length. This is the 7B Base version trained on 2 trillion tokens with a context length of 4096."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-v2-7b"
+  ]
+}

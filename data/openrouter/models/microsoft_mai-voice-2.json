@@ -1,0 +1,67 @@
+{
+  "id": "microsoft/mai-voice-2",
+  "provider": "openrouter",
+  "name": "Microsoft: MAI-Voice-2",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 22,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "microsoft",
+    "canonical_slug": "microsoft/mai-voice-2",
+    "modality": "text->speech",
+    "release_date": "2026-06-02",
+    "summary": "MAI-Voice-2 is an expressive text-to-speech model from Microsoft.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "azure"
+    ],
+    "endpoints": [
+      "Azure"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "speech"
+    ],
+    "parameters": [
+      "max_completion_tokens",
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "voices": [
+      "de-DE-Klaus:MAI-Voice-2",
+      "en-US-Harper:MAI-Voice-2",
+      "es-MX-Valeria:MAI-Voice-2",
+      "fr-FR-Soleil:MAI-Voice-2"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/microsoft/mai-voice-2/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

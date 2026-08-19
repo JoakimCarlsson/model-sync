@@ -1,0 +1,73 @@
+{
+  "id": "openai/text-embedding-ada-002",
+  "provider": "openrouter",
+  "name": "OpenAI: Text Embedding Ada 002",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/text-embedding-ada-002",
+    "is_moderated": "true",
+    "modality": "text->embeddings",
+    "release_date": "2025-10-30",
+    "summary": "text-embedding-ada-002 is OpenAI's legacy text embedding model.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 8192,
+    "top_provider_context_window": 8192
+  },
+  "lists": {
+    "endpoint_tags": [
+      "openai"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/openai/text-embedding-ada-002/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.57,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.57,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +44,8 @@
     "canonical_slug": "tencent/hunyuan-a13b-instruct",
     "hugging_face_id": "tencent/Hunyuan-A13B-Instruct",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-07-08",
+    "modality": "text->text",
+    "release_date": "2025-07-08",
     "summary": "Hunyuan-A13B is a 13B active parameter Mixture-of-Experts (MoE) language model developed by Tencent, with a total parameter count of 80B and support for reasoning via Chain-of-Thought.",
     "tokenizer": "Other"
   },
@@ -32,6 +55,15 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "siliconflow/fp8"
+    ],
+    "endpoints": [
+      "SiliconFlow"
+    ],
     "features": [
       "json_mode",
       "reasoning",
@@ -53,9 +85,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/tencent/hunyuan-a13b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

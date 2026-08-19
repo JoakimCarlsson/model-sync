@@ -28,16 +28,32 @@
     }
   ],
   "attrs": {
-    "latest_update": "March 2026",
+    "last_updated": "March 2026",
     "model_code": "veo-3.1-lite-generate-preview",
+    "release_date": "2026-03-31",
+    "state": "preview",
     "summary": "Veo 3.1 Lite Preview is a high-efficiency, developer-first video model providing high-fidelity video generation, editing, and cinematic control. It leverages the state-of-the-art Veo 3.1 model to democratize professional-grade video AI by offering a scalable, programmable interface for creators and enterprises."
   },
   "limits": {
-    "context_window": 1024
+    "context_window": 1024,
+    "frames_per_second": 24,
+    "max_output_videos": 1
   },
   "lists": {
     "aliases": [
       "veo-3.1-lite-generate-preview"
+    ],
+    "aspect_ratios": [
+      "16:9",
+      "9:16"
+    ],
+    "durations_seconds": [
+      "4",
+      "6",
+      "8"
+    ],
+    "features": [
+      "audio_generation"
     ],
     "input_modalities": [
       "image",
@@ -46,11 +62,31 @@
     "output_modalities": [
       "audio",
       "video"
+    ],
+    "parameters": [
+      "aspectRatio",
+      "durationSeconds",
+      "image",
+      "lastFrame",
+      "personGeneration",
+      "prompt",
+      "referenceImages",
+      "resolution"
+    ],
+    "person_generation": [
+      "allow_adult",
+      "allow_all"
+    ],
+    "resolutions": [
+      "1080p",
+      "720p"
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/veo"
   ]
 }

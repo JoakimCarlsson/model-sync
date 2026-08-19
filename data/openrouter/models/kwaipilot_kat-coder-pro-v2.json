@@ -11,22 +11,87 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "59.5",
     "author": "kwaipilot",
     "canonical_slug": "kwaipilot/kat-coder-pro-v2-20260327",
-    "released": "2026-03-27",
+    "modality": "text->text",
+    "release_date": "2026-03-27",
     "summary": "KAT-Coder-Pro V2 is the latest high-performance model in KwaiKAT’s KAT-Coder series, designed for complex enterprise-grade software engineering and SaaS integration.",
     "tokenizer": "Other"
   },
@@ -36,6 +101,14 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "endpoint_tags": [
+      "atlas-cloud/fp8",
+      "streamlake"
+    ],
+    "endpoints": [
+      "AtlasCloud",
+      "StreamLake"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -66,9 +139,18 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN",
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/kwaipilot/kat-coder-pro-v2-20260327/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

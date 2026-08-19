@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "Qwen2.5 models are pretrained on Alibaba&#39;s latest large-scale dataset, encompassing up to 18 trillion tokens. The model supports up to 128K tokens and has multilingual support."
+    "architecture": "qwen2",
+    "default_snapshot": "qwen2.5:latest",
+    "last_updated": "2024-09-19",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.62B",
+    "quantization": "Q4_K_M",
+    "summary": "Qwen2.5 models are pretrained on Alibaba's latest large-scale dataset, encompassing up to 18 trillion tokens. The model supports up to 128K tokens and has multilingual support."
   },
   "limits": {
     "context_window": 32000
@@ -32,6 +39,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen2.5/tags"
+    "https://ollama.com/library/qwen2.5/tags",
+    "https://ollama.com/library/qwen2.5:latest"
   ]
 }

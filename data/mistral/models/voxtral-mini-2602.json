@@ -12,7 +12,9 @@
     }
   ],
   "attrs": {
-    "released": "2026-02-04",
+    "distribution": "premier",
+    "open_weights": "false",
+    "release_date": "2026-02-04",
     "state": "active",
     "summary": "An efficient audio input model, pre-trained and optimized for transcription purposes only.",
     "version": "26.02"
@@ -20,6 +22,9 @@
   "lists": {
     "aliases": [
       "voxtral-mini-latest"
+    ],
+    "endpoints": [
+      "/v1/audio/transcriptions"
     ],
     "features": [
       "timestamps",

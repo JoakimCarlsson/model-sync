@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "zai-org",
+    "data_residency": "EU",
+    "docs_title": "GLM 4.7 FP8",
+    "hugging_face_id": "zai-org/GLM-4.7-FP8",
     "license": "MIT",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/zai-org/GLM-4.7-FP8",
     "model_path": "zai-org/GLM-4.7-FP8",
+    "open_weights": "true",
     "quantization": "FP8",
-    "release_date": "2026-01-19"
+    "release_date": "2026-01-19",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 200000,
@@ -44,8 +50,12 @@
       "zai/glm-4.6",
       "zai/glm-4.7"
     ],
+    "endpoints": [
+      "/v1/chat/completions"
+    ],
     "features": [
       "function_calling",
+      "reasoning",
       "streaming",
       "structured_outputs"
     ],
@@ -89,11 +99,16 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

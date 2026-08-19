@@ -20,10 +20,14 @@
   "attrs": {
     "author": "liquid",
     "canonical_slug": "liquid/lfm-2.5-2.6b-20260811",
+    "default_repetition_penalty": "1.1",
+    "default_temperature": "0.1",
+    "default_top_k": "50",
     "hugging_face_id": "LiquidAI/LFM2.5-2.6B",
     "is_free": "true",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2026-08-11",
+    "release_date": "2026-08-11",
     "summary": "LFM2.5-2.6B is a compact reasoning model from Liquid AI.",
     "tokenizer": "Other"
   },
@@ -68,6 +72,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/liquid/lfm-2.5-2.6b-20260811/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

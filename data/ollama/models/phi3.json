@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "phi3",
+    "default_snapshot": "phi3:latest",
+    "last_updated": "2024-07-30",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "3.82B",
+    "quantization": "Q4_0",
     "summary": "Phi-3 is a family of lightweight 3B (Mini) and 14B (Medium) state-of-the-art open models by Microsoft."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/phi3/tags"
+    "https://ollama.com/library/phi3/tags",
+    "https://ollama.com/library/phi3:latest"
   ]
 }

@@ -66,9 +66,10 @@
     }
   ],
   "attrs": {
-    "latest_update": "June 2026",
+    "last_updated": "June 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-5-audio/",
     "model_code": "gemini-3.5-live-translate-preview",
+    "state": "preview",
     "summary": "Gemini 3.5 Live Translate is our low-latency, audio-to-audio model optimized for real-time translation of spoken conversations. It enables seamless, bidirectional translation with high accuracy and natural voice output."
   },
   "limits": {

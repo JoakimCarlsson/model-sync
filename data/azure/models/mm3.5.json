@@ -1546,26 +1546,114 @@
     }
   ],
   "attrs": {
-    "product": "Azure Mistral Models"
+    "author": "Mistral AI",
+    "catalog_added_on": "2026-06-17",
+    "license": "custom",
+    "product": "Azure Mistral Models",
+    "publisher": "Mistral AI",
+    "state": "preview",
+    "summary": "Mistral Medium 3.5 is our first \"fully merged\" model with enhanced code and agentic capabilities. It demonstrates strong tool dexterity, making it suitable for both VIP (Vibe Code Scaffold) and agentic research tasks.",
+    "version": "1"
   },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 128000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
     ],
     "input_modalities": [
+      "file",
       "image",
       "text"
     ],
+    "keywords": [
+      "Low latency",
+      "Vision"
+    ],
+    "languages": [
+      "ar",
+      "bn",
+      "cs",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "gu",
+      "he",
+      "hi",
+      "hu",
+      "hy",
+      "id",
+      "it",
+      "ja",
+      "ka",
+      "kn",
+      "ko",
+      "ml",
+      "nl",
+      "no",
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sv",
+      "ta",
+      "te",
+      "th",
+      "tl",
+      "tr",
+      "uk",
+      "vi",
+      "zh"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]

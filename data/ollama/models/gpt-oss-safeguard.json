@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "gptoss",
+    "default_snapshot": "gpt-oss-safeguard:latest",
+    "last_updated": "2025-10-29",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "20.9B",
+    "quantization": "MXFP4",
     "summary": "gpt-oss-safeguard-20b and gpt-oss-safeguard-120b are safety reasoning models built-upon gpt-oss"
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/gpt-oss-safeguard/tags"
+    "https://ollama.com/library/gpt-oss-safeguard/tags",
+    "https://ollama.com/library/gpt-oss-safeguard:latest"
   ]
 }

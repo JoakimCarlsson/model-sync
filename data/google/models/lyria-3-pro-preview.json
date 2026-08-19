@@ -16,8 +16,10 @@
     }
   ],
   "attrs": {
-    "latest_update": "March 2026",
-    "summary": "Lyria 3 Pro Preview is Google&#39;s flagship music generation model. It is optimized for generating full-length songs with complex structural coherence, including multiple verses, choruses, and bridges. It generates high-quality, 48kHz stereo audio from text prompts or image inputs."
+    "last_updated": "March 2026",
+    "release_date": "2026-03-25",
+    "state": "active",
+    "summary": "Lyria 3 Pro Preview is Google's flagship music generation model. It is optimized for generating full-length songs with complex structural coherence, including multiple verses, choruses, and bridges. It generates high-quality, 48kHz stereo audio from text prompts or image inputs."
   },
   "limits": {
     "context_window": 131072
@@ -40,6 +42,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"

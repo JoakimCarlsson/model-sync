@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen35",
+    "default_snapshot": "ornith:latest",
+    "last_updated": "2026-06-27",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "8.95B",
+    "quantization": "Q4_K_M",
     "summary": "A self-improving family of open-source models for agentic coding"
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/ornith/tags"
+    "https://ollama.com/library/ornith/tags",
+    "https://ollama.com/library/ornith:latest"
   ]
 }

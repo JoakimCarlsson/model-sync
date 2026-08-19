@@ -8,26 +8,53 @@
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "api": "agent"
+      }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 10,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "api": "agent"
+      }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 50,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "api": "agent"
+      }
     }
   ],
   "attrs": {
     "author": "anthropic",
+    "model_card_url": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
     "summary": "Claude Fable 5"
   },
+  "limits": {
+    "requests_per_minute_tier_0": 50,
+    "requests_per_minute_tier_1": 150,
+    "requests_per_minute_tier_2": 500,
+    "requests_per_minute_tier_3": 1000,
+    "requests_per_minute_tier_4": 2000,
+    "requests_per_minute_tier_5": 2000,
+    "requests_per_second_tier_0": 1,
+    "requests_per_second_tier_1": 3,
+    "requests_per_second_tier_2": 8,
+    "requests_per_second_tier_3": 17,
+    "requests_per_second_tier_4": 33,
+    "requests_per_second_tier_5": 33
+  },
   "lists": {
+    "endpoints": [
+      "/v1/agent"
+    ],
     "features": [
       "streaming"
     ],
@@ -36,10 +63,31 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "background",
+      "input",
+      "instructions",
+      "language_preference",
+      "max_output_tokens",
+      "max_steps",
+      "model",
+      "models",
+      "preset",
+      "previous_response_id",
+      "reasoning",
+      "response_format",
+      "skills",
+      "store",
+      "stream",
+      "temperature",
+      "tools",
+      "top_p"
     ]
   },
   "sources": [
     "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
     "https://docs.perplexity.ai/docs/agent-api/output-control.md"
   ]

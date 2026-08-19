@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/llama-v3p2-1b-instruct",
+  "provider": "fireworks",
+  "name": "Llama 3.2 1B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
+    "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-v3p2-1b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-v3p2-1b-instruct",
+    "open_weights": "true",
+    "parameter_count": "1.49B",
+    "release_date": "2024-09-18",
+    "state": "active",
+    "summary": "The Llama 3.2 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction-tuned generative models in 1B and 3B sizes (text in/text out). The Llama 3.2 instruction-tuned text only models are optimized for multilingual dialogue use cases, including agentic retrieval and summarization tasks. They outperform many of the available open source and closed chat models on common industry benchmarks."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-v3p2-1b-instruct"
+  ]
+}

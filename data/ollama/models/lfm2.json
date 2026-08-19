@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "lfm2moe",
+    "default_snapshot": "lfm2:latest",
+    "last_updated": "2026-02-24",
+    "license": "LFM Open License v1.0",
+    "open_weights": "true",
+    "parameter_count": "23.8B",
+    "quantization": "Q4_K_M",
     "summary": "LFM2 is a family of hybrid models designed for on-device deployment. LFM2-24B-A2B is the largest model in the family, scaling the architecture to 24 billion parameters while keeping inference efficient."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/lfm2/tags"
+    "https://ollama.com/library/lfm2/tags",
+    "https://ollama.com/library/lfm2:latest"
   ]
 }

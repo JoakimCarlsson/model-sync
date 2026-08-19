@@ -11,17 +11,59 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 60,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "13.1",
     "author": "openai",
     "canonical_slug": "openai/gpt-4",
     "knowledge_cutoff": "2021-09-30",
-    "released": "2023-05-28",
+    "modality": "text->text",
+    "release_date": "2023-05-28",
     "summary": "OpenAI's flagship model, GPT-4 is a large-scale multimodal language model capable of solving difficult problems with greater accuracy than previous models due to its broader general knowledge and advanced reasoning...",
     "tokenizer": "GPT"
   },
@@ -31,6 +73,14 @@
     "top_provider_context_window": 8191
   },
   "lists": {
+    "endpoint_tags": [
+      "azure",
+      "openai"
+    ],
+    "endpoints": [
+      "Azure",
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -58,9 +108,14 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-4/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

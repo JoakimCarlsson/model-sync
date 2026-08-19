@@ -11,17 +11,38 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
     }
   ],
   "attrs": {
     "author": "openai",
     "canonical_slug": "openai/gpt-3.5-turbo-0613",
     "knowledge_cutoff": "2021-09-30",
-    "released": "2024-01-25",
+    "modality": "text->text",
+    "release_date": "2024-01-25",
     "summary": "GPT-3.5 Turbo is OpenAI's fastest model.",
     "tokenizer": "GPT"
   },
@@ -31,6 +52,12 @@
     "top_provider_context_window": 4095
   },
   "lists": {
+    "endpoint_tags": [
+      "azure"
+    ],
+    "endpoints": [
+      "Azure"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -57,9 +84,14 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-3.5-turbo-0613/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

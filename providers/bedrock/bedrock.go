@@ -38,7 +38,38 @@ const (
 	ContentsURL = docsBase + "toc-contents.json"
 	// cardPre prefixes one model's card.
 	cardPre = docsBase + "model-card-"
+	// LifecycleURL is the page dating the retirement of every model AWS is
+	// withdrawing, which is where a legacy model's exact dates are stated.
+	LifecycleURL = docsBase + "model-lifecycle.md"
+	// BatchURL and LatencyURL are the two pages naming, per model, the
+	// Regions a serving path may be used in.
+	BatchURL   = docsBase + "batch-inference-supported.md"
+	LatencyURL = docsBase + "latency-optimized-inference.md"
+	// QuotasURL is the page stating a default quota per model, which the
+	// guide does for one endpoint and refers to the Service Quotas console
+	// for the rest.
+	QuotasURL = docsBase + "quotas-mantle.md"
 )
+
+// SpecURLs are the pages stating a model's specification as a labelled list.
+// AWS writes one for each of the models Amazon built itself, and they are the
+// only pages stating how wide a vector an embedding model returns.
+var SpecURLs = []string{
+	docsBase + "titan-embedding-models.md",
+	docsBase + "titan-multiemb-models.md",
+	docsBase + "titan-image-models.md",
+}
+
+// guideURLs are the pages read besides the cards, in the order they are
+// fetched.
+func guideURLs() []string {
+	return append([]string{
+		LifecycleURL,
+		BatchURL,
+		LatencyURL,
+		QuotasURL,
+	}, SpecURLs...)
+}
 
 // fetchWorkers bounds the concurrent requests made for the model cards.
 const fetchWorkers = 8
@@ -85,7 +116,10 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 		return docs, err
 	}
 	cards, failures := p.getAll(ctx, cardURLs(contents))
-	return append(docs, cards...), errors.Join(failures...)
+	docs = append(docs, cards...)
+	guide, guideFailures := p.getAll(ctx, guideURLs())
+	docs = append(docs, guide...)
+	return docs, errors.Join(append(failures, guideFailures...)...)
 }
 
 // cardHrefRe matches a link from the contents to one model's card.
@@ -199,7 +233,31 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	b.applyCards(cards)
+	for _, doc := range docs {
+		b.applyGuide(doc)
+	}
 	return b.result(), errors.Join(failures...)
+}
+
+// applyGuide records one of the pages read besides the cards, each of which
+// states one fact about many models where a card states many about one. They
+// are read last, because every one of them is joined to a model on an
+// identifier that only a card supplies.
+func (b *builder) applyGuide(doc catalog.Document) {
+	switch doc.URL {
+	case LifecycleURL:
+		b.applyLifecycle(doc)
+	case BatchURL:
+		b.applySupport(doc, featureBatch, ListBatchRegions, ListBatchProfiles)
+	case LatencyURL:
+		b.applySupport(doc, featureLatency, "", ListLatencyRegions)
+	case QuotasURL:
+		b.applyQuotas(doc)
+	default:
+		if slices.Contains(SpecURLs, doc.URL) {
+			b.applySpec(doc)
+		}
+	}
 }
 
 // readCache returns a previously fetched response.

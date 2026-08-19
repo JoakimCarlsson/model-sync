@@ -34,6 +34,28 @@ type indexEntry struct {
 	state string
 }
 
+// cardRe matches one card of the index's grid, which pairs the page a model
+// is documented on, and so the endpoint it answers to, with the availability
+// Google marks it as. It is the only document stating that a model is in
+// preview rather than generally available for a model the deprecation
+// schedule has not reached yet.
+var cardRe = regexp.MustCompile(
+	`(?is)<a href="/gemini-api/docs/models/([a-z0-9._-]+)"[^>]*` +
+		`class="gemini-card-centered">(.*?)</a\s*>`,
+)
+
+// cardStateRe matches the availability a card states, which sits under the
+// description and may be preceded by a badge saying the model is new.
+var cardStateRe = regexp.MustCompile(
+	`(?is)<p class="status-subtext">(.*?)</p>`,
+)
+
+// cardStates map what a card says onto the catalog's vocabulary.
+var cardStates = map[string]string{
+	"stable":  StateActive,
+	"preview": StatePreview,
+}
+
 var (
 	// endpointRe matches the identifier an index row ends with, which is what
 	// tells a row of the model tables from a row of any other table on the
@@ -48,6 +70,7 @@ var (
 // Google lists a model under with the endpoint the API answers to, and the
 // only one saying which models Google has withdrawn.
 func (b *builder) applyIndex(doc catalog.Document) {
+	b.applyCards(doc)
 	for _, row := range pageRowRe.FindAllStringSubmatch(string(doc.Body), -1) {
 		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
 		if len(cells) < 2 {
@@ -64,7 +87,36 @@ func (b *builder) applyIndex(doc catalog.Document) {
 		entry := indexEntry{name: name, state: state}
 		b.setIndex(id, entry)
 		b.setIndex(indexKey(name), entry)
+		if _, ok := b.byName[indexKey(name)]; !ok {
+			b.byName[indexKey(name)] = id
+		}
 	}
+}
+
+// applyCards reads the availability the index's grid marks each model with.
+// The grid names the page rather than the model, which is what makes it
+// unambiguous: the page is addressed by the endpoint.
+func (b *builder) applyCards(doc catalog.Document) {
+	for _, card := range cardRe.FindAllStringSubmatch(string(doc.Body), -1) {
+		state := cardStates[lastWord(first(cardStateRe, card[2]))]
+		if state == "" {
+			continue
+		}
+		if _, ok := b.cardState[card[1]]; !ok {
+			b.cardState[card[1]] = state
+		}
+	}
+}
+
+// lastWord returns the final word of a card's availability, the badge Google
+// puts in front of it saying the model is new being a fact about its age
+// rather than about its availability.
+func lastWord(value string) string {
+	fields := strings.Fields(strings.ToLower(text(value)))
+	if len(fields) == 0 {
+		return ""
+	}
+	return fields[len(fields)-1]
 }
 
 // setIndex records one entry under one key, keeping the first, since a model

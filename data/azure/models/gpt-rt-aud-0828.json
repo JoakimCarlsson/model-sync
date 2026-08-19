@@ -1,6 +1,7 @@
 {
   "id": "gpt-rt-aud-0828",
   "provider": "azure",
+  "name": "gpt-realtime",
   "kind": "realtime",
   "prices": [
     {
@@ -1292,25 +1293,83 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-08-29",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
     "product": "Azure OpenAI Media",
-    "training_data_cutoff": "October 2023"
+    "publisher": "OpenAI",
+    "release_date": "2025-08-28",
+    "retirement_date": "2027-03-02",
+    "state": "active",
+    "summary": "A new S2S (speech to speech) model with improved instruction following.",
+    "training_data_cutoff": "October 2023",
+    "version": "2025-08-28"
   },
   "limits": {
     "context_window": 32000,
     "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "audio",
+      "image",
       "text"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
     ],
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "regions": [
+      "canadacentral",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "southindia",
+      "swedencentral"
+    ],
+    "tasks": [
+      "audio-generation"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

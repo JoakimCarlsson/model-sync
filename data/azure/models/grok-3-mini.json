@@ -1,6 +1,7 @@
 {
   "id": "grok-3-mini",
   "provider": "azure",
+  "name": "grok-3-mini",
   "kind": "chat",
   "prices": [
     {
@@ -1435,9 +1436,14 @@
     }
   ],
   "attrs": {
-    "product": "Azure Grok Models"
+    "product": "Azure Grok Models",
+    "recommended_replacement": "grok-4-1-fast-reasoning",
+    "retirement_date": "2026-05-01",
+    "state": "retired",
+    "version": "1"
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

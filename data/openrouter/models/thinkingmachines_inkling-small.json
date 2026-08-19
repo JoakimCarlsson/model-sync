@@ -11,25 +11,92 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.45,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "31.9",
+    "artificial_analysis_coding_index": "52.9",
+    "artificial_analysis_intelligence_index": "41.2",
     "author": "thinkingmachines",
     "canonical_slug": "thinkingmachines/inkling-small-20260730",
     "hugging_face_id": "thinkingmachines/Inkling-Small",
+    "modality": "text+image+audio->text",
     "reasoning_default_effort": "high",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-30",
+    "release_date": "2026-07-30",
     "summary": "Inkling Small is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 12B active parameters out of 276B total.",
     "tokenizer": "Other"
   },
@@ -39,6 +106,14 @@
     "top_provider_context_window": 524288
   },
   "lists": {
+    "endpoint_tags": [
+      "deepinfra/fp8",
+      "together"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Together"
+    ],
     "features": [
       "function_calling",
       "prompt_caching",
@@ -74,6 +149,12 @@
       "top_logprobs",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
+    ],
     "reasoning_efforts": [
       "high",
       "low",
@@ -84,6 +165,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/thinkingmachines/inkling-small-20260730/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

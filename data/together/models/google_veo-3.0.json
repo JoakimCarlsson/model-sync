@@ -16,19 +16,33 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "category": "Video",
+    "last_updated": "2025-10-20",
+    "release_date": "2025-10-07",
+    "summary": "Latest Veo generation with improved quality, 720p resolution, 8-second duration."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/google-veo-3-0"
   ]
 }

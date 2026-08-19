@@ -1,6 +1,7 @@
 {
   "id": "gpt-rt-aud-mini",
   "provider": "azure",
+  "name": "gpt-realtime-mini",
   "kind": "realtime",
   "prices": [
     {
@@ -1325,25 +1326,83 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-12-16",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
     "product": "Azure OpenAI Media",
-    "training_data_cutoff": "October 2023"
+    "publisher": "OpenAI",
+    "release_date": "2025-12-15",
+    "retirement_date": "2027-06-15",
+    "state": "active",
+    "summary": "gpt-realtime-mini is a smaller version of gpt-realtime S2S (speech to speech) model built on chive architecture. This model excels at instruction following and is optimized for cost efficiency.",
+    "training_data_cutoff": "October 2023",
+    "version": "2025-12-15"
   },
   "limits": {
     "context_window": 32000,
     "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "audio",
+      "image",
       "text"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
     ],
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "regions": [
+      "canadacentral",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "southindia",
+      "swedencentral"
+    ],
+    "tasks": [
+      "audio-generation"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

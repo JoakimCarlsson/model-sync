@@ -12,7 +12,9 @@
     }
   ],
   "attrs": {
-    "author": "Wan-AI"
+    "author": "Wan-AI",
+    "duration": "Up to 15s",
+    "serverless_since": "2026-04-24"
   },
   "lists": {
     "input_modalities": [
@@ -20,9 +22,21 @@
     ],
     "output_modalities": [
       "video"
+    ],
+    "parameters": [
+      "media",
+      "model",
+      "negative_prompt",
+      "prompt",
+      "ratio",
+      "resolution",
+      "seconds",
+      "seed"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
+    "https://docs.together.ai/docs/wan2.7-quickstart.md"
   ]
 }

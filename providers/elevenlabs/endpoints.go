@@ -17,11 +17,42 @@ const (
 		"text-to-sound-effects/convert.md"
 	SpeechToTextURL = "https://elevenlabs.io/docs/api-reference/" +
 		"speech-to-text/convert.md"
+	MusicURL = "https://elevenlabs.io/docs/api-reference/" +
+		"music/compose.md"
+	TextToSpeechURL = "https://elevenlabs.io/docs/api-reference/" +
+		"text-to-speech/convert.md"
+	SpeechToSpeechURL = "https://elevenlabs.io/docs/api-reference/" +
+		"speech-to-speech/convert.md"
 )
 
 // endpointURLs are the references read for what they say about one model
 // rather than about the endpoint.
-var endpointURLs = []string{VoiceDesignURL, SoundEffectsURL, SpeechToTextURL}
+var endpointURLs = []string{
+	VoiceDesignURL,
+	SoundEffectsURL,
+	SpeechToTextURL,
+	MusicURL,
+	TextToSpeechURL,
+	SpeechToSpeechURL,
+}
+
+// endpointKinds name the models of an endpoint whose model_id is a free string
+// rather than an enumeration.
+//
+// Two endpoints identify their models by what a model can do instead of by
+// listing them: the text to speech endpoint takes any model with support for
+// text to speech and the voice changer endpoint any model with support for
+// speech to speech, which is the same statement the identifiers make and the
+// kind is read from. Both are therefore served by every model of one kind, and
+// what the page states of the endpoint is stated of all of them.
+//
+// The speech to text endpoint is deliberately absent. It is the batch endpoint
+// and the realtime model is served by a websocket instead, so its kind holds
+// models it does not serve.
+var endpointKinds = map[string]catalog.Kind{
+	TextToSpeechURL:   KindSpeech,
+	SpeechToSpeechURL: KindVoiceChanger,
+}
 
 // Capabilities an endpoint reference states.
 const (
@@ -49,6 +80,23 @@ var paramFeatures = map[string]string{
 	"no_verbatim":            FeatureDisfluencyRemoval,
 }
 
+// Enumerations an endpoint reference states for the models it names.
+const (
+	// ListOutputFormats holds the encodings a request may ask the audio back
+	// in, which ElevenLabs writes as codec, sample rate and bitrate joined by
+	// underscores.
+	ListOutputFormats = "output_formats"
+	// ListParameters holds the request parameters the endpoint accepts. It is
+	// the catalog's name for them rather than one invented here.
+	ListParameters = catalog.ListParameters
+	// ListEndpoints holds the path a model is called at.
+	ListEndpoints = "endpoints"
+)
+
+// outputFormatParam is the parameter whose enumeration is the list of
+// encodings.
+const outputFormatParam = "output_format"
+
 var (
 	paramRe    = regexp.MustCompile("^- `([a-z0-9_]+)`")
 	restrictRe = regexp.MustCompile(`(?i)only (?:supported|available|applies)`)
@@ -56,50 +104,108 @@ var (
 	textLenRe  = regexp.MustCompile(
 		`(?i)text length has to be between [\d,]+ and ([\d,]+)`,
 	)
+	routeRe = regexp.MustCompile(
+		`^(?:GET|POST|PUT|PATCH|DELETE) https?://[^/]+(/\S+)$`,
+	)
+	requestRe  = regexp.MustCompile(`(?i)^##\s+request\s*$`)
+	responseRe = regexp.MustCompile(`(?i)^##\s+response\s*$`)
 )
 
 // applyEndpoint reads one API reference page.
 //
-// Two things on it are facts about a model. A parameter the page restricts to a
-// named model states what that model can do and the others cannot, and is
-// recorded as the capability it names. The bound on the text a request may
-// carry belongs to every model the endpoint's model_id accepts, which the page
-// enumerates, and is the same per-request character limit the models page
-// states for speech synthesis.
+// What a page says about the endpoint becomes a fact about a model only where
+// the page enumerates the models its model_id accepts. Where it does, the route
+// it is called at, the parameters it takes, the encodings it returns and the
+// bound on the text a request may carry all belong to exactly those models. The
+// bound is the same per-request character limit the models page states for
+// speech synthesis. Where model_id is a free string instead, as it is for the
+// text to speech and speech to text endpoints, the page names no model and
+// nothing on it is recorded against one.
+//
+// A page whose model_id is a free string names its models by what they do
+// instead, and where that is the same statement the identifiers make, the page
+// is read onto every model of that kind.
+//
+// A parameter the page restricts to a named model is read whether or not
+// model_id is enumerated, because the restriction names the model itself.
 func (b *builder) applyEndpoint(doc catalog.Document) {
+	e := readEndpoint(doc, b)
+	apply := func(m *catalog.Model) {
+		m.AddSource(doc.URL)
+		m.SetLimit(LimitCharacterLimit, e.limit)
+		m.AddList(ListEndpoints, e.route)
+		m.AddList(ListParameters, e.params...)
+		m.AddList(ListOutputFormats, e.formats...)
+	}
+	if len(e.models) == 0 {
+		b.eachOfKind(doc, endpointKinds[doc.URL], apply)
+		return
+	}
+	for _, id := range e.models {
+		if m, ok := b.models[id]; ok {
+			apply(m)
+		}
+	}
+}
+
+// endpoint is what one API reference page says about the models it names.
+type endpoint struct {
+	route   string
+	models  []string
+	params  []string
+	formats []string
+	limit   int64
+}
+
+// readEndpoint walks one API reference page.
+//
+// Only the request half is read. The response half enumerates the fields of a
+// result, which describe what comes back rather than what may be asked for, and
+// a parameter list holding both would be neither.
+func readEndpoint(doc catalog.Document, b *builder) endpoint {
 	var (
-		param  string
-		models []string
-		limit  int64
+		e       endpoint
+		param   string
+		request bool
 	)
 	for _, raw := range strings.Split(string(doc.Body), "\n") {
 		line := strings.TrimSpace(raw)
+		if match := routeRe.FindStringSubmatch(line); match != nil &&
+			e.route == "" {
+			e.route = match[1]
+		}
+		switch {
+		case requestRe.MatchString(line):
+			request = true
+			continue
+		case responseRe.MatchString(line):
+			request = false
+			continue
+		}
+		if !request {
+			continue
+		}
 		if match := paramRe.FindStringSubmatch(line); match != nil {
 			param = match[1]
+			e.params = append(e.params, param)
 			if bound := textLenRe.FindStringSubmatch(line); bound != nil {
-				limit = count(bound[1])
+				e.limit = count(bound[1])
 			}
 			b.applyRestriction(doc, param, line)
 			continue
 		}
-		if param != "model_id" {
+		match := allowedRe.FindStringSubmatch(line)
+		if match == nil {
 			continue
 		}
-		if match := allowedRe.FindStringSubmatch(line); match != nil {
-			models = append(models, codeValues(match[1])...)
+		switch param {
+		case "model_id":
+			e.models = append(e.models, codeValues(match[1])...)
+		case outputFormatParam:
+			e.formats = append(e.formats, codeValues(match[1])...)
 		}
 	}
-	if limit == 0 {
-		return
-	}
-	for _, id := range models {
-		m, ok := b.models[id]
-		if !ok {
-			continue
-		}
-		m.AddSource(doc.URL)
-		m.SetLimit(LimitCharacterLimit, limit)
-	}
+	return e
 }
 
 // applyRestriction records a parameter one model of an endpoint accepts and the

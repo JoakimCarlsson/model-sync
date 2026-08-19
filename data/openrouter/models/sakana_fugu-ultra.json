@@ -13,6 +13,27 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 1,
       "currency": "USD",
       "dims": {
@@ -24,6 +45,27 @@
       "unit": "per_1m_tokens",
       "amount": 5,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana",
+        "min_prompt_tokens": "272000"
+      }
     },
     {
       "metric": "input_tokens",
@@ -43,6 +85,27 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 45,
       "currency": "USD",
       "dims": {
@@ -54,15 +117,26 @@
       "unit": "per_1k_calls",
       "amount": 10,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sakana AI",
+        "endpoint_tag": "sakana"
+      }
     }
   ],
   "attrs": {
     "author": "sakana",
     "canonical_slug": "sakana/fugu-ultra-20260615",
+    "modality": "text+image->text",
     "reasoning_default_effort": "xhigh",
     "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
-    "released": "2026-06-24",
+    "release_date": "2026-06-24",
     "summary": "Fugu Ultra is the higher-performance model in Sakana AI's Fugu family.",
     "tokenizer": "Other"
   },
@@ -72,6 +146,12 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "endpoint_tags": [
+      "sakana"
+    ],
+    "endpoints": [
+      "Sakana AI"
+    ],
     "features": [
       "function_calling",
       "prompt_caching",
@@ -102,6 +182,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/sakana/fugu-ultra-20260615/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

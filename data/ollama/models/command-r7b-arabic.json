@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "cohere2",
+    "default_snapshot": "command-r7b-arabic:latest",
+    "last_updated": "2025-02-28",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
     "summary": "A new state-of-the-art version of the lightweight Command R7B model that excels in advanced Arabic language capabilities for enterprises in the Middle East and Northern Africa."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/command-r7b-arabic/tags"
+    "https://ollama.com/library/command-r7b-arabic/tags",
+    "https://ollama.com/library/command-r7b-arabic:latest"
   ]
 }

@@ -5,30 +5,36 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "cache_write_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5,
+      "amount": 0.26,
       "currency": "USD"
     },
     {
-      "metric": "cache_write_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.5,
+      "amount": 0.26,
       "currency": "USD",
       "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.78,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
         "min_prompt_tokens": "256000"
       }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD"
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.2,
+      "amount": 0.78,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "256000"
@@ -37,13 +43,34 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.2,
+      "amount": 0.78,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 3.6,
+      "amount": 0.78,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.34,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.34,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "256000"
@@ -54,20 +81,31 @@
     "author": "qwen",
     "canonical_slug": "qwen/qwen-plus-2025-07-28",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-09-08",
+    "modality": "text->text",
+    "release_date": "2025-09-08",
     "summary": "Qwen Plus 0728, based on the Qwen3 foundation model, is a 1 million context hybrid reasoning model with a balanced performance, speed, and cost combination.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 995904,
     "max_output_tokens": 32768,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
-      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -94,9 +132,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen-plus-2025-07-28/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

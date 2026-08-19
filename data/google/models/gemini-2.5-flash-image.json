@@ -50,7 +50,7 @@
     },
     {
       "metric": "output_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.0195,
       "currency": "USD",
       "dims": {
@@ -60,7 +60,7 @@
     },
     {
       "metric": "output_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.0195,
       "currency": "USD",
       "dims": {
@@ -70,7 +70,7 @@
     },
     {
       "metric": "output_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.0702,
       "currency": "USD",
       "dims": {
@@ -80,7 +80,7 @@
     },
     {
       "metric": "output_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.039,
       "currency": "USD",
       "dims": {
@@ -90,8 +90,12 @@
     }
   ],
   "attrs": {
-    "latest_update": "October 2025",
+    "last_updated": "October 2025",
     "model_code": "gemini-2.5-flash-image",
+    "recommended_replacement": "gemini-3.1-flash-image-preview",
+    "release_date": "2025-10-02",
+    "retirement_date": "2026-10-02",
+    "state": "active",
     "summary": "Our best engine for high-velocity visual creation, offering state-of-the-art speed and efficiency. Gemini 2.5 Flash Image, also known as Nano Banana, is best for high-volume generation, conversational image editing, and low-latency creative workflows that require native multimodal understanding."
   },
   "limits": {
@@ -101,6 +105,18 @@
   "lists": {
     "aliases": [
       "gemini-2.5-flash-image"
+    ],
+    "aspect_ratios": [
+      "16:9",
+      "1:1",
+      "21:9",
+      "2:3",
+      "3:2",
+      "3:4",
+      "4:3",
+      "4:5",
+      "5:4",
+      "9:16"
     ],
     "features": [
       "batch",
@@ -124,6 +140,8 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
+    "https://ai.google.dev/gemini-api/docs/image-generation",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image",
     "https://ai.google.dev/gemini-api/docs/pricing"

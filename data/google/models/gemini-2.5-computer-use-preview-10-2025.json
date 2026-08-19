@@ -7,27 +7,20 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.25,
+      "amount": 2.5,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid"
       }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.5,
+      "amount": 1.25,
       "currency": "USD",
       "dims": {
-        "plan": "paid"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid"
       }
     },
@@ -37,12 +30,23 @@
       "amount": 15,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid"
       }
     }
   ],
   "attrs": {
-    "latest_update": "October 2025",
+    "last_updated": "October 2025",
     "model_code": "gemini-2.5-computer-use-preview-10-2025",
     "summary": "An agentic capability model designed for direct interface interaction, allowing Gemini to perceive and navigate digital environments. Gemini 2.5 Computer Use is best for browser automation, multi-step software tasks, and UI testing that requires visual reasoning and precise cursor control."
   },

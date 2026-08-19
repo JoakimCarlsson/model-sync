@@ -7,52 +7,156 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.003625,
-      "currency": "USD"
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "period": "off_peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.044,
+      "currency": "USD",
+      "dims": {
+        "period": "peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.435,
-      "currency": "USD"
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "period": "off_peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.32,
+      "currency": "USD",
+      "dims": {
+        "period": "peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.87,
-      "currency": "USD"
+      "amount": 1.98,
+      "currency": "USD",
+      "dims": {
+        "period": "off_peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.96,
+      "currency": "USD",
+      "dims": {
+        "period": "peak"
+      },
+      "note": "Off-peak rates are half of the peak rates. Peak hours are 01:00 - 04:00 and 06:00 - 10:00 UTC (all other hours are off-peak)."
     }
   ],
   "attrs": {
+    "activated_parameters": "49B",
+    "anthropic_base_url": "https://api.deepseek.com/anthropic",
+    "base_url": "https://api.deepseek.com",
+    "beta_base_url": "https://api.deepseek.com/beta",
+    "concurrency_limit_scope": "account",
+    "context_cache_lifetime": "a few hours to a few days",
+    "default_reasoning_effort": "high",
+    "default_snapshot": "DeepSeek-V4-Pro-0813",
+    "fim_completion_modes": "Non-thinking mode only",
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro",
+    "license": "mit",
+    "model_card_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
     "model_version": "DeepSeek-V4-Pro-0813",
-    "thinking_mode": "Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch"
+    "open_weights": "true",
+    "quantization": "FP4 + FP8 Mixed",
+    "release_date": "2026-08-13",
+    "state": "active",
+    "summary": "The GA release of DeepSeek-V4-Pro has been rolled out on the APP, Web, and API.",
+    "technical_report_url": "https://arxiv.org/abs/2606.19348",
+    "thinking_mode": "Supports both non-thinking and thinking (default) modes See Thinking Mode for how to switch",
+    "thinking_mode_default": "enabled",
+    "total_parameters": "1.6T"
   },
   "limits": {
     "concurrency_limit": 500,
+    "concurrency_limit_per_user_id": 500,
     "context_window": 1000000,
+    "fim_max_output_tokens": 4000,
+    "inference_start_timeout_seconds": 600,
     "max_output_tokens": 384000
   },
   "lists": {
     "endpoints": [
       "Anthropic",
+      "OpenAI",
       "Responses"
     ],
     "features": [
+      "chat_prefix_completion",
+      "context_caching",
+      "fim_completion",
       "function_calling",
-      "prefix",
+      "json_mode",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "web_search"
     ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "input",
+      "instructions",
+      "max_output_tokens",
+      "model",
+      "reasoning",
+      "stream",
+      "temperature",
+      "text",
+      "tool_choice",
+      "tools",
+      "top_logprobs",
+      "top_p",
+      "user"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
+    ],
+    "thinking_mode_unsupported_parameters": [
+      "frequency_penalty",
+      "presence_penalty",
+      "temperature",
+      "top_p"
     ]
   },
   "sources": [
+    "https://api-docs.deepseek.com/guides/fim_completion/",
+    "https://api-docs.deepseek.com/guides/kv_cache/",
     "https://api-docs.deepseek.com/guides/responses_api/",
+    "https://api-docs.deepseek.com/guides/thinking_mode/",
     "https://api-docs.deepseek.com/quick_start/pricing/",
-    "https://api-docs.deepseek.com/updates/"
+    "https://api-docs.deepseek.com/quick_start/rate_limit/",
+    "https://api-docs.deepseek.com/updates/",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/raw/main/README.md",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/raw/main/README.md"
   ]
 }

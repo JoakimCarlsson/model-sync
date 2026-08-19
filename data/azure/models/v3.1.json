@@ -1,6 +1,7 @@
 {
   "id": "v3.1",
   "provider": "azure",
+  "name": "DeepSeek-V3.1",
   "kind": "chat",
   "prices": [
     {
@@ -1017,9 +1018,14 @@
     }
   ],
   "attrs": {
-    "product": "Azure Deepseek Models"
+    "product": "Azure Deepseek Models",
+    "recommended_replacement": "DeepSeek-V4-Flash",
+    "retirement_date": "2026-07-13",
+    "state": "retired",
+    "version": "1"
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

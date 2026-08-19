@@ -12,18 +12,31 @@
     }
   ],
   "attrs": {
-    "author": "Ideogram"
+    "author": "Ideogram",
+    "category": "Image",
+    "model_card_url": "https://ideogram.ai/features/3.0",
+    "release_date": "2025-03-25",
+    "summary": "Premium text-to-image generation with superior text rendering capabilities."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/ideogram-3-0"
   ]
 }

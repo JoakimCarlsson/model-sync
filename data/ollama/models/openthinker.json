@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "openthinker:latest",
+    "last_updated": "2025-04-04",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.62B",
+    "quantization": "Q4_K_M",
     "summary": "A fully open-source family of reasoning models built using a dataset derived by distilling DeepSeek-R1."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/openthinker/tags"
+    "https://ollama.com/library/openthinker/tags",
+    "https://ollama.com/library/openthinker:latest"
   ]
 }

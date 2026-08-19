@@ -13,6 +13,27 @@
     {
       "metric": "audio_input",
       "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
       "amount": 4,
       "currency": "USD",
       "dims": {
@@ -26,10 +47,41 @@
       "currency": "USD"
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
       "metric": "cached_audio_input",
       "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "cached_audio_input",
@@ -45,6 +97,27 @@
       "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "cached_input_tokens",
@@ -62,10 +135,41 @@
       "currency": "USD"
     },
     {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.000002,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 2,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "input_tokens",
@@ -85,6 +189,27 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 18,
       "currency": "USD",
       "dims": {
@@ -98,18 +223,39 @@
       "currency": "USD"
     },
     {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 14,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
     }
   ],
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-pro-preview-customtools-20260219",
+    "modality": "text+image+file+audio+video->text",
     "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
-    "released": "2026-02-25",
+    "release_date": "2026-02-25",
     "summary": "Gemini 3.1 Pro Preview Custom Tools is a variant of Gemini 3.1 Pro that improves tool selection behavior by preventing overuse of a general bash tool when more efficient third-party...",
     "tokenizer": "Gemini"
   },
@@ -119,6 +265,12 @@
     "top_provider_context_window": 1048576
   },
   "lists": {
+    "endpoint_tags": [
+      "google-ai-studio"
+    ],
+    "endpoints": [
+      "Google AI Studio"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -150,6 +302,9 @@
       "tools",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
     "reasoning_efforts": [
       "high",
       "low",
@@ -157,6 +312,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemini-3.1-pro-preview-customtools-20260219/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

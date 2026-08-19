@@ -1,0 +1,81 @@
+{
+  "id": "bytedance-seed/seedream-4.5",
+  "provider": "openrouter",
+  "name": "ByteDance Seed: Seedream 4.5",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000958083832335329,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000958083832335329,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed"
+      }
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.58083832335329,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.58083832335329,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "bytedance-seed",
+    "canonical_slug": "bytedance-seed/seedream-4.5-20251203",
+    "modality": "text+image->image",
+    "release_date": "2025-12-23",
+    "summary": "Seedream 4.5 is the latest in-house image generation model developed by ByteDance.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 4096,
+    "top_provider_context_window": 4096
+  },
+  "lists": {
+    "endpoint_tags": [
+      "seed"
+    ],
+    "endpoints": [
+      "Seed"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/bytedance-seed/seedream-4.5-20251203/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

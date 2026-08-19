@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "sailor2:latest",
+    "last_updated": "2024-12-04",
+    "open_weights": "true",
+    "parameter_count": "8.55B",
+    "quantization": "Q4_K_M",
     "summary": "Sailor2 are multilingual language models made for South-East Asia. Available in 1B, 8B, and 20B parameter sizes."
   },
   "limits": {
@@ -27,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/sailor2/tags"
+    "https://ollama.com/library/sailor2/tags",
+    "https://ollama.com/library/sailor2:latest"
   ]
 }

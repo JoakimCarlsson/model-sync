@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "dolphin3:latest",
+    "last_updated": "2025-01-05",
+    "license": "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
     "summary": "Dolphin 3.0 Llama 3.1 8B 🐬 is the next generation of the Dolphin series of instruct-tuned models designed to be the ultimate general purpose local model, enabling coding, math, agentic, function calling, and general use cases."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/dolphin3/tags"
+    "https://ollama.com/library/dolphin3/tags",
+    "https://ollama.com/library/dolphin3:latest"
   ]
 }

@@ -26,12 +26,23 @@
   "attrs": {
     "default_snapshot": "computer-use-preview-2025-03-11",
     "knowledge_cutoff": "2023-10-01",
+    "last_updated": "2025-03-11",
+    "release_date": "2025-03-11",
     "state": "active",
     "summary": "Specialized model for computer use tool"
   },
   "limits": {
+    "batch_queue_limit_tier_3": 450000000,
+    "batch_queue_limit_tier_4": 450000000,
+    "batch_queue_limit_tier_5": 450000000,
     "context_window": 8192,
-    "max_output_tokens": 1024
+    "max_output_tokens": 1024,
+    "requests_per_minute_tier_3": 3000,
+    "requests_per_minute_tier_4": 3000,
+    "requests_per_minute_tier_5": 3000,
+    "tokens_per_minute_tier_3": 20000000,
+    "tokens_per_minute_tier_4": 20000000,
+    "tokens_per_minute_tier_5": 20000000
   },
   "lists": {
     "endpoints": [
@@ -54,6 +65,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/computer-use-preview.md"
   ]
 }

@@ -7,8 +7,14 @@ import (
 
 // table is one table together with the heading in force above it, which is
 // what tells a text embedding rate table from a reranker one.
+//
+// Trail is the whole chain of headings above it rather than the nearest one.
+// A page gathering every family of model states the family in a heading two or
+// three levels above the table, with headings in between that say only that
+// the models below are the older ones.
 type table struct {
 	Section string
+	Trail   string
 	Headers []string
 	Rows    [][]string
 	Source  string
@@ -35,13 +41,18 @@ func scanMarkdownTables(body, source string) []table {
 	var (
 		out     []table
 		section string
+		trail   []string
 		current *table
 	)
 	for _, raw := range strings.Split(body, "\n") {
 		line := strings.TrimSpace(raw)
 		if strings.HasPrefix(line, "|") {
 			if current == nil {
-				out = append(out, table{Section: section, Source: source})
+				out = append(out, table{
+					Section: section,
+					Trail:   joinTrail(trail),
+					Source:  source,
+				})
 				current = &out[len(out)-1]
 			}
 			cells := splitRow(line)
@@ -57,9 +68,37 @@ func scanMarkdownTables(body, source string) []table {
 		current = nil
 		if after, ok := strings.CutPrefix(line, "#"); ok {
 			section = headingName(after)
+			trail = push(trail, headingLevel(line), section)
 		}
 	}
 	return out
+}
+
+// headingLevel counts the hashes a heading opens with.
+func headingLevel(line string) int {
+	return len(line) - len(strings.TrimLeft(line, "#"))
+}
+
+// push places a heading at its level, discarding the headings below it.
+func push(trail []string, level int, name string) []string {
+	if level < 1 {
+		return trail
+	}
+	for len(trail) < level-1 {
+		trail = append(trail, "")
+	}
+	return append(trail[:level-1], name)
+}
+
+// joinTrail renders a heading chain, dropping the levels a page skipped.
+func joinTrail(trail []string) string {
+	kept := make([]string, 0, len(trail))
+	for _, name := range trail {
+		if name != "" {
+			kept = append(kept, name)
+		}
+	}
+	return strings.Join(kept, " > ")
 }
 
 // scanHTMLTables returns every HTML table, with the heading above it.
@@ -71,13 +110,16 @@ func scanHTMLTables(body, source string) []table {
 			continue
 		}
 		t.Section = headingBefore(body[:at[0]])
+		t.Trail = t.Section
 		t.Source = source
 		out = append(out, t)
 	}
 	return out
 }
 
-// parseHTMLTable reads one HTML table.
+// parseHTMLTable reads one HTML table. Cells are kept as written, as they are
+// in a markdown table: a caller reading a cell cleans it, and one reading a
+// cell for the document it links needs the link still there.
 func parseHTMLTable(block string) table {
 	var t table
 	for _, row := range htmlRowRe.FindAllStringSubmatch(block, -1) {
@@ -85,7 +127,7 @@ func parseHTMLTable(block string) table {
 		header := false
 		for _, cell := range htmlCellRe.FindAllStringSubmatch(row[1], -1) {
 			header = header || strings.EqualFold(cell[1], "th")
-			cells = append(cells, clean(cell[2]))
+			cells = append(cells, cell[2])
 		}
 		switch {
 		case len(cells) == 0:

@@ -4,6 +4,9 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
+    "default_snapshot": "nemotron-3-ultra:cloud",
+    "last_updated": "2026-06-04",
+    "parameter_count": "550B",
     "summary": "NVIDIA Nemotron 3 Ultra is built for high-throughput reasoning and long-running agent workflows.",
     "usage_level": "high",
     "usage_level_rank": "3"

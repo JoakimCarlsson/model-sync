@@ -11,9 +11,11 @@ import (
 
 // Scalar keys the model pages populate.
 const (
-	AttrSummary     = "summary"
-	AttrModelCode   = "model_code"
-	AttrLatestUpdte = "latest_update"
+	AttrSummary   = "summary"
+	AttrModelCode = "model_code"
+	// AttrLastUpdated holds what a model page heads "Latest update", which is
+	// the month Google last shipped a change to the model.
+	AttrLastUpdated = "last_updated"
 	AttrModelCard   = "model_card_url"
 )
 
@@ -62,6 +64,12 @@ const (
 	fieldTextInput = "text input"
 	// fieldDimension is the width of the vector an embedding model returns.
 	fieldDimension = "output dimension size"
+	// fieldOutImages and fieldOutVideo are what the image and video pages
+	// state in place of an output token limit, being models that answer in
+	// neither tokens nor a vector. Both are written as a count and one of them
+	// as a range, "1 to 4" images, whose upper end is the bound.
+	fieldOutImages = "output images"
+	fieldOutVideo  = "output video"
 )
 
 // ListDimensions holds the widths an embedding model can be asked for.
@@ -159,13 +167,7 @@ func (b *builder) applyModelPage(doc catalog.Document, id string) {
 		m.Name = text(first(titleRe, string(doc.Body)))
 	}
 	m.SetAttr(AttrSummary, text(first(summaryRe, string(doc.Body))))
-	for _, row := range pageRowRe.FindAllStringSubmatch(table[1], -1) {
-		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
-		if len(cells) < 2 {
-			continue
-		}
-		applyProperty(m, label(cells[0][1]), cells[1][1])
-	}
+	applyTable(m, table[1])
 }
 
 // pageCodes returns the endpoints a model page states it describes. A page
@@ -207,7 +209,7 @@ func applyProperty(m *catalog.Model, name, cell string) {
 		m.SetAttr(AttrModelCode, code)
 		m.AddList(ListAliases, code)
 	case rowUpdated:
-		m.SetAttr(AttrLatestUpdte, text(cell))
+		m.SetAttr(AttrLastUpdated, text(cell))
 	case rowModelCard:
 		m.SetAttr(AttrModelCard, first(hrefRe, cell))
 	case rowVersions:
@@ -237,6 +239,10 @@ func applyFields(m *catalog.Model, cell string) {
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))
 		case fieldDimension:
 			m.AddList(ListDimensions, dimensionsOf(value)...)
+		case fieldOutImages:
+			m.SetLimit(LimitMaxOutputImages, largestCount(value))
+		case fieldOutVideo:
+			m.SetLimit(LimitMaxOutputVideos, largestCount(value))
 		}
 	}
 }
@@ -269,7 +275,11 @@ func applyCapabilities(m *catalog.Model, cell string) {
 			!strings.Contains(state, supported) {
 			continue
 		}
-		m.AddList(ListFeatures, featureName(text(field[1])))
+		name := featureName(text(field[1]))
+		m.AddList(ListFeatures, name)
+		if name == catalog.CapabilityReasoning {
+			addThinkingLevels(m, strings.Trim(parenRe.FindString(state), "()"))
+		}
 	}
 }
 
@@ -362,4 +372,49 @@ func first(re *regexp.Regexp, body string) string {
 		return match[1]
 	}
 	return ""
+}
+
+// applyGuideTables reads every property table a capability guide carries.
+//
+// A guide devoted to one family repeats the model page of each member, and
+// carries one for the members Google publishes no model page for at all: both
+// builds of Veo 3 are priced, have no page of their own and are described only
+// here. A table names the endpoints it covers in its own model code row, so it
+// is attached by what it says rather than by where it sits, and a table
+// describing a model the pricing page does not price adds nothing.
+func (b *builder) applyGuideTables(doc catalog.Document) {
+	for _, table := range tableRe.FindAllStringSubmatch(string(doc.Body), -1) {
+		for _, id := range codesIn(tableCodes(table[1])) {
+			m, ok := b.models[id]
+			if !ok {
+				continue
+			}
+			m.AddSource(doc.URL)
+			applyTable(m, table[1])
+		}
+	}
+}
+
+// tableCodes returns the markup of a property table's model code row, which is
+// where a table says which endpoints it describes.
+func tableCodes(table string) string {
+	for _, row := range pageRowRe.FindAllStringSubmatch(table, -1) {
+		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
+		if len(cells) < 2 || label(cells[0][1]) != rowModelCode {
+			continue
+		}
+		return cells[1][1]
+	}
+	return ""
+}
+
+// applyTable records every row of one property table onto one model.
+func applyTable(m *catalog.Model, table string) {
+	for _, row := range pageRowRe.FindAllStringSubmatch(table, -1) {
+		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
+		if len(cells) < 2 {
+			continue
+		}
+		applyProperty(m, label(cells[0][1]), cells[1][1])
+	}
 }

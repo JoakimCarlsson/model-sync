@@ -1,7 +1,7 @@
 {
   "id": "qwen3-235b-a22b-instruct-2507",
   "provider": "vertexai",
-  "name": "qwen3 235b-a22b-instruct-2507",
+  "name": "Qwen3 235B",
   "kind": "chat",
   "prices": [
     {
@@ -41,6 +41,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "qwen",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2025-08-13",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy Qwen3 on Model Garden",
+    "state": "active",
+    "summary": "An open-weight model with a \"hybrid thinking\" capability to switch between methodical reasoning and rapid conversation."
+  },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 16384
@@ -55,10 +64,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global",
+      "us-south1"
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/qwen/qwen3-235b",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

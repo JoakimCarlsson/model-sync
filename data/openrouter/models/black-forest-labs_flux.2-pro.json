@@ -1,0 +1,59 @@
+{
+  "id": "black-forest-labs/flux.2-pro",
+  "provider": "openrouter",
+  "name": "Black Forest Labs: FLUX.2 Pro",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000732421875,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000732421875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Black Forest Labs",
+        "endpoint_tag": "black-forest-labs"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "black-forest-labs",
+    "canonical_slug": "black-forest-labs/flux.2-pro",
+    "modality": "text+image->image",
+    "release_date": "2025-11-25",
+    "summary": "A high-end image generation and editing model focused on frontier-level visual quality and reliability.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 46864,
+    "top_provider_context_window": 46864
+  },
+  "lists": {
+    "endpoint_tags": [
+      "black-forest-labs"
+    ],
+    "endpoints": [
+      "Black Forest Labs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "parameters": [
+      "seed"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/black-forest-labs/flux.2-pro/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

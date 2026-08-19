@@ -19,13 +19,27 @@
   ],
   "attrs": {
     "author": "OpenAI",
+    "category": "Chat",
+    "dedicated_hardware": "1xnvidia-h100-80gb",
+    "hugging_face_id": "OpenAI/gpt-oss-20B",
+    "intelligence": "High",
+    "last_updated": "2025-08-04",
+    "model_card_url": "https://huggingface.co/OpenAI/gpt-oss-20B",
+    "parameter_count": "20B",
     "quantization": "MXFP4",
-    "reasoning_mode": "adjustable effort"
+    "reasoning_mode": "adjustable effort",
+    "release_date": "2025-08-04",
+    "speed": "High",
+    "summary": "20B parameters, 128K context, reasoning with chain-of-thought, efficient single-GPU deployment, Apache 2.0 license"
   },
   "limits": {
     "context_window": 128000
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -37,11 +51,20 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat"
+    ],
+    "use_cases": [
+      "Chat",
+      "Function Calling",
+      "Small & Fast"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/gpt-oss-20b"
   ]
 }

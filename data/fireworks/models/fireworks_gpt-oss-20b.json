@@ -16,9 +16,29 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.035,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.07,
       "currency": "USD",
       "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
         "tier": "standard"
       }
     },
@@ -33,15 +53,34 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "calibrated": "false",
     "hugging_face_id": "openai/gpt-oss-20b",
-    "model_url": "https://app.fireworks.ai/models/fireworks/gpt-oss-20b",
+    "license": "Apache 2.0",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/gpt-oss-20b",
+    "model_url": "https://fireworks.ai/models/fireworks/gpt-oss-20b",
+    "open_weights": "true",
+    "parameter_count": "20.9B",
+    "release_date": "2025-08-04",
+    "state": "active",
     "summary": "Welcome to the gpt-oss series, OpenAI's open-weight models designed for powerful reasoning, agentic tasks, and versatile developer use cases. gpt-oss-20b is used for lower latency, and local or specialized use-cases."
   },
   "limits": {
-    "context_window": 131072
+    "context_window": 131072,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
   },
   "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
     "features": [
+      "grammar_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -53,9 +92,11 @@
     ]
   },
   "sources": [
-    "https://app.fireworks.ai/models/fireworks/gpt-oss-20b",
     "https://docs.fireworks.ai/api-reference/post-chatcompletions.md",
+    "https://docs.fireworks.ai/serverless/overview.md",
     "https://docs.fireworks.ai/serverless/pricing.md",
-    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/gpt-oss-20b"
   ]
 }

@@ -11,25 +11,174 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.35,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
     }
   ],
   "attrs": {
     "author": "meta",
     "canonical_slug": "meta/muse-glimmer-30b-20260810",
+    "default_temperature": "1",
+    "default_top_k": "64",
+    "default_top_p": "0.95",
     "hugging_face_id": "meta-models/Muse-Glimmer-30B",
+    "modality": "text+image->text",
     "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
-    "released": "2026-08-09",
+    "release_date": "2026-08-09",
     "summary": "Muse Glimmer 30B is a dense, open-weight multimodal model from Meta Superintelligence Labs, distilled from Muse Spark and optimized for autonomous agents on consumer hardware.",
     "tokenizer": "Other"
   },
@@ -39,6 +188,20 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "deepinfra/bf16",
+      "fireworks",
+      "parasail/bf16",
+      "phala",
+      "together"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Fireworks",
+      "Parasail",
+      "Phala",
+      "Together"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -75,6 +238,12 @@
       "top_logprobs",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
+    ],
     "reasoning_efforts": [
       "high",
       "low",
@@ -83,7 +252,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/meta/muse-glimmer-30b-20260810/endpoints"
+    "https://openrouter.ai/api/v1/models/meta/muse-glimmer-30b-20260810/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

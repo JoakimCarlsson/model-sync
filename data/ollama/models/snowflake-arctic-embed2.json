@@ -3,8 +3,15 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "bert",
     "default_embedding_dimension": "1024",
-    "summary": "Snowflake&#39;s frontier embedding model. Arctic Embed 2.0 adds multilingual support without sacrificing English performance or scalability."
+    "default_snapshot": "snowflake-arctic-embed2:latest",
+    "last_updated": "2024-12-04",
+    "open_weights": "true",
+    "parameter_count": "567M",
+    "quantization": "F16",
+    "summary": "Snowflake's frontier embedding model. Arctic Embed 2.0 adds multilingual support without sacrificing English performance or scalability.",
+    "tokenizer": "t5"
   },
   "limits": {
     "context_window": 8000
@@ -23,6 +30,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/snowflake-arctic-embed2/tags",
+    "https://ollama.com/library/snowflake-arctic-embed2:latest",
     "https://ollama.com/library/snowflake-arctic-embed2:latest/blobs/8c625c9569c3"
   ]
 }

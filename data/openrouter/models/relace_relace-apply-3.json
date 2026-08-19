@@ -11,16 +11,39 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.85,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Relace",
+        "endpoint_tag": "relace/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.25,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Relace",
+        "endpoint_tag": "relace/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "relace",
     "canonical_slug": "relace/relace-apply-3",
-    "released": "2025-09-26",
+    "modality": "text->text",
+    "release_date": "2025-09-26",
     "summary": "Relace Apply 3 is a specialized code-patching LLM that merges AI-suggested edits straight into your source files.",
     "tokenizer": "Other"
   },
@@ -30,6 +53,12 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "endpoint_tags": [
+      "relace/fp8"
+    ],
+    "endpoints": [
+      "Relace"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -40,10 +69,14 @@
       "max_tokens",
       "seed",
       "stop"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/relace/relace-apply-3/endpoints"
+    "https://openrouter.ai/api/v1/models/relace/relace-apply-3/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

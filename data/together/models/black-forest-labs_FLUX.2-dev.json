@@ -20,9 +20,19 @@
     ],
     "output_modalities": [
       "image"
+    ],
+    "parameters": [
+      "height",
+      "output_format",
+      "prompt",
+      "prompt_upsampling",
+      "reference_images",
+      "seed",
+      "width"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/quickstart-flux.md",
+    "https://docs.together.ai/docs/serverless/models.md"
   ]
 }

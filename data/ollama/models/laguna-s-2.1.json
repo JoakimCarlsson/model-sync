@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "laguna",
+    "default_snapshot": "laguna-s-2.1:latest",
+    "last_updated": "2026-07-27",
+    "license": "OpenMDW License Agreement, version 1.1 (OpenMDW-1.1)",
+    "open_weights": "true",
+    "parameter_count": "118B",
+    "quantization": "Q8_0",
     "summary": "Our most capable model to date, designed for long-horizon work. 70.2% on Terminal-Bench 2.1 at 118B-A8B."
   },
   "limits": {
@@ -24,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/laguna-s-2.1/tags"
+    "https://ollama.com/library/laguna-s-2.1/tags",
+    "https://ollama.com/library/laguna-s-2.1:latest"
   ]
 }

@@ -14,11 +14,16 @@ import (
 const DeprecationsURL = "https://docs.cohere.com/docs/deprecations.md"
 
 var (
-	// announcementRe matches one dated announcement and its body. Cohere heads
-	// each with the date it takes effect, which is the date the sentences
-	// below repeat in prose.
+	// announcementRe matches the heading of one dated announcement. Cohere
+	// heads each with the date it takes effect, which is the date the
+	// sentences below repeat in prose.
+	//
+	// Only the heading is matched, and the body is taken as the text up to the
+	// next one. A pattern that matched the body as well would have to consume
+	// the heading that ends it, which would leave every second announcement
+	// unread.
 	announcementRe = regexp.MustCompile(
-		`(?s)\n###\s+(\d{4}-\d{2}-\d{2})[^\n]*\n(.*?)(?:\n#|$)`,
+		`(?m)^###\s+(\d{4}-\d{2}-\d{2})[^\n]*$`,
 	)
 	// identifierRe matches one identifier inside a bullet, which Cohere writes
 	// in code style. A bullet names more than one where a version and the
@@ -80,15 +85,61 @@ func served(m *catalog.Model) bool {
 // April 2026 and their standing is stated nowhere else, so without this they
 // would read as live and be published as models anyone can still call.
 func (b *builder) applyLifecycle(doc catalog.Document) {
-	announcements := announcementRe.FindAllStringSubmatch(string(doc.Body), -1)
-	for _, announcement := range announcements {
+	body := string(doc.Body)
+	found := announcementRe.FindAllStringSubmatchIndex(body, -1)
+	for i, at := range found {
+		end := len(body)
+		if i+1 < len(found) {
+			end = found[i+1][0]
+		}
+		date := body[at[2]:at[3]]
+		announcement := body[at[1]:end]
 		for _, w := range withdrawals {
-			list := w.List.FindStringSubmatch(announcement[2])
+			list := w.List.FindStringSubmatch(announcement)
 			if list == nil {
 				continue
 			}
-			b.withdraw(doc, list[1], w, announcement[1])
+			b.withdraw(doc, list[1], w, date)
+			b.applyReplacements(doc, announcement, list[1])
 		}
+	}
+}
+
+// ListReplacements enumerates what Cohere recommends instead of a model it is
+// withdrawing.
+const ListReplacements = "recommended_replacements"
+
+// replacementRe matches the sentence an announcement recommends a replacement
+// in. Cohere names more than one and ranks them loosely, "or command-a-03-2025
+// (which is the strongest-performing model across domains)", so all of them are
+// recorded and none is promoted to the recommendation.
+var replacementRe = regexp.MustCompile(
+	"(?i)we recommend you use ((?:[^.]*?`[^`]+`)+[^.]*)\\.",
+)
+
+// applyReplacements records what an announcement recommends instead of the
+// models it withdraws.
+func (b *builder) applyReplacements(
+	doc catalog.Document,
+	announcement, bullets string,
+) {
+	match := replacementRe.FindStringSubmatch(announcement)
+	if match == nil {
+		return
+	}
+	var named []string
+	for _, id := range identifierRe.FindAllStringSubmatch(match[1], -1) {
+		if _, ok := b.models[id[1]]; ok {
+			named = append(named, id[1])
+		}
+	}
+	for _, withdrawn := range identifierRe.FindAllStringSubmatch(bullets, -1) {
+		m, ok := b.models[withdrawn[1]]
+		if !ok {
+			continue
+		}
+		m.AddList(ListReplacements, named...)
+		m.AddSource(doc.URL)
 	}
 }
 

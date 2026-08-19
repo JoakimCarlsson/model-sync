@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "deepcoder:latest",
+    "last_updated": "2025-04-08",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "14.8B",
+    "quantization": "Q4_K_M",
     "summary": "DeepCoder is a fully open-Source 14B coder model at O3-mini level, with a 1.5B version also available."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/deepcoder/tags"
+    "https://ollama.com/library/deepcoder/tags",
+    "https://ollama.com/library/deepcoder:latest"
   ]
 }

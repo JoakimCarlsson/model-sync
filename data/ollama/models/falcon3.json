@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "falcon3:latest",
+    "last_updated": "2024-12-17",
+    "license": "Falcon 3 TII Falcon License",
+    "open_weights": "true",
+    "parameter_count": "7.46B",
+    "quantization": "Q4_K_M",
     "summary": "A family of efficient AI models under 10B parameters performant in science, math, and coding through innovative training techniques."
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/falcon3/tags"
+    "https://ollama.com/library/falcon3/tags",
+    "https://ollama.com/library/falcon3:latest"
   ]
 }

@@ -1370,28 +1370,83 @@
     }
   ],
   "attrs": {
-    "product": "Azure Grok Models"
+    "author": "xAI",
+    "catalog_added_on": "2025-09-26",
+    "license": "custom",
+    "product": "Azure Grok Models",
+    "publisher": "xAI",
+    "state": "active",
+    "summary": "Grok 4 is the latest reasoning model from xAI with advanced reasoning and tool-use capabilities, enabling it to achieve new state-of-the-art performance across challenging academic and industry benchmarks.",
+    "version": "1"
   },
   "limits": {
     "context_window": 262000,
     "max_output_tokens": 8192
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
+      "agents",
+      "agents_v2",
       "function_calling"
     ],
     "input_modalities": [
       "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding",
+      "Low latency"
     ],
     "languages": [
       "en"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

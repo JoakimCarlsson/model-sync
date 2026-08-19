@@ -1,0 +1,15 @@
+{
+  "id": "llama-3-sonar-small-32k-chat",
+  "provider": "perplexity",
+  "name": "llama-3-sonar-small-32k-chat",
+  "kind": "chat",
+  "attrs": {
+    "state": "retired"
+  },
+  "notes": [
+    "Please note that several models will no longer be accessible effective 8/12/2024"
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/docs/resources/changelog.md"
+  ]
+}

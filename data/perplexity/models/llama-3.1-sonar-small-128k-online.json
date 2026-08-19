@@ -1,0 +1,16 @@
+{
+  "id": "llama-3.1-sonar-small-128k-online",
+  "provider": "perplexity",
+  "name": "llama-3.1-sonar-small-128k-online",
+  "kind": "chat",
+  "attrs": {
+    "retirement_date": "2025-02-22",
+    "state": "retired"
+  },
+  "notes": [
+    "Please note that as of February 22, 2025, several models and model name aliases will no longer be accessible"
+  ],
+  "sources": [
+    "https://docs.perplexity.ai/docs/resources/changelog.md"
+  ]
+}

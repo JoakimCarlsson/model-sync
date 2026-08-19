@@ -1,6 +1,7 @@
 {
   "id": "gpt-realtime-2.1",
   "provider": "azure",
+  "name": "gpt-realtime-2.1",
   "kind": "realtime",
   "prices": [
     {
@@ -3557,25 +3558,83 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2026-07-08",
+    "knowledge_cutoff": "2024-09",
+    "license": "custom",
     "product": "Azure OpenAI Media",
-    "training_data_cutoff": "September 2024"
+    "publisher": "OpenAI",
+    "release_date": "2026-07-07",
+    "retirement_date": "2027-06-25",
+    "state": "preview",
+    "summary": "Gpt‑realtime‑2.1 is a next‑generation speech‑to‑speech reasoning model that processes live audio input and generates audio responses with built‑in reasoning, enabling low‑latency conversational voice interactions.",
+    "training_data_cutoff": "September 2024",
+    "version": "2026-07-07"
   },
   "limits": {
     "context_window": 32000,
     "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "audio",
+      "image",
       "text"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
     ],
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "regions": [
+      "canadacentral",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "southindia",
+      "swedencentral"
+    ],
+    "tasks": [
+      "audio-generation"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

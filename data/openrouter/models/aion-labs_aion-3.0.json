@@ -11,23 +11,54 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AionLabs",
+        "endpoint_tag": "aion-labs"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 3,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AionLabs",
+        "endpoint_tag": "aion-labs"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AionLabs",
+        "endpoint_tag": "aion-labs"
+      }
     }
   ],
   "attrs": {
     "author": "aion-labs",
     "canonical_slug": "aion-labs/aion-3.0-20260707",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2026-07-07",
+    "release_date": "2026-07-07",
     "summary": "Aion-3.0 is a multi-model roleplaying and storytelling system from AionLabs, built on the GLM family of models.",
     "tokenizer": "Other"
   },
@@ -37,6 +68,12 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "aion-labs"
+    ],
+    "endpoints": [
+      "AionLabs"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -59,9 +96,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "IL"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/aion-labs/aion-3.0-20260707/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -1,0 +1,19 @@
+{
+  "id": "bash",
+  "provider": "anthropic",
+  "name": "Bash tool",
+  "kind": "tool",
+  "attrs": {
+    "execution": "client",
+    "release_status": "GA",
+    "state": "active"
+  },
+  "lists": {
+    "versions": [
+      "bash_20250124"
+    ]
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md"
+  ]
+}

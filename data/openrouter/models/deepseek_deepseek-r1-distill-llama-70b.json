@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.8,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
     "instruct_type": "deepseek-r1",
     "knowledge_cutoff": "2024-07-31",
-    "released": "2025-01-23",
+    "modality": "text->text",
+    "release_date": "2025-01-23",
     "summary": "DeepSeek R1 Distill Llama 70B is a distilled large language model based on [Llama-3.3-70B-Instruct](/meta-llama/llama-3.3-70b-instruct), using outputs from [DeepSeek R1](/deepseek/deepseek-r1).",
     "tokenizer": "Llama3"
   },
@@ -33,6 +56,12 @@
     "top_provider_context_window": 8192
   },
   "lists": {
+    "endpoint_tags": [
+      "novita/bf16"
+    ],
+    "endpoints": [
+      "Novita"
+    ],
     "features": [
       "reasoning"
     ],
@@ -54,9 +83,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-r1-distill-llama-70b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

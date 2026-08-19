@@ -20,10 +20,289 @@
       }
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 11,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 11,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 11,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6.875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
     },
     {
       "metric": "input_tokens",
@@ -32,25 +311,299 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 12.5,
       "currency": "USD"
     },
     {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 10,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/us-east-1"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Anthropic",
+        "endpoint_tag": "anthropic"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/global"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Claude Platform on AWS",
+        "endpoint_tag": "claude-on-aws"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/europe"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "59.2",
+    "artificial_analysis_coding_index": "78",
+    "artificial_analysis_intelligence_index": "63.1",
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-opus-5-20260723",
     "is_moderated": "true",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-24",
+    "release_date": "2026-07-24",
     "summary": "Claude Opus 5 is Anthropic’s flagship model for demanding reasoning, coding, and long-horizon agentic work.",
     "tokenizer": "Claude"
   },
@@ -60,6 +613,24 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "endpoint_tags": [
+      "amazon-bedrock",
+      "amazon-bedrock/us-east-1",
+      "anthropic",
+      "azure/global",
+      "azure/us",
+      "claude-on-aws",
+      "google-vertex/europe",
+      "google-vertex/global",
+      "google-vertex/us"
+    ],
+    "endpoints": [
+      "Amazon Bedrock",
+      "Anthropic",
+      "Azure",
+      "Claude Platform on AWS",
+      "Google"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -78,15 +649,20 @@
     ],
     "parameters": [
       "include_reasoning",
+      "max_completion_tokens",
       "max_tokens",
       "reasoning",
       "reasoning_effort",
       "response_format",
       "stop",
       "structured_outputs",
+      "temperature",
       "tool_choice",
       "tools",
       "verbosity"
+    ],
+    "provider_headquarters": [
+      "US"
     ],
     "reasoning_efforts": [
       "high",
@@ -97,6 +673,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/anthropic/claude-opus-5-20260723/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

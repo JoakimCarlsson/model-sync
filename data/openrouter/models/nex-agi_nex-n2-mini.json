@@ -11,23 +11,57 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0025,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Nex AGI",
+        "endpoint_tag": "nex-agi"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.025,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Nex AGI",
+        "endpoint_tag": "nex-agi"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Nex AGI",
+        "endpoint_tag": "nex-agi"
+      }
     }
   ],
   "attrs": {
     "author": "nex-agi",
     "canonical_slug": "nex-agi/nex-n2-mini",
+    "default_temperature": "0.7",
+    "default_top_k": "40",
+    "default_top_p": "0.95",
     "hugging_face_id": "nex-agi/Nex-N2-Mini",
-    "released": "2026-06-24",
+    "modality": "text+image->text",
+    "release_date": "2026-06-24",
     "summary": "Nex-N2-Mini is an open-source agentic mixture-of-experts model from Nex AGI, the smaller sibling in the Nex-N2 series.",
     "tokenizer": "Qwen3"
   },
@@ -37,6 +71,15 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "SG"
+    ],
+    "endpoint_tags": [
+      "nex-agi"
+    ],
+    "endpoints": [
+      "Nex AGI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -64,9 +107,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/nex-agi/nex-n2-mini/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

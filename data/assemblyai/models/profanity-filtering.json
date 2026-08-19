@@ -1,0 +1,46 @@
+{
+  "id": "profanity-filtering",
+  "provider": "assemblyai",
+  "name": "Profanity Filtering",
+  "kind": "guardrail",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.01,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "product": "Guardrails",
+    "regions": "US & EU",
+    "summary": "Filter out profanity from your transcripts"
+  },
+  "lists": {
+    "features": [
+      "profanity_filtering"
+    ],
+    "languages": [
+      "de",
+      "en",
+      "en_au",
+      "en_uk",
+      "en_us",
+      "es",
+      "fr",
+      "hi",
+      "it",
+      "ja",
+      "nl",
+      "pt"
+    ],
+    "supported_models": [
+      "universal-2",
+      "universal-3-5-pro"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/guardrails/filter-profanity-from-transcripts.md",
+    "https://www.assemblyai.com/pricing"
+  ]
+}

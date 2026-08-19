@@ -8,7 +8,23 @@
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.13,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
     },
     {
       "metric": "input_tokens",
@@ -17,28 +33,133 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3426,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.4",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.0284,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.4",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.95,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "43.5",
     "author": "deepseek",
     "canonical_slug": "deepseek/deepseek-v3.1-terminus",
     "hugging_face_id": "deepseek-ai/DeepSeek-V3.1-Terminus",
     "instruct_type": "deepseek-v3.1",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-09-22",
+    "modality": "text->text",
+    "release_date": "2025-09-22",
     "summary": "DeepSeek-V3.1 Terminus is an update to [DeepSeek V3.1](/deepseek/deepseek-chat-v3.1) that maintains the model's original capabilities while addressing issues reported by users, including language consistency and agent capabilities, further optimizing the model's...",
     "tokenizer": "DeepSeek"
   },
   "limits": {
     "context_window": 163840,
-    "max_output_tokens": 32768,
+    "max_output_tokens": 163840,
     "top_provider_context_window": 163840
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "atlas-cloud/fp8",
+      "novita/fp8",
+      "siliconflow/fp8",
+      "streamlake"
+    ],
+    "endpoints": [
+      "AtlasCloud",
+      "Novita",
+      "SiliconFlow",
+      "StreamLake"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -70,9 +191,19 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-v3.1-terminus/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

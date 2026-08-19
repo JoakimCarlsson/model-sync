@@ -206,8 +206,25 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-image-2-2026-04-21",
+    "last_updated": "2026-04-21",
+    "release_date": "2026-04-21",
     "state": "active",
     "summary": "State-of-the-art image generation model"
+  },
+  "limits": {
+    "images_per_minute_tier_1": 5,
+    "images_per_minute_tier_2": 20,
+    "images_per_minute_tier_3": 50,
+    "images_per_minute_tier_4": 150,
+    "images_per_minute_tier_5": 250,
+    "max_edge_pixels": 3840,
+    "max_output_pixels": 8294400,
+    "min_output_pixels": 655360,
+    "tokens_per_minute_tier_1": 100000,
+    "tokens_per_minute_tier_2": 250000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 3000000,
+    "tokens_per_minute_tier_5": 8000000
   },
   "lists": {
     "endpoints": [
@@ -222,8 +239,28 @@
       "image",
       "text"
     ],
+    "output_formats": [
+      "jpeg",
+      "png",
+      "webp"
+    ],
     "output_modalities": [
       "image"
+    ],
+    "qualities": [
+      "auto",
+      "high",
+      "low",
+      "medium"
+    ],
+    "sizes": [
+      "1024x1024",
+      "1024x1536",
+      "1536x1024",
+      "2048x1152",
+      "2048x2048",
+      "2160x3840",
+      "3840x2160"
     ],
     "snapshots": [
       "gpt-image-2-2026-04-21"
@@ -233,6 +270,7 @@
     "Additional sizes available"
   ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/guides/image-generation.md",
     "https://developers.openai.com/api/docs/models/gpt-image-2.md",
     "https://developers.openai.com/api/docs/pricing.md"

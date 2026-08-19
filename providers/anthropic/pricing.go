@@ -55,16 +55,18 @@ func tierFor(section string) (string, bool) {
 	return "", false
 }
 
-// applyPricing reads the rate tables and the prose-stated tool prices.
+// applyPricing reads the rate tables, the overhead table and the tool prices
+// stated in prose.
 func (b *builder) applyPricing(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
-		tier, ok := tierFor(t.Section)
-		if !ok {
+		if tier, ok := tierFor(t.Section); ok {
+			b.applyRateTable(t, tier)
 			continue
 		}
-		b.applyRateTable(t, tier)
+		b.applyToolOverhead(t)
 	}
 	b.applyToolPricing(string(doc.Body), doc.URL)
+	b.applyFreeToolPricing(string(doc.Body), doc.URL)
 }
 
 // applyRateTable emits one price per rate column of every row.
@@ -197,7 +199,9 @@ func (b *builder) applyToolPricing(body, source string) {
 			continue
 		}
 		m := b.model(rate.id, KindTool)
-		m.Name = rate.name
+		if m.Name == "" {
+			m.Name = rate.name
+		}
 		m.AddSource(source)
 		m.AddPrice(catalog.Price{
 			Metric:   rate.metric,
@@ -207,5 +211,102 @@ func (b *builder) applyToolPricing(body, source string) {
 			Dims:     catalog.Dims{DimTier: TierStandard},
 			Note:     allowanceOf(rate.allowance, rate.allowanceNote, text),
 		})
+	}
+}
+
+// Free rates. A tool Anthropic states a charge of zero for is priced, not
+// unpriced: the sentence saying a tool costs nothing beyond tokens is as much
+// a published rate as the one saying it costs ten dollars, and a catalog that
+// recorded only the second would leave a reader unable to tell a free tool
+// from one whose price nobody has read.
+var freeRates = []struct {
+	id      string
+	metric  catalog.Metric
+	unit    catalog.Unit
+	pattern *regexp.Regexp
+	note    string
+}{
+	{
+		id:     "web-fetch",
+		metric: MetricToolCall,
+		unit:   UnitPerRequest,
+		pattern: regexp.MustCompile(
+			`web fetch tool is available on the Claude API at no additional cost`,
+		),
+		note: "no additional charge beyond standard token costs",
+	},
+}
+
+// applyFreeToolPricing records the rates stated as an absence of one.
+func (b *builder) applyFreeToolPricing(body, source string) {
+	text := strings.ReplaceAll(body, "**", "")
+	for _, rate := range freeRates {
+		if !rate.pattern.MatchString(text) {
+			continue
+		}
+		m, ok := b.models[rate.id]
+		if !ok {
+			continue
+		}
+		m.AddSource(source)
+		m.AddPrice(catalog.Price{
+			Metric:   rate.metric,
+			Unit:     rate.unit,
+			Amount:   0,
+			Currency: currency,
+			Dims:     catalog.Dims{DimTier: TierStandard},
+			Note:     rate.note,
+		})
+	}
+}
+
+// toolSystemPromptRe matches one token count of the tool use overhead table,
+// whose cells hold two numbers where the model behaves two ways.
+var toolSystemPromptRe = regexp.MustCompile(`([\d,]+) tokens`)
+
+// applyToolOverhead records the size of the system prompt Anthropic prepends
+// whenever a request carries any tool at all.
+//
+// It is a bound rather than a rate, so it is a limit and not a price: the
+// tokens are billed at the model's own input rate and the table states how
+// many of them there are. Two numbers are stated per model, because a request
+// that lets Claude decide whether to call a tool is told less than one that
+// requires a call, and both are kept under their own key.
+func (b *builder) applyToolOverhead(t mdTable) {
+	choices, counts :=
+		columnOf(t, "tool choice"),
+		columnOf(t, "tool use system prompt token count")
+	if choices < 0 || counts < 0 {
+		return
+	}
+	for _, row := range t.Rows {
+		b.applyToolOverheadRow(t, row, choices, counts)
+	}
+}
+
+// applyToolOverheadRow records one model's two overheads.
+func (b *builder) applyToolOverheadRow(
+	t mdTable,
+	row []string,
+	choices, counts int,
+) {
+	found := toolSystemPromptRe.FindAllStringSubmatch(cellAt(row, counts), -1)
+	if len(found) < 2 {
+		return
+	}
+	keys := [2]string{LimitToolSystemPromptAuto, LimitToolSystemPromptAny}
+	choice := strings.ToLower(cellAt(row, choices))
+	if strings.Index(choice, "any") < strings.Index(choice, "auto") {
+		keys = [2]string{LimitToolSystemPromptAny, LimitToolSystemPromptAuto}
+	}
+	for _, ref := range splitModelCell(cellAt(row, 0)) {
+		m, ok := b.models[b.resolve(ref.Name)]
+		if !ok {
+			continue
+		}
+		m.AddSource(t.Source)
+		for i, key := range keys {
+			m.SetLimit(key, parseCount(found[i][1]))
+		}
 	}
 }

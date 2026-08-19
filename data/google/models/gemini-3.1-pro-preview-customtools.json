@@ -5,11 +5,52 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.2,
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
       "currency": "USD",
       "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 8.1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -20,16 +61,40 @@
       "amount": 0.4,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
-        "tier": "batch"
+        "tier": "flex"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 4.5,
+      "amount": 0.72,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -40,26 +105,7 @@
       "amount": 0.2,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -70,26 +116,7 @@
       "amount": 0.36,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.72,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8.1,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -100,26 +127,7 @@
       "amount": 0.2,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.4,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
@@ -127,9 +135,10 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
+      "amount": 2,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -140,16 +149,7 @@
       "amount": 2,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -157,9 +157,43 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2,
+      "amount": 7.2,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -170,16 +204,7 @@
       "amount": 3.6,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 7.2,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -190,16 +215,7 @@
       "amount": 2,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
@@ -207,9 +223,10 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 6,
+      "amount": 9,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -220,16 +237,7 @@
       "amount": 9,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6,
-      "currency": "USD",
-      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -237,9 +245,43 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 9,
+      "amount": 32.4,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -250,16 +292,7 @@
       "amount": 21.6,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 32.4,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -270,65 +303,112 @@
       "amount": 12,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 18,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_maps"
+      },
+      "note": "5,000 requests per month (free, shared across Gemini 3)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "flex"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "flex",
+        "tool": "google_maps"
+      },
+      "note": "5,000 requests per month (free, shared across Gemini 3)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "flex",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority",
+        "tool": "google_maps"
+      },
+      "note": "5,000 prompts per month (free, shared across Gemini 3)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard",
+        "tool": "google_maps"
+      },
+      "note": "5,000 prompts per month (free, shared across Gemini 3)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "February 2026",
+    "last_updated": "February 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-pro/",
-    "summary": "Built to refine the performance and reliability of the Gemini 3 Pro series, Gemini 3.1 Pro Preview provides better thinking, improved token efficiency, and a more grounded, factually consistent experience. It&#39;s optimized for software engineering behavior and usability, as well as agentic workflows requiring precise tool usage and reliable multi-step execution across real-world domains."
+    "summary": "Built to refine the performance and reliability of the Gemini 3 Pro series, Gemini 3.1 Pro Preview provides better thinking, improved token efficiency, and a more grounded, factually consistent experience. It's optimized for software engineering behavior and usability, as well as agentic workflows requiring precise tool usage and reliable multi-step execution across real-world domains."
   },
   "limits": {
     "context_window": 1048576,

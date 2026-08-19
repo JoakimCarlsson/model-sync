@@ -669,22 +669,78 @@
     }
   ],
   "attrs": {
-    "product": "Azure BFL Flux Models"
+    "author": "Black Forest Labs",
+    "catalog_added_on": "2025-12-11",
+    "license": "custom",
+    "product": "Azure BFL Flux Models",
+    "publisher": "Black Forest Labs",
+    "state": "active",
+    "summary": "Generate and edit images through both text and image prompts. FLUX.2-pro is a multimodal flow matching model that enables both text-to-image generation and in-context image editing. Modify images while maintaining character consistency and performing local",
+    "version": "1"
   },
   "limits": {
-    "context_window": 32000
+    "context_window": 32000,
+    "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Multimodal",
+      "Vision"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "image"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "image-to-image",
+      "text-to-image"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

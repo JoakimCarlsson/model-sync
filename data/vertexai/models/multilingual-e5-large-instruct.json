@@ -23,6 +23,11 @@
       }
     }
   ],
+  "attrs": {
+    "layers": "24",
+    "release_date": "2025-09-19",
+    "state": "active"
+  },
   "limits": {
     "context_window": 512
   },
@@ -35,6 +40,10 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "europe-west4",
+      "us-central1"
     ]
   },
   "sources": [

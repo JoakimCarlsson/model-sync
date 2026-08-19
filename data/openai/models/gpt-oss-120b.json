@@ -4,8 +4,14 @@
   "name": "gpt-oss-120b",
   "kind": "chat",
   "attrs": {
+    "active_parameters": "5.1B",
     "default_snapshot": "gpt-oss-120b",
+    "hugging_face_id": "openai/gpt-oss-120b",
     "knowledge_cutoff": "2024-06-01",
+    "license": "Apache 2.0",
+    "model_card_url": "https://huggingface.co/openai/gpt-oss-120b",
+    "open_weights": "true",
+    "parameters": "117B",
     "state": "active",
     "summary": "Most powerful open-weight model, fits into an H100 GPU"
   },

@@ -73,6 +73,12 @@ func (b *builder) readSharedSpecs(body string) {
 	}
 }
 
+// sharedSpecKeys are the bounds a model's specs consist of, which is the pair
+// the comparison table states as rows and nothing else. A rate limit is not a
+// spec of a model but a ceiling on an organization's use of one, and the rate
+// limits page tabulates the models it applies to by name.
+var sharedSpecKeys = []string{LimitContextWindow, LimitMaxOutputTokens}
+
 // applySharedSpecs records the bounds of a model the comparison table has no
 // column for, which Anthropic states by naming the model it matches.
 //
@@ -81,10 +87,14 @@ func (b *builder) readSharedSpecs(body string) {
 // Fable 5's specs and pricing". That is Anthropic stating the bounds, in the
 // only place it states them, so they are taken from the model named.
 //
-// Only what the sentence claims is copied. The rates are not, because the
-// pricing page lists the model itself and is the authority on those, and the
-// modalities are not, because the sentence covering every current model already
-// reaches it.
+// Only the bounds are copied. The rates are not, because the pricing page lists
+// the model itself and is the authority on those; the modalities are not,
+// because the sentence covering every current model already reaches it; and
+// nothing else is, because every other fact the two models might share is
+// stated of this one by name somewhere, and in one case stated the other way
+// round. Priority Tier names Claude Mythos 5 among the models it is not
+// available on while Claude Fable 5 carries it, so a copy would contradict a
+// document rather than stand in for a missing one.
 func (b *builder) applySharedSpecs() {
 	for _, pair := range b.sharedSpecs {
 		m, ok := b.models[pair[0]]
@@ -95,14 +105,8 @@ func (b *builder) applySharedSpecs() {
 		if !ok || source == m {
 			continue
 		}
-		for key, value := range source.Limits {
-			m.SetLimit(key, value)
-		}
-		for key, values := range source.Lists {
-			if key == ListInputModalities || key == ListOutputModalities {
-				continue
-			}
-			m.AddList(key, values...)
+		for _, key := range sharedSpecKeys {
+			m.SetLimit(key, source.Limits[key])
 		}
 	}
 }

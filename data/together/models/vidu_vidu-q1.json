@@ -16,19 +16,32 @@
     }
   ],
   "attrs": {
-    "author": "Vidu"
+    "author": "Vidu",
+    "category": "Video",
+    "release_date": "2025-10-07",
+    "summary": "High-quality 1080p video generation with optimized 5-second output."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/vidu-q1"
   ]
 }

@@ -35,7 +35,7 @@ const (
 	AttrAuthor       = "author"
 	AttrLicense      = "license"
 	AttrQuantization = "quantization"
-	AttrState        = "lifecycle_state"
+	AttrState        = "state"
 	AttrModelPath    = "model_path"
 	AttrReleased     = "release_date"
 	AttrModelSize    = "model_size_billions"

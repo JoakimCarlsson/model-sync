@@ -35,9 +35,11 @@ func (p *Provider) ID() string { return providerID }
 func (p *Provider) Name() string { return providerName }
 
 // Parse reads the model pages first, because they state the identifier a model
-// is billed and called under and everything known about it. The index and the
-// guides come last and add to models the pages already established: lifecycle
-// dates from the one, embedding widths from the others.
+// is billed and called under and everything known about it. Every other
+// document adds to models the pages already established, and none of them
+// creates one: the index supplies lifecycle dates, the guides supply the facts
+// stated of a capability rather than of a model, and the pricing page supplies
+// the ratios a published rate may be adjusted by.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -46,11 +48,18 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		switch {
-		case isModelPage(doc.URL):
-		case slices.Contains(guideURLs, doc.URL):
+		switch doc.URL {
+		case TextEmbeddingsURL, CodeEmbeddingsURL:
 			b.applyEmbeddings(doc)
-		default:
+		case OCRGuideURL:
+			b.applyOCRGuide(doc)
+		case LanguagesURL:
+			b.applyLanguages(doc)
+		case ReasoningURL:
+			b.applyReasoning(doc)
+		case PricingURL:
+			b.applyPricingPage(doc)
+		case ModelsURL:
 			b.applyDeprecations(doc)
 		}
 	}
@@ -66,10 +75,24 @@ func isModelPage(url string) bool {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// slugs maps the last segment of a model page's URL onto the identifier
+	// the page names, so a document that links to a page rather than naming a
+	// model can be matched to one.
+	slugs map[string]string
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models: map[string]*catalog.Model{},
+		slugs:  map[string]string{},
+	}
+}
+
+// sortedIDs returns the identifiers held, in order.
+func (b *builder) sortedIDs() []string {
+	ids := slices.Clone(b.order)
+	slices.Sort(ids)
+	return ids
 }
 
 // model returns the entry for id, creating it if absent.
@@ -96,8 +119,7 @@ func (b *builder) model(id string, kind catalog.Kind) *catalog.Model {
 // what removes its file, since the store deletes what the parser stops
 // emitting.
 func (b *builder) result() []catalog.Model {
-	ids := slices.Clone(b.order)
-	slices.Sort(ids)
+	ids := b.sortedIDs()
 	out := make([]catalog.Model, 0, len(ids))
 	for _, id := range ids {
 		m := b.models[id]

@@ -29,26 +29,46 @@ const baseURL = "https://docs.perplexity.ai"
 // covers what Perplexity sells directly; the models page covers what it
 // brokers from other labs.
 var documentURLs = []string{
-	baseURL + "/getting-started/pricing.md",
+	PricingURL,
 	AgentModelsURL,
 	EmbeddingsURL,
 	SonarIndexURL,
+	RouterModelsURL,
+	AgentToolsURL,
 	SonarAPIURL,
+	AsyncSonarURL,
+	EmbeddingsPostURL,
+	ContextEmbedURL,
+	SearchPostURL,
+	AgentRequestURL,
+	RouterChatURL,
+	RouterMessagesURL,
 	FeaturesURL,
 	MediaURL,
 	AgentOutputURL,
-	AgentRequestURL,
+	RateLimitsURL,
+	ChangelogURL,
+	MigrateURL,
+}
+
+// PricingURL is the rate card for everything Perplexity sells directly.
+const PricingURL = baseURL + "/getting-started/pricing.md"
+
+// rateDocumentURLs are the documents whose tables create models. Every other
+// document states something about models these have already named, and one
+// read into an identifier none of them carries has been misread.
+var rateDocumentURLs = []string{
+	PricingURL,
+	AgentModelsURL,
+	EmbeddingsURL,
+	SonarIndexURL,
+	RouterModelsURL,
 }
 
 // guideURLs are the documents describing the Sonar API rather than any one
 // model, which are read only after the model pages have said which models the
 // API serves.
 var guideURLs = []string{FeaturesURL, MediaURL}
-
-// agentGuideURLs are the same thing for the Agent API: documents stating what
-// the API takes and does, naming no model, read onto the models its own model
-// page listed.
-var agentGuideURLs = []string{AgentOutputURL, AgentRequestURL}
 
 // SonarIndexURL lists the models Perplexity serves itself and links to the
 // page each of them has, which is the only place a context window is stated.
@@ -88,24 +108,34 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 			continue
 		}
 		docs = append(docs, doc)
-		if url != SonarIndexURL {
-			continue
-		}
-		for _, page := range sonarModelURLs(doc) {
-			model, err := p.get(ctx, page)
+		for _, page := range linkedPages(doc) {
+			linked, err := p.get(ctx, page)
 			if err != nil {
 				failures = append(failures, err)
 				continue
 			}
-			docs = append(docs, model)
+			docs = append(docs, linked)
 		}
 	}
 	return docs, errors.Join(failures...)
 }
 
+// linkedPages returns the per-model and per-tool pages an index links to.
+// Each index addresses what it links to by a slug of its own, so those pages
+// are derived from the index rather than listed here.
+func linkedPages(doc catalog.Document) []string {
+	switch doc.URL {
+	case SonarIndexURL:
+		return sonarModelURLs(doc)
+	case AgentToolsURL:
+		return toolPageURLs(doc)
+	}
+	return nil
+}
+
 // Parse reads the rate documents first, because they are the only ones naming
-// the models, then the model pages and finally the guides onto what they
-// established.
+// the models, then the indexes that group them, and finally the references,
+// guides and dated documents onto what those established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -114,43 +144,81 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if strings.HasPrefix(doc.URL, sonarModelPre) {
-			b.applySonarPage(doc)
-		}
-		if doc.URL == AgentModelsURL {
-			b.applyAgentCards(doc)
-		}
+		b.applyIndex(doc)
 	}
 	for _, doc := range docs {
-		if doc.URL == MediaURL {
-			b.applyBaseModalities(doc.URL)
-		}
-		if slices.Contains(guideURLs, doc.URL) {
-			b.applyGuide(doc)
-		}
-		if doc.URL == SonarAPIURL {
-			b.applySonarReference(doc)
-		}
-		if doc.URL == AgentOutputURL {
-			b.applyAgentGuide(doc)
-		}
-		if doc.URL == AgentRequestURL {
-			b.applyAgentSchema(doc)
-		}
+		b.applyDetail(doc)
 	}
 	return b.result(), nil
 }
 
 // namesModels reports whether a document holds the rate tables a model is
-// created from. The guides and the API references state things about models
-// already named and never name one themselves, and a model page is addressed
-// by an identifier the tables have already established.
+// created from.
 func namesModels(url string) bool {
-	if strings.HasPrefix(url, sonarModelPre) || url == SonarAPIURL {
-		return false
+	return slices.Contains(rateDocumentURLs, url)
+}
+
+// applyIndex reads a document that groups models already named. This has to
+// happen before the references and guides, because those name no model and are
+// read onto the groups these establish.
+func (b *builder) applyIndex(doc catalog.Document) {
+	switch {
+	case strings.HasPrefix(doc.URL, sonarModelPre):
+		b.applySonarPage(doc)
+	case doc.URL == AgentModelsURL:
+		b.applyAgentCards(doc)
+	case doc.URL == RouterModelsURL:
+		b.applyRouterCatalog(doc)
+	case doc.URL == AgentToolsURL:
+		b.applyToolIndex(doc)
 	}
-	return !slices.Contains(guideURLs, url) &&
-		!slices.Contains(agentGuideURLs, url)
+}
+
+// applyDetail reads a document stating something about models already grouped.
+func (b *builder) applyDetail(doc catalog.Document) {
+	switch {
+	case doc.URL == MediaURL:
+		b.applyBaseModalities(doc.URL)
+		b.applyGuide(doc)
+	case doc.URL == FeaturesURL:
+		b.applyGuide(doc)
+	case doc.URL == EmbeddingsURL:
+		b.applyEmbeddingProse(doc)
+	case doc.URL == PricingURL:
+		b.applyProSearch(doc)
+	case doc.URL == SonarAPIURL, doc.URL == AsyncSonarURL:
+		b.applyReference(doc, b.sonar)
+	case doc.URL == EmbeddingsPostURL, doc.URL == ContextEmbedURL:
+		b.applyReference(doc, b.embedding)
+	case doc.URL == SearchPostURL:
+		b.applyReference(doc, b.searchAPI)
+	case doc.URL == AgentOutputURL:
+		b.applyAgentGuide(doc)
+	case doc.URL == AgentRequestURL:
+		b.applyAgentSchema(doc)
+		b.applyReference(doc, b.agent)
+		b.applyToolHost(doc)
+	case doc.URL == RouterChatURL, doc.URL == RouterMessagesURL:
+		b.applyRouterReference(doc)
+	case doc.URL == MigrateURL:
+		b.applyMigration(doc)
+	case doc.URL == RateLimitsURL:
+		b.applyRateLimits(doc)
+	case doc.URL == ChangelogURL:
+		b.applyChangelog(doc)
+	case b.toolPages[doc.URL] != "":
+		b.applyToolPage(doc)
+	}
+}
+
+// applyToolHost records the endpoint a built-in tool runs inside, which no
+// tool page states as a path and every one of them states as the Agent API.
+func (b *builder) applyToolHost(doc catalog.Document) {
+	path, ok := referencePath(string(doc.Body))
+	if !ok {
+		return
+	}
+	b.addEndpoint(b.tools, path, doc.URL)
 }
 
 // get retrieves one document, reading from and writing to the cache directory
@@ -236,6 +304,23 @@ type builder struct {
 	// agent holds the models the Agent API serves, which are the ones its model
 	// page tabulates. The Agent API's own guides name no model either.
 	agent []string
+	// router holds the models the Router API serves, which are the ones its
+	// own catalog lists and which that catalog calls its allowlist.
+	router []string
+	// embedding holds the embedding models, which the rate limit page bounds
+	// as a group rather than one at a time.
+	embedding []string
+	// tools holds the built-in tools of the Agent API, which are billed
+	// products rather than models and are named by the type a request enables
+	// them with.
+	tools []string
+	// searchAPI holds the standalone search product, which is billed per
+	// request and answers on an endpoint of its own.
+	searchAPI []string
+	// toolPages maps a tool's reference page onto the tool it documents, since
+	// a tool page is addressed by its title and not by the type a request
+	// enables it with.
+	toolPages map[string]string
 }
 
 func newBuilder() *builder {

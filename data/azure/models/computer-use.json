@@ -1,6 +1,7 @@
 {
   "id": "computer-use",
   "provider": "azure",
+  "name": "computer-use-preview",
   "kind": "chat",
   "prices": [
     {
@@ -995,14 +996,26 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-03-11",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "October 2023"
+    "publisher": "OpenAI",
+    "release_date": "2025-03-11",
+    "state": "preview",
+    "summary": "computer-use-preview is the model for Computer Use Agent for use in Responses API. You can use computer-use-preview model to get instructions to control a browser on your computer screen and take action on a user's behalf.",
+    "training_data_cutoff": "October 2023",
+    "version": "2025-03-11"
   },
   "limits": {
     "context_window": 8192,
     "max_output_tokens": 1024
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "features": [
       "function_calling",
       "streaming"
@@ -1011,11 +1024,54 @@
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "eastus2",
+      "southindia",
+      "swedencentral"
+    ],
+    "tasks": [
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]

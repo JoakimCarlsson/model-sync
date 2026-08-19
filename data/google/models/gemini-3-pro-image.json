@@ -72,7 +72,7 @@
     },
     {
       "metric": "input_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.0011,
       "currency": "USD",
       "dims": {
@@ -208,29 +208,35 @@
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "priority",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "November 2025",
+    "last_updated": "November 2025",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-pro-image/",
-    "model_code": "gemini-3-pro-image"
+    "model_code": "gemini-3-pro-image",
+    "release_date": "2026-05-28",
+    "state": "active"
   },
   "limits": {
     "context_window": 65536,
@@ -261,6 +267,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image",
     "https://ai.google.dev/gemini-api/docs/pricing"

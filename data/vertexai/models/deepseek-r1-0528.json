@@ -1,7 +1,7 @@
 {
   "id": "deepseek-r1-0528",
   "provider": "vertexai",
-  "name": "deepseek r1 0528",
+  "name": "DeepSeek R1 (0528)",
   "kind": "chat",
   "prices": [
     {
@@ -41,6 +41,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "deepseek-ai",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2025-07-08",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy DeepSeek-R1 on Model Garden",
+    "state": "active",
+    "summary": "A version of the DeepSeek R1 model from DeepSeek."
+  },
   "limits": {
     "context_window": 163840,
     "max_output_tokens": 32768
@@ -55,11 +64,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-central1"
     ]
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/r1-0528",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]

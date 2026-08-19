@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "wizardcoder:latest",
+    "last_updated": "2024-01-05",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "State-of-the-art code generation model"
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/wizardcoder/tags"
+    "https://ollama.com/library/wizardcoder/tags",
+    "https://ollama.com/library/wizardcoder:latest"
   ]
 }

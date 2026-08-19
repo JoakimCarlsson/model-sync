@@ -11,16 +11,124 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.35,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.7,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.571,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.286,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake"
+      }
     }
   ],
   "attrs": {
@@ -29,8 +137,9 @@
     "hugging_face_id": "deepseek-ai/DeepSeek-R1-0528",
     "instruct_type": "deepseek-r1",
     "knowledge_cutoff": "2025-03-31",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-05-28",
+    "release_date": "2025-05-28",
     "summary": "May 28th update to the [original DeepSeek R1](/deepseek/deepseek-r1) Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens.",
     "tokenizer": "DeepSeek"
   },
@@ -40,6 +149,21 @@
     "top_provider_context_window": 163840
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "deepinfra/fp4",
+      "novita/fp8",
+      "siliconflow/fp8",
+      "streamlake"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Novita",
+      "SiliconFlow",
+      "StreamLake"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -73,9 +197,20 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp4",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-r1-0528/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

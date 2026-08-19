@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/pythia-12b",
+  "provider": "fireworks",
+  "name": "Pythia 12B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Eleuther",
+    "calibrated": "false",
+    "hugging_face_id": "EleutherAI/pythia-12b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/pythia-12b",
+    "model_url": "https://fireworks.ai/models/fireworks/pythia-12b",
+    "open_weights": "true",
+    "parameter_count": "11.8B",
+    "release_date": "2024-03-02",
+    "state": "active",
+    "summary": "The Pythia model suite was deliberately designed to promote scientific research on large language models, especially interpretability research. Despite not centering downstream performance as a design goal, the models match or exceed the performance of similar and same-sized models, such as those in the OPT and GPT-Neo suites."
+  },
+  "limits": {
+    "context_window": 2048
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/pythia-12b"
+  ]
+}

@@ -7,43 +7,43 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 6.25,
+      "amount": 3.125,
       "currency": "USD"
     },
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
-      "amount": 12.5,
+      "amount": 6.25,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "272000"
       }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD"
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
-      "currency": "USD"
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "272000"
       }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 5,
-      "currency": "USD"
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 10,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "272000"
@@ -52,13 +52,13 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 30,
+      "amount": 15,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 45,
+      "amount": 22.5,
       "currency": "USD",
       "dims": {
         "min_prompt_tokens": "272000"
@@ -77,9 +77,10 @@
     "canonical_slug": "~openai/gpt-latest",
     "is_moderated": "true",
     "knowledge_cutoff": "2026-02-16",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "medium",
     "reasoning_default_enabled": "true",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the OpenAI GPT family.",
     "tokenizer": "Router"
   },
@@ -127,6 +128,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~openai/gpt-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

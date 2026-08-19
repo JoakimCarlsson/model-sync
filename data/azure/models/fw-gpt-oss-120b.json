@@ -1,6 +1,7 @@
 {
   "id": "fw-gpt-oss-120b",
   "provider": "azure",
+  "name": "gpt-oss-120b",
   "kind": "chat",
   "prices": [
     {
@@ -731,8 +732,16 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-08-18",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure Fireworks Models",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "state": "active",
+    "summary": "Push the open model frontier with GPT-OSS models, released under the permissive Apache 2.0 license, allowing anyone to use, modify, and deploy them freely.",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "1"
   },
   "limits": {
     "context_window": 131072,
@@ -743,6 +752,8 @@
       "Chat Completions"
     ],
     "features": [
+      "agents",
+      "agents_v2",
       "function_calling",
       "reasoning",
       "streaming",
@@ -751,12 +762,25 @@
     "input_modalities": [
       "text"
     ],
+    "keywords": [
+      "Coding",
+      "Multilingual",
+      "Reasoning"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

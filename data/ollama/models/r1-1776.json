@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "r1-1776:latest",
+    "last_updated": "2025-02-21",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "70.6B",
+    "quantization": "Q4_K_M",
     "summary": "A version of the DeepSeek-R1 model that has been post trained to provide unbiased, accurate, and factual information by Perplexity."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/r1-1776/tags"
+    "https://ollama.com/library/r1-1776/tags",
+    "https://ollama.com/library/r1-1776:latest"
   ]
 }

@@ -24,14 +24,26 @@
     }
   ],
   "attrs": {
+    "active_parameter_count": "40B",
     "author": "Z.ai",
-    "quantization": "FP4"
+    "category": "Chat",
+    "dedicated_hardware": "4xnvidia-b200-180gb",
+    "parameter_count": "753B",
+    "quantization": "FP4",
+    "release_date": "2026-06-16",
+    "serverless_since": "2026-06-17",
+    "summary": "Flagship MoE model (744B total / 40B activated) with a 256K context window, 131K output cap, two thinking-effort levels, and day-one drop-in compatibility for major coding agents."
   },
   "limits": {
     "context_window": 512000,
     "max_output_tokens": 128000
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Provisioned Throughput",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -43,11 +55,21 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
     "https://docs.together.ai/docs/glm-5.2-quickstart.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/glm-52"
   ]
 }

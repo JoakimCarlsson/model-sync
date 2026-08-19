@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "wizard-vicuna-uncensored:latest",
+    "last_updated": "2023-10-28",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "Wizard Vicuna Uncensored is a 7B, 13B, and 30B parameter model based on Llama 2 uncensored by Eric Hartford."
   },
   "limits": {
@@ -27,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/wizard-vicuna-uncensored/tags"
+    "https://ollama.com/library/wizard-vicuna-uncensored/tags",
+    "https://ollama.com/library/wizard-vicuna-uncensored:latest"
   ]
 }

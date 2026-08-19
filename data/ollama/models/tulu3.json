@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "tulu3:latest",
+    "last_updated": "2024-12-21",
+    "license": "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
     "summary": "Tülu 3 is a leading instruction following model family, offering fully open-source data, code, and recipes by the The Allen Institute for AI."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/tulu3/tags"
+    "https://ollama.com/library/tulu3/tags",
+    "https://ollama.com/library/tulu3:latest"
   ]
 }

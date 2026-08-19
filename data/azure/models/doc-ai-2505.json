@@ -1,6 +1,7 @@
 {
   "id": "doc-ai-2505",
   "provider": "azure",
+  "name": "mistral-document-ai-2505",
   "kind": "chat",
   "prices": [
     {
@@ -885,9 +886,14 @@
     }
   ],
   "attrs": {
-    "product": "Azure Mistral Models"
+    "product": "Azure Mistral Models",
+    "recommended_replacement": "mistral-document-ai-2512, mistral-ocr-4-0",
+    "retirement_date": "2026-07-20",
+    "state": "retired",
+    "version": "1"
   },
   "sources": [
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

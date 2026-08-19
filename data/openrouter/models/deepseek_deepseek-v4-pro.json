@@ -1,43 +1,695 @@
 {
   "id": "deepseek/deepseek-v4-pro",
   "provider": "openrouter",
-  "name": "DeepSeek: DeepSeek V4 Pro",
+  "name": "DeepSeek: DeepSeek V4 Pro 0423",
   "kind": "chat",
   "prices": [
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.09855,
+      "amount": 0.1215,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1215,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.057855,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.601",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.058,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.118,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.16,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.145,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "BaseTen",
+        "endpoint_tag": "baseten/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.022,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepSeek",
+        "endpoint_tag": "deepseek"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.174,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.145,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.094,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Ionstream",
+        "endpoint_tag": "ionstream/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.44,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.168,
+      "amount": 1.44,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.69426,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.601",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.696,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.416,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.68,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.91,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.69,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "BaseTen",
+        "endpoint_tag": "baseten/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepSeek",
+        "endpoint_tag": "deepseek"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.87,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.131,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Ionstream",
+        "endpoint_tag": "ionstream/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.50162,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.65,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.88,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.336,
-      "currency": "USD"
+      "amount": 2.88,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.38852,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.601",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.392,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.832,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.38,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.83,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/us"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.38,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "BaseTen",
+        "endpoint_tag": "baseten/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.98,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepSeek",
+        "endpoint_tag": "deepseek"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.74,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.262,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Ionstream",
+        "endpoint_tag": "ionstream/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.48,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Together",
+        "endpoint_tag": "together"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.301,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "37.8",
+    "artificial_analysis_coding_index": "59.4",
+    "artificial_analysis_intelligence_index": "45.3",
     "author": "deepseek",
     "canonical_slug": "deepseek/deepseek-v4-pro-20260423",
+    "default_temperature": "1",
+    "default_top_p": "1",
     "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro",
+    "implicit_prompt_caching": "true",
+    "modality": "text->text",
     "reasoning_default_effort": "high",
-    "released": "2026-04-24",
+    "release_date": "2026-04-24",
     "summary": "DeepSeek V4 Pro is a large-scale Mixture-of-Experts model from DeepSeek with 1.6T total parameters and 49B activated parameters, supporting a 1M-token context window.",
     "tokenizer": "DeepSeek"
   },
   "limits": {
     "context_window": 1048576,
+    "max_input_tokens": 1000000,
     "max_output_tokens": 393216,
     "top_provider_context_window": 1048576
   },
   "lists": {
+    "categories": [
+      "academia",
+      "finance",
+      "health",
+      "legal",
+      "marketing",
+      "marketing/seo",
+      "programming",
+      "roleplay",
+      "science",
+      "technology",
+      "translation",
+      "trivia"
+    ],
+    "datacenter_countries": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "endpoint_tags": [
+      "alibaba/fp8",
+      "atlas-cloud/fp4",
+      "azure/us",
+      "baidu/fp8",
+      "baseten/fp4",
+      "coreweave/fp8",
+      "deepinfra/fp8",
+      "deepseek",
+      "digitalocean",
+      "fireworks",
+      "gmicloud/fp8",
+      "ionstream/fp4",
+      "novita/fp8",
+      "parasail/fp8",
+      "siliconflow/fp8",
+      "streamlake/fp8",
+      "together",
+      "venice"
+    ],
+    "endpoints": [
+      "Alibaba",
+      "AtlasCloud",
+      "Azure",
+      "Baidu",
+      "BaseTen",
+      "CoreWeave",
+      "DeepInfra",
+      "DeepSeek",
+      "DigitalOcean",
+      "Fireworks",
+      "GMICloud",
+      "Ionstream",
+      "Novita",
+      "Parasail",
+      "SiliconFlow",
+      "StreamLake",
+      "Together",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -56,6 +708,7 @@
       "include_reasoning",
       "logit_bias",
       "logprobs",
+      "max_completion_tokens",
       "max_tokens",
       "min_p",
       "presence_penalty",
@@ -73,12 +726,35 @@
       "top_logprobs",
       "top_p"
     ],
+    "provider_headquarters": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp4",
+      "fp8"
+    ],
     "reasoning_efforts": [
       "high",
       "xhigh"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-v4-pro-20260423/endpoints",
+    "https://openrouter.ai/api/v1/models?category=academia",
+    "https://openrouter.ai/api/v1/models?category=finance",
+    "https://openrouter.ai/api/v1/models?category=health",
+    "https://openrouter.ai/api/v1/models?category=legal",
+    "https://openrouter.ai/api/v1/models?category=marketing",
+    "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
+    "https://openrouter.ai/api/v1/models?category=programming",
+    "https://openrouter.ai/api/v1/models?category=roleplay",
+    "https://openrouter.ai/api/v1/models?category=science",
+    "https://openrouter.ai/api/v1/models?category=technology",
+    "https://openrouter.ai/api/v1/models?category=translation",
+    "https://openrouter.ai/api/v1/models?category=trivia",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

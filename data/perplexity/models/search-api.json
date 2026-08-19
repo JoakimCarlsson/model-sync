@@ -14,7 +14,18 @@
   "attrs": {
     "summary": "Raw web search results with advanced filtering"
   },
+  "limits": {
+    "burst_query_units": 50,
+    "query_units_per_second": 50
+  },
+  "lists": {
+    "endpoints": [
+      "/search"
+    ]
+  },
   "sources": [
+    "https://docs.perplexity.ai/api-reference/search-post.md",
+    "https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]
 }

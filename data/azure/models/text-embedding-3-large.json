@@ -1,6 +1,7 @@
 {
   "id": "text-embedding-3-large",
   "provider": "azure",
+  "name": "text-embedding-3-large",
   "kind": "embedding",
   "prices": [
     {
@@ -753,19 +754,84 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2024-07-15",
+    "knowledge_cutoff": "2021-09",
+    "license": "custom",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "Sep 2021"
+    "publisher": "OpenAI",
+    "retirement_date": "2028-02-09",
+    "state": "active",
+    "summary": "Text-embedding-3 series models are the latest and most capable embedding model from OpenAI.",
+    "training_data_cutoff": "Sep 2021",
+    "version": "1"
   },
   "limits": {
     "context_window": 8192
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard",
+      "Standard"
+    ],
     "embedding_dimensions": [
       "3072"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "RAG"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "northeurope",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "ukwest",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "embeddings"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

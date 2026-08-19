@@ -1,7 +1,7 @@
 {
   "id": "deepseek-v3.2",
   "provider": "vertexai",
-  "name": "deepseek v3.2",
+  "name": "DeepSeek-V3.2",
   "kind": "chat",
   "prices": [
     {
@@ -33,6 +33,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "deepseek-ai",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2025-12-10",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy DeepSeek-V3.2 on Model Garden",
+    "state": "active",
+    "summary": "DeepSeek's model that harmonizes high computational efficiency with superior reasoning and agent performance."
+  },
   "limits": {
     "context_window": 163840,
     "max_output_tokens": 65536
@@ -47,10 +56,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global"
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/deepseek/deepseek-v32",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

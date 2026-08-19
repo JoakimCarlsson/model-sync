@@ -3,7 +3,24 @@
   "provider": "cohere",
   "name": "Command R",
   "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "note": "rate of the model this identifier is an alias for"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "note": "rate of the model this identifier is an alias for"
+    }
+  ],
   "attrs": {
+    "alias_of": "command-r-03-2024",
     "amazon_bedrock_id": "cohere.command-r-v1:0",
     "amazon_sagemaker_id": "Unique per deployment",
     "azure_ai_foundry_id": "Unique per deployment",
@@ -31,10 +48,41 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "citation_options",
+      "documents",
+      "frequency_penalty",
+      "k",
+      "logprobs",
+      "max_tokens",
+      "messages",
+      "model",
+      "p",
+      "presence_penalty",
+      "priority",
+      "response_format",
+      "safety_mode",
+      "seed",
+      "stop_sequences",
+      "stream",
+      "strict_tools",
+      "temperature",
+      "thinking",
+      "tool_choice",
+      "tools"
+    ],
+    "recommended_replacements": [
+      "command-a-03-2025",
+      "command-r-08-2024",
+      "command-r-plus-08-2024"
     ]
   },
   "sources": [
+    "https://cohere.com/pricing",
+    "https://docs.cohere.com/docs/deprecations.md",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/reference/chat.md",
     "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]

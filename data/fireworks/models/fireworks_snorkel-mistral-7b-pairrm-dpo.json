@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/snorkel-mistral-7b-pairrm-dpo",
+  "provider": "fireworks",
+  "name": "Snorkel Mistral PairRM DPO",
+  "kind": "chat",
+  "attrs": {
+    "author": "Snorkel",
+    "calibrated": "false",
+    "hugging_face_id": "snorkelai/Snorkel-Mistral-PairRM-DPO",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/snorkel-mistral-7b-pairrm-dpo",
+    "model_url": "https://fireworks.ai/models/fireworks/snorkel-mistral-7b-pairrm-dpo",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "release_date": "2024-03-02",
+    "state": "active",
+    "summary": "A fine-tuned version of the Mistral-7B model developed by Snorkel using PairRM for response ranking and Direct Preference Optimization (DPO) for model adaptation and refinement."
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/snorkel-mistral-7b-pairrm-dpo"
+  ]
+}

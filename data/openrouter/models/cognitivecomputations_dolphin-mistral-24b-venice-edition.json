@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp16",
+        "quantization": "fp16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.9,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp16",
+        "quantization": "fp16"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +44,8 @@
     "canonical_slug": "venice/uncensored",
     "hugging_face_id": "cognitivecomputations/Dolphin-Mistral-24B-Venice-Edition",
     "knowledge_cutoff": "2024-04-30",
-    "released": "2025-07-09",
+    "modality": "text->text",
+    "release_date": "2025-07-09",
     "summary": "Venice Uncensored Dolphin Mistral 24B Venice Edition is a fine-tuned variant of Mistral-Small-24B-Instruct-2501, developed by dphn.ai in collaboration with Venice.ai.",
     "tokenizer": "Other"
   },
@@ -32,6 +55,15 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "venice/fp16"
+    ],
+    "endpoints": [
+      "Venice"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -51,9 +83,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/venice/uncensored/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

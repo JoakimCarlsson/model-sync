@@ -1,0 +1,72 @@
+{
+  "id": "qwen/qwen3-embedding-4b",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 Embedding 4B",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-embedding-4b",
+    "hugging_face_id": "Qwen/Qwen3-Embedding-4B",
+    "modality": "text->embeddings",
+    "release_date": "2025-10-28",
+    "summary": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32768,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "endpoint_tags": [
+      "deepinfra"
+    ],
+    "endpoints": [
+      "DeepInfra"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-embedding-4b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

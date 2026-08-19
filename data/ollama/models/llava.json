@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "llava:latest",
+    "last_updated": "2024-02-01",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "🌋 LLaVA is a novel end-to-end trained large multimodal model that combines a vision encoder and Vicuna for general-purpose visual and language understanding. Updated to version 1.6."
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/llava/tags"
+    "https://ollama.com/library/llava/tags",
+    "https://ollama.com/library/llava:latest"
   ]
 }

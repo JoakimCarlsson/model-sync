@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "magistral:latest",
+    "last_updated": "2025-06-16",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "23.6B",
+    "quantization": "Q4_K_M",
     "summary": "Magistral is a small, efficient reasoning model with 24B parameters."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/magistral/tags"
+    "https://ollama.com/library/magistral/tags",
+    "https://ollama.com/library/magistral:latest"
   ]
 }

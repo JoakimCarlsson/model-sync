@@ -20,7 +20,8 @@
   "attrs": {
     "author": "openrouter",
     "canonical_slug": "openrouter/auto-beta",
-    "released": "2026-07-17",
+    "modality": "text+image+file+audio+video->text+image",
+    "release_date": "2026-07-17",
     "summary": "Auto Router (Beta) is a task-aware router from OpenRouter.",
     "tokenizer": "Router"
   },
@@ -73,7 +74,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/openrouter/auto-beta/endpoints"
+    "https://openrouter.ai/api/v1/models/openrouter/auto-beta/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

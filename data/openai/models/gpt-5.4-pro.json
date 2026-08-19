@@ -140,10 +140,17 @@
   "attrs": {
     "default_snapshot": "gpt-5.4-pro-2026-03-05",
     "knowledge_cutoff": "2025-08-31",
+    "last_updated": "2026-03-05",
+    "release_date": "2026-03-05",
     "state": "active",
     "summary": "Version of GPT-5.4 that produces smarter and more precise responses."
   },
   "limits": {
+    "batch_queue_limit_long_context_tier_1": 2000000,
+    "batch_queue_limit_long_context_tier_2": 20000000,
+    "batch_queue_limit_long_context_tier_3": 40000000,
+    "batch_queue_limit_long_context_tier_4": 100000000,
+    "batch_queue_limit_long_context_tier_5": 1000000000,
     "batch_queue_limit_tier_1": 900000,
     "batch_queue_limit_tier_2": 1350000,
     "batch_queue_limit_tier_3": 100000000,
@@ -151,16 +158,26 @@
     "batch_queue_limit_tier_5": 15000000000,
     "context_window": 1050000,
     "max_output_tokens": 128000,
-    "rpm_tier_1": 50,
-    "rpm_tier_2": 500,
-    "rpm_tier_3": 500,
-    "rpm_tier_4": 1000,
-    "rpm_tier_5": 1500,
-    "tpm_tier_1": 50000,
-    "tpm_tier_2": 100000,
-    "tpm_tier_3": 200000,
-    "tpm_tier_4": 400000,
-    "tpm_tier_5": 4000000
+    "requests_per_minute_long_context_tier_1": 20,
+    "requests_per_minute_long_context_tier_2": 50,
+    "requests_per_minute_long_context_tier_3": 100,
+    "requests_per_minute_long_context_tier_4": 200,
+    "requests_per_minute_long_context_tier_5": 800,
+    "requests_per_minute_tier_1": 50,
+    "requests_per_minute_tier_2": 500,
+    "requests_per_minute_tier_3": 500,
+    "requests_per_minute_tier_4": 1000,
+    "requests_per_minute_tier_5": 1500,
+    "tokens_per_minute_long_context_tier_1": 40000,
+    "tokens_per_minute_long_context_tier_2": 100000,
+    "tokens_per_minute_long_context_tier_3": 200000,
+    "tokens_per_minute_long_context_tier_4": 1000000,
+    "tokens_per_minute_long_context_tier_5": 2000000,
+    "tokens_per_minute_tier_1": 50000,
+    "tokens_per_minute_tier_2": 100000,
+    "tokens_per_minute_tier_3": 200000,
+    "tokens_per_minute_tier_4": 400000,
+    "tokens_per_minute_tier_5": 4000000
   },
   "lists": {
     "endpoints": [
@@ -201,6 +218,7 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.4 and GPT-5.4 Pro."
   ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-5.4-pro.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

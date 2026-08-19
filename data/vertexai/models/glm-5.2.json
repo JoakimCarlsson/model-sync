@@ -1,0 +1,39 @@
+{
+  "id": "glm-5.2",
+  "provider": "vertexai",
+  "name": "glm-5.2",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "sources": [
+    "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
+  ]
+}

@@ -13,6 +13,27 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.234375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.9375,
       "currency": "USD",
       "dims": {
@@ -24,6 +45,27 @@
       "unit": "per_1m_tokens",
       "amount": 0.1875,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
     },
     {
       "metric": "input_tokens",
@@ -43,6 +85,27 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 1.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "256000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 3,
       "currency": "USD",
       "dims": {
@@ -53,16 +116,28 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.6-flash",
-    "released": "2026-04-27",
+    "modality": "text+image+video->text",
+    "release_date": "2026-04-27",
     "summary": "Qwen3.6 Flash is a fast, efficient language model from Alibaba's Qwen 3.6 series.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 983616,
     "max_output_tokens": 65536,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -95,9 +170,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.6-flash/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

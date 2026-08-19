@@ -11,6 +11,9 @@
       "currency": "USD"
     }
   ],
+  "limits": {
+    "file_retention_days": 30
+  },
   "sources": [
     "https://docs.voyageai.com/docs/pricing.md"
   ]

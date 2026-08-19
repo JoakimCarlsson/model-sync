@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 8,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
     },
     {
       "metric": "reasoning_tokens",
@@ -23,17 +43,38 @@
       "currency": "USD"
     },
     {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 5,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
     }
   ],
   "attrs": {
     "author": "perplexity",
     "canonical_slug": "perplexity/sonar-deep-research",
     "instruct_type": "deepseek-r1",
-    "released": "2025-03-07",
+    "modality": "text->text",
+    "release_date": "2025-03-07",
     "summary": "Sonar Deep Research is a research-focused model designed for multi-step retrieval, synthesis, and reasoning across complex topics.",
     "tokenizer": "Other"
   },
@@ -42,6 +83,12 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "endpoint_tags": [
+      "perplexity"
+    ],
+    "endpoints": [
+      "Perplexity"
+    ],
     "features": [
       "reasoning",
       "web_search"
@@ -62,10 +109,14 @@
       "top_k",
       "top_p",
       "web_search_options"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/perplexity/sonar-deep-research/endpoints"
+    "https://openrouter.ai/api/v1/models/perplexity/sonar-deep-research/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

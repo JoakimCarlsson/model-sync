@@ -1,9 +1,21 @@
 {
   "id": "gemini-2.5-flash-thinking",
   "provider": "vertexai",
-  "name": "gemini 2.5 flash thinking",
+  "name": "Gemini 2.5 Flash",
   "kind": "chat",
   "prices": [
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "stage": "ga",
+        "tier": "batch"
+      }
+    },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
@@ -26,6 +38,17 @@
         "modality": "text",
         "stage": "ga",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.75,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "batch"
       }
     },
     {
@@ -42,6 +65,17 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "stage": "ga",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 4.5,
       "currency": "USD",
       "dims": {
@@ -59,6 +93,16 @@
         "modality": "text",
         "stage": "ga",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.75,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "batch"
       }
     },
     {
@@ -72,6 +116,13 @@
       }
     }
   ],
+  "attrs": {
+    "input_size_limit": "500 MB",
+    "release_date": "2025-06-17",
+    "retirement_date": "2026-10-20",
+    "state": "active",
+    "summary": "Lightning-fast and highly capable. Delivers a balance of intelligence and latency with controllable thinking budgets for versatile applications."
+  },
   "limits": {
     "context_window": 1048576,
     "max_output_tokens": 65536
@@ -79,6 +130,7 @@
   "lists": {
     "features": [
       "chat_completions",
+      "code_execution",
       "count_tokens",
       "function_calling",
       "prompt_caching",
@@ -87,7 +139,8 @@
       "structured_outputs",
       "system_instructions",
       "tuning",
-      "url_context"
+      "url_context",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -95,8 +148,145 @@
       "text",
       "video"
     ],
+    "languages": [
+      "af",
+      "am",
+      "ar",
+      "as",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "bs",
+      "ca",
+      "ceb",
+      "co",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "dv",
+      "el",
+      "en",
+      "eo",
+      "es",
+      "et",
+      "eu",
+      "fa",
+      "fi",
+      "fil",
+      "fr",
+      "fy",
+      "ga",
+      "gd",
+      "gl",
+      "gu",
+      "ha",
+      "haw",
+      "hi",
+      "hmn",
+      "hr",
+      "ht",
+      "hu",
+      "hy",
+      "id",
+      "ig",
+      "is",
+      "it",
+      "iw",
+      "ja",
+      "jv",
+      "ka",
+      "kk",
+      "km",
+      "kn",
+      "ko",
+      "kri",
+      "ku",
+      "ky",
+      "la",
+      "lb",
+      "lo",
+      "lt",
+      "lv",
+      "mg",
+      "mi",
+      "mk",
+      "ml",
+      "mn",
+      "mni-Mtei",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "ne",
+      "nl",
+      "no",
+      "ny",
+      "or",
+      "pa",
+      "pl",
+      "ps",
+      "pt",
+      "ro",
+      "ru",
+      "sd",
+      "si",
+      "sk",
+      "sl",
+      "sm",
+      "sn",
+      "so",
+      "sq",
+      "sr",
+      "st",
+      "su",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "tg",
+      "th",
+      "tr",
+      "ug",
+      "uk",
+      "ur",
+      "uz",
+      "vi",
+      "xh",
+      "yi",
+      "yo",
+      "zh",
+      "zu"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "asia-northeast1",
+      "asia-northeast3",
+      "asia-south1",
+      "asia-southeast1",
+      "australia-southeast1",
+      "europe-central2",
+      "europe-north1",
+      "europe-southwest1",
+      "europe-west1",
+      "europe-west2",
+      "europe-west3",
+      "europe-west4",
+      "europe-west8",
+      "europe-west9",
+      "global",
+      "northamerica-northeast1",
+      "southamerica-east1",
+      "us-central1",
+      "us-east1",
+      "us-east4",
+      "us-east5",
+      "us-south1",
+      "us-west1",
+      "us-west4"
     ]
   },
   "sources": [
@@ -104,6 +294,7 @@
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/2-5-flash",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

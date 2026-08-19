@@ -166,9 +166,10 @@
     }
   ],
   "attrs": {
-    "lifecycle_state": "active",
-    "released": "Dec 2, 2025",
-    "retirement_date": "N/A",
+    "author": "Amazon",
+    "model_id": "amazon.nova-2-sonic-v1:0",
+    "release_date": "2025-12-02",
+    "state": "active",
     "summary": "Nova 2 Sonic is Amazon's speech-to-speech foundation model for building natural, real-time voice conversation applications. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -186,6 +187,12 @@
     "features": [
       "streaming"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "eu-north-1",
+      "us-east-1",
+      "us-west-2"
+    ],
     "input_modalities": [
       "audio",
       "text"
@@ -193,6 +200,15 @@
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "eu-north-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
     ]
   },
   "sources": [

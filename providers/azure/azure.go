@@ -1,6 +1,7 @@
 package azure
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -50,6 +51,8 @@ var cacheFiles = map[string]string{
 	PartnersURL:     "azure_foundry_partners.html",
 	ImagesURL:       "azure_foundry_images.html",
 	VideoURL:        "azure_foundry_video.html",
+	ScheduleURL:     "azure_foundry_schedule.html",
+	GalleryURL:      "azure_foundry_gallery.json",
 }
 
 // documentationURLs are the pages stating what a model holds and can do, in
@@ -59,6 +62,8 @@ var documentationURLs = []string{
 	PartnersURL,
 	ImagesURL,
 	VideoURL,
+	ScheduleURL,
+	GalleryURL,
 }
 
 // defaultCurrency is what a meter is read in when it states none.
@@ -114,7 +119,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	docs := []catalog.Document{meters}
 	var failures []error
 	for _, url := range documentationURLs {
-		doc, err := p.fetchPage(ctx, url)
+		doc, err := p.fetchDocument(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
 			continue
@@ -122,6 +127,68 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 		docs = append(docs, doc)
 	}
 	return docs, errors.Join(failures...)
+}
+
+// fetchDocument retrieves one document, by whichever means it answers to.
+func (p *Provider) fetchDocument(
+	ctx context.Context,
+	url string,
+) (catalog.Document, error) {
+	if url == GalleryURL {
+		return p.fetchGallery(ctx)
+	}
+	return p.fetchPage(ctx, url)
+}
+
+// fetchGallery walks every page of the catalog listing and returns them as one
+// document, the same as the meter listing, so that parsing does not depend on
+// how the pages were split.
+func (p *Provider) fetchGallery(ctx context.Context) (catalog.Document, error) {
+	if body, ok := p.readCache(GalleryURL); ok {
+		return catalog.Document{URL: GalleryURL, Body: body}, nil
+	}
+	var (
+		summaries []gallerySummary
+		token     string
+	)
+	for pages := 0; pages < galleryMaxPages; pages++ {
+		request, err := json.Marshal(galleryRequest{
+			Filters: []galleryFilter{{
+				Field:    "Publisher",
+				Values:   []string{galleryExcluded},
+				Operator: "ne",
+			}},
+			PageSize:          galleryPageSize,
+			ContinuationToken: token,
+		})
+		if err != nil {
+			return catalog.Document{}, err
+		}
+		body, err := p.post(ctx, GalleryURL, request)
+		if err != nil {
+			return catalog.Document{}, err
+		}
+		var current galleryPage
+		if err := json.Unmarshal(body, &current); err != nil {
+			return catalog.Document{}, fmt.Errorf(
+				"decode %s: %w",
+				GalleryURL,
+				err,
+			)
+		}
+		summaries = append(summaries, current.Summaries...)
+		token = current.ContinuationToken
+		if token == "" {
+			break
+		}
+		p.wait(requestSpacing)
+	}
+	body, err := json.Marshal(galleryPage{Summaries: summaries})
+	if err != nil {
+		return catalog.Document{}, err
+	}
+	p.writeCache(GalleryURL, body)
+	return catalog.Document{URL: GalleryURL, Body: body}, nil
 }
 
 // fetchPage retrieves one documentation page, which needs none of the
@@ -191,23 +258,69 @@ func (p *Provider) get(ctx context.Context, target string) ([]byte, error) {
 	return nil, errors.Join(failures...)
 }
 
+// post retrieves one page of a listing that is queried rather than addressed,
+// retrying on the same terms a fetch is.
+func (p *Provider) post(
+	ctx context.Context,
+	target string,
+	request []byte,
+) ([]byte, error) {
+	var failures []error
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		body, err := p.attemptPost(ctx, target, request)
+		if err == nil {
+			return body, nil
+		}
+		failures = append(failures, err)
+		if ctx.Err() != nil {
+			break
+		}
+		p.wait(time.Duration(attempt) * retryBackoff)
+	}
+	return nil, errors.Join(failures...)
+}
+
+// attemptPost performs one queried request.
+func (p *Provider) attemptPost(
+	ctx context.Context,
+	target string,
+	request []byte,
+) ([]byte, error) {
+	req, err := http.NewRequestWithContext(
+		ctx,
+		http.MethodPost,
+		target,
+		bytes.NewReader(request),
+	)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", "application/json")
+	return p.send(req)
+}
+
 // attempt performs one request.
 func (p *Provider) attempt(ctx context.Context, target string) ([]byte, error) {
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, target, nil)
 	if err != nil {
 		return nil, err
 	}
+	return p.send(req)
+}
+
+// send performs one prepared request.
+func (p *Provider) send(req *http.Request) ([]byte, error) {
 	client := p.Client
 	if client == nil {
 		client = http.DefaultClient
 	}
 	resp, err := client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("fetch %s: %w", target, err)
+		return nil, fmt.Errorf("fetch %s: %w", req.URL, err)
 	}
 	defer func() { _ = resp.Body.Close() }()
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("fetch %s: %s", target, resp.Status)
+		return nil, fmt.Errorf("fetch %s: %s", req.URL, resp.Status)
 	}
 	return io.ReadAll(resp.Body)
 }

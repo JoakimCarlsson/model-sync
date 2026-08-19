@@ -11,25 +11,57 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.065,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.26,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
     }
   ],
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.5-flash-20260224",
-    "released": "2026-02-25",
+    "modality": "text+image+video->text",
+    "release_date": "2026-02-25",
     "summary": "The Qwen3.5 native vision-language Flash models are built on a hybrid architecture that integrates a linear attention mechanism with a sparse mixture-of-experts model, achieving higher inference efficiency.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 983616,
     "max_output_tokens": 65536,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -59,9 +91,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.5-flash-20260224/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

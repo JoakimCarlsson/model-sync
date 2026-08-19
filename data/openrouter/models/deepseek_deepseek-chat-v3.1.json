@@ -11,16 +11,232 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us-west2"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mara",
+        "endpoint_tag": "mara"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SambaNova",
+        "endpoint_tag": "sambanova/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.95,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.65,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.7,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us-west2"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.7,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mara",
+        "endpoint_tag": "mara"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SambaNova",
+        "endpoint_tag": "sambanova/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -29,7 +245,8 @@
     "hugging_face_id": "deepseek-ai/DeepSeek-V3.1",
     "instruct_type": "deepseek-v3.1",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-08-21",
+    "modality": "text->text",
+    "release_date": "2025-08-21",
     "summary": "DeepSeek-V3.1 is a large hybrid reasoning model (671B parameters, 37B active) that supports both thinking and non-thinking modes via prompt templates.",
     "tokenizer": "DeepSeek"
   },
@@ -39,6 +256,29 @@
     "top_provider_context_window": 163840
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "atlas-cloud/fp8",
+      "coreweave/fp8",
+      "deepinfra/fp4",
+      "google-vertex/us-west2",
+      "mara",
+      "novita/fp8",
+      "sambanova/fp8",
+      "siliconflow/fp8"
+    ],
+    "endpoints": [
+      "AtlasCloud",
+      "CoreWeave",
+      "DeepInfra",
+      "Google",
+      "Mara",
+      "Novita",
+      "SambaNova",
+      "SiliconFlow"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -72,9 +312,19 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp4",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-chat-v3.1/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

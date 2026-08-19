@@ -13,18 +13,24 @@ import (
 // KindChat is the only kind Cerebras serves.
 const KindChat catalog.Kind = "chat"
 
-// States Cerebras distinguishes by which table a model appears in.
+// States the public model list distinguishes a model by. It carries a flag
+// for a model in preview and a flag for one on its way out, and a model
+// carrying neither is one Cerebras is selling without qualification.
 const (
-	StateProduction = "production"
+	StateActive     = "active"
 	StatePreview    = "preview"
+	StateDeprecated = "deprecated"
 )
 
 // Scalar keys the catalog populates.
 const (
-	AttrState        = "state"
-	AttrParameters   = "parameters"
-	AttrTokensPerSec = "tokens_per_second"
-	AttrModelURL     = "model_url"
+	AttrState = "state"
+	// AttrParameterCount is the size of the model in weights, which is not the
+	// list of request parameters its API accepts. Those are an enumeration and
+	// are recorded under catalog.ListParameters.
+	AttrParameterCount = "parameter_count"
+	AttrTokensPerSec   = "tokens_per_second"
+	AttrModelURL       = "model_url"
 )
 
 // Numeric keys the catalog populates. Cerebras allows a longer context on a
@@ -34,18 +40,15 @@ const (
 	LimitContextWindowFree = "context_window_free"
 )
 
-// sectionStates maps a heading onto the standing of the models under it.
-var sectionStates = map[string]string{
-	"production models": StateProduction,
-	"preview models":    StatePreview,
-}
-
 var (
 	linkRe = regexp.MustCompile(`\[([^\]]*)\]\(([^)]*)\)`)
 	tagRe  = regexp.MustCompile(`(?s)<[^>]*>`)
 	// supRe matches a footnote marker with the digit inside it, which is not
 	// part of the name it is attached to.
-	supRe   = regexp.MustCompile(`(?is)<sup\b[^>]*>.*?</sup\s*>`)
+	supRe = regexp.MustCompile(`(?is)<sup\b[^>]*>.*?</sup\s*>`)
+	// tabRe matches the tab a table stands in, which is how Cerebras heads a
+	// table that shares a heading with the tables beside it.
+	tabRe   = regexp.MustCompile(`(?i)<Tab\s+title="([^"]*)"`)
 	countRe = regexp.MustCompile(
 		`(?i)([\d,]*\.?\d+)\s*(k|m|b|billion|million)?`,
 	)
@@ -109,12 +112,13 @@ func modelPageURLs(index catalog.Document) []string {
 }
 
 // applyCatalog reads the model catalog page.
+//
+// Every table naming a model identifier is read, whatever heading it stands
+// under. Cerebras has written the catalog as one table and as a table per
+// standing at different times, and a reader keyed on the headings it happened
+// to use silently stops reading the day they change.
 func (b *builder) applyCatalog(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
-		state, ok := sectionStates[t.Section]
-		if !ok {
-			continue
-		}
 		idCol := columnOf(t.Headers, "model id")
 		if idCol < 0 {
 			continue
@@ -135,8 +139,7 @@ func (b *builder) applyCatalog(doc catalog.Document) {
 			if m.Name == "" {
 				m.Name = clean(cellAt(row, nameCol))
 			}
-			m.SetAttr(AttrState, state)
-			m.SetAttr(AttrParameters, clean(cellAt(row, paramCol)))
+			m.SetAttr(AttrParameterCount, clean(cellAt(row, paramCol)))
 			m.SetAttr(AttrTokensPerSec, clean(cellAt(row, speedCol)))
 			m.SetAttr(AttrModelURL, linkTarget(cellAt(row, nameCol)))
 			applyContext(m, cellAt(row, contextCol))
@@ -207,7 +210,8 @@ type table struct {
 }
 
 // scanTables walks a document and returns every pipe table, tracking the
-// nearest preceding heading.
+// nearest preceding heading, or the tab the table stands in where Cerebras
+// puts several tables under one heading and tells them apart by tab.
 func scanTables(body, source string) []table {
 	var (
 		out     []table
@@ -232,6 +236,10 @@ func scanTables(body, source string) []table {
 			continue
 		}
 		current = nil
+		if match := tabRe.FindStringSubmatch(line); match != nil {
+			section = strings.ToLower(clean(match[1]))
+			continue
+		}
 		if after, ok := strings.CutPrefix(line, "#"); ok {
 			section = strings.ToLower(
 				clean(strings.TrimSpace(strings.TrimLeft(after, "# "))),

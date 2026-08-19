@@ -26,6 +26,9 @@ const (
 	UnitPer1KSearches  catalog.Unit = "per_1k_searches"
 	UnitPerHour        catalog.Unit = "per_hour"
 	UnitPerSessionHour catalog.Unit = "per_session_hour"
+	// UnitPerRequest is the denominator of a tool Anthropic counts calls of
+	// and charges nothing for.
+	UnitPerRequest catalog.Unit = "per_request"
 )
 
 // Kinds of model Anthropic publishes.
@@ -52,12 +55,24 @@ const (
 // Scalar keys the overview populates.
 const (
 	AttrSummary         = "summary"
+	AttrReleaseDate     = "release_date"
 	AttrAvailability    = "availability"
 	AttrLatency         = "comparative_latency"
 	AttrKnowledgeCutoff = "knowledge_cutoff"
 	AttrTrainingCutoff  = "training_data_cutoff"
 	AttrBedrockID       = "aws_bedrock_id"
 	AttrVertexID        = "google_cloud_id"
+)
+
+// Scalar keys the thinking and effort guides populate. Anthropic offers two
+// thinking modes and states per model which of them a request may ask for and
+// which one it gets when it asks for nothing, so both are recorded: a model
+// whose thinking is always on is a different thing from one that defaults to
+// it and accepts being told not to.
+const (
+	AttrThinkingTypes   = "thinking_types"
+	AttrThinkingDefault = "thinking_default"
+	AttrDefaultEffort   = "default_effort"
 )
 
 // Numeric keys the overview populates.
@@ -71,6 +86,26 @@ const (
 	LimitMaxOutputTokensBatch = "max_output_tokens_batch"
 )
 
+// Numeric keys the rate limit page populates, one per usage tier. Anthropic
+// names its tiers rather than numbering them and meters three counters rather
+// than one, splitting input from output, so the key carries the tier's own
+// name and the counter's own abbreviation instead of collapsing either.
+const (
+	LimitRPMPrefix  = "rpm_tier_"
+	LimitITPMPrefix = "itpm_tier_"
+	LimitOTPMPrefix = "otpm_tier_"
+)
+
+// Numeric keys the pricing page and the context window guide populate that are
+// bounds rather than rates. The tool use system prompt is the block Anthropic
+// prepends whenever a request carries any tool at all, and it is two sizes
+// rather than one because a forced tool choice states more.
+const (
+	LimitToolSystemPromptAuto = "tool_use_system_prompt_tokens_auto"
+	LimitToolSystemPromptAny  = "tool_use_system_prompt_tokens_any"
+	LimitMaxImagesPerRequest  = "max_images_per_request"
+)
+
 // Enumeration keys the documents populate.
 const (
 	ListFeatures         = catalog.ListFeatures
@@ -78,6 +113,28 @@ const (
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	ListVersions         = "versions"
+	ListParameters       = catalog.ListParameters
+	// ListEffortLevels enumerates the values Anthropic states its effort
+	// parameter accepts on a model. Two of the five are stated per model and
+	// three are stated of the parameter, so the list is per model either way.
+	ListEffortLevels = "effort_levels"
+	// ListBetaHeaders holds the anthropic-beta values a tool requires. It is a
+	// list because Anthropic keeps an older header working alongside a new
+	// one.
+	ListBetaHeaders = "beta_headers"
+)
+
+// Capabilities Anthropic states per model outside the comparison table, in the
+// compatibility block each feature guide opens with or in a sentence naming
+// the models a feature reaches. None of them is one of the catalog's canonical
+// values, because none of them is a capability another vendor also publishes:
+// they are Anthropic's own features, and the name here is Anthropic's own.
+const (
+	FeatureComputerUse  = "computer_use"
+	FeatureCompaction   = "compaction"
+	FeatureTaskBudgets  = "task_budgets"
+	FeatureFastMode     = "fast_mode"
+	FeaturePriorityTier = "priority_tier"
 )
 
 // modalityWords map a word of the overview's modality sentence onto the
@@ -123,7 +180,32 @@ var (
 	footnoteRe     = regexp.MustCompile(`^(.*[a-zA-Z)])\d{1,2}$`)
 	footnoteYearRe = regexp.MustCompile(`^(.*\d{4})\d{1,2}$`)
 	tokenSizeRe    = regexp.MustCompile(`(?i)^([\d.,]+)\s*([kKmM])?\s*tokens?$`)
+	ordinalRe      = regexp.MustCompile(`(\d{1,2})(st|nd|rd|th)\b`)
+	countRe        = regexp.MustCompile(`^([\d,]+)`)
 )
+
+// stripOrdinal removes the English ordinal suffix Anthropic wrote its earliest
+// changelog headings with, turning "February 27th, 2025" into a date the
+// layouts recognize. Later headings carry no suffix and pass through
+// untouched.
+func stripOrdinal(value string) string {
+	return ordinalRe.ReplaceAllString(value, "$1")
+}
+
+// parseCount reads a plain quantity such as "5,000" or "286 tokens", which is
+// how the rate limit and tool overhead tables write a number that is a count
+// rather than a size.
+func parseCount(cell string) int64 {
+	match := countRe.FindStringSubmatch(clean(cell))
+	if match == nil {
+		return 0
+	}
+	n, err := strconv.ParseInt(strings.ReplaceAll(match[1], ",", ""), 10, 64)
+	if err != nil {
+		return 0
+	}
+	return n
+}
 
 // clean strips the decoration Anthropic wraps around cell values: markdown
 // links, MDX elements such as Tooltip, bold markers, and backticks.
@@ -282,15 +364,17 @@ func slugID(name string) string {
 // every name after the first: "Claude Opus 5, Opus 4.8, and Sonnet 4.6". The
 // shortened forms resolve anyway, because the index they are looked up in drops
 // the vendor prefix.
+//
+// A list of two has no comma at all, only the conjunction, so the conjunction
+// is a separator in its own right rather than a prefix to strip off the last
+// name. No model Anthropic names contains the word.
 func splitNames(text string) []string {
 	var out []string
 	for _, part := range strings.Split(clean(text), ",") {
-		name := strings.TrimSpace(part)
-		if trimmed, cut := strings.CutPrefix(name, "and "); cut {
-			name = strings.TrimSpace(trimmed)
-		}
-		if name != "" {
-			out = append(out, name)
+		for _, piece := range strings.Split(part, " and ") {
+			if name := strings.TrimSpace(piece); name != "" {
+				out = append(out, name)
+			}
 		}
 	}
 	return out

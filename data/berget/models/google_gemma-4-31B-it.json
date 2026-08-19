@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "google",
+    "data_residency": "EU",
+    "docs_title": "Gemma 4 31B",
+    "hugging_face_id": "google/gemma-4-31B-it",
     "license": "Apache 2.0",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/google/gemma-4-31B-it",
     "model_path": "google/gemma-4-31B-it",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2026-04-02"
+    "release_date": "2026-04-02",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 256000,
@@ -40,6 +46,9 @@
       "gemma4-31b",
       "google/gemma-4",
       "google/gemma4"
+    ],
+    "endpoints": [
+      "/v1/chat/completions"
     ],
     "features": [
       "function_calling",
@@ -87,11 +96,16 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

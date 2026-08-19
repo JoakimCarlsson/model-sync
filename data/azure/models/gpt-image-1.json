@@ -1,6 +1,7 @@
 {
   "id": "gpt-image-1",
   "provider": "azure",
+  "name": "gpt-image-1",
   "kind": "image",
   "prices": [
     {
@@ -2225,7 +2226,11 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "product": "Azure OpenAI",
+    "release_date": "2025-04-15",
+    "retirement_date": "2026-10-23",
+    "state": "preview",
+    "version": "2025-04-15"
   },
   "lists": {
     "input_modalities": [
@@ -2238,6 +2243,8 @@
   },
   "sources": [
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

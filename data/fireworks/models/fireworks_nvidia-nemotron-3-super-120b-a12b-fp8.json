@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/nvidia-nemotron-3-super-120b-a12b-fp8",
+  "provider": "fireworks",
+  "name": "NVIDIA Nemotron 3 Super 120B A12B FP8",
+  "kind": "chat",
+  "attrs": {
+    "author": "NVIDIA",
+    "calibrated": "false",
+    "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/nvidia-nemotron-3-super-120b-a12b-fp8",
+    "model_url": "https://fireworks.ai/models/fireworks/nvidia-nemotron-3-super-120b-a12b-fp8",
+    "open_weights": "true",
+    "parameter_count": "120B",
+    "release_date": "2026-03-11",
+    "state": "active",
+    "summary": "Nemotron-3-Super-120B-A12B-FP8 is a large language model trained by NVIDIA for agentic, reasoning, and conversational tasks. It uses a hybrid Latent MoE architecture with interleaved Mamba-2 and MoE layers, plus Multi-Token Prediction (MTP) for faster generation. 12B active / 120B total parameters. Supports English, French, German, Italian, Japanese, Spanish, and Chinese."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/nvidia-nemotron-3-super-120b-a12b-fp8"
+  ]
+}

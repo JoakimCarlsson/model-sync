@@ -137,6 +137,7 @@ func (b *builder) applyCatalog(doc catalog.Document) {
 		}
 		b.applyTable(t, kind)
 	}
+	b.applyImageRates(doc)
 }
 
 // applyTable reads one modality's table.

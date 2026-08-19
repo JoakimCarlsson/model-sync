@@ -706,7 +706,14 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2025-02-20",
+    "license": "MIT",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "state": "active",
+    "summary": "3.8B parameters Small Language Model outperforming larger models in reasoning, math, coding, and function-calling",
+    "version": "1"
   },
   "limits": {
     "context_window": 131072,
@@ -716,37 +723,71 @@
     "input_modalities": [
       "text"
     ],
+    "keywords": [
+      "Agents",
+      "Low latency",
+      "Multilingual",
+      "Reasoning",
+      "Understanding"
+    ],
     "languages": [
       "ar",
+      "bn",
       "cs",
       "da",
       "de",
+      "el",
       "en",
       "es",
+      "fa",
       "fi",
       "fr",
+      "gu",
+      "ha",
       "he",
+      "hi",
       "hu",
+      "id",
       "it",
       "ja",
+      "jv",
+      "kn",
       "ko",
+      "ml",
+      "mr",
       "nl",
       "no",
+      "or",
+      "pa",
       "pl",
+      "ps",
       "pt",
+      "ro",
       "ru",
       "sv",
+      "sw",
+      "ta",
+      "te",
       "th",
+      "tl",
       "tr",
       "uk",
+      "ur",
+      "vi",
+      "yo",
       "zh"
     ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

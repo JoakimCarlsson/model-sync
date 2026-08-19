@@ -1,0 +1,81 @@
+{
+  "id": "openai/whisper-large-v3-turbo",
+  "provider": "openrouter",
+  "name": "OpenAI: Whisper Large V3 Turbo",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.33,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.33,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 40000,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Groq",
+        "endpoint_tag": "groq"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/whisper-large-v3-turbo",
+    "hugging_face_id": "openai/whisper-large-v3-turbo",
+    "modality": "audio->transcription",
+    "release_date": "2026-05-01",
+    "summary": "Whisper Large V3 Turbo is an optimized version of OpenAI's Whisper Large V3 speech recognition model, designed for speed and cost efficiency.",
+    "tokenizer": "GPT"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "deepinfra",
+      "groq"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Groq"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "transcription"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/openai/whisper-large-v3-turbo/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

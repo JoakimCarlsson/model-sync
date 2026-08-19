@@ -51,6 +51,10 @@
       }
     }
   ],
+  "attrs": {
+    "release_date": "2025-08-13",
+    "state": "active"
+  },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 65536
@@ -65,6 +69,10 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global",
+      "us-south1"
     ]
   },
   "sources": [

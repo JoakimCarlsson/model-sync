@@ -23,13 +23,20 @@ const (
 	PricingURL      = baseURL + "/api/docs/pricing.md"
 	ModelsIndexURL  = baseURL + "/api/docs/models.md"
 	DeprecationsURL = baseURL + "/api/docs/deprecations.md"
+	// ChangelogURL is the only document stating when a model arrived. No
+	// model page carries a date, the pricing page carries none either, and
+	// the deprecations page states only when a model leaves.
+	ChangelogURL = baseURL + "/api/docs/changelog.md"
 )
 
 // GuideURLs are guides carrying facts stated nowhere else. The image
 // generation guide holds the per-image dollar prices, which the pricing page
 // states only per token.
 var GuideURLs = []string{
-	baseURL + "/api/docs/guides/image-generation.md",
+	ImageGuideURL,
+	VideoGuideURL,
+	TextToSpeechGuideURL,
+	ModerationGuideURL,
 	EmbeddingsGuideURL,
 	WebSearchGuideURL,
 	TranscriptionGuideURL,
@@ -76,7 +83,10 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{pricing}
 	var failures []error
-	for _, url := range append([]string{DeprecationsURL}, GuideURLs...) {
+	for _, url := range append(
+		[]string{DeprecationsURL, ChangelogURL},
+		GuideURLs...,
+	) {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)

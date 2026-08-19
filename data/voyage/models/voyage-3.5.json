@@ -1,6 +1,7 @@
 {
   "id": "voyage-3.5",
   "provider": "voyage",
+  "name": "voyage-3.5 Embedding Model",
   "kind": "embedding",
   "prices": [
     {
@@ -17,13 +18,24 @@
     }
   ],
   "attrs": {
+    "announcement_url": "https://blog.voyageai.com/2025/05/20/voyage-3-5",
+    "batch_completion_window": "12-hour",
     "batch_discount": "33%",
     "default_embedding_dimension": "1024",
-    "state": "older",
+    "release_date": "2025-05-20",
+    "state": "legacy",
     "summary": "Previous generation of text embeddings optimized for general-purpose and multilingual retrieval quality."
   },
   "limits": {
-    "context_window": 32000
+    "context_window": 32000,
+    "max_inputs_per_request": 1000,
+    "max_tokens_per_request": 320000,
+    "requests_per_minute": 2000,
+    "requests_per_minute_tier_2": 4000,
+    "requests_per_minute_tier_3": 6000,
+    "tokens_per_minute": 8000000,
+    "tokens_per_minute_tier_2": 16000000,
+    "tokens_per_minute_tier_3": 24000000
   },
   "lists": {
     "embedding_dimensions": [
@@ -32,21 +44,42 @@
       "256",
       "512"
     ],
+    "endpoints": [
+      "https://api.voyageai.com/v1/embeddings"
+    ],
     "features": [
+      "input_truncation",
+      "input_type_prompting",
       "quantized_embeddings",
       "reducible_embedding_dimensions"
     ],
     "input_modalities": [
       "text"
     ],
+    "output_dtypes": [
+      "float"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "encoding_format",
+      "input",
+      "input_type",
+      "model",
+      "output_dimension",
+      "output_dtype",
+      "truncation"
     ]
   },
   "sources": [
+    "https://aws.amazon.com/marketplace/pp/prodview-lmjyoeygizdhe",
+    "https://blog.voyageai.com/2025/05/20/voyage-3-5",
     "https://docs.voyageai.com/docs/batch-inference.md",
     "https://docs.voyageai.com/docs/embeddings.md",
     "https://docs.voyageai.com/docs/pricing.md",
+    "https://docs.voyageai.com/docs/rate-limits.md",
+    "https://docs.voyageai.com/reference/embeddings-api.md",
     "https://www.mongodb.com/docs/voyageai/models.md"
   ]
 }

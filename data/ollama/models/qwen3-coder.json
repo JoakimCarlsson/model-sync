@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "Alibaba&#39;s performant long context models for agentic and coding tasks."
+    "architecture": "qwen3moe",
+    "default_snapshot": "qwen3-coder:latest",
+    "last_updated": "2025-09-23",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "30.5B",
+    "quantization": "Q4_K_M",
+    "summary": "Alibaba's performant long context models for agentic and coding tasks."
   },
   "limits": {
     "context_window": 256000
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3-coder/tags"
+    "https://ollama.com/library/qwen3-coder/tags",
+    "https://ollama.com/library/qwen3-coder:latest"
   ]
 }

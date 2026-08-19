@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "deepseek2",
+    "default_snapshot": "deepseek-v2.5:latest",
+    "last_updated": "2024-09-11",
+    "license": "DEEPSEEK LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "236B",
+    "quantization": "Q4_0",
     "summary": "An upgraded version of DeekSeek-V2 that integrates the general and coding abilities of both DeepSeek-V2-Chat and DeepSeek-Coder-V2-Instruct."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/deepseek-v2.5/tags"
+    "https://ollama.com/library/deepseek-v2.5/tags",
+    "https://ollama.com/library/deepseek-v2.5:latest"
   ]
 }

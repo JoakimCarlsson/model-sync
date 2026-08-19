@@ -17,10 +17,14 @@
   "attrs": {
     "api_identifier": "universal-streaming-english",
     "mode": "streaming",
+    "summary": "High-quality realtime model for English only transcription. Purpose-built for production voice applications with reliable accuracy, low latency, and cost-effectiveness.",
     "volume_discounts": "available"
   },
   "limits": {
-    "max_keyterms": 100
+    "max_keyterms": 100,
+    "max_session_duration_seconds": 10800,
+    "new_sessions_per_minute_free": 5,
+    "new_sessions_per_minute_paid_minimum": 100
   },
   "lists": {
     "features": [
@@ -43,6 +47,7 @@
   },
   "sources": [
     "https://www.assemblyai.com/docs/getting-started/models.md",
+    "https://www.assemblyai.com/docs/streaming/rate-limits.md",
     "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md",
     "https://www.assemblyai.com/pricing"
   ]

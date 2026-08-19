@@ -3,7 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "StarCoder is a code generation model trained on 80&#43; programming languages."
+    "architecture": "starcoder",
+    "default_snapshot": "starcoder:latest",
+    "last_updated": "2023-10-24",
+    "open_weights": "true",
+    "parameter_count": "3.18B",
+    "quantization": "Q4_0",
+    "summary": "StarCoder is a code generation model trained on 80+ programming languages."
   },
   "limits": {
     "context_window": 8000
@@ -28,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/starcoder/tags"
+    "https://ollama.com/library/starcoder/tags",
+    "https://ollama.com/library/starcoder:latest"
   ]
 }

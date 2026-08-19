@@ -669,22 +669,77 @@
     }
   ],
   "attrs": {
-    "product": "Azure BFL Flux Models"
+    "author": "Black Forest Labs",
+    "catalog_added_on": "2026-02-26",
+    "license": "custom",
+    "product": "Azure BFL Flux Models",
+    "publisher": "Black Forest Labs",
+    "state": "active",
+    "summary": "Professional text-to-image generation with adjustable inference steps and guidance scale for fine-tuned control. Features superior typography and text rendering, supports up to 4MP resolution, 32K prompt tokens, and up to 8 reference images. Ideal for deve",
+    "version": "1"
   },
   "limits": {
-    "context_window": 32000
+    "context_window": 32000,
+    "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Multimodal",
+      "Vision"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "image"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "image-to-image",
+      "text-to-image"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

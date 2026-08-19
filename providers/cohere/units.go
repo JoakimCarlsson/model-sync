@@ -96,6 +96,7 @@ var productModels = map[string][]string{
 	"command a translate": {"command-a-translate-08-2025"},
 	"command a vision":    {"command-a-vision-07-2025"},
 	"command r":           {"command-r-08-2024"},
+	"command r+":          {"command-r-plus-08-2024"},
 	"command r7b":         {"command-r7b-12-2024"},
 	"embed 4":             {"embed-v4.0"},
 	"rerank 3.5":          {"rerank-v3.5"},

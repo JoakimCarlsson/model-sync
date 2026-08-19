@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/hermes-2-pro-mistral-7b",
+  "provider": "fireworks",
+  "name": "Hermes 2 Pro Mistral 7B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Nous",
+    "calibrated": "false",
+    "hugging_face_id": "NousResearch/Hermes-2-Pro-Mistral-7B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/hermes-2-pro-mistral-7b",
+    "model_url": "https://fireworks.ai/models/fireworks/hermes-2-pro-mistral-7b",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "release_date": "2024-03-13",
+    "state": "active",
+    "summary": "Latest version of Nous Research's Hermes series of models, using an updated and cleaned version of the Hermes 2 dataset, and is now trained on a diverse and rich set of function calling and JSON mode samples"
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/hermes-2-pro-mistral-7b"
+  ]
+}

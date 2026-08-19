@@ -1,6 +1,7 @@
 {
   "id": "fw-minimax-m2.5",
   "provider": "azure",
+  "name": "FW-MiniMax-M2.5",
   "kind": "chat",
   "prices": [
     {
@@ -731,9 +732,60 @@
     }
   ],
   "attrs": {
-    "product": "Azure Fireworks Models"
+    "author": "MiniMax",
+    "catalog_added_on": "2026-03-06",
+    "license": "other",
+    "product": "Azure Fireworks Models",
+    "publisher": "Fireworks",
+    "retirement_date": "2027-07-01",
+    "state": "active",
+    "summary": "MiniMax M2.5 is a Mixture-of-Experts model built for state-of-the-art coding, agentic tool use, and search, trained with reinforcement learning across hundreds of thousands of real-world environments.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 196608
+  },
+  "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard"
+    ],
+    "features": [
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus",
+      "eastus2",
+      "northcentralus",
+      "southcentralus",
+      "westcentralus",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

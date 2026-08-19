@@ -25,11 +25,17 @@
   ],
   "attrs": {
     "author": "Systran",
+    "data_residency": "EU",
+    "docs_title": "Whisper Large v3",
+    "hugging_face_id": "Systran/faster-whisper-large-v3",
     "license": "MIT",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/Systran/faster-whisper-large-v3",
     "model_path": "Systran/faster-whisper-large-v3",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2026-07-14"
+    "release_date": "2026-07-14",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "model_size_billions": 2
@@ -41,6 +47,18 @@
       "openai/whisper-large-v3",
       "whisper-large",
       "whisper/v3"
+    ],
+    "audio_formats": [
+      "m4a",
+      "mp3",
+      "mp4",
+      "mpeg",
+      "mpga",
+      "wav",
+      "webm"
+    ],
+    "endpoints": [
+      "/v1/audio/transcriptions"
     ],
     "features": [
       "keyterm_prompting",
@@ -75,10 +93,21 @@
       "suppress_numerals",
       "temperature",
       "timestamp_granularities"
+    ],
+    "response_formats": [
+      "aud",
+      "diarized_json",
+      "json",
+      "srt",
+      "text",
+      "verbose_json",
+      "vtt",
+      "vtt_json"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
-    "https://api.berget.ai/v1/models"
+    "https://api.berget.ai/v1/models",
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

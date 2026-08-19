@@ -79,10 +79,29 @@ const AttrAuthor = "author"
 // anything else is not a token rate and is not read.
 const tokenQuantity = 1_000_000
 
-// predictionSuffix marks the first of the two description forms a SKU uses.
-const predictionSuffix = " - predictions"
+// predictionTailRe matches the first of the description forms a SKU uses,
+// which ends in the word Google meters its own predictions by.
+//
+// The serving path may be written into that ending rather than into the body
+// of the description, "Gemini 3.5 Flash Global Audio Input - Batch
+// Predictions", and reading only the plain ending dropped every batch and flex
+// rate Vertex charges for a Gemini model. The word is also mistyped in the
+// catalog, thirteen rates ending in "Predictionss", and a rate is not a
+// different rate for having a letter too many.
+var predictionTailRe = regexp.MustCompile(
+	`(?i)\s+-\s+(?:(batch|flex|priority)\s+)?predictionss?$`,
+)
 
-// tokenSuffixes mark the second. The Model Garden counts a rate in tokens
+// directionTailRe matches a second form of Google's own meters, which ends at
+// the modality and the direction with no word for what it counts: "Gemini MM
+// Embedding - Batch Text Input". The separator is what makes it Google's own,
+// the Model Garden never writing one, so the ending is read there and only
+// there.
+var directionTailRe = regexp.MustCompile(
+	`(?i)\s+-\s+((?:batch\s+)?(?:text|image|audio|video)\s+(?:input|output))$`,
+)
+
+// tokenSuffixes mark another. The Model Garden counts a rate in tokens
 // either way it spells the word, and reading only the singular dropped the
 // standard rate of every model whose meter is named for its tokens: Llama 3.3
 // 70B was left priced for tuning alone.
@@ -178,6 +197,10 @@ type reading struct {
 	longCtx    bool
 	cached     bool
 	training   bool
+	// bare reports a description that ended at none of the words Google
+	// closes a meter with. Such a description names a model only if some
+	// other document already named it; see acceptBare.
+	bare bool
 }
 
 // readDescription takes a SKU description apart, returning the model left once
@@ -189,9 +212,9 @@ func readDescription(description string) (reading, bool) {
 	)
 	out := reading{tier: TierStandard}
 	trimmed, isTokens := cutSuffix(lower, tokenSuffixes)
-	switch {
-	case strings.HasSuffix(lower, predictionSuffix):
-		lower = strings.TrimSuffix(lower, predictionSuffix)
+	switch tail := predictionTailRe.FindStringSubmatch(lower); {
+	case tail != nil:
+		lower = predictionTailRe.ReplaceAllString(lower, " "+tail[1])
 	case strings.HasPrefix(lower, fineTuningPrefix):
 		out.training = true
 		lower = strings.TrimPrefix(lower, fineTuningPrefix)
@@ -199,8 +222,10 @@ func readDescription(description string) (reading, bool) {
 		lower = trimmed
 	case maasDirection(lower):
 		lower = strings.TrimPrefix(lower, maasPrefix)
+	case directionTailRe.MatchString(lower):
+		lower = directionTailRe.ReplaceAllString(lower, " $1")
 	default:
-		return reading{}, false
+		out.bare = true
 	}
 	for _, prefix := range gardenPrefixes {
 		lower = strings.TrimPrefix(lower, prefix)

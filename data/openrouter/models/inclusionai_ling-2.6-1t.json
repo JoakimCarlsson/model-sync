@@ -11,22 +11,56 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.075,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.625,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
     }
   ],
   "attrs": {
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ling-2.6-1t-20260423",
-    "released": "2026-04-23",
+    "modality": "text->text",
+    "release_date": "2026-04-23",
     "summary": "Ling-2.6-1T is an instant (instruct) model from inclusionAI and the company’s trillion-parameter flagship, designed for real-world agents that require fast execution and high efficiency at scale.",
     "tokenizer": "Other"
   },
@@ -36,6 +70,12 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "endpoint_tags": [
+      "novita"
+    ],
+    "endpoints": [
+      "Novita"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -64,9 +104,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/inclusionai/ling-2.6-1t-20260423/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

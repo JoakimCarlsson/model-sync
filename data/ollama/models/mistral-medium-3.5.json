@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "mistral3",
+    "default_snapshot": "mistral-medium-3.5:latest",
+    "last_updated": "2026-05-05",
+    "open_weights": "true",
+    "parameter_count": "128B",
+    "quantization": "Q4_K_M",
     "summary": "Mistral Medium 3.5 is the first flagship model of Mistral AI that merged instruction-following, reasoning, and coding in a single set of 128B weights."
   },
   "limits": {
@@ -28,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/mistral-medium-3.5/tags"
+    "https://ollama.com/library/mistral-medium-3.5/tags",
+    "https://ollama.com/library/mistral-medium-3.5:latest"
   ]
 }

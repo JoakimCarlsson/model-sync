@@ -61,22 +61,51 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{index}
 	var failures []error
-	urls := append([]string{PublicModelsURL}, modelPageURLs(index)...)
-	for _, url := range urls {
-		page, err := p.get(ctx, url)
+	urls := append(
+		[]string{
+			PublicModelsURL,
+			RateLimitsURL,
+			ChangeLogURL,
+			DeprecationsURL,
+		},
+		modelPageURLs(index)...,
+	)
+	for i := 0; i < len(urls); i++ {
+		page, err := p.get(ctx, urls[i])
 		if err != nil {
 			failures = append(failures, err)
 			continue
 		}
 		docs = append(docs, page)
+		if urls[i] == PublicModelsURL {
+			urls = append(urls, weightsURLs(page)...)
+		}
 	}
 	return docs, errors.Join(failures...)
 }
 
+// weightsURLs returns where to read the licence of each set of weights the
+// public model list names a repository for. They are derived from that list
+// rather than listed here, because which weights Cerebras serves is a fact it
+// states and not one this package may hold an opinion about.
+func weightsURLs(list catalog.Document) []string {
+	repos := weightsRepos(list)
+	urls := make([]string, 0, len(repos))
+	for _, repo := range repos {
+		if url := weightsURL(repo); !slices.Contains(urls, url) {
+			urls = append(urls, url)
+		}
+	}
+	return urls
+}
+
 // Parse reads the public list first and the catalog second, because between
 // them they say which models Cerebras serves, how exactly each is bounded and
-// under which standing it is offered. A model page adds to a model one of them
-// has already named.
+// under which standing it is offered. Every other document adds to a model one
+// of them has already named, and names no model of its own: the rate limit
+// tables, the change log and the deprecation record all reach back years, and
+// reading them as lists of models would fill the catalog with models nobody
+// can call.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -88,13 +117,19 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL == CatalogURL {
+		switch {
+		case doc.URL == CatalogURL:
 			b.applyCatalog(doc)
 			b.applyDeprecations(doc)
-		}
-	}
-	for _, doc := range docs {
-		if doc.URL != CatalogURL && doc.URL != PublicModelsURL {
+		case doc.URL == RateLimitsURL:
+			b.applyRateLimits(doc)
+		case doc.URL == ChangeLogURL:
+			b.applyChangeLog(doc)
+		case doc.URL == DeprecationsURL:
+			b.applyDeprecationPage(doc)
+		case strings.HasPrefix(doc.URL, weightsBase):
+			b.applyWeights(doc)
+		case doc.URL != PublicModelsURL:
 			b.applyModelPage(doc)
 		}
 	}

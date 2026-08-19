@@ -11,23 +11,54 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.5,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 12.5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
     }
   ],
   "attrs": {
     "author": "amazon",
     "canonical_slug": "amazon/nova-premier-v1",
     "is_moderated": "true",
-    "released": "2025-10-31",
+    "modality": "text+image->text",
+    "release_date": "2025-10-31",
     "summary": "Amazon Nova Premier is the most capable of Amazon’s multimodal models for complex reasoning tasks and for use as the best teacher for distilling custom models.",
     "tokenizer": "Nova"
   },
@@ -37,6 +68,12 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "endpoint_tags": [
+      "amazon-bedrock"
+    ],
+    "endpoints": [
+      "Amazon Bedrock"
+    ],
     "features": [
       "function_calling",
       "prompt_caching"
@@ -55,9 +92,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/amazon/nova-premier-v1/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

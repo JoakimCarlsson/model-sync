@@ -11,24 +11,117 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0825,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/swedencentral"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.15,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/swedencentral"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure/swedencentral"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "1",
+    "artificial_analysis_coding_index": "11.4",
     "author": "openai",
     "canonical_slug": "openai/gpt-4o-mini",
     "is_moderated": "true",
     "knowledge_cutoff": "2023-10-31",
-    "released": "2024-07-18",
+    "modality": "text+image+file->text",
+    "release_date": "2024-07-18",
     "summary": "GPT-4o mini is OpenAI's newest model after [GPT-4 Omni](/models/openai/gpt-4o), supporting both text and image inputs with text outputs.",
     "tokenizer": "GPT"
   },
@@ -38,6 +131,22 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "categories": [
+      "health",
+      "marketing",
+      "marketing/seo",
+      "translation",
+      "trivia"
+    ],
+    "endpoint_tags": [
+      "azure",
+      "azure/swedencentral",
+      "openai"
+    ],
+    "endpoints": [
+      "Azure",
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -71,9 +180,19 @@
       "top_logprobs",
       "top_p",
       "web_search_options"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-4o-mini/endpoints",
+    "https://openrouter.ai/api/v1/models?category=health",
+    "https://openrouter.ai/api/v1/models?category=marketing",
+    "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
+    "https://openrouter.ai/api/v1/models?category=translation",
+    "https://openrouter.ai/api/v1/models?category=trivia",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

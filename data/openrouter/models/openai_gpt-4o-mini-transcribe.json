@@ -1,0 +1,90 @@
+{
+  "id": "openai/gpt-4o-mini-transcribe",
+  "provider": "openrouter",
+  "name": "OpenAI: GPT-4o Mini Transcribe",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/gpt-4o-mini-transcribe",
+    "is_moderated": "true",
+    "modality": "audio->transcription",
+    "release_date": "2026-05-01",
+    "summary": "GPT-4o Mini Transcribe is OpenAI's smaller, cost-efficient speech-to-text model built on GPT-4o Mini audio capabilities.",
+    "tokenizer": "GPT"
+  },
+  "limits": {
+    "context_window": 128000,
+    "top_provider_context_window": 128000
+  },
+  "lists": {
+    "endpoint_tags": [
+      "openai"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "transcription"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/openai/gpt-4o-mini-transcribe/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

@@ -31,7 +31,9 @@ var (
 	identifierRe = regexp.MustCompile(`['"]([a-z0-9][a-z0-9.-]*)['"]`)
 	// pillRe matches the badge marking the recommended model, which sits
 	// inside the cell holding that model's name.
-	pillRe = regexp.MustCompile(`(?is)<span[^>]*recommended-pill[^>]*>.*?</span>`)
+	pillRe = regexp.MustCompile(
+		`(?is)<span[^>]*recommended-pill[^>]*>.*?</span>`,
+	)
 )
 
 // matrixCapabilities read the capability matrix, whose cells answer in a word

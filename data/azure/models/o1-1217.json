@@ -1,6 +1,7 @@
 {
   "id": "o1-1217",
   "provider": "azure",
+  "name": "o1",
   "kind": "chat",
   "prices": [
     {
@@ -2436,15 +2437,36 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2024-12-18",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "October 2023"
+    "publisher": "OpenAI",
+    "recommended_replacement": "gpt-5.6-sol",
+    "release_date": "2024-12-17",
+    "retirement_date": "2026-10-21",
+    "state": "deprecated",
+    "summary": "Focused on advanced reasoning and solving complex problems, including math and science tasks. Ideal for applications that require deep contextual understanding and agentic workflows.",
+    "training_data_cutoff": "October 2023",
+    "version": "2024-12-17"
   },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 100000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "GlobalStandard",
+      "ProvisionedManaged",
+      "Standard"
+    ],
     "features": [
+      "agents",
+      "agents_v2",
+      "background_mode",
       "function_calling",
       "reasoning",
       "structured_outputs"
@@ -2453,12 +2475,79 @@
       "image",
       "text"
     ],
+    "keywords": [
+      "Coding",
+      "Multilingual",
+      "Reasoning"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

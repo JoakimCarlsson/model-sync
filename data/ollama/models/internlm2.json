@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "internlm2",
+    "default_snapshot": "internlm2:latest",
+    "last_updated": "2024-08-16",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.74B",
+    "quantization": "Q4_0",
     "summary": "InternLM2.5 is a 7B parameter model tailored for practical scenarios with outstanding reasoning capability."
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/internlm2/tags"
+    "https://ollama.com/library/internlm2/tags",
+    "https://ollama.com/library/internlm2:latest"
   ]
 }

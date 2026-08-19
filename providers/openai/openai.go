@@ -45,7 +45,9 @@ func (p *Provider) Name() string { return providerName }
 // comes first because it states rates by tier and context band, which a model
 // page cannot, and a model page defers to what is already recorded.
 // Deprecations come before the model pages so that a withdrawn model is not
-// then marked current by the page that still documents it.
+// then marked current by the page that still documents it. The changelog comes
+// last because it records dates against models the other documents established
+// and creates none of its own.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, stage := range []struct {
@@ -56,6 +58,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		{isDeprecations, b.applyDeprecations},
 		{isGuide, b.applyGuide},
 		{isModelPage, b.applyModelPage},
+		{isChangelog, b.applyChangelog},
 	} {
 		for _, doc := range docs {
 			if stage.match(doc.URL) {
@@ -64,6 +67,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	b.fillKinds()
+	b.applyAudioFileBounds()
 	b.applyAliasRates()
 	b.noteUnpriced()
 	return b.result(), nil
@@ -153,6 +157,10 @@ func isDeprecations(url string) bool {
 	return strings.HasSuffix(url, "/deprecations.md")
 }
 
+func isChangelog(url string) bool {
+	return strings.HasSuffix(url, "/changelog.md")
+}
+
 func isModelPage(url string) bool {
 	return strings.Contains(url, "/docs/models/")
 }
@@ -167,12 +175,23 @@ func (b *builder) applyPricingDoc(doc catalog.Document) {
 }
 
 // applyGuide reads a guide. Each states something no other document does: the
-// image guide holds the per-image rate matrix, the embeddings guide the vector
+// image guide holds the per-image rate matrix and what a generated image may
+// be, the video guide how long a generation may run, the text to speech guide
+// the voices and formats and languages of the speech models, the moderation
+// guide what the moderation model detects, the embeddings guide the vector
 // width and the longest accepted input, the web search guide the context
 // window of the search models, and the two transcription guides what a
 // listening model can do.
 func (b *builder) applyGuide(doc catalog.Document) {
 	switch doc.URL {
+	case ImageGuideURL:
+		b.applyImageGuide(doc)
+	case VideoGuideURL:
+		b.applyVideoGuide(doc)
+	case TextToSpeechGuideURL:
+		b.applyTextToSpeechGuide(doc)
+	case ModerationGuideURL:
+		b.applyModerationGuide(doc)
 	case EmbeddingsGuideURL:
 		b.applyEmbeddingsGuide(doc)
 	case WebSearchGuideURL:
@@ -181,10 +200,7 @@ func (b *builder) applyGuide(doc catalog.Document) {
 		b.applyTranscriptionGuide(doc)
 	case SpeechToTextGuideURL:
 		b.applySpeechToTextGuide(doc)
-	default:
-		for _, t := range scanJSXTables(doc) {
-			b.applyImageTable(t)
-		}
+		b.readAudioFileBounds(doc)
 	}
 }
 
@@ -196,6 +212,9 @@ type builder struct {
 	// withdrawn holds the identifiers OpenAI has stopped serving, which are
 	// dropped from the result however many documents describe them.
 	withdrawn map[string]bool
+	// audio holds the transcription file bounds a guide states before the
+	// pages saying which models they apply to have been read.
+	audio *audioFileBounds
 }
 
 func newBuilder() *builder {

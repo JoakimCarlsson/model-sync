@@ -19,11 +19,15 @@
   ],
   "attrs": {
     "author": "moonshotai",
+    "data_residency": "EU",
     "license": "Other",
-    "lifecycle_state": "eval",
     "model_path": "moonshotai/Kimi-K3",
-    "quantization": "INT4",
-    "release_date": "2026-07-28"
+    "open_weights": "true",
+    "quantization": "MXFP4",
+    "reasoning_mandatory": "true",
+    "release_date": "2026-07-28",
+    "state": "eval",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "model_size_billions": 2800
@@ -37,8 +41,12 @@
       "moonshot/kimi-3",
       "moonshotai/Kimi-K3"
     ],
+    "endpoints": [
+      "/v1/chat/completions"
+    ],
     "features": [
       "function_calling",
+      "reasoning",
       "streaming",
       "structured_outputs"
     ],
@@ -83,10 +91,16 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
-    "https://api.berget.ai/v1/models"
+    "https://api.berget.ai/v1/models",
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

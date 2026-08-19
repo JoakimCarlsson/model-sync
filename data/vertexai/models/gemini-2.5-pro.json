@@ -1,10 +1,189 @@
 {
   "id": "gemini-2.5-pro",
   "provider": "vertexai",
-  "name": "gemini 2.5 pro",
+  "name": "Gemini 2.5 Pro",
   "kind": "chat",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "audio",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "video",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "audio",
+        "tier": "batch"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 4.5,
@@ -24,6 +203,17 @@
         "context": "long",
         "modality": "audio",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "image",
+        "tier": "batch"
       }
     },
     {
@@ -51,6 +241,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 4.5,
       "currency": "USD",
       "dims": {
@@ -73,6 +274,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "video",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 4.5,
       "currency": "USD",
       "dims": {
@@ -90,6 +302,16 @@
         "context": "long",
         "modality": "video",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "tier": "batch"
       }
     },
     {
@@ -115,6 +337,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 2.25,
       "currency": "USD",
       "dims": {
@@ -130,6 +362,16 @@
       "dims": {
         "modality": "image",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "batch"
       }
     },
     {
@@ -155,6 +397,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 2.25,
       "currency": "USD",
       "dims": {
@@ -170,6 +422,17 @@
       "dims": {
         "modality": "video",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "context": "long",
+        "modality": "text",
+        "tier": "batch"
       }
     },
     {
@@ -197,6 +460,16 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "modality": "text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 18,
       "currency": "USD",
       "dims": {
@@ -216,7 +489,12 @@
     }
   ],
   "attrs": {
-    "retirement_date": "October 20, 2026"
+    "input_size_limit": "500 MB",
+    "recommended_replacement": "Gemini 3.5 Flash",
+    "release_date": "2025-06-17",
+    "retirement_date": "2026-10-20",
+    "state": "active",
+    "summary": "Our high-capability model for complex reasoning and coding. Features adaptive thinking capabilities to solve complex agentic and multimodal challenges with a 1 million token context."
   },
   "limits": {
     "context_window": 1048576,
@@ -225,6 +503,7 @@
   "lists": {
     "features": [
       "chat_completions",
+      "code_execution",
       "count_tokens",
       "function_calling",
       "prompt_caching",
@@ -233,7 +512,8 @@
       "structured_outputs",
       "system_instructions",
       "tuning",
-      "url_context"
+      "url_context",
+      "web_search"
     ],
     "input_modalities": [
       "audio",
@@ -241,8 +521,138 @@
       "text",
       "video"
     ],
+    "languages": [
+      "af",
+      "am",
+      "ar",
+      "as",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "bs",
+      "ca",
+      "ceb",
+      "co",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "dv",
+      "el",
+      "en",
+      "eo",
+      "es",
+      "et",
+      "eu",
+      "fa",
+      "fi",
+      "fil",
+      "fr",
+      "fy",
+      "ga",
+      "gd",
+      "gl",
+      "gu",
+      "ha",
+      "haw",
+      "hi",
+      "hmn",
+      "hr",
+      "ht",
+      "hu",
+      "hy",
+      "id",
+      "ig",
+      "is",
+      "it",
+      "iw",
+      "ja",
+      "jv",
+      "ka",
+      "kk",
+      "km",
+      "kn",
+      "ko",
+      "kri",
+      "ku",
+      "ky",
+      "la",
+      "lb",
+      "lo",
+      "lt",
+      "lv",
+      "mg",
+      "mi",
+      "mk",
+      "ml",
+      "mn",
+      "mni-Mtei",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "ne",
+      "nl",
+      "no",
+      "ny",
+      "or",
+      "pa",
+      "pl",
+      "ps",
+      "pt",
+      "ro",
+      "ru",
+      "sd",
+      "si",
+      "sk",
+      "sl",
+      "sm",
+      "sn",
+      "so",
+      "sq",
+      "sr",
+      "st",
+      "su",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "tg",
+      "th",
+      "tr",
+      "ug",
+      "uk",
+      "ur",
+      "uz",
+      "vi",
+      "xh",
+      "yi",
+      "yo",
+      "zh",
+      "zu"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "asia-northeast1",
+      "europe-central2",
+      "europe-north1",
+      "europe-southwest1",
+      "europe-west1",
+      "europe-west4",
+      "europe-west8",
+      "europe-west9",
+      "global",
+      "northamerica-northeast1",
+      "us-central1",
+      "us-east1",
+      "us-east4",
+      "us-east5",
+      "us-south1",
+      "us-west1",
+      "us-west4"
     ]
   },
   "sources": [
@@ -251,6 +661,7 @@
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

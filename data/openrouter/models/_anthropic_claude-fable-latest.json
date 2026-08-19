@@ -49,9 +49,10 @@
     "author": "~anthropic",
     "canonical_slug": "~anthropic/claude-fable-latest",
     "is_moderated": "true",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",
-    "released": "2026-06-09",
+    "release_date": "2026-06-09",
     "summary": "This model always redirects to the latest model in the Claude Fable family.",
     "tokenizer": "Router"
   },
@@ -99,6 +100,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~anthropic/claude-fable-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

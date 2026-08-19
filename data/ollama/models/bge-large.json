@@ -3,8 +3,16 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "bert",
     "default_embedding_dimension": "1024",
-    "summary": "Embedding model from BAAI mapping texts to vectors."
+    "default_snapshot": "bge-large:latest",
+    "last_updated": "2024-08-07",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "334M",
+    "quantization": "F16",
+    "summary": "Embedding model from BAAI mapping texts to vectors.",
+    "tokenizer": "bert"
   },
   "limits": {
     "context_window": 512
@@ -23,6 +31,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/bge-large/tags",
+    "https://ollama.com/library/bge-large:latest",
     "https://ollama.com/library/bge-large:latest/blobs/92b37e50807d"
   ]
 }

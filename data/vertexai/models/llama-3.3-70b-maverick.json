@@ -1,7 +1,7 @@
 {
   "id": "llama-3.3-70b-maverick",
   "provider": "vertexai",
-  "name": "llama 3.3 70b maverick",
+  "name": "Llama 3.3",
   "kind": "chat",
   "prices": [
     {
@@ -23,6 +23,13 @@
       }
     }
   ],
+  "attrs": {
+    "author": "meta",
+    "knowledge_cutoff": "2023-12",
+    "release_date": "2025-04-29",
+    "state": "active",
+    "summary": "Llama 3.3 is a text-only 70B instruction-tuned model that provides enhanced performance relative to Llama 3.1 70B and to Llama 3.2 90B when used for text-only applications. Moreover, for some applications, Llama 3.3 70B approaches the performance of Llama 3.1 405B."
+  },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 8192
@@ -39,10 +46,14 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-central1"
     ]
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/control-generated-output",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/llama/llama3-3",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/tools/function-calling",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"

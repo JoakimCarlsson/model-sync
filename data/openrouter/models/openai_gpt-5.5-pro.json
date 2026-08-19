@@ -13,6 +13,48 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai/flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai/flex",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 60,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 60,
       "currency": "USD",
       "dims": {
@@ -28,6 +70,48 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 180,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 90,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai/flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai/flex",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 270,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai",
+        "min_prompt_tokens": "272000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 270,
       "currency": "USD",
       "dims": {
@@ -39,6 +123,26 @@
       "unit": "per_1k_calls",
       "amount": 10,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai/flex"
+      }
     }
   ],
   "attrs": {
@@ -46,18 +150,27 @@
     "canonical_slug": "openai/gpt-5.5-pro-20260423",
     "is_moderated": "true",
     "knowledge_cutoff": "2025-12-01",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
-    "released": "2026-04-24",
+    "release_date": "2026-04-24",
     "summary": "GPT-5.5 Pro is OpenAI’s high-capability model optimized for deep reasoning and accuracy on complex, high-stakes workloads.",
     "tokenizer": "GPT"
   },
   "limits": {
     "context_window": 1050000,
+    "max_input_tokens": 922000,
     "max_output_tokens": 128000,
     "top_provider_context_window": 1050000
   },
   "lists": {
+    "endpoint_tags": [
+      "openai",
+      "openai/flex"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -84,6 +197,9 @@
       "tool_choice",
       "tools"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
     "reasoning_efforts": [
       "high",
       "medium",
@@ -91,6 +207,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-5.5-pro-20260423/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -31,11 +31,12 @@ const (
 	KindTool      catalog.Kind = "tool"
 )
 
-// States Voyage distinguishes. An older model is still served; it simply
-// carries no free allowance.
+// States Voyage distinguishes. A legacy model is still served and still
+// priced; it simply carries no free allowance and sits under a heading saying
+// a newer model is better.
 const (
-	StateCurrent = "current"
-	StateOlder   = "older"
+	StateActive = "active"
+	StateLegacy = "legacy"
 )
 
 // Scalar keys the documents populate.
@@ -47,6 +48,13 @@ const (
 	AttrBatchDiscount    = "batch_discount"
 	AttrDefaultDimension = "default_embedding_dimension"
 	AttrOpenWeights      = "open_weights"
+	AttrHuggingFaceID    = "hugging_face_id"
+	AttrTokenizer        = "tokenizer"
+	AttrReleaseDate      = "release_date"
+	AttrAnnouncementURL  = "announcement_url"
+	AttrReplacement      = "recommended_replacement"
+	AttrBatchWindow      = "batch_completion_window"
+	AttrDeprecated       = "deprecated"
 )
 
 // noteOpenWeights records why the models Voyage publishes the weights of carry
@@ -56,10 +64,31 @@ const noteOpenWeights = "weights published; Voyage states no rate " +
 	"because it does not serve the model"
 
 // Numeric keys the documents populate.
+//
+// The request bounds are stated per endpoint rather than per model, and are
+// recorded against every model that endpoint serves. An input is one text for
+// the embedding endpoint, one interleaved sequence for the multimodal one and
+// one document for the reranker, which is why they share a key: the question
+// a consumer asks of all three is how many items fit in one call.
 const (
-	LimitContextWindow = "context_window"
-	LimitChunkContext  = "chunk_context_window"
-	LimitFreeTokens    = "free_tokens"
+	LimitContextWindow  = "context_window"
+	LimitChunkContext   = "chunk_context_window"
+	LimitFreeTokens     = "free_tokens"
+	LimitInputsPerReq   = "max_inputs_per_request"
+	LimitTokensPerReq   = "max_tokens_per_request"
+	LimitTokensPerInput = "max_tokens_per_input"
+	LimitChunksPerReq   = "max_chunks_per_request"
+	LimitQueryTokens    = "max_query_tokens"
+	LimitImagePixels    = "max_image_pixels"
+	LimitImageMB        = "max_image_megabytes"
+	LimitVideoMB        = "max_video_megabytes"
+	LimitPixelsPerToken = "pixels_per_token"
+	LimitVideoPixels    = "video_pixels_per_token"
+	LimitMinBillPixels  = "min_billable_pixels_per_image"
+	LimitMaxBillPixels  = "max_billable_pixels_per_image"
+	LimitFileRetention  = "file_retention_days"
+	LimitRPM            = "requests_per_minute"
+	LimitTPM            = "tokens_per_minute"
 )
 
 // Enumeration keys the documents populate.
@@ -68,6 +97,9 @@ const (
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	ListFeatures         = catalog.ListFeatures
+	ListParameters       = catalog.ListParameters
+	ListEndpoints        = "endpoints"
+	ListOutputDtypes     = "output_dtypes"
 )
 
 // Capabilities Voyage states per model. None of the canonical capability values
@@ -80,6 +112,18 @@ const (
 	// FeatureQuantizedOutput is set where a model can return its vector in
 	// something narrower than a 32-bit float.
 	FeatureQuantizedOutput = "quantized_embeddings"
+	// FeatureInputTypes is set where a model distinguishes a query from a
+	// document, Voyage prepending a different retrieval prompt for each.
+	FeatureInputTypes = "input_type_prompting"
+	// FeatureTruncation is set where an over-length input is cut to fit
+	// instead of being refused.
+	FeatureTruncation = "input_truncation"
+	// FeatureAutoChunking is set where the model will cut a whole document
+	// into chunks itself rather than being handed them.
+	FeatureAutoChunking = "auto_chunking"
+	// FeatureInstructions is set where the query may carry an instruction
+	// steering what counts as relevant.
+	FeatureInstructions = "instruction_following"
 )
 
 // Modalities Voyage's capability pages account for.

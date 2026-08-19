@@ -31,6 +31,13 @@ var (
 	// titleRe matches the tooltip a rate cell carries, which says what the
 	// amount is metered against.
 	titleRe = regexp.MustCompile(`(?is)title="([^"]+)"`)
+	// tableRe matches one pricing table. A product heading covers more than
+	// one of them, and which table a row sits in is what says whether its rate
+	// is for a live connection or for a recording.
+	tableRe = regexp.MustCompile(`(?is)<table[^>]*>(.*?)</table>`)
+	// captionRe matches the caption Deepgram writes for a screen reader, which
+	// is the only place the page says which table is which.
+	captionRe = regexp.MustCompile(`(?is)<caption[^>]*>(.*?)</caption>`)
 )
 
 // applyPricing reads the pricing page.
@@ -46,9 +53,34 @@ func (b *builder) applyPricing(doc catalog.Document) {
 
 // applySection reads the tables under one product heading.
 func (b *builder) applySection(s section, kind catalog.Kind, source string) {
+	ends := statedDate(prose(s.body))
+	for _, t := range tables(s.body) {
+		if t.duplicate {
+			continue
+		}
+		b.applyTable(t, kind, s.heading, ends, source)
+	}
+}
+
+// prose returns what a section says before its first table, which is where
+// Deepgram writes out the date a promotion in the table lapses.
+func prose(body string) string {
+	if at := tableRe.FindStringIndex(body); at != nil {
+		return body[:at[0]]
+	}
+	return body
+}
+
+// applyTable reads one table, whose caption says whether its rates are for a
+// live connection or for a finished recording where the two differ.
+func (b *builder) applyTable(
+	t table,
+	kind catalog.Kind,
+	product, ends, source string,
+) {
 	var plans []string
 	var held []carried
-	for _, match := range rowRe.FindAllStringSubmatch(s.body, -1) {
+	for _, match := range rowRe.FindAllStringSubmatch(t.body, -1) {
 		var cells []cell
 		cells, held = fill(rowCells(match[1]), held)
 		if len(cells) < 2 {
@@ -59,8 +91,65 @@ func (b *builder) applySection(s section, kind catalog.Kind, source string) {
 			held = nil
 			continue
 		}
-		b.applyRow(cells, plans, kind, s.heading, source)
+		b.applyRow(cells, plans, kind, t.delivery, product, ends, source)
 	}
+}
+
+// table is one pricing table with what its caption says about it.
+type table struct {
+	body string
+	// delivery is whether the table prices transcribing a live connection or
+	// transcribing a finished recording. Deepgram prices the two differently
+	// and says which is which only in the caption, so a table read without it
+	// records two rates for one model and nothing to tell them apart.
+	delivery string
+	// duplicate marks the narrow-screen copy of the table above it, which
+	// repeats the same models under fewer plans and writes a withdrawn rate
+	// without the styling that marks it as withdrawn.
+	duplicate bool
+}
+
+// tables divides a section into its tables and reads each caption.
+func tables(body string) []table {
+	matches := tableRe.FindAllStringSubmatch(body, -1)
+	out := make([]table, 0, len(matches))
+	for _, m := range matches {
+		out = append(out, table{
+			body:      m[1],
+			delivery:  tableDelivery(m[1]),
+			duplicate: duplicateTable(m[1]),
+		})
+	}
+	return out
+}
+
+// caption returns what a table calls itself, which Deepgram writes for a
+// screen reader rather than for a reader.
+func caption(body string) string {
+	match := captionRe.FindStringSubmatch(body)
+	if match == nil {
+		return ""
+	}
+	return strings.ToLower(text(match[1]))
+}
+
+// tableDelivery reads whether a table prices a live connection or a
+// recording.
+func tableDelivery(body string) string {
+	c := caption(body)
+	switch {
+	case strings.HasPrefix(c, "streaming"):
+		return DeliveryStreaming
+	case strings.HasPrefix(c, "pre-recorded"):
+		return DeliveryBatch
+	}
+	return ""
+}
+
+// duplicateTable reports whether a table is the narrow-screen copy of the one
+// above it, which its caption says.
+func duplicateTable(body string) bool {
+	return strings.Contains(caption(body), "single-column view")
 }
 
 // carried is a cell still covering rows below the one it was written in.
@@ -125,7 +214,7 @@ func (b *builder) applyRow(
 	cells []cell,
 	plans []string,
 	kind catalog.Kind,
-	product, source string,
+	delivery, product, ends, source string,
 ) {
 	name, summary := splitNameCell(cells[0].html)
 	if name == "" || headerFirstCells[strings.ToLower(name)] {
@@ -140,12 +229,13 @@ func (b *builder) applyRow(
 	}
 	m.SetAttr(AttrSection, product)
 	m.SetAttr(AttrSummary, summary)
+	m.AddList(catalog.ListFeatures, deliveryFeatures[delivery])
 	for i, c := range cells[1:] {
 		plan := ""
 		if i < len(plans) {
 			plan = plans[i]
 		}
-		b.applyCell(m, c, plan, kind)
+		b.applyCell(m, c, plan, delivery, ends, kind)
 	}
 }
 
@@ -154,7 +244,7 @@ func (b *builder) applyRow(
 func (b *builder) applyCell(
 	m *catalog.Model,
 	c cell,
-	plan string,
+	plan, delivery, ends string,
 	kind catalog.Kind,
 ) {
 	plain := text(c.html)
@@ -172,8 +262,9 @@ func (b *builder) applyCell(
 			Unit:     UnitPerMinute,
 			Amount:   0,
 			Currency: currency,
-			Dims:     catalog.Dims{}.With(DimPlan, plan),
-			Note:     noteIncluded,
+			Dims: catalog.Dims{}.With(DimPlan, plan).
+				With(DimDelivery, delivery),
+			Note: noteIncluded,
 		})
 		return
 	}
@@ -184,12 +275,12 @@ func (b *builder) applyCell(
 	}
 	m.SetAttr(AttrMetered, tooltip(c.html))
 	offer, standard := splitOffer(plain)
-	dims := catalog.Dims{}.With(DimPlan, plan)
+	dims := catalog.Dims{}.With(DimPlan, plan).With(DimDelivery, delivery)
 	unit := b.applyRates(m, standard, c.html, dims, kind)
 	if offer == "" {
 		return
 	}
-	b.applyOffer(m, offer, dims, unit, kind)
+	b.applyOffer(m, offer, dims, unit, ends, kind)
 }
 
 // applyRates records every amount a cell states, ignoring the struck-through
@@ -204,7 +295,7 @@ func (b *builder) applyRates(
 	var unit catalog.Unit
 	for _, r := range parseRates(plain) {
 		if struck[r.Raw] {
-			m.SetAttr(AttrPreviousRate, r.Raw)
+			m.AddList(ListPreviousRates, r.Raw)
 			continue
 		}
 		if r.Unit == "" {
@@ -231,9 +322,10 @@ func (b *builder) applyOffer(
 	offer string,
 	dims catalog.Dims,
 	unit catalog.Unit,
+	stated string,
 	kind catalog.Kind,
 ) {
-	ends := offerEnd(offer)
+	ends := offerEnd(offer, stated)
 	m.SetAttr(AttrOfferEnds, ends)
 	dims = dims.With(DimPromotion, "true")
 	rates := parseRates(offer)

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "gemma2",
+    "default_snapshot": "gemma2:latest",
+    "last_updated": "2024-08-01",
+    "license": "Gemma Terms of Use",
+    "open_weights": "true",
+    "parameter_count": "9.24B",
+    "quantization": "Q4_0",
     "summary": "Google Gemma 2 is a high-performing and efficient model available in three sizes: 2B, 9B, and 27B."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/gemma2/tags"
+    "https://ollama.com/library/gemma2/tags",
+    "https://ollama.com/library/gemma2:latest"
   ]
 }

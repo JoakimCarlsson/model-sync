@@ -4855,6 +4855,36 @@
     },
     {
       "metric": "usage",
+      "unit": "per_request",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "meter": "nova-grounding",
+        "region": "us-east-1"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_request",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "meter": "nova-grounding",
+        "region": "us-east-2"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_request",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "meter": "nova-grounding",
+        "region": "us-west-2"
+      }
+    },
+    {
+      "metric": "usage",
       "unit": "per_1k_tokens",
       "amount": 0.0227,
       "currency": "USD",

@@ -1,6 +1,7 @@
 {
   "id": "gpt-3.5-turbo",
   "provider": "azure",
+  "name": "gpt-35-turbo",
   "kind": "chat",
   "prices": [
     {
@@ -15,9 +16,17 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "catalog_added_on": "2023-09-29",
+    "product": "Azure OpenAI",
+    "version": "703844"
+  },
+  "lists": {
+    "tasks": [
+      "chat-completions"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

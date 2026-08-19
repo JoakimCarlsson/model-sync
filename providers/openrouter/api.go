@@ -31,15 +31,18 @@ type entry struct {
 	Pricing             map[string]json.RawMessage `json:"pricing"`
 	PerRequestLimits    map[string]json.RawMessage `json:"per_request_limits"`
 	SupportedParameters []string                   `json:"supported_parameters"`
+	DefaultParameters   map[string]json.Number     `json:"default_parameters"`
 	SupportedVoices     []string                   `json:"supported_voices"`
 	KnowledgeCutoff     string                     `json:"knowledge_cutoff"`
 	ExpirationDate      string                     `json:"expiration_date"`
 	Reasoning           *reasoning                 `json:"reasoning"`
 	AliasTarget         *aliasTarget               `json:"alias_target"`
+	Benchmarks          *benchmarks                `json:"benchmarks"`
 	Links               links                      `json:"links"`
 }
 
 type architecture struct {
+	Modality         string   `json:"modality"`
 	InputModalities  []string `json:"input_modalities"`
 	OutputModalities []string `json:"output_modalities"`
 	Tokenizer        string   `json:"tokenizer"`
@@ -62,6 +65,22 @@ type reasoning struct {
 	SupportedEfforts []string `json:"supported_efforts"`
 }
 
+// benchmarks are the third-party scores OpenRouter attaches to a model. Only
+// the indices are recorded: the arena rows beside them are one row per arena
+// and per category, and they state a standing against other models rather than
+// anything about the model itself.
+type benchmarks struct {
+	ArtificialAnalysis *indices `json:"artificial_analysis"`
+}
+
+// indices are the scores Artificial Analysis publishes for a model, as
+// OpenRouter restates them.
+type indices struct {
+	Intelligence *json.Number `json:"intelligence_index"`
+	Coding       *json.Number `json:"coding_index"`
+	Agentic      *json.Number `json:"agentic_index"`
+}
+
 // aliasTarget is what a moving identifier such as x-ai/grok-latest currently
 // resolves to.
 type aliasTarget struct {
@@ -81,13 +100,6 @@ func detailURL(e entry) string {
 		return ""
 	}
 	return baseURL + e.Links.Details
-}
-
-// needsDetail reports whether the listing left something the endpoint document
-// can state. It is asked before anything is fetched, so a model the listing
-// answers in full costs no request.
-func needsDetail(e entry) bool {
-	return e.TopProvider.MaxCompletionTokens <= 0 || len(featuresOf(e)) == 0
 }
 
 // override is a rate that replaces the standard one once a request is large
@@ -152,7 +164,8 @@ func (b *builder) applyEntry(e entry, source string) {
 	m.SetAttr(AttrInstructType, e.Architecture.InstructType)
 	m.SetAttr(AttrKnowledgeCutoff, isoDate(e.KnowledgeCutoff))
 	m.SetAttr(AttrExpirationDate, isoDate(e.ExpirationDate))
-	m.SetAttr(AttrReleased, isoFromUnix(e.Created))
+	m.SetAttr(AttrReleaseDate, isoFromUnix(e.Created))
+	m.SetAttr(AttrModality, e.Architecture.Modality)
 	if e.TopProvider.IsModerated {
 		m.SetAttr(AttrModerated, "true")
 	}
@@ -160,19 +173,77 @@ func (b *builder) applyEntry(e entry, source string) {
 		m.SetAttr(AttrAliasTarget, e.AliasTarget.Slug)
 	}
 	applyReasoning(m, e.Reasoning)
+	applyDefaults(m, e.DefaultParameters)
+	applyEmbedding(m, e.Description)
+	applyBenchmarks(m, e.Benchmarks)
 
 	m.SetLimit(LimitContextWindow, e.ContextLength)
 	m.SetLimit(LimitProviderContext, e.TopProvider.ContextLength)
 	m.SetLimit(LimitMaxOutputTokens, e.TopProvider.MaxCompletionTokens)
 	applyRequestLimits(m, e.PerRequestLimits)
 
-	m.AddList(ListInputModalities, e.Architecture.InputModalities...)
-	m.AddList(ListOutputModalities, e.Architecture.OutputModalities...)
+	addModalities(m, ListInputModalities, e.Architecture.InputModalities)
+	addModalities(m, ListOutputModalities, e.Architecture.OutputModalities)
 	m.AddList(ListParameters, e.SupportedParameters...)
-	m.AddList(ListFeatures, featuresOf(e)...)
+	m.AddList(ListFeatures, featuresOf(e, generative(m))...)
 	m.AddList(ListVoices, e.SupportedVoices...)
 
-	b.applyPricing(m, e.Pricing)
+	applyPricing(m, e.Pricing, nil)
+}
+
+// addModalities records the media a model takes or returns, with the medium
+// alongside the vendor's word where OpenRouter names the task instead.
+func addModalities(m *catalog.Model, key string, modalities []string) {
+	for _, modality := range modalities {
+		m.AddList(key, modality)
+		m.AddList(key, modalityAliases[strings.ToLower(modality)])
+	}
+}
+
+// applyDefaults records the sampling settings a model is served with when the
+// caller asks for none, exactly as published.
+func applyDefaults(m *catalog.Model, defaults map[string]json.Number) {
+	for name, value := range defaults {
+		m.SetAttr(AttrDefaultPrefix+name, value.String())
+	}
+}
+
+// applyBenchmarks records the indices, leaving the arena standings out.
+func applyBenchmarks(m *catalog.Model, b *benchmarks) {
+	if b == nil || b.ArtificialAnalysis == nil {
+		return
+	}
+	scores := map[string]*json.Number{
+		"intelligence_index": b.ArtificialAnalysis.Intelligence,
+		"coding_index":       b.ArtificialAnalysis.Coding,
+		"agentic_index":      b.ArtificialAnalysis.Agentic,
+	}
+	for name, value := range scores {
+		if value == nil {
+			continue
+		}
+		m.SetAttr(AttrBenchmarkPrefix+name, value.String())
+	}
+}
+
+// generative reports whether a model writes an answer, which is the test for
+// reading its parameter list as a statement of capability. The three kinds
+// that do are the ones that return text, images, or both text and speech.
+//
+// OpenRouter forwards the same parameter list to models that could not use it:
+// an embedding model is published as accepting temperature, top_k and min_p,
+// and a transcription model as accepting response_format, which there names
+// the shape of the transcript rather than a schema the model is held to.
+// Reading those lists the way a chat model's is read would put structured
+// output on every reranker in the catalog. The rates and the reasoning object
+// are read for every model, because neither is boilerplate: they are stated
+// per model and only where they apply.
+func generative(m *catalog.Model) bool {
+	switch m.Kind {
+	case KindChat, KindImage, KindAudio:
+		return true
+	}
+	return false
 }
 
 // applyReasoning records how far a model's thinking can be turned up, and that
@@ -201,21 +272,17 @@ func applyReasoning(m *catalog.Model, r *reasoning) {
 // levies implies the capability being charged for, since nothing is billed for
 // reading a cache or running a search unless the model does it; and the
 // reasoning object is attached to a model that thinks and to no other.
-func featuresOf(e entry) []string {
+//
+// Only the first of the three is conditional on what the model generates. See
+// generative for why.
+func featuresOf(e entry, generative bool) []string {
 	var features []string
-	for _, parameter := range e.SupportedParameters {
-		features = append(features, parameterFeatures[parameter]...)
-	}
-	for key, raw := range e.Pricing {
-		var rate string
-		if err := json.Unmarshal(raw, &rate); err != nil {
-			continue
+	if generative {
+		for _, parameter := range e.SupportedParameters {
+			features = append(features, parameterFeatures[parameter]...)
 		}
-		if isZeroRate(rate) {
-			continue
-		}
-		features = append(features, priceFeatures[key]...)
 	}
+	features = append(features, pricedFeatures(e.Pricing)...)
 	if e.Reasoning != nil {
 		features = append(features, catalog.CapabilityReasoning)
 	}
@@ -242,16 +309,23 @@ func applyRequestLimits(m *catalog.Model, limits map[string]json.RawMessage) {
 	}
 }
 
-// applyPricing records every rate a model carries, including the conditional
-// ones that replace the standard rate for a large enough request.
-func (b *builder) applyPricing(
+// applyPricing records every rate a pricing object carries, including the
+// conditional ones that replace the standard rate for a large enough request.
+//
+// The same object is published twice, once on the model for the seller
+// OpenRouter fronts and once per seller in the endpoint document. The dims
+// name the seller when the rates are a seller's, and are empty when they are
+// the model's own, so the rate a caller who names nothing pays stays
+// unqualified.
+func applyPricing(
 	m *catalog.Model,
 	pricing map[string]json.RawMessage,
+	dims catalog.Dims,
 ) {
 	free := isFree(pricing)
 	for key, raw := range pricing {
 		if key == "overrides" {
-			applyOverrides(m, raw)
+			applyOverrides(m, raw, dims)
 			continue
 		}
 		var rate string
@@ -259,12 +333,12 @@ func (b *builder) applyPricing(
 			continue
 		}
 		if free && billedAlways[key] {
-			addZeroRate(m, key)
+			addZeroRate(m, key, dims)
 			continue
 		}
-		addRate(m, key, rate, nil)
+		addRate(m, key, rate, dims)
 	}
-	if free && len(pricing) > 0 {
+	if free && len(pricing) > 0 && len(dims) == 0 {
 		m.SetAttr(AttrFree, "true")
 	}
 }
@@ -273,13 +347,15 @@ func (b *builder) applyPricing(
 // zero in them a rate of nothing rather than a charge that does not apply.
 var billedAlways = map[string]bool{"prompt": true, "completion": true}
 
-// isFree reports whether a model is charged nothing for what every model is
-// charged for.
+// isFree reports whether a model is charged nothing for anything.
+//
+// The test is every published rate rather than the two every model carries,
+// because a model billed per image is charged zero per token and is not free:
+// its zero says tokens are not how it is billed. Only where nothing at all is
+// charged does a zero on the prompt and completion keys mean a rate of
+// nothing.
 func isFree(pricing map[string]json.RawMessage) bool {
-	for key, raw := range pricing {
-		if !billedAlways[key] {
-			continue
-		}
+	for _, raw := range pricing {
 		var rate string
 		if err := json.Unmarshal(raw, &rate); err != nil {
 			continue
@@ -298,7 +374,7 @@ func isFree(pricing map[string]json.RawMessage) bool {
 // keys every model is billed on, the ambiguity is gone: a model charged nothing
 // for its prompt and nothing for its completion is free, and saying so as a
 // rate of zero is what tells it apart from a model whose rate is unknown.
-func addZeroRate(m *catalog.Model, key string) {
+func addZeroRate(m *catalog.Model, key string, dims catalog.Dims) {
 	scaling, known := priceKeys[key]
 	if !known {
 		return
@@ -308,12 +384,12 @@ func addZeroRate(m *catalog.Model, key string) {
 		Unit:     scaling.unit,
 		Amount:   0,
 		Currency: currency,
-		Dims:     scaling.dims,
+		Dims:     scaling.dims.Merge(dims),
 	})
 }
 
 // applyOverrides records the conditional rates.
-func applyOverrides(m *catalog.Model, raw json.RawMessage) {
+func applyOverrides(m *catalog.Model, raw json.RawMessage, dims catalog.Dims) {
 	var overrides []override
 	if err := json.Unmarshal(raw, &overrides); err != nil {
 		return
@@ -322,11 +398,12 @@ func applyOverrides(m *catalog.Model, raw json.RawMessage) {
 		if o.MinPromptTokens <= 0 {
 			continue
 		}
-		dims := catalog.Dims{
-			DimMinPromptTokens: strconv.FormatInt(o.MinPromptTokens, 10),
-		}
+		conditional := dims.With(
+			DimMinPromptTokens,
+			strconv.FormatInt(o.MinPromptTokens, 10),
+		)
 		for key, rate := range o.Rates {
-			addRate(m, key, rate, dims)
+			addRate(m, key, rate, conditional)
 		}
 	}
 }

@@ -1,0 +1,82 @@
+{
+  "id": "enhanced-meeting",
+  "provider": "deepgram",
+  "name": "enhanced-meeting",
+  "kind": "transcription",
+  "attrs": {
+    "custom_model_option": "enhanced-<CUSTOM>",
+    "family": "enhanced",
+    "max_file_size": "2 GB",
+    "state": "legacy",
+    "summary": "Recommended for lower word error rates than Base, high accuracy timestamps, and use cases that require keyword boosting."
+  },
+  "limits": {
+    "max_concurrent_prerecorded_requests_enterprise_australia": 200,
+    "max_concurrent_prerecorded_requests_enterprise_europe": 200,
+    "max_concurrent_prerecorded_requests_enterprise_north_america": 200,
+    "max_concurrent_prerecorded_requests_growth_australia": 50,
+    "max_concurrent_prerecorded_requests_growth_europe": 50,
+    "max_concurrent_prerecorded_requests_growth_north_america": 50,
+    "max_concurrent_prerecorded_requests_pay_as_you_go_australia": 50,
+    "max_concurrent_prerecorded_requests_pay_as_you_go_europe": 50,
+    "max_concurrent_prerecorded_requests_pay_as_you_go_north_america": 50,
+    "max_concurrent_streaming_requests_enterprise_australia": 300,
+    "max_concurrent_streaming_requests_enterprise_europe": 300,
+    "max_concurrent_streaming_requests_enterprise_north_america": 300,
+    "max_concurrent_streaming_requests_growth_australia": 150,
+    "max_concurrent_streaming_requests_growth_europe": 150,
+    "max_concurrent_streaming_requests_growth_north_america": 225,
+    "max_concurrent_streaming_requests_pay_as_you_go_australia": 150,
+    "max_concurrent_streaming_requests_pay_as_you_go_europe": 150,
+    "max_concurrent_streaming_requests_pay_as_you_go_north_america": 150,
+    "max_processing_seconds": 600
+  },
+  "lists": {
+    "features": [
+      "batch",
+      "endpointing",
+      "entity_detection",
+      "filler_words",
+      "find_and_replace",
+      "intent_recognition",
+      "keyterm_prompting",
+      "language_detection",
+      "multichannel",
+      "numerals",
+      "paragraphs",
+      "profanity_filter",
+      "punctuation",
+      "realtime",
+      "redaction",
+      "search",
+      "sentiment_analysis",
+      "smart_formatting",
+      "speaker_diarization",
+      "summarization",
+      "topic_detection",
+      "utterances"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "languages": [
+      "en",
+      "en-US"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "variants": [
+      "enhanced",
+      "enhanced-finance",
+      "enhanced-phonecall"
+    ]
+  },
+  "sources": [
+    "https://developers.deepgram.com/docs/models-languages-overview.md",
+    "https://developers.deepgram.com/docs/pre-recorded-audio.md",
+    "https://developers.deepgram.com/docs/stt-pre-recorded-feature-overview.md",
+    "https://developers.deepgram.com/docs/stt-streaming-feature-overview.md",
+    "https://developers.deepgram.com/reference/api-rate-limits.md"
+  ]
+}

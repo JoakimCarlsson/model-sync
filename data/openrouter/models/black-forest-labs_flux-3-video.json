@@ -1,0 +1,70 @@
+{
+  "id": "black-forest-labs/flux-3-video",
+  "provider": "openrouter",
+  "name": "Black Forest Labs: FLUX.3 Video",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Black Forest Labs",
+        "endpoint_tag": "black-forest-labs"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Black Forest Labs",
+        "endpoint_tag": "black-forest-labs"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "black-forest-labs",
+    "canonical_slug": "black-forest-labs/flux-3-video-20260804",
+    "is_free": "true",
+    "modality": "text+image+video->video",
+    "release_date": "2026-08-04",
+    "summary": "FLUX.3 Video is a video generation model from Black Forest Labs.",
+    "tokenizer": "Media"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "black-forest-labs"
+    ],
+    "endpoints": [
+      "Black Forest Labs"
+    ],
+    "input_modalities": [
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "video"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/black-forest-labs/flux-3-video-20260804/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/llama-guard-2-8b",
+  "provider": "fireworks",
+  "name": "Llama Guard v2 8B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "true",
+    "hugging_face_id": "meta-llama/Meta-Llama-Guard-2-8B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-guard-2-8b",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-guard-2-8b",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "release_date": "2024-04-18",
+    "state": "active",
+    "summary": "Meta Llama Guard 2 is an 8B parameter Llama 3-based LLM safeguard model. Similar to Llama Guard, it can be used for classifying content in both LLM inputs (prompt classification) and in LLM responses (response classification). It acts as an LLM – it generates text in its output that indicates whether a given prompt or response is safe or unsafe, and if unsafe, it also lists the content categories violated."
+  },
+  "limits": {
+    "context_window": 8192
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-guard-2-8b"
+  ]
+}

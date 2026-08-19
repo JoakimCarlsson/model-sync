@@ -1,0 +1,72 @@
+{
+  "id": "runway/gen-4.5",
+  "provider": "openrouter",
+  "name": "Runway: Gen-4.5",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Runway",
+        "endpoint_tag": "runway"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Runway",
+        "endpoint_tag": "runway"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "runway",
+    "canonical_slug": "runway/gen-4.5-20260729",
+    "is_free": "true",
+    "modality": "text+image->video",
+    "release_date": "2026-07-29",
+    "summary": "Runway Gen-4.5 is a video generation model from Runway for text-to-video and image-to-video workflows.",
+    "tokenizer": "Media"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "runway"
+    ],
+    "endpoints": [
+      "Runway"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/runway/gen-4.5-20260729/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

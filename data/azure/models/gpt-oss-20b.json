@@ -1,6 +1,7 @@
 {
   "id": "gpt-oss-20b",
   "provider": "azure",
+  "name": "gpt-oss-20b",
   "kind": "chat",
   "prices": [
     {
@@ -2567,18 +2568,32 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-12-12",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure OpenAI OSS Models",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "state": "active",
+    "summary": "Push the open model frontier with GPT-OSS models, released under the permissive Apache 2.0 license, allowing anyone to use, modify, and deploy them freely.",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "11"
   },
   "limits": {
     "context_window": 131072,
     "max_output_tokens": 131072
   },
   "lists": {
+    "deployment_types": [
+      "Arc",
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "endpoints": [
       "Chat Completions"
     ],
     "features": [
+      "fine_tuning",
       "function_calling",
       "reasoning",
       "streaming",
@@ -2587,11 +2602,54 @@
     "input_modalities": [
       "text"
     ],
+    "keywords": [
+      "Coding",
+      "Multilingual",
+      "Reasoning"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]

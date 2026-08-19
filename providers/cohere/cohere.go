@@ -49,21 +49,14 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the overview, the two pricing pages, the deprecation
-// announcements, the pages of the two transcription models and the three
-// capability guides. Only the overview is required: it is the one document
-// naming the identifiers the API answers to, and without it nothing the others
-// say can be attached to anything. A document that cannot be read costs what
-// it alone states, so the rest are returned with the failure rather than
-// instead of it.
-func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
-	overview, err := p.get(ctx, ModelsURL)
-	if err != nil {
-		return nil, err
-	}
-	docs := []catalog.Document{overview}
-	var failures []error
-	for _, url := range []string{
+// documents are everything Cohere publishes that this parser reads, less the
+// overview, which is fetched first and on its own, and less the release notes,
+// which are not known until their index has been read.
+//
+// The order is the order they are listed in, which is the order they are
+// fetched in and has no bearing on the order they are parsed in.
+func documents() []string {
+	urls := []string{
 		PricingURL,
 		VaultPricingURL,
 		DeprecationsURL,
@@ -72,13 +65,58 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 		StructuredOutputsURL,
 		ToolUseURL,
 		StreamingURL,
-	} {
+		RateLimitsURL,
+		ChatReferenceURL,
+		EmbedReferenceURL,
+		RerankReferenceURL,
+		AudioReferenceURL,
+		ChangelogURL,
+	}
+	for url := range modelPages {
+		urls = append(urls, url)
+	}
+	slices.Sort(urls)
+	return urls
+}
+
+// Fetch retrieves the overview, the two pricing pages, the deprecation
+// announcements, the pages of the two transcription models, the pages of the
+// six Command models that have one, the three capability guides, the rate
+// limit page, the four endpoint references and every release note. Only the
+// overview is required: it is the one document naming the identifiers the API
+// answers to, and without it nothing the others say can be attached to
+// anything. A document that cannot be read costs what it alone states, so the
+// rest are returned with the failure rather than instead of it.
+//
+// The release notes are fetched last and in two rounds, because Cohere numbers
+// them by nothing: the index names each entry and dates it, and the entry
+// itself carries no date, so which notes exist is not known until the index
+// has been read.
+func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
+	overview, err := p.get(ctx, ModelsURL)
+	if err != nil {
+		return nil, err
+	}
+	docs := []catalog.Document{overview}
+	var failures []error
+	for _, url := range documents() {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
 			continue
 		}
 		docs = append(docs, doc)
+		if url != ChangelogURL {
+			continue
+		}
+		for _, entry := range changelogEntries(doc.Body) {
+			note, err := p.get(ctx, entry)
+			if err != nil {
+				failures = append(failures, err)
+				continue
+			}
+			docs = append(docs, note)
+		}
 	}
 	return docs, errors.Join(failures...)
 }
@@ -93,17 +131,24 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 // have to be read before the amounts are.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
+	dates := map[string]string{}
 	for _, doc := range docs {
-		if doc.URL == ModelsURL {
+		switch doc.URL {
+		case ModelsURL:
 			b.applyOverview(doc)
+		case ChangelogURL:
+			dates = changelogDates(doc.Body)
 		}
 	}
+	b.linkAliases()
 	for _, doc := range docs {
 		switch doc.URL {
 		case TranscribeURL, TranscribeArabicURL:
 			b.applyTranscribe(doc)
 		case DeprecationsURL:
 			b.applyLifecycle(doc)
+		default:
+			b.applyModelPage(doc)
 		}
 	}
 	priced := map[string]bool{}
@@ -121,8 +166,14 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyToolUse(doc)
 		case StreamingURL:
 			b.applyStreaming(doc)
+		case RateLimitsURL:
+			b.applyRateLimits(doc)
+		default:
+			b.applyReference(doc)
+			b.applyChangelog(doc, dates[doc.URL])
 		}
 	}
+	b.aliasPrices()
 	if priced[PricingURL] && priced[VaultPricingURL] {
 		b.noteUnpriced()
 	}
@@ -201,10 +252,16 @@ func cacheName(url string) string {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// noTools holds the models whose own page withholds a capability the tool
+	// use guide claims for the family they belong to.
+	noTools map[string]bool
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models:  map[string]*catalog.Model{},
+		noTools: map[string]bool{},
+	}
 }
 
 // model returns the entry for id, creating it if absent.

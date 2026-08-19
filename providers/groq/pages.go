@@ -102,17 +102,17 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	body := string(doc.Body)
 	id := strings.TrimSpace(firstOf(pageIDRe, body))
 	if id == "" {
-		id = strings.TrimSuffix(path.Base(doc.URL), ".md")
+		id = pageID(doc.URL)
 	}
 	m, ok := b.models[id]
 	if !ok {
 		return
 	}
 	m.AddSource(doc.URL)
-	m.SetAttr(AttrModelCard, firstOf(pageCardRe, body))
 	m.AddNote(composedPricing(body))
 	addPagePricing(m, body)
 	sections := readSections(body)
+	addPageFacts(m, body, sections)
 	addModalities(m, ListInputModalities, sections[headInput])
 	addModalities(m, ListOutputModalities, sections[headOutput])
 	for _, name := range splitList(sections[headCapabilities]) {
@@ -123,6 +123,30 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		}
 		m.AddList(ListFeatures, featureName(name)...)
 	}
+	if m.Kind == "" {
+		m.Kind = kindForModalities(m)
+	}
+}
+
+// pageID recovers the identifier from the page's own address, for a page that
+// does not write it out. The address is the identifier with a prefix, and the
+// identifier of a model published by a third party carries a slash, so the
+// whole path after the prefix is the identifier and not only its last segment.
+func pageID(url string) string {
+	trimmed := strings.TrimSuffix(url, ".md")
+	for _, prefix := range []string{modelPagePrefix, systemPagePrefix} {
+		if _, after, ok := strings.Cut(trimmed, prefix); ok {
+			return after
+		}
+	}
+	return path.Base(trimmed)
+}
+
+// isModelPage reports whether a document is the page of one model or of one
+// system rather than one of the guides.
+func isModelPage(url string) bool {
+	return strings.Contains(url, modelPagePrefix) ||
+		strings.Contains(url, systemPagePrefix)
 }
 
 // composedPricing returns the sentence a system's page closes its pricing

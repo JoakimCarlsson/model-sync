@@ -25,8 +25,19 @@ const (
 	providerName = "OpenRouter"
 )
 
-// ModelsURL is the endpoint listing every model OpenRouter brokers.
-const ModelsURL = "https://openrouter.ai/api/v1/models"
+// modelsBase is the listing endpoint, and ModelsURL the listing this package
+// reads.
+//
+// The two differ by one query parameter. Asked for nothing in particular the
+// endpoint answers with the models that return text or images and leaves out
+// the rest, which is a third of what OpenRouter brokers: every embedding
+// model, every reranker, every transcriber and every speech and video model.
+// Asking for all output modalities is what makes the listing the whole
+// catalog.
+const (
+	modelsBase = "https://openrouter.ai/api/v1/models"
+	ModelsURL  = modelsBase + "?output_modalities=all"
+)
 
 // baseURL is the host the listing's own links are relative to.
 const baseURL = "https://openrouter.ai"
@@ -72,15 +83,18 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	if err != nil {
 		return []catalog.Document{models}, err
 	}
-	details, failures := p.getAll(ctx, urls)
-	return append([]catalog.Document{models}, details...),
+	urls = append(urls, ProvidersURL)
+	for _, category := range categories {
+		urls = append(urls, categoryURL(category))
+	}
+	rest, failures := p.getAll(ctx, urls)
+	return append([]catalog.Document{models}, rest...),
 		errors.Join(failures...)
 }
 
-// detailURLs derives the endpoint document of every model whose listing entry
-// stated no completion ceiling or no capability at all. Several entries share
-// one document, because a model and its batch and free variants are one model
-// served three ways, so each document is fetched once.
+// detailURLs derives the endpoint document of every model in the listing.
+// Several entries share one document, because a model and its free variant are
+// one model served two ways, so each document is fetched once.
 func detailURLs(models catalog.Document) ([]string, error) {
 	var list listing
 	if err := json.Unmarshal(models.Body, &list); err != nil {
@@ -89,7 +103,7 @@ func detailURLs(models catalog.Document) ([]string, error) {
 	var urls []string
 	for _, e := range list.Data {
 		url := detailURL(e)
-		if url == "" || !needsDetail(e) || slices.Contains(urls, url) {
+		if url == "" || slices.Contains(urls, url) {
 			continue
 		}
 		urls = append(urls, url)
@@ -168,26 +182,49 @@ func (p *Provider) get(
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the listing first, because it is the only document naming the
-// models and the only one linking them to the endpoint documents that fill
-// what it left out.
+// Parse reads the documents in the order they depend on each other.
+//
+// The listing comes first, because it is the only document naming the models
+// and the only one linking them to their endpoint documents. The provider
+// listing comes next, because it says where a seller sits and the endpoint
+// documents are what name a model's sellers. The endpoint documents come
+// third, and the subject listings last, since they add nothing but a
+// membership to a model the listing already named.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	var failures []error
-	for _, doc := range docs {
-		if doc.URL != ModelsURL {
-			continue
-		}
-		if err := b.applyListing(doc); err != nil {
-			failures = append(failures, err)
-		}
+	stages := []struct {
+		match func(catalog.Document) bool
+		apply func(catalog.Document) error
+	}{
+		{
+			func(d catalog.Document) bool { return d.URL == ModelsURL },
+			b.applyListing,
+		},
+		{
+			func(d catalog.Document) bool { return d.URL == ProvidersURL },
+			b.applyProviders,
+		},
+		{
+			func(d catalog.Document) bool {
+				return d.URL != ModelsURL && d.URL != ProvidersURL &&
+					!isCategoryURL(d.URL)
+			},
+			b.applyDetail,
+		},
+		{
+			func(d catalog.Document) bool { return isCategoryURL(d.URL) },
+			b.applyCategory,
+		},
 	}
-	for _, doc := range docs {
-		if doc.URL == ModelsURL {
-			continue
-		}
-		if err := b.applyDetail(doc); err != nil {
-			failures = append(failures, err)
+	for _, stage := range stages {
+		for _, doc := range docs {
+			if !stage.match(doc) {
+				continue
+			}
+			if err := stage.apply(doc); err != nil {
+				failures = append(failures, err)
+			}
 		}
 	}
 	return b.result(), errors.Join(failures...)
@@ -237,12 +274,17 @@ type builder struct {
 	// of the base model rather than of the variant that linked to it, so the
 	// link is what an endpoint document is attributed by.
 	details map[string][]string
+	// providers holds the seller facts, keyed by the name an endpoint document
+	// calls the seller, and providerSource the document they were read from.
+	providers      map[string]providerInfo
+	providerSource string
 }
 
 func newBuilder() *builder {
 	return &builder{
-		models:  map[string]*catalog.Model{},
-		details: map[string][]string{},
+		models:    map[string]*catalog.Model{},
+		details:   map[string][]string{},
+		providers: map[string]providerInfo{},
 	}
 }
 

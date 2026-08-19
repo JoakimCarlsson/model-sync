@@ -88,12 +88,25 @@
   "attrs": {
     "default_snapshot": "gpt-realtime-2",
     "knowledge_cutoff": "2024-09-30",
+    "last_updated": "2026-05-07",
+    "release_date": "2026-05-07",
     "state": "active",
     "summary": "Reasoning model with tool use"
   },
   "limits": {
     "context_window": 128000,
-    "max_output_tokens": 32000
+    "max_output_tokens": 32000,
+    "requests_per_day_tier_1": 1000,
+    "requests_per_minute_tier_1": 200,
+    "requests_per_minute_tier_2": 400,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 20000,
+    "tokens_per_minute_tier_1": 40000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 15000000
   },
   "lists": {
     "endpoints": [
@@ -117,7 +130,11 @@
       "gpt-realtime-2"
     ]
   },
+  "notes": [
+    "GPT-Realtime-2 supports configurable reasoning effort. Higher reasoning effort can increase latency and output token usage."
+  ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime-2.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

@@ -1,0 +1,81 @@
+{
+  "id": "x-ai/grok-imagine-video-1.5",
+  "provider": "openrouter",
+  "name": "SpaceXAI: Grok Imagine Video 1.5",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "x-ai",
+    "canonical_slug": "x-ai/grok-imagine-video-1.5-20260719",
+    "is_free": "true",
+    "modality": "text+image->video",
+    "release_date": "2026-07-20",
+    "summary": "Grok Imagine Video 1.5 is a video generation model from SpaceXAI.",
+    "tokenizer": "Grok"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "xai"
+    ],
+    "endpoints": [
+      "xAI"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "parameters": [
+      "logprobs",
+      "max_tokens",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/x-ai/grok-imagine-video-1.5-20260719/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

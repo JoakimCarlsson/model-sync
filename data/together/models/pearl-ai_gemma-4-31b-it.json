@@ -19,12 +19,19 @@
   ],
   "attrs": {
     "author": "Pearl AI",
-    "quantization": "INT8"
+    "category": "Chat",
+    "parameter_count": "31B",
+    "quantization": "INT8",
+    "serverless_since": "2026-05-15",
+    "summary": "31B dense chat model with 32K context, thinking mode, native function calling, 140+ language support, and 25% discounted pricing powered by Pearl's Proof of Useful Work."
   },
   "limits": {
     "context_window": 32000
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -36,10 +43,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "LLM",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/gemma-4-31b-it-pearl"
   ]
 }

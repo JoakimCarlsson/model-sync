@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "athene-v2:latest",
+    "last_updated": "2024-11-15",
+    "license": "Nexusflow.ai License Terms for Personal Use",
+    "open_weights": "true",
+    "parameter_count": "72.7B",
+    "quantization": "Q4_K_M",
     "summary": "Athene-V2 is a 72B parameter model which excels at code completion, mathematics, and log extraction tasks."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/athene-v2/tags"
+    "https://ollama.com/library/athene-v2/tags",
+    "https://ollama.com/library/athene-v2:latest"
   ]
 }

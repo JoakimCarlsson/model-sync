@@ -1,0 +1,63 @@
+{
+  "id": "gemini-3.6-flash",
+  "provider": "assemblyai",
+  "name": "Gemini 3.6 Flash",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "api_identifier": "gemini-3.6-flash",
+    "regional_surcharge": "+10%"
+  },
+  "limits": {
+    "context_window": 1048575,
+    "requests_per_minute_paid": 30
+  },
+  "lists": {
+    "endpoints": [
+      "https://llm-gateway.assemblyai.com/v1/chat/completions"
+    ],
+    "features": [
+      "function_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "response_format",
+      "stream",
+      "temperature",
+      "tool_choice",
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/llm-gateway/api-reference/create-chat-completion.md",
+    "https://www.assemblyai.com/docs/llm-gateway/available-models.md",
+    "https://www.assemblyai.com/docs/llm-gateway/rate-limits.md"
+  ]
+}

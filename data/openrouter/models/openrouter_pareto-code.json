@@ -20,7 +20,8 @@
   "attrs": {
     "author": "openrouter",
     "canonical_slug": "openrouter/pareto-code",
-    "released": "2026-04-21",
+    "modality": "text->text",
+    "release_date": "2026-04-21",
     "summary": "The Pareto Router maintains a tiered shortlist of strong coding models, ranked by [Artificial Analysis](https://artificialanalysis.ai/) coding percentiles.",
     "tokenizer": "Router"
   },
@@ -36,7 +37,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/openrouter/pareto-code/endpoints"
+    "https://openrouter.ai/api/v1/models/openrouter/pareto-code/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

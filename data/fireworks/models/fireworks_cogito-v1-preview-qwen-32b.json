@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/cogito-v1-preview-qwen-32b",
+  "provider": "fireworks",
+  "name": "Cogito v1 Preview Qwen 32B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Deep Cogito",
+    "calibrated": "false",
+    "hugging_face_id": "deepcogito/cogito-v1-preview-qwen-32B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/cogito-v1-preview-qwen-32b",
+    "model_url": "https://fireworks.ai/models/fireworks/cogito-v1-preview-qwen-32b",
+    "open_weights": "true",
+    "parameter_count": "32.7B",
+    "release_date": "2025-04-07",
+    "state": "active",
+    "summary": "The Cogito LLMs are instruction tuned generative models that are also hybrid reasoning models"
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/cogito-v1-preview-qwen-32b"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "id": "cogito/cogito-671b-v2-p1",
+  "provider": "fireworks",
+  "name": "Cogito 671B v2.1",
+  "kind": "chat",
+  "attrs": {
+    "author": "Deep Cogito",
+    "calibrated": "false",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/cogito/models/cogito-671b-v2-p1",
+    "model_url": "https://fireworks.ai/models/cogito/cogito-671b-v2-p1",
+    "parameter_count": "671B",
+    "release_date": "2025-11-13",
+    "state": "active",
+    "summary": "Cogito v2.1 blends standard LLM behavior with optional self-reflection for stronger reasoning. Trained across 30+ languages with a 128k context, it delivers standout performance in coding, STEM and general instruction-following."
+  },
+  "limits": {
+    "context_window": 163840
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/cogito/cogito-671b-v2-p1"
+  ]
+}

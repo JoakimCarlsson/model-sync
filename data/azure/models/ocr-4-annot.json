@@ -787,9 +787,24 @@
     }
   ],
   "attrs": {
-    "product": "Azure Mistral Models"
+    "author": "Mistral AI",
+    "catalog_added_on": "2026-06-12",
+    "license": "custom",
+    "product": "Azure Mistral Models",
+    "publisher": "Mistral AI",
+    "state": "preview",
+    "summary": "Document conversion to markdown with interleaved images and text",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -798,14 +813,87 @@
       "file",
       "image"
     ],
+    "keywords": [
+      "Low latency",
+      "Vision"
+    ],
     "languages": [
-      "en"
+      "ar",
+      "bn",
+      "cs",
+      "da",
+      "de",
+      "en",
+      "es",
+      "fr",
+      "gu",
+      "he",
+      "hi",
+      "hu",
+      "hy",
+      "id",
+      "it",
+      "ja",
+      "ka",
+      "kn",
+      "ko",
+      "ml",
+      "nl",
+      "no",
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sv",
+      "ta",
+      "te",
+      "th",
+      "tl",
+      "tr",
+      "uk",
+      "vi",
+      "zh"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "image-to-text"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]

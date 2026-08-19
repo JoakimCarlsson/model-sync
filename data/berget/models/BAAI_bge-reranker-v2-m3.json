@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "BAAI",
+    "data_residency": "EU",
+    "docs_title": "bge-reranker-v2-m3",
+    "hugging_face_id": "BAAI/bge-reranker-v2-m3",
     "license": "Apache 2.0",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/BAAI/bge-reranker-v2-m3",
     "model_path": "BAAI/bge-reranker-v2-m3",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2025-04-23"
+    "release_date": "2025-04-23",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 8192,
@@ -35,6 +41,9 @@
       "bge-reranker",
       "bge-reranker-base",
       "reranker"
+    ],
+    "endpoints": [
+      "/v1/rerank/"
     ],
     "features": [
       "streaming"
@@ -58,6 +67,6 @@
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

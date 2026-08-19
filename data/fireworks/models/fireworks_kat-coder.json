@@ -1,0 +1,88 @@
+{
+  "id": "fireworks/kat-coder",
+  "provider": "fireworks",
+  "name": "KAT Coder",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 24,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_dpo",
+        "size_band": "Models 80B - 300B (e.g. Qwen3-235B, gpt-oss-120B)",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_sft",
+        "size_band": "Models 80B - 300B (e.g. Qwen3-235B, gpt-oss-120B)",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_dpo",
+        "size_band": "Models 80B - 300B (e.g. Qwen3-235B, gpt-oss-120B)",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_sft",
+        "size_band": "Models 80B - 300B (e.g. Qwen3-235B, gpt-oss-120B)",
+        "surface": "managed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/kat-coder",
+    "model_url": "https://fireworks.ai/models/fireworks/kat-coder",
+    "parameter_count": "235B",
+    "release_date": "2025-11-25",
+    "state": "active",
+    "summary": "KAT-Coder-Pro V1 is KwaiKAT's most advanced agentic coding model in the KwaiKAT series. Designed specifically for agentic coding tasks, it excels in real-world software engineering scenarios. The model has been optimized for tool-use capability, multi-turn interaction, instruction following, generalization and comprehensive capabilities through a multi-stage training process, including mid-training, supervised fine-tuning (SFT), reinforcement fine-tuning (RFT), and scalable agentic RL."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "deployment_types": [
+      "fine_tuning",
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/kat-coder",
+    "https://fireworks.ai/pricing"
+  ]
+}

@@ -49,9 +49,10 @@
     "author": "~anthropic",
     "canonical_slug": "~anthropic/claude-sonnet-latest",
     "is_moderated": "true",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
     "reasoning_default_enabled": "true",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the Anthropic Claude Sonnet family.",
     "tokenizer": "Router"
   },
@@ -99,6 +100,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~anthropic/claude-sonnet-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

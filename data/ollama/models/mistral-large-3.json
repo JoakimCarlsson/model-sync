@@ -4,6 +4,9 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
+    "default_snapshot": "mistral-large-3:675b-cloud",
+    "last_updated": "2025-12-02",
+    "parameter_count": "675B",
     "summary": "A general-purpose multimodal mixture-of-experts model for production-grade tasks and enterprise workloads.",
     "usage_level": "medium",
     "usage_level_rank": "2"

@@ -1,0 +1,77 @@
+{
+  "id": "alibaba/wan-2.6",
+  "provider": "openrouter",
+  "name": "Alibaba: Wan 2.6",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "alibaba",
+    "canonical_slug": "alibaba/wan-2.6-20260327",
+    "is_free": "true",
+    "modality": "text+image->video",
+    "release_date": "2026-03-28",
+    "summary": "Alibaba's most advanced video generation model, supporting over 10 visual creation capabilities in a unified system.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "atlas-cloud"
+    ],
+    "endpoints": [
+      "AtlasCloud"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "parameters": [
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/alibaba/wan-2.6-20260327/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

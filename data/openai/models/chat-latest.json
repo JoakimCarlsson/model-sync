@@ -35,13 +35,30 @@
   "attrs": {
     "default_snapshot": "chat-latest",
     "knowledge_cutoff": "2025-08-31",
+    "last_updated": "2026-08-06",
+    "release_date": "2026-05-05",
     "state": "active",
     "summary": "Latest Instant model used in ChatGPT"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 50000,
+    "batch_queue_limit_tier_2": 1350000,
+    "batch_queue_limit_tier_3": 100000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 15000000000,
     "context_window": 400000,
     "max_input_tokens": 272000,
-    "max_output_tokens": 128000
+    "max_output_tokens": 128000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 15000,
+    "tokens_per_minute_tier_1": 30000,
+    "tokens_per_minute_tier_2": 450000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 2000000,
+    "tokens_per_minute_tier_5": 40000000
   },
   "lists": {
     "endpoints": [
@@ -73,6 +90,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/chat-latest.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

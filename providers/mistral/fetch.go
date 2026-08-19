@@ -30,10 +30,27 @@ const (
 	// either one returns.
 	TextEmbeddingsURL = baseURL + "/studio/knowledge-rag/embeddings/text_embeddings"
 	CodeEmbeddingsURL = baseURL + "/studio/knowledge-rag/embeddings/code_embeddings"
+	// OCRGuideURL is the guide to the OCR processor, and the only document
+	// stating what it will accept as a document.
+	OCRGuideURL = baseURL + "/studio/document-processing/basic_ocr"
+	// LanguagesURL lists the languages Mistral vouches for, once for the
+	// language models and once for OCR.
+	LanguagesURL = baseURL + "/resources/languages"
+	// ReasoningURL names the models that reason on request rather than
+	// always, which their own pages do not distinguish.
+	ReasoningURL = baseURL + "/studio/conversations/reasoning"
 )
 
-// guideURLs are the documents fetched alongside the model pages.
-var guideURLs = []string{TextEmbeddingsURL, CodeEmbeddingsURL}
+// guideURLs are the documents fetched alongside the model pages. Each states
+// something no model page does.
+var guideURLs = []string{
+	TextEmbeddingsURL,
+	CodeEmbeddingsURL,
+	OCRGuideURL,
+	LanguagesURL,
+	ReasoningURL,
+	PricingURL,
+}
 
 // notModels are the pages filed beside the model pages that describe no model.
 var notModels = []string{"overview", "model-selection-guide"}

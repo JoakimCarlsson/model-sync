@@ -1,7 +1,7 @@
 {
   "id": "glm-4.7",
   "provider": "vertexai",
-  "name": "glm-4.7",
+  "name": "GLM 4.7",
   "kind": "chat",
   "prices": [
     {
@@ -33,6 +33,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "zai-org",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2026-01-06",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy GLM 4.7 on Model Garden",
+    "state": "active",
+    "summary": "GLM's model designed for core or vibe coding, tool use, and complex reasoning."
+  },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 128000
@@ -47,9 +56,14 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global"
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-47",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]

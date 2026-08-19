@@ -1,6 +1,7 @@
 {
   "id": "codex-mini",
   "provider": "azure",
+  "name": "codex-mini",
   "kind": "chat",
   "prices": [
     {
@@ -1424,31 +1425,66 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-06-20",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure OpenAI Reasoning",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "release_date": "2025-05-16",
+    "retirement_date": "2026-11-15",
+    "state": "deprecated",
+    "summary": "codex-mini is a fine-tuned variant of the o4-mini model, designed to deliver rapid, instruction-following performance for developers working in CLI workflows. Whether you're automating shell commands, editing scripts, or refactoring repositories, Codex-Min",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "2025-05-16"
   },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 100000
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "endpoints": [
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
       "function_calling",
+      "reasoning",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus2",
+      "swedencentral"
+    ],
+    "tasks": [
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

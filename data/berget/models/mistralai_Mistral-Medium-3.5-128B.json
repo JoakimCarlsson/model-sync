@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "mistralai",
+    "data_residency": "EU",
+    "docs_title": "Mistral Medium 3.5 (eval)",
+    "hugging_face_id": "mistralai/Mistral-Medium-3.5-128B",
     "license": "Other",
-    "lifecycle_state": "eval",
+    "model_card_url": "https://huggingface.co/mistralai/Mistral-Medium-3.5-128B",
     "model_path": "mistralai/Mistral-Medium-3.5-128B",
+    "open_weights": "true",
     "quantization": "FP8",
-    "release_date": "2026-04-29"
+    "release_date": "2026-04-29",
+    "state": "eval",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 256000,
@@ -36,6 +42,9 @@
       "mistral/3.5",
       "mistral/medium",
       "mistral/medium-3.5"
+    ],
+    "endpoints": [
+      "/v1/chat/completions"
     ],
     "features": [
       "function_calling",
@@ -83,11 +92,16 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

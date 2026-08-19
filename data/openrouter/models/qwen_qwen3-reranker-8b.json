@@ -1,0 +1,90 @@
+{
+  "id": "qwen/qwen3-reranker-8b",
+  "provider": "openrouter",
+  "name": "Qwen3 Reranker 8B",
+  "kind": "rerank",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-reranker-8b",
+    "is_free": "true",
+    "modality": "text->rerank",
+    "release_date": "2026-08-13",
+    "summary": "Qwen3 Reranker 8B is a text reranking model from Alibaba Cloud built on the Qwen3 architecture.",
+    "tokenizer": "Qwen3"
+  },
+  "limits": {
+    "context_window": 40960,
+    "top_provider_context_window": 40960
+  },
+  "lists": {
+    "endpoint_tags": [
+      "fireworks"
+    ],
+    "endpoints": [
+      "Fireworks"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "rerank"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-reranker-8b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

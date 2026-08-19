@@ -30,8 +30,23 @@
     "summary": "An older fast GPT model"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 90000,
+    "batch_queue_limit_tier_2": 1350000,
+    "batch_queue_limit_tier_3": 40000000,
+    "batch_queue_limit_tier_4": 80000000,
+    "batch_queue_limit_tier_5": 300000000,
     "context_window": 128000,
-    "max_output_tokens": 4096
+    "max_output_tokens": 4096,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 30000,
+    "tokens_per_minute_tier_2": 450000,
+    "tokens_per_minute_tier_3": 600000,
+    "tokens_per_minute_tier_4": 800000,
+    "tokens_per_minute_tier_5": 2000000
   },
   "lists": {
     "endpoints": [

@@ -24,14 +24,22 @@
     }
   ],
   "attrs": {
+    "active_parameter_count": "55B",
     "author": "NVIDIA",
+    "category": "Chat",
+    "parameter_count": "550B",
     "quantization": "NVFP4",
-    "reasoning_mode": "hybrid (on by default)"
+    "reasoning_mode": "hybrid (on by default)",
+    "release_date": "2026-05-30",
+    "summary": "550B parameter (55B activated) open frontier reasoning model with 1M context, hybrid Mamba-Transformer MoE, Latent MoE, Token Budget, and open weights for coding agents, deep research, and enterprise workflows."
   },
   "limits": {
     "context_window": 512300
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -43,11 +51,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/nvidia-nemotron-3-ultra"
   ]
 }

@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "mistrallite:latest",
+    "last_updated": "2023-11-02",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "MistralLite is a fine-tuned model based on Mistral with enhanced capabilities of processing long contexts."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/mistrallite/tags"
+    "https://ollama.com/library/mistrallite/tags",
+    "https://ollama.com/library/mistrallite:latest"
   ]
 }

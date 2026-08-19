@@ -11,24 +11,62 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.006,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.6",
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "45.3",
     "author": "meituan",
     "canonical_slug": "meituan/longcat-2.0-20260720",
     "hugging_face_id": "meituan-longcat/LongCat-2.0",
+    "modality": "text->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-20",
+    "release_date": "2026-07-20",
     "summary": "LongCat 2.0 is a sparse mixture-of-experts language model from Meituan, with 48B active parameters out of 1.6T total.",
     "tokenizer": "Other"
   },
@@ -38,6 +76,12 @@
     "top_provider_context_window": 1048756
   },
   "lists": {
+    "endpoint_tags": [
+      "atlas-cloud/fp8"
+    ],
+    "endpoints": [
+      "AtlasCloud"
+    ],
     "features": [
       "function_calling",
       "prompt_caching",
@@ -65,9 +109,17 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/meituan/longcat-2.0-20260720/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

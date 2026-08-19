@@ -11,23 +11,197 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.00255,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.15",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0034,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0028,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Xiaomi",
+        "endpoint_tag": "xiaomi/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.14,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.119,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.15",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.168,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Xiaomi",
+        "endpoint_tag": "xiaomi/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.28,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.238,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.15",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.336,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Xiaomi",
+        "endpoint_tag": "xiaomi/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "24.4",
+    "artificial_analysis_coding_index": "56.8",
+    "artificial_analysis_intelligence_index": "38",
     "author": "xiaomi",
     "canonical_slug": "xiaomi/mimo-v2.5-20260422",
+    "default_temperature": "1",
+    "default_top_p": "0.95",
     "hugging_face_id": "XiaomiMiMo/MiMo-V2.5",
-    "released": "2026-04-22",
+    "modality": "text+image+audio+video->text",
+    "release_date": "2026-04-22",
     "summary": "MiMo-V2.5 is a native omnimodal model by Xiaomi.",
     "tokenizer": "Other"
   },
@@ -37,6 +211,37 @@
     "top_provider_context_window": 1048576
   },
   "lists": {
+    "categories": [
+      "academia",
+      "finance",
+      "health",
+      "marketing",
+      "programming",
+      "roleplay",
+      "science",
+      "technology",
+      "translation",
+      "trivia"
+    ],
+    "datacenter_countries": [
+      "NL",
+      "SG",
+      "US"
+    ],
+    "endpoint_tags": [
+      "deepinfra/bf16",
+      "gmicloud/fp8",
+      "novita/fp8",
+      "parasail/fp8",
+      "xiaomi/fp8"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "GMICloud",
+      "Novita",
+      "Parasail",
+      "Xiaomi"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -73,9 +278,29 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN",
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/xiaomi/mimo-v2.5-20260422/endpoints",
+    "https://openrouter.ai/api/v1/models?category=academia",
+    "https://openrouter.ai/api/v1/models?category=finance",
+    "https://openrouter.ai/api/v1/models?category=health",
+    "https://openrouter.ai/api/v1/models?category=marketing",
+    "https://openrouter.ai/api/v1/models?category=programming",
+    "https://openrouter.ai/api/v1/models?category=roleplay",
+    "https://openrouter.ai/api/v1/models?category=science",
+    "https://openrouter.ai/api/v1/models?category=technology",
+    "https://openrouter.ai/api/v1/models?category=translation",
+    "https://openrouter.ai/api/v1/models?category=trivia",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

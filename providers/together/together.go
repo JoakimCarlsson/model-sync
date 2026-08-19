@@ -25,7 +25,7 @@ const (
 )
 
 // CatalogURL is the page listing every model Together serves and its rate.
-const CatalogURL = "https://docs.together.ai/docs/serverless-models.md"
+const CatalogURL = "https://docs.together.ai/docs/serverless/models.md"
 
 // ReasoningURL is the page listing which of those models reason. The catalog
 // has a column for tool calling and one for structured output and none for
@@ -73,11 +73,18 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{cat}
 	var failures []error
-	reasoning, err := p.get(ctx, ReasoningURL)
-	if err != nil {
-		failures = append(failures, err)
-	} else {
-		docs = append(docs, reasoning)
+	for _, url := range []string{
+		ReasoningURL,
+		DeprecationsURL,
+		ChangelogURL,
+		DedicatedURL,
+	} {
+		doc, err := p.get(ctx, url)
+		if err != nil {
+			failures = append(failures, err)
+			continue
+		}
+		docs = append(docs, doc)
 	}
 	for _, source := range []struct {
 		index string
@@ -182,6 +189,12 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		case doc.URL == CatalogURL:
 		case doc.URL == ReasoningURL:
 			b.applyReasoning(doc)
+		case doc.URL == DeprecationsURL:
+			b.applyDeprecations(doc)
+		case doc.URL == ChangelogURL:
+			b.applyChangelog(doc)
+		case doc.URL == DedicatedURL:
+			b.applyDedicated(doc)
 		case strings.HasPrefix(doc.URL, LibraryPre):
 			b.applyLibrary(doc)
 		default:

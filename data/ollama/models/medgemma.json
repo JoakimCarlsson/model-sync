@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "gemma3",
+    "default_snapshot": "medgemma:latest",
+    "last_updated": "2026-04-16",
+    "license": "Health AI Developer Foundations Terms of Use",
+    "open_weights": "true",
+    "parameter_count": "4.3B",
+    "quantization": "Q4_K_M",
     "summary": "MedGemma is a collection of Gemma 3 variants that are trained for performance on medical text and image comprehension."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/medgemma/tags"
+    "https://ollama.com/library/medgemma/tags",
+    "https://ollama.com/library/medgemma:latest"
   ]
 }

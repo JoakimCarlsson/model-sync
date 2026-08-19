@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "gemma",
+    "default_snapshot": "codegemma:latest",
+    "last_updated": "2024-07-18",
+    "license": "Gemma Terms of Use",
+    "open_weights": "true",
+    "parameter_count": "8.54B",
+    "quantization": "Q4_0",
     "summary": "CodeGemma is a collection of powerful, lightweight models that can perform a variety of coding tasks like fill-in-the-middle code completion, code generation, natural language understanding, mathematical reasoning, and instruction following."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/codegemma/tags"
+    "https://ollama.com/library/codegemma/tags",
+    "https://ollama.com/library/codegemma:latest"
   ]
 }

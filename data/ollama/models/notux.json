@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "notux:latest",
+    "last_updated": "2023-12-29",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "46.7B",
+    "quantization": "Q4_0",
     "summary": "A top-performing mixture of experts model, fine-tuned with high-quality data."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/notux/tags"
+    "https://ollama.com/library/notux/tags",
+    "https://ollama.com/library/notux:latest"
   ]
 }

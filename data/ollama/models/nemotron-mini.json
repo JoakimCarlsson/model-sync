@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "nemotron",
+    "default_snapshot": "nemotron-mini:latest",
+    "last_updated": "2024-09-18",
+    "license": "NVIDIA AI Foundation Models Community License Agreement",
+    "open_weights": "true",
+    "parameter_count": "4.19B",
+    "quantization": "Q4_K_M",
     "summary": "A commercial-friendly small language model by NVIDIA optimized for roleplay, RAG QA, and function calling."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nemotron-mini/tags"
+    "https://ollama.com/library/nemotron-mini/tags",
+    "https://ollama.com/library/nemotron-mini:latest"
   ]
 }

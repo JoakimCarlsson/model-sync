@@ -47,9 +47,10 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "lifecycle_state": "active",
-    "released": "Dec 16, 2025",
-    "retirement_date": "No sooner than 5/24/2025",
+    "model_id": "mistral.mistral-small-2402-v1:0",
+    "release_date": "2025-12-16",
+    "retirement_date": "2025-05-24",
+    "state": "active",
     "summary": "Mistral Small is Mistral AI's cost-efficient model optimized for low-latency tasks like classification, translation, and customer support. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -60,6 +61,9 @@
     "aliases": [
       "mistral.mistral-small-2402-v1:0"
     ],
+    "batch_regions": [
+      "us-east-1"
+    ],
     "endpoints": [
       "bedrock-runtime",
       "converse",
@@ -67,20 +71,33 @@
     ],
     "features": [
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
       "prompt_management",
       "streaming"
     ],
+    "in_region_regions": [
+      "us-east-1"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-east-1"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-small.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

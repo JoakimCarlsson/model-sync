@@ -187,9 +187,10 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "lifecycle_state": "active",
-    "released": "Dec 10, 2023",
-    "retirement_date": "No sooner than 3/1/2025",
+    "model_id": "mistral.mixtral-8x7b-instruct-v0:1",
+    "release_date": "2023-12-10",
+    "retirement_date": "2025-03-01",
+    "state": "active",
     "summary": "Mixtral 8x7B Instruct is Mistral AI's sparse mixture-of-experts model with 8 experts and 7B parameters each, delivering strong performance at faster inference speeds. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -212,11 +213,38 @@
       "prompt_management",
       "streaming"
     ],
+    "in_region_regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [

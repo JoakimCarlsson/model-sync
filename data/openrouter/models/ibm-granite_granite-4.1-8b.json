@@ -11,23 +11,58 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.05,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "9.5",
     "author": "ibm-granite",
     "canonical_slug": "ibm-granite/granite-4.1-8b-20260429",
     "hugging_face_id": "ibm-granite/granite-4.1-8b",
-    "released": "2026-04-30",
+    "modality": "text->text",
+    "release_date": "2026-04-30",
     "summary": "Granite 4.1 8B is a dense, decoder-only 8-billion-parameter language model from IBM, part of the Granite 4.1 family.",
     "tokenizer": "Other"
   },
@@ -37,6 +72,15 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "coreweave/bf16"
+    ],
+    "endpoints": [
+      "CoreWeave"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -65,9 +109,17 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/ibm-granite/granite-4.1-8b-20260429/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

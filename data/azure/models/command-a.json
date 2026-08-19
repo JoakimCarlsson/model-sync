@@ -1392,7 +1392,14 @@
     }
   ],
   "attrs": {
-    "product": "Cohere Models"
+    "author": "Cohere",
+    "catalog_added_on": "2025-11-11",
+    "license": "custom",
+    "product": "Cohere Models",
+    "publisher": "Cohere",
+    "state": "active",
+    "summary": "Command A is a highly efficient generative model that excels at agentic and multilingual use cases.",
+    "version": "1"
   },
   "limits": {
     "context_window": 131072,
@@ -1406,6 +1413,10 @@
     ],
     "input_modalities": [
       "text"
+    ],
+    "keywords": [
+      "Multilingual",
+      "RAG"
     ],
     "languages": [
       "ar",
@@ -1421,10 +1432,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

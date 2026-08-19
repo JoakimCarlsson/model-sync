@@ -1,0 +1,44 @@
+{
+  "id": "fireworks/llama-v3p1-405b-instruct",
+  "provider": "fireworks",
+  "name": "Llama 3.1 405B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
+    "hugging_face_id": "meta-llama/Llama-3.1-405B-Instruct",
+    "license": "Llama 3.1 Community",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-v3p1-405b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-v3p1-405b-instruct",
+    "open_weights": "true",
+    "parameter_count": "410B",
+    "release_date": "2024-07-19",
+    "state": "active",
+    "summary": "The Meta Llama 3.1 collection of multilingual large language models (LLMs) is a collection of pretrained and instruction tuned generative models in 8B, 70B and 405B sizes. The Llama 3.1 instruction tuned text only models (8B, 70B, 405B) are optimized for multilingual dialogue use cases and outperform many of the available open source and closed chat models on common industry benchmarks. 405B model is the most capable from the Llama 3.1 family. This model is served in FP8 closely matching reference implementation."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-v3p1-405b-instruct"
+  ]
+}

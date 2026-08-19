@@ -88,12 +88,30 @@
   "attrs": {
     "default_snapshot": "gpt-4o-mini-2024-07-18",
     "knowledge_cutoff": "2023-10-01",
+    "last_updated": "2024-12-17",
+    "release_date": "2024-07-18",
     "state": "active",
     "summary": "Fast, affordable small model for focused tasks"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 2000000,
+    "batch_queue_limit_tier_2": 20000000,
+    "batch_queue_limit_tier_3": 40000000,
+    "batch_queue_limit_tier_4": 1000000000,
+    "batch_queue_limit_tier_5": 15000000000,
     "context_window": 128000,
-    "max_output_tokens": 16384
+    "max_output_tokens": 16384,
+    "requests_per_day_tier_1": 10000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 30000,
+    "tokens_per_minute_tier_1": 200000,
+    "tokens_per_minute_tier_2": 2000000,
+    "tokens_per_minute_tier_3": 4000000,
+    "tokens_per_minute_tier_4": 10000000,
+    "tokens_per_minute_tier_5": 150000000
   },
   "lists": {
     "endpoints": [
@@ -133,6 +151,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-4o-mini.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

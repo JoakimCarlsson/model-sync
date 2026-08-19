@@ -5,10 +5,151 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.46345,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1345,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02145,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.25",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0216,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.28",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0741,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.028,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Friendli",
+        "endpoint_tag": "friendli"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1345,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.135,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.16,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
     },
     {
       "metric": "input_tokens",
@@ -17,27 +158,372 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2145,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.25",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2088,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.28",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3705,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.28,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Friendli",
+        "endpoint_tag": "friendli"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.56,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.269,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SambaNova",
+        "endpoint_tag": "sambanova"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.259,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.4,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.32175,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.25",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3096,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.28",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.1115,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.38,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AtlasCloud",
+        "endpoint_tag": "atlas-cloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.42,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Baidu",
+        "endpoint_tag": "baidu/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.38,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DigitalOcean",
+        "endpoint_tag": "digitalocean"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Friendli",
+        "endpoint_tag": "friendli"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.68,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Phala",
+        "endpoint_tag": "phala"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SambaNova",
+        "endpoint_tag": "sambanova"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.42,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.48,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "44.2",
     "author": "deepseek",
     "canonical_slug": "deepseek/deepseek-v3.2-20251201",
+    "default_temperature": "1",
+    "default_top_p": "0.95",
     "hugging_face_id": "deepseek-ai/DeepSeek-V3.2",
+    "modality": "text->text",
     "reasoning_default_enabled": "false",
-    "released": "2025-12-01",
+    "release_date": "2025-12-01",
     "summary": "DeepSeek-V3.2 is a large language model designed to harmonize high computational efficiency with strong reasoning and agentic tool-use performance.",
     "tokenizer": "DeepSeek"
   },
   "limits": {
     "context_window": 163840,
+    "max_input_tokens": 98304,
     "max_output_tokens": 65536,
     "top_provider_context_window": 163840
   },
   "lists": {
+    "categories": [
+      "roleplay"
+    ],
+    "datacenter_countries": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "endpoint_tags": [
+      "alibaba/fp8",
+      "atlas-cloud/fp8",
+      "baidu/fp8",
+      "deepinfra/fp4",
+      "digitalocean",
+      "friendli",
+      "gmicloud/fp8",
+      "google-vertex",
+      "novita/fp8",
+      "phala",
+      "sambanova",
+      "siliconflow/fp8",
+      "streamlake/fp8",
+      "venice"
+    ],
+    "endpoints": [
+      "Alibaba",
+      "AtlasCloud",
+      "Baidu",
+      "DeepInfra",
+      "DigitalOcean",
+      "Friendli",
+      "GMICloud",
+      "Google",
+      "Novita",
+      "Phala",
+      "SambaNova",
+      "SiliconFlow",
+      "StreamLake",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -71,9 +557,21 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "CN",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp4",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/deepseek/deepseek-v3.2-20251201/endpoints",
+    "https://openrouter.ai/api/v1/models?category=roleplay",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

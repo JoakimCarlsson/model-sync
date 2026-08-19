@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "stable-beluga:latest",
+    "last_updated": "2023-10-29",
+    "license": "STABLE BELUGA NON-COMMERCIAL COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "Llama 2 based model fine tuned on an Orca-style dataset. Originally called Free Willy."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/stable-beluga/tags"
+    "https://ollama.com/library/stable-beluga/tags",
+    "https://ollama.com/library/stable-beluga:latest"
   ]
 }

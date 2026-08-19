@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     },
     {
       "metric": "tool_call",
@@ -24,11 +44,13 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "21.5",
     "author": "openai",
     "canonical_slug": "openai/gpt-4-turbo",
     "is_moderated": "true",
     "knowledge_cutoff": "2023-12-31",
-    "released": "2024-04-09",
+    "modality": "text+image->text",
+    "release_date": "2024-04-09",
     "summary": "The latest GPT-4 Turbo model with vision capabilities.",
     "tokenizer": "GPT"
   },
@@ -38,6 +60,12 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "endpoint_tags": [
+      "openai"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -66,9 +94,14 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-4-turbo/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen3vl",
+    "default_snapshot": "qwen3-vl:latest",
+    "last_updated": "2025-10-29",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "8.77B",
+    "quantization": "Q4_K_M",
     "summary": "The most powerful vision-language model in the Qwen model family to date."
   },
   "limits": {
@@ -33,6 +40,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3-vl/tags"
+    "https://ollama.com/library/qwen3-vl/tags",
+    "https://ollama.com/library/qwen3-vl:latest"
   ]
 }

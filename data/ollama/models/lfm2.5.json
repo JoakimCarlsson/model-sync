@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "lfm2moe",
+    "default_snapshot": "lfm2.5:latest",
+    "last_updated": "2026-05-31",
+    "license": "LFM Open License v1.0",
+    "open_weights": "true",
+    "parameter_count": "8.47B",
+    "quantization": "Q4_K_M",
     "summary": "LFM2.5-8B-A1B, an edge model built for fast, reliable tool calling on consumer hardware."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/lfm2.5/tags"
+    "https://ollama.com/library/lfm2.5/tags",
+    "https://ollama.com/library/lfm2.5:latest"
   ]
 }

@@ -24,14 +24,27 @@
     }
   ],
   "attrs": {
+    "active_parameter_count": "49B",
     "author": "DeepSeek",
+    "category": "Chat",
+    "dedicated_hardware": "8xnvidia-b200-180gb",
+    "hugging_face_id": "deepseek-ai/DeepSeek-V4-pro",
+    "intelligence": "High",
+    "model_card_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-pro",
+    "parameter_count": "1.6T",
     "quantization": "FP4",
-    "reasoning_mode": "hybrid (on by default)"
+    "reasoning_mode": "hybrid (on by default)",
+    "release_date": "2026-04-24",
+    "summary": "1.6T parameter (49B activated) MoE model with 512K token context, hybrid attention requiring only 27% inference FLOPs and 10% KV cache vs V3.2, three reasoning modes, and 93.5% LiveCodeBench."
   },
   "limits": {
     "context_window": 512000
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -43,11 +56,21 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "LLM",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/deepseek-v4-pro"
   ]
 }

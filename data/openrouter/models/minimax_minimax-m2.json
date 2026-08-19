@@ -5,24 +5,104 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.255,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.255,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.15",
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.02,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.02,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.15",
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "minimax",
     "canonical_slug": "minimax/minimax-m2",
+    "default_temperature": "1",
+    "default_top_p": "0.95",
     "hugging_face_id": "MiniMaxAI/MiniMax-M2",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-10-23",
+    "release_date": "2025-10-23",
     "summary": "MiniMax-M2 is a compact, high-efficiency large language model optimized for end-to-end coding and agentic workflows.",
     "tokenizer": "Other"
   },
@@ -32,9 +112,23 @@
     "top_provider_context_window": 204800
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "google-vertex",
+      "minimax/fp8",
+      "novita/fp8"
+    ],
+    "endpoints": [
+      "Google",
+      "Minimax",
+      "Novita"
+    ],
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -62,9 +156,18 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/minimax/minimax-m2/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

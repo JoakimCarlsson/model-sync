@@ -96,12 +96,29 @@
   "attrs": {
     "default_snapshot": "gpt-5.5-pro-2026-04-23",
     "knowledge_cutoff": "2025-12-01",
+    "last_updated": "2026-04-24",
+    "release_date": "2026-04-24",
     "state": "active",
     "summary": "Version of GPT-5.5 that produces smarter and more precise responses."
   },
   "limits": {
+    "batch_queue_limit_tier_1": 500000,
+    "batch_queue_limit_tier_2": 1000000,
+    "batch_queue_limit_tier_3": 10000000,
+    "batch_queue_limit_tier_4": 20000000,
+    "batch_queue_limit_tier_5": 1500000000,
     "context_window": 1050000,
-    "max_output_tokens": 128000
+    "max_output_tokens": 128000,
+    "requests_per_minute_tier_1": 50,
+    "requests_per_minute_tier_2": 500,
+    "requests_per_minute_tier_3": 500,
+    "requests_per_minute_tier_4": 1000,
+    "requests_per_minute_tier_5": 2000,
+    "tokens_per_minute_tier_1": 50000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 500000,
+    "tokens_per_minute_tier_4": 1000000,
+    "tokens_per_minute_tier_5": 4000000
   },
   "lists": {
     "endpoints": [
@@ -142,6 +159,7 @@
     "Regional processing (data residency) endpoints are charged a 10% uplift for GPT-5.5 Pro."
   ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-5.5-pro.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

@@ -1788,22 +1788,78 @@
     }
   ],
   "attrs": {
-    "product": "Azure Mistral Models"
+    "author": "Mistral AI",
+    "catalog_added_on": "2025-01-10",
+    "license": "custom",
+    "product": "Azure Mistral Models",
+    "publisher": "Mistral AI",
+    "state": "active",
+    "summary": "Codestral 25.01 by Mistral AI is designed for code generation, supporting 80+ programming languages, and optimized for tasks like code completion and fill-in-the-middle",
+    "version": "2"
   },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
+    "features": [
+      "streaming"
+    ],
     "input_modalities": [
       "text"
     ],
+    "keywords": [
+      "Coding",
+      "Reasoning"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -1,0 +1,37 @@
+{
+  "id": "fireworks/bge-m3",
+  "provider": "fireworks",
+  "name": "BGE-M3",
+  "kind": "embedding",
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "hugging_face_id": "BAAI/bge-m3",
+    "mixture_of_experts": "false",
+    "model_kind": "Embedding model",
+    "model_path": "accounts/fireworks/models/bge-m3",
+    "model_url": "https://fireworks.ai/models/fireworks/bge-m3",
+    "open_weights": "true",
+    "parameter_count": "567M",
+    "release_date": "2026-06-29",
+    "state": "active",
+    "summary": "BAAI bge-m3 multilingual embedding model (XLM-RoBERTa-large, 1024-dim dense, 8192 ctx)."
+  },
+  "limits": {
+    "context_window": 8192
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://fireworks.ai/models/fireworks/bge-m3"
+  ]
+}

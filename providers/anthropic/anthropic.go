@@ -51,14 +51,30 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		apply func(catalog.Document)
 	}{
 		{"/model-deprecations", b.applyDeprecations},
-		{"/models/", b.applyOverview},
-		{"/pricing", b.applyPricing},
+		{"/models/overview", b.applyOverview},
 		{"/tool-reference", b.applyToolReference},
+		{"/pricing", b.applyPricing},
+		{"/release-notes/", b.applyReleaseNotes},
+		{"/rate-limits", b.applyRateLimits},
+		{"/thinking-troubleshooting", b.applyThinking},
+		{"/context-windows", b.applyImageLimit},
+		{"/effort", b.applyEffort},
+		{"/fast-mode", b.applyFastMode},
+		{"/service-tiers", b.applyPriorityTier},
 		{"/structured-outputs", func(doc catalog.Document) {
-			b.applySupportedModels(
+			b.applyCompatibility(
 				doc,
 				catalog.CapabilityStructuredOutputs,
 			)
+		}},
+		{"/computer-use-tool", func(doc catalog.Document) {
+			b.applyCompatibility(doc, FeatureComputerUse)
+		}},
+		{"/compaction", func(doc catalog.Document) {
+			b.applyCompatibility(doc, FeatureCompaction)
+		}},
+		{"/task-budgets", func(doc catalog.Document) {
+			b.applyCompatibility(doc, FeatureTaskBudgets)
 		}},
 		{"/tool-use/overview", b.applyToolUse},
 	} {

@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "Cohere For AI&#39;s language models trained to perform well across 23 different languages."
+    "architecture": "command-r",
+    "default_snapshot": "aya-expanse:latest",
+    "last_updated": "2024-10-25",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
+    "summary": "Cohere For AI's language models trained to perform well across 23 different languages."
   },
   "limits": {
     "context_window": 8000
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/aya-expanse/tags"
+    "https://ollama.com/library/aya-expanse/tags",
+    "https://ollama.com/library/aya-expanse:latest"
   ]
 }

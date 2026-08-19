@@ -35,9 +35,10 @@
     "canonical_slug": "~openai/gpt-mini-latest",
     "is_moderated": "true",
     "knowledge_cutoff": "2025-08-31",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "medium",
     "reasoning_default_enabled": "false",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the OpenAI GPT Mini family.",
     "tokenizer": "Router"
   },
@@ -84,6 +85,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~openai/gpt-mini-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

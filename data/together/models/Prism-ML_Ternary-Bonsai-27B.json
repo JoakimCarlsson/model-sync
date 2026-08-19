@@ -18,12 +18,20 @@
     }
   ],
   "attrs": {
-    "author": "Prism ML"
+    "author": "Prism ML",
+    "category": "Chat",
+    "parameter_count": "27B",
+    "release_date": "2026-07-14",
+    "serverless_since": "2026-08-07",
+    "summary": "PrismML's ternary build of Qwen3.6 27B at a true 1.71 bits per weight, retaining 95% of FP16 quality with 262K context and vision input."
   },
   "limits": {
     "context_window": 262144
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "json_mode",
       "reasoning",
@@ -35,10 +43,16 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Reasoning",
+      "Vision"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/prism-ml-ternary-bonsai-27b"
   ]
 }

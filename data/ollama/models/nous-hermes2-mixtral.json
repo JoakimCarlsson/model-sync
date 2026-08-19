@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "nous-hermes2-mixtral:latest",
+    "last_updated": "2024-12-20",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "46.7B",
+    "quantization": "Q4_0",
     "summary": "The Nous Hermes 2 model from Nous Research, now trained over Mixtral."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nous-hermes2-mixtral/tags"
+    "https://ollama.com/library/nous-hermes2-mixtral/tags",
+    "https://ollama.com/library/nous-hermes2-mixtral:latest"
   ]
 }

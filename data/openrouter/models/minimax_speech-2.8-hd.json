@@ -1,0 +1,63 @@
+{
+  "id": "minimax/speech-2.8-hd",
+  "provider": "openrouter",
+  "name": "MiniMax: Speech 2.8 HD",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 100,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 100,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "minimax",
+    "canonical_slug": "minimax/speech-2.8-hd-20260716",
+    "modality": "text->speech",
+    "release_date": "2026-07-16",
+    "summary": "MiniMax Speech 2.8 HD is a text-to-speech model from MiniMax.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "minimax"
+    ],
+    "endpoints": [
+      "Minimax"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "speech"
+    ],
+    "parameters": [
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/minimax/speech-2.8-hd-20260716/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

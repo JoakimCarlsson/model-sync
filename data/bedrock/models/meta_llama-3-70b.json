@@ -147,10 +147,11 @@
   ],
   "attrs": {
     "author": "Meta",
-    "knowledge_cutoff": "Dec 2023",
-    "lifecycle_state": "active",
-    "released": "Apr 18, 2024",
-    "retirement_date": "No sooner than 4/23/2025",
+    "knowledge_cutoff": "2023-12",
+    "model_id": "meta.llama3-70b-instruct-v1:0",
+    "release_date": "2024-04-18",
+    "retirement_date": "2025-04-23",
+    "state": "active",
     "summary": "Llama 3 70B Instruct is Meta's 70-billion parameter instruction-tuned model with an 8K context window, optimized for dialogue and assistant-like tasks. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -174,11 +175,30 @@
       "prompt_optimization",
       "streaming"
     ],
+    "in_region_regions": [
+      "ap-south-1",
+      "ca-central-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-south-1",
+      "ca-central-1",
+      "eu-west-2",
+      "us-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
     ]
   },
   "sources": [

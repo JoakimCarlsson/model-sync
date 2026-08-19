@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen35moe",
+    "default_snapshot": "qwen3.6:latest",
+    "last_updated": "2026-08-14",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "36B",
+    "quantization": "Q4_K_M",
     "summary": "Qwen3.6 delivers substantial upgrades in agentic coding and thinking preservation than previous Qwen models."
   },
   "limits": {
@@ -29,6 +36,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3.6/tags"
+    "https://ollama.com/library/qwen3.6/tags",
+    "https://ollama.com/library/qwen3.6:latest"
   ]
 }

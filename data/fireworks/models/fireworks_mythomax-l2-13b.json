@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/mythomax-l2-13b",
+  "provider": "fireworks",
+  "name": "MythoMax L2 13B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Gryphe",
+    "calibrated": "true",
+    "hugging_face_id": "Gryphe/MythoMax-L2-13b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/mythomax-l2-13b",
+    "model_url": "https://fireworks.ai/models/fireworks/mythomax-l2-13b",
+    "open_weights": "true",
+    "parameter_count": "13B",
+    "release_date": "2024-02-13",
+    "state": "active",
+    "summary": "An improved, potentially even perfected variant of MythoMix, a MythoLogic-L2 and Huginn merge using a highly experimental tensor type merge technique. Proficient at both storytelling and roleplaying due to its unique nature."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/mythomax-l2-13b"
+  ]
+}

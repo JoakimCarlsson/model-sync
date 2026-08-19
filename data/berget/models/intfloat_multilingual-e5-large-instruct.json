@@ -19,14 +19,21 @@
   ],
   "attrs": {
     "author": "intfloat",
+    "data_residency": "EU",
+    "docs_title": "Multilingual-E5-large-instruct",
+    "hugging_face_id": "intfloat/multilingual-e5-large-instruct",
     "license": "MIT",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/intfloat/multilingual-e5-large-instruct",
     "model_path": "intfloat/multilingual-e5-large-instruct",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2025-04-27"
+    "release_date": "2025-04-27",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 512,
+    "max_batch_size": 2048,
     "model_size_billions": 1
   },
   "lists": {
@@ -34,6 +41,9 @@
       "e5-instruct",
       "e5-large-instruct",
       "multilingual-e5-large-instruct"
+    ],
+    "endpoints": [
+      "/v1/embeddings/"
     ],
     "features": [
       "embeddings",
@@ -56,6 +66,6 @@
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

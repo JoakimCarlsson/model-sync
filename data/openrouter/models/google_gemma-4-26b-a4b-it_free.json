@@ -5,7 +5,132 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.07,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0,
       "currency": "USD"
@@ -13,29 +138,141 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0,
-      "currency": "USD"
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.34,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "11",
+    "artificial_analysis_coding_index": "39.3",
+    "artificial_analysis_intelligence_index": "26.1",
     "author": "google",
     "canonical_slug": "google/gemma-4-26b-a4b-it-20260403",
+    "default_temperature": "1",
+    "default_top_k": "64",
+    "default_top_p": "0.95",
     "hugging_face_id": "google/gemma-4-26B-A4B-it",
     "is_free": "true",
+    "modality": "text+image+video->text",
     "reasoning_default_enabled": "false",
-    "released": "2026-04-03",
+    "release_date": "2026-04-03",
     "summary": "Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind.",
     "tokenizer": "Gemma"
   },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 32768,
-    "top_provider_context_window": 131072
+    "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "ES",
+      "US"
+    ],
+    "endpoint_tags": [
+      "cloudflare",
+      "deepinfra/fp8",
+      "google-vertex/global",
+      "nextbit/bf16",
+      "novita/bf16",
+      "parasail/bf16",
+      "siliconflow/fp8",
+      "venice/bf16"
+    ],
+    "endpoints": [
+      "Cloudflare",
+      "DeepInfra",
+      "Google",
+      "NextBit",
+      "Novita",
+      "Parasail",
+      "SiliconFlow",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "reasoning",
       "structured_outputs"
     ],
@@ -50,8 +287,10 @@
     "parameters": [
       "frequency_penalty",
       "include_reasoning",
+      "logit_bias",
       "logprobs",
       "max_tokens",
+      "min_p",
       "presence_penalty",
       "reasoning",
       "repetition_penalty",
@@ -65,9 +304,20 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "ES",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemma-4-26b-a4b-it-20260403/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

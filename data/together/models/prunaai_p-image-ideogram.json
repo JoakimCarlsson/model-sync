@@ -12,7 +12,8 @@
     }
   ],
   "attrs": {
-    "author": "Pruna AI"
+    "author": "Pruna AI",
+    "serverless_since": "2026-08-07"
   },
   "lists": {
     "input_modalities": [
@@ -23,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md"
   ]
 }

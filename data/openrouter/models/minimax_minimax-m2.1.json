@@ -11,24 +11,126 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/highspeed",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/highspeed",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax/highspeed",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "minimax",
     "canonical_slug": "minimax/minimax-m2.1",
+    "default_temperature": "1",
+    "default_top_p": "0.9",
     "hugging_face_id": "MiniMaxAI/MiniMax-M2.1",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-12-23",
+    "release_date": "2025-12-23",
     "summary": "MiniMax-M2.1 is a lightweight, state-of-the-art large language model optimized for coding, agentic workflows, and modern application development.",
     "tokenizer": "Other"
   },
@@ -38,6 +140,18 @@
     "top_provider_context_window": 204800
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "minimax/fp8",
+      "minimax/highspeed",
+      "novita/fp8"
+    ],
+    "endpoints": [
+      "Minimax",
+      "Novita"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -66,9 +180,18 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/minimax/minimax-m2.1/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

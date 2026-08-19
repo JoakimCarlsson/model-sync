@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "command-r",
+    "default_snapshot": "aya:latest",
+    "last_updated": "2024-05-23",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_0",
     "summary": "Aya 23, released by Cohere, is a new family of state-of-the-art, multilingual models that support 23 languages."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/aya/tags"
+    "https://ollama.com/library/aya/tags",
+    "https://ollama.com/library/aya:latest"
   ]
 }

@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.84375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.295,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.295,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
     },
     {
       "metric": "input_tokens",
@@ -23,26 +43,64 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.475,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 4.425,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.425,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "30.9",
+    "artificial_analysis_coding_index": "66",
+    "artificial_analysis_intelligence_index": "46.7",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.7-max-20260520",
+    "modality": "text->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-05-21",
+    "release_date": "2026-05-21",
     "summary": "Qwen3.7-Max is the flagship model in Alibaba's Qwen3.7 series.",
     "tokenizer": "Qwen"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 983616,
     "max_output_tokens": 131072,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "categories": [
+      "finance"
+    ],
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -73,9 +131,15 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3.7-max-20260520/endpoints",
+    "https://openrouter.ai/api/v1/models?category=finance",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

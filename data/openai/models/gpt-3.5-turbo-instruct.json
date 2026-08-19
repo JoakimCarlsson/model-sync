@@ -25,8 +25,9 @@
     }
   ],
   "attrs": {
+    "deprecated_on": "2025-09-26",
     "recommended_replacement": "gpt-5.6-terra",
-    "shutdown_date": "2026-09-28",
+    "retirement_date": "2026-09-28",
     "state": "deprecated"
   },
   "sources": [

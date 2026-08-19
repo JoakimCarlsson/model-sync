@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "exaone",
+    "default_snapshot": "exaone-deep:latest",
+    "last_updated": "2025-03-19",
+    "license": "EXAONE AI Model License Agreement 1.1 - NC",
+    "open_weights": "true",
+    "parameter_count": "7.82B",
+    "quantization": "Q4_K_M",
     "summary": "EXAONE Deep exhibits superior capabilities in various reasoning tasks including math and coding benchmarks, ranging from 2.4B to 32B parameters developed and released by LG AI Research."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/exaone-deep/tags"
+    "https://ollama.com/library/exaone-deep/tags",
+    "https://ollama.com/library/exaone-deep:latest"
   ]
 }

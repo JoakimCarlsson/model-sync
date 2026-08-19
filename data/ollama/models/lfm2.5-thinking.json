@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "lfm2",
+    "default_snapshot": "lfm2.5-thinking:latest",
+    "last_updated": "2026-01-20",
+    "license": "LFM Open License v1.0",
+    "open_weights": "true",
+    "parameter_count": "1.17B",
+    "quantization": "Q4_K_M",
     "summary": "LFM2.5 is a new family of hybrid models designed for on-device deployment."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/lfm2.5-thinking/tags"
+    "https://ollama.com/library/lfm2.5-thinking/tags",
+    "https://ollama.com/library/lfm2.5-thinking:latest"
   ]
 }

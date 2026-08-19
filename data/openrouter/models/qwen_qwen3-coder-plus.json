@@ -13,6 +13,38 @@
     {
       "metric": "cache_write_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.8125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
       "amount": 2.4375,
       "currency": "USD",
       "dims": {
@@ -33,6 +65,38 @@
       "unit": "per_1m_tokens",
       "amount": 0.13,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.39,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.234,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
     },
     {
       "metric": "cached_input_tokens",
@@ -61,6 +125,38 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.95,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.17,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 1.95,
       "currency": "USD",
       "dims": {
@@ -85,6 +181,38 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 3.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "128000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5.85,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba",
+        "min_prompt_tokens": "32000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 9.75,
       "currency": "USD",
       "dims": {
@@ -104,17 +232,30 @@
   "attrs": {
     "author": "qwen",
     "canonical_slug": "qwen/qwen3-coder-plus",
+    "implicit_prompt_caching": "true",
     "knowledge_cutoff": "2025-06-30",
-    "released": "2025-09-23",
+    "modality": "text->text",
+    "release_date": "2025-09-23",
     "summary": "Qwen3 Coder Plus is Alibaba's proprietary version of the Open Source Qwen3 Coder 480B A35B.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 1000000,
+    "max_input_tokens": 997952,
     "max_output_tokens": 65536,
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -143,9 +284,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-coder-plus/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

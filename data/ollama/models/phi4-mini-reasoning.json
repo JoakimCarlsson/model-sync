@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "phi3",
+    "default_snapshot": "phi4-mini-reasoning:latest",
+    "last_updated": "2025-05-01",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "3.84B",
+    "quantization": "Q4_K_M",
     "summary": "Phi 4 mini reasoning is a lightweight open model that balances efficiency with advanced reasoning ability."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/phi4-mini-reasoning/tags"
+    "https://ollama.com/library/phi4-mini-reasoning/tags",
+    "https://ollama.com/library/phi4-mini-reasoning:latest"
   ]
 }

@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "mistralai",
+    "data_residency": "EU",
+    "docs_title": "Mistral Small 3.2 24B",
+    "hugging_face_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
     "license": "Apache 2.0",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506",
     "model_path": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+    "open_weights": "true",
     "quantization": "BF16",
-    "release_date": "2025-10-01"
+    "release_date": "2025-10-01",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 128000,
@@ -35,6 +41,9 @@
       "mistral-small",
       "mistral/small",
       "mistralai/Mistral-Small-3.1-24B-Instruct-2503"
+    ],
+    "endpoints": [
+      "/v1/chat/completions"
     ],
     "features": [
       "function_calling",
@@ -81,11 +90,19 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
+  "notes": [
+    "the capability matrix marks this model multimodal, which the listing's vision flag denies"
+  ],
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

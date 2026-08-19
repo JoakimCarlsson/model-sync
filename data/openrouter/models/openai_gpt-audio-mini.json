@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "audio_output",
       "unit": "per_1m_tokens",
       "amount": 2.4,
       "currency": "USD"
+    },
+    {
+      "metric": "audio_output",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     },
     {
       "metric": "input_tokens",
@@ -23,17 +43,38 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.4,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     }
   ],
   "attrs": {
     "author": "openai",
     "canonical_slug": "openai/gpt-audio-mini",
     "is_moderated": "true",
-    "released": "2026-01-19",
+    "modality": "text+audio->text+audio",
+    "release_date": "2026-01-19",
     "summary": "A cost-efficient version of GPT Audio.",
     "tokenizer": "GPT"
   },
@@ -43,6 +84,12 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "endpoint_tags": [
+      "openai"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -71,9 +118,14 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-audio-mini/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

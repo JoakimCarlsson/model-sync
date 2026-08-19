@@ -19,12 +19,18 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "reasoning_mode": "hybrid (on by default)"
+    "category": "Chat",
+    "reasoning_mode": "hybrid (on by default)",
+    "release_date": "2026-04-01",
+    "summary": "Multimodal model that turns UI screenshots and design mockups into production code, with 1M context, thinking mode, and strong agentic coding performance."
   },
   "limits": {
     "context_window": 1000000
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -38,11 +44,20 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Reasoning",
+      "Video",
+      "Vision"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen36-plus"
   ]
 }

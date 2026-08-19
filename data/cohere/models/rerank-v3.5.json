@@ -45,7 +45,11 @@
     "summary": "A model that allows for re-ranking English Language documents and semi-structured data (JSON)."
   },
   "limits": {
-    "context_window": 4000
+    "context_window": 4000,
+    "default_max_tokens_per_document": 4096,
+    "recommended_max_documents": 1000,
+    "requests_per_minute_production": 1000,
+    "requests_per_minute_trial": 10
   },
   "lists": {
     "endpoints": [
@@ -56,11 +60,21 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "documents",
+      "max_tokens_per_doc",
+      "model",
+      "priority",
+      "query",
+      "top_n"
     ]
   },
   "sources": [
     "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/reference/rerank.md"
   ]
 }

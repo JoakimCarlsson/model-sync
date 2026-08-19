@@ -1,0 +1,28 @@
+{
+  "id": "auto-chapters",
+  "provider": "assemblyai",
+  "name": "Auto Chapters",
+  "kind": "speech_understanding",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.08,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "product": "Speech Understanding",
+    "regions": "US & EU",
+    "summary": "Generate a summary over time for audio and video files"
+  },
+  "lists": {
+    "features": [
+      "auto_chapters"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/speech-understanding/auto-chapters.md",
+    "https://www.assemblyai.com/pricing"
+  ]
+}

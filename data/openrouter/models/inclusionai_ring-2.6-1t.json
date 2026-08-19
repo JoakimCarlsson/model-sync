@@ -11,24 +11,59 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.015,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.075,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.625,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.75",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "42.8",
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ring-2.6-1t-20260508",
+    "modality": "text->text",
     "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",
-    "released": "2026-05-08",
+    "release_date": "2026-05-08",
     "summary": "Ring-2.6-1T is a 1T-parameter-scale thinking model with 63B active parameters, built for real-world agent workflows that require both strong capability and operational efficiency.",
     "tokenizer": "Other"
   },
@@ -38,6 +73,12 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "endpoint_tags": [
+      "novita"
+    ],
+    "endpoints": [
+      "Novita"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -68,12 +109,17 @@
       "top_k",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
     "reasoning_efforts": [
       "high",
       "xhigh"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/inclusionai/ring-2.6-1t-20260508/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

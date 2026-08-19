@@ -36,11 +36,18 @@
     }
   ],
   "attrs": {
-    "latest_update": "June 2025",
+    "last_updated": "June 2025",
     "model_code": "gemini-embedding-001",
+    "recommended_replacement": "gemini-embedding-2",
+    "release_date": "2025-07-14",
+    "retirement_date": "2028-05-14",
+    "state": "active",
     "summary": "A specialized engine for high-dimensional vector representation, providing efficient numerical mapping of text and images. The Gemini Embedding model is best for semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large datasets."
   },
   "limits": {
+    "batch_enqueued_tokens_tier_1": 500000,
+    "batch_enqueued_tokens_tier_2": 5000000,
+    "batch_enqueued_tokens_tier_3": 10000000,
     "context_window": 2048
   },
   "lists": {
@@ -63,8 +70,10 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/rate-limits"
   ]
 }

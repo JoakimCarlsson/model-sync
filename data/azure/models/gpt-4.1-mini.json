@@ -1,6 +1,7 @@
 {
   "id": "gpt-4.1-mini",
   "provider": "azure",
+  "name": "gpt-4.1-mini",
   "kind": "chat",
   "prices": [
     {
@@ -8840,19 +8841,44 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-04-15",
+    "fine_tuning_deployment_retirement_date": "2027-10-14",
+    "fine_tuning_training_retirement_date": "No earlier than 2027-04-14",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "release_date": "2025-04-14",
+    "retirement_date": "2027-04-14",
+    "state": "deprecated",
+    "summary": "gpt-4.1-mini outperform gpt-4o-mini across the board, with major gains in coding, instruction following, and long-context handling",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "2025-04-14"
   },
   "limits": {
     "context_window": 1047576,
     "max_output_tokens": 32768
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneBatch",
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "DeveloperTier",
+      "GlobalBatch",
+      "GlobalStandard",
+      "ProvisionedManaged",
+      "Standard"
+    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
+      "fine_tuning",
       "function_calling",
       "streaming",
       "structured_outputs"
@@ -8861,12 +8887,85 @@
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "ukwest",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

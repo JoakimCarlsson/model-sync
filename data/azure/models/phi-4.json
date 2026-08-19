@@ -706,7 +706,14 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2025-06-04",
+    "license": "MIT",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "state": "active",
+    "summary": "Phi-4 14B, a highly capable model for low latency scenarios.",
+    "version": "8"
   },
   "limits": {
     "context_window": 16384,
@@ -715,6 +722,11 @@
   "lists": {
     "input_modalities": [
       "text"
+    ],
+    "keywords": [
+      "Low latency",
+      "Reasoning",
+      "Understanding"
     ],
     "languages": [
       "ar",
@@ -765,10 +777,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/foundry-models/concepts/models-from-partners",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

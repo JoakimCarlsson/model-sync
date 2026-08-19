@@ -1141,9 +1141,9 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "lifecycle_state": "active",
-    "released": "Dec 2, 2025",
-    "retirement_date": "N/A",
+    "model_id": "mistral.mistral-large-3-675b-instruct",
+    "release_date": "2025-12-02",
+    "state": "active",
     "summary": "Mistral Large 3 is Mistral AI's 675-billion parameter model with strong performance on coding, reasoning, and multilingual tasks. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -1153,6 +1153,15 @@
   "lists": {
     "aliases": [
       "mistral.mistral-large-3-675b-instruct"
+    ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
     ],
     "endpoints": [
       "bedrock-mantle",
@@ -1164,6 +1173,7 @@
     "features": [
       "abuse_detection",
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
@@ -1174,15 +1184,39 @@
       "streaming",
       "structured_outputs"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-mistral-ai-mistral-large-3.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

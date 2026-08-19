@@ -11,29 +11,67 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.117,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.455,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.455,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "1.6",
+    "artificial_analysis_coding_index": "9",
+    "artificial_analysis_intelligence_index": "8.3",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3-8b-04-28",
+    "default_temperature": "0.6",
+    "default_top_k": "20",
+    "default_top_p": "0.95",
     "hugging_face_id": "Qwen/Qwen3-8B",
     "instruct_type": "qwen3",
     "knowledge_cutoff": "2025-03-31",
+    "modality": "text->text",
     "reasoning_default_enabled": "true",
-    "released": "2025-04-28",
+    "release_date": "2025-04-28",
     "summary": "Qwen3-8B is a dense 8.2B parameter causal language model from the Qwen3 series, designed for both reasoning-heavy tasks and efficient dialogue.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 131072,
+    "max_input_tokens": 98304,
     "max_output_tokens": 8192,
     "top_provider_context_window": 131072
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -60,9 +98,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-8b-04-28/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

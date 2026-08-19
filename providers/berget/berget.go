@@ -29,9 +29,10 @@ const (
 	// ModelsURL lists every model Berget serves, with its rate and what it
 	// can do.
 	ModelsURL = "https://api.berget.ai/v1/models"
-	// OverviewURL states each model's context window, which the endpoint
-	// does not.
-	OverviewURL = "https://docs.berget.ai/models/overview"
+	// DocsURL is the documentation site's own markdown mirror of every page
+	// it serves. It states each model's context window, which the endpoint
+	// does not, and links each model to its weights.
+	DocsURL = "https://docs.berget.ai/llms-full.txt"
 	// OpenAPIURL is the API's own specification, which states what each
 	// endpoint accepts.
 	OpenAPIURL = "https://api.berget.ai/openapi.json"
@@ -39,9 +40,9 @@ const (
 
 // cacheFiles are where a fetched document is kept, one per document.
 var cacheFiles = map[string]string{
-	ModelsURL:   "berget_models.json",
-	OverviewURL: "berget_overview.html",
-	OpenAPIURL:  "berget_openapi.json",
+	ModelsURL:  "berget_models.json",
+	DocsURL:    "berget_docs.txt",
+	OpenAPIURL: "berget_openapi.json",
 }
 
 // Provider reads Berget's model API. The zero value is not usable; call New.
@@ -63,10 +64,11 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the model listing, the overview and the specification. The
-// listing is the only one a model cannot be built without: a missing overview
-// costs the context windows and a missing specification the request
-// parameters, so what did arrive is returned rather than the run failing.
+// Fetch retrieves the model listing, the documentation and the specification.
+// The listing is the only one a model cannot be built without: missing
+// documentation costs the context windows and a missing specification the
+// request parameters, so what did arrive is returned rather than the run
+// failing.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	listing, err := p.get(ctx, ModelsURL)
 	if err != nil {
@@ -74,7 +76,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{listing}
 	var failures []error
-	for _, url := range []string{OverviewURL, OpenAPIURL} {
+	for _, url := range []string{DocsURL, OpenAPIURL} {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
@@ -118,8 +120,8 @@ func (p *Provider) get(
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse decodes the listing, then reads the overview and the specification
-// onto the models it established.
+// Parse decodes the listing, then reads the documentation and the
+// specification onto the models it established.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	var failures []error
@@ -133,8 +135,8 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}
 	for _, doc := range docs {
 		switch doc.URL {
-		case OverviewURL:
-			b.applyOverview(doc)
+		case DocsURL:
+			b.applyDocs(doc)
 		case OpenAPIURL:
 			if err := b.applySpec(doc); err != nil {
 				failures = append(failures, err)

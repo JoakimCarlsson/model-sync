@@ -55,7 +55,7 @@
     {
       "metric": "tool_call",
       "unit": "per_1k_calls",
-      "amount": 7,
+      "amount": 14,
       "currency": "USD"
     }
   ],
@@ -63,10 +63,11 @@
     "alias_target": "google/gemini-3.7-flash",
     "author": "~google",
     "canonical_slug": "~google/gemini-flash-latest",
+    "modality": "text+image+file+audio+video->text",
     "reasoning_default_effort": "medium",
     "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
-    "released": "2026-04-27",
+    "release_date": "2026-04-27",
     "summary": "This model always redirects to the latest model in the Google Gemini Flash family.",
     "tokenizer": "Router"
   },
@@ -115,6 +116,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~google/gemini-flash-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

@@ -2,7 +2,6 @@ package assemblyai
 
 import (
 	"regexp"
-	"strconv"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -91,14 +90,48 @@ func seconds(text string) int64 {
 	if match == nil {
 		return 0
 	}
-	hours, err := strconv.ParseFloat(match[1], 64)
-	if err != nil {
-		return 0
-	}
-	return int64(hours * 3600)
+	return hoursToSeconds(match[1])
 }
 
 // compact removes the space a size is sometimes written with.
 func compact(size string) string {
 	return strings.ReplaceAll(size, " ", "")
+}
+
+// TimestampsURL is the answer stating that a completed transcript times every
+// word rather than every segment. No model page says it and no card claims it,
+// and it is stated once for the endpoint every pre-recorded model is served
+// by, which is how the file bounds are stated too.
+const TimestampsURL = "https://www.assemblyai.com/docs/faq/" +
+	"does-your-api-return-timestamps-for-individual-words.md"
+
+// LimitTimestampAccuracyMs is how far a word's timestamp may be out, which the
+// same answer bounds and nothing else in the documentation does.
+const LimitTimestampAccuracyMs = "word_timestamp_accuracy_ms"
+
+var (
+	// timestampsRe matches the sentence answering that words carry times.
+	timestampsRe = regexp.MustCompile(
+		`(?i)timestamp values for when a given word`,
+	)
+	// accuracyRe matches how far one of those may be out.
+	accuracyRe = regexp.MustCompile(
+		`(?i)accurate to within about ([\d,]+) milliseconds`,
+	)
+)
+
+// applyTimestamps records that a pre-recorded transcript times every word.
+// Nothing is recorded when the sentence stating it is gone, so a rewritten
+// answer withdraws the claim rather than leaving it standing.
+func (b *builder) applyTimestamps(doc catalog.Document) {
+	body := string(doc.Body)
+	if !timestampsRe.MatchString(body) {
+		return
+	}
+	b.eachMode(ModePrerecorded, doc.URL, func(m *catalog.Model) {
+		m.AddList(ListFeatures, FeatureWordTimestamps)
+		if match := accuracyRe.FindStringSubmatch(body); match != nil {
+			m.SetLimit(LimitTimestampAccuracyMs, count(match[1]))
+		}
+	})
 }

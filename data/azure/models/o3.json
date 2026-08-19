@@ -1,6 +1,7 @@
 {
   "id": "o3",
   "provider": "azure",
+  "name": "o3",
   "kind": "chat",
   "prices": [
     {
@@ -473,34 +474,99 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-04-16",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "recommended_replacement": "gpt-5.6-sol",
+    "release_date": "2025-04-16",
+    "retirement_date": "2026-10-21",
+    "state": "active",
+    "summary": "o3 includes significant improvements on quality and safety while supporting the existing features of o1 and delivering comparable or better performance.",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "2025-04-16"
   },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 100000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneBatch",
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "GlobalBatch",
+      "GlobalStandard",
+      "ProvisionedManaged"
+    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
+      "background_mode",
       "function_calling",
       "parallel_tool_calls",
       "reasoning",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

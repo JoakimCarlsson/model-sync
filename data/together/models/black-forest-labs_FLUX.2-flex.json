@@ -12,22 +12,45 @@
     }
   ],
   "attrs": {
-    "author": "Black Forest Labs"
+    "author": "Black Forest Labs",
+    "category": "Image",
+    "model_card_url": "https://bfl.ai/models/flux-2",
+    "release_date": "2025-11-25",
+    "summary": "Customizable image model with adjustable steps and guidance, superior typography rendering, supports up to 10 reference images with 14 MP total input, flexible quality control"
   },
   "limits": {
     "context_window": 32000
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "parameters": [
+      "height",
+      "output_format",
+      "prompt",
+      "prompt_upsampling",
+      "reference_images",
+      "seed",
+      "width"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/quickstart-flux.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/flux-2-flex"
   ]
 }

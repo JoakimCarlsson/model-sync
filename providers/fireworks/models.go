@@ -1,7 +1,7 @@
 package fireworks
 
 import (
-	"slices"
+	"regexp"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -15,9 +15,10 @@ type table struct {
 	Source  string
 }
 
-// Sections of the pricing page that list models.
+// Sections of the pricing page that state a rate.
 const (
 	sectionTextVision = "text and vision models"
+	sectionOtherBase  = "other base models"
 	sectionEmbeddings = "embeddings"
 )
 
@@ -28,15 +29,26 @@ var tierColumns = map[string]string{
 }
 
 // applyPricing reads the serverless pricing page.
+//
+// The page has three rate cards. The first names models and links each to its
+// page, which is the join and needs no matching on names. The second and third
+// price by parameter count, in bands that apply to whatever the first card did
+// not name, so those rows are held until every model's parameter count is
+// known and then matched to the models they cover.
 func (b *builder) applyPricing(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
-		switch t.Section {
-		case sectionTextVision:
+		switch {
+		case t.Section == sectionTextVision:
 			b.applyTripleTable(t)
-		case sectionEmbeddings:
-			b.applySingleTable(t)
+		case strings.HasPrefix(t.Section, sectionOtherBase):
+			b.textBands = append(b.textBands, bandRows(t)...)
+		case t.Section == sectionEmbeddings:
+			b.embeddingBands = append(b.embeddingBands, bandRows(t)...)
+			b.pendingNamed = append(b.pendingNamed, namedRows(t, doc.URL)...)
 		}
 	}
+	b.applyBatchDiscount(doc)
+	b.pricingSource = doc.URL
 }
 
 // applyTripleTable reads the table whose cells hold three amounts per serving
@@ -47,12 +59,13 @@ func (b *builder) applyTripleTable(t table) {
 		if !ok {
 			continue
 		}
-		m := b.model(ref.ID, KindChat)
+		id := b.resolveRef(ref)
+		m := b.model(id, KindChat)
 		m.AddSource(t.Source)
+		b.priced[id] = true
 		if m.Name == "" {
 			m.Name = ref.Name
 		}
-		m.SetAttr(AttrModelURL, ref.URL)
 		for i, header := range t.Headers {
 			tier, ok := tierColumns[strings.ToLower(clean(header))]
 			if !ok {
@@ -75,142 +88,211 @@ func (b *builder) applyTripleTable(t table) {
 	}
 }
 
-// applySingleTable reads a table whose cells hold one amount, skipping the
-// rows that price a parameter count band rather than a model.
-func (b *builder) applySingleTable(t table) {
+// resolveRef says which model a rate card row prices.
+//
+// A row links the model's page in the console, which addresses it by a path
+// that is usually the one it is served under and sometimes not: a model can be
+// linked as one name and served as another. So the link is tried as an
+// identifier first, and where no model answers to it, as the address of a page
+// in the library, which is the document that stated what the model is served
+// as. A link that is neither is taken at face value, so that a model priced
+// before the library lists it is still priced.
+func (b *builder) resolveRef(ref modelRef) string {
+	if _, ok := b.models[ref.ID]; ok {
+		return ref.ID
+	}
+	if id, ok := b.byPage[libraryHost+modelPathPrefix+ref.ID]; ok {
+		return id
+	}
+	return ref.ID
+}
+
+// bandRows reads the rows of a rate card that price a parameter count band.
+func bandRows(t table) []band {
+	var out []band
 	for _, row := range t.Rows {
-		cell := cellAt(row, 0)
-		if isBand(cell) {
-			continue
-		}
-		id, name := clean(cell), clean(cell)
-		if ref, ok := splitModelCell(cell); ok {
-			id, name = ref.ID, ref.Name
-		} else {
-			id = slugID(id)
-		}
-		if id == "" {
-			continue
-		}
-		amounts := parseTriple(cellAt(row, 1))
+		amounts := parseTriple(strings.Join(row[1:], " "))
 		if len(amounts) == 0 {
 			continue
 		}
-		m := b.model(id, KindEmbedding)
-		m.AddSource(t.Source)
-		if m.Name == "" {
-			m.Name = name
+		if parsed, ok := parseBand(clean(cellAt(row, 0)), amounts); ok {
+			out = append(out, parsed)
 		}
+	}
+	return out
+}
+
+// namedRow is a rate card row naming a model without linking it.
+type namedRow struct {
+	Name   string
+	Amount float64
+	Source string
+}
+
+// namedRows reads the rows of a rate card that name a model rather than a
+// band. The embeddings card has one: Fireworks prices its embedding model
+// under a shortened name and links nothing, so the row has to be matched to a
+// model by that name once the library has been read.
+func namedRows(t table, source string) []namedRow {
+	var out []namedRow
+	for _, row := range t.Rows {
+		label := clean(cellAt(row, 0))
+		amounts := parseTriple(strings.Join(row[1:], " "))
+		if len(amounts) == 0 {
+			continue
+		}
+		if _, isBand := parseBand(label, amounts); isBand {
+			continue
+		}
+		out = append(out, namedRow{
+			Name:   label,
+			Amount: amounts[0],
+			Source: source,
+		})
+	}
+	return out
+}
+
+// batchRe matches the sentence stating what a job billed asynchronously pays,
+// which Fireworks writes as a share of the rate rather than as an amount.
+var batchRe = regexp.MustCompile(
+	`(?i)batch inference.{0,40}?billed at\s*\*{0,2}(\d+)%`,
+)
+
+// applyBatchDiscount records the share the pricing page states a batched
+// request is billed at. The page states it once, for every model and both
+// directions of traffic, so it is held and applied to the rates each model
+// ends up with rather than to any one of them here.
+func (b *builder) applyBatchDiscount(doc catalog.Document) {
+	match := batchRe.FindSubmatch(doc.Body)
+	if match == nil {
+		return
+	}
+	if share, ok := parseAmount("$" + string(match[1])); ok {
+		b.batchShare = share / 100
+	}
+}
+
+// resolveNamed matches the rate card rows that named a model without linking
+// it against the models the library established.
+//
+// The name is shortened: the card prices "Qwen3 8B" where the library titles
+// the model "Qwen3 Embedding 8B", and a chat model of exactly the shorter name
+// is served as well. So a row is only matched against models that answer the
+// endpoint the card is a card for, and only where exactly one of them is
+// named; two would mean the card cannot say which, and the rate is then left
+// unrecorded rather than put on a guess.
+func (b *builder) resolveNamed() {
+	for _, row := range b.pendingNamed {
+		var found []string
+		for _, id := range b.order {
+			if b.models[id].Kind != KindEmbedding {
+				continue
+			}
+			if namesSameModel(row.Name, b.models[id].Name) {
+				found = append(found, id)
+			}
+		}
+		if len(found) != 1 {
+			continue
+		}
+		m := b.models[found[0]]
+		m.AddSource(row.Source)
 		m.AddPrice(catalog.Price{
 			Metric:   MetricInputTokens,
 			Unit:     UnitPer1MTokens,
-			Amount:   amounts[0],
+			Amount:   row.Amount,
 			Currency: currency,
+			Dims:     catalog.Dims{DimTier: TierStandard},
 		})
+		b.priced[found[0]] = true
 	}
 }
 
-// embeddingMatch pairs a priced embedding model with the guide row naming the
-// same model, which is the row that links it to a page.
-type embeddingMatch struct {
-	ID  string
-	Ref modelRef
-}
-
-// applyEmbeddingsGuide gives the embedding model the identifier it is served
-// under and the page it is described on.
+// applyBands prices the serverless models the rate cards did not name, by the
+// band their parameter count puts them in.
 //
-// The pricing page prices it as "Qwen3 8B" and links nothing, so on the
-// pricing page alone it is a name and a rate. The guide writes the name out,
-// links the model's page and states the identifier the API takes, so the model
-// is re-keyed onto that identifier and its page is read like any other. The
-// name is taken from the guide as well: "Qwen3 8B" is what the price list
-// calls it and also what Fireworks calls a chat model it serves, and the guide
-// is the document writing the two apart.
-func (b *builder) applyEmbeddingsGuide(doc catalog.Document) {
-	for _, match := range b.matchEmbeddings(doc) {
-		m := b.models[match.ID]
-		m.Name = match.Ref.Name
-		m.SetAttr(AttrModelURL, match.Ref.URL)
-		m.AddSource(doc.URL)
-		b.rename(match.ID, match.Ref.ID)
-	}
-}
-
-// matchEmbeddings pairs every embedding model the pricing page priced without
-// linking with the guide row naming it.
-func (b *builder) matchEmbeddings(doc catalog.Document) []embeddingMatch {
-	refs := guideModelRefs(doc)
-	var out []embeddingMatch
+// Fireworks says outright that this is how the rest of the library is priced:
+// any text or vision model it does not price individually costs what its size
+// and architecture cost. The band applies only to models it can be charged
+// for, which is the ones the library says are served on serverless; a model
+// that only runs on GPUs of the caller's own is billed by the hour and has no
+// per-token rate at all.
+func (b *builder) applyBands() {
 	for _, id := range b.order {
 		m := b.models[id]
-		if m.Kind != KindEmbedding || m.Attrs[AttrModelURL] != "" {
+		if b.priced[id] || !servesServerless(m) {
 			continue
 		}
-		for _, ref := range refs {
-			if !namesSameModel(m.Name, ref.Name) {
-				continue
-			}
-			out = append(out, embeddingMatch{ID: id, Ref: ref})
-			break
+		bands := b.textBands
+		if m.Kind == KindEmbedding || m.Kind == KindRerank {
+			bands = b.embeddingBands
 		}
-	}
-	return out
-}
-
-// guideModelRefs returns the models the embeddings guide both links and states
-// are served on serverless.
-//
-// The guide's tables also list models that run only on a deployment of the
-// caller's own, which the pricing page quotes no rate for, and its reranking
-// tables list models whose names an embedding model's name is a subset of. A
-// row is therefore read only when it links a model, says serverless, and is
-// not under the reranking heading.
-func guideModelRefs(doc catalog.Document) []modelRef {
-	var out []modelRef
-	for _, t := range scanTables(string(doc.Body), doc.URL) {
-		if strings.Contains(t.Section, "rerank") {
+		params := parameterCount(m.Attrs[AttrParameterCount])
+		moe := m.Attrs[AttrMixtureOfExperts] == "true"
+		match, ok := bandFor(bands, params, moe)
+		if !ok || len(match.Amounts) == 0 {
 			continue
 		}
-		for _, row := range t.Rows {
-			ref, ok := splitModelCell(cellAt(row, 0))
-			if !ok || !mentionsServerless(row) {
-				continue
-			}
-			out = append(out, ref)
+		dims := catalog.Dims{
+			DimTier:     TierStandard,
+			DimSizeBand: match.Label,
 		}
+		metrics := []catalog.Metric{MetricInputTokens, MetricOutputTokens}
+		if m.Kind != KindChat {
+			metrics = metrics[:1]
+		}
+		for _, metric := range metrics {
+			m.AddPrice(catalog.Price{
+				Metric:   metric,
+				Unit:     UnitPer1MTokens,
+				Amount:   match.Amounts[0],
+				Currency: currency,
+				Dims:     dims,
+			})
+		}
+		m.AddSource(b.pricingSource)
 	}
-	return out
 }
 
-// mentionsServerless reports whether a row says the model is served without a
-// deployment of the caller's own.
-func mentionsServerless(row []string) bool {
-	for _, cell := range row {
-		if strings.Contains(strings.ToLower(cell), "serverless") {
+// applyBatch records what each rate becomes for a request submitted as a
+// batch. Fireworks states the share once and states which traffic it applies
+// to: what a caller sends and what the model generates, not the part of the
+// input served from cache, which is discounted on its own terms.
+func (b *builder) applyBatch() {
+	if b.batchShare <= 0 {
+		return
+	}
+	for _, id := range b.order {
+		m := b.models[id]
+		for _, p := range append([]catalog.Price(nil), m.Prices...) {
+			if p.Metric != MetricInputTokens &&
+				p.Metric != MetricOutputTokens {
+				continue
+			}
+			if p.Dims[DimTier] != TierStandard || p.Dims[DimBatch] != "" {
+				continue
+			}
+			m.AddPrice(catalog.Price{
+				Metric:   p.Metric,
+				Unit:     p.Unit,
+				Amount:   p.Amount * b.batchShare,
+				Currency: p.Currency,
+				Dims:     p.Dims.With(DimBatch, "true"),
+			})
+		}
+	}
+}
+
+// servesServerless reports whether the library said the model runs on the
+// shared fleet, which is the only place Fireworks bills it per token.
+func servesServerless(m *catalog.Model) bool {
+	for _, v := range m.Lists[ListDeployment] {
+		if v == DeploymentServerless {
 			return true
 		}
 	}
 	return false
-}
-
-// namesSameModel reports whether the guide's name is the pricing page's name
-// spelled out. The pricing table writes "Qwen3 8B" where the guide writes
-// "Qwen3 Embedding 8B", so a match is every word of the priced name appearing
-// in the listed one, in order.
-func namesSameModel(priced, listed string) bool {
-	want, have := nameWords(priced), nameWords(listed)
-	if len(want) == 0 {
-		return false
-	}
-	for _, word := range want {
-		at := slices.Index(have, word)
-		if at < 0 {
-			return false
-		}
-		have = have[at+1:]
-	}
-	return true
 }
 
 // scanTables walks a document and returns every pipe table, tracking the

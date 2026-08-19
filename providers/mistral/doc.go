@@ -3,24 +3,28 @@
 //
 // Mistral publishes one page per model and an index linking to all of them.
 // The index describes nothing: the identifiers a model answers to, its context
-// window, its rates, its modalities and its capabilities are stated only on
-// the model's own page, so every page is fetched and the index is used for the
-// list of them and for its deprecation table.
+// window, its rates, its modalities, its capabilities and the weights behind
+// it are stated only on the model's own page, so every page is fetched and the
+// index is used for the list of them and for its deprecation table.
 //
-// One fact a model page never states is the width of the vector an embedding
-// model returns. Mistral states that in the guide to each embedding model
-// instead, in the prose of the section that walks through a call, naming the
-// model in the same sentence, so the two guides are fetched for it. Where the
-// width can be asked for, the guide states a default and a maximum and no set
-// of options in between, so the default is recorded as the width and the
-// maximum beside it, rather than a list of choices Mistral does not publish.
+// Six further documents are read, each for something no model page states. Two
+// embedding guides state the width of the vector each embedding model returns.
+// The OCR guide states what the OCR processor will accept as a document. The
+// supported-language page states the languages Mistral vouches for. The
+// reasoning guide names the models that reason when asked rather than always.
+// The pricing page states the ratios a published rate may be adjusted by. None
+// of the six can create a model: each adds to a model a page already
+// established, and an identifier none of the pages named is one Mistral no
+// longer serves under that name.
 //
 // The pages are a client-rendered application, but the data is not lost to
-// that. React serves the page as a flight payload — the rendered tree and its
-// values, encoded — and only the styling of that tree needs a browser. The
+// that. React serves the page as a flight payload, the rendered tree and its
+// values encoded, and only the styling of that tree needs a browser. The
 // payload is what this reads. Asking for a page with the RSC header returns
 // the payload alone, and a response that arrives rendered instead carries the
-// same payload embedded in it, so either is readable.
+// same payload embedded in it, so either is readable. The pricing page is the
+// exception: it is served by a different site, as ordinary markup, with every
+// amount in an attribute rather than in the text beside it.
 //
 // Values are anchored on the presentation class of the element holding them
 // rather than on the label beside them, because the page writes a labelled
@@ -55,12 +59,55 @@
 // reading one alone cannot tell an unstated output from a model that returns
 // nothing.
 //
+// # The weights tab
+//
+// Every model page carries a weights tab, and it is the only place Mistral
+// says what a model is made of. A model whose weights Mistral publishes gets a
+// row per flavour of them, each leading with the repository holding the
+// weights and the licence governing them and going on to the parameter count,
+// the count that is active in a forward pass, the memory the weights need at
+// three quantizations, and the context the weights were trained for. The
+// flavours are named in the link: a model published once is labelled plainly
+// and is the one the API serves, and a model published as base, instruct and
+// reasoning weights is served as the instruct one, so that is what
+// hugging_face_id records and the other two are recorded beside it.
+//
+// A model Mistral serves without publishing its weights carries the tab with
+// the shelf named and no row under it. That is a statement rather than a
+// silence, which is why open_weights is set for every model and not only for
+// the ones that carry a repository. The shelf itself is recorded as
+// distribution: open, premier or labs. It is not the same fact as
+// open_weights, and the two come apart in both directions. Mistral publishes
+// the weights of three premier models under its research licence, so those are
+// premier and downloadable at once, and it files one third-party model on the
+// open shelf without hosting a repository for it.
+//
+// # Rates
+//
+// Mistral prices a model on the model's own page, and the pricing page reprints
+// those same amounts, so nothing is priced from the pricing page. What only the
+// pricing page states is that an amount can be adjusted: an input rate marked
+// as cacheable is billed a tenth of itself for a prompt already seen, any rate
+// is billed a tenth more on a regional endpoint, and the batch tab halves the
+// whole card. Those are recorded as the ratios Mistral prints, not multiplied
+// out, because Mistral prints no product of them anywhere and a catalog
+// quoting one would be quoting arithmetic rather than a rate.
+//
+// A card on the pricing page is matched to a model by the documentation page
+// it links to, which is the page this parser already read the model from.
+// Cards Mistral prints without a link, and cards for a product rather than a
+// model, match nothing.
+//
 // What Mistral does not publish:
 //
 //   - A rate for a deprecated model. The price card is removed from the page
-//     when a model is deprecated, though the model serves until it retires.
-//     Seventeen chat models are in that state and carry no price, which is
-//     what Mistral states rather than a gap in this parser.
+//     when a model is deprecated, though the model serves until it retires,
+//     and the pricing page lists only what Mistral currently sells. Seventeen
+//     chat models are in that state and carry no price, which is what Mistral
+//     states rather than a gap in this parser.
+//   - A rate for a model published as weights alone. Such a model has no page
+//     here at all: it has no identifier to call and nothing to bill, and the
+//     absence of a rate for it is the whole of what Mistral says about it.
 //   - An output bound for most models. Two model pages state one; the rest
 //     state only a context window, and the statistic exists nowhere else:
 //     the index carries the label and its tooltip in its string table without
@@ -76,14 +123,27 @@
 //   - A context window for a model that reads neither prompt nor document as
 //     tokens. The OCR and text-to-speech pages carry no statistics tile at
 //     all, and the transcription pages render the tile with "--" in it, which
-//     is Mistral stating there is no such bound rather than omitting one.
-//   - An API identifier for a weights-only release. Mistral publishes pages
-//     for models it has released the weights of without serving them, and
-//     those are skipped: they describe a download, with nothing to key or bill
-//     a catalog entry by.
-//   - Batch, priority and regional rates. The pricing page states them, but it
-//     renders them in the browser from data the document does not carry, so
-//     only the standard rate on each model page can be read.
+//     is Mistral stating there is no such bound rather than omitting one. What
+//     bounds an OCR request instead is the document, and the OCR guide states
+//     that in its FAQ: fifty megabytes, a thousand pages, and a table of the
+//     formats the processor reads.
+//   - A rate limit of any size. Mistral's documentation says which limits
+//     exist, per model and per organisation, and that they are shown in the
+//     admin panel and raised by asking; it prints no figure for any of them.
+//     The priority tier page says the same of itself, that its limits are
+//     agreed per organisation and per model. There is nothing to read.
+//   - A supported-language list per model. The one page that lists languages
+//     carries two tables, one for the language models and one for OCR, and
+//     names no model in either. Each table is therefore recorded against the
+//     models of the kind its heading names, and the kinds neither table covers
+//     carry no list. Mistral adds that a model can do well in languages the
+//     tables leave out, so what is recorded is what Mistral vouches for rather
+//     than the whole of what a model understands.
+//   - A fine-tuning rate for a model. The pricing page prices training and
+//     storage for the classifier API, which is a product built on Ministral
+//     rather than a model with an identifier of its own, and prices no other
+//     customization.
+//   - A knowledge cutoff, anywhere, for any model.
 //
 // The index's deprecation table states two dates in one cell with nothing
 // between them, so they are separated by position: the first is the

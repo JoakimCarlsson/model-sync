@@ -1,0 +1,36 @@
+{
+  "id": "fireworks/voyage-4-lite",
+  "provider": "fireworks",
+  "name": "Voyage 4 Lite",
+  "kind": "embedding",
+  "attrs": {
+    "author": "Voyage AI by MongoDB",
+    "calibrated": "false",
+    "hugging_face_id": "voyageai/voyage-4-lite",
+    "mixture_of_experts": "false",
+    "model_kind": "Embedding model",
+    "model_path": "accounts/fireworks/models/voyage-4-lite",
+    "model_url": "https://fireworks.ai/models/fireworks/voyage-4-lite",
+    "open_weights": "true",
+    "release_date": "2026-06-15",
+    "state": "active",
+    "summary": "voyage-4-lite is a lightweight, general-purpose embedding model optimized for low latency and cost. Enabled by Matryoshka learning and quantization-aware training, voyage-4-lite supports embeddings in 2048, 1024, 512, and 256 dimensions, with multiple quantization options"
+  },
+  "limits": {
+    "context_window": 40960
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://fireworks.ai/models/fireworks/voyage-4-lite"
+  ]
+}

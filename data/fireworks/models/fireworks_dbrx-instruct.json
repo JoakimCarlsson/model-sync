@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/dbrx-instruct",
+  "provider": "fireworks",
+  "name": "DBRX Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Databricks",
+    "calibrated": "false",
+    "hugging_face_id": "databricks/dbrx-instruct",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/dbrx-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/dbrx-instruct",
+    "open_weights": "true",
+    "parameter_count": "132B",
+    "release_date": "2024-03-29",
+    "state": "active",
+    "summary": "DBRX Instruct is a 132B parameter mixture-of-experts (MoE) large language model developed by Databricks. Specializing in few-turn interactions, it is an instruction fine-tuned version of DBRX Base. The transformer-based, decoder-only model is trained on 12 trillion tokens of text and code data. Utilizing a fine-grained MoE architecture, it activates 36B parameters per input, enhancing model quality. It supports a context length of up to 32K tokens and incorporates advanced techniques like rotary position encodings, gated linear units, and grouped query attention."
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/dbrx-instruct"
+  ]
+}

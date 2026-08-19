@@ -19,12 +19,22 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "quantization": "FP8"
+    "category": "Chat",
+    "hugging_face_id": "Qwen/Qwen2.5-7B-Instruct",
+    "model_card_url": "https://huggingface.co/Qwen/Qwen2.5-7B-Instruct",
+    "parameter_count": "7B",
+    "quantization": "FP8",
+    "release_date": "2024-10-11",
+    "summary": "Qwen2.5 is the latest series of Qwen large language models. For Qwen2.5, we release a number of base language models and instruction-tuned language models ranging from 0.5 to 72 billion parameters."
   },
   "limits": {
     "context_window": 32768
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -35,10 +45,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "LLM"
+    ],
+    "use_cases": [
+      "Chat",
+      "Function Calling",
+      "Small & Fast"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen2-5-7b-instruct-turbo"
   ]
 }

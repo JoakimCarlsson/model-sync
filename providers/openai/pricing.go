@@ -155,7 +155,7 @@ func headerColumn(header string) column {
 		return column{role: roleDim, dimKey: DimUseCase}
 	case "details":
 		return column{role: roleDim, dimKey: DimDetail}
-	case "portrait", "landscape":
+	case dimPortrait, dimLandscape:
 		return column{role: roleDim, dimKey: h}
 	case "input":
 		return column{role: rolePrice, metric: MetricInputTokens}
@@ -215,6 +215,7 @@ func (b *builder) applyPricingRow(t mdTable, cols []column, row []string) {
 	m := b.model(q.ID, kind)
 	m.AddSource(t.Source)
 	m.AddNote(q.Note)
+	addVideoFormats(m, kind, dims)
 	if m.Name == "" {
 		m.Name = q.Name
 	}
@@ -239,6 +240,20 @@ func (b *builder) applyPricingRow(t mdTable, cols []column, row []string) {
 			Note:     a.Note,
 		})
 	}
+}
+
+// addVideoFormats records the frames a video model will render.
+//
+// The video rate table prices a second of output by resolution and
+// orientation, which makes the resolutions and the pixel sizes on offer a
+// published fact rather than a dimension of a rate alone. The Sora pages state
+// neither, so the table is the only place either appears.
+func addVideoFormats(m *catalog.Model, kind catalog.Kind, dims catalog.Dims) {
+	if kind != KindVideo {
+		return
+	}
+	m.AddList(ListResolutions, dims[DimSize])
+	m.AddList(ListSizes, dims[dimPortrait], dims[dimLandscape])
 }
 
 // memoryPriceRe matches one of the several rates OpenAI packs into the

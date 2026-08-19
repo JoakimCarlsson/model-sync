@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "mistral-nemo:latest",
+    "last_updated": "2025-07-23",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "12.2B",
+    "quantization": "Q4_0",
     "summary": "A state-of-the-art 12B model with 128k context length, built by Mistral AI in collaboration with NVIDIA."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/mistral-nemo/tags"
+    "https://ollama.com/library/mistral-nemo/tags",
+    "https://ollama.com/library/mistral-nemo:latest"
   ]
 }

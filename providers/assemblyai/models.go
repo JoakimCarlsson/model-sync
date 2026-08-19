@@ -10,7 +10,7 @@ import (
 var (
 	// languageCodeRe matches one entry of the language table a model's section
 	// carries, which pairs a language with the code a request names it by.
-	languageCodeRe = regexp.MustCompile(`code:\s*"([A-Za-z_-]+)"`)
+	languageCodeRe = regexp.MustCompile(`code:\s*"([A-Za-z0-9_.-]+)"`)
 	// domainRe matches the parameter value that turns the add-on on, which is
 	// the only identifier AssemblyAI publishes for it.
 	domainRe = regexp.MustCompile(`domain:\s*"([a-z0-9.-]+)"`)
@@ -240,4 +240,18 @@ func cellAt(row []string, i int) string {
 		return ""
 	}
 	return strings.TrimSpace(row[i])
+}
+
+// LanguagesURL is the page naming, per model, every language that model
+// transcribes. The models page names them too, but stops at the code a request
+// carries; this one is where the dialects a code covers are enumerated, so
+// Universal-3.5 Pro is stated to answer to en_au and en_uk as well as en.
+const LanguagesURL = "https://www.assemblyai.com/docs/pre-recorded-audio/" +
+	"supported-languages.md"
+
+// applyLanguages reads that page, which is laid out the same way the models
+// page lays out its per-model sections: a heading naming the model and a table
+// of a language and its code underneath.
+func (b *builder) applyLanguages(doc catalog.Document) {
+	b.applySections(string(doc.Body), doc.URL)
 }

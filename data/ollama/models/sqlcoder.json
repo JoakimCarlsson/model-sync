@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "sqlcoder:latest",
+    "last_updated": "2024-02-01",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "SQLCoder is a code completion model fined-tuned on StarCoder for SQL generation tasks"
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/sqlcoder/tags"
+    "https://ollama.com/library/sqlcoder/tags",
+    "https://ollama.com/library/sqlcoder:latest"
   ]
 }

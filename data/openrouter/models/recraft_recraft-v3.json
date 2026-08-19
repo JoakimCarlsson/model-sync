@@ -1,0 +1,72 @@
+{
+  "id": "recraft/recraft-v3",
+  "provider": "openrouter",
+  "name": "Recraft: Recraft V3",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000958083832335329,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000958083832335329,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Recraft",
+        "endpoint_tag": "recraft"
+      }
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.58083832335329,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 9.58083832335329,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Recraft",
+        "endpoint_tag": "recraft"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "recraft",
+    "canonical_slug": "recraft/recraft-v3-20260413",
+    "modality": "text+image->image",
+    "release_date": "2026-05-07",
+    "summary": "Recraft V3 is an image generation model from Recraft.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "endpoint_tags": [
+      "recraft"
+    ],
+    "endpoints": [
+      "Recraft"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/recraft/recraft-v3-20260413/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

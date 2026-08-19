@@ -28,6 +28,13 @@ var (
 	// aboutRe matches the paragraph opening the page, which describes the
 	// model rather than the page.
 	aboutRe = regexp.MustCompile(`(?s)## About[^\n]*\n+(.+?)\n\n`)
+	// endpointRe matches the link a transcription page closes with, which is
+	// the only place the endpoint that calls the model is named. The overview's
+	// audio table has an endpoint column and lists one of the two models, so
+	// without this the Arabic model would answer nowhere.
+	endpointRe = regexp.MustCompile(
+		`\[(Audio Transcriptions) API reference documentation\]`,
+	)
 )
 
 // Facts a model details list states, as the page labels them.
@@ -75,21 +82,54 @@ func (b *builder) applyTranscribe(doc catalog.Document) {
 	for _, item := range splitList(details[detailOutput]) {
 		m.AddList(ListOutputModalities, modalityName(item))
 	}
+	if named := endpointRe.FindStringSubmatch(body); named != nil {
+		m.AddList(ListEndpoints, named[1])
+	}
 	m.SetAttr(AttrMaxFileSize, details[detailFileSize])
+	m.SetAttr(AttrLicense, details[detailLicense])
+	m.AddList(ListLanguages, languageList(details[detailLanguages])...)
 	if strings.EqualFold(details[detailSwitching], detailYes) {
 		m.AddList(ListFeatures, catalog.CapabilityCodeSwitching)
 	}
 }
 
-// modelDetails reads the labelled facts a model page states about itself.
+// modelDetails reads the labelled facts a page states about the model it is
+// about, as a run of bullets each opening with the name of the fact.
+//
+// A bullet is read to its end rather than to the end of its first line. Cohere
+// wraps a long one, and the longest of them is the list of languages a model
+// covers, so a bullet read a line at a time would state a model covers the
+// first eight of its fourteen languages.
 func modelDetails(body string) map[string]string {
 	out := map[string]string{}
-	for _, match := range detailRe.FindAllStringSubmatch(body, -1) {
-		label := strings.ToLower(clean(match[1]))
-		if _, ok := out[label]; ok {
+	label, value := "", ""
+	keep := func() {
+		if label == "" {
+			return
+		}
+		if _, ok := out[label]; !ok {
+			out[label] = clean(value)
+		}
+		label, value = "", ""
+	}
+	for _, line := range strings.Split(body, "\n") {
+		if match := detailRe.FindStringSubmatch(line); match != nil {
+			keep()
+			label, value = strings.ToLower(clean(match[1])), match[2]
 			continue
 		}
-		out[label] = clean(match[2])
+		if label != "" && continues(line) {
+			value += " " + line
+			continue
+		}
+		keep()
 	}
+	keep()
 	return out
+}
+
+// continues reports whether a line carries on the bullet above it, which
+// Cohere writes indented and never empty.
+func continues(line string) bool {
+	return strings.HasPrefix(line, " ") && strings.TrimSpace(line) != ""
 }

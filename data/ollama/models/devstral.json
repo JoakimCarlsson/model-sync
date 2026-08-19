@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "devstral:latest",
+    "last_updated": "2025-07-04",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "23.6B",
+    "quantization": "Q4_K_M",
     "summary": "Devstral: the best open source model for coding agents"
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/devstral/tags"
+    "https://ollama.com/library/devstral/tags",
+    "https://ollama.com/library/devstral:latest"
   ]
 }

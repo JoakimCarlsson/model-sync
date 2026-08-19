@@ -1,6 +1,7 @@
 {
   "id": "babbage-002",
   "provider": "azure",
+  "name": "babbage-002",
   "kind": "chat",
   "prices": [
     {
@@ -284,9 +285,17 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "catalog_added_on": "2023-10-16",
+    "product": "Azure OpenAI",
+    "version": "718166"
+  },
+  "lists": {
+    "tasks": [
+      "completions"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/molmo2-8b",
+  "provider": "fireworks",
+  "name": "Molmo2-8B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Allen Institute for AI",
+    "calibrated": "false",
+    "hugging_face_id": "allenai/Molmo2-8B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/molmo2-8b",
+    "model_url": "https://fireworks.ai/models/fireworks/molmo2-8b",
+    "open_weights": "true",
+    "parameter_count": "8B",
+    "release_date": "2026-01-06",
+    "state": "active",
+    "summary": "Molmo2 is a family of open vision-language models developed by the Allen Institute for AI (Ai2) that support image, video and multi-image understanding and grounding. Molmo 2 (8B) is Qwen 3-based and Ai2's best overall model for video grounding and QA."
+  },
+  "limits": {
+    "context_window": 36864
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/molmo2-8b"
+  ]
+}

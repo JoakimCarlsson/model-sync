@@ -25,6 +25,8 @@ const (
 	UnitPerMinute    catalog.Unit = "per_minute"
 	UnitPerMegapixel catalog.Unit = "per_megapixel"
 	UnitPerVideo     catalog.Unit = "per_video"
+	UnitPerSecond    catalog.Unit = "per_second"
+	UnitPerImage     catalog.Unit = "per_image"
 )
 
 // Kinds of model Together serves.
@@ -42,6 +44,7 @@ const (
 const (
 	DimResolution = "resolution"
 	DimDuration   = "duration"
+	DimMode       = "mode"
 )
 
 // Scalar keys the catalog page populates.
@@ -54,11 +57,55 @@ const (
 	AttrQuantization     = "quantization"
 )
 
+// Scalar keys the model library populates.
+const (
+	AttrSummary          = "summary"
+	AttrReleaseDate      = "release_date"
+	AttrLastUpdated      = "last_updated"
+	AttrParameterCount   = "parameter_count"
+	AttrActiveParameters = "active_parameter_count"
+	AttrCategory         = "category"
+	AttrSpeed            = "speed"
+	AttrIntelligence     = "intelligence"
+	AttrModelCardURL     = "model_card_url"
+	AttrHuggingFaceID    = "hugging_face_id"
+)
+
+// Scalar keys the lifecycle and history pages populate.
+const (
+	AttrState           = "state"
+	AttrRetirementDate  = "retirement_date"
+	AttrReplacement     = "recommended_replacement"
+	AttrRedirectsTo     = "redirects_to"
+	AttrServerlessSince = "serverless_since"
+)
+
+// AttrDedicatedHardware is the smallest instance type Together publishes a
+// deployment profile for, stated by the dedicated inference catalog.
+const AttrDedicatedHardware = "dedicated_hardware"
+
+// AttrDuration is what a guide says one generation may run for, stated as the
+// guide states it because the two video families word it differently.
+const AttrDuration = "duration"
+
+// StateRetired is what the deprecation history says about every model it
+// lists: that it has been removed from serverless inference.
+const StateRetired = "retired"
+
 // Numeric keys the catalog page populates.
 const LimitContextWindow = "context_window"
 
 // Enumeration keys the catalog page populates.
 const ListDimensions = "embedding_dimensions"
+
+// Enumeration keys the model library and the guides populate.
+const (
+	ListUseCases    = "use_cases"
+	ListDeployments = "deployments"
+	ListTags        = "tags"
+	ListResolutions = "resolutions"
+	ListParameters  = catalog.ListParameters
+)
 
 // ListFeatures holds the capabilities the catalog reports on per model, which
 // it states as a yes-or-no column each.
@@ -248,4 +295,34 @@ func modalityKind(cell string) (catalog.Kind, bool) {
 		return KindAudio, true
 	}
 	return "", false
+}
+
+// monthNumbers maps the month names Together writes a date with onto their
+// number. It writes dates one way only, as "June 16, 2026".
+var monthNumbers = map[string]string{
+	"january": "01", "february": "02", "march": "03", "april": "04",
+	"may": "05", "june": "06", "july": "07", "august": "08",
+	"september": "09", "october": "10", "november": "11", "december": "12",
+}
+
+// dateRe matches that spelling.
+var dateRe = regexp.MustCompile(`^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$`)
+
+// parseDate turns a date as Together writes it into an ISO one, returning the
+// empty string for anything it does not recognize rather than guessing at a
+// precision the vendor did not state.
+func parseDate(value string) string {
+	match := dateRe.FindStringSubmatch(clean(value))
+	if match == nil {
+		return ""
+	}
+	month, ok := monthNumbers[strings.ToLower(match[1])]
+	if !ok {
+		return ""
+	}
+	day := match[2]
+	if len(day) == 1 {
+		day = "0" + day
+	}
+	return match[3] + "-" + month + "-" + day
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "yi:latest",
+    "last_updated": "2024-05-13",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "6.06B",
+    "quantization": "Q4_0",
     "summary": "Yi 1.5 is a high-performing, bilingual language model."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/yi/tags"
+    "https://ollama.com/library/yi/tags",
+    "https://ollama.com/library/yi:latest"
   ]
 }

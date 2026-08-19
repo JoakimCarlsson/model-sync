@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "dbrx",
+    "default_snapshot": "dbrx:latest",
+    "last_updated": "2024-04-16",
+    "license": "Databricks Open Model License",
+    "open_weights": "true",
+    "parameter_count": "132B",
+    "quantization": "Q4_0",
     "summary": "DBRX is an open, general-purpose LLM created by Databricks."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/dbrx/tags"
+    "https://ollama.com/library/dbrx/tags",
+    "https://ollama.com/library/dbrx:latest"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": "web-search",
   "provider": "anthropic",
-  "name": "Web search",
+  "name": "Web search tool",
   "kind": "tool",
   "prices": [
     {
@@ -16,7 +16,9 @@
   ],
   "attrs": {
     "execution": "server",
-    "release_status": "GA"
+    "release_date": "2025-05-07",
+    "release_status": "GA",
+    "state": "active"
   },
   "lists": {
     "versions": [
@@ -27,6 +29,7 @@
   },
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/pricing.md",
-    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md"
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md",
+    "https://platform.claude.com/docs/en/release-notes/overview.md"
   ]
 }

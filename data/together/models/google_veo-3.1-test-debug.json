@@ -12,7 +12,8 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "serverless_since": "2026-04-24"
   },
   "lists": {
     "input_modalities": [
@@ -23,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md"
   ]
 }

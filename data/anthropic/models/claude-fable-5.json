@@ -73,26 +73,50 @@
   "attrs": {
     "aws_bedrock_id": "anthropic.claude-fable-5",
     "comparative_latency": "Slower",
+    "default_effort": "high",
     "google_cloud_id": "claude-fable-5",
     "knowledge_cutoff": "2026-01",
+    "release_date": "2026-06-09",
     "retirement_date": "2027-06-09",
     "retirement_date_qualifier": "not sooner than",
     "state": "active",
     "summary": "Next-generation intelligence for long-running agents",
+    "thinking_default": "always on",
+    "thinking_types": "adaptive only",
     "training_data_cutoff": "2026-01"
   },
   "limits": {
     "context_window": 1000000,
-    "max_output_tokens": 128000
+    "itpm_tier_build": 1500000,
+    "itpm_tier_scale": 4000000,
+    "itpm_tier_start": 500000,
+    "max_images_per_request": 600,
+    "max_output_tokens": 128000,
+    "otpm_tier_build": 300000,
+    "otpm_tier_scale": 800000,
+    "otpm_tier_start": 100000,
+    "rpm_tier_build": 2000,
+    "rpm_tier_scale": 4000,
+    "rpm_tier_start": 1000
   },
   "lists": {
     "aliases": [
       "claude-fable-5"
     ],
+    "effort_levels": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
+    ],
     "features": [
+      "compaction",
       "function_calling",
+      "priority_tier",
       "reasoning",
-      "structured_outputs"
+      "structured_outputs",
+      "task_budgets"
     ],
     "input_modalities": [
       "image",
@@ -100,17 +124,30 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "effort"
     ]
   },
   "notes": [
+    "compaction requires beta header compact-2026-01-12",
     "reasoning always on",
-    "reasoning is adaptive thinking"
+    "reasoning is adaptive thinking",
+    "task_budgets requires beta header task-budgets-2026-03-13"
   ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md",
     "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md",
-    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs.md"
+    "https://platform.claude.com/docs/en/api/rate-limits.md",
+    "https://platform.claude.com/docs/en/api/service-tiers.md",
+    "https://platform.claude.com/docs/en/build-with-claude/compaction.md",
+    "https://platform.claude.com/docs/en/build-with-claude/context-windows.md",
+    "https://platform.claude.com/docs/en/build-with-claude/effort.md",
+    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs.md",
+    "https://platform.claude.com/docs/en/build-with-claude/task-budgets.md",
+    "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting.md",
+    "https://platform.claude.com/docs/en/release-notes/overview.md"
   ]
 }

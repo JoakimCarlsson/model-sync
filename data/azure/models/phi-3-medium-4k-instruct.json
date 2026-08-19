@@ -1,6 +1,7 @@
 {
   "id": "phi-3-medium-4k-instruct",
   "provider": "azure",
+  "name": "Phi-3-medium instruct (4k)",
   "kind": "chat",
   "prices": [
     {
@@ -645,12 +646,74 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2025-01-22",
+    "license": "MIT",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "retirement_date": "2025-08-30",
+    "state": "retired",
+    "summary": "A 14B parameters model, proves better quality than Phi-3-mini, with a focus on high-quality, reasoning-dense data.",
+    "version": "6"
   },
   "limits": {
-    "context_window": 4000
+    "context_window": 4000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Reasoning",
+      "Understanding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

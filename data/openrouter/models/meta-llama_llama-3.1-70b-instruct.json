@@ -5,7 +5,56 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.72,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/turbo",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.4,
       "currency": "USD"
@@ -13,8 +62,34 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.72,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.4,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/turbo",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +98,8 @@
     "hugging_face_id": "meta-llama/Meta-Llama-3.1-70B-Instruct",
     "instruct_type": "llama3",
     "knowledge_cutoff": "2023-12-31",
-    "released": "2024-07-23",
+    "modality": "text->text",
+    "release_date": "2024-07-23",
     "summary": "Meta's latest class of model (Llama 3.1) launched with a variety of sizes & flavors.",
     "tokenizer": "Llama3"
   },
@@ -33,9 +109,23 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "amazon-bedrock",
+      "coreweave/bf16",
+      "deepinfra/turbo"
+    ],
+    "endpoints": [
+      "Amazon Bedrock",
+      "CoreWeave",
+      "DeepInfra"
+    ],
     "features": [
       "function_calling",
       "json_mode",
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -62,9 +152,18 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/meta-llama/llama-3.1-70b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

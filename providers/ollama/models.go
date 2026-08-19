@@ -1,6 +1,7 @@
 package ollama
 
 import (
+	"html"
 	"regexp"
 	"strings"
 
@@ -136,10 +137,13 @@ var (
 	sizeRe = regexp.MustCompile(`(?i)^(e|\d+(\.\d+)?x)?\d+(\.\d+)?[bm]$`)
 )
 
-// text strips markup and collapses whitespace.
-func text(html string) string {
+// text strips markup, resolves the entities the markup escapes and collapses
+// whitespace. An apostrophe is escaped and a curly one is not, so a summary
+// left unescaped reads as written for one vendor and as markup for the next.
+func text(markup string) string {
+	stripped := markupRe.ReplaceAllString(markup, " ")
 	return strings.Join(
-		strings.Fields(markupRe.ReplaceAllString(html, " ")),
+		strings.Fields(html.UnescapeString(stripped)),
 		" ",
 	)
 }

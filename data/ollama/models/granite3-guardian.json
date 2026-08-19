@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "granite",
+    "default_snapshot": "granite3-guardian:latest",
+    "last_updated": "2024-11-19",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "2.53B",
+    "quantization": "Q8_0",
     "summary": "The IBM Granite Guardian 3.0 2B and 8B models are designed to detect risks in prompts and/or responses."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/granite3-guardian/tags"
+    "https://ollama.com/library/granite3-guardian/tags",
+    "https://ollama.com/library/granite3-guardian:latest"
   ]
 }

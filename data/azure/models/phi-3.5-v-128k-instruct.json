@@ -1,6 +1,7 @@
 {
   "id": "phi-3.5-v-128k-instruct",
   "provider": "azure",
+  "name": "Phi-3.5-vision instruct (128k)",
   "kind": "chat",
   "prices": [
     {
@@ -425,12 +426,73 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2024-08-20",
+    "license": "MIT",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "retirement_date": "2025-08-30",
+    "state": "retired",
+    "summary": "Refresh of Phi-3-vision model.",
+    "version": "2"
   },
   "limits": {
-    "context_window": 128000
+    "context_window": 128000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "keywords": [
+      "Low latency",
+      "Multimodal",
+      "Reasoning"
+    ],
+    "languages": [
+      "en"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "wizardlm2:latest",
+    "last_updated": "2024-04-16",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "State of the art large language model from Microsoft AI with improved performance on complex chat, multilingual, reasoning and agent use cases."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/wizardlm2/tags"
+    "https://ollama.com/library/wizardlm2/tags",
+    "https://ollama.com/library/wizardlm2:latest"
   ]
 }

@@ -30,8 +30,24 @@
     "summary": "An older high-intelligence GPT model"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 100000,
+    "batch_queue_limit_tier_2": 200000,
+    "batch_queue_limit_tier_3": 5000000,
+    "batch_queue_limit_tier_4": 30000000,
+    "batch_queue_limit_tier_5": 150000000,
     "context_window": 8192,
-    "max_output_tokens": 8192
+    "max_output_tokens": 8192,
+    "requests_per_day_tier_1": 10000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 10000,
+    "tokens_per_minute_tier_2": 40000,
+    "tokens_per_minute_tier_3": 80000,
+    "tokens_per_minute_tier_4": 300000,
+    "tokens_per_minute_tier_5": 1000000
   },
   "lists": {
     "endpoints": [

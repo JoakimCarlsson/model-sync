@@ -1,0 +1,17 @@
+{
+  "id": "action-items",
+  "provider": "assemblyai",
+  "name": "Action Items",
+  "kind": "speech_understanding",
+  "attrs": {
+    "regions": "US & EU"
+  },
+  "lists": {
+    "features": [
+      "action_items"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/speech-understanding/action-items.md"
+  ]
+}

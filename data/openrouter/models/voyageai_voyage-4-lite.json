@@ -1,0 +1,61 @@
+{
+  "id": "voyageai/voyage-4-lite",
+  "provider": "openrouter",
+  "name": "VoyageAI by MongoDB: voyage-4-lite",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "VoyageAI by MongoDB",
+        "endpoint_tag": "voyageai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "voyageai",
+    "canonical_slug": "voyageai/voyage-4-lite-20260727",
+    "modality": "text->embeddings",
+    "release_date": "2026-07-27",
+    "summary": "voyage-4-lite is a lightweight, general-purpose embedding model optimized for low latency and cost.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32000,
+    "top_provider_context_window": 32000
+  },
+  "lists": {
+    "embedding_dimensions": [
+      "1024",
+      "2048",
+      "256",
+      "512"
+    ],
+    "endpoint_tags": [
+      "voyageai"
+    ],
+    "endpoints": [
+      "VoyageAI by MongoDB"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/voyageai/voyage-4-lite-20260727/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

@@ -139,3 +139,69 @@ func authorOf(id string) string {
 	}
 	return author
 }
+
+// DimSearchType records which search strategy a Sonar Pro request fee applies
+// to. Perplexity prices Pro Search as a second column of request fees over the
+// same three context sizes, so the size alone does not identify the rate.
+const DimSearchType = "search_type"
+
+// DimAPI records which of Perplexity's rate cards an amount came from. The
+// same open-weight model is sold on the Agent API and on the Router, each with
+// a rate card of its own, and the two disagree on at least one cache rate, so
+// an amount without this dimension would not say which API it bills.
+const DimAPI = "api"
+
+// The two rate cards DimAPI tells apart.
+const (
+	APIAgent  = "agent"
+	APIRouter = "router"
+)
+
+// Lifecycle and provenance keys.
+const (
+	AttrState           = "state"
+	AttrReleaseDate     = "release_date"
+	AttrLastUpdated     = "last_updated"
+	AttrRetirementDate  = "retirement_date"
+	AttrReplacement     = "recommended_replacement"
+	AttrOpenWeights     = "open_weights"
+	AttrHostedBy        = "hosted_by"
+	AttrModelCardURL    = "model_card_url"
+	AttrHuggingFaceID   = "hugging_face_id"
+	AttrAPIType         = "api_type"
+	AttrPooling         = "pooling"
+	AttrNormalized      = "normalized"
+	AttrPriorityPricing = "priority_tier_pricing"
+)
+
+// The lifecycle values Perplexity's documents support. It never writes the
+// word "active", so no model is recorded as such: the two states below are
+// each stated outright, one by the notice carried on every Sonar page and the
+// other by a changelog entry naming the model and the day it went.
+const (
+	StateLegacy  = "legacy"
+	StateRetired = "retired"
+)
+
+// Bounds the rate limit and embedding references state.
+const (
+	LimitRPMTierPrefix         = "requests_per_minute_tier_"
+	LimitRPSTierPrefix         = "requests_per_second_tier_"
+	LimitQueryUnitsPerSecond   = "query_units_per_second"
+	LimitBurstQueryUnits       = "burst_query_units"
+	LimitMinEmbeddingDimension = "min_embedding_dimension"
+	LimitMaxInputsPerRequest   = "max_inputs_per_request"
+	LimitMaxTokensPerRequest   = "max_tokens_per_request"
+	LimitMaxChunksPerRequest   = "max_chunks_per_request"
+)
+
+// Enumerations the references and guides populate.
+const (
+	ListParameters       = catalog.ListParameters
+	ListEndpoints        = "endpoints"
+	ListSearchModes      = "search_modes"
+	ListReasoningEfforts = "reasoning_effort_levels"
+	ListSearchTypes      = "search_types"
+	ListBuiltInTools     = "built_in_tools"
+	ListEncodingFormats  = "encoding_formats"
+)

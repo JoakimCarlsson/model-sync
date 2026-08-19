@@ -1,6 +1,7 @@
 {
   "id": "embedding-ada",
   "provider": "azure",
+  "name": "text-embedding-ada-002",
   "kind": "embedding",
   "prices": [
     {
@@ -588,8 +589,13 @@
     }
   ],
   "attrs": {
+    "catalog_added_on": "2023-05-17",
+    "knowledge_cutoff": "2021-09",
     "product": "Azure OpenAI",
-    "training_data_cutoff": "Sep 2021"
+    "retirement_date": "2028-02-09",
+    "state": "active",
+    "training_data_cutoff": "Sep 2021",
+    "version": "2"
   },
   "limits": {
     "context_window": 8192
@@ -597,10 +603,15 @@
   "lists": {
     "embedding_dimensions": [
       "1536"
+    ],
+    "tasks": [
+      "embeddings"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

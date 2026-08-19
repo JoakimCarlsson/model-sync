@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "bakllava:latest",
+    "last_updated": "2023-12-13",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "BakLLaVA is a multimodal model consisting of the Mistral 7B base model augmented with the LLaVA architecture."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/bakllava/tags"
+    "https://ollama.com/library/bakllava/tags",
+    "https://ollama.com/library/bakllava:latest"
   ]
 }

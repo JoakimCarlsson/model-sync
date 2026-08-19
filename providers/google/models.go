@@ -1,6 +1,7 @@
 package google
 
 import (
+	"html"
 	"regexp"
 	"slices"
 	"strconv"
@@ -19,6 +20,10 @@ const (
 	MetricImageOutput       catalog.Metric = "image_output"
 	MetricAudioOutput       catalog.Metric = "audio_output"
 	MetricToolCall          catalog.Metric = "tool_call"
+	// MetricCacheStorage is what Google charges for holding a cache rather
+	// than for reading it, which it states inside the same cell as the read
+	// rate and against a denominator of its own.
+	MetricCacheStorage catalog.Metric = "cache_storage_tokens"
 )
 
 // Units Google quotes amounts against.
@@ -28,6 +33,12 @@ const (
 	UnitPerImage      catalog.Unit = "per_image"
 	UnitPerRequest    catalog.Unit = "per_request"
 	UnitPer1KRequests catalog.Unit = "per_1k_requests"
+	// UnitPerFrame is what a video is counted in where Google prices reading
+	// one rather than generating it.
+	UnitPerFrame catalog.Unit = "per_frame"
+	// UnitPer1MTokensPerHour is the denominator a cache is held against, time
+	// being part of what a storage rate is charged on.
+	UnitPer1MTokensPerHour catalog.Unit = "per_1m_tokens_per_hour"
 )
 
 // DimModality separates the rates a model charges for different kinds of
@@ -173,6 +184,61 @@ const (
 	DimResolution = "resolution"
 )
 
+// DimTool names the tool a grounding row prices. Google prices two under one
+// model at the same rate against the same denominator, and without the tool
+// the two rows are the same row twice.
+const DimTool = "tool"
+
+// groundingPrefix opens the label of every row pricing a tool rather than the
+// model itself.
+const groundingPrefix = "grounding with "
+
+// DimContextBand separates the two rates a model charges by how long the
+// prompt is, which Google states beside the amount rather than in a column.
+const DimContextBand = "context_band"
+
+// DimEffectiveUntil and DimEffectiveFrom carry the dates an introductory rate
+// runs between. Google prices several models twice in one cell, once through
+// the end of the promotion and once from the day after, and the two amounts
+// are one rate at two times rather than two rates.
+const (
+	DimEffectiveUntil = "effective_until"
+	DimEffectiveFrom  = "effective_from"
+)
+
+// cellUnits map a denominator stated beside an amount onto a unit. A column
+// heading states the denominator of the rows below it, and a cell overrides it
+// where what the amount buys is not what the column counts: a grounded search
+// request is not a token and neither is an hour of cache storage.
+var cellUnits = []struct {
+	fragment string
+	unit     catalog.Unit
+}{
+	{"tokens per hour", UnitPer1MTokensPerHour},
+	{"per 1,000 requests", UnitPer1KRequests},
+	{"1,000 search queries", UnitPer1KRequests},
+	{"per image", UnitPerImage},
+	{"per second", UnitPerSecond},
+	{"per frame", UnitPerFrame},
+}
+
+// storageMarker is how Google says an amount buys storage rather than a read.
+const storageMarker = "storage price"
+
+var (
+	// bandRe matches the prompt length an amount applies up to or from, which
+	// Google writes after the amount as a clause rather than as a column.
+	bandRe = regexp.MustCompile(`(?i)prompts?\s*(<=|>)\s*([\d,]+)\s*k`)
+	// effectiveRe matches the day an introductory rate runs through, or the
+	// day the rate replacing it starts on.
+	effectiveRe = regexp.MustCompile(
+		`(?i)\b(through|starting)\s+([A-Za-z]+ \d{1,2}, \d{4})`,
+	)
+)
+
+// bandNames map the comparison Google writes onto a name for the band.
+var bandNames = map[string]string{"<=": "lte", ">": "gt"}
+
 var (
 	headingRe = regexp.MustCompile(`(?is)<h[234][^>]*>(.*?)</h[234]>`)
 	// headingGroupRe matches the block heading a model, which carries the name
@@ -191,9 +257,13 @@ var (
 // freeOfCharge is how Google writes a rate of zero.
 const freeOfCharge = "free of charge"
 
-// text strips markup and collapses whitespace.
-func text(html string) string {
-	return strings.Join(strings.Fields(tagRe.ReplaceAllString(html, " ")), " ")
+// text strips markup, resolves the entities Google writes a quote, an
+// apostrophe and a comparison as, and collapses whitespace. The entities are
+// resolved last, so that one standing for an angle bracket cannot be read as
+// the markup it is not.
+func text(markup string) string {
+	stripped := tagRe.ReplaceAllString(markup, " ")
+	return html.UnescapeString(strings.Join(strings.Fields(stripped), " "))
 }
 
 // slugID turns a heading such as "Gemini 3.6 Flash" into an identifier.
@@ -278,13 +348,23 @@ func (b *builder) begin(heading string, codes []string, src string) []string {
 		if m.Name == "" {
 			m.Name = modelName(heading, ids, entry)
 		}
-		m.SetAttr(AttrState, entry.state)
+		m.SetAttr(AttrState, b.stateOf(id, entry))
 		kept = append(kept, id)
 	}
 	if len(kept) > 0 {
 		b.groups = append(b.groups, kept)
 	}
 	return kept
+}
+
+// stateOf reports the lifecycle one endpoint is in. The withdrawal the index
+// hangs off a model's name comes first, being the strongest thing Google says
+// about a model, and the availability its card is marked with second.
+func (b *builder) stateOf(id string, entry indexEntry) string {
+	if entry.state != "" {
+		return entry.state
+	}
+	return b.cardState[id]
 }
 
 // entry returns what the model index states about one endpoint, falling back
@@ -484,21 +564,50 @@ func addRates(
 			continue
 		}
 		dims := catalog.Dims{}.
+			With(DimTool, toolOf(label)).
 			With(DimTier, tier).
 			With(DimPlan, col.plan).
 			With(DimModality, modalityOf(label)).
 			With(DimVariant, variantOf(label))
 		for _, r := range parseRates(cell) {
 			m.AddPrice(catalog.Price{
-				Metric:   metric,
-				Unit:     col.unit,
+				Metric:   r.metricOr(metric),
+				Unit:     r.unitOr(col.unit),
 				Amount:   r.amount,
 				Currency: currency,
-				Dims:     dims.With(DimResolution, r.resolution),
+				Dims:     dims.Merge(r.dims),
 				Note:     r.note,
 			})
 		}
 	}
+}
+
+// metricOr returns what one amount is charged for, which is the row's subject
+// unless the cell said the amount buys something else.
+func (r rate) metricOr(metric catalog.Metric) catalog.Metric {
+	if r.metric != "" {
+		return r.metric
+	}
+	return metric
+}
+
+// unitOr returns the denominator one amount is quoted against, which is the
+// column's unless the cell stated one of its own.
+func (r rate) unitOr(unit catalog.Unit) catalog.Unit {
+	if r.unit != "" {
+		return r.unit
+	}
+	return unit
+}
+
+// toolOf reports which tool a row prices, for the rows charging for a tool
+// call rather than for the model's own tokens.
+func toolOf(label string) string {
+	_, name, ok := strings.Cut(label, groundingPrefix)
+	if !ok {
+		return ""
+	}
+	return strings.ReplaceAll(slugID(name), "-", "_")
 }
 
 // variantOf reports the quality level a row prices, for the models Google
@@ -551,28 +660,38 @@ func modalityOf(label string) string {
 	return ""
 }
 
-// rate is one amount from a cell, with the output size it applies to when the
-// cell prices several.
+// rate is one amount from a cell, with everything the cell says about when
+// that amount applies rather than another in the same cell.
 type rate struct {
-	amount     float64
-	resolution string
-	note       string
+	amount float64
+	metric catalog.Metric
+	unit   catalog.Unit
+	dims   catalog.Dims
+	note   string
 }
 
 // qualifierRe matches the parenthesis Google puts after an amount to say which
 // output size it buys, as in "$0.40 (720p and 1080p) $0.60 (4k)".
 var qualifierRe = regexp.MustCompile(`^\s*\(([^)]*)\)`)
 
-// parseRates reads every amount in a cell, pairing each with the size that
-// follows it. A cell stating one amount yields one rate with no size, and a
-// cell reading "Free of charge" yields the rate of zero it means.
+// parseRates reads every amount in a cell along with the clause qualifying it,
+// which runs from that amount to the next one.
+//
+// A cell states more than one amount for four reasons and they are not
+// interchangeable: the output size an amount buys, the prompt length it
+// applies to, the day an introductory rate runs out, and a storage rate quoted
+// beside the read rate it accompanies. Reading the amounts alone left a model
+// carrying two rates for the same thing with nothing to tell them apart, so
+// each amount carries the clause that qualifies it. A cell reading "Free of
+// charge" yields the rate of zero it means.
 func parseRates(cell string) []rate {
 	if amount, ok := parseAmount(cell); ok && !strings.Contains(cell, "$") {
 		return []rate{{amount: amount}}
 	}
 	locations := amountRe.FindAllStringSubmatchIndex(cell, -1)
+	note := noteOf(cell)
 	out := make([]rate, 0, len(locations))
-	for _, at := range locations {
+	for i, at := range locations {
 		value, err := strconv.ParseFloat(
 			strings.ReplaceAll(cell[at[2]:at[3]], ",", ""),
 			64,
@@ -580,16 +699,62 @@ func parseRates(cell string) []rate {
 		if err != nil {
 			continue
 		}
-		r := rate{amount: value}
-		rest := cell[at[1]:]
-		if match := qualifierRe.FindStringSubmatch(rest); match != nil {
-			r.resolution = slugID(match[1])
-		} else if len(locations) == 1 {
-			r.note = extraOf(cell)
+		end := len(cell)
+		if i+1 < len(locations) {
+			end = locations[i+1][0]
 		}
+		r := qualify(cell[at[1]:end])
+		r.amount, r.note = value, note
 		out = append(out, r)
 	}
 	return out
+}
+
+// qualify reads the clause following one amount for everything it says about
+// when that amount applies.
+func qualify(tail string) rate {
+	r := rate{dims: catalog.Dims{}}
+	if match := qualifierRe.FindStringSubmatch(tail); match != nil {
+		r.dims = r.dims.With(DimResolution, slugID(match[1]))
+	}
+	if match := bandRe.FindStringSubmatch(tail); match != nil {
+		r.dims = r.dims.With(
+			DimContextBand,
+			bandNames[match[1]]+"-"+strings.ReplaceAll(match[2], ",", "")+"k",
+		)
+	}
+	if match := effectiveRe.FindStringSubmatch(tail); match != nil {
+		key := DimEffectiveFrom
+		if strings.EqualFold(match[1], "through") {
+			key = DimEffectiveUntil
+		}
+		r.dims = r.dims.With(key, isoDate(match[2]))
+	}
+	lower := strings.ToLower(tail)
+	if strings.Contains(lower, storageMarker) {
+		r.metric = MetricCacheStorage
+	}
+	for _, entry := range cellUnits {
+		if strings.Contains(lower, entry.fragment) {
+			r.unit = entry.unit
+			break
+		}
+	}
+	return r
+}
+
+// noteOf keeps the allowance a cell states ahead of its amount, which is where
+// Google states the requests it grounds free of charge each month.
+func noteOf(cell string) string {
+	at := amountRe.FindStringIndex(cell)
+	if at == nil {
+		return ""
+	}
+	before := strings.TrimSpace(cell[:at[0]])
+	if !strings.Contains(strings.ToLower(before), "free") {
+		return ""
+	}
+	return strings.TrimRight(strings.TrimSuffix(before, "then"), " ,")
 }
 
 // parseAmount reads the first amount in a cell, treating Google's "Free of
@@ -608,20 +773,6 @@ func parseAmount(cell string) (float64, bool) {
 		return 0, false
 	}
 	return value, true
-}
-
-// extraOf keeps whatever a cell says beyond its first amount, which is where
-// Google puts a storage rate or a free allowance.
-func extraOf(cell string) string {
-	at := amountRe.FindStringIndex(cell)
-	if at == nil {
-		return ""
-	}
-	rest := strings.TrimSpace(cell[at[1]:])
-	if !strings.Contains(rest, "$") && !strings.Contains(rest, "free") {
-		return ""
-	}
-	return rest
 }
 
 // mark is either a heading or a table row, in the order the page states them.
@@ -658,12 +809,19 @@ func marks(body string) []mark {
 	return out
 }
 
+// lessThanReplacer restores the comparison Google writes bare inside a pricing
+// cell. "prompts <= 200k tokens" is not markup, but everything from its angle
+// bracket to the next one reads as a tag, so the clause saying which prompts
+// the amount applies to was stripped along with it and the cell was left
+// stating two amounts with nothing to tell them apart.
+var lessThanReplacer = strings.NewReplacer("<=", "&lt;=")
+
 // rowCells returns the text of one row's cells.
 func rowCells(row string) []string {
 	matches := cellRe.FindAllStringSubmatch(row, -1)
 	out := make([]string, 0, len(matches))
 	for _, m := range matches {
-		out = append(out, text(m[1]))
+		out = append(out, text(lessThanReplacer.Replace(m[1])))
 	}
 	return out
 }

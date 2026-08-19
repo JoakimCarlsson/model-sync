@@ -20,10 +20,41 @@
       }
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 30,
+      "currency": "USD",
+      "dims": {
+        "cache_ttl": "1h",
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.5,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
     },
     {
       "metric": "input_tokens",
@@ -32,23 +63,54 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 75,
       "currency": "USD"
     },
     {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 10,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
     }
   ],
   "attrs": {
     "author": "anthropic",
     "canonical_slug": "anthropic/claude-4-opus-20250522",
     "knowledge_cutoff": "2025-01-31",
-    "released": "2025-05-22",
+    "modality": "text+image+file->text",
+    "release_date": "2025-05-22",
     "summary": "Claude Opus 4 is benchmarked as the world’s best coding model, at time of release, bringing sustained performance on complex, long-running tasks and agent workflows.",
     "tokenizer": "Claude"
   },
@@ -58,6 +120,12 @@
     "top_provider_context_window": 200000
   },
   "lists": {
+    "endpoint_tags": [
+      "google-vertex"
+    ],
+    "endpoints": [
+      "Google"
+    ],
     "features": [
       "function_calling",
       "prompt_caching",
@@ -81,9 +149,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/anthropic/claude-4-opus-20250522/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

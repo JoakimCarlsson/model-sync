@@ -58,12 +58,29 @@
   "attrs": {
     "default_snapshot": "o3-mini-2025-01-31",
     "knowledge_cutoff": "2023-10-01",
+    "last_updated": "2025-01-31",
+    "release_date": "2025-01-31",
     "state": "active",
     "summary": "A small model alternative to o3"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 1000000,
+    "batch_queue_limit_tier_2": 2000000,
+    "batch_queue_limit_tier_3": 40000000,
+    "batch_queue_limit_tier_4": 1000000000,
+    "batch_queue_limit_tier_5": 15000000000,
     "context_window": 200000,
-    "max_output_tokens": 100000
+    "max_output_tokens": 100000,
+    "requests_per_minute_tier_1": 1000,
+    "requests_per_minute_tier_2": 2000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 30000,
+    "tokens_per_minute_tier_1": 100000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 4000000,
+    "tokens_per_minute_tier_4": 10000000,
+    "tokens_per_minute_tier_5": 150000000
   },
   "lists": {
     "endpoints": [
@@ -98,6 +115,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/o3-mini.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

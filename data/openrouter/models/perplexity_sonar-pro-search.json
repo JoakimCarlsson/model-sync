@@ -11,23 +11,54 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD"
     },
     {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 18,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Perplexity",
+        "endpoint_tag": "perplexity"
+      }
     }
   ],
   "attrs": {
     "author": "perplexity",
     "canonical_slug": "perplexity/sonar-pro-search",
+    "modality": "text+image->text",
     "reasoning_mandatory": "true",
-    "released": "2025-10-30",
+    "release_date": "2025-10-30",
     "summary": "Exclusively available on the OpenRouter API, Sonar Pro's new Pro Search mode is Perplexity's most advanced agentic search system.",
     "tokenizer": "Other"
   },
@@ -37,6 +68,12 @@
     "top_provider_context_window": 200000
   },
   "lists": {
+    "endpoint_tags": [
+      "perplexity"
+    ],
+    "endpoints": [
+      "Perplexity"
+    ],
     "features": [
       "reasoning",
       "structured_outputs",
@@ -60,9 +97,14 @@
       "top_k",
       "top_p",
       "web_search_options"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/perplexity/sonar-pro-search/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

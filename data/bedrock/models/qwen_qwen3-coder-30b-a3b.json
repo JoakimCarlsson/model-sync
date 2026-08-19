@@ -1261,9 +1261,9 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "lifecycle_state": "active",
-    "released": "Jul 31, 2025",
-    "retirement_date": "N/A",
+    "model_id": "qwen.qwen3-coder-30b-a3b-v1:0",
+    "release_date": "2025-07-31",
+    "state": "active",
     "summary": "Qwen3 Coder 30B A3B is Qwen's compact coding mixture-of-experts model with 30B total and 3B active parameters for efficient code generation. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -1275,6 +1275,21 @@
       "qwen.qwen3-coder-30b-a3b-instruct",
       "qwen.qwen3-coder-30b-a3b-v1:0"
     ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",
@@ -1284,6 +1299,7 @@
     ],
     "features": [
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
@@ -1293,14 +1309,50 @@
       "streaming",
       "structured_outputs"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-coder-30b-a3b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

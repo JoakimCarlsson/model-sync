@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "olmo3",
+    "default_snapshot": "olmo-3.1:latest",
+    "last_updated": "2025-12-16",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "32.2B",
+    "quantization": "Q4_K_M",
     "summary": "Olmo is a series of Open language models designed to enable the science of language models. These models are pre-trained on the Dolma 3 dataset and post-trained on the Dolci datasets."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/olmo-3.1/tags"
+    "https://ollama.com/library/olmo-3.1/tags",
+    "https://ollama.com/library/olmo-3.1:latest"
   ]
 }

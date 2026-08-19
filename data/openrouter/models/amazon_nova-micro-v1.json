@@ -11,10 +11,50 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.035,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.035,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/eu-west-1"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.14,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/eu-west-1"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +62,8 @@
     "canonical_slug": "amazon/nova-micro-v1",
     "is_moderated": "true",
     "knowledge_cutoff": "2024-10-31",
-    "released": "2024-12-05",
+    "modality": "text->text",
+    "release_date": "2024-12-05",
     "summary": "Amazon Nova Micro 1.0 is a text-only model that delivers the lowest latency responses in the Amazon Nova family of models at a very low cost.",
     "tokenizer": "Nova"
   },
@@ -32,6 +73,16 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "categories": [
+      "marketing"
+    ],
+    "endpoint_tags": [
+      "amazon-bedrock",
+      "amazon-bedrock/eu-west-1"
+    ],
+    "endpoints": [
+      "Amazon Bedrock"
+    ],
     "features": [
       "function_calling"
     ],
@@ -48,9 +99,15 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/amazon/nova-micro-v1/endpoints",
+    "https://openrouter.ai/api/v1/models?category=marketing",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "wizard-math:latest",
+    "last_updated": "2023-12-19",
+    "license": "MICROSOFT RESEARCH LICENSE TERMS",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "Model focused on math and logic problems"
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/wizard-math/tags"
+    "https://ollama.com/library/wizard-math/tags",
+    "https://ollama.com/library/wizard-math:latest"
   ]
 }

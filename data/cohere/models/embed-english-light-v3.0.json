@@ -8,17 +8,34 @@
     "azure_ai_foundry_id": "N/A",
     "default_embedding_dimension": "384",
     "family": "embed",
+    "max_image_size": "5MB",
     "modality": "Text, Images",
     "oracle_oci_id": "cohere.embed-english-light-image-v3.0 (for images), cohere.embed-english-light-v3.0 (for text)",
     "similarity_metric": "Cosine Similarity",
     "summary": "A smaller, faster version of embed-english-v3.0."
   },
   "limits": {
-    "context_window": 512
+    "context_window": 512,
+    "image_inputs_per_minute_production": 400,
+    "image_inputs_per_minute_trial": 5,
+    "inputs_per_minute_production": 2000,
+    "inputs_per_minute_trial": 2000,
+    "job_requests_per_minute_production": 50,
+    "job_requests_per_minute_trial": 5,
+    "max_images_per_call": 1,
+    "max_texts_per_call": 96
   },
   "lists": {
     "embedding_dimensions": [
       "384"
+    ],
+    "embedding_types": [
+      "base64",
+      "binary",
+      "float",
+      "int8",
+      "ubinary",
+      "uint8"
     ],
     "endpoints": [
       "Embed",
@@ -28,14 +45,35 @@
       "image",
       "text"
     ],
+    "input_types": [
+      "classification",
+      "clustering",
+      "image",
+      "search_document",
+      "search_query"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "embedding_types",
+      "images",
+      "input_type",
+      "inputs",
+      "max_tokens",
+      "model",
+      "output_dimension",
+      "priority",
+      "texts",
+      "truncate"
     ]
   },
   "notes": [
     "no rate stated on the pricing or dedicated deployment pages"
   ],
   "sources": [
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/reference/embed.md"
   ]
 }

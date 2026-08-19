@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mancer 2",
+        "endpoint_tag": "mancer/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mancer 2",
+        "endpoint_tag": "mancer/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "anthracite-org/magnum-v4-72b",
     "instruct_type": "chatml",
     "knowledge_cutoff": "2024-06-30",
-    "released": "2024-10-22",
+    "modality": "text->text",
+    "release_date": "2024-10-22",
     "summary": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).",
     "tokenizer": "Qwen"
   },
@@ -33,6 +56,12 @@
     "top_provider_context_window": 32768
   },
   "lists": {
+    "endpoint_tags": [
+      "mancer/fp8"
+    ],
+    "endpoints": [
+      "Mancer 2"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -60,9 +89,14 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/anthracite-org/magnum-v4-72b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

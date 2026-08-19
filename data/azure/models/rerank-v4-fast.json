@@ -688,7 +688,18 @@
     }
   ],
   "attrs": {
-    "product": "Cohere Models"
+    "author": "Cohere",
+    "catalog_added_on": "2025-12-11",
+    "license": "custom",
+    "product": "Cohere Models",
+    "publisher": "Cohere",
+    "state": "active",
+    "summary": "Rerank improves search systems by sorting documents based on their semantic similarity to a query",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 4096,
+    "max_output_tokens": 2048
   },
   "lists": {
     "features": [
@@ -696,6 +707,7 @@
       "structured_outputs"
     ],
     "input_modalities": [
+      "image",
       "text"
     ],
     "languages": [
@@ -715,11 +727,17 @@
       "zh-cn"
     ],
     "output_modalities": [
+      "image",
       "text"
+    ],
+    "tasks": [
+      "text-classification"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

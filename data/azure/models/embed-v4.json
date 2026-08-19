@@ -1518,10 +1518,18 @@
     }
   ],
   "attrs": {
-    "product": "Cohere Models"
+    "author": "Cohere",
+    "catalog_added_on": "2025-11-17",
+    "license": "custom",
+    "product": "Cohere Models",
+    "publisher": "Cohere",
+    "state": "active",
+    "summary": "Embed 4 transforms texts and images into numerical vectors",
+    "version": "1"
   },
   "limits": {
-    "context_window": 512
+    "context_window": 512,
+    "max_output_tokens": 4096
   },
   "lists": {
     "embedding_dimensions": [
@@ -1533,6 +1541,10 @@
     "input_modalities": [
       "image",
       "text"
+    ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal"
     ],
     "languages": [
       "ar",
@@ -1547,11 +1559,18 @@
       "zh-cn"
     ],
     "output_modalities": [
+      "image",
       "text"
+    ],
+    "tasks": [
+      "embeddings",
+      "summarization"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

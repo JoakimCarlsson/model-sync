@@ -20,6 +20,16 @@
     "state": "active",
     "summary": "General-purpose speech recognition model"
   },
+  "limits": {
+    "max_file_megabytes": 25,
+    "requests_per_day_free": 200,
+    "requests_per_minute_free": 3,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 2500,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 7500,
+    "requests_per_minute_tier_5": 10000
+  },
   "lists": {
     "endpoints": [
       "v1/audio/transcriptions",
@@ -29,6 +39,15 @@
       "keyterm_prompting",
       "translation",
       "word_timestamps"
+    ],
+    "input_formats": [
+      "m4a",
+      "mp3",
+      "mp4",
+      "mpeg",
+      "mpga",
+      "wav",
+      "webm"
     ],
     "input_modalities": [
       "audio"

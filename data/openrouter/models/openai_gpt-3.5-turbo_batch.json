@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.75,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
     },
     {
       "metric": "tool_call",
@@ -24,11 +44,13 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "10.7",
     "author": "openai",
     "canonical_slug": "openai/gpt-3.5-turbo",
     "is_moderated": "true",
     "knowledge_cutoff": "2021-09-30",
-    "released": "2023-05-28",
+    "modality": "text->text",
+    "release_date": "2023-05-28",
     "summary": "GPT-3.5 Turbo is OpenAI's fastest model.",
     "tokenizer": "GPT"
   },
@@ -38,6 +60,12 @@
     "top_provider_context_window": 16385
   },
   "lists": {
+    "endpoint_tags": [
+      "openai"
+    ],
+    "endpoints": [
+      "OpenAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -65,9 +93,14 @@
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-3.5-turbo/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

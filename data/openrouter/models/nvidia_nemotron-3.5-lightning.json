@@ -7,36 +7,141 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.25,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "CoreWeave",
+        "endpoint_tag": "coreweave/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Venice",
+        "endpoint_tag": "venice/fp4",
+        "quantization": "fp4"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "13.8",
+    "artificial_analysis_coding_index": "26.8",
+    "artificial_analysis_intelligence_index": "23.6",
     "author": "nvidia",
     "canonical_slug": "nvidia/nemotron-3.5-lightning-20260807",
     "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
-    "released": "2026-08-11",
+    "modality": "text->text",
+    "release_date": "2026-08-11",
     "summary": "NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total.",
     "tokenizer": "Other"
   },
   "limits": {
     "context_window": 1000000,
-    "max_output_tokens": 262144,
+    "max_output_tokens": 131072,
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "coreweave/bf16",
+      "deepinfra/bf16",
+      "venice/fp4"
+    ],
+    "endpoints": [
+      "CoreWeave",
+      "DeepInfra",
+      "Venice"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -70,9 +175,18 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16",
+      "fp4"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-lightning-20260807/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

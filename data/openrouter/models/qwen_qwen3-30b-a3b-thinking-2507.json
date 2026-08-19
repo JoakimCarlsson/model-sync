@@ -11,28 +11,63 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.4,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "1.8",
+    "artificial_analysis_coding_index": "12.1",
+    "artificial_analysis_intelligence_index": "14.6",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3-30b-a3b-thinking-2507",
     "hugging_face_id": "Qwen/Qwen3-30B-A3B-Thinking-2507",
     "knowledge_cutoff": "2025-06-30",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-08-28",
+    "release_date": "2025-08-28",
     "summary": "Qwen3-30B-A3B-Thinking-2507 is a 30B parameter Mixture-of-Experts reasoning model optimized for complex tasks requiring extended multi-step thinking.",
     "tokenizer": "Qwen3"
   },
   "limits": {
     "context_window": 81920,
+    "max_input_tokens": 126976,
     "max_output_tokens": 32768,
     "top_provider_context_window": 81920
   },
   "lists": {
+    "datacenter_countries": [
+      "CN",
+      "SG"
+    ],
+    "endpoint_tags": [
+      "alibaba"
+    ],
+    "endpoints": [
+      "Alibaba"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -59,9 +94,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-30b-a3b-thinking-2507/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

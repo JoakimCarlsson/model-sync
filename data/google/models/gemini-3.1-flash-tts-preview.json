@@ -70,9 +70,11 @@
     }
   ],
   "attrs": {
-    "latest_update": "April 2026",
+    "last_updated": "April 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/",
     "model_code": "gemini-3.1-flash-tts-preview",
+    "release_date": "2026-04-13",
+    "state": "preview",
     "summary": "The Gemini 3.1 Flash TTS Preview model provides powerful, low-latency speech generation with natural outputs, steerable prompts, and new expressive audio tags for precise narration control."
   },
   "limits": {
@@ -95,6 +97,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"

@@ -87,15 +87,28 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-realtime-mini-2025-12-15",
+    "deprecated_on": "2026-07-20",
     "knowledge_cutoff": "2023-10-01",
+    "last_updated": "2026-01-13",
     "recommended_replacement": "gpt-realtime-2.1-mini",
-    "shutdown_date": "2027-01-20",
+    "release_date": "2025-10-06",
+    "retirement_date": "2027-01-20",
     "state": "deprecated",
     "summary": "A cost-efficient version of GPT-Realtime"
   },
   "limits": {
     "context_window": 32000,
-    "max_output_tokens": 4096
+    "max_output_tokens": 4096,
+    "requests_per_minute_tier_1": 200,
+    "requests_per_minute_tier_2": 400,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 20000,
+    "tokens_per_minute_tier_1": 40000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 15000000
   },
   "lists": {
     "endpoints": [
@@ -120,6 +133,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/deprecations.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime-mini.md",
     "https://developers.openai.com/api/docs/pricing.md"

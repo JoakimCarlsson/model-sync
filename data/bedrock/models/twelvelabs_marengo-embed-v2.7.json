@@ -1,0 +1,56 @@
+{
+  "id": "twelvelabs/marengo-embed-v2.7",
+  "provider": "bedrock",
+  "name": "Marengo Embed v2.7",
+  "kind": "embedding",
+  "attrs": {
+    "author": "TwelveLabs",
+    "legacy_date": "2026-05-29",
+    "marketplace_product_id": "prod-o6xchhpirymvs",
+    "model_id": "twelvelabs.marengo-embed-2-7-v1:0",
+    "public_extended_access_date": "2026-08-29",
+    "release_date": "2024-12-04",
+    "retirement_date": "2026-11-30",
+    "state": "active",
+    "summary": "Marengo Embed v2.7 is TwelveLabs' video embedding model for multimodal video understanding, search, and classification. For more information about model development and performance, see the model/service card."
+  },
+  "lists": {
+    "aliases": [
+      "eu.twelvelabs.marengo-embed-2-7-v1:0",
+      "twelvelabs.marengo-embed-2-7-v1:0",
+      "us.twelvelabs.marengo-embed-2-7-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "startasyncinvoke"
+    ],
+    "geo_regions": [
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_profile_ids": [
+      "eu.twelvelabs.marengo-embed-2-7-v1:0",
+      "us.twelvelabs.marengo-embed-2-7-v1:0"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "embedding"
+    ],
+    "regions": [
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-twelvelabs-marengo-embed-v2-7.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-lifecycle.md"
+  ]
+}

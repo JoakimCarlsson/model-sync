@@ -23,23 +23,56 @@ const (
 	providerName = "DeepSeek"
 )
 
-// The pages read. The trailing slash is load bearing on all of them. Without
-// it the site answers with its home page, the guide to a first API call, at a
-// 200 and with no redirect, so the fetch succeeds and the document carries one
-// table of base URLs and no model. That is indistinguishable from a parser
-// failure except by reading the page.
+// The pages read. The trailing slash is load bearing on all of the
+// api-docs.deepseek.com ones. Without it the site answers with its home page,
+// the guide to a first API call, at a 200 and with no redirect, so the fetch
+// succeeds and the document carries one table of base URLs and no model. That
+// is indistinguishable from a parser failure except by reading the page.
 const (
 	// PricingURL is the page stating DeepSeek's models and rates.
 	PricingURL = baseURL + "/quick_start/pricing/"
-	// ChangeLogURL is where DeepSeek writes each model's name, since the
-	// pricing table heads its columns with the identifier instead.
+	// ChangeLogURL is where DeepSeek writes each model's name, dates its
+	// release and says what it is, since the pricing table heads its columns
+	// with the identifier and states nothing else in prose.
 	ChangeLogURL = baseURL + "/updates/"
 	// ResponsesGuideURL states which content parts a request and a response
-	// carry, which is where DeepSeek says what its models take and return.
+	// carry, which is where DeepSeek says what its models take and return, and
+	// which request parameters it honours.
 	ResponsesGuideURL = baseURL + "/guides/responses_api/"
+	// ThinkingGuideURL states the effort levels the thinking mode accepts and
+	// what it does when the caller asks for none of them.
+	ThinkingGuideURL = baseURL + "/guides/thinking_mode/"
+	// FIMGuideURL states the beta endpoint's own base URL and its own output
+	// ceiling, neither of which the pricing table carries.
+	FIMGuideURL = baseURL + "/guides/fim_completion/"
+	// CacheGuideURL states what the two input rates on the pricing table are
+	// distinguished by.
+	CacheGuideURL = baseURL + "/guides/kv_cache/"
+	// RateLimitURL is the only page stating a limit on how hard the API may be
+	// called, which the pricing table's concurrency row points at.
+	RateLimitURL = baseURL + "/quick_start/rate_limit/"
 )
 
-const baseURL = "https://api-docs.deepseek.com"
+// The Hugging Face cards. DeepSeek releases the weights of both models and
+// links them from its release announcement; the card is where it states the
+// licence, the parameter counts and the precision the weights carry.
+const (
+	ProCardURL   = cardBase + "DeepSeek-V4-Pro/raw/main/README.md"
+	FlashCardURL = cardBase + "DeepSeek-V4-Flash/raw/main/README.md"
+)
+
+// modelCards names the model each card is the card of. A card states one
+// licence and it is the licence of the repository serving the card, so the
+// card has to be attributed to a model rather than to the series it describes.
+var modelCards = map[string]string{
+	ProCardURL:   "deepseek-v4-pro",
+	FlashCardURL: "deepseek-v4-flash",
+}
+
+const (
+	baseURL  = "https://api-docs.deepseek.com"
+	cardBase = "https://huggingface.co/deepseek-ai/"
+)
 
 // Provider reads DeepSeek's pricing page. The zero value is not usable; call
 // New.
@@ -61,12 +94,26 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the pricing page, then the two pages stating what the
-// pricing page leaves out.
+// secondaryURLs are the pages read after the pricing page, in the order they
+// are read. None of them names a model, so each one failing costs the models
+// one group of facts and nothing else.
+var secondaryURLs = []string{
+	ChangeLogURL,
+	ResponsesGuideURL,
+	ThinkingGuideURL,
+	FIMGuideURL,
+	CacheGuideURL,
+	RateLimitURL,
+	ProCardURL,
+	FlashCardURL,
+}
+
+// Fetch retrieves the pricing page, then the pages stating what the pricing
+// page leaves out.
 //
 // Only the pricing page says which models exist, so its failure ends the run.
-// A guide that cannot be read costs those models a name or a modality and
-// nothing else, so the failure is reported and the rest of the run continues.
+// A page that cannot be read costs those models a group of facts and nothing
+// else, so the failure is reported and the rest of the run continues.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	pricing, err := p.get(ctx, PricingURL)
 	if err != nil {
@@ -74,7 +121,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{pricing}
 	var failures []error
-	for _, url := range []string{ChangeLogURL, ResponsesGuideURL} {
+	for _, url := range secondaryURLs {
 		doc, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
@@ -86,8 +133,8 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 }
 
 // Parse reads the pricing page first, because it is the only document saying
-// which models DeepSeek serves; the guides state facts about models it has
-// already named.
+// which models DeepSeek serves; every other document states facts about models
+// it has already named.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -96,11 +143,23 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
+		if id, ok := modelCards[doc.URL]; ok {
+			b.applyModelCard(doc, id)
+			continue
+		}
 		switch doc.URL {
 		case ChangeLogURL:
 			b.applyChangeLog(doc)
 		case ResponsesGuideURL:
 			b.applyResponsesGuide(doc)
+		case ThinkingGuideURL:
+			b.applyThinkingGuide(doc)
+		case FIMGuideURL:
+			b.applyFIMGuide(doc)
+		case CacheGuideURL:
+			b.applyCacheGuide(doc)
+		case RateLimitURL:
+			b.applyRateLimitPage(doc)
 		}
 	}
 	return b.result(), nil
@@ -160,9 +219,13 @@ func (p *Provider) writeCache(url string, body []byte) {
 	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheName(url)), body, 0o644)
 }
 
-// cacheName turns a URL into a flat filename.
+// cacheName turns a URL into a flat filename. The documentation host is
+// trimmed off because every path under it is distinct on its own; anything
+// else keeps its host, so that two cards differing only in repository do not
+// collide.
 func cacheName(url string) string {
 	trimmed := strings.Trim(strings.TrimPrefix(url, baseURL), "/")
+	trimmed = strings.TrimPrefix(trimmed, "https://")
 	return providerID + "_" + strings.Map(func(r rune) rune {
 		switch {
 		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
@@ -178,6 +241,13 @@ func cacheName(url string) string {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// rate is what the pricing rows beneath the current section label are
+	// charged for, carried because that label spans two rows and the row
+	// beneath it states only a period and its amounts.
+	rate catalog.Metric
+	// priceNote is the pricing table's footnote naming the hours the peak
+	// period covers, which qualifies every rate on the table.
+	priceNote string
 }
 
 func newBuilder() *builder {
@@ -208,4 +278,14 @@ func (b *builder) result() []catalog.Model {
 		out = append(out, *b.models[id])
 	}
 	return out
+}
+
+// applyAll records a fact stated of the API against every model, in
+// identifier order so that no map iteration reaches the output.
+func (b *builder) applyAll(source string, set func(*catalog.Model)) {
+	for _, id := range b.order {
+		m := b.models[id]
+		set(m)
+		m.AddSource(source)
+	}
 }

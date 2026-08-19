@@ -1,0 +1,69 @@
+{
+  "id": "qwen/qwen3-asr-0.6b",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 ASR 0.6B",
+  "kind": "transcription",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.33,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.33,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-asr-0.6b-20260813",
+    "hugging_face_id": "Qwen/Qwen3-ASR-0.6B",
+    "modality": "audio->transcription",
+    "release_date": "2026-08-13",
+    "summary": "Qwen3 ASR 0.6B is a compact automatic speech recognition model from Qwen.",
+    "tokenizer": "Qwen3"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "deepinfra"
+    ],
+    "endpoints": [
+      "DeepInfra"
+    ],
+    "input_modalities": [
+      "audio"
+    ],
+    "output_modalities": [
+      "text",
+      "transcription"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-asr-0.6b-20260813/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

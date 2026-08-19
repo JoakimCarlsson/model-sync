@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "solar:latest",
+    "last_updated": "2023-12-18",
+    "open_weights": "true",
+    "parameter_count": "10.7B",
+    "quantization": "Q4_0",
     "summary": "A compact, yet powerful 10.7B large language model designed for single-turn conversation."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/solar/tags"
+    "https://ollama.com/library/solar/tags",
+    "https://ollama.com/library/solar:latest"
   ]
 }

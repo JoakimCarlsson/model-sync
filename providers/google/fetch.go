@@ -26,7 +26,34 @@ const (
 	ModelsURL = baseURL + "/gemini-api/docs/models"
 	// modelPagePre prefixes one model's page.
 	modelPagePre = baseURL + "/gemini-api/docs/models/"
+	// DeprecationsURL schedules every model's release and shutdown.
+	DeprecationsURL = baseURL + "/gemini-api/docs/deprecations"
+	// RateLimitsURL states what a project may enqueue per model and tier.
+	RateLimitsURL = baseURL + "/gemini-api/docs/rate-limits"
+	// ThinkingURL states how much each model reasons and what it may be asked
+	// for.
+	ThinkingURL = baseURL + "/gemini-api/docs/thinking"
+	// VideoGuideURL compares the video models parameter by parameter.
+	VideoGuideURL = baseURL + "/gemini-api/docs/veo"
+	// ImageGuideURL states the sizes each aspect ratio of an image model comes
+	// back in.
+	ImageGuideURL = baseURL + "/gemini-api/docs/image-generation"
+	// ImagenGuideURL states the Imagen request parameters in prose.
+	ImagenGuideURL = baseURL + "/gemini-api/docs/imagen"
 )
+
+// guideURLs are the documents read for the models whose own page states less
+// than the guide devoted to their family, or states nothing because Google
+// publishes no page for them. They are fetched alongside the pages and each is
+// parsed by the rules of the one document it is.
+var guideURLs = []string{
+	DeprecationsURL,
+	RateLimitsURL,
+	ThinkingURL,
+	VideoGuideURL,
+	ImageGuideURL,
+	ImagenGuideURL,
+}
 
 // fetchWorkers bounds the concurrent requests made for the per-model pages.
 const fetchWorkers = 8
@@ -72,6 +99,12 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	docs = append(docs, pages...)
 	guessed, missing := p.getAll(ctx, codePageURLs(pricing, linked))
 	docs = append(docs, guessed...)
+	guides, guideFailures := p.getAll(ctx, guideURLs)
+	docs = append(docs, guides...)
+	failures = append(failures, guideFailures...)
+	cards, cardFailures := p.getAll(ctx, cardURLs(append(pages, guessed...)))
+	docs = append(docs, cards...)
+	failures = append(failures, cardFailures...)
 	return docs, errors.Join(append(failures, published(missing)...)...)
 }
 

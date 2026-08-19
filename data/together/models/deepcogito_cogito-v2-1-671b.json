@@ -19,12 +19,20 @@
   ],
   "attrs": {
     "author": "Deepcogito",
-    "reasoning_mode": "hybrid (on by default)"
+    "category": "Chat",
+    "parameter_count": "671B (MoE)",
+    "quantization": "FP8",
+    "reasoning_mode": "hybrid (on by default)",
+    "serverless_since": "2026-04-24",
+    "summary": "671B MoE with 128K context, hybrid reasoning capabilities, 60% more efficient reasoning chains than competitors, superior multilingual and coding performance"
   },
   "limits": {
     "context_window": 163840
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "reasoning"
     ],
@@ -33,11 +41,20 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "LLM"
+    ],
+    "use_cases": [
+      "Chat",
+      "Small & Fast"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/changelog.md",
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/cogito-v2-1-671b"
   ]
 }

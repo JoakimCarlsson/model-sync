@@ -7,9 +7,30 @@
     {
       "metric": "audio",
       "unit": "per_minute",
+      "amount": 0.0036,
+      "currency": "USD",
+      "dims": {
+        "delivery": "pre-recorded",
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0043,
+      "currency": "USD",
+      "dims": {
+        "delivery": "pre-recorded",
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
       "amount": 0.0042,
       "currency": "USD",
       "dims": {
+        "delivery": "streaming",
         "plan": "growth"
       }
     },
@@ -19,39 +40,55 @@
       "amount": 0.0048,
       "currency": "USD",
       "dims": {
+        "delivery": "streaming",
         "plan": "pay-as-you-go"
       }
     }
   ],
   "attrs": {
-    "previous_rate": "$0.0077/min",
+    "max_file_size": "2 GB",
     "product": "speech to text",
     "summary": "Our highest performing model. Recommended for most use cases, especially audio with multiple languages, background noise, crosstalk and far field audio."
   },
   "lists": {
     "features": [
       "batch",
+      "endpointing",
       "entity_detection",
+      "filler_words",
+      "find_and_replace",
       "intent_recognition",
       "keyterm_prompting",
       "language_detection",
+      "multichannel",
+      "numerals",
+      "paragraphs",
+      "profanity_filter",
+      "punctuation",
       "realtime",
       "redaction",
+      "search",
       "sentiment_analysis",
       "smart_formatting",
       "speaker_diarization",
       "summarization",
-      "topic_detection"
+      "topic_detection",
+      "utterances"
     ],
     "input_modalities": [
       "audio"
     ],
     "output_modalities": [
       "text"
+    ],
+    "previous_rates": [
+      "$0.0065/min",
+      "$0.0077/min"
     ]
   },
   "sources": [
     "https://deepgram.com/pricing",
+    "https://developers.deepgram.com/docs/pre-recorded-audio.md",
     "https://developers.deepgram.com/docs/stt-pre-recorded-feature-overview.md",
     "https://developers.deepgram.com/docs/stt-streaming-feature-overview.md"
   ]

@@ -13,18 +13,29 @@
   ],
   "attrs": {
     "author": "NVIDIA",
-    "modality": "Speech-to-Text"
+    "category": "Transcribe",
+    "modality": "Speech-to-Text",
+    "parameter_count": "0.6B",
+    "release_date": "2026-06-04",
+    "summary": "0.6B parameter cache-aware streaming ASR model covering 40 language-locale combinations with sub-100ms latency, 3x GPU concurrency vs buffered baselines, and native punctuation across all locales."
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "input_modalities": [
       "audio"
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Transcribe"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/nvidia-nemotron-35-asr"
   ]
 }

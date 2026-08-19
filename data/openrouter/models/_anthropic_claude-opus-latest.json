@@ -49,9 +49,10 @@
     "author": "~anthropic",
     "canonical_slug": "~anthropic/claude-opus-latest",
     "is_moderated": "true",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
     "reasoning_default_enabled": "true",
-    "released": "2026-04-21",
+    "release_date": "2026-04-21",
     "summary": "This model always redirects to the latest model in the Claude Opus family.",
     "tokenizer": "Router"
   },
@@ -100,6 +101,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/~anthropic/claude-opus-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

@@ -1,0 +1,51 @@
+{
+  "id": "qwen3.5-4b-32k-fast",
+  "provider": "assemblyai",
+  "name": "Qwen3.5 4B Fast",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "api_identifier": "qwen3.5-4b-32k-fast"
+  },
+  "limits": {
+    "context_window": 32768,
+    "requests_per_minute_paid": 30
+  },
+  "lists": {
+    "endpoints": [
+      "https://llm-gateway.assemblyai.com/v1/chat/completions"
+    ],
+    "features": [
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "stream",
+      "temperature"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/llm-gateway/api-reference/create-chat-completion.md",
+    "https://www.assemblyai.com/docs/llm-gateway/available-models.md",
+    "https://www.assemblyai.com/docs/llm-gateway/rate-limits.md"
+  ]
+}

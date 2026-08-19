@@ -27,12 +27,14 @@
   "attrs": {
     "family": "command",
     "modality": "Text",
+    "release_date": "2025-08-21",
     "state": "live",
     "summary": "Command A Reasoning is Cohere's first reasoning model, able to 'think' before generating an output in a way that allows it to perform well in certain kinds of nuanced problem-solving and agent-based tasks in 23 languages."
   },
   "limits": {
     "context_window": 256000,
-    "max_output_tokens": 32000
+    "max_output_tokens": 32000,
+    "requests_per_minute_trial": 20
   },
   "lists": {
     "endpoints": [
@@ -40,6 +42,7 @@
     ],
     "features": [
       "function_calling",
+      "reasoning",
       "streaming"
     ],
     "input_modalities": [
@@ -47,11 +50,38 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "citation_options",
+      "documents",
+      "frequency_penalty",
+      "k",
+      "logprobs",
+      "max_tokens",
+      "messages",
+      "model",
+      "p",
+      "presence_penalty",
+      "priority",
+      "response_format",
+      "safety_mode",
+      "seed",
+      "stop_sequences",
+      "stream",
+      "strict_tools",
+      "temperature",
+      "thinking",
+      "tool_choice",
+      "tools"
     ]
   },
   "sources": [
+    "https://docs.cohere.com/changelog/2025-08-21-command-a-reasoning.md",
+    "https://docs.cohere.com/docs/command-a-reasoning.md",
     "https://docs.cohere.com/docs/model-vault/standard/pricing.md",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/reference/chat.md",
     "https://docs.cohere.com/v2/docs/streaming.md",
     "https://docs.cohere.com/v2/docs/tool-use-overview.md"
   ]

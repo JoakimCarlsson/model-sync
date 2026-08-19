@@ -11,10 +11,98 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp16",
+        "quantization": "fp16"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mancer 2",
+        "endpoint_tag": "mancer/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/int4",
+        "quantization": "int4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.08,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp16",
+        "quantization": "fp16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.06,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp16",
+        "quantization": "fp16"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mancer 2",
+        "endpoint_tag": "mancer/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/int4",
+        "quantization": "int4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.11,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp16",
+        "quantization": "fp16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +111,8 @@
     "hugging_face_id": "Gryphe/MythoMax-L2-13b",
     "instruct_type": "alpaca",
     "knowledge_cutoff": "2023-06-30",
-    "released": "2023-07-02",
+    "modality": "text->text",
+    "release_date": "2023-07-02",
     "summary": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay.",
     "tokenizer": "Llama2"
   },
@@ -33,6 +122,21 @@
     "top_provider_context_window": 4096
   },
   "lists": {
+    "datacenter_countries": [
+      "ES"
+    ],
+    "endpoint_tags": [
+      "deepinfra/fp16",
+      "mancer/fp8",
+      "nextbit/int4",
+      "parasail/fp16"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Mancer 2",
+      "NextBit",
+      "Parasail"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -60,9 +164,20 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "ES",
+      "US"
+    ],
+    "quantizations": [
+      "fp16",
+      "fp8",
+      "int4"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/gryphe/mythomax-l2-13b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

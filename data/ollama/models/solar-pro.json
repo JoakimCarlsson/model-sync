@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "solar",
+    "default_snapshot": "solar-pro:latest",
+    "last_updated": "2024-09-18",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "22.1B",
+    "quantization": "Q4_K_M",
     "summary": "Solar Pro Preview: an advanced large language model (LLM) with 22 billion parameters designed to fit into a single GPU"
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/solar-pro/tags"
+    "https://ollama.com/library/solar-pro/tags",
+    "https://ollama.com/library/solar-pro:latest"
   ]
 }

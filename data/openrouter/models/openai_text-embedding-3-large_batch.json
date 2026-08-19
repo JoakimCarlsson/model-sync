@@ -1,0 +1,86 @@
+{
+  "id": "openai/text-embedding-3-large:batch",
+  "provider": "openrouter",
+  "name": "OpenAI: Text Embedding 3 Large (batch)",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.065,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Azure",
+        "endpoint_tag": "azure"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.13,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "OpenAI",
+        "endpoint_tag": "openai"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "openai",
+    "canonical_slug": "openai/text-embedding-3-large",
+    "is_moderated": "true",
+    "modality": "text->embeddings",
+    "release_date": "2025-10-30",
+    "summary": "text-embedding-3-large is OpenAI's most capable embedding model for both english and non-english tasks.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 8192,
+    "top_provider_context_window": 8192
+  },
+  "lists": {
+    "endpoint_tags": [
+      "azure",
+      "openai"
+    ],
+    "endpoints": [
+      "Azure",
+      "OpenAI"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_completion_tokens",
+      "max_tokens",
+      "presence_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/openai/text-embedding-3-large/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

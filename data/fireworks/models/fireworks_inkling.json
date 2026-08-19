@@ -1,0 +1,100 @@
+{
+  "id": "fireworks/inkling",
+  "provider": "fireworks",
+  "name": "Inkling",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.17,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.025,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.05,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Thinking Machines Lab",
+    "calibrated": "false",
+    "hugging_face_id": "thinkingmachines/Inkling",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/inkling",
+    "model_url": "https://fireworks.ai/models/fireworks/inkling",
+    "open_weights": "true",
+    "parameter_count": "975B",
+    "release_date": "2026-07-14",
+    "state": "active",
+    "summary": "Inkling - Thinking Machines multimodal (audio+vision) MoE. Inkling is the first open-weights model released by Thinking Machines Lab. It is a 975B Mixture-of-Experts with 41B active parameters, trained natively across text, image, and audio. Built as a broad generalist foundation for fine-tuning, with controllable thinking effort."
+  },
+  "limits": {
+    "context_window": 1048576,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "prompt_caching",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/overview.md",
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/inkling"
+  ]
+}

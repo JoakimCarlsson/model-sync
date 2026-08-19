@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen3",
+    "default_snapshot": "qwen3:latest",
+    "last_updated": "2025-10-10",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "8.19B",
+    "quantization": "Q4_K_M",
     "summary": "Qwen3 is the latest generation of large language models in Qwen series, offering a comprehensive suite of dense and mixture-of-experts (MoE) models."
   },
   "limits": {
@@ -34,6 +41,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen3/tags"
+    "https://ollama.com/library/qwen3/tags",
+    "https://ollama.com/library/qwen3:latest"
   ]
 }

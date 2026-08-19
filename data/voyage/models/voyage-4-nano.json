@@ -3,8 +3,11 @@
   "provider": "voyage",
   "kind": "embedding",
   "attrs": {
+    "announcement_url": "https://blog.voyageai.com/2026/01/15/voyage-4",
     "default_embedding_dimension": "1024",
+    "hugging_face_id": "voyageai/voyage-4-nano",
     "open_weights": "true",
+    "release_date": "2026-01-15",
     "summary": "Open-weight model available on Hugging Face."
   },
   "limits": {
@@ -31,6 +34,7 @@
     "weights published; Voyage states no rate because it does not serve the model"
   ],
   "sources": [
+    "https://blog.voyageai.com/2026/01/15/voyage-4",
     "https://docs.voyageai.com/docs/embeddings.md",
     "https://www.mongodb.com/docs/voyageai/models.md"
   ]

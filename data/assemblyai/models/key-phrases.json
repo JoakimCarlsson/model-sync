@@ -1,0 +1,38 @@
+{
+  "id": "key-phrases",
+  "provider": "assemblyai",
+  "name": "Key Phrases",
+  "kind": "speech_understanding",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.01,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "product": "Speech Understanding",
+    "regions": "US & EU",
+    "summary": "Identify significant words and phrases"
+  },
+  "lists": {
+    "features": [
+      "key_phrases"
+    ],
+    "languages": [
+      "en",
+      "en_au",
+      "en_uk",
+      "en_us"
+    ],
+    "supported_models": [
+      "universal-2",
+      "universal-3-5-pro"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/speech-understanding/key-phrases.md",
+    "https://www.assemblyai.com/pricing"
+  ]
+}

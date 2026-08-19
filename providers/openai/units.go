@@ -65,6 +65,11 @@ const (
 	DimDataSharing = "data_sharing"
 	DimLegacy      = "legacy"
 	DimMaxContext  = "max_context_length"
+	// dimPortrait and dimLandscape are the two columns the video rate table
+	// prices a resolution under, each holding the pixel size of that
+	// orientation.
+	dimPortrait  = "portrait"
+	dimLandscape = "landscape"
 )
 
 // Service tiers OpenAI prices separately.

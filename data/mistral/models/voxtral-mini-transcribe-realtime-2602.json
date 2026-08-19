@@ -12,16 +12,30 @@
     }
   ],
   "attrs": {
+    "batch_discount": "50%",
+    "cached_input_discount": "90%",
+    "distribution": "open",
+    "hugging_face_id": "mistralai/Voxtral-Mini-4B-Realtime-2602",
     "license": "Apache 2.0",
+    "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
     "open_weights": "true",
-    "released": "2026-02-04",
+    "regional_inference_surcharge": "10%",
+    "release_date": "2026-02-04",
     "state": "active",
     "summary": "An efficient audio input model, pre-trained and optimized for live transcription purposes only.",
     "version": "26.02"
   },
+  "limits": {
+    "active_parameter_count": 4000000000,
+    "min_gpu_ram_gb_bf16_full_context": 14,
+    "parameter_count": 4000000000
+  },
   "lists": {
     "aliases": [
       "voxtral-mini-transcribe-realtime-latest"
+    ],
+    "endpoints": [
+      "/v1/audio/transcriptions"
     ],
     "features": [
       "transcriptions"
@@ -34,6 +48,7 @@
     ]
   },
   "sources": [
-    "https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02"
+    "https://docs.mistral.ai/models/voxtral-mini-transcribe-realtime-26-02",
+    "https://mistral.ai/pricing/api"
   ]
 }

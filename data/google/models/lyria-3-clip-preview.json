@@ -16,9 +16,11 @@
     }
   ],
   "attrs": {
-    "latest_update": "March 2026",
+    "last_updated": "March 2026",
     "model_code": "lyria-3-clip-preview",
-    "summary": "Lyria 3 Clip Preview is Google&#39;s model optimized for generating short musical clips, loops, and previews. It generates 30-second high-quality, 48kHz stereo audio from text prompts or image inputs."
+    "release_date": "2026-03-25",
+    "state": "active",
+    "summary": "Lyria 3 Clip Preview is Google's model optimized for generating short musical clips, loops, and previews. It generates 30-second high-quality, 48kHz stereo audio from text prompts or image inputs."
   },
   "limits": {
     "context_window": 131072
@@ -44,6 +46,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview",
     "https://ai.google.dev/gemini-api/docs/pricing"

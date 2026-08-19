@@ -11,16 +11,39 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Morph",
+        "endpoint_tag": "morph/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.9,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.9,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Morph",
+        "endpoint_tag": "morph/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "morph",
     "canonical_slug": "morph/morph-v3-large",
-    "released": "2025-07-07",
+    "modality": "text->text",
+    "release_date": "2025-07-07",
     "summary": "Morph's high-accuracy apply model for complex code edits.",
     "tokenizer": "Other"
   },
@@ -30,6 +53,15 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "morph/fp8"
+    ],
+    "endpoints": [
+      "Morph"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -48,9 +80,17 @@
       "structured_outputs",
       "temperature",
       "top_logprobs"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/morph/morph-v3-large/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

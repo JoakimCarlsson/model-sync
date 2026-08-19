@@ -11,10 +11,50 @@
       "currency": "USD"
     },
     {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00006,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     },
     {
       "metric": "output_tokens",
@@ -23,18 +63,59 @@
       "currency": "USD"
     },
     {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 14,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
     }
   ],
   "attrs": {
     "author": "google",
     "canonical_slug": "google/gemini-3.1-flash-image-20260528",
+    "modality": "text+image->text+image",
     "reasoning_default_effort": "minimal",
     "reasoning_default_enabled": "true",
-    "released": "2026-06-18",
+    "release_date": "2026-06-18",
     "summary": "Gemini 3.1 Flash Image, a.k.a.",
     "tokenizer": "Gemini"
   },
@@ -44,6 +125,14 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "google-ai-studio",
+      "google-vertex/global"
+    ],
+    "endpoints": [
+      "Google",
+      "Google AI Studio"
+    ],
     "features": [
       "json_mode",
       "reasoning",
@@ -69,12 +158,17 @@
       "temperature",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
     "reasoning_efforts": [
       "high",
       "minimal"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemini-3.1-flash-image-20260528/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

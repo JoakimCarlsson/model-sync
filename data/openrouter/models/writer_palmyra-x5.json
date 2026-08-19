@@ -11,17 +11,38 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
     }
   ],
   "attrs": {
     "author": "writer",
     "canonical_slug": "writer/palmyra-x5-20250428",
     "is_moderated": "true",
-    "released": "2026-01-21",
+    "modality": "text->text",
+    "release_date": "2026-01-21",
     "summary": "Palmyra X5 is Writer's most advanced model, purpose-built for building and scaling AI agents across the enterprise.",
     "tokenizer": "Other"
   },
@@ -31,6 +52,12 @@
     "top_provider_context_window": 1040000
   },
   "lists": {
+    "endpoint_tags": [
+      "amazon-bedrock"
+    ],
+    "endpoints": [
+      "Amazon Bedrock"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -43,10 +70,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/writer/palmyra-x5-20250428/endpoints"
+    "https://openrouter.ai/api/v1/models/writer/palmyra-x5-20250428/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "phind-codellama:latest",
+    "last_updated": "2023-12-28",
+    "license": "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "33.7B",
+    "quantization": "Q4_0",
     "summary": "Code generation model based on Code Llama."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/phind-codellama/tags"
+    "https://ollama.com/library/phind-codellama/tags",
+    "https://ollama.com/library/phind-codellama:latest"
   ]
 }

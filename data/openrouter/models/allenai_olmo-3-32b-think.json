@@ -11,18 +11,43 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
     "author": "allenai",
     "canonical_slug": "allenai/olmo-3-32b-think-20251121",
+    "default_temperature": "0.6",
+    "default_top_p": "0.95",
     "hugging_face_id": "allenai/Olmo-3-32B-Think",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-11-21",
+    "release_date": "2025-11-21",
     "summary": "Olmo 3 32B Think is a large-scale, 32-billion-parameter model purpose-built for deep reasoning, complex logic chains and advanced instruction-following scenarios.",
     "tokenizer": "Other"
   },
@@ -32,6 +57,12 @@
     "top_provider_context_window": 65536
   },
   "lists": {
+    "endpoint_tags": [
+      "parasail/bf16"
+    ],
+    "endpoints": [
+      "Parasail"
+    ],
     "features": [
       "json_mode",
       "reasoning",
@@ -58,9 +89,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/allenai/olmo-3-32b-think-20251121/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

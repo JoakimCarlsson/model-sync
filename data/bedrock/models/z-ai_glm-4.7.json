@@ -1281,9 +1281,9 @@
   ],
   "attrs": {
     "author": "Z AI",
-    "lifecycle_state": "active",
-    "released": "Dec 22, 2025",
-    "retirement_date": "N/A",
+    "model_id": "zai.glm-4.7",
+    "release_date": "2025-12-22",
+    "state": "active",
     "summary": "GLM 4.7 is Z.AI's large language model with strong multilingual capabilities and solid performance on reasoning, coding, and knowledge benchmarks. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -1294,6 +1294,18 @@
     "aliases": [
       "zai.glm-4.7"
     ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",
@@ -1303,6 +1315,7 @@
     ],
     "features": [
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
@@ -1312,14 +1325,46 @@
       "streaming",
       "structured_outputs"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-zai-glm-4-7.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

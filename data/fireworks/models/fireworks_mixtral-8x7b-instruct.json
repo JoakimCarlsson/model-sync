@@ -1,0 +1,43 @@
+{
+  "id": "fireworks/mixtral-8x7b-instruct",
+  "provider": "fireworks",
+  "name": "Mixtral MoE 8x7B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Mistral",
+    "calibrated": "false",
+    "hugging_face_id": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+    "license": "Apache 2.0",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/mixtral-8x7b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/mixtral-8x7b-instruct",
+    "open_weights": "true",
+    "parameter_count": "46.7B",
+    "release_date": "2023-12-11",
+    "state": "active",
+    "summary": "Mixtral MoE 8x7B Instruct is the instruction-tuned version of Mixtral MoE 8x7B and has the chat completions API enabled."
+  },
+  "limits": {
+    "context_window": 32768
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/mixtral-8x7b-instruct"
+  ]
+}

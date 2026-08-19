@@ -21,10 +21,53 @@ const UnitPer1MTokens catalog.Unit = "per_1m_tokens"
 // KindChat is the only kind DeepSeek publishes.
 const KindChat catalog.Kind = "chat"
 
+// DimPeriod is the axis DeepSeek varies every rate along: the hour of the day
+// a request is made in. It has no analogue at any other provider, so it is a
+// dimension rather than a metric of its own.
+const DimPeriod = "period"
+
+// The two values of DimPeriod, as the pricing table heads them.
+const (
+	PeriodPeak    = "peak"
+	PeriodOffPeak = "off_peak"
+)
+
 // Scalar keys the pricing page populates.
 const (
-	AttrModelVersion = "model_version"
-	AttrThinkingMode = "thinking_mode"
+	AttrModelVersion     = "model_version"
+	AttrDefaultSnapshot  = "default_snapshot"
+	AttrThinkingMode     = "thinking_mode"
+	AttrBaseURL          = "base_url"
+	AttrAnthropicBaseURL = "anthropic_base_url"
+	AttrFIMModes         = "fim_completion_modes"
+)
+
+// Scalar keys the change log populates.
+const (
+	AttrSummary     = "summary"
+	AttrState       = "state"
+	AttrReleaseDate = "release_date"
+)
+
+// Scalar keys the model card populates.
+const (
+	AttrLicense             = "license"
+	AttrOpenWeights         = "open_weights"
+	AttrHuggingFaceID       = "hugging_face_id"
+	AttrModelCardURL        = "model_card_url"
+	AttrQuantization        = "quantization"
+	AttrTotalParameters     = "total_parameters"
+	AttrActivatedParameters = "activated_parameters"
+	AttrTechnicalReportURL  = "technical_report_url"
+)
+
+// Scalar keys the guides populate.
+const (
+	AttrBetaBaseURL            = "beta_base_url"
+	AttrThinkingModeDefault    = "thinking_mode_default"
+	AttrDefaultReasoningEffort = "default_reasoning_effort"
+	AttrConcurrencyScope       = "concurrency_limit_scope"
+	AttrContextCacheLifetime   = "context_cache_lifetime"
 )
 
 // Numeric keys the pricing page populates.
@@ -32,6 +75,19 @@ const (
 	LimitContextWindow   = "context_window"
 	LimitMaxOutputTokens = "max_output_tokens"
 	LimitConcurrency     = "concurrency_limit"
+)
+
+// Numeric keys the guides populate.
+const (
+	// LimitConcurrencyPerUserID is the second concurrency ceiling, applied to
+	// each user_id an expanded account passes rather than to the account.
+	LimitConcurrencyPerUserID = "concurrency_limit_per_user_id"
+	// LimitFIMMaxOutputTokens is the output ceiling of the beta FIM endpoint,
+	// which is far below the ceiling of the chat endpoints.
+	LimitFIMMaxOutputTokens = "fim_max_output_tokens"
+	// LimitInferenceStartTimeout is how long a queued request is held open
+	// before the server closes the connection.
+	LimitInferenceStartTimeout = "inference_start_timeout_seconds"
 )
 
 // Enumeration keys the pricing table populates.
@@ -43,10 +99,26 @@ const (
 	ListEndpoints = "endpoints"
 )
 
-// Enumeration keys the Responses API guide populates.
+// Enumeration keys the guides populate.
 const (
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	// ListParameters holds the Responses API request parameters DeepSeek
+	// states it honours.
+	ListParameters = catalog.ListParameters
+	// ListReasoningEfforts holds the effort levels the thinking mode accepts.
+	ListReasoningEfforts = "reasoning_efforts"
+	// ListThinkingUnsupported holds the sampling parameters the thinking mode
+	// accepts without acting on.
+	ListThinkingUnsupported = "thinking_mode_unsupported_parameters"
+)
+
+// Capabilities DeepSeek names that the catalog has no constant for.
+const (
+	FeatureChatPrefixCompletion = "chat_prefix_completion"
+	FeatureFIMCompletion        = "fim_completion"
+	FeatureWebSearch            = "web_search"
+	FeatureContextCaching       = "context_caching"
 )
 
 // Modalities DeepSeek names a content part for.
@@ -55,21 +127,28 @@ const (
 	ModalityImage = "image"
 )
 
+// The APIs DeepSeek states a base URL or a support tick for.
+const (
+	EndpointOpenAI    = "OpenAI"
+	EndpointAnthropic = "Anthropic"
+	EndpointResponses = "Responses"
+)
+
 // featureNames map a row label onto the catalog's vocabulary. DeepSeek heads a
 // row with prose, so the label is not an identifier and is translated into
 // one; anything not listed keeps DeepSeek's own words with its punctuation and
 // spacing reduced.
 var featureNames = map[string]string{
 	"tool calls":                   catalog.CapabilityFunctionCalling,
-	"json output":                  catalog.CapabilityStructuredOutputs,
-	"chat prefix completion（beta）": "prefix",
+	"chat prefix completion（beta）": FeatureChatPrefixCompletion,
+	"fim completion（beta）":         FeatureFIMCompletion,
 }
 
 // endpointLabels are the rows naming an API a model answers on rather than
 // something the model can do.
 var endpointLabels = map[string]string{
-	"anthropic api": "Anthropic",
-	"responses api": "Responses",
+	"anthropic api": EndpointAnthropic,
+	"responses api": EndpointResponses,
 }
 
 // labelWordRe matches whatever in a row label is not part of an identifier,
@@ -86,13 +165,6 @@ func featureName(label string) string {
 
 // supported is the mark DeepSeek uses for a capability a model has.
 const supported = "✓"
-
-// rateRows maps a row label onto what that row's amounts are charged for.
-var rateRows = map[string]catalog.Metric{
-	"1m input tokens (cache hit)":  MetricCachedInputTokens,
-	"1m input tokens (cache miss)": MetricInputTokens,
-	"1m output tokens":             MetricOutputTokens,
-}
 
 var (
 	rowRe    = regexp.MustCompile(`(?is)<tr[^>]*>(.*?)</tr>`)
@@ -139,218 +211,6 @@ func parseCount(cell string) int64 {
 	return int64(n)
 }
 
-// applyPricing reads the pricing page.
-//
-// The page carries two tables and only the first describes models. It is laid
-// out with a model per column, so its heading row names them and every row
-// below states one fact about each. The second is the off-peak discount table,
-// which transposes that: it heads its columns with the denominations and its
-// rows with the models. Both tables head their first cell "MODEL", so reading
-// past the first would take the denominations for models and enter three of
-// them into the catalog.
-//
-// The second heading therefore ends the reading. What it introduces is a
-// discount this parser does not record.
-func (b *builder) applyPricing(doc catalog.Document) {
-	var ids []string
-	for _, match := range rowRe.FindAllStringSubmatch(string(doc.Body), -1) {
-		cells := rowCells(match[1])
-		if len(cells) < 2 {
-			continue
-		}
-		if strings.EqualFold(cells[0], "model") {
-			if len(ids) > 0 {
-				return
-			}
-			ids = cells[1:]
-			for _, id := range ids {
-				b.model(id, KindChat).AddSource(doc.URL)
-			}
-			continue
-		}
-		if len(ids) == 0 {
-			continue
-		}
-		b.applyRow(cells, ids)
-	}
-}
-
-// applyRow records one fact about every model.
-//
-// The row is read from the right because a spanning section label can precede
-// the row's own label, so the position of the values is fixed but the position
-// of the label is not.
-func (b *builder) applyRow(cells, ids []string) {
-	count := min(len(ids), len(cells)-1)
-	if count < 1 {
-		return
-	}
-	values := cells[len(cells)-count:]
-	label := rowLabel(cells[len(cells)-count-1])
-	for i, id := range ids {
-		value := values[0]
-		if i < len(values) {
-			value = values[i]
-		}
-		b.applyValue(id, label, value)
-	}
-}
-
-// applyValue records one cell against one model.
-func (b *builder) applyValue(id, label, value string) {
-	if value == "" {
-		return
-	}
-	m := b.model(id, KindChat)
-	if metric, ok := rateRows[label]; ok {
-		if amount, ok := parseAmount(value); ok {
-			m.AddPrice(catalog.Price{
-				Metric:   metric,
-				Unit:     UnitPer1MTokens,
-				Amount:   amount,
-				Currency: currency,
-			})
-		}
-		return
-	}
-	switch label {
-	case "model version":
-		m.SetAttr(AttrModelVersion, value)
-	case "thinking mode":
-		m.SetAttr(AttrThinkingMode, value)
-		if thinkingRe.MatchString(value) {
-			m.AddList(ListFeatures, catalog.CapabilityReasoning)
-		}
-	case "context length":
-		m.SetLimit(LimitContextWindow, parseCount(value))
-	case "max output":
-		m.SetLimit(LimitMaxOutputTokens, parseCount(value))
-	case "concurrency limit":
-		m.SetLimit(LimitConcurrency, parseCount(value))
-	default:
-		if !strings.Contains(value, supported) || label == "" {
-			return
-		}
-		if endpoint, ok := endpointLabels[label]; ok {
-			m.AddList(ListEndpoints, endpoint)
-			return
-		}
-		m.AddList(ListFeatures, featureName(label))
-	}
-}
-
-// thinkingRe matches a thinking mode row stating that the model thinks.
-//
-// The row is prose rather than a tick, because DeepSeek has more to say than
-// yes: its models support thinking and non-thinking modes and default to one
-// of them. The whole sentence is kept as an attribute, and this reads the part
-// of it that is the capability every other provider states in one word.
-var thinkingRe = regexp.MustCompile(`(?i)\bsupports\b.*\bthinking\b`)
-
-// footnoteRe matches the reference marker DeepSeek appends to a row label.
-var footnoteRe = regexp.MustCompile(`\(\d+\)$`)
-
-// rowLabel normalizes the cell naming a row, dropping the footnote marker that
-// would otherwise make "Concurrency Limit(2)" a different label from the one
-// it is.
-func rowLabel(cell string) string {
-	return strings.ToLower(
-		strings.TrimSpace(
-			footnoteRe.ReplaceAllString(strings.TrimSpace(cell), ""),
-		),
-	)
-}
-
-// headingRe matches a section heading of the change log, which is where
-// DeepSeek writes a model's name.
-var headingRe = regexp.MustCompile(`(?is)<h[23][^>]*>(.*?)</h[23]\s*>`)
-
-// anchorRe matches the permalink the site puts inside every heading, which is
-// not part of the heading's text.
-var anchorRe = regexp.MustCompile(`(?is)<a\b.*?</a\s*>`)
-
-// updateSuffix is what the change log appends to a heading naming a model.
-const updateSuffix = " update"
-
-// applyChangeLog reads each model's name.
-//
-// The pricing table heads its columns with the identifier, so the name is not
-// on it. The change log heads the entry for a release with the model's name,
-// written as DeepSeek writes it rather than as the identifier is spelled, and
-// a heading is taken only where it is the identifier of a model the pricing
-// page already stated. That is what keeps "DeepSeek-V4", the heading of the
-// release that introduced both models, and the headings of the models
-// withdrawn before them, from naming anything.
-func (b *builder) applyChangeLog(doc catalog.Document) {
-	for _, match := range headingRe.FindAllStringSubmatch(string(doc.Body), -1) {
-		name := text(anchorRe.ReplaceAllString(match[1], ""))
-		id := strings.TrimSuffix(strings.ToLower(name), updateSuffix)
-		m, ok := b.models[id]
-		if !ok || m.Name != "" {
-			continue
-		}
-		m.Name = name[:len(id)]
-		m.AddSource(doc.URL)
-	}
-}
-
-// contentParts map a content part onto the modality it carries and the
-// enumeration that modality belongs in.
-var contentParts = map[string]struct {
-	list     string
-	modality string
-}{
-	"input_text":  {ListInputModalities, ModalityText},
-	"input_image": {ListInputModalities, ModalityImage},
-	"output_text": {ListOutputModalities, ModalityText},
-}
-
-// messageRow heads the row of the input item table stating what a message
-// carries, and unsupported marks a sentence denying support.
-const (
-	messageRow  = "message"
-	unsupported = "not supported"
-)
-
-// applyResponsesGuide reads what the models take and what they return.
-//
-// DeepSeek states no modality against a model, because both models answer the
-// one API. What it does state is the content parts that API carries, in a
-// table of input items whose message row names input_text and output_text and
-// then says, in the sentence after, that image and file inputs are not
-// supported. The row is therefore read a sentence at a time and a sentence
-// denying support is skipped, so that the input_image named inside that one is
-// not read as something the models accept.
-func (b *builder) applyResponsesGuide(doc catalog.Document) {
-	for _, match := range rowRe.FindAllStringSubmatch(string(doc.Body), -1) {
-		cells := rowCells(match[1])
-		if len(cells) < 2 || !strings.EqualFold(cells[0], messageRow) {
-			continue
-		}
-		for _, sentence := range strings.Split(cells[1], ". ") {
-			if strings.Contains(strings.ToLower(sentence), unsupported) {
-				continue
-			}
-			b.applyContentParts(doc.URL, sentence)
-		}
-	}
-}
-
-// applyContentParts records the modality of every content part one sentence
-// names, against every model, since the sentence describes the API rather than
-// a model.
-func (b *builder) applyContentParts(source, sentence string) {
-	for name, part := range contentParts {
-		if !strings.Contains(sentence, name) {
-			continue
-		}
-		for _, m := range b.models {
-			m.AddList(part.list, part.modality)
-			m.AddSource(source)
-		}
-	}
-}
-
 // rowCells returns the text of one row's cells.
 func rowCells(row string) []string {
 	matches := cellRe.FindAllStringSubmatch(row, -1)
@@ -359,4 +219,13 @@ func rowCells(row string) []string {
 		out = append(out, text(m[1]))
 	}
 	return out
+}
+
+// firstSentence returns the leading sentence of a paragraph, which is what
+// DeepSeek's prose puts the fact in and what follows it enlarges on.
+func firstSentence(prose string) string {
+	if i := strings.Index(prose, ". "); i >= 0 {
+		return prose[:i+1]
+	}
+	return prose
 }

@@ -11,24 +11,91 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Arcee AI",
+        "endpoint_tag": "arcee-ai"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.22,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Arcee AI",
+        "endpoint_tag": "arcee-ai"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.22,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.85,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Arcee AI",
+        "endpoint_tag": "arcee-ai"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.85,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp4",
+        "quantization": "fp4"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "25.8",
     "author": "arcee-ai",
     "canonical_slug": "arcee-ai/trinity-large-thinking",
+    "default_temperature": "0.3",
+    "default_top_p": "0.8",
     "hugging_face_id": "arcee-ai/Trinity-Large-Thinking",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2026-04-01",
+    "release_date": "2026-04-01",
     "summary": "Trinity Large Thinking is a powerful open source reasoning model from the team at Arcee AI.",
     "tokenizer": "Other"
   },
@@ -38,6 +105,17 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "arcee-ai",
+      "parasail/fp4"
+    ],
+    "endpoints": [
+      "Arcee AI",
+      "Parasail"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -70,9 +148,17 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp4"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/arcee-ai/trinity-large-thinking/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AI21",
+        "endpoint_tag": "ai21/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 8,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "AI21",
+        "endpoint_tag": "ai21/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +44,8 @@
     "canonical_slug": "ai21/jamba-large-1.7",
     "hugging_face_id": "ai21labs/AI21-Jamba-Large-1.7",
     "knowledge_cutoff": "2024-08-31",
-    "released": "2025-08-08",
+    "modality": "text->text",
+    "release_date": "2025-08-08",
     "summary": "Jamba Large 1.7 is the latest model in the Jamba open family, offering improvements in grounding, instruction-following, and overall efficiency.",
     "tokenizer": "Other"
   },
@@ -32,6 +55,12 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "endpoint_tags": [
+      "ai21/fp8"
+    ],
+    "endpoints": [
+      "AI21"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -51,9 +80,17 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "IL"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/ai21/jamba-large-1.7/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

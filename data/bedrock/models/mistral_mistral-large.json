@@ -187,9 +187,10 @@
   ],
   "attrs": {
     "author": "Mistral",
-    "lifecycle_state": "active",
-    "released": "Feb 26, 2024",
-    "retirement_date": "No sooner than 4/3/2025",
+    "model_id": "mistral.mistral-large-2402-v1:0",
+    "release_date": "2024-02-26",
+    "retirement_date": "2025-04-03",
+    "state": "active",
     "summary": "Mistral Large is Mistral AI's flagship model with strong reasoning, multilingual support, and a 32K context window for complex enterprise tasks. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -215,11 +216,38 @@
       "prompt_management",
       "streaming"
     ],
+    "in_region_regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [

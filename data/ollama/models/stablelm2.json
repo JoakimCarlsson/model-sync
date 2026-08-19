@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "stablelm",
+    "default_snapshot": "stablelm2:latest",
+    "last_updated": "2024-05-07",
+    "license": "STABILITY AI NON-COMMERCIAL RESEARCH COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "1.64B",
+    "quantization": "Q4_0",
     "summary": "Stable LM 2 is a state-of-the-art 1.6B and 12B parameter language model trained on multilingual data in English, Spanish, German, Italian, French, Portuguese, and Dutch."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/stablelm2/tags"
+    "https://ollama.com/library/stablelm2/tags",
+    "https://ollama.com/library/stablelm2:latest"
   ]
 }

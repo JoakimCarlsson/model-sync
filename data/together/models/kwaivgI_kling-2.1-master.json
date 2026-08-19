@@ -16,19 +16,31 @@
     }
   ],
   "attrs": {
-    "author": "Kuaishou"
+    "author": "Kuaishou",
+    "category": "Video",
+    "summary": "Premium master-quality video generation with 1080p resolution."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/kling-2-1-master"
   ]
 }

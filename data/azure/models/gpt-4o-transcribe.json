@@ -1,6 +1,7 @@
 {
   "id": "gpt-4o-transcribe",
   "provider": "azure",
+  "name": "gpt-4o-transcribe",
   "kind": "transcription",
   "prices": [
     {
@@ -1625,18 +1626,161 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "author": "OpenAI",
+    "catalog_added_on": "2025-04-15",
+    "fine_tuning_deployment_retirement_date": "2027-10-01",
+    "fine_tuning_training_retirement_date": "No earlier than 2027-04-01",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
+    "product": "Azure OpenAI",
+    "publisher": "OpenAI",
+    "recommended_replacement": "gpt-5.1",
+    "release_date": "2025-03-20",
+    "retirement_date": "2026-10-15",
+    "state": "active",
+    "summary": "A cutting-edge speech-to-text solution that deliverables reliable and accurate transcripts.",
+    "training_data_cutoff": "October 2023",
+    "version": "2025-03-20"
+  },
+  "limits": {
+    "context_window": 16000,
+    "max_output_tokens": 2000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneBatch",
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "GlobalBatch",
+      "GlobalStandard",
+      "ProvisionedManaged",
+      "Standard"
+    ],
+    "features": [
+      "agents",
+      "agents_v2",
+      "assistants",
+      "fine_tuning",
+      "function_calling",
+      "json_mode",
+      "parallel_tool_calls",
+      "streaming",
+      "structured_outputs"
+    ],
     "input_modalities": [
-      "audio"
+      "audio",
+      "image",
+      "text"
+    ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "af",
+      "ar",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "bs",
+      "ca",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "el",
+      "en",
+      "es",
+      "et",
+      "fa",
+      "fi",
+      "fr",
+      "gl",
+      "he",
+      "hi",
+      "hr",
+      "hu",
+      "hy",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "kk",
+      "kn",
+      "ko",
+      "lt",
+      "lv",
+      "mi",
+      "mk",
+      "mr",
+      "ms",
+      "ne",
+      "nl",
+      "no",
+      "pa",
+      "pl",
+      "pt",
+      "ro",
+      "ru",
+      "sk",
+      "sl",
+      "sr",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "th",
+      "tl",
+      "tr",
+      "uk",
+      "ur",
+      "vi",
+      "zh"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses",
+      "speech-to-text"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

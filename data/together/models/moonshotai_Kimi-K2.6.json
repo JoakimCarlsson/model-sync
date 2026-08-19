@@ -24,14 +24,29 @@
     }
   ],
   "attrs": {
+    "active_parameter_count": "32B",
     "author": "Moonshot",
+    "category": "Chat",
+    "dedicated_hardware": "8xnvidia-b200-180gb",
+    "hugging_face_id": "moonshotai/Kimi-K2.6",
+    "intelligence": "High",
+    "model_card_url": "https://huggingface.co/moonshotai/Kimi-K2.6",
+    "parameter_count": "1T",
     "quantization": "FP4",
-    "reasoning_mode": "hybrid (on by default)"
+    "reasoning_mode": "hybrid (on by default)",
+    "release_date": "2026-04-20",
+    "serverless_since": "2026-04-22",
+    "speed": "High",
+    "summary": "1T parameter (32B activated) native multimodal agentic model with long-horizon coding, Agent Swarm scaling to 300 sub-agents, 256K context, and thinking mode."
   },
   "limits": {
     "context_window": 262144
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -45,11 +60,23 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "LLM",
+      "Reasoning",
+      "Vision"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/kimi-k26"
   ]
 }

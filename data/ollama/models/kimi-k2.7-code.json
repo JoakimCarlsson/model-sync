@@ -4,7 +4,10 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
-    "summary": "Kimi K2.7 Code is Moonshot AI&#39;s coding-focused agentic model built upon Kimi K2.6, with substantial improvements on real-world long-horizon coding tasks and roughly 30% lower thinking-token usage.",
+    "default_snapshot": "kimi-k2.7-code:cloud",
+    "last_updated": "2026-06-13",
+    "parameter_count": "1.04T",
+    "summary": "Kimi K2.7 Code is Moonshot AI's coding-focused agentic model built upon Kimi K2.6, with substantial improvements on real-world long-horizon coding tasks and roughly 30% lower thinking-token usage.",
     "usage_level": "high",
     "usage_level_rank": "3"
   },

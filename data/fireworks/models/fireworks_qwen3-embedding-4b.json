@@ -1,0 +1,35 @@
+{
+  "id": "fireworks/qwen3-embedding-4b",
+  "provider": "fireworks",
+  "name": "Qwen3 Embedding 4B",
+  "kind": "embedding",
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "mixture_of_experts": "false",
+    "model_kind": "Embedding model",
+    "model_path": "accounts/fireworks/models/qwen3-embedding-4b",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen3-embedding-4b",
+    "parameter_count": "4.41B",
+    "release_date": "2025-10-07",
+    "state": "active",
+    "summary": "significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining"
+  },
+  "limits": {
+    "context_window": 40960
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://fireworks.ai/models/fireworks/qwen3-embedding-4b"
+  ]
+}

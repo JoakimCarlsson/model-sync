@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +43,8 @@
     "hugging_face_id": "Qwen/Qwen2.5-Coder-32B-Instruct",
     "instruct_type": "chatml",
     "knowledge_cutoff": "2024-06-30",
-    "released": "2024-11-11",
+    "modality": "text->text",
+    "release_date": "2024-11-11",
     "summary": "Qwen2.5-Coder is the latest series of Code-Specific Qwen large language models (formerly known as CodeQwen).",
     "tokenizer": "Qwen"
   },
@@ -33,6 +54,12 @@
     "top_provider_context_window": 32768
   },
   "lists": {
+    "endpoint_tags": [
+      "cloudflare"
+    ],
+    "endpoints": [
+      "Cloudflare"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -51,10 +78,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/qwen/qwen-2.5-coder-32b-instruct/endpoints"
+    "https://openrouter.ai/api/v1/models/qwen/qwen-2.5-coder-32b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

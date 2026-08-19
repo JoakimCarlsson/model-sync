@@ -22,6 +22,7 @@ const (
 	MetricOutputTokens      catalog.Metric = "output_tokens"
 	MetricAudioInput        catalog.Metric = "audio_input"
 	MetricSpeech            catalog.Metric = "speech"
+	MetricInputCharacters   catalog.Metric = "input_characters"
 	MetricOCR               catalog.Metric = "ocr"
 )
 
@@ -69,18 +70,42 @@ const (
 	AttrState          = "state"
 	AttrVersion        = "version"
 	AttrSummary        = "summary"
-	AttrReleased       = "released"
+	AttrReleased       = "release_date"
 	AttrLicense        = "license"
 	AttrOpenWeights    = "open_weights"
 	AttrDeprecatedOn   = "deprecated_on"
 	AttrRetirementDate = "retirement_date"
 	AttrReplacement    = "recommended_replacement"
+	// AttrDistribution records which of the three shelves Mistral files a
+	// model on: open, premier or labs.
+	AttrDistribution = "distribution"
+	// AttrHuggingFaceID and AttrLicenseURL come from the two links the weights
+	// tab puts in a model's row.
+	AttrHuggingFaceID          = "hugging_face_id"
+	AttrHuggingFaceIDBase      = "hugging_face_id_base"
+	AttrHuggingFaceIDReasoning = "hugging_face_id_reasoning"
+	AttrLicenseURL             = "license_url"
+	// Rate modifiers the pricing page states once and applies to every rate
+	// it prints.
+	AttrRegionalSurcharge = "regional_inference_surcharge"
+	AttrCachedDiscount    = "cached_input_discount"
+	AttrBatchDiscount     = "batch_discount"
 )
 
 // Numeric keys the model pages populate.
 const (
 	LimitContextWindow  = "context_window"
 	LimitMaxOutputToken = "max_output_tokens"
+	// Sizes the weights tab states for a model whose weights Mistral
+	// publishes.
+	LimitParameterCount       = "parameter_count"
+	LimitActiveParameterCount = "active_parameter_count"
+	LimitGPURAMBF16           = "min_gpu_ram_gb_bf16_full_context"
+	LimitGPURAMFP8            = "min_gpu_ram_gb_fp8_half_context"
+	LimitGPURAMFP4            = "min_gpu_ram_gb_fp4_quarter_context"
+	// Bounds the OCR guide states for an uploaded document.
+	LimitMaxDocumentPages = "max_document_pages"
+	LimitMaxFileSizeMB    = "max_file_size_mb"
 )
 
 // Enumeration keys the model pages populate.
@@ -89,6 +114,10 @@ const (
 	ListAliases          = "aliases"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	ListEndpoints        = "endpoints"
+	ListParameters       = catalog.ListParameters
+	ListLanguages        = "languages"
+	ListFileFormats      = "file_formats"
 )
 
 // badgeStates map the lifecycle badge a model page carries onto the standing
@@ -203,7 +232,7 @@ func featureName(id string) string {
 // parseCount reads a quantity such as "256k", "1M" or "8k". Mistral writes
 // "--" where a model has no such bound, which is not a zero.
 func parseCount(value string) int64 {
-	text := strings.TrimSpace(value)
+	text := strings.ReplaceAll(strings.TrimSpace(value), ",", "")
 	if text == "" || text == "--" {
 		return 0
 	}
@@ -219,6 +248,14 @@ func parseCount(value string) int64 {
 		return 0
 	}
 	return int64(n * scale)
+}
+
+// sortedUnique returns the distinct values in order, so that a list read from
+// a document does not carry the document's layout into the output.
+func sortedUnique(values []string) []string {
+	out := slices.Clone(values)
+	slices.Sort(out)
+	return slices.Compact(out)
 }
 
 // dateLayouts are the date formats Mistral writes.

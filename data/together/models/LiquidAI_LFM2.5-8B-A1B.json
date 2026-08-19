@@ -18,12 +18,20 @@
     }
   ],
   "attrs": {
-    "author": "LiquidAI"
+    "active_parameter_count": "1B",
+    "author": "LiquidAI",
+    "parameter_count": "8.5B",
+    "release_date": "2026-05-27",
+    "serverless_since": "2026-07-09",
+    "summary": "8.5B parameter (1B active) MoE model built for tool calling and instruction following, with 128K context, reasoning traces, and training that reduces hallucination through abstention."
   },
   "limits": {
     "context_window": 32768
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -36,7 +44,8 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/liquid-lfm2-5-8b-a1b"
   ]
 }

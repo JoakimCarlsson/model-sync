@@ -1,6 +1,7 @@
 {
   "id": "gpt-5.3-chat",
   "provider": "azure",
+  "name": "gpt-5.3-chat",
   "kind": "chat",
   "prices": [
     {
@@ -1292,8 +1293,14 @@
     }
   ],
   "attrs": {
+    "knowledge_cutoff": "2025-08",
     "product": "Azure OpenAI GPT5",
-    "training_data_cutoff": "August 2025"
+    "recommended_replacement": "gpt-chat-latest",
+    "release_date": "2026-03-03",
+    "retirement_date": "2026-06-29",
+    "state": "retired",
+    "training_data_cutoff": "August 2025",
+    "version": "2026-03-03"
   },
   "limits": {
     "context_window": 128000,
@@ -1312,6 +1319,7 @@
   },
   "sources": [
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

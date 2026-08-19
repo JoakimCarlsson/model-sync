@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "starling-lm:latest",
+    "last_updated": "2024-04-02",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "Starling is a large language model trained by reinforcement learning from AI feedback focused on improving chatbot helpfulness."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/starling-lm/tags"
+    "https://ollama.com/library/starling-lm/tags",
+    "https://ollama.com/library/starling-lm:latest"
   ]
 }

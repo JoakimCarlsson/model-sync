@@ -1,0 +1,64 @@
+{
+  "id": "dots-studio/dots-3-note-preview:free",
+  "provider": "openrouter",
+  "name": "Dots Studio: Dots3-Note Preview (free)",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "author": "dots-studio",
+    "canonical_slug": "dots-studio/dots-3-note-preview-20260813",
+    "is_free": "true",
+    "modality": "text+image->text",
+    "release_date": "2026-08-14",
+    "summary": "Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 512000,
+    "max_output_tokens": 512000,
+    "top_provider_context_window": 512000
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "response_format",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_p"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/dots-studio/dots-3-note-preview-20260813/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
+  ]
+}

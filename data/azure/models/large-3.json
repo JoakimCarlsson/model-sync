@@ -1414,17 +1414,38 @@
     }
   ],
   "attrs": {
-    "product": "Azure Mistral Models"
+    "author": "Mistral AI",
+    "catalog_added_on": "2025-11-22",
+    "license": "custom",
+    "product": "Azure Mistral Models",
+    "publisher": "Mistral AI",
+    "state": "preview",
+    "summary": "Mistral Large 3 is a state-of-the-art General-purpose Multimodal granular Mixture-of-Experts model with 39B active parameters, 673B total parameters featuring 128 experts per layer and Multi-Latent attention.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 4096
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
       "function_calling",
       "json_mode",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
       "image",
       "text"
+    ],
+    "keywords": [
+      "Multimodal",
+      "Multipurpose",
+      "Vision"
     ],
     "languages": [
       "ar",
@@ -1441,10 +1462,46 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

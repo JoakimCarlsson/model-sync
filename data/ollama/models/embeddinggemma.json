@@ -3,8 +3,16 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "gemma3",
     "default_embedding_dimension": "768",
-    "summary": "EmbeddingGemma is a 300M parameter embedding model from Google."
+    "default_snapshot": "embeddinggemma:latest",
+    "last_updated": "2025-09-09",
+    "license": "Gemma Terms of Use",
+    "open_weights": "true",
+    "parameter_count": "308M",
+    "quantization": "BF16",
+    "summary": "EmbeddingGemma is a 300M parameter embedding model from Google.",
+    "tokenizer": "llama"
   },
   "limits": {
     "context_window": 2000
@@ -23,6 +31,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/embeddinggemma/tags",
+    "https://ollama.com/library/embeddinggemma:latest",
     "https://ollama.com/library/embeddinggemma:latest/blobs/0800cbac9c20"
   ]
 }

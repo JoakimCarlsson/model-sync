@@ -11,17 +11,60 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 2.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
     "author": "minimax",
     "canonical_slug": "minimax/minimax-m1",
     "knowledge_cutoff": "2024-06-30",
-    "released": "2025-06-17",
+    "modality": "text->text",
+    "release_date": "2025-06-17",
     "summary": "MiniMax-M1 is a large-scale, open-weight reasoning model designed for extended context and high-efficiency inference.",
     "tokenizer": "Other"
   },
@@ -31,6 +74,17 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "minimax",
+      "novita/bf16"
+    ],
+    "endpoints": [
+      "Minimax",
+      "Novita"
+    ],
     "features": [
       "function_calling",
       "reasoning"
@@ -55,9 +109,18 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/minimax/minimax-m1/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

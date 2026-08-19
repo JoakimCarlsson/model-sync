@@ -1,0 +1,82 @@
+{
+  "id": "minimax/hailuo-3",
+  "provider": "openrouter",
+  "name": "MiniMax: H3",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Minimax",
+        "endpoint_tag": "minimax"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "minimax",
+    "canonical_slug": "minimax/hailuo-03-20260730",
+    "is_free": "true",
+    "modality": "text+image+audio+video->video",
+    "release_date": "2026-07-29",
+    "summary": "MiniMax H3 is a lightweight, open-weights video generation model from MiniMax.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "minimax"
+    ],
+    "endpoints": [
+      "Minimax"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "parameters": [
+      "max_tokens",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/minimax/hailuo-03-20260730/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

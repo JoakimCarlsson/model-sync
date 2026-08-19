@@ -16,9 +16,29 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.05,
       "currency": "USD",
       "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
         "tier": "standard"
       }
     },
@@ -33,16 +53,34 @@
     }
   ],
   "attrs": {
+    "author": "NVIDIA",
+    "calibrated": "false",
     "hugging_face_id": "nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
-    "model_url": "https://app.fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/nemotron-lightning-3p5-30b-a3b",
+    "model_url": "https://fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b",
+    "open_weights": "true",
+    "parameter_count": "32.9B",
+    "release_date": "2026-08-07",
+    "state": "active",
     "summary": "Nemotron-Lightning-3.5-30B-A3B is a 30B-parameter Mixture-of-Experts language model (3B active) from NVIDIA's Nemotron-H family, built on a hybrid Mamba-Transformer architecture for efficient long-context inference. Like other models in the family, it responds to queries by first generating a reasoning trace and then concluding with a final response, with reasoning behavior configurable through a flag in the chat template. It includes a multi-token prediction (MTP) speculative decoding head for low-latency serving."
   },
   "limits": {
-    "context_window": 262144
+    "context_window": 262144,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
   },
   "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
     "features": [
       "function_calling",
+      "grammar_mode",
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -53,8 +91,10 @@
     ]
   },
   "sources": [
-    "https://app.fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b",
+    "https://docs.fireworks.ai/serverless/overview.md",
     "https://docs.fireworks.ai/serverless/pricing.md",
-    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/nemotron-lightning-3p5-30b-a3b"
   ]
 }

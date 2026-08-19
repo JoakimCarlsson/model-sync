@@ -88,10 +88,16 @@
   "attrs": {
     "default_snapshot": "gpt-4.1-nano-2025-04-14",
     "knowledge_cutoff": "2024-06-01",
+    "last_updated": "2025-04-14",
     "state": "active",
     "summary": "Fastest, most cost-efficient version of GPT-4.1"
   },
   "limits": {
+    "batch_queue_limit_long_context_tier_1": 5000000,
+    "batch_queue_limit_long_context_tier_2": 40000000,
+    "batch_queue_limit_long_context_tier_3": 80000000,
+    "batch_queue_limit_long_context_tier_4": 200000000,
+    "batch_queue_limit_long_context_tier_5": 2000000000,
     "batch_queue_limit_tier_1": 2000000,
     "batch_queue_limit_tier_2": 20000000,
     "batch_queue_limit_tier_3": 40000000,
@@ -99,17 +105,27 @@
     "batch_queue_limit_tier_5": 15000000000,
     "context_window": 1047576,
     "max_output_tokens": 32768,
-    "rpd_tier_1": 10000,
-    "rpm_tier_1": 500,
-    "rpm_tier_2": 5000,
-    "rpm_tier_3": 5000,
-    "rpm_tier_4": 10000,
-    "rpm_tier_5": 30000,
-    "tpm_tier_1": 200000,
-    "tpm_tier_2": 2000000,
-    "tpm_tier_3": 4000000,
-    "tpm_tier_4": 10000000,
-    "tpm_tier_5": 150000000
+    "requests_per_day_tier_1": 10000,
+    "requests_per_minute_long_context_tier_1": 200,
+    "requests_per_minute_long_context_tier_2": 500,
+    "requests_per_minute_long_context_tier_3": 1000,
+    "requests_per_minute_long_context_tier_4": 2000,
+    "requests_per_minute_long_context_tier_5": 8000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 30000,
+    "tokens_per_minute_long_context_tier_1": 400000,
+    "tokens_per_minute_long_context_tier_2": 1000000,
+    "tokens_per_minute_long_context_tier_3": 2000000,
+    "tokens_per_minute_long_context_tier_4": 10000000,
+    "tokens_per_minute_long_context_tier_5": 20000000,
+    "tokens_per_minute_tier_1": 200000,
+    "tokens_per_minute_tier_2": 2000000,
+    "tokens_per_minute_tier_3": 4000000,
+    "tokens_per_minute_tier_4": 10000000,
+    "tokens_per_minute_tier_5": 150000000
   },
   "lists": {
     "endpoints": [
@@ -148,6 +164,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-4.1-nano.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

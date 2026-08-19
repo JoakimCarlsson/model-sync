@@ -107,14 +107,31 @@
   ],
   "attrs": {
     "default_snapshot": "davinci-002",
+    "deprecated_on": "2025-09-26",
     "knowledge_cutoff": "2021-09-01",
     "recommended_replacement": "gpt-5.6-terra",
-    "shutdown_date": "2026-09-28",
+    "retirement_date": "2026-09-28",
     "state": "deprecated",
     "summary": "Replacement for the GPT-3 curie and davinci base models"
   },
   "limits": {
-    "max_output_tokens": 16384
+    "batch_queue_limit_tier_1": 100000,
+    "batch_queue_limit_tier_2": 200000,
+    "batch_queue_limit_tier_3": 5000000,
+    "batch_queue_limit_tier_4": 30000000,
+    "batch_queue_limit_tier_5": 150000000,
+    "max_output_tokens": 16384,
+    "requests_per_day_tier_1": 10000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 10000,
+    "tokens_per_minute_tier_2": 40000,
+    "tokens_per_minute_tier_3": 80000,
+    "tokens_per_minute_tier_4": 300000,
+    "tokens_per_minute_tier_5": 1000000
   },
   "lists": {
     "endpoints": [

@@ -5,8 +5,10 @@
   "kind": "moderation",
   "attrs": {
     "deprecated_on": "2026-03-31",
+    "distribution": "premier",
+    "open_weights": "false",
     "recommended_replacement": "Mistral Moderation 2",
-    "released": "2024-11-06",
+    "release_date": "2024-11-06",
     "retirement_date": "2026-06-30",
     "state": "deprecated",
     "summary": "Our moderation service that enables our users to detect harmful text content",
@@ -16,6 +18,10 @@
     "context_window": 8000
   },
   "lists": {
+    "endpoints": [
+      "/v1/batch",
+      "/v1/moderations"
+    ],
     "features": [
       "batching",
       "moderations"

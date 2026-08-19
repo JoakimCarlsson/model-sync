@@ -1458,19 +1458,38 @@
     }
   ],
   "attrs": {
-    "product": "Cohere Models"
+    "author": "Cohere",
+    "catalog_added_on": "2026-06-23",
+    "license": "custom",
+    "product": "Cohere Models",
+    "publisher": "Cohere",
+    "retirement_date": "2026-10-13",
+    "state": "preview",
+    "summary": "Command A is a highly efficient generative model that excels at agentic and multilingual use cases.",
+    "version": "1"
   },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 64000
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "features": [
       "function_calling",
-      "reasoning"
+      "json_mode",
+      "reasoning",
+      "streaming",
+      "structured_outputs"
     ],
     "input_modalities": [
+      "image",
       "text"
+    ],
+    "keywords": [
+      "Multilingual",
+      "RAG"
     ],
     "languages": [
       "ar",
@@ -1486,10 +1505,46 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

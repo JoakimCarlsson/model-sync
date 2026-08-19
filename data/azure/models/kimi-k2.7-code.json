@@ -1920,7 +1920,16 @@
     }
   ],
   "attrs": {
-    "product": "Azure Kimi"
+    "author": "Moonshot AI",
+    "catalog_added_on": "2026-06-29",
+    "license": "other",
+    "product": "Azure Kimi",
+    "publisher": "Moonshot AI",
+    "release_date": "2026-06-12",
+    "retirement_date": "2026-10-03",
+    "state": "preview",
+    "summary": "Kimi K2.7 Code is a coding-focused agentic model built upon Kimi K2.6. With substantial improvements on real-world long-horizon coding tasks.",
+    "version": "2026-06-12"
   },
   "limits": {
     "context_window": 262144,
@@ -1928,12 +1937,21 @@
   },
   "lists": {
     "features": [
+      "agents",
+      "agents_v2",
       "function_calling",
-      "reasoning"
+      "reasoning",
+      "streaming"
     ],
     "input_modalities": [
       "image",
       "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding",
+      "Multilingual",
+      "Reasoning"
     ],
     "languages": [
       "en",
@@ -1941,10 +1959,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

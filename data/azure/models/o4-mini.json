@@ -1,6 +1,7 @@
 {
   "id": "o4-mini",
   "provider": "azure",
+  "name": "o4-mini",
   "kind": "chat",
   "prices": [
     {
@@ -4169,19 +4170,45 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-04-16",
+    "fine_tuning_deployment_retirement_date": "2027-10-16",
+    "fine_tuning_training_retirement_date": "No earlier than 2027-04-16",
+    "knowledge_cutoff": "2024-05-31",
+    "license": "custom",
     "product": "Azure OpenAI Reasoning",
-    "training_data_cutoff": "May 31, 2024"
+    "publisher": "OpenAI",
+    "release_date": "2025-04-16",
+    "retirement_date": "2026-10-16",
+    "state": "deprecated",
+    "summary": "o4-mini includes significant improvements on quality and safety while supporting the existing features of o3-mini and delivering comparable or better performance.",
+    "training_data_cutoff": "May 31, 2024",
+    "version": "2025-04-16"
   },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 100000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneBatch",
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "DeveloperTier",
+      "GlobalBatch",
+      "GlobalStandard",
+      "ProvisionedManaged",
+      "Standard"
+    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
+      "background_mode",
+      "fine_tuning",
       "function_calling",
       "reasoning",
       "structured_outputs"
@@ -4190,12 +4217,57 @@
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

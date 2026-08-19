@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "neural-chat:latest",
+    "last_updated": "2023-12-20",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "A fine-tuned model based on Mistral with good coverage of domain and language."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/neural-chat/tags"
+    "https://ollama.com/library/neural-chat/tags",
+    "https://ollama.com/library/neural-chat:latest"
   ]
 }

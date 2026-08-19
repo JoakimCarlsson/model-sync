@@ -9,9 +9,10 @@ import (
 
 // Lifecycle keys the deprecations page populates.
 const (
-	AttrState        = "state"
-	AttrShutdownDate = "shutdown_date"
-	AttrReplacement  = "recommended_replacement"
+	AttrState          = "state"
+	AttrRetirementDate = "retirement_date"
+	AttrDeprecatedOn   = "deprecated_on"
+	AttrReplacement    = "recommended_replacement"
 )
 
 // States OpenAI's lifecycle pages describe. A model is deprecated once its
@@ -115,7 +116,8 @@ func (b *builder) applyDeprecationRow(
 	m := b.model(id, "")
 	m.AddSource(t.Source)
 	m.SetAttr(AttrState, state)
-	m.SetAttr(AttrShutdownDate, isoDate(cellAt(row, dateCol)))
+	m.SetAttr(AttrRetirementDate, isoDate(cellAt(row, dateCol)))
+	m.SetAttr(AttrDeprecatedOn, t.Announced)
 	if replCol >= 0 {
 		m.SetAttr(AttrReplacement, unquote(cellAt(row, replCol)))
 	}
@@ -135,28 +137,40 @@ func (b *builder) statedDeprecation(id string) bool {
 }
 
 // deprecationTable is one table together with the top level section it sits
-// under, which is what says whether the withdrawal has happened yet.
+// under, which is what says whether the withdrawal has happened yet, and the
+// date of the announcement it appears under.
 type deprecationTable struct {
-	Section string
-	Headers []string
-	Rows    [][]string
-	Source  string
+	Section   string
+	Announced string
+	Headers   []string
+	Rows      [][]string
+	Source    string
 }
+
+// announcementRe matches the heading each announcement sits under, which opens
+// with the date OpenAI gave the notice: "### 2026-07-20: Legacy audio,
+// realtime, and transcription models". The prose under it repeats the same
+// date in words, saying that on that day developers using the models were
+// notified of their deprecation. A few headings carry no date, and a table
+// under one of those records none.
+var announcementRe = regexp.MustCompile(`^### (\d{4}-\d{2}-\d{2}):`)
 
 // scanDeprecationTables walks the page, tracking the section in force.
 func scanDeprecationTables(doc catalog.Document) []deprecationTable {
 	var (
-		out     []deprecationTable
-		section string
-		current *deprecationTable
+		out       []deprecationTable
+		section   string
+		announced string
+		current   *deprecationTable
 	)
 	for _, raw := range strings.Split(string(doc.Body), "\n") {
 		line := strings.TrimSpace(raw)
 		if strings.HasPrefix(line, "|") {
 			if current == nil {
 				out = append(out, deprecationTable{
-					Section: section,
-					Source:  doc.URL,
+					Section:   section,
+					Announced: announced,
+					Source:    doc.URL,
 				})
 				current = &out[len(out)-1]
 			}
@@ -172,7 +186,14 @@ func scanDeprecationTables(doc catalog.Document) []deprecationTable {
 		}
 		current = nil
 		if after, ok := strings.CutPrefix(line, "## "); ok {
-			section = strings.ToLower(strings.TrimSpace(after))
+			section, announced = strings.ToLower(strings.TrimSpace(after)), ""
+		}
+		if match := announcementRe.FindStringSubmatch(line); match != nil {
+			announced = match[1]
+			continue
+		}
+		if strings.HasPrefix(line, "### ") {
+			announced = ""
 		}
 	}
 	return out
@@ -194,9 +215,15 @@ func columnOf(headers, wanted []string) int {
 
 // unquote strips the code markers and any trailing parenthetical from a cell
 // naming a model, so that a replacement written as "`gpt-5.6-sol`
-// (`reasoning.mode: pro`)" yields the identifier alone.
+// (`reasoning.mode: pro`)" yields the identifier alone. A cell holding nothing
+// but a rule yields nothing: OpenAI writes one where it withdraws a model
+// without naming anything to move to, as it does for the Sora models, and
+// reading it as a name would report a replacement called "---".
 func unquote(cell string) string {
 	text := strings.TrimSpace(strings.ReplaceAll(cell, "`", ""))
+	if strings.Trim(hyphens.Replace(text), "-") == "" {
+		return ""
+	}
 	if open := strings.Index(text, " ("); open >= 0 {
 		text = text[:open]
 	}

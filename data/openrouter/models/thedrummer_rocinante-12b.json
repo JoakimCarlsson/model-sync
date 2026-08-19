@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.5,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "TheDrummer/Rocinante-12B-v1.1",
     "instruct_type": "chatml",
     "knowledge_cutoff": "2024-04-30",
-    "released": "2024-09-30",
+    "modality": "text->text",
+    "release_date": "2024-09-30",
     "summary": "Rocinante 12B is designed for engaging storytelling and rich prose.",
     "tokenizer": "Qwen"
   },
@@ -33,6 +56,12 @@
     "top_provider_context_window": 65536
   },
   "lists": {
+    "endpoint_tags": [
+      "parasail/bf16"
+    ],
+    "endpoints": [
+      "Parasail"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -58,9 +87,17 @@
       "top_k",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/thedrummer/rocinante-12b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

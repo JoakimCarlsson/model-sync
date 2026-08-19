@@ -5,6 +5,26 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1,
@@ -17,27 +37,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.2,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
       "currency": "USD",
       "dims": {
         "plan": "paid",
@@ -108,27 +108,31 @@
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "July 2026",
+    "last_updated": "July 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
     "model_code": "gemini-robotics-er-2-preview",
     "summary": "Gemini Robotics ER 2 is a vision-language model (VLM) for robotics that accepts text, image, video, and audio input. It supports spatial reasoning, video understanding, agentic code execution, multi-step tool orchestration, and multi-robot coordination."

@@ -5,11 +5,52 @@
   "kind": "chat",
   "prices": [
     {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.125,
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
       "currency": "USD",
       "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 8.1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -20,16 +61,40 @@
       "amount": 0.25,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
-        "tier": "batch"
+        "tier": "flex"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 4.5,
+      "amount": 0.45,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -40,26 +105,7 @@
       "amount": 0.125,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.25,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -70,26 +116,7 @@
       "amount": 0.225,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.45,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 8.1,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -100,26 +127,7 @@
       "amount": 0.125,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.25,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
@@ -127,29 +135,10 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0,
+      "amount": 1.25,
       "currency": "USD",
       "dims": {
-        "plan": "free",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0,
-      "currency": "USD",
-      "dims": {
-        "plan": "free",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.625,
-      "currency": "USD",
-      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -160,16 +149,7 @@
       "amount": 1.25,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.625,
-      "currency": "USD",
-      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -177,9 +157,43 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.25,
+      "amount": 4.5,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -190,16 +204,7 @@
       "amount": 2.25,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -210,22 +215,13 @@
       "amount": 1.25,
       "currency": "USD",
       "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
     },
     {
       "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 2.5,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0,
       "currency": "USD",
@@ -235,7 +231,7 @@
       }
     },
     {
-      "metric": "output_tokens",
+      "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0,
       "currency": "USD",
@@ -247,9 +243,10 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 5,
+      "amount": 7.5,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "batch"
       }
@@ -260,16 +257,7 @@
       "amount": 7.5,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 5,
-      "currency": "USD",
-      "dims": {
+        "context_band": "gt-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -277,9 +265,43 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 7.5,
+      "amount": 27,
       "currency": "USD",
       "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "context_band": "gt-200k",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "flex"
       }
@@ -290,16 +312,7 @@
       "amount": 18,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 27,
-      "currency": "USD",
-      "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "priority"
       }
@@ -310,6 +323,7 @@
       "amount": 10,
       "currency": "USD",
       "dims": {
+        "context_band": "lte-200k",
         "plan": "paid",
         "tier": "standard"
       }
@@ -317,10 +331,20 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 15,
+      "amount": 0,
       "currency": "USD",
       "dims": {
-        "plan": "paid",
+        "plan": "free",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "plan": "free",
         "tier": "standard"
       }
     },
@@ -331,8 +355,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -341,8 +367,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "flex"
-      }
+        "tier": "flex",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -351,8 +379,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "priority",
+        "tool": "google_maps"
+      },
+      "note": "10,000 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -361,8 +391,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "priority",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -371,8 +403,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_maps"
+      },
+      "note": "10,000 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -381,16 +415,24 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free)"
     }
   ],
   "attrs": {
-    "latest_update": "June 2025",
+    "default_thinking_level": "on",
+    "last_updated": "June 2025",
     "model_code": "gemini-2.5-pro",
+    "release_date": "2025-06-17",
+    "state": "active",
     "summary": "Our state-of-the-art thinking model, capable of reasoning over complex problems in code, math, and STEM, as well as analyzing large datasets, codebases, and documents using long context."
   },
   "limits": {
+    "batch_enqueued_tokens_tier_1": 5000000,
+    "batch_enqueued_tokens_tier_2": 500000000,
+    "batch_enqueued_tokens_tier_3": 1000000000,
     "context_window": 1048576,
     "max_output_tokens": 65536
   },
@@ -421,11 +463,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "thinking_levels": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "https://ai.google.dev/gemini-api/docs/thinking"
   ]
 }

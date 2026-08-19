@@ -43,9 +43,23 @@ var agentContentParts = map[string]struct{ in, out string }{
 	"output_text": {out: ModalityText},
 }
 
-// reasoningClaimRe matches prose calling a model a reasoning model or saying
-// what reasoning effort it takes.
-var reasoningClaimRe = regexp.MustCompile(`(?i)reasoning (?:model|effort)`)
+var (
+	// reasoningClaimRe matches prose calling a model a reasoning model or
+	// saying what reasoning effort it takes.
+	reasoningClaimRe = regexp.MustCompile(`(?i)reasoning (?:model|effort)`)
+	// effortClaimRe matches prose enumerating the reasoning efforts one model
+	// takes, which the model page states for one model and no other.
+	effortClaimRe = regexp.MustCompile(`(?i)accepts (.+?) reasoning effort`)
+	// backtickRe matches one backticked value of such an enumeration.
+	backtickRe = regexp.MustCompile("`([a-z]+)`")
+	// fastModeRe matches the page's statement that one model is also sold at a
+	// multiple of its listed rates on a faster tier. The multiple is not an
+	// amount and the page states no amount for it, so it is recorded as the
+	// sentence it is stated in.
+	fastModeRe = regexp.MustCompile(
+		`(?i)supports Fast mode at \S+ the listed token prices`,
+	)
+)
 
 // applyAgentCards reads the prose of the Agent API's model page. Its tables
 // carry rates and a documentation link and nothing else, but the card heading
@@ -70,7 +84,65 @@ func (b *builder) applyAgentCards(doc catalog.Document) {
 			m.AddSource(doc.URL)
 			m.SetLimit(LimitContextWindow, parseTokens(match[1], match[2]))
 		}
+		if match := effortClaimRe.FindStringSubmatch(raw); match != nil {
+			m.AddSource(doc.URL)
+			m.AddList(ListReasoningEfforts, backtickValues(match[1])...)
+		}
 	}
+	b.applyFastMode(doc)
+}
+
+// backtickValues returns the backticked values of an enumeration written in
+// prose.
+func backtickValues(text string) []string {
+	var out []string
+	for _, match := range backtickRe.FindAllStringSubmatch(text, -1) {
+		out = append(out, match[1])
+	}
+	return out
+}
+
+// applyFastMode records the model the page says is also sold on a faster tier.
+// The claim names one model, and names it in full, so the model it is about is
+// the one with the longest identifier the sentence contains rather than the
+// only one it contains: every shorter identifier of the same family is
+// contained in the longer one.
+func (b *builder) applyFastMode(doc catalog.Document) {
+	for _, raw := range strings.Split(string(doc.Body), "\n") {
+		line := clean(raw)
+		if !fastModeRe.MatchString(line) {
+			continue
+		}
+		m, ok := b.longestAgentModel(line)
+		if !ok {
+			continue
+		}
+		m.AddSource(doc.URL)
+		m.SetAttr(AttrPriorityPricing, line)
+	}
+}
+
+// longestAgentModel returns the brokered model a line names, which is the one
+// whose identifier is the longest the line contains.
+func (b *builder) longestAgentModel(line string) (*catalog.Model, bool) {
+	slug := slugID(line)
+	var found string
+	for _, id := range b.agent {
+		bare := bareID(id)
+		if strings.Contains(slug, bare) && len(bare) > len(found) {
+			found = bare
+			continue
+		}
+	}
+	if found == "" {
+		return nil, false
+	}
+	for _, id := range b.agent {
+		if bareID(id) == found {
+			return b.models[id], true
+		}
+	}
+	return nil, false
 }
 
 // lineModel returns the model a line of prose is about, and reports false

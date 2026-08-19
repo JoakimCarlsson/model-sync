@@ -1,6 +1,7 @@
 {
   "id": "gpt-aud-mn-1215",
   "provider": "azure",
+  "name": "gpt-audio-mini",
   "kind": "audio",
   "prices": [
     {
@@ -1845,25 +1846,77 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2025-10-08",
+    "knowledge_cutoff": "2023-10",
+    "license": "custom",
     "product": "Azure OpenAI Media",
-    "training_data_cutoff": "October 2023"
+    "publisher": "OpenAI",
+    "release_date": "2025-12-15",
+    "retirement_date": "2027-06-15",
+    "state": "active",
+    "summary": "Best suited for rich, asynchronous audio input/output interactions, such as creating spoken summaries from text.",
+    "training_data_cutoff": "October 2023",
+    "version": "2025-12-15"
   },
   "limits": {
     "context_window": 12800,
     "max_output_tokens": 16384
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "audio",
       "text"
     ],
+    "languages": [
+      "af",
+      "ar",
+      "bn",
+      "cy",
+      "de",
+      "el",
+      "en",
+      "es",
+      "fr",
+      "id",
+      "is",
+      "it",
+      "ja",
+      "ko",
+      "lv",
+      "mr",
+      "ne",
+      "pa",
+      "pl",
+      "ru",
+      "sw",
+      "te",
+      "th",
+      "tr",
+      "uk",
+      "ur",
+      "zh"
+    ],
     "output_modalities": [
       "audio",
       "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus2",
+      "swedencentral"
+    ],
+    "tasks": [
+      "audio-generation"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

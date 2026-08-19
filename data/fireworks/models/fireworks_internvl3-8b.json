@@ -1,0 +1,41 @@
+{
+  "id": "fireworks/internvl3-8b",
+  "provider": "fireworks",
+  "name": "InternVL3 8B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/internvl3-8b",
+    "model_url": "https://fireworks.ai/models/fireworks/internvl3-8b",
+    "parameter_count": "8B",
+    "release_date": "2025-06-09",
+    "state": "active",
+    "summary": "The InternVL3 collection of models are advanced multimodal large language models that combine superior vision and language understanding capabilities. Built with a ViT-MLP-LLM architecture, these models excel at multimodal reasoning, document analysis, video understanding, and complex visual tasks while supporting dynamic resolution processing and extended context understanding."
+  },
+  "limits": {
+    "context_window": 16384
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/internvl3-8b"
+  ]
+}

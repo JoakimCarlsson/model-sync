@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "internlm2",
+    "default_snapshot": "bespoke-minicheck:latest",
+    "last_updated": "2024-09-18",
+    "open_weights": "true",
+    "parameter_count": "7.74B",
+    "quantization": "Q4_K_M",
     "summary": "A state-of-the-art fact-checking model developed by Bespoke Labs."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/bespoke-minicheck/tags"
+    "https://ollama.com/library/bespoke-minicheck/tags",
+    "https://ollama.com/library/bespoke-minicheck:latest"
   ]
 }

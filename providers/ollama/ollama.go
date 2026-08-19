@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"path"
 	"path/filepath"
 	"slices"
 	"strings"
@@ -61,13 +60,17 @@ func (p *Provider) Name() string { return providerName }
 //
 // The library says which models exist, what each can do and where each runs,
 // and states no bound on any of them. A model's tag listing states one per
-// build, so the listings are fetched too, one per model.
+// build, so the listings are fetched too, one per model. The listing is also
+// what names the build Ollama serves by default, and that build's own page is
+// the only place the weights are described, so the listings are read for their
+// default row and a page fetched for every build it names.
 //
-// Two sets of pages are fetched on top of those, each for the models it says
-// anything about. A model Ollama runs itself is the only kind with a price, so
-// its own page is fetched for the rate or the usage level it quotes. And an
-// embedding model's width is on the metadata page of its model layer, which is
-// reached through the page of the build that layer belongs to.
+// Two further sets are fetched, each for the models it says anything about. A
+// model Ollama runs itself is the only kind with a price, so its own page is
+// fetched for the rate or the usage level it quotes. And an embedding model's
+// width is on the metadata page of its model layer, which the build page names
+// and which is fetched for the embedding models alone, since the layer page
+// carries a row per tensor and is far the largest document Ollama serves.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	library, err := p.get(ctx, LibraryURL)
 	if err != nil {
@@ -80,12 +83,32 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	urls = append(urls, index.urlsWithAttr(AttrCloud)...)
 	docs, failures := p.getAll(ctx, urls)
 
-	widths, widthFailures := p.fetchWidths(ctx, index, docs)
+	builds, buildFailures := p.getAll(ctx, buildURLs(docs))
+	docs = append(docs, builds...)
+	failures = append(failures, buildFailures...)
+
+	widths, widthFailures := p.fetchWidths(ctx, index, builds)
 	docs = append(docs, widths...)
 	failures = append(failures, widthFailures...)
 
 	return append([]catalog.Document{library}, docs...),
 		errors.Join(failures...)
+}
+
+// buildURLs gives the page of the build every tag listing names as its
+// default, which is the build running the model plainly gives and so the one
+// whose weights are the model's.
+func buildURLs(listings []catalog.Document) []string {
+	var urls []string
+	for _, doc := range listings {
+		if !strings.HasSuffix(doc.URL, tagsPath) {
+			continue
+		}
+		if row := defaultRow(doc.Body); row != nil {
+			urls = append(urls, baseURL+"/library/"+row[1])
+		}
+	}
+	return urls
 }
 
 // urlsWithAttr gives the page of every model the library marked with attr.
@@ -100,37 +123,25 @@ func (b *builder) urlsWithAttr(attr string) []string {
 }
 
 // fetchWidths retrieves the metadata page of every embedding model's model
-// layer, which takes two rounds: the build's page is what names the layer, and
-// the layer's page is what states the width. The listings are the ones already
-// fetched, since they are what name the build.
+// layer, which the build's page names and which is the only page stating the
+// width of the vector the model returns. The build pages are the ones already
+// fetched, since every model has one read for its weights.
 func (p *Provider) fetchWidths(
 	ctx context.Context,
 	index *builder,
-	listings []catalog.Document,
+	builds []catalog.Document,
 ) ([]catalog.Document, []error) {
-	var builds []string
-	for _, doc := range listings {
-		if !strings.HasSuffix(doc.URL, tagsPath) {
-			continue
-		}
-		m, ok := index.models[path.Base(strings.TrimSuffix(doc.URL, tagsPath))]
+	var layers []string
+	for _, doc := range builds {
+		m, ok := index.models[buildModelID(doc.URL)]
 		if !ok || m.Kind != KindEmbedding {
 			continue
 		}
-		if row := defaultRow(doc.Body); row != nil {
-			builds = append(builds, baseURL+"/library/"+row[1])
-		}
-	}
-	docs, failures := p.getAll(ctx, builds)
-
-	var layers []string
-	for _, doc := range docs {
 		if match := modelBlobRe.FindSubmatch(doc.Body); match != nil {
 			layers = append(layers, baseURL+string(match[1]))
 		}
 	}
-	pages, layerFailures := p.getAll(ctx, layers)
-	return pages, append(failures, layerFailures...)
+	return p.getAll(ctx, layers)
 }
 
 // tagListingURLs derives the tag listing of every model the library names.
@@ -225,9 +236,10 @@ func (p *Provider) get(
 
 // Parse reads the library first, because it is the only document naming the
 // models, then every other document onto the model it belongs to, which its
-// URL says: a tag listing is filed under the model, a layer's metadata under
-// the build it came from, and the one page stating a capability the library
-// has no tag for is filed under neither.
+// URL says: a tag listing is filed under the model, a build's page under the
+// model its tag names, a layer's metadata under the build it came from, and
+// the one page stating a capability the library has no tag for is filed under
+// neither.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -244,6 +256,8 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyBlob(doc)
 		case strings.HasSuffix(doc.URL, tagsPath):
 			b.applyTagListing(doc)
+		case isBuildURL(doc.URL):
+			b.applyBuildPage(doc)
 		default:
 			b.applyModelPage(doc)
 		}

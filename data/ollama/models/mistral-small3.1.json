@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "mistral3",
+    "default_snapshot": "mistral-small3.1:latest",
+    "last_updated": "2025-04-07",
+    "open_weights": "true",
+    "parameter_count": "24B",
+    "quantization": "Q4_K_M",
     "summary": "Building upon Mistral Small 3, Mistral Small 3.1 (2503) adds state-of-the-art vision understanding and enhances long context capabilities up to 128k tokens without compromising text performance."
   },
   "limits": {
@@ -27,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/mistral-small3.1/tags"
+    "https://ollama.com/library/mistral-small3.1/tags",
+    "https://ollama.com/library/mistral-small3.1:latest"
   ]
 }

@@ -29,10 +29,20 @@ const (
 	AttrSummary  = "summary"
 	AttrState    = "state"
 	AttrDuration = "approximate_audio_duration"
+	// AttrReplacement is the model ElevenLabs names in place of a withdrawn
+	// one, which is the only forward pointer it publishes for a model it is
+	// taking away.
+	AttrReplacement = "recommended_replacement"
 )
 
 // Numeric keys the models page populates.
 const LimitCharacterLimit = "character_limit"
+
+// limitConcurrency prefixes the plan a concurrency limit belongs to. Every
+// other bound here is the same for everyone; this one is the only thing
+// ElevenLabs varies by what a customer pays, so the plan is part of the key
+// rather than a separate model.
+const limitConcurrency = "concurrent_requests_"
 
 // ListLanguages holds the languages a model supports, where ElevenLabs names
 // them rather than giving a count.
@@ -132,13 +142,15 @@ func (b *builder) applyModels(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
 		idCol := columnOf(t.Headers, "model id")
 		if idCol < 0 {
+			b.applyConcurrency(t)
 			continue
 		}
 		var (
-			descCol  = columnOf(t.Headers, "description")
-			langCol  = columnOf(t.Headers, "languages")
-			limitCol = columnOf(t.Headers, "character limit")
-			durCol   = columnOf(t.Headers, "approximate audio duration")
+			descCol    = columnOf(t.Headers, "description")
+			langCol    = columnOf(t.Headers, "languages")
+			limitCol   = columnOf(t.Headers, "character limit")
+			durCol     = columnOf(t.Headers, "approximate audio duration")
+			replaceCol = columnOf(t.Headers, "replacement model suggestion")
 		)
 		for _, row := range t.Rows {
 			id := clean(cellAt(row, idCol))
@@ -153,7 +165,11 @@ func (b *builder) applyModels(doc catalog.Document) {
 			m.SetAttr(AttrSummary, clean(cellAt(row, descCol)))
 			m.SetAttr(AttrDuration, clean(cellAt(row, durCol)))
 			m.SetLimit(LimitCharacterLimit, parseCount(cellAt(row, limitCol)))
-			m.AddList(ListLanguages, b.languagesOf(cellAt(row, langCol))...)
+			m.AddList(
+				ListLanguages,
+				b.languagesOf(docPath(t.Source), cellAt(row, langCol))...,
+			)
+			m.SetAttr(AttrReplacement, clean(cellAt(row, replaceCol)))
 			if t.Section == sectionDeprecated {
 				m.SetAttr(AttrState, StateDeprecated)
 			} else {
@@ -171,8 +187,12 @@ func (b *builder) applyModels(doc catalog.Document) {
 // eleven_multilingual_v2 languages plus: hu, no, vi". That is a reference and
 // not a code: the model it names supplies the rest of the list, which is why
 // the row it belongs to is looked up rather than its name being kept.
-func (b *builder) languagesOf(cell string) []string {
-	var out []string
+//
+// A link is a reference of the same kind. Where ElevenLabs writes "70+
+// languages" over a link to the section naming them, the section supplies the
+// list, and a count is not a language.
+func (b *builder) languagesOf(path, cell string) []string {
+	out := b.linkedLanguages(path, cell)
 	for _, match := range codeRe.FindAllStringSubmatch(cell, -1) {
 		code := strings.TrimSpace(match[1])
 		if code == "" {

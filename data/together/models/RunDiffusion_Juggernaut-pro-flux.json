@@ -12,18 +12,31 @@
     }
   ],
   "attrs": {
-    "author": "RunDiffusion"
+    "author": "RunDiffusion",
+    "category": "Image",
+    "model_card_url": "https://www.segmind.com/models/juggernaut-pro-flux",
+    "release_date": "2025-03-05",
+    "summary": "Professional-grade Flux model by RunDiffusion for high-quality image generation."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/juggernaut-pro-flux"
   ]
 }

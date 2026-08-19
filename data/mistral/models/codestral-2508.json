@@ -18,7 +18,9 @@
     }
   ],
   "attrs": {
-    "released": "2025-07-30",
+    "distribution": "premier",
+    "open_weights": "false",
+    "release_date": "2025-07-30",
     "state": "active",
     "summary": "Our cutting-edge language model for code completion released end of July 2025, Codestral specializes in low-latency, high-frequency tasks such as fill-in-the-middle (FIM) and code generation.",
     "version": "25.08"
@@ -29,6 +31,12 @@
   "lists": {
     "aliases": [
       "codestral-latest"
+    ],
+    "endpoints": [
+      "/v1/batch",
+      "/v1/chat/completions",
+      "/v1/conversations",
+      "/v1/fim/completions"
     ],
     "features": [
       "batching",
@@ -43,11 +51,57 @@
     "input_modalities": [
       "text"
     ],
+    "languages": [
+      "Arabic",
+      "Bengali",
+      "Breton",
+      "Catalan",
+      "Chinese",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "Farsi",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Lao",
+      "Malaysian",
+      "Marathi",
+      "Nepali",
+      "Norwegian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Spanish",
+      "Swedish",
+      "Tagalog",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese"
+    ],
     "output_modalities": [
       "text"
     ]
   },
   "sources": [
-    "https://docs.mistral.ai/models/codestral-25-08"
+    "https://docs.mistral.ai/models/codestral-25-08",
+    "https://docs.mistral.ai/resources/languages"
   ]
 }

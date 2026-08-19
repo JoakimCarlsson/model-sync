@@ -1,0 +1,73 @@
+{
+  "id": "sentence-transformers/all-minilm-l12-v2",
+  "provider": "openrouter",
+  "name": "Sentence Transformers: all-MiniLM-L12-v2",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.005,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.005,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "sentence-transformers",
+    "canonical_slug": "sentence-transformers/all-minilm-l12-v2-20251117",
+    "default_embedding_dimension": "384",
+    "hugging_face_id": "sentence-transformers/all-MiniLM-L12-v2",
+    "modality": "text->embeddings",
+    "release_date": "2025-11-18",
+    "summary": "The all-MiniLM-L12-v2 embedding model maps sentences and short paragraphs into a 384-dimensional dense vector space, producing efficient and high-quality semantic embeddings optimized for tasks such as semantic search, clustering, and...",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 512,
+    "top_provider_context_window": 512
+  },
+  "lists": {
+    "endpoint_tags": [
+      "deepinfra"
+    ],
+    "endpoints": [
+      "DeepInfra"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/sentence-transformers/all-minilm-l12-v2-20251117/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

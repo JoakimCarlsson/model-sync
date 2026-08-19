@@ -33,6 +33,9 @@
   ],
   "attrs": {
     "cloud": "true",
+    "default_snapshot": "kimi-k3:cloud",
+    "last_updated": "2026-07-27",
+    "parameter_count": "2.81T",
     "summary": "Kimi K3 is an open-weight, native multimodal agentic model and our most capable model to date."
   },
   "limits": {

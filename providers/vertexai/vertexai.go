@@ -6,6 +6,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"maps"
 	"net/http"
 	"os"
 	"os/exec"
@@ -281,6 +282,8 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	var failures []error
 	var pages []catalog.Document
+	var skus []sku
+	source := ""
 	for _, doc := range docs {
 		if doc.URL != catalogURL {
 			pages = append(pages, doc)
@@ -291,26 +294,88 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			failures = append(failures, fmt.Errorf("decode: %w", err))
 			continue
 		}
-		for _, s := range current.SKUs {
-			b.applySKU(s, doc.URL)
-		}
+		skus = append(skus, current.SKUs...)
+		source = doc.URL
 	}
-	b.applyModelPages(pages)
+	documented := readDocumented(pages)
+	b.applySKUs(skus, source, documented)
+	b.applyModelPages(pages, documented)
 	return b.result(), errors.Join(failures...)
 }
 
-// applySKU records one rate against the model named in its description.
-func (b *builder) applySKU(s sku, source string) {
+// applySKUs records every rate the catalog states.
+//
+// The descriptions that say what they count are read first, because a
+// description that stops before saying it names a model only by what is left
+// once every other word is taken out, and the leftovers of Google's
+// per-product meters read as models too: "CodeMender Gemini 3.1 Pro Global
+// Text Output" leaves a CodeMender Gemini 3.1 Pro that Vertex does not serve.
+// Such a description is read only where some other document has already named
+// the model it leaves, which is what tells a caching rate on a model Google
+// documents from a meter on a product of Google's own. Without reading them at
+// all, every caching rate and every batch rate Vertex charges for a Gemini
+// model went unrecorded.
+func (b *builder) applySKUs(
+	skus []sku,
+	source string,
+	pages map[string]*documented,
+) {
+	var deferred []sku
+	for _, s := range skus {
+		if _, ok := tokenRate(s); !ok {
+			continue
+		}
+		read, ok := readDescription(s.Description)
+		if !ok {
+			continue
+		}
+		if read.bare {
+			deferred = append(deferred, s)
+			continue
+		}
+		b.applySKU(s, read, source)
+	}
+	names := slices.Sorted(maps.Keys(pages))
+	for _, s := range deferred {
+		read, ok := readDescription(s.Description)
+		if !ok || !b.named(slugID(read.model), names, pages) {
+			continue
+		}
+		b.applySKU(s, read, source)
+	}
+}
+
+// named reports a model some other document has already named, either a rate
+// whose description says what it counts or a page of the model's own.
+func (b *builder) named(
+	id string,
+	names []string,
+	pages map[string]*documented,
+) bool {
+	if _, ok := b.models[id]; ok {
+		return true
+	}
+	return matchPage(id, names, pages) != ""
+}
+
+// tokenRate returns the pricing expression of a SKU quoted per token,
+// reporting false for a SKU quoted for anything else.
+func tokenRate(s sku) (pricingExpression, bool) {
 	if len(s.PricingInfo) == 0 {
-		return
+		return pricingExpression{}, false
 	}
 	expression := s.PricingInfo[0].PricingExpression
 	if expression.UsageUnit != "count" ||
 		expression.DisplayQuantity != tokenQuantity ||
 		len(expression.TieredRates) == 0 {
-		return
+		return pricingExpression{}, false
 	}
-	read, ok := readDescription(s.Description)
+	return expression, true
+}
+
+// applySKU records one rate against the model named in its description.
+func (b *builder) applySKU(s sku, read reading, source string) {
+	expression, ok := tokenRate(s)
 	if !ok {
 		return
 	}

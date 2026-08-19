@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.62,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.62,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.62,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "microsoft/WizardLM-2-8x22B",
     "instruct_type": "vicuna",
     "knowledge_cutoff": "2024-04-30",
-    "released": "2024-04-16",
+    "modality": "text->text",
+    "release_date": "2024-04-16",
     "summary": "WizardLM-2 8x22B is Microsoft AI's most advanced Wizard model.",
     "tokenizer": "Mistral"
   },
@@ -33,6 +56,12 @@
     "top_provider_context_window": 65535
   },
   "lists": {
+    "endpoint_tags": [
+      "novita/bf16"
+    ],
+    "endpoints": [
+      "Novita"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -54,9 +83,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/microsoft/wizardlm-2-8x22b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

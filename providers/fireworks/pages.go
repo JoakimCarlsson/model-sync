@@ -1,336 +1,393 @@
 package fireworks
 
 import (
+	"fmt"
 	"regexp"
-	"slices"
 	"strconv"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-// Scalar keys the model pages populate.
-const (
-	AttrSummary       = "summary"
-	AttrHuggingFaceID = "hugging_face_id"
+// A model's page in the library states everything Fireworks records about it
+// in two labelled blocks, Metadata and Specification, and a third listing what
+// the model can be asked to do. Every row of all three is a label and a value
+// in the same markup, so one expression reads them all.
+var pageFieldRe = regexp.MustCompile(
+	`text-nowrap">([^<]+)</span></div><(?:span|a)[^>]*>([^<]*)<`,
 )
 
-// LimitContextWindow is the bound a model page states, which the pricing page
-// does not.
-const LimitContextWindow = "context_window"
-
-// Enumeration keys the model pages populate.
-const (
-	ListFeatures         = catalog.ListFeatures
-	ListInputModalities  = "input_modalities"
-	ListOutputModalities = "output_modalities"
-)
-
-// FeatureFunctionCalling is the one capability a model page states as a flag.
-const FeatureFunctionCalling = catalog.CapabilityFunctionCalling
-
-// FeatureReasoning is the capability the chat completion reference states,
-// family by family, against the parameter that turns it on.
-const FeatureReasoning = catalog.CapabilityReasoning
-
-// everyModelRe matches the sentence the structured outputs guide states its
-// scope in, which is every model Fireworks serves. It is matched rather than
-// assumed: the guide worked through one model by name and then said the
-// feature is not particular to it, and a guide rewritten to name a list stops
-// yielding the capability for all of them.
-var everyModelRe = regexp.MustCompile(
-	`(?i)all fireworks models support this feature`,
-)
-
-// applyStructuredOutputs records the capability against every model that
-// generates a response.
-//
-// This is the one capability Fireworks states outside the model record. That
-// record carries a flag for tool use and one for image input and nothing for
-// this, and the guide explains why: the answer is the same for every model, so
-// there is nothing to flag per model.
-//
-// The guide says all of them, and it means all the models it is about. It
-// constrains what a model writes, and an embedding model writes nothing: it
-// returns a vector, which no schema describes and no grammar could constrain.
-// Reading "all" past the models the sentence is about would state a capability
-// that cannot be exercised.
-func (b *builder) applyStructuredOutputs(doc catalog.Document) {
-	if !everyModelRe.Match(doc.Body) {
-		return
-	}
-	for _, id := range b.order {
-		m := b.models[id]
-		if m.Kind != KindChat {
-			continue
-		}
-		m.AddList(ListFeatures, catalog.CapabilityStructuredOutputs)
-		m.AddSource(doc.URL)
-	}
-}
-
-// Fields of the model record a page carries.
-//
-// The record is JSON embedded in the page as a string, so its quotes arrive
-// escaped, and how many times depends on how deeply the page nested it. The
-// escaping is therefore matched rather than undone.
+// The rest of what a page states outside those blocks: the title, the path the
+// model is served under, the paragraph describing it, and the rate a
+// serverless model is billed at.
 var (
-	contextRe = fieldRe(`contextLength`, `(\d+)`)
-	imageRe   = fieldRe(`supportsImageInput`, `(true|false)`)
-	toolsRe   = fieldRe(`supportsTools`, `(true|false)`)
-	nameRe    = fieldRe(`displayName`, `\\*"(.*?[^\\])\\*"`)
-	summaryRe = fieldRe(`description`, `\\*"(.*?[^\\])\\*"`)
-	huggingRe = fieldRe(`huggingFaceUrl`, `\\*"(.*?[^\\])\\*"`)
-)
-
-// fieldRe matches one field of the embedded record, whatever its escaping.
-func fieldRe(name, value string) *regexp.Regexp {
-	return regexp.MustCompile(`\\*"` + name + `\\*":\s*` + value)
-}
-
-// applyModelPage reads one model's page onto the model the pricing page
-// established for it.
-//
-// The pricing page links every row to the page of the model it prices, and
-// several rows link to the same page: a model served three ways is one model
-// with three rates. The link is therefore the join, and needs no matching on
-// names.
-func (b *builder) applyModelPage(doc catalog.Document) {
-	m, ok := b.byURL(doc.URL)
-	if !ok {
-		return
-	}
-	body := string(doc.Body)
-	m.AddSource(doc.URL)
-	if m.Name == "" {
-		m.Name = unescape(first(nameRe, body))
-	}
-	m.SetAttr(AttrSummary, unescape(first(summaryRe, body)))
-	m.SetAttr(
-		AttrHuggingFaceID,
-		huggingFaceID(unescape(first(huggingRe, body))),
+	pageTitleRe = regexp.MustCompile(
+		`<h1 class="text-gray-900 text-xl font-semibold">([^<]*)</h1>`,
 	)
-	if n, err := strconv.ParseInt(first(contextRe, body), 10, 64); err == nil {
-		m.SetLimit(LimitContextWindow, n)
-	}
-	m.AddList(ListInputModalities, "text")
-	m.AddList(ListOutputModalities, "text")
-	if first(imageRe, body) == "true" {
-		m.AddList(ListInputModalities, "image")
-	}
-	if first(toolsRe, body) == "true" {
-		m.AddList(ListFeatures, FeatureFunctionCalling)
-	}
-}
-
-// byURL returns the model whose page is at url.
-func (b *builder) byURL(url string) (*catalog.Model, bool) {
-	for _, id := range b.order {
-		if b.models[id].Attrs[AttrModelURL] == url {
-			return b.models[id], true
-		}
-	}
-	return nil, false
-}
-
-// libraryPageURLs picks the models whose console record left something for the
-// model library's page to state: a context window the record puts at none, and
-// the width of the vector an embedding model returns, which the record has no
-// field for at all. Every other model is already fully stated, so its library
-// page is not fetched.
-func libraryPageURLs(pages []catalog.Document, embedding []string) []string {
-	var urls []string
-	for _, doc := range pages {
-		if !strings.HasPrefix(doc.URL, modelPagePre) {
-			continue
-		}
-		context, _ := strconv.ParseInt(
-			first(contextRe, string(doc.Body)),
-			10,
-			64,
-		)
-		if context > 0 && !slices.Contains(embedding, doc.URL) {
-			continue
-		}
-		urls = append(urls, libraryURL(doc.URL))
-	}
-	slices.Sort(urls)
-	return slices.Compact(urls)
-}
-
-// libraryURL is the model library's page for the model whose console page is
-// at url. The two sites key a model the same way, so one address is the other
-// with its host swapped.
-func libraryURL(url string) string {
-	rest, ok := strings.CutPrefix(url, modelPagePre)
-	if !ok {
-		return ""
-	}
-	return libraryPagePre + rest
-}
-
-// What the library page states that the console record does not. The page is
-// rendered rather than embedded, so these read the rendered text: a labelled
-// row of the specification table, and a line of the model's own FAQ.
-var (
-	libraryContextRe = regexp.MustCompile(
-		`(?s)Context Length</span>.{0,200}?>([\d.]+)\s*([kKmM]) tokens<`,
+	pagePathRe = regexp.MustCompile(
+		`accounts/([a-z0-9-]+)/models/([A-Za-z0-9._-]+)`,
 	)
-	libraryDimensionRe = regexp.MustCompile(
-		`(?i)embedding dimensions from [\d,]+ to ([\d,]+)`,
+	pageSummaryRe = regexp.MustCompile(
+		`(?s)<div class="text-gray-600 flex flex-col gap-4 text-lg">.*?` +
+			`<p class="">(.*?)</p>`,
+	)
+	pagePriceRe = regexp.MustCompile(
+		`(?s)Available Serverless.{0,800}?` +
+			`text-display-sm font-medium text-black">(.*?)</div>` +
+			`<div class="text-gray-500 mt-1 text-sm">Per (.*?)</div>`,
+	)
+	pageFAQRe = regexp.MustCompile(
+		`(?s)text-black sm:text-xl lg:text-xl">([^<]*)</span>.*?` +
+			`<div class="relative w-full pt-0 pb-8[^"]*">(.*?)</details>`,
 	)
 )
 
-// applyLibraryPage reads what the console record left unstated off the model
-// library's page for the same model.
-//
-// It fills rather than overrides. The record states a context window exactly
-// and this page rounds it for display, so the page is only believed where the
-// record put the window at none, which is Fireworks' way of saying the console
-// has no figure rather than that the model has no window.
-func (b *builder) applyLibraryPage(doc catalog.Document) {
-	m, ok := b.byURL(consoleURL(doc.URL))
-	if !ok {
-		return
-	}
-	body := string(doc.Body)
-	if match := libraryContextRe.FindStringSubmatch(body); match != nil &&
-		m.Limits[LimitContextWindow] == 0 {
-		m.SetLimit(LimitContextWindow, tokenCount(match[1], match[2]))
-		m.AddSource(doc.URL)
-	}
-	if match := libraryDimensionRe.FindStringSubmatch(body); match != nil {
-		m.SetAttr(
-			AttrDefaultDimension,
-			strings.ReplaceAll(match[1], ",", ""),
-		)
-		m.AddSource(doc.URL)
-	}
-}
-
-// consoleURL is the console page of the model whose library page is at url.
-func consoleURL(url string) string {
-	rest, ok := strings.CutPrefix(url, libraryPagePre)
-	if !ok {
-		return ""
-	}
-	return modelPagePre + rest
-}
-
-// tokenCount reads a count the library page abbreviated, which it writes as
-// "262k tokens" or "1.05m tokens".
-func tokenCount(amount, scale string) int64 {
-	value, err := strconv.ParseFloat(amount, 64)
-	if err != nil {
-		return 0
-	}
-	if strings.EqualFold(scale, "m") {
-		return int64(value * 1_000_000)
-	}
-	return int64(value * 1_000)
-}
-
-// The chat completion reference documents reasoning_effort model family by
-// model family, under a heading of its own. That list is the only place
-// Fireworks says which models reason: the guide to reasoning works its
-// examples through a placeholder model, and the record on a model's page
-// carries no flag for it.
-var (
-	reasoningSectionRe = regexp.MustCompile(
-		`(?s)reasoning_effort:.*?Model-specific behavior:?\*\*(.*?)\n\s*\w+:\n`,
-	)
-	reasoningFamilyRe = regexp.MustCompile(`(?m)^\s*-\s+\*\*(.+?)\*\*:`)
-)
-
-// applyReasoning records the capability against the models the chat completion
-// reference documents a reasoning effort for.
-//
-// The reference states what each family does with the parameter, down to which
-// efforts it accepts and whether reasoning is on when nothing is passed. A
-// family named there is a family Fireworks says reasons; a family absent from
-// it is not, which is why nothing is inferred for the models it leaves out.
-func (b *builder) applyReasoning(doc catalog.Document) {
-	families := reasoningFamilies(string(doc.Body))
-	for _, id := range b.order {
-		m := b.models[id]
-		if m.Kind != KindChat {
-			continue
-		}
-		for _, family := range families {
-			if !namesModel(family, m.Name) {
-				continue
-			}
-			m.AddList(ListFeatures, FeatureReasoning)
-			m.AddSource(doc.URL)
-			break
-		}
-	}
-}
-
-// reasoningFamilies returns the names the reference's model-specific paragraphs
-// are written against. A paragraph heads several models where one behaviour
-// covers them all, either as a comma separated list or as the models a chat
-// template's name is followed by in brackets.
-func reasoningFamilies(body string) []string {
-	section := reasoningSectionRe.FindStringSubmatch(body)
-	if section == nil {
-		return nil
-	}
-	var out []string
-	for _, match := range reasoningFamilyRe.FindAllStringSubmatch(
-		section[1],
-		-1,
-	) {
-		named := match[1]
-		if _, inside, ok := strings.Cut(named, "("); ok {
-			named = strings.TrimSuffix(inside, ")")
-		}
-		for _, name := range strings.Split(named, ",") {
-			if name = strings.TrimSpace(name); name != "" {
-				out = append(out, name)
-			}
+// pageValues returns the labelled rows of a model's page.
+func pageValues(body string) map[string]string {
+	out := map[string]string{}
+	for _, m := range pageFieldRe.FindAllStringSubmatch(body, -1) {
+		label := strings.TrimSpace(m[1])
+		if _, seen := out[label]; !seen {
+			out[label] = strings.TrimSpace(text(m[2]))
 		}
 	}
 	return out
 }
 
-// namesModel reports whether family names the model: every word of the family
-// inside the model's name, in order and adjacent. Adjacency is what keeps a
-// paragraph about MiniMax M2 off MiniMax M2.7, which is a different model and
-// documented, when it is documented at all, in a paragraph of its own.
-func namesModel(family, model string) bool {
-	want, have := nameWords(family), nameWords(model)
-	if len(want) == 0 || len(want) > len(have) {
-		return false
+// Labels the blocks on a model's page state their values under.
+const (
+	fieldState      = "State"
+	fieldCreated    = "Created on"
+	fieldKind       = "Kind"
+	fieldProvider   = "Provider"
+	fieldHugging    = "Hugging Face"
+	fieldCalibrated = "Calibrated"
+	fieldMoE        = "Mixture-of-Experts"
+	fieldParameters = "Parameters"
+	fieldFineTuning = "Fine-tuning"
+	fieldServerless = "Serverless"
+	fieldContext    = "Context Length"
+	fieldTools      = "Function Calling"
+	fieldEmbeddings = "Embeddings"
+	fieldRerankers  = "Rerankers"
+	fieldImageInput = "Support image input"
+)
+
+// supported is the word a page uses for a capability a model has. Its opposite
+// is written out in full, so the presence of the word is the whole test.
+const supported = "Supported"
+
+// applyLibraryPage reads one model's page onto the catalog.
+//
+// The page is where a model gets its identifier. Fireworks addresses the page
+// under the name of whoever published the model and serves the model under an
+// account of its own, and it is the served path that a request carries, so
+// that is what the model is keyed by. The page's address is kept alongside it.
+func (b *builder) applyLibraryPage(doc catalog.Document) {
+	body := string(doc.Body)
+	path := pagePathRe.FindStringSubmatch(body)
+	if path == nil {
+		return
 	}
-	for at := 0; at+len(want) <= len(have); at++ {
-		if slices.Equal(have[at:at+len(want)], want) {
-			return true
+	fields := pageValues(body)
+	id, kind := path[1]+"/"+path[2], pageKind(fields)
+	m := b.model(id, kind)
+	m.Kind = kind
+	b.byPage[doc.URL] = id
+	m.AddSource(doc.URL)
+	m.SetAttr(AttrModelURL, doc.URL)
+	m.SetAttr(AttrModelPath, path[0])
+	b.applyPageIdentity(m, doc, body, fields)
+	b.applyPageSpecification(m, fields)
+	b.applyPageCapabilities(m, fields)
+	b.applyPagePrice(m, body)
+	b.applyPageFAQ(m, body)
+}
+
+// applyPageIdentity records what the page says the model is: what it is
+// called, who published it, where its weights are, and when Fireworks took it
+// on.
+//
+// The name is the index's where the index has one, because the index titles
+// every model and a page does not always repeat the title.
+func (b *builder) applyPageIdentity(
+	m *catalog.Model,
+	doc catalog.Document,
+	body string,
+	fields map[string]string,
+) {
+	if c, ok := b.cards[doc.URL]; ok {
+		if m.Name == "" {
+			m.Name = c.Name
+		}
+		m.SetLimit(LimitContextWindow, c.Context)
+	}
+	if m.Name == "" {
+		if title := pageTitleRe.FindStringSubmatch(body); title != nil {
+			m.Name = strings.TrimSpace(text(title[1]))
 		}
 	}
-	return false
-}
-
-// huggingFaceID reduces the address of a model's weights to the identifier
-// they are published under, which is what other providers record.
-func huggingFaceID(url string) string {
-	_, id, ok := strings.Cut(url, "huggingface.co/")
-	if !ok {
-		return ""
+	if summary := pageSummaryRe.FindStringSubmatch(body); summary != nil {
+		m.SetAttr(AttrSummary, text(summary[1]))
 	}
-	return strings.Trim(id, "/")
+	m.SetAttr(AttrAuthor, fields[fieldProvider])
+	m.SetAttr(AttrState, lifecycle(fields[fieldState]))
+	m.SetAttr(AttrReleaseDate, isoDate(fields[fieldCreated]))
+	m.SetAttr(AttrModelKind, fields[fieldKind])
+	if repo := huggingFaceID(fields[fieldHugging]); repo != "" {
+		m.SetAttr(AttrHuggingFaceID, repo)
+		m.SetAttr(AttrOpenWeights, "true")
+	}
 }
 
-// unescape undoes the backslashes the embedded record's own encoding added.
-func unescape(value string) string {
-	r := strings.NewReplacer(`\\"`, `"`, `\"`, `"`, `\\n`, " ", `\\`, `\`)
-	return strings.TrimSpace(r.Replace(value))
+// applyPageSpecification records what the Specification block states, which is
+// the shape of the model rather than what it can be asked to do.
+func (b *builder) applyPageSpecification(
+	m *catalog.Model,
+	fields map[string]string,
+) {
+	m.SetAttr(AttrParameterCount, fields[fieldParameters])
+	m.SetAttr(AttrMixtureOfExperts, boolean(fields[fieldMoE]))
+	m.SetAttr(AttrCalibrated, boolean(fields[fieldCalibrated]))
+	if window := contextTokens(fields[fieldContext]); window > 0 {
+		m.SetLimit(LimitContextWindow, window)
+	}
 }
 
-// first returns the first capture of re, or the empty string.
-func first(re *regexp.Regexp, body string) string {
-	if match := re.FindStringSubmatch(body); match != nil {
-		return match[1]
+// applyPageCapabilities records what the model can be asked to do and how it
+// can be run.
+//
+// Every model takes text and answers with text, apart from the two the library
+// files under Flumina, which is where it keeps the models that draw. Image
+// input is a flag of its own and is the only other input a page states.
+func (b *builder) applyPageCapabilities(
+	m *catalog.Model,
+	fields map[string]string,
+) {
+	m.AddList(ListInputModalities, "text")
+	if m.Kind == KindImage {
+		m.AddList(ListOutputModalities, "image")
+	} else {
+		m.AddList(ListOutputModalities, "text")
+	}
+	if fields[fieldImageInput] == supported {
+		m.AddList(ListInputModalities, "image")
+	}
+	if fields[fieldTools] == supported {
+		m.AddList(ListFeatures, FeatureFunctionCalling)
+	}
+	if fields[fieldServerless] == supported {
+		m.AddList(ListDeployment, DeploymentServerless)
+	}
+	if fields[fieldFineTuning] == supported {
+		m.AddList(ListDeployment, DeploymentFineTuning)
+	}
+	if strings.Contains(fields[fieldKind], "addon") {
+		return
+	}
+	m.AddList(ListDeployment, DeploymentOnDemand)
+}
+
+// pagePrice is the rate one model's page quoted.
+type pagePrice struct {
+	ID      string
+	Amounts []float64
+}
+
+// applyPagePrice takes down the rate the page quotes for a serverless model.
+//
+// A page quotes one rate, the standard serving path's, and writes it as the
+// three amounts a text model is billed on or as the single amount an embedding
+// model is. It is held rather than recorded, because the serverless pricing
+// page is the document Fireworks calls the source of truth for rates: where
+// that page prices the same model, it prices it for every serving path and to
+// a precision this one rounds away.
+func (b *builder) applyPagePrice(m *catalog.Model, body string) {
+	match := pagePriceRe.FindStringSubmatch(body)
+	if match == nil || !strings.Contains(text(match[2]), "1M Tokens") {
+		return
+	}
+	amounts := parseTriple(text(match[1]))
+	if len(amounts) == 0 {
+		return
+	}
+	b.pagePrices = append(b.pagePrices, pagePrice{ID: m.ID, Amounts: amounts})
+}
+
+// applyPagePrices records the rates the library pages quoted, for the models
+// no rate card priced.
+func (b *builder) applyPagePrices() {
+	for _, quoted := range b.pagePrices {
+		if b.priced[quoted.ID] {
+			continue
+		}
+		m := b.models[quoted.ID]
+		b.priced[quoted.ID] = true
+		dims := catalog.Dims{DimTier: TierStandard}
+		if len(quoted.Amounts) == 1 {
+			m.AddPrice(catalog.Price{
+				Metric:   MetricInputTokens,
+				Unit:     UnitPer1MTokens,
+				Amount:   quoted.Amounts[0],
+				Currency: currency,
+				Dims:     dims,
+			})
+			continue
+		}
+		for at, amount := range quoted.Amounts {
+			if at >= len(tripleOrder) {
+				break
+			}
+			m.AddPrice(catalog.Price{
+				Metric:   tripleOrder[at],
+				Unit:     UnitPer1MTokens,
+				Amount:   amount,
+				Currency: currency,
+				Dims:     dims,
+			})
+		}
+	}
+}
+
+// The three answers of a model's own FAQ that state a fact no block on the
+// page has a row for.
+var (
+	faqLicenseRe = regexp.MustCompile(
+		`(?:under|by|governed by) (?:the |a |an )?` +
+			`([A-Z][A-Za-z0-9.& -]{1,40}?) [Ll]icen[cs]e`,
+	)
+	faqDimensionRe = regexp.MustCompile(
+		`(?i)embedding dimensions from [\d,]+ to ([\d,]+)`,
+	)
+	faqMaxOutputRe = regexp.MustCompile(
+		`(?i)maximum (?:generation length|output)(?: length)? ` +
+			`(?:of|is) ([\d,]+) tokens`,
+	)
+)
+
+// applyPageFAQ reads the model's own FAQ, which answers three things the
+// labelled blocks have no row for.
+//
+// The FAQ is prose and only some models carry one, so each answer is read
+// through an expression narrow enough that a sentence phrased another way
+// yields nothing rather than something wrong. The bound on output length is
+// the strictest of the three: many answers say only that output is limited by
+// the context window, which is not a bound of its own, so a figure is taken
+// only from the sentence that states one outright.
+func (b *builder) applyPageFAQ(m *catalog.Model, body string) {
+	for _, qa := range pageFAQRe.FindAllStringSubmatch(body, -1) {
+		question, answer := qa[1], text(qa[2])
+		switch {
+		case strings.Contains(question, "license governs"):
+			if match := faqLicenseRe.FindStringSubmatch(answer); match != nil {
+				m.SetAttr(AttrLicense, strings.TrimSpace(match[1]))
+			}
+		case strings.Contains(question, "embedding dimensions"):
+			if match := faqDimensionRe.FindStringSubmatch(
+				answer,
+			); match != nil {
+				m.SetAttr(
+					AttrDefaultDimension,
+					strings.ReplaceAll(match[1], ",", ""),
+				)
+			}
+		case strings.Contains(question, "maximum output length"):
+			if match := faqMaxOutputRe.FindStringSubmatch(
+				answer,
+			); match != nil {
+				m.SetLimit(LimitMaxOutput, digits(match[1]))
+			}
+		}
+	}
+}
+
+// pageKind decides what the model is from the capabilities its page flags. A
+// reranker scores pairs and an embedder returns a vector, both of which the
+// page flags outright; the models filed under Flumina are the ones that draw;
+// everything else answers a completion.
+func pageKind(fields map[string]string) catalog.Kind {
+	switch {
+	case fields[fieldRerankers] == supported:
+		return KindRerank
+	case fields[fieldEmbeddings] == supported:
+		return KindEmbedding
+	case strings.Contains(fields[fieldKind], "Flumina"):
+		return KindImage
+	}
+	return KindChat
+}
+
+// lifecycle translates the word Fireworks files a model's readiness under.
+// Every model it publishes is Ready, and a word it has not used before is
+// recorded as it stands rather than forced into a value it may not mean.
+func lifecycle(state string) string {
+	if strings.EqualFold(state, "Ready") {
+		return "active"
+	}
+	return strings.ToLower(state)
+}
+
+// boolean translates the Yes and No a specification row is written with.
+func boolean(value string) string {
+	switch {
+	case strings.EqualFold(value, "yes"):
+		return "true"
+	case strings.EqualFold(value, "no"):
+		return "false"
 	}
 	return ""
+}
+
+// dateRe matches the date a page states a model was taken on, which it writes
+// in the American order.
+var dateRe = regexp.MustCompile(`^(\d{1,2})/(\d{1,2})/(\d{4})$`)
+
+// isoDate rewrites that date the way every other provider records one.
+func isoDate(value string) string {
+	match := dateRe.FindStringSubmatch(strings.TrimSpace(value))
+	if match == nil {
+		return ""
+	}
+	month, _ := strconv.Atoi(match[1])
+	day, _ := strconv.Atoi(match[2])
+	return fmt.Sprintf("%s-%02d-%02d", match[3], month, day)
+}
+
+// contextLengthRe matches the window a page states, which it rounds for
+// display and writes as "262k tokens".
+var contextLengthRe = regexp.MustCompile(`^([\d.]+)\s*([kKmM]) tokens$`)
+
+// contextTokens reads that rounded window. A model whose page states none
+// writes "N/A", which yields nothing.
+func contextTokens(value string) int64 {
+	match := contextLengthRe.FindStringSubmatch(strings.TrimSpace(value))
+	if match == nil {
+		return 0
+	}
+	return tokenCount(match[1], match[2])
+}
+
+// digits reads a count written with thousands separators.
+func digits(value string) int64 {
+	n, err := strconv.ParseInt(strings.ReplaceAll(value, ",", ""), 10, 64)
+	if err != nil {
+		return 0
+	}
+	return n
+}
+
+// huggingFaceID reduces what the Hugging Face row states to the identifier the
+// weights are published under. The row is a link on the models whose weights
+// are public and the owner alone on the models whose are not, and only the
+// former names a repository.
+func huggingFaceID(value string) string {
+	id := strings.TrimSpace(value)
+	if _, rest, ok := strings.Cut(id, "huggingface.co/"); ok {
+		id = rest
+	}
+	owner, repo, ok := strings.Cut(strings.Trim(id, "/"), "/")
+	if !ok || owner == "" || repo == "" {
+		return ""
+	}
+	return owner + "/" + repo
 }

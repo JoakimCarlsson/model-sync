@@ -39,6 +39,10 @@ const (
 	AttrMaxFileSize      = "max_file_size"
 	AttrDefaultDimension = "default_embedding_dimension"
 	AttrFamily           = "family"
+	// AttrAliasOf names the model an identifier is another name for, which the
+	// overview's description column states as the whole of what it has to say
+	// about that identifier.
+	AttrAliasOf = "alias_of"
 )
 
 // platformAttrs maps a cloud column onto the key recording the identifier the
@@ -63,6 +67,10 @@ const (
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
 	ListDimensions       = "embedding_dimensions"
+	// ListAliases enumerates the other identifiers a model answers to.
+	ListAliases = "aliases"
+	// ListLanguages enumerates the languages a model is stated to cover.
+	ListLanguages = "languages"
 )
 
 // ModalityText is what a chat model returns. It is the catalog's word for it,
@@ -278,6 +286,7 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 			m.SetAttr(AttrDeprecatedOn, date)
 		case "description":
 			m.SetAttr(AttrSummary, firstSentence(value))
+			m.SetAttr(AttrAliasOf, aliasTarget(value))
 			if m.Name == "" {
 				m.Name = nameFromDescription(value)
 			}
@@ -301,6 +310,35 @@ func (b *builder) applyRow(m *catalog.Model, t table, row []string) {
 		case "endpoints":
 			m.AddList(ListEndpoints, splitList(value)...)
 		}
+	}
+}
+
+// aliasRe matches the description of an identifier that is another name for a
+// model rather than a model of its own. The column says nothing else about
+// such a row: "Alias for `command-r-plus-04-2024`" is the whole cell.
+var aliasRe = regexp.MustCompile(`(?i)^Alias for ([a-z0-9][a-z0-9.-]+)$`)
+
+// aliasTarget reads the model an alias stands for.
+func aliasTarget(value string) string {
+	match := aliasRe.FindStringSubmatch(strings.TrimSpace(value))
+	if match == nil {
+		return ""
+	}
+	return match[1]
+}
+
+// linkAliases records each alias against the model it stands for, so that the
+// relationship can be read from either end.
+//
+// It runs once the overview has been read in full, because an alias is listed
+// above the version it points at as often as below it.
+func (b *builder) linkAliases() {
+	for _, id := range b.order {
+		target, ok := b.models[b.models[id].Attrs[AttrAliasOf]]
+		if !ok {
+			continue
+		}
+		target.AddList(ListAliases, id)
 	}
 }
 

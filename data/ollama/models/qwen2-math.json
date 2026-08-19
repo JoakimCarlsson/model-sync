@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "qwen2-math:latest",
+    "last_updated": "2024-08-30",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "7.62B",
+    "quantization": "Q4_0",
     "summary": "Qwen2 Math is a series of specialized math language models built upon the Qwen2 LLMs, which significantly outperforms the mathematical capabilities of open-source models and even closed-source models (e.g., GPT4o)."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen2-math/tags"
+    "https://ollama.com/library/qwen2-math/tags",
+    "https://ollama.com/library/qwen2-math:latest"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "mixtral:latest",
+    "last_updated": "2024-12-20",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "46.7B",
+    "quantization": "Q4_0",
     "summary": "A set of Mixture of Experts (MoE) model with open weights by Mistral AI in 8x7b and 8x22b parameter sizes."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/mixtral/tags"
+    "https://ollama.com/library/mixtral/tags",
+    "https://ollama.com/library/mixtral:latest"
   ]
 }

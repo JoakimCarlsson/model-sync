@@ -11,23 +11,55 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.02,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
     }
   ],
   "attrs": {
     "author": "mistralai",
     "canonical_slug": "mistralai/mistral-saba-2502",
+    "default_temperature": "0.3",
     "knowledge_cutoff": "2024-09-30",
-    "released": "2025-02-17",
+    "modality": "text+file->text",
+    "release_date": "2025-02-17",
     "summary": "Mistral Saba is a 24B-parameter language model specifically designed for the Middle East and South Asia, delivering accurate and contextually relevant responses while maintaining efficient performance.",
     "tokenizer": "Mistral"
   },
@@ -36,6 +68,12 @@
     "top_provider_context_window": 32768
   },
   "lists": {
+    "endpoint_tags": [
+      "mistral"
+    ],
+    "endpoints": [
+      "Mistral"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -61,10 +99,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "FR"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/mistralai/mistral-saba-2502/endpoints"
+    "https://openrouter.ai/api/v1/models/mistralai/mistral-saba-2502/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

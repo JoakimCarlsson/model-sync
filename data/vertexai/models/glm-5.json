@@ -1,7 +1,7 @@
 {
   "id": "glm-5",
   "provider": "vertexai",
-  "name": "glm-5",
+  "name": "GLM 5",
   "kind": "chat",
   "prices": [
     {
@@ -33,6 +33,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "zai-org",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2026-02-10",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy GLM 5 on Model Garden",
+    "state": "active",
+    "summary": "GLM's model targeting complex systems engineering and long-horizon agentic tasks."
+  },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 128000
@@ -47,9 +56,14 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global"
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/zaiorg/glm-5",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]

@@ -12,9 +12,15 @@
     }
   ],
   "attrs": {
-    "author": "OpenAI"
+    "author": "OpenAI",
+    "category": "Image",
+    "release_date": "2026-04-20",
+    "summary": "OpenAI's flagship image generation model with built-in reasoning, up to 16 reference image inputs, native 1K to 4K outputs, and 95%+ accurate multilingual text rendering."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "reasoning"
     ],
@@ -24,10 +30,17 @@
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/gpt-image-2"
   ]
 }

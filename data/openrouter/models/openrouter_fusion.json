@@ -20,7 +20,8 @@
   "attrs": {
     "author": "openrouter",
     "canonical_slug": "openrouter/fusion",
-    "released": "2026-06-13",
+    "modality": "text->text",
+    "release_date": "2026-06-13",
     "summary": "Fusion turns your prompt into a small multi-model deliberation.",
     "tokenizer": "Router"
   },
@@ -36,7 +37,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/openrouter/fusion/endpoints"
+    "https://openrouter.ai/api/v1/models/openrouter/fusion/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

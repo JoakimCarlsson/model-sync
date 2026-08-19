@@ -19,11 +19,17 @@
   ],
   "attrs": {
     "author": "openai",
+    "data_residency": "EU",
+    "docs_title": "GPT-OSS 120B",
+    "hugging_face_id": "openai/gpt-oss-120b",
     "license": "Apache 2.0",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/openai/gpt-oss-120b",
     "model_path": "openai/gpt-oss-120b",
+    "open_weights": "true",
     "quantization": "INT4",
-    "release_date": "2025-08-05"
+    "release_date": "2025-08-05",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 128000,
@@ -35,6 +41,9 @@
       "gpt-oss-120b",
       "openai/120b",
       "openai/gpt-oss"
+    ],
+    "endpoints": [
+      "/v1/chat/completions"
     ],
     "features": [
       "function_calling",
@@ -81,11 +90,19 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
+  "notes": [
+    "the capability matrix marks this model multimodal, which the listing's vision flag denies"
+  ],
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

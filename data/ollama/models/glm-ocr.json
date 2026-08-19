@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "glmocr",
+    "default_snapshot": "glm-ocr:latest",
+    "last_updated": "2026-02-02",
+    "open_weights": "true",
+    "parameter_count": "1.11B",
+    "quantization": "F16",
     "summary": "GLM-OCR is a multimodal OCR model for complex document understanding, built on the GLM-V encoder–decoder architecture."
   },
   "limits": {
@@ -24,6 +30,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/glm-ocr/tags"
+    "https://ollama.com/library/glm-ocr/tags",
+    "https://ollama.com/library/glm-ocr:latest"
   ]
 }

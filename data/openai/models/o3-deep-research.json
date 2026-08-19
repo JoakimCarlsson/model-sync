@@ -35,12 +35,29 @@
   "attrs": {
     "default_snapshot": "o3-deep-research-2025-06-26",
     "knowledge_cutoff": "2024-06-01",
+    "last_updated": "2025-06-24",
+    "release_date": "2025-06-24",
     "state": "active",
     "summary": "Our most powerful deep research model"
   },
   "limits": {
+    "batch_queue_limit_tier_1": 200000,
+    "batch_queue_limit_tier_2": 300000,
+    "batch_queue_limit_tier_3": 500000,
+    "batch_queue_limit_tier_4": 2000000,
+    "batch_queue_limit_tier_5": 10000000,
     "context_window": 200000,
-    "max_output_tokens": 100000
+    "max_output_tokens": 100000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 200000,
+    "tokens_per_minute_tier_2": 450000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 2000000,
+    "tokens_per_minute_tier_5": 30000000
   },
   "lists": {
     "endpoints": [
@@ -72,6 +89,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/o3-deep-research.md"
   ]
 }

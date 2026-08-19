@@ -62,13 +62,30 @@
   "attrs": {
     "default_snapshot": "gpt-5.3-codex",
     "knowledge_cutoff": "2025-08-31",
+    "last_updated": "2026-02-24",
+    "release_date": "2026-02-24",
     "state": "active",
     "summary": "The most capable agentic coding model to date."
   },
   "limits": {
+    "batch_queue_limit_tier_1": 1500000,
+    "batch_queue_limit_tier_2": 3000000,
+    "batch_queue_limit_tier_3": 100000000,
+    "batch_queue_limit_tier_4": 200000000,
+    "batch_queue_limit_tier_5": 15000000000,
     "context_window": 400000,
     "max_input_tokens": 272000,
-    "max_output_tokens": 128000
+    "max_output_tokens": 128000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 15000,
+    "tokens_per_minute_tier_1": 500000,
+    "tokens_per_minute_tier_2": 1000000,
+    "tokens_per_minute_tier_3": 2000000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 40000000
   },
   "lists": {
     "endpoints": [
@@ -100,6 +117,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-5.3-codex.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

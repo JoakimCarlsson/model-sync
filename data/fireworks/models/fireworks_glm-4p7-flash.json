@@ -1,0 +1,44 @@
+{
+  "id": "fireworks/glm-4p7-flash",
+  "provider": "fireworks",
+  "name": "GLM-4.7 Flash",
+  "kind": "chat",
+  "attrs": {
+    "author": "Z.ai",
+    "calibrated": "false",
+    "hugging_face_id": "zai-org/GLM-4.7-Flash",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/glm-4p7-flash",
+    "model_url": "https://fireworks.ai/models/fireworks/glm-4p7-flash",
+    "open_weights": "true",
+    "parameter_count": "31B",
+    "release_date": "2026-01-19",
+    "state": "active",
+    "summary": "GLM-4.7-Flash is a 30B-A3B MoE model. As the strongest model in the 30B class, GLM-4.7-Flash offers a new option for lightweight deployment that balances performance and efficiency."
+  },
+  "limits": {
+    "context_window": 202752
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/api-reference/post-chatcompletions.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/glm-4p7-flash"
+  ]
+}

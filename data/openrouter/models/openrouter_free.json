@@ -21,7 +21,8 @@
     "author": "openrouter",
     "canonical_slug": "openrouter/free",
     "is_free": "true",
-    "released": "2026-02-01",
+    "modality": "text+image->text",
+    "release_date": "2026-02-01",
     "summary": "The simplest way to get free inference.",
     "tokenizer": "Router"
   },
@@ -66,7 +67,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/openrouter/free/endpoints"
+    "https://openrouter.ai/api/v1/models/openrouter/free/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

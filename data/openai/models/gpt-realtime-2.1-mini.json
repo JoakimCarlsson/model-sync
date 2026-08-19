@@ -88,12 +88,24 @@
   "attrs": {
     "default_snapshot": "gpt-realtime-2.1-mini",
     "knowledge_cutoff": "2024-09-30",
+    "last_updated": "2026-07-06",
+    "release_date": "2026-07-06",
     "state": "active",
     "summary": "Reasoning model with tool use"
   },
   "limits": {
     "context_window": 128000,
-    "max_output_tokens": 32000
+    "max_output_tokens": 32000,
+    "requests_per_minute_tier_1": 200,
+    "requests_per_minute_tier_2": 400,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 20000,
+    "tokens_per_minute_tier_1": 40000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 15000000
   },
   "lists": {
     "endpoints": [
@@ -118,6 +130,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime-2.1-mini.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

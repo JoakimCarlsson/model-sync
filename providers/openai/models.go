@@ -19,6 +19,32 @@ const (
 	ListReasoningEfforts = "reasoning_efforts"
 )
 
+// Sections a model page divides itself into. The first five are headings of
+// their own; the rate limits and pricing sections each carry a further
+// subheading naming the scope of the table under it.
+const (
+	sectionModelDetails = "model details"
+	sectionEndpoints    = "endpoints"
+	sectionFeatures     = "supported features"
+	sectionTools        = "supported tools"
+	sectionSnapshots    = "snapshots"
+	sectionRateLimits   = "rate limits"
+	sectionPricing      = "pricing"
+)
+
+// Scopes a rate limit table is published under. The first three all state the
+// limits that apply to an ordinary request; only a long context table states a
+// second, narrower allowance beside them.
+const (
+	scopeDefault     = "default"
+	scopeStandard    = "standard"
+	scopeStandardRPM = "standard rpm"
+)
+
+// tierFree is the row OpenAI heads the allowance it grants before any payment,
+// which the speech models publish alongside the numbered tiers.
+const tierFree = "free"
+
 // Scalar keys the model pages populate.
 const (
 	AttrSummary         = "summary"
@@ -78,7 +104,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrState, StateActive)
 
-	var section, priceHeader string
+	var section, scope, priceHeader string
 	var rateHeaders []string
 	for _, raw := range strings.Split(body, "\n") {
 		line := strings.TrimSpace(raw)
@@ -88,10 +114,12 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 				m.Name = strings.TrimSpace(line[2:])
 			}
 			continue
+		case strings.HasPrefix(line, "## "):
+			section, scope = heading(line), ""
+			priceHeader, rateHeaders = "", nil
+			continue
 		case strings.HasPrefix(line, "#"):
-			section = strings.ToLower(
-				strings.TrimSpace(strings.TrimLeft(line, "# ")),
-			)
+			scope = heading(line)
 			priceHeader, rateHeaders = "", nil
 			continue
 		case line == "":
@@ -122,33 +150,38 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 				continue
 			}
 			switch section {
-			case "endpoints":
+			case sectionEndpoints:
 				applyEndpointRow(m, cells)
-			case "standard", "batch", "rate limits":
-				rateHeaders = applyRateRow(m, cells, rateHeaders)
-			case "text tokens", "pricing", "audio tokens", "image tokens":
+			case sectionRateLimits:
+				rateHeaders = applyRateRow(m, cells, rateHeaders, scope)
+			case sectionPricing:
 				priceHeader = applyModelPriceRow(m, cells, priceHeader)
 			}
 			continue
 		}
 		if bullet, ok := strings.CutPrefix(line, "- "); ok {
 			switch section {
-			case "model details":
+			case sectionModelDetails:
 				applyDetail(m, bullet)
-			case "supported features":
+			case sectionFeatures:
 				applyFeature(m, cleanToken(bullet))
-			case "supported tools":
+			case sectionTools:
 				m.AddList(ListTools, cleanToken(bullet))
-			case "snapshots":
+			case sectionSnapshots:
 				m.AddList(ListSnapshots, cleanToken(bullet))
-			case "pricing", "text tokens":
+			case sectionPricing:
 				m.AddNote(bullet)
 			}
 		}
 	}
-	if m.Kind == "" {
-		m.Kind = kindFor(m.ID, m.Lists[ListEndpoints])
-	}
+	applyWeights(m, body)
+	m.Kind = kindFor(m.ID, m.Lists[ListEndpoints])
+}
+
+// heading lowercases a markdown heading and strips its hashes, which is how
+// every section of a model page is recognized.
+func heading(line string) string {
+	return strings.ToLower(strings.TrimSpace(strings.TrimLeft(line, "# ")))
 }
 
 // pageID prefers the identifier the page states over the one in its URL.
@@ -240,23 +273,79 @@ func applyEndpointRow(m *catalog.Model, cells []string) {
 
 // applyRateRow records one usage tier's rate limits, returning the header row
 // to use for the rows that follow.
-func applyRateRow(m *catalog.Model, cells, headers []string) []string {
+//
+// Every rate table sits under a subheading naming the scope its numbers apply
+// to. Most pages write "default" and mean the model's only limits; the eleven
+// models sold with a separate allowance for long prompts write "Standard" and
+// "Long Context" instead, and the scope of the second is carried into the key
+// so the two sets do not collide. The free tier OpenAI grants the speech
+// models is a row like any other, headed "free" rather than "Tier 1", and is
+// recorded under that name.
+func applyRateRow(
+	m *catalog.Model,
+	cells, headers []string,
+	scope string,
+) []string {
 	if strings.EqualFold(cells[0], "tier") {
 		return cells
 	}
-	if headers == nil || !strings.HasPrefix(strings.ToLower(cells[0]), "tier") {
+	tier, ok := rateTier(cells[0])
+	if headers == nil || !ok {
 		return headers
 	}
-	tier := strings.ToLower(
-		strings.ReplaceAll(strings.TrimSpace(cells[0]), " ", "_"),
-	)
 	for i := 1; i < len(cells) && i < len(headers); i++ {
-		key := strings.ToLower(
-			strings.ReplaceAll(strings.TrimSpace(headers[i]), " ", "_"),
+		m.SetLimit(
+			rateMetric(headers[i])+rateScope(scope)+"_"+tier,
+			parseCount(cells[i]),
 		)
-		m.SetLimit(key+"_"+tier, parseCount(cells[i]))
 	}
 	return headers
+}
+
+// rateTier reads the label of a rate table's first column.
+func rateTier(cell string) (string, bool) {
+	label := strings.ToLower(strings.TrimSpace(cell))
+	if label == tierFree {
+		return tierFree, true
+	}
+	if !strings.HasPrefix(label, "tier") {
+		return "", false
+	}
+	return strings.ReplaceAll(label, " ", "_"), true
+}
+
+// rateScope turns a rate table's subheading into the fragment that qualifies
+// the keys it produces. The scopes meaning "the ordinary limit" qualify
+// nothing.
+func rateScope(scope string) string {
+	switch scope {
+	case "", scopeDefault, scopeStandard, scopeStandardRPM:
+		return ""
+	}
+	return "_" + strings.ReplaceAll(scope, " ", "_")
+}
+
+// rateMetrics map the abbreviations OpenAI heads a rate column with onto the
+// names the catalog states a rate limit under.
+var rateMetrics = map[string]string{
+	"rpm":                         "requests_per_minute",
+	"rpd":                         "requests_per_day",
+	"tpm":                         "tokens_per_minute",
+	"tpd":                         "tokens_per_day",
+	"ipm":                         "images_per_minute",
+	"batch queue limit":           "batch_queue_limit",
+	"minutes-of-audio per minute": "audio_minutes_per_minute",
+}
+
+// rateMetric names what one rate column counts. A heading OpenAI has not used
+// before is slugged rather than dropped, so a new column arrives as an odd key
+// instead of as silence.
+func rateMetric(header string) string {
+	h := strings.ToLower(strings.Join(strings.Fields(header), " "))
+	if name, ok := rateMetrics[h]; ok {
+		return name
+	}
+	return strings.ReplaceAll(h, " ", "_")
 }
 
 // applyModelPriceRow records a rate from a model page, skipping metrics the
@@ -337,6 +426,7 @@ var nameKinds = []struct {
 	{"embedding", KindEmbedding},
 	{"whisper", KindTranscription},
 	{"transcribe", KindTranscription},
+	{"realtime", KindRealtime},
 	{"tts", KindAudio},
 	{"audio", KindAudio},
 }
@@ -376,7 +466,8 @@ func kindFromEndpoints(endpoints []string) catalog.Kind {
 		return KindEmbedding
 	case has("moderations"):
 		return KindModeration
-	case has("audio/transcriptions"), has("audio/translations"):
+	case has("audio/transcriptions"), has("audio/translations"),
+		has("realtime/transcription"), has("realtime/translations"):
 		return KindTranscription
 	case has("audio/speech"):
 		return KindAudio

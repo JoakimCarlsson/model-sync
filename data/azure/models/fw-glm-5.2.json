@@ -1,6 +1,7 @@
 {
   "id": "fw-glm-5.2",
   "provider": "azure",
+  "name": "GLM 5.2",
   "kind": "chat",
   "prices": [
     {
@@ -665,9 +666,59 @@
     }
   ],
   "attrs": {
-    "product": "Azure Fireworks Models"
+    "author": "zAI",
+    "catalog_added_on": "2026-06-24",
+    "license": "other",
+    "product": "Azure Fireworks Models",
+    "publisher": "Fireworks",
+    "state": "active",
+    "summary": "GLM 5.2 is zAI's latest flagship model for long-horizon tasks, offering a solid 1M-token context, stronger coding with flexible effort levels, and an IndexShare-enhanced GLM MoE DSA architecture with 744B total parameters and 40B active.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 1048576
+  },
+  "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard"
+    ],
+    "features": [
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus",
+      "eastus2",
+      "northcentralus",
+      "southcentralus",
+      "westcentralus",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

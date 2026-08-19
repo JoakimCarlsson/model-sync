@@ -23,25 +23,12 @@
       "dims": {
         "modality": "audio",
         "plan": "paid",
-        "resolution": "0.00008-per-second",
         "tier": "batch"
       }
     },
     {
       "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 6.5,
-      "currency": "USD",
-      "dims": {
-        "modality": "audio",
-        "plan": "paid",
-        "resolution": "0.00016-per-second",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_second",
       "amount": 0.00008,
       "currency": "USD",
       "dims": {
@@ -53,6 +40,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 6.5,
+      "currency": "USD",
+      "dims": {
+        "modality": "audio",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_second",
       "amount": 0.00016,
       "currency": "USD",
       "dims": {
@@ -80,25 +78,12 @@
       "dims": {
         "modality": "image",
         "plan": "paid",
-        "resolution": "0.00006-per-image",
         "tier": "batch"
       }
     },
     {
       "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.45,
-      "currency": "USD",
-      "dims": {
-        "modality": "image",
-        "plan": "paid",
-        "resolution": "0.00012-per-image",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_image",
       "amount": 0.00006,
       "currency": "USD",
       "dims": {
@@ -110,6 +95,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "modality": "image",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_image",
       "amount": 0.00012,
       "currency": "USD",
       "dims": {
@@ -170,25 +166,12 @@
       "dims": {
         "modality": "video",
         "plan": "paid",
-        "resolution": "0.000395-per-frame",
         "tier": "batch"
       }
     },
     {
       "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 12,
-      "currency": "USD",
-      "dims": {
-        "modality": "video",
-        "plan": "paid",
-        "resolution": "0.00079-per-frame",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
+      "unit": "per_frame",
       "amount": 0.000395,
       "currency": "USD",
       "dims": {
@@ -200,6 +183,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "modality": "video",
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_frame",
       "amount": 0.00079,
       "currency": "USD",
       "dims": {
@@ -210,8 +204,10 @@
     }
   ],
   "attrs": {
-    "latest_update": "April 2026",
+    "last_updated": "April 2026",
     "model_code": "gemini-embedding-2",
+    "release_date": "2026-04-22",
+    "state": "active",
     "summary": "Our first multimodal embedding model, providing efficient numerical mapping of text, images, video, audio, and PDFs into a single unified embedding space. The Gemini Embedding 2 model is best for cross-modal semantic search, document retrieval, and recommendation systems that require fast, scalable similarity calculations across large multimodal datasets."
   },
   "limits": {
@@ -241,6 +237,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2",
     "https://ai.google.dev/gemini-api/docs/pricing"

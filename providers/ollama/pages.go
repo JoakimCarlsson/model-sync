@@ -70,6 +70,10 @@ var filledBarRe = regexp.MustCompile(`rounded-full bg-neutral-900`)
 // model costs. Most cloud models state only how heavily they draw on a plan's
 // allowance, and a few state a rate per million tokens, so both are read and
 // the level is recorded even where a rate is stated.
+//
+// A model Ollama runs itself comes in one size, so the page can head with the
+// parameter count of the build it runs, and does. A model distributed to run
+// locally comes in several and its pages state the count per build instead.
 func (b *builder) applyModelPage(doc catalog.Document) {
 	m, ok := b.models[path.Base(doc.URL)]
 	if !ok {
@@ -78,6 +82,9 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	body := string(doc.Body)
 	read := applyCost(m, body)
 	if applyUsageLevel(m, body) {
+		read = true
+	}
+	if applySizeCard(m, body) {
 		read = true
 	}
 	if read {

@@ -1,0 +1,79 @@
+{
+  "id": "google/veo-3.1-fast",
+  "provider": "openrouter",
+  "name": "Google: Veo 3.1 Fast",
+  "kind": "video",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "google",
+    "canonical_slug": "google/veo-3.1-fast-20260320",
+    "is_free": "true",
+    "modality": "text+image->video",
+    "release_date": "2026-04-24",
+    "summary": "Google's mid-tier video generation model balancing speed and quality.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "google-vertex"
+    ],
+    "endpoints": [
+      "Google"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "video"
+    ],
+    "parameters": [
+      "max_tokens",
+      "response_format",
+      "seed",
+      "temperature",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/google/veo-3.1-fast-20260320/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

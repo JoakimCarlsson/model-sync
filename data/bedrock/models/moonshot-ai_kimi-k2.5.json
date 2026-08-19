@@ -1281,9 +1281,10 @@
   ],
   "attrs": {
     "author": "Moonshot AI",
-    "lifecycle_state": "active",
-    "released": "Jan 27, 2026",
-    "retirement_date": "N/A",
+    "max_image_payload_size": "3 MB",
+    "model_id": "moonshotai.kimi-k2.5",
+    "release_date": "2026-01-27",
+    "state": "active",
     "summary": "Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -1293,6 +1294,18 @@
   "lists": {
     "aliases": [
       "moonshotai.kimi-k2.5"
+    ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
     ],
     "endpoints": [
       "bedrock-mantle",
@@ -1304,6 +1317,7 @@
     "features": [
       "abuse_detection",
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
@@ -1313,15 +1327,47 @@
       "streaming",
       "structured_outputs"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-north-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-moonshot-ai-kimi-k2-5.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

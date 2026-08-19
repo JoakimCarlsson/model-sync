@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "granitemoe",
+    "default_snapshot": "granite3.1-moe:latest",
+    "last_updated": "2025-01-17",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "3.3B",
+    "quantization": "Q4_K_M",
     "summary": "The IBM Granite 1B and 3B models are long-context mixture of experts (MoE) Granite models from IBM designed for low latency usage."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/granite3.1-moe/tags"
+    "https://ollama.com/library/granite3.1-moe/tags",
+    "https://ollama.com/library/granite3.1-moe:latest"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "codellama:latest",
+    "last_updated": "2024-07-18",
+    "license": "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "A large language model that can use text prompts to generate and discuss code."
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/codellama/tags"
+    "https://ollama.com/library/codellama/tags",
+    "https://ollama.com/library/codellama:latest"
   ]
 }

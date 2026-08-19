@@ -11,24 +11,61 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.4",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.06,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.06,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.4",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.12,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.12,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.4",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "poolside",
     "canonical_slug": "poolside/laguna-xs-2.1-20260625",
     "hugging_face_id": "poolside/Laguna-XS-2.1",
+    "modality": "text->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-02",
+    "release_date": "2026-07-02",
     "summary": "Laguna XS 2.1 is the latest coding agent model in the 33B-A3B category from [Poolside](https://poolside.ai/) and a step forward from their Laguna XS.2 model (released in April 2026).",
     "tokenizer": "Other"
   },
@@ -38,6 +75,12 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "endpoint_tags": [
+      "poolside/fp8"
+    ],
+    "endpoints": [
+      "Poolside"
+    ],
     "features": [
       "function_calling",
       "prompt_caching",
@@ -56,9 +99,14 @@
       "temperature",
       "tool_choice",
       "tools"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/poolside/laguna-xs-2.1-20260625/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cohere",
+        "endpoint_tag": "cohere"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cohere",
+        "endpoint_tag": "cohere"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +42,8 @@
     "canonical_slug": "cohere/command-r7b-12-2024",
     "is_moderated": "true",
     "knowledge_cutoff": "2024-08-31",
-    "released": "2024-12-14",
+    "modality": "text->text",
+    "release_date": "2024-12-14",
     "summary": "Command R7B (12-2024) is a small, fast update of the Command R+ model, delivered in December 2024.",
     "tokenizer": "Cohere"
   },
@@ -32,6 +53,12 @@
     "top_provider_context_window": 128000
   },
   "lists": {
+    "endpoint_tags": [
+      "cohere"
+    ],
+    "endpoints": [
+      "Cohere"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -53,9 +80,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/cohere/command-r7b-12-2024/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

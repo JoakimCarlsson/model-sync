@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "deepseek2",
+    "default_snapshot": "cogito-2.1:latest",
+    "last_updated": "2025-11-19",
+    "license": "MIT License",
+    "open_weights": "true",
+    "parameter_count": "671B",
+    "quantization": "F16",
     "summary": "The Cogito v2.1 LLMs are instruction tuned generative models. All models are released under MIT license for commercial use."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/cogito-2.1/tags"
+    "https://ollama.com/library/cogito-2.1/tags",
+    "https://ollama.com/library/cogito-2.1:latest"
   ]
 }

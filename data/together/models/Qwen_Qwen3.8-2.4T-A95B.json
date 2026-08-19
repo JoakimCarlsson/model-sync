@@ -25,12 +25,20 @@
   ],
   "attrs": {
     "author": "Qwen",
-    "quantization": "FP4"
+    "category": "Chat",
+    "parameter_count": "2.4T",
+    "quantization": "FP4",
+    "release_date": "2026-08-02",
+    "serverless_since": "2026-08-12",
+    "summary": "Qwen's 2.4T parameter flagship MoE model with 256K context, always-on thinking across three effort levels, and multimodal input, built for coding and long-horizon agentic work."
   },
   "limits": {
     "context_window": 256000
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -43,10 +51,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Reasoning",
+      "Vision"
+    ],
+    "use_cases": [
+      "Coding Agents"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen3-8-max"
   ]
 }

@@ -1,0 +1,41 @@
+{
+  "id": "fireworks/rolm-ocr",
+  "provider": "fireworks",
+  "name": "Rolm OCR",
+  "kind": "chat",
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/rolm-ocr",
+    "model_url": "https://fireworks.ai/models/fireworks/rolm-ocr",
+    "parameter_count": "8.29B",
+    "release_date": "2025-06-09",
+    "state": "active",
+    "summary": "RolmOCR is an open-source document OCR model developed by Reducto AI as a drop-in alternative to olmOCR that delivers faster performance with reduced memory usage. Built on Qwen2.5-VL-7B-Instruct and fine-tuned on the full olmOCR-mix dataset, this model excels at extracting plain text from complex documents including PDFs, images, and various document formats. RolmOCR features streamlined processing by eliminating metadata inputs, enhanced robustness through rotated training data, and maintains high accuracy while significantly reducing processing time and VRAM requirements compared to its predecessors."
+  },
+  "limits": {
+    "context_window": 128000
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/rolm-ocr"
+  ]
+}

@@ -16,19 +16,33 @@
     }
   ],
   "attrs": {
-    "author": "OpenAI"
+    "author": "OpenAI",
+    "category": "Video",
+    "model_card_url": "https://developers.openai.com/api/docs/models/sora-2-pro",
+    "release_date": "2025-10-14",
+    "summary": "Professional-grade video AI with extended 16-second generation, superior quality, no watermarks, and enhanced physics simulation for commercial use."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/sora-2-pro"
   ]
 }

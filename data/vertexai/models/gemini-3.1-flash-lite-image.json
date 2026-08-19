@@ -1,9 +1,130 @@
 {
   "id": "gemini-3.1-flash-lite-image",
   "provider": "vertexai",
-  "name": "gemini 3.1 flash lite image",
+  "name": "Gemini 3.1 Flash-Lite Image (Nano Banana 2 Lite)",
   "kind": "image",
   "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.012,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.025,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
@@ -18,12 +139,56 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD",
       "dims": {
         "deployment": "global",
         "modality": "text",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "video",
+        "tier": "flex"
       }
     },
     {
@@ -40,12 +205,56 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "image",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 30,
       "currency": "USD",
       "dims": {
         "deployment": "global",
         "modality": "image",
         "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "deployment": "global",
+        "modality": "text",
+        "tier": "flex"
       }
     },
     {
@@ -61,7 +270,10 @@
     }
   ],
   "attrs": {
-    "retirement_date": "No retirement date announced"
+    "input_size_limit": "500 MB",
+    "release_date": "2026-06-30",
+    "state": "active",
+    "summary": "Turn ideas into production-ready assets. Designed for high-volume and latency-sensitive workloads."
   },
   "limits": {
     "context_window": 65536,
@@ -83,15 +295,130 @@
       "text",
       "video"
     ],
+    "languages": [
+      "af",
+      "am",
+      "ar",
+      "as",
+      "az",
+      "be",
+      "bg",
+      "bn",
+      "bs",
+      "ca",
+      "ceb",
+      "co",
+      "cs",
+      "cy",
+      "da",
+      "de",
+      "dv",
+      "el",
+      "en",
+      "eo",
+      "es",
+      "et",
+      "eu",
+      "fa",
+      "fi",
+      "fil",
+      "fr",
+      "fy",
+      "ga",
+      "gd",
+      "gl",
+      "gu",
+      "ha",
+      "haw",
+      "hi",
+      "hmn",
+      "hr",
+      "ht",
+      "hu",
+      "hy",
+      "id",
+      "ig",
+      "is",
+      "it",
+      "iw",
+      "ja",
+      "jv",
+      "ka",
+      "kk",
+      "km",
+      "kn",
+      "ko",
+      "kri",
+      "ku",
+      "ky",
+      "la",
+      "lb",
+      "lo",
+      "lt",
+      "lv",
+      "mg",
+      "mi",
+      "mk",
+      "ml",
+      "mn",
+      "mni-Mtei",
+      "mr",
+      "ms",
+      "mt",
+      "my",
+      "ne",
+      "nl",
+      "no",
+      "ny",
+      "or",
+      "pa",
+      "pl",
+      "ps",
+      "pt",
+      "ro",
+      "ru",
+      "sd",
+      "si",
+      "sk",
+      "sl",
+      "sm",
+      "sn",
+      "so",
+      "sq",
+      "sr",
+      "st",
+      "su",
+      "sv",
+      "sw",
+      "ta",
+      "te",
+      "tg",
+      "th",
+      "tr",
+      "ug",
+      "uk",
+      "ur",
+      "uz",
+      "vi",
+      "xh",
+      "yi",
+      "yo",
+      "zh",
+      "zu"
+    ],
     "output_modalities": [
       "image",
       "text"
+    ],
+    "regions": [
+      "global"
     ]
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini/3-1-flash-lite-image",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/model-versions",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/thinking",
+    "https://cloud.google.com/vertex-ai/generative-ai/docs/models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

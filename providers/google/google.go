@@ -53,6 +53,16 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyPricing(doc)
 		}
 	}
+	b.applyPages(docs)
+	for _, doc := range docs {
+		b.applyGuide(doc)
+	}
+	return b.result(), nil
+}
+
+// applyPages attaches the per-model pages, which is the one document set that
+// has to be paired with the models before any of it is read.
+func (b *builder) applyPages(docs []catalog.Document) {
 	pages := make([]catalog.Document, 0, len(docs))
 	for _, doc := range docs {
 		if strings.HasPrefix(doc.URL, modelPagePre) {
@@ -64,7 +74,32 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyModelPage(pages[i], id)
 		}
 	}
-	return b.result(), nil
+}
+
+// applyGuide reads one of the documents that describe models the model pages
+// leave incomplete, and does nothing for a document that is not one.
+//
+// Each is read after the pages rather than before, because a page states a
+// model's own bounds and a guide states a family's: where the two disagree the
+// page is the one written about the model, and the first document to state a
+// field is the one kept.
+func (b *builder) applyGuide(doc catalog.Document) {
+	switch {
+	case doc.URL == DeprecationsURL:
+		b.applyDeprecations(doc)
+	case doc.URL == RateLimitsURL:
+		b.applyRateLimits(doc)
+	case doc.URL == ThinkingURL:
+		b.applyThinking(doc)
+	case doc.URL == VideoGuideURL:
+		b.applyVideoGuide(doc)
+	case doc.URL == ImageGuideURL:
+		b.applyImageGuide(doc)
+	case doc.URL == ImagenGuideURL:
+		b.applyImagenGuide(doc)
+	case strings.HasPrefix(doc.URL, cardPre):
+		b.applyModelCard(doc)
+	}
 }
 
 // pair decides which models each page describes, in three rounds, each able to
@@ -157,12 +192,22 @@ type builder struct {
 	// index holds what the model index states, keyed by endpoint and by the
 	// name of the family the endpoint belongs to.
 	index map[string]indexEntry
+	// byName maps the name the index lists a model under onto the endpoint it
+	// answers to, which is what lets a document naming models rather than
+	// endpoints reach them.
+	byName map[string]string
+	// cardState holds the availability the index's grid marks an endpoint
+	// with, which is the only place most models still in preview are said to
+	// be.
+	cardState map[string]string
 }
 
 func newBuilder() *builder {
 	return &builder{
-		models: map[string]*catalog.Model{},
-		index:  map[string]indexEntry{},
+		models:    map[string]*catalog.Model{},
+		index:     map[string]indexEntry{},
+		byName:    map[string]string{},
+		cardState: map[string]string{},
 	}
 }
 

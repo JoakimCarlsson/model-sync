@@ -11,16 +11,39 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Relace",
+        "endpoint_tag": "relace/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 3,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Relace",
+        "endpoint_tag": "relace/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
     "author": "relace",
     "canonical_slug": "relace/relace-search-20251208",
-    "released": "2025-12-08",
+    "modality": "text->text",
+    "release_date": "2025-12-08",
     "summary": "The relace-search model uses 4-12 `view_file` and `grep` tools in parallel to explore a codebase and return relevant files to the user request.",
     "tokenizer": "Other"
   },
@@ -30,6 +53,12 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "endpoint_tags": [
+      "relace/bf16"
+    ],
+    "endpoints": [
+      "Relace"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -50,9 +79,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/relace/relace-search-20251208/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

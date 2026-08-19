@@ -1,0 +1,38 @@
+{
+  "id": "sentiment-analysis",
+  "provider": "assemblyai",
+  "name": "Sentiment Analysis",
+  "kind": "speech_understanding",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.02,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "product": "Speech Understanding",
+    "regions": "US & EU",
+    "summary": "Detect the sentiment of each sentence spoken"
+  },
+  "lists": {
+    "features": [
+      "sentiment_analysis"
+    ],
+    "languages": [
+      "en",
+      "en_au",
+      "en_uk",
+      "en_us"
+    ],
+    "supported_models": [
+      "universal-2",
+      "universal-3-5-pro"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/speech-understanding/sentiment-analysis.md",
+    "https://www.assemblyai.com/pricing"
+  ]
+}

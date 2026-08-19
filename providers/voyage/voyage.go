@@ -52,6 +52,12 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		{isCapabilityPage, b.applyModelPage},
 		{isOverview, b.applyModelPage},
 		{isBatch, b.applyBatch},
+		{isPricing, b.applyPixelBands},
+		{isTokenization, b.applyTokenizer},
+		{isReference, b.applyReference},
+		{isRateLimits, b.applyRateLimits},
+		{isListing, b.applyListing},
+		{isAnnouncement, b.applyAnnouncement},
 	} {
 		for _, doc := range docs {
 			if stage.match(doc.URL) {
@@ -70,22 +76,72 @@ func isBatch(url string) bool {
 	return strings.HasSuffix(url, "/batch-inference.md")
 }
 
+func isRateLimits(url string) bool {
+	return strings.HasSuffix(url, "/rate-limits.md")
+}
+
+func isTokenization(url string) bool {
+	return strings.HasSuffix(url, "/tokenization.md")
+}
+
+func isReference(url string) bool {
+	return strings.HasPrefix(url, refURL+"/")
+}
+
+func isListing(url string) bool {
+	return strings.HasPrefix(url, marketplaceURL)
+}
+
+func isAnnouncement(url string) bool {
+	return strings.HasPrefix(url, blogURL)
+}
+
 func isOverview(url string) bool { return url == overviewURL }
 
 // isCapabilityPage reports whether a URL is one of the pages describing what a
-// family of models can do.
+// family of models can do, which is every guide page that is not one of the
+// pages read for something else.
 func isCapabilityPage(url string) bool {
-	return !isPricing(url) && !isBatch(url) && !isOverview(url)
+	switch {
+	case isPricing(url), isBatch(url), isOverview(url),
+		isRateLimits(url), isTokenization(url), isReference(url),
+		isListing(url), isAnnouncement(url):
+		return false
+	}
+	return true
 }
 
 // builder accumulates models across documents.
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// pageModels records which models each guide page's tables listed, in
+	// table order. The request bounds and the parameter list are stated once
+	// per endpoint rather than per model, and this is what says which models
+	// an endpoint serves.
+	pageModels map[string][]string
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models:     map[string]*catalog.Model{},
+		pageModels: map[string][]string{},
+	}
+}
+
+// servedBy returns the models a guide page listed, skipping any whose weights
+// Voyage publishes rather than serving. A request bound is a bound on Voyage's
+// API, and a model it does not host is not called through that API.
+func (b *builder) servedBy(page string) []*catalog.Model {
+	var out []*catalog.Model
+	for _, id := range b.pageModels[page] {
+		m, ok := b.models[id]
+		if !ok || m.Attrs[AttrOpenWeights] == "true" {
+			continue
+		}
+		out = append(out, m)
+	}
+	return out
 }
 
 // model returns the entry for id, creating it if absent.

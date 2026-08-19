@@ -34,28 +34,44 @@ var metadataRe = regexp.MustCompile(
 // embeddingLengthSuffix ends the key stating the width.
 const embeddingLengthSuffix = ".embedding_length"
 
+// AttrTokenizer is the tokenizer the weights were built with, which the
+// metadata names under a key of its own rather than under the architecture.
+const AttrTokenizer = "tokenizer"
+
+// tokenizerKey states it.
+const tokenizerKey = "tokenizer.ggml.model"
+
 // applyBlob reads the metadata page of a build's model layer.
 //
 // It is fetched for the embedding models alone, because the width of the
 // vector they return is the one fact about them no page of the library states
-// and this page does. What else it carries the library already states, and in
-// the words Ollama publishes rather than the words the weights were built
-// with.
+// and this page does. The tokenizer the weights were built with is taken from
+// it too, since it is stated nowhere else either. What else it carries the
+// build's page already states, and in the words Ollama publishes rather than
+// the words the weights were built with, so the page is not read for the rest:
+// it holds a row per tensor and is far the largest document Ollama serves.
 func (b *builder) applyBlob(doc catalog.Document) {
 	m, ok := b.models[blobModelID(doc.URL)]
 	if !ok {
 		return
 	}
+	read := false
 	for _, entry := range metadataRe.FindAllStringSubmatch(
 		string(doc.Body),
 		-1,
 	) {
-		if !strings.HasSuffix(entry[1], embeddingLengthSuffix) {
+		switch {
+		case strings.HasSuffix(entry[1], embeddingLengthSuffix):
+			m.SetAttr(AttrEmbeddingDimension, entry[2])
+		case entry[1] == tokenizerKey:
+			m.SetAttr(AttrTokenizer, entry[2])
+		default:
 			continue
 		}
-		m.SetAttr(AttrEmbeddingDimension, entry[2])
+		read = true
+	}
+	if read {
 		m.AddSource(doc.URL)
-		return
 	}
 }
 

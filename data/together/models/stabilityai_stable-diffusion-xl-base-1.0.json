@@ -12,18 +12,39 @@
     }
   ],
   "attrs": {
-    "author": "Stability AI"
+    "author": "Stability AI",
+    "category": "Image",
+    "dedicated_after_retirement": "no",
+    "hugging_face_id": "stabilityai/stable-diffusion-xl-base-1.0",
+    "model_card_url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+    "release_date": "2023-07-25",
+    "retirement_date": "2025-04-14",
+    "state": "retired",
+    "summary": "Industry-standard SDXL model for reliable and versatile image generation."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
+  "notes": [
+    "the deprecation history gives this model a removal date from serverless inference, and the catalog page still lists it with a per-token rate"
+  ],
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/deprecations.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/sd-xl"
   ]
 }

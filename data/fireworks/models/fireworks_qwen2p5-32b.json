@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/qwen2p5-32b",
+  "provider": "fireworks",
+  "name": "Qwen2.5 32B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Qwen",
+    "calibrated": "false",
+    "hugging_face_id": "Qwen/Qwen2.5-32B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/qwen2p5-32b",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen2p5-32b",
+    "open_weights": "true",
+    "parameter_count": "32.7B",
+    "release_date": "2024-10-02",
+    "state": "active",
+    "summary": "Qwen2.5 are a series of decoder-only language models developed by Qwen team, Alibaba Cloud, available in 0.5B, 1.5B, 3B, 7B, 14B, 32B, and 72B sizes, and base and instruct variants."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/qwen2p5-32b"
+  ]
+}

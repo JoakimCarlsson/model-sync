@@ -19,19 +19,32 @@
   ],
   "attrs": {
     "author": "OpenAI",
+    "hugging_face_id": "openai/gpt-oss-120b",
+    "instruct_type": "harmony",
+    "license": "apache-2.0",
     "model_card_url": "https://openai.com/index/gpt-oss-model-card/",
     "model_url": "/models/openai-oss",
-    "parameters": "120 billion",
+    "open_weights": "true",
+    "parameter_count": "120 billion",
+    "playground_url": "https://cloud.cerebras.ai",
     "quantization": "FP16/8 (weights only)",
-    "state": "production",
+    "release_date": "2025-08-06",
+    "state": "active",
     "summary": "This model excels at efficient reasoning across science, math, and coding applications. It's ideal for real-time coding assistance, processing large documents for Q&A and summarization, agentic research workflows, and regulated on-premises workloads.",
+    "tokenizer": "GPT",
     "tokens_per_second": "~3000"
   },
   "limits": {
     "context_window": 131072,
     "context_window_free": 65000,
     "max_output_tokens": 40960,
-    "max_output_tokens_free": 32000
+    "max_output_tokens_free": 32000,
+    "requests_per_minute": 1000,
+    "requests_per_minute_free": 5,
+    "tokens_per_day_free": 1000000,
+    "tokens_per_hour_free": 1000000,
+    "tokens_per_minute": 1000000,
+    "tokens_per_minute_free": 30000
   },
   "lists": {
     "endpoints": [
@@ -39,22 +52,43 @@
     ],
     "features": [
       "function_calling",
+      "json_mode",
       "prompt_caching",
       "reasoning",
       "sampling_controls",
       "streaming",
-      "structured_outputs"
+      "structured_outputs",
+      "tool_choice"
     ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "max_completion_tokens",
+      "presence_penalty",
+      "seed",
+      "stop",
+      "temperature",
+      "top_p"
     ]
   },
+  "notes": [
+    "For this model, our API maps the \"system\" role to developer-level instructions in our prompt hierarchy. See our OpenAI Compatibility guide for more details.",
+    "In Chat Completions, standard sampling controls are supported, including temperature, top_p, frequency_penalty, presence_penalty, seed, and logit_bias. See the Chat Completions API reference for parameter details.",
+    "This model may call tools that aren't directly specified due to its training. Monitor for non-approved tools and reprompt with \"you're hallucinating a tool call\" to help the model self-correct and stick to provided tools.",
+    "Use the reasoning_effort parameter to control reasoning for this model. The default effort level is medium. Learn more in our reasoning guide.",
+    "When min_tokens is set, the model may generate EOS (End of Sequence) tokens which may cause parser failures. Use at your own risk."
+  ],
   "sources": [
     "https://api.cerebras.ai/public/v1/models",
+    "https://huggingface.co/api/models/openai/gpt-oss-120b",
     "https://inference-docs.cerebras.ai/models/openai-oss.md",
-    "https://inference-docs.cerebras.ai/models/overview.md"
+    "https://inference-docs.cerebras.ai/models/overview.md",
+    "https://inference-docs.cerebras.ai/support/rate-limits.md"
   ]
 }

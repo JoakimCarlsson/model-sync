@@ -123,14 +123,73 @@
         "region": "us-west-2",
         "tier": "on-demand"
       }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 21.18,
+      "currency": "USD",
+      "dims": {
+        "commitment": "1-month",
+        "meter": "provisionedthroughput-1month-modelunits",
+        "region": "us-west-2",
+        "tier": "provisioned"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 13.08,
+      "currency": "USD",
+      "dims": {
+        "commitment": "6-months",
+        "meter": "provisionedthroughput-6months-modelunits",
+        "region": "us-west-2",
+        "tier": "provisioned"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_hour",
+      "amount": 24,
+      "currency": "USD",
+      "dims": {
+        "commitment": "no-commit",
+        "meter": "provisionedthroughput-nocommit-modelunits",
+        "region": "us-west-2",
+        "tier": "provisioned"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_month",
+      "amount": 1.95,
+      "currency": "USD",
+      "dims": {
+        "meter": "customization-storage",
+        "region": "us-west-2",
+        "tier": "custom"
+      }
+    },
+    {
+      "metric": "usage",
+      "unit": "per_1k_tokens",
+      "amount": 0.00799,
+      "currency": "USD",
+      "dims": {
+        "meter": "customization-training",
+        "region": "us-west-2",
+        "tier": "custom"
+      }
     }
   ],
   "attrs": {
     "author": "Meta",
-    "knowledge_cutoff": "Dec 2023",
-    "lifecycle_state": "active",
-    "released": "Jul 23, 2024",
-    "retirement_date": "No sooner than 7/23/2025",
+    "knowledge_cutoff": "2023-12",
+    "model_id": "meta.llama3-1-70b-instruct-v1:0",
+    "release_date": "2024-07-23",
+    "retirement_date": "2025-07-23",
+    "state": "active",
     "summary": "Llama 3.1 70B Instruct is Meta's 70-billion parameter model with an extended 128K context window and support for tool use and code generation. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -142,6 +201,13 @@
       "meta.llama3-1-70b-instruct-v1:0",
       "us.meta.llama3-1-70b-instruct-v1:0"
     ],
+    "batch_inference_profile_regions": [
+      "us-east-1",
+      "us-west-2"
+    ],
+    "batch_regions": [
+      "us-west-2"
+    ],
     "endpoints": [
       "bedrock-runtime",
       "converse",
@@ -149,20 +215,47 @@
     ],
     "features": [
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
+      "latency_optimized",
       "prompt_management",
       "streaming"
+    ],
+    "geo_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "in_region_regions": [
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "us.meta.llama3-1-70b-instruct-v1:0"
     ],
     "input_modalities": [
       "text"
     ],
+    "latency_optimized_regions": [
+      "us-east-2",
+      "us-west-2"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/latency-optimized-inference.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-meta-llama-3-1-70b-instruct.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

@@ -12,19 +12,39 @@
     }
   ],
   "attrs": {
-    "author": "Wan-AI"
+    "author": "Wan-AI",
+    "category": "Video",
+    "duration": "Up to 15s",
+    "summary": "Text-to-video generation model supporting 720P and 1080P outputs from 2 to 15 seconds."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "audio",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "parameters": [
+      "media",
+      "model",
+      "negative_prompt",
+      "prompt",
+      "ratio",
+      "resolution",
+      "seconds",
+      "seed"
+    ],
+    "tags": [
+      "Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
+    "https://docs.together.ai/docs/wan2.7-quickstart.md",
     "https://www.together.ai/models/wan-27"
   ]
 }

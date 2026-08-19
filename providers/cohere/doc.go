@@ -1,6 +1,8 @@
 // Package cohere parses Cohere's model overview, its two pricing pages, its
-// deprecation announcements, the pages of its two transcription models and its
-// capability guides into the catalog model.
+// deprecation announcements, the pages of its two transcription models and of
+// six of its Command models, its capability guides, its rate limit page, the
+// references for the four endpoints its models answer on and every one of its
+// release notes into the catalog model.
 //
 // Cohere states its rates in two places and five ways. The marketing site
 // carries four of them: cards for the products it sells today, sentences in
@@ -70,6 +72,23 @@
 // rather than a model that is gone, and the date is a reason to publish it and
 // not a reason to withhold it.
 //
+// Two of the identifiers the overview lists are not models. Its description
+// column says the whole of what it has to say about them in four words, "Alias
+// for command-r-03-2024", and that sentence is read: the alias records what it
+// stands for, the model records what stands for it, and the alias takes the
+// model's rate with a note saying where the amount came from. A call to either
+// is the same call and costs the same thing, and without this an identifier the
+// API answers to and bills for would read as one Cohere states no rate for.
+//
+// An alias is also why a bare product name is resolved through a table rather
+// than reduced to an identifier. "Command R" and "Command R+" are both live
+// identifiers and both aliases for a version deprecated in September 2025, so a
+// document listing what Cohere sells or how often it may be called today, which
+// is a rate card, the rate limit table or a capability guide, means the version
+// serving under the name and not the alias. The consequence is worth stating
+// plainly: the structured outputs guide lists six names that are four models,
+// because it names Command R and Command R+ once dated and once not.
+//
 // Its tables state no display name, only the identifier, and a name is
 // therefore assembled from the four places Cohere writes one. The summary above
 // the tables names each model in prose and links it, and the link's address is
@@ -102,11 +121,72 @@
 // say something narrower stops yielding the capability instead of going on
 // claiming it.
 //
+// Six of the Command models have a page of their own, and a page is the only
+// document that answers a capability against one model. Two of them, Command A+
+// and Command A Reasoning, point at the reasoning guide for how to turn the
+// model's thinking off, which is a thing only a model that thinks has, and that
+// is where reasoning comes from: the guide itself enumerates nothing and calls
+// one model in an example, which is a worked example and not a list. One of
+// them contradicts the family the tool use guide claims, Command A Vision
+// saying
+// outright that tool use is not supported with it, and a document naming a
+// model
+// outranks a document naming the family it is in, so that model is excepted.
+// The
+// newest page also carries a properties list, which is where the day Command A+
+// was released, who published it, how large it is and what licence its weights
+// are under all come from.
+//
+// The four endpoint references say what a call may carry. Every parameter they
+// list is recorded against the models the overview answers on that endpoint,
+// and the bounds they state are recorded the same way: how many texts and
+// images one embedding call takes, in what formats a vector comes back and what
+// an input may be declared to be for, how many documents a rerank call should
+// carry and how long each may be, and which containers a transcription accepts.
+// For the embedding and rerank families this is the whole of what bounds a call
+// beyond the context length, because their tables in the overview have no other
+// column. The embed reference states its image rules per generation rather than
+// per model, one for the third and one for the fourth and anything after it,
+// and
+// an identifier carries its generation, so each rule reaches the models whose
+// version it names.
+//
+// The rate limit page states how often a model may be called, twice for every
+// model: once for the key an account is given on signing up and once for the
+// key
+// it is given on paying. It reaches a model two ways. The Chat models get a row
+// each, headed by a product name that resolves through the same table the rate
+// cards do, and everything else gets a row per endpoint, which reaches every
+// model the overview answers there. A row Cohere answers with an invitation to
+// contact its sales team states no ceiling and yields nothing, and the page's
+// default row, which states what applies to everything not named above it, is
+// not read as a statement about any model. An embedding model comes out of this
+// with three ceilings that are not the same ceiling: inputs a minute, image
+// inputs a minute, and batch jobs a minute, each under a key saying what it
+// counts.
+//
+// The release notes are the only document dating anything. Cohere's overview
+// has
+// no date column and its model pages, bar the newest, state no release date, so
+// the day a model arrived is read from the changelog: the index dates each
+// entry
+// and the entry names what it announces. An entry reaches a model only two
+// ways,
+// and both are the entry saying what it is about rather than mentioning a model
+// in passing. Most entries carry a technical details list headed by the
+// identifier. The rest announce a release, or an update to one, in prose and
+// name the identifiers in it, and only those entries are read from, because
+// every entry that withdraws a model names the models it recommends instead and
+// dating a model from the first entry to mention it would put its release on
+// the
+// day it was deprecated. That is twelve of the thirty four. The same lists give
+// the languages three models cover and the licence their weights are under.
+//
 // What Cohere does not publish:
 //
 //   - A rate for Aya Vision, for Tiny Aya, for the nightly builds, for the
-//     third generation embedding and rerank models, for the Arabic
-//     transcription model or for anything older. Those models are served and
+//     third generation embedding and rerank models or for the Arabic
+//     transcription model. Those models are served and
 //     documented, and no price is stated for any of them on either pricing
 //     page, on the model's own page or anywhere else Cohere publishes; the two
 //     transcription pages answer the question with an invitation to contact
@@ -123,15 +203,33 @@
 //   - A capability list against a model. Neither the overview nor either
 //     pricing page has a capability column, and a Command model's own page
 //     describes what it can do in paragraphs rather than enumerating it. The
-//     three guides and the two audio pages are the whole of what is
-//     enumerable, so an embedding or rerank model carries no capability at all.
-//   - Which models reason. Cohere has a reasoning guide and a model named for
-//     the capability, and neither states a list: the guide explains the feature
+//     three guides, the six model pages and the two audio pages are the whole
+//     of what is enumerable, and none of them speaks about embedding or rerank
+//     models, so those two families carry no capability at all. The catalog's
+//     vocabulary has no value for what they do either: what a reranker offers
+//     is relevance scoring, and there is no canonical word for it.
+//   - A rate for a model on a cloud platform. The overview says which
+//     identifier a model answers to on Bedrock, SageMaker, Azure and Oracle,
+//     and stops there; what a call to it costs on any of them is published by
+//     that platform and not by Cohere, and no rate here is read from anywhere
+//     but Cohere. The only rate Cohere states for a platform is for its own,
+//     Model Vault, and that one is recorded with the platform against it.
+//   - Which models reason, as a list. The reasoning guide explains the feature
 //     and calls one model in its examples, which is a worked example and not an
 //     enumeration, and the Chat reference documents the parameter that turns it
-//     on without saying which models accept it. Reading a capability out of an
-//     example would claim it for whichever model the example happened to use,
-//     so none is recorded.
+//     on without saying which models accept it. Only the two model pages that
+//     document turning their own thinking off are read, so a reasoning model
+//     without a page of its own would be missed rather than guessed at.
+//   - Which models can be held to a schema, beyond the six the structured
+//     outputs guide lists. Those six are four models, because the guide names
+//     two of them twice, once dated and once not. The Chat reference says the
+//     parameter is supported on "Command R, Command R+ and newer models", and
+//     says the same of two others in the same shape, but a model is newer than
+//     another only by a release date Cohere states for a minority of them, so
+//     the phrase is not turned into a list.
+//   - A knowledge cutoff, for any model. No overview column, no model page, no
+//     release note and no reference states when a model's training data ends,
+//     and none of them states it in any other wording either.
 //   - A display name for the older embedders and rerankers or for the nightly
 //     builds. Their descriptions describe rather than name, "A model that
 //     allows for text to be classified or turned into embeddings", the summary

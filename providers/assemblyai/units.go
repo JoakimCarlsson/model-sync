@@ -1,6 +1,7 @@
 package assemblyai
 
 import (
+	"html"
 	"regexp"
 	"strconv"
 	"strings"
@@ -18,10 +19,11 @@ const (
 	MetricSession catalog.Metric = "session"
 )
 
-// UnitPerHour is the only denominator AssemblyAI quotes.
+// UnitPerHour is the denominator everything AssemblyAI meters in time is
+// quoted against, which is everything but the models it resells.
 const UnitPerHour catalog.Unit = "per_hour"
 
-// KindTranscription is the only kind AssemblyAI publishes.
+// KindTranscription is what AssemblyAI trains and serves itself.
 const KindTranscription catalog.Kind = "transcription"
 
 // Modes AssemblyAI separates its models into.
@@ -62,9 +64,9 @@ const (
 	ListOutputModalities = "output_modalities"
 )
 
-// Modalities every AssemblyAI model handles. It sells transcription only, so
-// each one hears audio and writes text, whether it is given a recording or a
-// connection.
+// Modalities AssemblyAI's models handle. A transcription model hears audio and
+// writes text, whether it is given a recording or a connection; a model reached
+// through the gateway is given text and answers in text.
 const (
 	ModalityText  = "text"
 	ModalityAudio = "audio"
@@ -80,10 +82,12 @@ var (
 	amountRe   = regexp.MustCompile(`\$\s*([\d,]*\.?\d+)`)
 )
 
-// clean strips markdown and MDX decoration from a value.
+// clean strips markdown and MDX decoration from a value, and resolves the
+// character references the pricing page writes its prose with.
 func clean(text string) string {
 	s := linkRe.ReplaceAllString(text, "$1")
 	s = tagRe.ReplaceAllString(s, " ")
+	s = html.UnescapeString(s)
 	s = strings.ReplaceAll(s, `\$`, "$")
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
@@ -118,4 +122,85 @@ func slugID(name string) string {
 		s = strings.ReplaceAll(s, "--", "-")
 	}
 	return strings.Trim(s, "-")
+}
+
+// Metrics the LLM Gateway bills on. It is the one thing AssemblyAI sells that
+// is not metered in time, so none of these is comparable to the two above.
+const (
+	MetricInputTokens       catalog.Metric = "input_tokens"
+	MetricCachedInputTokens catalog.Metric = "cached_input_tokens"
+	MetricCacheWriteTokens  catalog.Metric = "cache_write_tokens"
+	MetricOutputTokens      catalog.Metric = "output_tokens"
+)
+
+// UnitPer1MTokens is the denominator the gateway quotes every rate against.
+const UnitPer1MTokens catalog.Unit = "per_1m_tokens"
+
+// The kinds AssemblyAI sells besides transcription: the models it resells
+// through its gateway, and the two families of thing it does to a transcript
+// once one exists.
+const (
+	KindChat                catalog.Kind = "chat"
+	KindSpeechUnderstanding catalog.Kind = "speech_understanding"
+	KindGuardrail           catalog.Kind = "guardrail"
+)
+
+// DimCacheTTL says how long a cache write buys, which the gateway prices in
+// two columns and states only for the longer of them.
+const DimCacheTTL = "cache_ttl"
+
+// DimRedaction says which half of a redaction a rate is for. AssemblyAI
+// documents PII redaction once and sells it twice, once for the transcript and
+// once for the audio, at different rates.
+const DimRedaction = "redaction"
+
+// LimitContextWindow is how much a gateway model may be given at once, which
+// is the only bound AssemblyAI states for one.
+const LimitContextWindow = "context_window"
+
+// Scalar keys the gateway and pricing pages populate.
+const (
+	// AttrSummary is the sentence the pricing page describes a model with,
+	// which is the only prose AssemblyAI writes per model in a fixed place.
+	AttrSummary = "summary"
+	// AttrRetirementDate is the day a gateway model stops being served, which
+	// the roster states in a column of its own and leaves empty for a model
+	// with no date set.
+	AttrRetirementDate = "retirement_date"
+	// AttrRegionalSurcharge is what a gateway model costs above its listed
+	// rate when the request is pinned to a region rather than routed globally.
+	// It is kept as published, a percentage, because AssemblyAI states it as
+	// one and computing the second rate here would invent a figure.
+	AttrRegionalSurcharge = "regional_surcharge"
+	// AttrProduct is the heading the pricing page sells a model under.
+	AttrProduct = "product"
+)
+
+// ListEndpoints holds the endpoints a model is reached at.
+const ListEndpoints = "endpoints"
+
+// ListParameters holds the request parameters a model accepts, which is
+// answered per model for the gateway models and for no others.
+const ListParameters = catalog.ListParameters
+
+// Capabilities the gateway roster states by naming the parameter that carries
+// them, in the catalog's words.
+const (
+	FeatureFunctionCalling   = catalog.CapabilityFunctionCalling
+	FeatureStructuredOutputs = catalog.CapabilityStructuredOutputs
+	FeatureWordTimestamps    = catalog.CapabilityWordTimestamps
+	// FeatureStreaming is returning an answer as it is generated. It is not
+	// CapabilityRealtime, which is transcribing a live connection: one is
+	// about how an answer arrives, the other about what is being listened to.
+	FeatureStreaming = "streaming"
+)
+
+// hoursToSeconds converts a bound AssemblyAI states in hours, which is the
+// unit its prose uses and not one a consumer can compare against a duration.
+func hoursToSeconds(text string) int64 {
+	hours, err := strconv.ParseFloat(text, 64)
+	if err != nil {
+		return 0
+	}
+	return int64(hours * 3600)
 }

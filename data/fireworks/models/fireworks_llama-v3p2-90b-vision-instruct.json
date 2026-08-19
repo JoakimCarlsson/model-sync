@@ -1,0 +1,44 @@
+{
+  "id": "fireworks/llama-v3p2-90b-vision-instruct",
+  "provider": "fireworks",
+  "name": "Llama 3.2 90B Vision Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
+    "hugging_face_id": "meta-llama/Llama-3.2-90B-Vision-Instruct",
+    "license": "Llama 3.2 Community",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-v3p2-90b-vision-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-v3p2-90b-vision-instruct",
+    "open_weights": "true",
+    "parameter_count": "88.5B",
+    "release_date": "2024-09-23",
+    "state": "active",
+    "summary": "Instruction-tuned image reasoning model with 90B parameters from Meta. Optimized for visual recognition, image reasoning, captioning, and answering general questions about an image. The model can understand visual data, such as charts and graphs and also bridge the gap between vision and language by generating text to describe images details"
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-v3p2-90b-vision-instruct"
+  ]
+}

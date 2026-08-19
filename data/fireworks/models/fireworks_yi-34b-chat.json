@@ -1,0 +1,90 @@
+{
+  "id": "fireworks/yi-34b-chat",
+  "provider": "fireworks",
+  "name": "Yi 34B Chat",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "01.Ai",
+    "calibrated": "false",
+    "hugging_face_id": "01-ai/Yi-34B-Chat",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/yi-34b-chat",
+    "model_url": "https://fireworks.ai/models/yi-01-ai/yi-34b-chat",
+    "open_weights": "true",
+    "parameter_count": "34.3B",
+    "release_date": "2024-02-29",
+    "state": "active",
+    "summary": "The Yi series models are the next generation of open-source large language models trained from scratch by 01.AI. Yi-34B-Chat landed in second place (following GPT-4 Turbo), outperforming other LLMs (such as GPT-4, Mixtral, Claude) on the AlpacaEval Leaderboard (based on data available up to January 2024)."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "fine_tuning",
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/yi-01-ai/yi-34b-chat",
+    "https://fireworks.ai/pricing"
+  ]
+}

@@ -19,11 +19,18 @@
   ],
   "attrs": {
     "author": "moonshotai",
+    "data_residency": "EU",
+    "docs_title": "Kimi K2.6",
+    "hugging_face_id": "moonshotai/Kimi-K2.6",
     "license": "Other",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/moonshotai/Kimi-K2.6",
     "model_path": "moonshotai/Kimi-K2.6",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2026-04-14"
+    "reasoning_mandatory": "false",
+    "release_date": "2026-04-14",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "context_window": 256000,
@@ -39,8 +46,12 @@
       "moonshotai/Kimi-K2",
       "moonshotai/Kimi-K2.6"
     ],
+    "endpoints": [
+      "/v1/chat/completions"
+    ],
     "features": [
       "function_calling",
+      "reasoning",
       "streaming",
       "structured_outputs"
     ],
@@ -85,11 +96,16 @@
       "top_logprobs",
       "top_p",
       "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
     "https://api.berget.ai/v1/models",
-    "https://docs.berget.ai/models/overview"
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

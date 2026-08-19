@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "The smallest model in Cohere&#39;s R series delivers top-tier speed, efficiency, and quality to build powerful AI applications on commodity GPUs and edge devices."
+    "architecture": "cohere2",
+    "default_snapshot": "command-r7b:latest",
+    "last_updated": "2025-01-16",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
+    "summary": "The smallest model in Cohere's R series delivers top-tier speed, efficiency, and quality to build powerful AI applications on commodity GPUs and edge devices."
   },
   "limits": {
     "context_window": 8000
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/command-r7b/tags"
+    "https://ollama.com/library/command-r7b/tags",
+    "https://ollama.com/library/command-r7b:latest"
   ]
 }

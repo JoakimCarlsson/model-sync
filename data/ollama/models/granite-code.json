@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "granite-code:latest",
+    "last_updated": "2024-09-03",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "3.48B",
+    "quantization": "Q4_0",
     "summary": "A family of open foundation models by IBM for Code Intelligence"
   },
   "limits": {
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/granite-code/tags"
+    "https://ollama.com/library/granite-code/tags",
+    "https://ollama.com/library/granite-code:latest"
   ]
 }

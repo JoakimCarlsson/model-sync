@@ -1397,9 +1397,9 @@
   ],
   "attrs": {
     "author": "Nvidia",
-    "lifecycle_state": "active",
-    "released": "Dec 15, 2025",
-    "retirement_date": "N/A",
+    "model_id": "nvidia.nemotron-nano-3-30b",
+    "release_date": "2025-12-15",
+    "state": "active",
     "summary": "Nemotron Nano 3 30B is NVIDIA's 30-billion parameter model with strong reasoning and coding performance, optimized for deployment on NVIDIA GPUs. For more information about model development and performance, see the model/service card."
   },
   "limits": {
@@ -1410,6 +1410,18 @@
     "aliases": [
       "nvidia.nemotron-nano-3-30b"
     ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
     "endpoints": [
       "bedrock-mantle",
       "bedrock-runtime",
@@ -1419,6 +1431,7 @@
     ],
     "features": [
       "agents",
+      "batch_inference",
       "flows",
       "function_calling",
       "guardrails",
@@ -1428,14 +1441,57 @@
       "streaming",
       "structured_outputs"
     ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "us-gov.nvidia.nemotron-nano-3-30b"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-south-1",
+      "ap-southeast-2",
+      "ap-southeast-3",
+      "ap-southeast-4",
+      "eu-central-1",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-west-1",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "flex",
+      "priority",
+      "standard"
     ]
   },
   "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
     "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-nvidia-nemotron-nano-3-30b.md",
     "https://pricing.us-east-1.amazonaws.com/offers/v1.0/aws/AmazonBedrock/current/index.json"
   ]

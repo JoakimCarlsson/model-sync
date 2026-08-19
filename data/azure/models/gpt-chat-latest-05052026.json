@@ -1,6 +1,7 @@
 {
   "id": "gpt-chat-latest-05052026",
   "provider": "azure",
+  "name": "gpt-chat-latest",
   "kind": "chat",
   "prices": [
     {
@@ -830,27 +831,89 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2026-08-14",
+    "knowledge_cutoff": "2026-02",
+    "license": "custom",
     "product": "Azure OpenAI GPT5",
-    "training_data_cutoff": "August 2025"
+    "publisher": "OpenAI",
+    "release_date": "2026-08-06",
+    "retirement_date": "2026-12-02",
+    "state": "preview",
+    "summary": "gpt-chat-latest (preview) is an advanced, natural, multimodal, and context-aware conversations for enterprise applications.",
+    "training_data_cutoff": "February 2026",
+    "version": "2026-08-06"
   },
   "limits": {
-    "context_window": 128000,
-    "max_output_tokens": 16384
+    "context_window": 400000,
+    "max_output_tokens": 128000
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
       "function_calling",
       "parallel_tool_calls",
       "reasoning",
+      "streaming",
       "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

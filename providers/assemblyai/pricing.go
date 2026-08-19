@@ -12,9 +12,27 @@ import (
 // add-on only that it is billed separately.
 const PricingURL = "https://www.assemblyai.com/pricing"
 
-// addOnHeading is the word the add-on tables head their first column with,
-// which is what separates them from the model tables beside them.
-const addOnHeading = "add-on features"
+// The two words the pricing page heads a first column with, which is what
+// separates a table of one model per column from a table of one per row.
+const (
+	addOnHeading   = "add-on features"
+	productHeading = "models"
+)
+
+// featureHeadings are the product headings whose rows are themselves the
+// roster, with the kind each sells. Under every other heading a row names
+// something this catalog either already holds or does not hold as a model.
+var featureHeadings = map[string]catalog.Kind{
+	"Speech Understanding": KindSpeechUnderstanding,
+	"Guardrails":           KindGuardrail,
+}
+
+// redactionHalves join the two rows AssemblyAI sells redaction as to the one
+// page it documents redaction on, and say which half each row is the rate for.
+var redactionHalves = map[string]string{
+	"pii-audio-redaction": "audio",
+	"pii-text-redaction":  "text",
+}
 
 // notSupported is what a cell says where the add-on cannot be had at all,
 // which is neither a rate nor a rate of nothing.
@@ -32,6 +50,8 @@ const noteIncluded = "included in the model's rate"
 var pricingNames = map[string]string{
 	"universal-3.5-pro-realtime": "universal-3.5-pro-streaming",
 	"universal-streaming":        "universal-streaming-english",
+	"pii-audio-redaction":        "pii-redaction",
+	"pii-text-redaction":         "pii-redaction",
 }
 
 // addOnFeatures name the capability each add-on row states of the model in
@@ -52,9 +72,14 @@ var (
 	// htmlSpanRe matches the first span of a cell, which holds the name ahead
 	// of the paragraph describing it.
 	htmlSpanRe = regexp.MustCompile(`(?is)<span[^>]*>(.*?)</span>`)
+	// htmlParaRe matches that paragraph.
+	htmlParaRe = regexp.MustCompile(`(?is)<p[^>]*>(.*?)</p>`)
+	// htmlHeadingRe matches a product heading.
+	htmlHeadingRe = regexp.MustCompile(`(?is)<h[1-4][^>]*>(.*?)</h[1-4]\s*>`)
 )
 
-// applyPricing reads the add-on tables of the pricing page.
+// applyPricing reads the tables of the pricing page, each of which belongs to
+// the product heading above it.
 //
 // An add-on is priced per model rather than once, in a column per model, so a
 // column says two things: that the add-on can be had with the model it is
@@ -63,24 +88,116 @@ var (
 // names are pre-recorded in one table and streaming in another, so the mode
 // each column's model was recorded under becomes the rate's dimension. A
 // column naming a model this catalog does not have is skipped.
+//
+// The other shape is a product table, one row per thing sold. Under the two
+// transcription headings and the two headings this catalog holds no models
+// for, it is read only for the sentence describing each model. Under the
+// Speech Understanding and Guardrails headings it is the rate card for the
+// feature pages, which state everything about those features except what they
+// cost.
 func (b *builder) applyPricing(doc catalog.Document) {
-	for _, table := range htmlTableRe.FindAllStringSubmatch(
-		string(doc.Body),
-		-1,
-	) {
-		rows := htmlRowRe.FindAllStringSubmatch(table[1], -1)
+	for _, section := range pricingTables(string(doc.Body)) {
+		rows := htmlRowRe.FindAllStringSubmatch(section.table, -1)
 		if len(rows) < 2 {
 			continue
 		}
 		heads := rowCells(rows[0][1])
-		if len(heads) == 0 ||
-			!strings.EqualFold(clean(heads[0]), addOnHeading) {
+		if len(heads) == 0 {
 			continue
 		}
-		for _, row := range rows[1:] {
-			b.applyAddOnRow(rowCells(row[1]), heads, doc.URL)
+		switch strings.ToLower(clean(heads[0])) {
+		case addOnHeading:
+			for _, row := range rows[1:] {
+				b.applyAddOnRow(rowCells(row[1]), heads, doc.URL)
+			}
+		case productHeading:
+			for _, row := range rows[1:] {
+				b.applyProductRow(rowCells(row[1]), section.heading, doc.URL)
+			}
 		}
 	}
+}
+
+// applyProductRow records one row of a product table: the sentence AssemblyAI
+// describes the thing with, and, where the row is a feature sold by the hour,
+// its rate.
+//
+// A row naming something this catalog does not hold as a model is skipped
+// under every heading but the two feature ones. Those two are where the row
+// itself is the roster: the Sync API and the Voice Agent API are ways of
+// reaching a model this catalog already has, while Entity Detection is a thing
+// sold on its own with a page and a rate of its own.
+func (b *builder) applyProductRow(cells []string, heading, source string) {
+	if len(cells) < 2 {
+		return
+	}
+	name := nameOf(cells[0])
+	kind, priced := featureHeadings[heading]
+	summary := descriptionOf(cells[0])
+	m, ok := b.lookup(name)
+	switch {
+	case ok && !priced && summary == "":
+		return
+	case !ok && !priced:
+		return
+	case !ok:
+		m = b.model(slugID(name), kind)
+		if m.Name == "" {
+			m.Name = name
+		}
+	}
+	m.AddSource(source)
+	m.SetAttr(AttrSummary, summary)
+	if !priced {
+		return
+	}
+	m.SetAttr(AttrProduct, heading)
+	amount, ok := parseAmount(cells[1])
+	if !ok {
+		return
+	}
+	m.AddPrice(catalog.Price{
+		Metric:   MetricAudio,
+		Unit:     UnitPerHour,
+		Amount:   amount,
+		Currency: currency,
+		Dims:     featureDims(slugID(name)),
+	})
+}
+
+// featureDims says which half of a feature a rate is for, where AssemblyAI
+// documents a feature once and sells it twice.
+func featureDims(id string) catalog.Dims {
+	if half, ok := redactionHalves[id]; ok {
+		return catalog.Dims{DimRedaction: half}
+	}
+	return nil
+}
+
+// section is one pricing table and the product heading it sits under.
+type section struct {
+	heading string
+	table   string
+}
+
+// pricingTables pairs every table of the pricing page with the heading above
+// it. The page carries the same two table shapes under every product it sells
+// and nothing inside a table says which product that is, so the heading is
+// what separates a transcription rate card from a feature one.
+func pricingTables(body string) []section {
+	headings := htmlHeadingRe.FindAllStringSubmatchIndex(body, -1)
+	var out []section
+	for _, table := range htmlTableRe.FindAllStringSubmatchIndex(body, -1) {
+		heading := ""
+		for _, h := range headings {
+			if h[0] > table[0] {
+				break
+			}
+			heading = clean(body[h[2]:h[3]])
+		}
+		out = append(out, section{heading, body[table[2]:table[3]]})
+	}
+	return out
 }
 
 // applyAddOnRow records what one add-on row states: the capability it gives
@@ -164,6 +281,15 @@ func nameOf(cell string) string {
 		return clean(match[1])
 	}
 	return clean(cell)
+}
+
+// descriptionOf reads the sentence a product cell describes its row with,
+// which sits in the paragraph under the name.
+func descriptionOf(cell string) string {
+	if match := htmlParaRe.FindStringSubmatch(cell); match != nil {
+		return clean(match[1])
+	}
+	return ""
 }
 
 // rowCells returns the raw markup of one row's cells.

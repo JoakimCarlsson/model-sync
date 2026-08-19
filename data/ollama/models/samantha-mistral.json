@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "samantha-mistral:latest",
+    "last_updated": "2023-10-15",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "A companion assistant trained in philosophy, psychology, and personal relationships. Based on Mistral."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/samantha-mistral/tags"
+    "https://ollama.com/library/samantha-mistral/tags",
+    "https://ollama.com/library/samantha-mistral:latest"
   ]
 }

@@ -43,7 +43,18 @@
   },
   "limits": {
     "context_window": 16000,
-    "max_output_tokens": 2000
+    "max_file_megabytes": 25,
+    "max_output_tokens": 2000,
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 2000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 10000,
+    "tokens_per_minute_tier_2": 100000,
+    "tokens_per_minute_tier_3": 400000,
+    "tokens_per_minute_tier_4": 2000000,
+    "tokens_per_minute_tier_5": 6000000
   },
   "lists": {
     "endpoints": [
@@ -52,6 +63,15 @@
     ],
     "features": [
       "keyterm_prompting"
+    ],
+    "input_formats": [
+      "m4a",
+      "mp3",
+      "mp4",
+      "mpeg",
+      "mpga",
+      "wav",
+      "webm"
     ],
     "input_modalities": [
       "audio",

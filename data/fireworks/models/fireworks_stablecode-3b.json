@@ -1,0 +1,39 @@
+{
+  "id": "fireworks/stablecode-3b",
+  "provider": "fireworks",
+  "name": "Stable Code 3B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Stability",
+    "calibrated": "false",
+    "hugging_face_id": "stabilityai/stable-code-3b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/stablecode-3b",
+    "model_url": "https://fireworks.ai/models/fireworks/stablecode-3b",
+    "open_weights": "true",
+    "parameter_count": "2.7B",
+    "release_date": "2024-08-02",
+    "state": "active",
+    "summary": "Stable Code 3B is a 2.7-billion-parameter decoder-only language model developed by Stability AI. Pre-trained on 1.3 trillion tokens of diverse text and code datasets, it covers 18 programming languages selected based on the 2023 StackOverflow Developer Survey. The model demonstrates state-of-the-art performance among similar-sized models on MultiPL-E benchmarks across multiple programming languages. Key features include fill-in-the-middle capability and support for long context sequences up to 16,384 tokens, making it excel in code generation tasks."
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/stablecode-3b"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "stability-ai/stable-image-inpaint",
+  "provider": "bedrock",
+  "name": "Stable Image Inpaint",
+  "kind": "image",
+  "attrs": {
+    "author": "Stability AI",
+    "model_id": "stability.stable-image-inpaint-v1:0",
+    "release_date": "2022-11",
+    "state": "active",
+    "summary": "Stable Image Inpaint is Stability AI's model that fills in masked regions of images with contextually appropriate content based on text prompts. For more information about model development and performance, see the model/service card."
+  },
+  "lists": {
+    "aliases": [
+      "stability.stable-image-inpaint-v1:0",
+      "us.stability.stable-image-inpaint-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "invoke"
+    ],
+    "features": [
+      "abuse_detection",
+      "guardrails"
+    ],
+    "geo_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "us.stability.stable-image-inpaint-v1:0"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-stability-ai-stable-image-inpaint.md"
+  ]
+}

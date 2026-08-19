@@ -5,6 +5,46 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1.8,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0,
@@ -109,46 +149,6 @@
       "dims": {
         "plan": "paid",
         "resolution": "text-image-video",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.8,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
         "tier": "standard"
       }
     },
@@ -322,49 +322,109 @@
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_maps"
+      },
+      "note": "5,000 requests per month (free, shared across Gemini 3)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "flex"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "flex",
+        "tool": "google_maps"
+      },
+      "note": "5,000 requests per month (free, shared across Gemini 3)"
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "flex",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority",
+        "tool": "google_maps"
+      },
+      "note": "5,000 prompts per month (free, shared across Gemini 3)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard",
+        "tool": "google_maps"
+      },
+      "note": "5,000 prompts per month (free, shared across Gemini 3)"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_requests",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "December 2025",
+    "default_thinking_level": "high",
+    "last_updated": "December 2025",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-flash/",
     "model_code": "gemini-3-flash-preview",
+    "recommended_replacement": "gemini-3.6-flash",
+    "release_date": "2025-12-17",
+    "state": "preview",
     "summary": "The best model in the world for multimodal understanding, and our most powerful agentic and vibe-coding model yet, delivering richer visuals and deeper interactivity, all built on a foundation of state-of-the-art reasoning."
   },
   "limits": {
@@ -399,11 +459,19 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "thinking_levels": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/thinking"
   ]
 }

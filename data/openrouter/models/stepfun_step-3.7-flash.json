@@ -11,25 +11,125 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StepFun",
+        "endpoint_tag": "stepfun/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.2,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StepFun",
+        "endpoint_tag": "stepfun/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "StepFun",
+        "endpoint_tag": "stepfun/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "21.7",
+    "artificial_analysis_coding_index": "39.6",
+    "artificial_analysis_intelligence_index": "30.9",
     "author": "stepfun",
     "canonical_slug": "stepfun/step-3.7-flash-20260528",
     "hugging_face_id": "stepfun-ai/Step-3.7-Flash",
+    "modality": "text+image+video->text",
     "reasoning_default_effort": "medium",
     "reasoning_mandatory": "true",
-    "released": "2026-05-28",
+    "release_date": "2026-05-28",
     "summary": "Step 3.7 Flash is StepFun's latest high-efficiency multimodal Mixture-of-Experts model.",
     "tokenizer": "Other"
   },
@@ -39,6 +139,21 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "categories": [
+      "science",
+      "technology",
+      "trivia"
+    ],
+    "endpoint_tags": [
+      "deepinfra",
+      "novita/fp8",
+      "stepfun/fp8"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Novita",
+      "StepFun"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -76,6 +191,12 @@
       "top_logprobs",
       "top_p"
     ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
+    ],
     "reasoning_efforts": [
       "high",
       "low",
@@ -83,6 +204,11 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/stepfun/step-3.7-flash-20260528/endpoints",
+    "https://openrouter.ai/api/v1/models?category=science",
+    "https://openrouter.ai/api/v1/models?category=technology",
+    "https://openrouter.ai/api/v1/models?category=trivia",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

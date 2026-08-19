@@ -18,19 +18,37 @@
     }
   ],
   "attrs": {
+    "batch_discount": "50%",
+    "cached_input_discount": "90%",
+    "distribution": "open",
+    "hugging_face_id": "mistralai/Ministral-3-14B-Instruct-2512",
+    "hugging_face_id_base": "mistralai/Ministral-3-14B-Base-2512",
+    "hugging_face_id_reasoning": "mistralai/Ministral-3-14B-Reasoning-2512",
     "license": "Apache 2.0",
+    "license_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
     "open_weights": "true",
-    "released": "2025-12-02",
+    "regional_inference_surcharge": "10%",
+    "release_date": "2025-12-02",
     "state": "active",
     "summary": "Ministral 3 14B is the largest model in the Ministral 3 family, offering state-of-the-art capabilities and performance comparable to its larger Mistral Small 3.2 24B counterpart. Optimized for local deployment, it delivers high performance across diverse hardware, including local setups.",
     "version": "25.12"
   },
   "limits": {
-    "context_window": 256000
+    "active_parameter_count": 14000000000,
+    "context_window": 256000,
+    "min_gpu_ram_gb_bf16_full_context": 93,
+    "min_gpu_ram_gb_fp4_quarter_context": 24,
+    "min_gpu_ram_gb_fp8_half_context": 47,
+    "parameter_count": 14000000000
   },
   "lists": {
     "aliases": [
       "ministral-14b-latest"
+    ],
+    "endpoints": [
+      "/v1/batch",
+      "/v1/chat/completions",
+      "/v1/conversations"
     ],
     "features": [
       "batching",
@@ -44,11 +62,58 @@
       "image",
       "text"
     ],
+    "languages": [
+      "Arabic",
+      "Bengali",
+      "Breton",
+      "Catalan",
+      "Chinese",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "Farsi",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Lao",
+      "Malaysian",
+      "Marathi",
+      "Nepali",
+      "Norwegian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Spanish",
+      "Swedish",
+      "Tagalog",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese"
+    ],
     "output_modalities": [
       "text"
     ]
   },
   "sources": [
-    "https://docs.mistral.ai/models/ministral-3-14b-25-12"
+    "https://docs.mistral.ai/models/ministral-3-14b-25-12",
+    "https://docs.mistral.ai/resources/languages",
+    "https://mistral.ai/pricing/api"
   ]
 }

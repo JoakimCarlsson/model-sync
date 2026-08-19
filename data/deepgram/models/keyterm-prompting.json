@@ -10,6 +10,7 @@
       "amount": 0.0012,
       "currency": "USD",
       "dims": {
+        "delivery": "pre-recorded",
         "plan": "growth"
       }
     },
@@ -19,6 +20,27 @@
       "amount": 0.0013,
       "currency": "USD",
       "dims": {
+        "delivery": "pre-recorded",
+        "plan": "pay-as-you-go"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0012,
+      "currency": "USD",
+      "dims": {
+        "delivery": "streaming",
+        "plan": "growth"
+      }
+    },
+    {
+      "metric": "audio",
+      "unit": "per_minute",
+      "amount": 0.0013,
+      "currency": "USD",
+      "dims": {
+        "delivery": "streaming",
         "plan": "pay-as-you-go"
       }
     }

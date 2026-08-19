@@ -12,7 +12,11 @@
     "summary": "A model for documents and semi-structure data (JSON) that are not in English."
   },
   "limits": {
-    "context_window": 4000
+    "context_window": 4000,
+    "default_max_tokens_per_document": 4096,
+    "recommended_max_documents": 1000,
+    "requests_per_minute_production": 1000,
+    "requests_per_minute_trial": 10
   },
   "lists": {
     "endpoints": [
@@ -23,12 +27,22 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "documents",
+      "max_tokens_per_doc",
+      "model",
+      "priority",
+      "query",
+      "top_n"
     ]
   },
   "notes": [
     "no rate stated on the pricing or dedicated deployment pages"
   ],
   "sources": [
-    "https://docs.cohere.com/docs/models.md"
+    "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/reference/rerank.md"
   ]
 }

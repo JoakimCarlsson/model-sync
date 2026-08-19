@@ -15,13 +15,30 @@
     }
   ],
   "attrs": {
-    "latest_update": "April 2025",
+    "last_updated": "April 2025",
     "model_code": "veo-2.0-generate-001",
+    "recommended_replacement": "veo-3.1-generate-preview",
+    "release_date": "2025-04-09",
+    "retirement_date": "2026-06-30",
+    "state": "active",
     "summary": "Our robust and reliable stable video generation model, providing consistent performance for production-ready workflows. Veo 2.0 is best for standard 1080p content creation, social media assets, and high-volume video tasks that prioritize reliable character consistency and predictable sub-second generation speeds."
+  },
+  "limits": {
+    "frames_per_second": 24,
+    "max_output_videos": 2
   },
   "lists": {
     "aliases": [
       "veo-2.0-generate-001"
+    ],
+    "aspect_ratios": [
+      "16:9",
+      "9:16"
+    ],
+    "durations_seconds": [
+      "5",
+      "6",
+      "8"
     ],
     "input_modalities": [
       "image",
@@ -29,10 +46,28 @@
     ],
     "output_modalities": [
       "video"
+    ],
+    "parameters": [
+      "aspectRatio",
+      "durationSeconds",
+      "image",
+      "lastFrame",
+      "personGeneration",
+      "prompt"
+    ],
+    "person_generation": [
+      "allow_adult",
+      "allow_all",
+      "dont_allow"
+    ],
+    "resolutions": [
+      "720p"
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/veo"
   ]
 }

@@ -1,0 +1,110 @@
+{
+  "id": "amazon/titan-text-embeddings-v2",
+  "provider": "bedrock",
+  "name": "Titan Text Embeddings V2",
+  "kind": "embedding",
+  "attrs": {
+    "author": "Amazon",
+    "default_embedding_dimension": "1024",
+    "model_id": "amazon.titan-embed-text-v2:0",
+    "release_date": "2024-04-30",
+    "retirement_date": "2024-04-30",
+    "state": "active",
+    "summary": "Titan Text Embeddings V2 is Amazon's second-generation text embeddings model with configurable output dimensions and improved accuracy for retrieval tasks. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 8000,
+    "max_input_tokens": 8192
+  },
+  "lists": {
+    "aliases": [
+      "amazon.titan-embed-text-v2:0"
+    ],
+    "batch_regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-2",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "embedding_dimensions": [
+      "1024",
+      "256",
+      "512"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "invoke"
+    ],
+    "features": [
+      "batch_inference"
+    ],
+    "in_region_regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embedding"
+    ],
+    "regions": [
+      "ap-northeast-1",
+      "ap-northeast-2",
+      "ap-northeast-3",
+      "ap-south-1",
+      "ap-south-2",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-central-2",
+      "eu-north-1",
+      "eu-south-1",
+      "eu-south-2",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-east-2",
+      "us-gov-east-1",
+      "us-gov-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-titan-text-embeddings-v2.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-embedding-models.md"
+  ]
+}

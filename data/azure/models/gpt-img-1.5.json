@@ -1,6 +1,7 @@
 {
   "id": "gpt-img-1.5",
   "provider": "azure",
+  "name": "gpt-image-1.5",
   "kind": "image",
   "prices": [
     {
@@ -2813,19 +2814,52 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI Media"
+    "author": "OpenAI",
+    "catalog_added_on": "2025-12-16",
+    "license": "custom",
+    "product": "Azure OpenAI Media",
+    "publisher": "OpenAI",
+    "release_date": "2025-12-16",
+    "retirement_date": "2027-06-16",
+    "state": "active",
+    "summary": "An efficient AI solution for diverse text and image tasks, including high quality, and editing scenarios",
+    "version": "2025-12-16"
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Vision"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "image"
+    ],
+    "regions": [
+      "eastus2",
+      "polandcentral",
+      "swedencentral",
+      "uaenorth",
+      "westus3"
+    ],
+    "tasks": [
+      "image-to-image",
+      "text-to-image"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/how-to/dall-e",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

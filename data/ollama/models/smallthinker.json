@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "smallthinker:latest",
+    "last_updated": "2024-12-30",
+    "license": "Qwen RESEARCH LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "3.4B",
+    "quantization": "Q8_0",
     "summary": "A new small reasoning model fine-tuned from the Qwen 2.5 3B Instruct model."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/smallthinker/tags"
+    "https://ollama.com/library/smallthinker/tags",
+    "https://ollama.com/library/smallthinker:latest"
   ]
 }

@@ -1,6 +1,7 @@
 {
   "id": "r1",
   "provider": "azure",
+  "name": "DeepSeek-R1",
   "kind": "chat",
   "prices": [
     {
@@ -1127,9 +1128,46 @@
     }
   ],
   "attrs": {
-    "product": "Azure Deepseek Models"
+    "author": "DeepSeek",
+    "catalog_added_on": "2025-01-28",
+    "license": "MIT",
+    "product": "Azure Deepseek Models",
+    "publisher": "DeepSeek",
+    "recommended_replacement": "DeepSeek-V4-Pro",
+    "retirement_date": "2026-08-13",
+    "state": "retired",
+    "summary": "DeepSeek-R1 excels at reasoning tasks using a step-by-step training process, such as language, scientific reasoning, and coding tasks.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 163840,
+    "max_output_tokens": 163840
+  },
+  "lists": {
+    "features": [
+      "reasoning"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding",
+      "Reasoning"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

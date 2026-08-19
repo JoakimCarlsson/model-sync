@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "llama2-uncensored:latest",
+    "last_updated": "2023-10-29",
+    "license": "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "Uncensored Llama 2 model by George Sung and Jarrad Hope."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/llama2-uncensored/tags"
+    "https://ollama.com/library/llama2-uncensored/tags",
+    "https://ollama.com/library/llama2-uncensored:latest"
   ]
 }

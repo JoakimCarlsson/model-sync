@@ -28,7 +28,20 @@ var (
 		`(?i)Storage is priced at \*\*\$([\d.]+) per GB per month\*\*`,
 	)
 	batchDiscountRe = regexp.MustCompile(`(?i)\*\*(\d+)% discount\*\*`)
-	batchModelsRe   = regexp.MustCompile(
+	upscaleRe       = regexp.MustCompile(
+		`(?i)Images with fewer than ([\d,]+ ?[a-z]*) pixels will be upscaled`,
+	)
+	downsampleRe = regexp.MustCompile(
+		`(?i)Images containing over ([\d,.]+ ?[a-z]*) pixels will be ` +
+			`downsampled`,
+	)
+	batchWindowRe = regexp.MustCompile(
+		`(?i)\*\*(\d+)-hour completion window\*\*`,
+	)
+	retentionRe = regexp.MustCompile(
+		`(?i)each retained for (\d+) days`,
+	)
+	batchModelsRe = regexp.MustCompile(
 		`(?i)Batch API can currently be used to execute queries against the ` +
 			`following models:([^\n]+)`,
 	)
@@ -71,9 +84,9 @@ func (b *builder) applyPricing(doc catalog.Document) {
 func stateFor(section string) (string, bool) {
 	switch section {
 	case sectionText, sectionMultimodal, sectionRerankers:
-		return StateCurrent, true
+		return StateActive, true
 	case sectionOlder:
-		return StateOlder, true
+		return StateLegacy, true
 	}
 	return "", false
 }
@@ -134,6 +147,27 @@ func (b *builder) applyFreeAllowance(m *catalog.Model, cell string) {
 	}
 }
 
+// applyPixelBands records the band an image is billed in, which the pricing
+// page states in prose beneath the multimodal rates: an image smaller than the
+// floor is enlarged and billed as the floor, and one larger than the ceiling
+// is reduced and billed as the ceiling.
+//
+// It is read after the model pages rather than with the rest of the pricing
+// page, because it applies to the models the multimodal page lists and nothing
+// on the pricing page says which those are.
+func (b *builder) applyPixelBands(doc catalog.Document) {
+	body := string(doc.Body)
+	low := upscaleRe.FindStringSubmatch(body)
+	high := downsampleRe.FindStringSubmatch(body)
+	if low == nil || high == nil {
+		return
+	}
+	for _, m := range b.servedBy(baseURL + "/multimodal-embeddings.md") {
+		m.SetLimit(LimitMinBillPixels, parseCount(low[1]))
+		m.SetLimit(LimitMaxBillPixels, parseCount(high[1]))
+	}
+}
+
 // applyStorage records the file storage rate, which Voyage states in prose and
 // which is the only rate it quotes per gigabyte per month.
 func (b *builder) applyStorage(body, source string) {
@@ -148,6 +182,7 @@ func (b *builder) applyStorage(body, source string) {
 	m := b.model(filesAPIID, KindTool)
 	m.Name = filesAPIName
 	m.AddSource(source)
+	m.SetLimit(LimitFileRetention, retentionDays(body))
 	m.AddPrice(catalog.Price{
 		Metric:   MetricStorage,
 		Unit:     UnitPerGBMonth,
@@ -165,9 +200,23 @@ func (b *builder) applyBatch(doc catalog.Document) {
 	if discount == nil || models == nil {
 		return
 	}
+	window := batchWindowRe.FindStringSubmatch(body)
 	for _, id := range backtickedIDs(models[1]) {
 		m := b.model(id, kindFor(id))
 		m.AddSource(doc.URL)
 		m.SetAttr(AttrBatchDiscount, discount[1]+"%")
+		if window != nil {
+			m.SetAttr(AttrBatchWindow, window[1]+"-hour")
+		}
 	}
+}
+
+// retentionDays reads how long the storage service keeps a file, which Voyage
+// states in the same paragraph as the storage rate.
+func retentionDays(body string) int64 {
+	match := retentionRe.FindStringSubmatch(body)
+	if match == nil {
+		return 0
+	}
+	return parseCount(match[1])
 }

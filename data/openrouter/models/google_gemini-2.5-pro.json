@@ -13,6 +13,174 @@
     {
       "metric": "audio_input",
       "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "audio_input",
+      "unit": "per_1m_tokens",
       "amount": 2.5,
       "currency": "USD",
       "dims": {
@@ -26,10 +194,258 @@
       "currency": "USD"
     },
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.675,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.675,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "cached_audio_input",
       "unit": "per_1m_tokens",
       "amount": 0.125,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.0625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.0625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "cached_audio_input",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "cached_audio_input",
@@ -45,6 +461,174 @@
       "unit": "per_1m_tokens",
       "amount": 0.125,
       "currency": "USD"
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "cached_input_tokens",
@@ -62,10 +646,258 @@
       "currency": "USD"
     },
     {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 6.25e-7,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 6.25e-7,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000225,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "image_input",
+      "unit": "per_image",
+      "amount": 0.00000125,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 1.25,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.625,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "input_tokens",
@@ -85,6 +917,174 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 27,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD",
       "dims": {
@@ -98,18 +1098,182 @@
       "currency": "USD"
     },
     {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 18,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "reasoning_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 10,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
+    },
+    {
       "metric": "tool_call",
       "unit": "per_1k_calls",
       "amount": 14,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/flex"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google AI Studio",
+        "endpoint_tag": "google-ai-studio/priority"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/eu"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/flex"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/global/priority"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Google",
+        "endpoint_tag": "google-vertex/us"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "7.2",
+    "artificial_analysis_coding_index": "33.3",
+    "artificial_analysis_intelligence_index": "25.9",
     "author": "google",
     "canonical_slug": "google/gemini-2.5-pro",
     "knowledge_cutoff": "2025-01-31",
+    "modality": "text+image+file+audio+video->text",
     "reasoning_mandatory": "true",
-    "released": "2025-06-17",
+    "release_date": "2025-06-17",
     "summary": "Gemini 2.5 Pro is Google’s state-of-the-art AI model designed for advanced reasoning, coding, mathematics, and scientific tasks.",
     "tokenizer": "Gemini"
   },
@@ -119,6 +1283,23 @@
     "top_provider_context_window": 1048576
   },
   "lists": {
+    "categories": [
+      "roleplay"
+    ],
+    "endpoint_tags": [
+      "google-ai-studio",
+      "google-ai-studio/flex",
+      "google-ai-studio/priority",
+      "google-vertex/eu",
+      "google-vertex/global",
+      "google-vertex/global/flex",
+      "google-vertex/global/priority",
+      "google-vertex/us"
+    ],
+    "endpoints": [
+      "Google",
+      "Google AI Studio"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -149,9 +1330,15 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemini-2.5-pro/endpoints",
+    "https://openrouter.ai/api/v1/models?category=roleplay",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

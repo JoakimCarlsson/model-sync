@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 1,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "NousResearch/Hermes-3-Llama-3.1-405B",
     "instruct_type": "chatml",
     "knowledge_cutoff": "2023-12-31",
-    "released": "2024-08-16",
+    "modality": "text->text",
+    "release_date": "2024-08-16",
     "summary": "Hermes 3 is a generalist language model with many improvements over Hermes 2, including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the...",
     "tokenizer": "Llama3"
   },
@@ -33,6 +56,12 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "deepinfra/fp8"
+    ],
+    "endpoints": [
+      "DeepInfra"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -57,9 +86,17 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/nousresearch/hermes-3-llama-3.1-405b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

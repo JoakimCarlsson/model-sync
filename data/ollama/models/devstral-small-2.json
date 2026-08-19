@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "mistral3",
+    "default_snapshot": "devstral-small-2:latest",
+    "last_updated": "2025-12-13",
+    "open_weights": "true",
+    "parameter_count": "24B",
+    "quantization": "Q4_K_M",
     "summary": "24B model that excels at using tools to explore codebases, editing multiple files and power software engineering agents."
   },
   "limits": {
@@ -27,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/devstral-small-2/tags"
+    "https://ollama.com/library/devstral-small-2/tags",
+    "https://ollama.com/library/devstral-small-2:latest"
   ]
 }

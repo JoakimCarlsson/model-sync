@@ -1,0 +1,24 @@
+{
+  "id": "computer",
+  "provider": "anthropic",
+  "name": "Computer use tool",
+  "kind": "tool",
+  "attrs": {
+    "execution": "client",
+    "release_status": "Beta",
+    "state": "beta"
+  },
+  "lists": {
+    "beta_headers": [
+      "computer-use-2025-01-24",
+      "computer-use-2025-11-24"
+    ],
+    "versions": [
+      "computer_20250124",
+      "computer_20251124"
+    ]
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md"
+  ]
+}

@@ -152,19 +152,24 @@
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_web_and_image_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "February 2026",
+    "knowledge_cutoff": "2025-01",
+    "last_updated": "February 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/",
-    "model_code": "gemini-3.1-flash-image"
+    "model_code": "gemini-3.1-flash-image",
+    "release_date": "2026-05-28",
+    "state": "active"
   },
   "limits": {
     "context_window": 131072,
@@ -174,11 +179,33 @@
     "aliases": [
       "gemini-3.1-flash-image"
     ],
+    "aspect_ratios": [
+      "16:9",
+      "1:1",
+      "1:4",
+      "1:8",
+      "21:9",
+      "2:3",
+      "3:2",
+      "3:4",
+      "4:1",
+      "4:3",
+      "4:5",
+      "5:4",
+      "8:1",
+      "9:16"
+    ],
     "features": [
       "batch",
       "image_generation",
       "reasoning",
       "web_search"
+    ],
+    "image_sizes": [
+      "1K",
+      "2K",
+      "4K",
+      "512px"
     ],
     "input_modalities": [
       "file",
@@ -194,8 +221,11 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
+    "https://ai.google.dev/gemini-api/docs/image-generation",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://deepmind.google/models/model-cards/gemini-3-1-flash-image/"
   ]
 }

@@ -25,12 +25,22 @@
   ],
   "attrs": {
     "author": "Moonshot",
-    "quantization": "FP4"
+    "category": "Chat",
+    "dedicated_hardware": "8xnvidia-b200-180gb",
+    "last_updated": "2026-06-12",
+    "quantization": "FP4",
+    "release_date": "2026-06-12",
+    "serverless_since": "2026-06-13",
+    "summary": "1T parameter (32B activated) coding-focused agentic model with 30% fewer thinking tokens vs K2.6, improved long-horizon coding, 81.1% MCP Mark Verified, and multimodal input."
   },
   "limits": {
     "context_window": 262144
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -43,10 +53,21 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "LLM",
+      "Vision"
+    ],
+    "use_cases": [
+      "Coding Agents"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/kimi-k27-code"
   ]
 }

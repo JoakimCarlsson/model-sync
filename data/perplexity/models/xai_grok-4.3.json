@@ -8,7 +8,10 @@
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.2,
-      "currency": "USD"
+      "currency": "USD",
+      "dims": {
+        "api": "agent"
+      }
     },
     {
       "metric": "input_tokens",
@@ -16,6 +19,7 @@
       "amount": 1.25,
       "currency": "USD",
       "dims": {
+        "api": "agent",
         "prompt_band": "<=200k"
       }
     },
@@ -25,6 +29,7 @@
       "amount": 2.5,
       "currency": "USD",
       "dims": {
+        "api": "agent",
         "prompt_band": ">200k"
       }
     },
@@ -34,6 +39,7 @@
       "amount": 2.5,
       "currency": "USD",
       "dims": {
+        "api": "agent",
         "prompt_band": "<=200k"
       }
     },
@@ -43,15 +49,36 @@
       "amount": 5,
       "currency": "USD",
       "dims": {
+        "api": "agent",
         "prompt_band": ">200k"
       }
     }
   ],
   "attrs": {
     "author": "xai",
+    "last_updated": "2026-05",
+    "model_card_url": "https://docs.x.ai/developers/models",
+    "release_date": "2026-05",
     "summary": "Grok 4.3"
   },
+  "limits": {
+    "requests_per_minute_tier_0": 50,
+    "requests_per_minute_tier_1": 150,
+    "requests_per_minute_tier_2": 500,
+    "requests_per_minute_tier_3": 1000,
+    "requests_per_minute_tier_4": 2000,
+    "requests_per_minute_tier_5": 2000,
+    "requests_per_second_tier_0": 1,
+    "requests_per_second_tier_1": 3,
+    "requests_per_second_tier_2": 8,
+    "requests_per_second_tier_3": 17,
+    "requests_per_second_tier_4": 33,
+    "requests_per_second_tier_5": 33
+  },
   "lists": {
+    "endpoints": [
+      "/v1/agent"
+    ],
     "features": [
       "streaming"
     ],
@@ -60,11 +87,33 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "background",
+      "input",
+      "instructions",
+      "language_preference",
+      "max_output_tokens",
+      "max_steps",
+      "model",
+      "models",
+      "preset",
+      "previous_response_id",
+      "reasoning",
+      "response_format",
+      "skills",
+      "store",
+      "stream",
+      "temperature",
+      "tools",
+      "top_p"
     ]
   },
   "sources": [
     "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md",
     "https://docs.perplexity.ai/docs/agent-api/models.md",
-    "https://docs.perplexity.ai/docs/agent-api/output-control.md"
+    "https://docs.perplexity.ai/docs/agent-api/output-control.md",
+    "https://docs.perplexity.ai/docs/resources/changelog.md"
   ]
 }

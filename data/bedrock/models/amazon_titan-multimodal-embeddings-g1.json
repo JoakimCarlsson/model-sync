@@ -1,0 +1,86 @@
+{
+  "id": "amazon/titan-multimodal-embeddings-g1",
+  "provider": "bedrock",
+  "name": "Titan Multimodal Embeddings G1",
+  "kind": "embedding",
+  "attrs": {
+    "author": "Amazon",
+    "default_embedding_dimension": "1024",
+    "model_id": "amazon.titan-embed-image-v1",
+    "release_date": "2023-11-29",
+    "retirement_date": "2024-11-29",
+    "state": "active",
+    "summary": "Titan Multimodal Embeddings G1 is Amazon's model that generates embeddings from text and images for multimodal search and recommendation use cases. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "max_input_tokens": 256
+  },
+  "lists": {
+    "aliases": [
+      "amazon.titan-embed-image-v1"
+    ],
+    "batch_regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "embedding_dimensions": [
+      "1024",
+      "256",
+      "384"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "invoke"
+    ],
+    "features": [
+      "batch_inference"
+    ],
+    "in_region_regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "embedding"
+    ],
+    "regions": [
+      "ap-south-1",
+      "ap-southeast-2",
+      "ca-central-1",
+      "eu-central-1",
+      "eu-west-1",
+      "eu-west-2",
+      "eu-west-3",
+      "sa-east-1",
+      "us-east-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/batch-inference-supported.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-amazon-titan-multimodal-embeddings-g1.md",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/titan-multiemb-models.md"
+  ]
+}

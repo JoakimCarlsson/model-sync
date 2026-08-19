@@ -25,11 +25,17 @@
   ],
   "attrs": {
     "author": "NbAiLab",
+    "data_residency": "EU",
+    "docs_title": "NB-Whisper Large",
+    "hugging_face_id": "NbAiLab/nb-whisper-large",
     "license": "Apache 2.0",
-    "lifecycle_state": "stable",
+    "model_card_url": "https://huggingface.co/NbAiLab/nb-whisper-large",
     "model_path": "NbAiLab/nb-whisper-large",
+    "open_weights": "true",
     "quantization": "FP16",
-    "release_date": "2026-07-14"
+    "release_date": "2026-07-14",
+    "state": "stable",
+    "trains_on_customer_data": "false"
   },
   "limits": {
     "model_size_billions": 2
@@ -39,6 +45,18 @@
       "nb-whisper",
       "nb/whisper",
       "norwegian/whisper"
+    ],
+    "audio_formats": [
+      "m4a",
+      "mp3",
+      "mp4",
+      "mpeg",
+      "mpga",
+      "wav",
+      "webm"
+    ],
+    "endpoints": [
+      "/v1/audio/transcriptions"
     ],
     "features": [
       "keyterm_prompting",
@@ -73,10 +91,21 @@
       "suppress_numerals",
       "temperature",
       "timestamp_granularities"
+    ],
+    "response_formats": [
+      "aud",
+      "diarized_json",
+      "json",
+      "srt",
+      "text",
+      "verbose_json",
+      "vtt",
+      "vtt_json"
     ]
   },
   "sources": [
     "https://api.berget.ai/openapi.json",
-    "https://api.berget.ai/v1/models"
+    "https://api.berget.ai/v1/models",
+    "https://docs.berget.ai/llms-full.txt"
   ]
 }

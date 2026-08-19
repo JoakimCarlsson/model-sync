@@ -1391,29 +1391,85 @@
     }
   ],
   "attrs": {
-    "product": "Azure Grok Models"
+    "author": "xAI",
+    "catalog_added_on": "2026-02-28",
+    "license": "custom",
+    "product": "Azure Grok Models",
+    "publisher": "xAI",
+    "state": "active",
+    "summary": "Grok 4.1 Fast Non‑Reasoning is designed for low‑latency, near‑instant responses, emphasizing speed, high‑quality outputs, and smooth tool‑calling in agentic workflows, making it well‑suited for high‑throughput, real‑time scenarios where immediate responses",
+    "version": "1"
   },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 128000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
-      "function_calling"
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
       "image",
       "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Low latency",
+      "Multimodal"
     ],
     "languages": [
       "en"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

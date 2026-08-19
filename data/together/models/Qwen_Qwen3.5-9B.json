@@ -19,13 +19,25 @@
   ],
   "attrs": {
     "author": "Qwen",
+    "category": "Chat",
+    "dedicated_hardware": "1xnvidia-h100-80gb",
+    "intelligence": "High",
+    "parameter_count": "9B",
     "quantization": "FP8",
-    "reasoning_mode": "hybrid (on by default)"
+    "reasoning_mode": "hybrid (on by default)",
+    "release_date": "2026-02-23",
+    "serverless_since": "2026-03-07",
+    "speed": "High",
+    "summary": "Qwen's 9B multimodal model with hybrid architecture, 262K native context, vision-language reasoning, native tool calling, and 201-language support for agentic workflows"
   },
   "limits": {
     "context_window": 262144
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -39,11 +51,23 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Reasoning",
+      "Vision"
+    ],
+    "use_cases": [
+      "Chat",
+      "Reasoning",
+      "Vision"
     ]
   },
   "sources": [
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
     "https://docs.together.ai/docs/inference/chat/reasoning.md",
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen3-5-9b"
   ]
 }

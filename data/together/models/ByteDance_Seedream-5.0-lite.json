@@ -12,7 +12,8 @@
     }
   ],
   "attrs": {
-    "author": "ByteDance"
+    "author": "ByteDance",
+    "serverless_since": "2026-05-25"
   },
   "lists": {
     "input_modalities": [
@@ -23,6 +24,7 @@
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md"
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md"
   ]
 }

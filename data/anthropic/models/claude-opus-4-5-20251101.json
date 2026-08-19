@@ -73,23 +73,49 @@
   "attrs": {
     "aws_bedrock_id": "anthropic.claude-opus-4-5-20251101-v1:0",
     "comparative_latency": "Moderate",
+    "default_effort": "high",
     "google_cloud_id": "claude-opus-4-5@20251101",
     "knowledge_cutoff": "2025-05",
+    "release_date": "2025-11-24",
     "retirement_date": "2026-11-24",
     "retirement_date_qualifier": "not sooner than",
     "state": "active",
+    "summary": "our most intelligent model combining maximum capability with practical performance",
+    "thinking_default": "off",
+    "thinking_types": "extended only",
     "training_data_cutoff": "2025-08"
   },
   "limits": {
     "context_window": 200000,
-    "max_output_tokens": 64000
+    "itpm_tier_build": 5000000,
+    "itpm_tier_scale": 10000000,
+    "itpm_tier_start": 2000000,
+    "max_images_per_request": 100,
+    "max_output_tokens": 64000,
+    "otpm_tier_build": 1000000,
+    "otpm_tier_scale": 2000000,
+    "otpm_tier_start": 400000,
+    "rpm_tier_build": 5000,
+    "rpm_tier_scale": 10000,
+    "rpm_tier_start": 1000,
+    "tool_use_system_prompt_tokens_any": 588,
+    "tool_use_system_prompt_tokens_auto": 496
   },
   "lists": {
     "aliases": [
       "claude-opus-4-5"
     ],
+    "effort_levels": [
+      "high",
+      "low",
+      "max",
+      "medium",
+      "xhigh"
+    ],
     "features": [
+      "computer_use",
       "function_calling",
+      "priority_tier",
       "reasoning",
       "structured_outputs"
     ],
@@ -99,16 +125,28 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "effort"
     ]
   },
   "notes": [
+    "computer_use requires beta header computer-use-2025-11-24",
+    "rate limits are one bucket shared across Claude Opus 4.8, Opus 4.7, Opus 4.6, Opus 4.5",
     "reasoning is extended thinking (thinking.type: \"enabled\")"
   ],
   "sources": [
     "https://platform.claude.com/docs/en/about-claude/model-deprecations.md",
     "https://platform.claude.com/docs/en/about-claude/models/overview.md",
     "https://platform.claude.com/docs/en/about-claude/pricing.md",
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool.md",
     "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview.md",
-    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs.md"
+    "https://platform.claude.com/docs/en/api/rate-limits.md",
+    "https://platform.claude.com/docs/en/api/service-tiers.md",
+    "https://platform.claude.com/docs/en/build-with-claude/context-windows.md",
+    "https://platform.claude.com/docs/en/build-with-claude/effort.md",
+    "https://platform.claude.com/docs/en/build-with-claude/structured-outputs.md",
+    "https://platform.claude.com/docs/en/build-with-claude/thinking-troubleshooting.md",
+    "https://platform.claude.com/docs/en/release-notes/overview.md"
   ]
 }

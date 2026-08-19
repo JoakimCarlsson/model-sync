@@ -248,20 +248,36 @@
     }
   ],
   "attrs": {
-    "product": "Azure Fireworks Models"
+    "author": "DeepSeek",
+    "catalog_added_on": "2025-12-10",
+    "license": "custom",
+    "product": "Azure Fireworks Models",
+    "publisher": "DeepSeek",
+    "state": "active",
+    "summary": "DeepSeek-V3.2, a model that harmonizes high computational efficiency with superior reasoning and agent performance",
+    "version": "1"
   },
   "limits": {
     "context_window": 128000,
     "max_output_tokens": 128000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "GlobalStandard"
+    ],
     "features": [
+      "function_calling",
       "json_mode",
       "reasoning",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
       "text"
+    ],
+    "keywords": [
+      "Coding"
     ],
     "languages": [
       "en",
@@ -269,10 +285,46 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

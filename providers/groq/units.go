@@ -1,9 +1,11 @@
 package groq
 
 import (
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -84,13 +86,17 @@ func clean(cell string) string {
 	s = linkRe.ReplaceAllString(s, "$1")
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
-	s = strings.ReplaceAll(s, `\-`, "-")
+	s = strings.ReplaceAll(s, "\\", "")
 	return strings.Join(strings.Fields(s), " ")
 }
 
 // modelPagePrefix is the path a model's own page sits under, which is the
 // identifier with a prefix.
 const modelPagePrefix = "/docs/model/"
+
+// systemPagePrefix is the path a system's page sits under, which Groq files
+// apart from the models.
+const systemPagePrefix = "/docs/compound/systems/"
 
 // modelRef is what one model-id cell holds: a link to the model page, then any
 // access badge, then the bare identifier, all run together.
@@ -228,4 +234,121 @@ func kindForRates(rates []rate) catalog.Kind {
 		}
 	}
 	return KindChat
+}
+
+// States Groq's deprecation page puts a model in. Groq calls a model it has
+// announced a shutdown date for deprecated and keeps the announcement after
+// the date has passed, so the page states one standing and never two.
+const StateDeprecated = "deprecated"
+
+// Scalar keys the model pages, the deprecation page and the changelog
+// populate.
+const (
+	AttrSummary        = "summary"
+	AttrAuthor         = "author"
+	AttrOpenWeights    = "open_weights"
+	AttrHuggingFaceID  = "hugging_face_id"
+	AttrQuantization   = "quantization"
+	AttrReleaseDate    = "release_date"
+	AttrLastUpdated    = "last_updated"
+	AttrDeprecatedOn   = "deprecated_on"
+	AttrRetirementDate = "retirement_date"
+	AttrReplacement    = "recommended_replacement"
+	AttrModelSize      = "model_size"
+	AttrLanguage       = "language"
+	AttrLanguages      = "language_support"
+	AttrWordErrorRate  = "word_error_rate"
+	AttrSpeedFactor    = "real_time_speed_factor"
+	AttrFileSizeTiers  = "max_file_size_by_tier"
+	AttrMinFileLength  = "min_file_length"
+	AttrBatch          = "batch_available"
+)
+
+// Numeric keys the model pages and the audio guides populate.
+const (
+	LimitMaxInputImages     = "max_input_images"
+	LimitMaxInputCharacters = "max_input_characters"
+	LimitMinBilledSeconds   = "min_billed_seconds"
+)
+
+// Enumeration keys the guides populate.
+const (
+	ListParameters      = catalog.ListParameters
+	ListEndpoints       = "endpoints"
+	ListAudioFormats    = "audio_formats"
+	ListResponseFormats = "response_formats"
+	ListVoices          = "voices"
+	ListServiceTiers    = "service_tiers"
+)
+
+// baseRateLimitKeys maps Groq's rate limit codes onto the keys the base limits
+// are recorded under. They are kept apart from the keys the models table
+// populates because the two documents state different numbers under the same
+// name; see doc.go.
+var baseRateLimitKeys = map[string]string{
+	"rpm": "base_requests_per_minute",
+	"rpd": "base_requests_per_day",
+	"tpm": "base_tokens_per_minute",
+	"tpd": "base_tokens_per_day",
+	"ash": "base_audio_seconds_per_hour",
+	"asd": "base_audio_seconds_per_day",
+}
+
+var (
+	digitsRe   = regexp.MustCompile(`[\d,]*\.?\d+`)
+	shortDate  = regexp.MustCompile(`^(\d{1,2})/(\d{1,2})/(\d{2})$`)
+	backtickRe = regexp.MustCompile("`([^`]+)`")
+)
+
+// parseShortDate turns the m/d/yy a deprecation table writes into ISO.
+func parseShortDate(value string) string {
+	match := shortDate.FindStringSubmatch(strings.TrimSpace(value))
+	if match == nil {
+		return ""
+	}
+	return fmt.Sprintf(
+		"20%s-%02s-%02s",
+		match[3],
+		leadingZero(match[1]),
+		leadingZero(match[2]),
+	)
+}
+
+// leadingZero pads a one-digit month or day.
+func leadingZero(value string) string {
+	if len(value) == 1 {
+		return "0" + value
+	}
+	return value
+}
+
+// parseLongDate turns a date written in prose into ISO. The layouts are the
+// two Groq writes: the deprecation page spells the month out and the changelog
+// abbreviates it.
+func parseLongDate(value string) string {
+	for _, layout := range []string{"January 2, 2006", "Jan 2, 2006"} {
+		if t, err := time.Parse(layout, strings.TrimSpace(value)); err == nil {
+			return t.Format("2006-01-02")
+		}
+	}
+	return ""
+}
+
+// firstNumber returns the first number in a value, without its separators.
+func firstNumber(value string) string {
+	match := digitsRe.FindString(clean(value))
+	if match == "" {
+		return ""
+	}
+	return strings.ReplaceAll(match, ",", "")
+}
+
+// backticked returns every value the document wrote in backticks, which is how
+// both audio guides list the file formats and the parameters they accept.
+func backticked(line string) []string {
+	var out []string
+	for _, match := range backtickRe.FindAllStringSubmatch(line, -1) {
+		out = append(out, strings.TrimSpace(match[1]))
+	}
+	return out
 }

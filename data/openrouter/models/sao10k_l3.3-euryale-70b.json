@@ -11,10 +11,32 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.65,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.75,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "NextBit",
+        "endpoint_tag": "nextbit/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +45,8 @@
     "hugging_face_id": "Sao10K/L3.3-70B-Euryale-v2.3",
     "instruct_type": "llama3",
     "knowledge_cutoff": "2023-12-31",
-    "released": "2024-12-18",
+    "modality": "text->text",
+    "release_date": "2024-12-18",
     "summary": "Euryale L3.3 70B is a model focused on creative roleplay from [Sao10k](https://ko-fi.com/sao10k).",
     "tokenizer": "Llama3"
   },
@@ -33,6 +56,15 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "datacenter_countries": [
+      "ES"
+    ],
+    "endpoint_tags": [
+      "nextbit/bf16"
+    ],
+    "endpoints": [
+      "NextBit"
+    ],
     "features": [
       "json_mode",
       "structured_outputs"
@@ -56,9 +88,17 @@
       "temperature",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "ES"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/sao10k/l3.3-euryale-70b-v2.3/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

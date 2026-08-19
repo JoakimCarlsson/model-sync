@@ -39,11 +39,35 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "citation_options",
+      "documents",
+      "frequency_penalty",
+      "k",
+      "logprobs",
+      "max_tokens",
+      "messages",
+      "model",
+      "p",
+      "presence_penalty",
+      "priority",
+      "response_format",
+      "safety_mode",
+      "seed",
+      "stop_sequences",
+      "stream",
+      "strict_tools",
+      "temperature",
+      "thinking",
+      "tool_choice",
+      "tools"
     ]
   },
   "sources": [
     "https://cohere.com/pricing",
     "https://docs.cohere.com/docs/models.md",
+    "https://docs.cohere.com/reference/chat.md",
     "https://docs.cohere.com/v2/docs/streaming.md"
   ]
 }

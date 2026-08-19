@@ -1,6 +1,7 @@
 {
   "id": "phi-3-medium-128k-instruct",
   "provider": "azure",
+  "name": "Phi-3-medium instruct (128k)",
   "kind": "chat",
   "prices": [
     {
@@ -645,12 +646,39 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2024-11-11",
+    "license": "mit",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "summary": "Same Phi-3-medium model, but with a larger context size for RAG or few shot prompting.",
+    "version": "6"
   },
   "limits": {
-    "context_window": 128000
+    "context_window": 128000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Large context",
+      "Reasoning",
+      "Understanding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

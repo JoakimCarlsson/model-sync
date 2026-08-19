@@ -1,7 +1,7 @@
 {
   "id": "gpt-oss-20b",
   "provider": "vertexai",
-  "name": "gpt-oss-20b",
+  "name": "gpt-oss 20B",
   "kind": "chat",
   "prices": [
     {
@@ -15,6 +15,15 @@
       }
     }
   ],
+  "attrs": {
+    "author": "openai",
+    "deprecated_on": "2026-07-21",
+    "release_date": "2025-08-13",
+    "retirement_date": "2026-10-21",
+    "self_deploy_alternative": "Self-deploy GPT OSS on Model Garden",
+    "state": "active",
+    "summary": "A 20B model optimized for efficiency and deployment on consumer and edge hardware."
+  },
   "limits": {
     "context_window": 131072,
     "max_output_tokens": 32768
@@ -29,10 +38,15 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-central1"
     ]
   },
   "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/deprecations/open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/openai/gpt-oss-20b",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]
 }

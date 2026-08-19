@@ -3,7 +3,9 @@ package bedrock
 import (
 	"encoding/json"
 	"fmt"
+	"maps"
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -20,6 +22,7 @@ const (
 	MetricVideoInput        catalog.Metric = "video_input"
 	MetricAudioInput        catalog.Metric = "audio_input"
 	MetricImageOutput       catalog.Metric = "image_output"
+	MetricVideoOutput       catalog.Metric = "video_output"
 	MetricUsage             catalog.Metric = "usage"
 )
 
@@ -28,6 +31,7 @@ const (
 	UnitPer1KTokens catalog.Unit = "per_1k_tokens"
 	UnitPer1MTokens catalog.Unit = "per_1m_tokens"
 	UnitPerImage    catalog.Unit = "per_image"
+	UnitPerVideo    catalog.Unit = "per_video"
 	UnitPerHour     catalog.Unit = "per_hour"
 	UnitPerMinute   catalog.Unit = "per_minute"
 	UnitPerRequest  catalog.Unit = "per_request"
@@ -69,6 +73,24 @@ const (
 	DimTier     = "tier"
 	DimContext  = "context"
 	DimCacheTTL = "cache_ttl"
+	// DimTask, DimResolution, DimQuality and DimFPS are how AWS meters a
+	// picture apart from a picture: an image model is billed per image at a
+	// rate that depends on whether the prompt was text or another image, how
+	// large the result is and which of two qualities it was asked for, and a
+	// video model on how many frames a second it runs at.
+	DimTask       = "task"
+	DimResolution = "resolution"
+	DimQuality    = "quality"
+	DimFPS        = "fps"
+	// DimCommitment is the term a provisioned rate is bought for, which is
+	// the only thing separating three rates AWS quotes per model unit hour.
+	DimCommitment = "commitment"
+	// DimMeter names what a rate is charged for where the metric field is
+	// empty, which is how AWS bills everything that is not inference: the
+	// grounding of an answer, an hour of fine-tuning, a month of storing the
+	// model that came out of it. The usage type is the only field naming
+	// those, so it is what this is read from.
+	DimMeter = "meter"
 )
 
 // ContextLong is the band of a rate AWS meters apart for a long prompt.
@@ -146,8 +168,10 @@ var unitNames = map[string]catalog.Unit{
 	"1k tokens":                 UnitPer1KTokens,
 	"1m tokens":                 UnitPer1MTokens,
 	"image":                     UnitPerImage,
+	"video":                     UnitPerVideo,
 	"images processed":          UnitPerImage,
 	"hour":                      UnitPerHour,
+	"hours":                     UnitPerHour,
 	"minutes processed":         UnitPerMinute,
 	"custom model unit per min": UnitPerMinute,
 	"requests":                  UnitPerRequest,
@@ -198,6 +222,9 @@ type attributes struct {
 	// product stating them states neither of the others.
 	TokenType   string `json:"tokenType"`
 	ServiceTier string `json:"service_tier"`
+	// TitanModel is where the meters of Amazon's own older models name the
+	// model, leaving the field the rest of the list uses empty.
+	TitanModel string `json:"titanModel"`
 }
 
 // term is one offer against a product.
@@ -214,19 +241,54 @@ type priceDimension struct {
 }
 
 // applyPriceList reads the published price list.
+//
+// The products are read in two passes, and in the order of the identifiers
+// AWS keys them by so that a run is reproducible. The second pass is for the
+// meters naming no lab, which are the ones billing for something other than
+// inference: AWS bills the tuning of Llama 3.1 70B under a product naming
+// only the model, and joining that to the model the same meters price by the
+// token needs the model to exist already.
 func (b *builder) applyPriceList(doc catalog.Document) error {
 	var list priceList
 	if err := json.Unmarshal(doc.Body, &list); err != nil {
 		return fmt.Errorf("decode %s: %w", doc.URL, err)
 	}
-	for sku, p := range list.Products {
-		for _, offer := range list.OnDemand[sku] {
-			for _, dimension := range offer.PriceDimensions {
-				b.applyRate(p.Attributes, dimension, doc.URL)
+	skus := slices.Sorted(maps.Keys(list.Products))
+	for _, authored := range []bool{true, false} {
+		for _, sku := range skus {
+			p := list.Products[sku]
+			if (p.Attributes.Provider != "") != authored {
+				continue
+			}
+			for _, offer := range list.OnDemand[sku] {
+				for _, key := range slices.Sorted(
+					maps.Keys(offer.PriceDimensions),
+				) {
+					b.applyRate(
+						p.Attributes,
+						offer.PriceDimensions[key],
+						doc.URL,
+					)
+				}
 			}
 		}
 	}
 	return nil
+}
+
+// named returns the model an authorless meter belongs to, which is the one
+// model already carrying exactly the name the meter gives. A name naming
+// none, or naming several, keeps the meter's own identifier: two models
+// AWS names the same way are not one model.
+func (b *builder) named(name string) (string, bool) {
+	found := ""
+	matches := 0
+	for _, id := range b.order {
+		if b.models[id].Name == name {
+			found, matches = id, matches+1
+		}
+	}
+	return found, matches == 1
 }
 
 // applyRate records one rate against the model it belongs to.
@@ -238,6 +300,11 @@ func (b *builder) applyRate(
 	id := modelID(a)
 	if id == "" {
 		return
+	}
+	if a.Provider == "" {
+		if existing, ok := b.named(modelName(a)); ok {
+			id = existing
+		}
 	}
 	metric, ok := metricFor(a)
 	if !ok {
@@ -251,12 +318,15 @@ func (b *builder) applyRate(
 	if !ok {
 		return
 	}
-	m := b.model(id, kindFor(metric, a.Model))
+	name := modelName(a)
+	task := imageTask(a.InferenceType)
+	metric = producedBy(metric, task)
+	m := b.model(id, kindFor(metric, name))
 	m.AddSource(source)
 	m.SetAttr(AttrAuthor, a.Provider)
 	m.AddList(ListAliases, meterModelID(a.UsageType))
-	if preferName(m.Name, a.Model) {
-		m.Name = a.Model
+	if preferName(m.Name, name) {
+		m.Name = name
 	}
 	m.AddPrice(catalog.Price{
 		Metric:   metric,
@@ -266,8 +336,14 @@ func (b *builder) applyRate(
 		Dims: catalog.Dims{}.
 			With(DimRegion, a.RegionCode).
 			With(DimTier, tierFor(a)).
+			With(DimCommitment, commitment(a.Feature)).
 			With(DimContext, contextBand(a.TokenType)).
-			With(DimCacheTTL, cacheTTL(a.TokenType)),
+			With(DimCacheTTL, cacheTTL(a.TokenType)).
+			With(DimMeter, meterFor(a)).
+			With(DimTask, task).
+			With(DimResolution, imageField(resolutionRe, a.InferenceType, task)).
+			With(DimQuality, imageField(qualityRe, a.InferenceType, task)).
+			With(DimFPS, imageField(fpsRe, a.InferenceType, task)),
 	})
 }
 
@@ -310,10 +386,134 @@ func amountOf(d priceDimension) (float64, bool) {
 	return value, true
 }
 
+// modelName is the name a meter gives the model it bills for, which the
+// meters of Amazon's own older models state in a field of their own.
+func modelName(a attributes) string {
+	if a.Model != "" {
+		return a.Model
+	}
+	return a.TitanModel
+}
+
+var (
+	// imageTaskRe matches what an image or video meter is generated from,
+	// which AWS writes as an abbreviation: T2I is text to image and I2V is
+	// image to video.
+	imageTaskRe = regexp.MustCompile(`(?i)\b([ti]2[iv])\b`)
+	// resolutionRe matches how large a generated picture is, which AWS states
+	// either as a pixel count or as a name.
+	resolutionRe = regexp.MustCompile(`(?i)\b(\d{3,4}|hd|sd)\b`)
+	// qualityRe matches which of the two qualities a picture is generated at.
+	qualityRe = regexp.MustCompile(`(?i)\b(standard|premium)\b`)
+	// fpsRe matches how many frames a second a generated video runs at, which
+	// AWS states as a name rather than as a number.
+	fpsRe = regexp.MustCompile(`(?i)\b(\w+)\s+fps\b`)
+	// commitmentRe matches the term a provisioned rate is bought for.
+	commitmentRe = regexp.MustCompile(
+		`(?i)provisioned throughput inference\s*-\s*(.+)$`,
+	)
+)
+
+// imageTask reads what a generated picture was generated from.
+func imageTask(inferenceType string) string {
+	match := imageTaskRe.FindStringSubmatch(inferenceType)
+	if match == nil {
+		return ""
+	}
+	return strings.ToLower(match[1])
+}
+
+// imageField reads one of the ways a picture's rate varies, and reads none of
+// them off a meter that generates no picture: a rate counting tokens carries
+// no task, and the digits in the name of a model are not a resolution.
+func imageField(re *regexp.Regexp, inferenceType, task string) string {
+	if task == "" {
+		return ""
+	}
+	match := re.FindStringSubmatch(inferenceType)
+	if match == nil {
+		return ""
+	}
+	return strings.ToLower(match[1])
+}
+
+// producedBy says what a rate counts where the metric field named a picture
+// rather than a count. A meter generating an image bills per image, which the
+// unit states and the metric otherwise would not.
+func producedBy(metric catalog.Metric, task string) catalog.Metric {
+	if metric != MetricUsage || task == "" {
+		return metric
+	}
+	if strings.HasSuffix(task, "v") {
+		return MetricVideoOutput
+	}
+	return MetricImageOutput
+}
+
+// meterRegionRe matches the Region a usage type opens with.
+var meterRegionRe = regexp.MustCompile(`^[A-Z0-9]+-`)
+
+// meterFor names what a rate is charged for, and names it only for the rates
+// stating neither a metric nor a token type. Those are what AWS bills for
+// besides inference, and the usage type is the only field telling one from
+// another.
+func meterFor(a attributes) string {
+	if a.InferenceType != "" || a.TokenType != "" {
+		return ""
+	}
+	return meterSuffix(a.UsageType, modelName(a))
+}
+
+// meterSuffix drops the Region a usage type opens with and the model's own
+// name after it, leaving what the meter is for. The name is written without
+// its spaces there and with its punctuation kept, so the two are compared by
+// their letters and digits alone.
+func meterSuffix(usageType, model string) string {
+	rest := meterRegionRe.ReplaceAllString(usageType, "")
+	want := lettersDigits(model)
+	if want == "" {
+		return slug(rest)
+	}
+	got := ""
+	for i := range len(rest) {
+		got = lettersDigits(rest[:i+1])
+		if !strings.HasPrefix(want, got) {
+			return slug(rest)
+		}
+		if got == want {
+			return slug(rest[i+1:])
+		}
+	}
+	return slug(rest)
+}
+
+// lettersDigits reduces a name to the characters both documents agree on.
+func lettersDigits(value string) string {
+	return strings.Map(func(r rune) rune {
+		switch {
+		case r >= 'a' && r <= 'z', r >= '0' && r <= '9':
+			return r
+		case r >= 'A' && r <= 'Z':
+			return r + ('a' - 'A')
+		}
+		return -1
+	}, value)
+}
+
+// commitment reads the term a provisioned rate is bought for, which AWS
+// states inside the feature and nowhere else.
+func commitment(feature string) string {
+	match := commitmentRe.FindStringSubmatch(strings.TrimSpace(feature))
+	if match == nil {
+		return ""
+	}
+	return slug(match[1])
+}
+
 // modelID names a model by the lab that made it and the name AWS gives it,
 // since the price list states no API identifier.
 func modelID(a attributes) string {
-	model := slug(a.Model)
+	model := slug(modelName(a))
 	if model == "" {
 		return ""
 	}
@@ -323,8 +523,11 @@ func modelID(a attributes) string {
 	return model
 }
 
-// metricFor reads what a rate counts out of AWS's combined metric field, or
-// out of the token type where the meter states it there instead.
+// metricFor reads what a rate counts out of AWS's combined metric field, out
+// of the token type where the meter states it there instead, and out of the
+// usage type where the meter states it in neither: the rate charged for a
+// cached prompt read back through global routing names what it counts in the
+// meter it bills under and nowhere else.
 func metricFor(a attributes) (catalog.Metric, bool) {
 	if metric, ok := countedBy(a.InferenceType); ok {
 		return metric, true
@@ -332,8 +535,8 @@ func metricFor(a attributes) (catalog.Metric, bool) {
 	if metric, ok := countedBy(a.TokenType); ok {
 		return metric, true
 	}
-	if a.InferenceType == "" {
-		return "", false
+	if metric, ok := countedBy(meterSuffix(a.UsageType, modelName(a))); ok {
+		return metric, true
 	}
 	return MetricUsage, true
 }
@@ -367,6 +570,9 @@ func fieldWords(field string) string {
 // for the newest.
 func tierFor(a attributes) string {
 	field := strings.ToLower(a.InferenceType)
+	if strings.HasPrefix(field, "custom ") {
+		return TierCustom
+	}
 	for word, tier := range tierWords {
 		if strings.Contains(field, word) {
 			return tier

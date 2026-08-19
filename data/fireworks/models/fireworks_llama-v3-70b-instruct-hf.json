@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/llama-v3-70b-instruct-hf",
+  "provider": "fireworks",
+  "name": "Llama 3 70B Instruct (HF version)",
+  "kind": "chat",
+  "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
+    "hugging_face_id": "meta-llama/Meta-Llama-3-70B-Instruct",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/llama-v3-70b-instruct-hf",
+    "model_url": "https://fireworks.ai/models/fireworks/llama-v3-70b-instruct-hf",
+    "open_weights": "true",
+    "parameter_count": "70.5B",
+    "release_date": "2024-04-21",
+    "state": "active",
+    "summary": "Meta’s Llama 3 instruction tuned models are optimized for dialogue use cases and outperform many of the available open source chat models on common industry benchmarks. Llama 3 70B Instruct (HF Version) is the original, FP16 version of Llama 3 70B Instruct whose results should be consistent with the official Hugging Face implementation."
+  },
+  "limits": {
+    "context_window": 8192
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/llama-v3-70b-instruct-hf"
+  ]
+}

@@ -1,12 +1,26 @@
 // Package google parses Google's Gemini pricing and model documentation into
 // the catalog model.
 //
-// Three documents are needed because none is enough. The pricing page is the
-// only one naming every model that costs anything, and states no context
-// window, no capability and no modality. Each model's own page states all
-// three and no rate at all. The index is the only one pairing the name a model
-// is sold under with the endpoint the API answers to, and the only one saying
-// which models Google has withdrawn.
+// Three documents carry the bulk of it because none is enough. The pricing
+// page is the only one naming every model that costs anything, and states no
+// context window, no capability and no modality. Each model's own page states
+// all three and no rate at all. The index is the only one pairing the name a
+// model is sold under with the endpoint the API answers to, the only one
+// saying which models Google has withdrawn, and the only one saying which of
+// the rest are still in preview.
+//
+// Six more are read because Google states a fact per model in each of them and
+// nowhere else. The deprecation schedule dates every model's release and its
+// earliest shutdown and names what to move to. The rate limit page states what
+// a project may enqueue for batch, per model and per usage tier. The thinking
+// guide states how much each model reasons by default and which levels it
+// accepts. The Veo guide compares the video models parameter by parameter and
+// carries a property table for the two Veo 3 endpoints that have no model page
+// at all. The Imagen guide states in prose what the Veo guide states in a
+// table. The image generation guide states which aspect ratios an image model
+// answers in and at what sizes. A model card, which the model pages link to on
+// DeepMind's site rather than Google's own, is the only document stating a
+// knowledge cutoff.
 //
 // A model is held under the endpoint it answers to, which the pricing page
 // states beneath each heading as one <code> per endpoint. That is what settles
@@ -76,6 +90,96 @@
 // model code, which is the reason a page is attached by its address before
 // anything it states about itself.
 //
+// The deprecation schedule is the document that dates a model. It states a
+// release date to the day for almost every model and to the month for the
+// newest, and neither is rounded to the other: gemini-3.7-flash is dated
+// "August 2026" and carries a release date of that precision. A shutdown date
+// is the earliest Google may retire the model, which is what it says in as many
+// words, and the cell saying none has been announced states no date and yields
+// none. The schedule is also the only document distinguishing a model that is
+// generally available from one in preview, which it does with a divider row
+// rather than a column, so each of its tables is read in order.
+//
+// Two documents disagree about two models. The schedule greys the rows of the
+// models it has already shut down, and among them are Gemini 2.5 Pro TTS and
+// the September 2025 flash-lite preview, both of which the index still lists
+// without the aside it hangs off a withdrawn model and both of which the
+// pricing page still prices. The index is followed, because it is the document
+// that says what the API answers to; the greyed row is still read for its
+// dates. A model the index does mark withdrawn is never begun at all, which is
+// unchanged.
+//
+// The index states a lifecycle twice over and only one of the two is a field.
+// The aside on a model's name is the withdrawal, and the grid of cards above
+// the tables marks each model Stable or Preview under its description. A card
+// names the page rather than the model, and a page is addressed by an
+// endpoint, so the card resolves to an endpoint without going through a name.
+// The badge saying a model is new sits in the same line and is a fact about
+// the model's age rather than its availability, so only the last word of that
+// line is read.
+//
+// Google publishes no thinking budget in tokens. The parameter is
+// thinking_level and the guide tabulates, per endpoint, the level a model
+// thinks at when it is not told and the levels it accepts, so the bound is a
+// set of names and is recorded as the list it is. A model page states the same
+// set in the parenthesis after "Supported" on its thinking row, which is why
+// more models carry the levels than the guide tabulates.
+//
+// The rate limit page states one figure per model and the rest per project.
+// The enqueued token ceiling is per model and per usage tier and is recorded;
+// the spend ceiling, the tier qualifications, the concurrent batch count, the
+// batch file sizes and the priority multiplier belong to the account. Its rows
+// name models the way the index does rather than by endpoint, with a few
+// naming the endpoint instead, so both are tried and a row matching neither is
+// skipped. Google does not publish a requests-per-minute or tokens-per-minute
+// table at all any more: the page says those depend on the account and directs
+// the reader to AI Studio to see their own.
+//
+// The Veo guide compares models in two tables, one of request parameters and
+// one of what comes back, both with one column per model and neither naming an
+// endpoint anywhere. A column heads two models where they differ in nothing
+// the table states, "Veo 3.1 & Veo 3.1 Fast", so a heading is split on the
+// ampersand and each half brought to the same form as an endpoint: the part
+// before the verb, with the trailing zero of a major-only version dropped, so
+// that veo-3.0-fast-generate-001 meets the heading "Veo 3 Fast". A parameter's
+// accepted values are the ones the cell quotes; an unquoted code span in the
+// same cell names a type. The output table writes its sizes in prose beside an
+// italic rider saying which durations they allow, and the rider's own numbers
+// are not sizes, so it is dropped before the prose is read.
+//
+// That comparison is also where the video models get a capability and an input
+// they would otherwise lack. Its audio row marks with a tick what the Gemini
+// model pages call audio generation, and it is recorded under that name rather
+// than under a second word for the same thing; Veo 2 is marked silent and
+// carries no such capability. Its input row names each input as the conversion
+// it drives, "Video-to-Video", which is how the one model taking a video for
+// input says so at all, the model page stating "Text, Image" for every one of
+// them.
+//
+// The Imagen guide restricts one of its values to some of the models it
+// describes, saying the two image sizes are for the standard and ultra models.
+// It names quality levels where the property table names endpoints, and the
+// level Google leaves out of an identifier is its standard, so the restriction
+// resolves and the fast endpoint carries the parameter list without the sizes.
+//
+// A pricing cell states more than one amount for four different reasons, and
+// reading the amounts alone left a model carrying two rates for one thing with
+// nothing to tell them apart. Each amount therefore carries the clause running
+// from it to the next: the output size it buys, the prompt length band it
+// applies to, the day an introductory rate runs through or the day its
+// successor starts, and whether it buys storage rather than a read. The
+// denominator comes from the column heading unless the clause states one,
+// because a grounded search request is not a token, an hour of cache storage
+// is not either, and the embedding models quote a second amount per image, per
+// second and per frame beside the amount per million tokens. Two rows of one
+// table price a tool rather than the model, at the same rate against the same
+// denominator, so the tool is part of what identifies the rate.
+//
+// One clause had to be rescued before it could be read. "prompts <= 200k
+// tokens" is not markup, but everything from its angle bracket to the next one
+// reads as a tag, so stripping tags took the clause with it and left the cell
+// stating two amounts and no reason for the difference.
+//
 // A model page writes its modalities as prose rather than as a list, and the
 // wordings matter. "Video with audio" names two modalities and not a quality of
 // one, so the video models return both. "Text embeddings" is the return value
@@ -108,6 +212,39 @@
 //
 // What Google does not publish, checked against the live documents rather than
 // taken on trust:
+//
+// A rate limit in requests or tokens per minute. The rate limit page once
+// tabulated them per model and per tier and now states that they vary with the
+// account and are to be read in AI Studio. What it still tabulates per model,
+// the batch enqueued token ceiling, is read.
+//
+// A thinking budget in tokens, for the same reason: the parameter it bounded
+// no longer exists.
+//
+// A knowledge cutoff for most models. It is stated in one sentence among a
+// model card's known limitations rather than as a field, and most cards do not
+// state it: of the sixteen models whose page links a card, four say when the
+// model's knowledge ends. The rest say nothing, and the sentence that does
+// appear names a second, earlier date for the domains the model was not
+// refreshed in, which is not the cutoff and is not recorded as one.
+//
+// A model card for the video, image, music and embedding models. DeepMind
+// publishes cards for some of them, but the Gemini model pages carry the model
+// card row only for the Gemini models, and DeepMind's own index of cards
+// identifies them by a title rather than by an endpoint, so nothing links a
+// card to an endpoint for the rest.
+//
+// A release date for eight of the models held. The deprecation schedule dates
+// every model it lists, and it lists none of the newest previews: the
+// computer-use model, the custom-tools endpoint, both robotics previews, the
+// omni preview and Gemma.
+//
+// A capability table for the Imagen models, and a size for the aspect ratios
+// of two of the image models. The image generation guide tabulates them for
+// the 3.1 Flash and 2.5 Flash image models under headings that resolve to an
+// endpoint, and for a third under the heading "3.1 Pro Image", which names no
+// endpoint Google serves. The table is not attached on a guess about which
+// model was meant.
 //
 // A page for Gemma. The pricing page names no endpoint under that heading and
 // /gemini-api/docs/models/gemma-4 is a 404. The Gemma overview at

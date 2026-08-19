@@ -3,8 +3,15 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "nomic-bert-moe",
     "default_embedding_dimension": "768",
-    "summary": "nomic-embed-text-v2-moe is a multilingual MoE text embedding model that excels at multilingual retrieval."
+    "default_snapshot": "nomic-embed-text-v2-moe:latest",
+    "last_updated": "2025-12-10",
+    "open_weights": "true",
+    "parameter_count": "475M",
+    "quantization": "F16",
+    "summary": "nomic-embed-text-v2-moe is a multilingual MoE text embedding model that excels at multilingual retrieval.",
+    "tokenizer": "t5"
   },
   "limits": {
     "context_window": 512
@@ -20,6 +27,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/nomic-embed-text-v2-moe/tags",
+    "https://ollama.com/library/nomic-embed-text-v2-moe:latest",
     "https://ollama.com/library/nomic-embed-text-v2-moe:latest/blobs/a5db3381f2e5"
   ]
 }

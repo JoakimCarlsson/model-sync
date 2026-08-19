@@ -35,8 +35,22 @@ const (
 	ListOutputModalities = "output_modalities"
 )
 
-// AttrModelCard records where the weights this model serves are published.
-const AttrModelCard = "model_card_url"
+// Scalar keys the model pages populate.
+const (
+	// AttrModelCard records where the weights this model serves are published.
+	AttrModelCard = "model_card_url"
+	// AttrPlayground records where the model may be tried without writing a
+	// call against it.
+	AttrPlayground = "playground_url"
+)
+
+// Capabilities named by a model page that the catalog has a word of its own
+// for, or that no other document names.
+const (
+	FeatureStreaming         = "streaming"
+	FeatureParallelToolCalls = "parallel_tool_calls"
+	FeatureToolChoice        = "tool_choice"
+)
 
 // featureNames map the capability Cerebras names onto the catalog's
 // vocabulary. Only the names that differ are listed; the rest are Cerebras'
@@ -84,6 +98,8 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	m := b.model(id, KindChat)
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrModelCard, props["modelCardUrl"])
+	m.SetAttr(AttrPlayground, props["playgroundUrl"])
+	applySpeed(m, props["speed"])
 	applyTiered(
 		m,
 		props["contextLength"],
@@ -97,6 +113,8 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		LimitMaxOutputTokens,
 	)
 	applyPricing(m, props["pricing"])
+	applyPageRateLimits(m, props["rateLimits"])
+	applyKnownLimitations(m, props["knownLimitations"])
 	for _, name := range listRe.FindAllStringSubmatch(props["features"], -1) {
 		key := strings.ToLower(strings.TrimSpace(name[1]))
 		if modality, ok := capabilityModalities[key]; ok {
@@ -109,6 +127,18 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		m.AddList(ListEndpoints, name[1])
 	}
 	applyFormats(m, props["inputOutput"])
+}
+
+// applySpeed records the throughput a model page states for the model.
+//
+// It is a measurement Cerebras publishes and not a bound it commits to, which
+// is why it is an attribute and not a limit.
+func applySpeed(m *catalog.Model, value string) {
+	for _, field := range fieldRe.FindAllStringSubmatch(value, -1) {
+		if field[1] == "value" {
+			m.SetAttr(AttrTokensPerSec, strings.TrimSpace(field[2]))
+		}
+	}
 }
 
 // applyTiered records a bound Cerebras states once per plan.

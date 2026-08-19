@@ -1,0 +1,75 @@
+{
+  "id": "krea/krea-2-medium",
+  "provider": "openrouter",
+  "name": "Krea: Krea 2 Medium",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000718562874251497,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000718562874251497,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Krea",
+        "endpoint_tag": "krea"
+      }
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.18562874251497,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 7.18562874251497,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Krea",
+        "endpoint_tag": "krea"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "krea",
+    "canonical_slug": "krea/krea-2-medium-20260720",
+    "modality": "text+image->image",
+    "release_date": "2026-07-20",
+    "summary": "Krea 2 Medium is Krea's balanced, cost-efficient image generation model and a practical starting point for a broad range of use cases.",
+    "tokenizer": "Media"
+  },
+  "limits": {
+    "context_window": 65536,
+    "top_provider_context_window": 65536
+  },
+  "lists": {
+    "endpoint_tags": [
+      "krea"
+    ],
+    "endpoints": [
+      "Krea"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "provider_headquarters": [
+      "US"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/krea/krea-2-medium-20260720/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

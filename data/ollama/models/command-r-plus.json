@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "Command R&#43; is a powerful, scalable large language model purpose-built to excel at real-world enterprise use cases."
+    "architecture": "command-r",
+    "default_snapshot": "command-r-plus:latest",
+    "last_updated": "2024-08-31",
+    "license": "Creative Commons Attribution-NonCommercial 4.0 International Public License",
+    "open_weights": "true",
+    "parameter_count": "104B",
+    "quantization": "Q4_0",
+    "summary": "Command R+ is a powerful, scalable large language model purpose-built to excel at real-world enterprise use cases."
   },
   "limits": {
     "context_window": 128000
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/command-r-plus/tags"
+    "https://ollama.com/library/command-r-plus/tags",
+    "https://ollama.com/library/command-r-plus:latest"
   ]
 }

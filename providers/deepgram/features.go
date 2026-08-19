@@ -37,6 +37,36 @@ const (
 	// documents separately from transcribing a live connection and calls
 	// pre-recorded.
 	FeatureBatch = "batch"
+	// FeaturePunctuation is placing punctuation in a transcript that was
+	// spoken without any.
+	FeaturePunctuation = "punctuation"
+	// FeatureNumerals is writing spoken numbers as digits.
+	FeatureNumerals = "numerals"
+	// FeatureProfanityFilter is masking profanity in the transcript.
+	FeatureProfanityFilter = "profanity_filter"
+	// FeatureParagraphs is dividing a transcript into paragraphs.
+	FeatureParagraphs = "paragraphs"
+	// FeatureUtterances is dividing a transcript into the stretches of speech
+	// between pauses.
+	FeatureUtterances = "utterances"
+	// FeatureMultichannel is transcribing each channel of the audio
+	// separately.
+	FeatureMultichannel = "multichannel"
+	// FeatureSearch is finding a spoken phrase in the audio.
+	FeatureSearch = "search"
+	// FeatureFindAndReplace is rewriting terms in the transcript as it is
+	// produced.
+	FeatureFindAndReplace = "find_and_replace"
+	// FeatureFillerWords is keeping the ums and uhs a transcript would
+	// otherwise drop.
+	FeatureFillerWords = "filler_words"
+	// FeatureEndpointing is deciding when a speaker has stopped talking.
+	FeatureEndpointing = "endpointing"
+	// FeatureKeywords is the older way of biasing towards a term, which
+	// Deepgram keeps beside keyterm prompting and calls legacy.
+	FeatureKeywords = "keyword_boosting"
+	// FeatureAlternatives is returning more than one candidate transcript.
+	FeatureAlternatives = "alternatives"
 )
 
 // docFeatures map a row of a feature overview onto what the model can do. The
@@ -59,6 +89,19 @@ var docFeatures = map[string]string{
 	"sentiment-analysis":         FeatureSentiment,
 	"intent-recognition":         FeatureIntent,
 	"audio-output-streaming":     FeatureStreamingOutput,
+	"punctuation":                FeaturePunctuation,
+	"numerals":                   FeatureNumerals,
+	"profanity-filter":           FeatureProfanityFilter,
+	"paragraphs":                 FeatureParagraphs,
+	"utterances":                 FeatureUtterances,
+	"multichannel":               FeatureMultichannel,
+	"search":                     FeatureSearch,
+	"find-and-replace":           FeatureFindAndReplace,
+	"filler-words":               FeatureFillerWords,
+	"endpointing":                FeatureEndpointing,
+	"keywords":                   FeatureKeywords,
+	"alternatives":               FeatureAlternatives,
+	"smart-format":               FeatureSmartFormatting,
 }
 
 // Numeric bounds Deepgram states in prose rather than in a field.
@@ -122,13 +165,16 @@ func (b *builder) applyFeatures(doc catalog.Document, p product) {
 	rows := featureRows(string(doc.Body))
 	b.each(func(m *catalog.Model) {
 		if p.describes(m) {
+			if !b.serves(m, p) {
+				return
+			}
 			for _, row := range rows {
-				if row.multilingual && !multilingual(m.ID) {
+				if !row.applies(m) {
 					continue
 				}
-				m.AddList(catalog.ListFeatures, row.feature)
+				b.addFeature(m, row.feature)
 			}
-			m.AddList(catalog.ListFeatures, p.delivery)
+			b.addFeature(m, p.delivery)
 			m.AddSource(doc.URL)
 			return
 		}
@@ -139,13 +185,36 @@ func (b *builder) applyFeatures(doc catalog.Document, p product) {
 			if row.id != m.ID {
 				continue
 			}
-			m.AddList(catalog.ListFeatures, row.feature, p.delivery)
+			b.addFeature(m, row.feature)
+			b.addFeature(m, p.delivery)
 			m.AddSource(doc.URL)
 		}
 	})
 	if p.kind == KindAgent {
 		b.applySessionLimit(doc)
 	}
+}
+
+// serves reports whether a page describes how a model is reached. Deepgram
+// documents transcribing a live connection and transcribing a recording as
+// separate products, and its concurrency reference and its pricing page say
+// which of the two each model answers on: Whisper only takes a recording and
+// Flux only takes a connection. A model neither document places is described
+// by both pages, which is what Deepgram's own wording leaves open.
+func (b *builder) serves(m *catalog.Model, p product) bool {
+	if p.delivery == "" {
+		return true
+	}
+	known := false
+	for _, f := range m.Lists[catalog.ListFeatures] {
+		if f == p.delivery {
+			return true
+		}
+		if f == FeatureRealtime || f == FeatureBatch {
+			known = true
+		}
+	}
+	return !known
 }
 
 // describes reports whether a page's product is the one a model is sold under.
@@ -186,6 +255,26 @@ type featureRow struct {
 	// multilingual records that the row applies only to the model of its pair
 	// that follows more than one language.
 	multilingual bool
+	// models are the models a row is restricted to, where it names them. The
+	// streaming overview writes a column of them beside entity detection, and
+	// the Flux overview writes one model against two of its rows.
+	models []string
+}
+
+// applies reports whether a row describes one model. A row naming the models
+// it belongs to answers for itself; a row that only says it is for the
+// multilingual model of a pair is left to the naming of the pair, which is how
+// the speech-to-text overviews restrict a row without naming anything.
+func (r featureRow) applies(m *catalog.Model) bool {
+	if len(r.models) > 0 {
+		for _, name := range r.models {
+			if name == m.ID || name == m.Attrs[AttrFamily] {
+				return true
+			}
+		}
+		return false
+	}
+	return !r.multilingual || multilingual(m.ID)
 }
 
 var (
@@ -201,6 +290,13 @@ var (
 	// names the models an amount of text applies to and then the amount.
 	charactersRe = regexp.MustCompile(
 		`(?m)^\|([^|]*(?:Aura|aura)[^|]*)\|\s*([\d,]+)\s*\|`,
+	)
+	// restrictionSplitRe matches how a cell separates the models it names.
+	restrictionSplitRe = regexp.MustCompile(`(?i),|\sand\s`)
+	// modelNameRe matches a name that can only be a Deepgram speech-to-text
+	// model, which is what tells a column of models from a column of prose.
+	modelNameRe = regexp.MustCompile(
+		`^(?:flux|nova|nova-2|nova-3|enhanced|base|whisper)(?:-[a-z0-9-]+)?$`,
 	)
 	// sessionRe matches how long the Voice Agent API leaves a connection open,
 	// which its feature overview states in a sentence rather than a table.
@@ -223,6 +319,7 @@ func featureRows(body string) []featureRow {
 			id:           id,
 			feature:      feature,
 			multilingual: restricted(cells),
+			models:       restrictionModels(cells),
 		})
 	}
 	return out
@@ -243,9 +340,50 @@ func restricted(cells []string) bool {
 	return false
 }
 
-// plain reduces a markdown cell to the words it shows.
+// restrictionModels returns the models a row names beside itself, where the
+// cell holds nothing but model names. Deepgram writes the models a feature is
+// available on as a column of its own, and writes a single model followed by
+// the word only where a feature belongs to one of a pair.
+func restrictionModels(cells []string) []string {
+	for _, c := range cells[1:] {
+		names := modelNames(c)
+		if len(names) > 0 {
+			return names
+		}
+	}
+	return nil
+}
+
+// modelNames reads a cell as a list of models, and reports none unless every
+// word in it is one.
+func modelNames(cell string) []string {
+	var out []string
+	stripped := strings.ReplaceAll(plain(cell), "`", " ")
+	for _, field := range restrictionSplitRe.Split(stripped, -1) {
+		field = strings.TrimSpace(strings.TrimSuffix(
+			strings.TrimSpace(field),
+			"only",
+		))
+		if field == "" {
+			continue
+		}
+		name := slugID(field)
+		if !modelNameRe.MatchString(name) {
+			return nil
+		}
+		out = append(out, name)
+	}
+	return out
+}
+
+// plain reduces a markdown cell to the words it shows, dropping the marks
+// that make a link a link and a value code.
 func plain(cell string) string {
-	return text(linkRe.ReplaceAllString(cell, "$1"))
+	return text(strings.ReplaceAll(
+		linkRe.ReplaceAllString(cell, "$1"),
+		"`",
+		" ",
+	))
 }
 
 // label reads what a row names. Where the cell carries a link the link's text
@@ -301,4 +439,47 @@ func (b *builder) applySessionLimit(doc catalog.Document) {
 			m.SetLimit(LimitSessionSeconds, hours*3600)
 		}
 	})
+}
+
+// AttrLanguageSupport is what a page says about the languages a capability
+// covers where it names them in words instead of in codes. The intelligence
+// overview writes "English (all available regions)" and links to the model
+// overview rather than listing the codes, which is a statement about coverage
+// that no list of codes could carry without inventing them.
+const AttrLanguageSupport = "language_support"
+
+// applyIntelligence reads the intelligence overview, which is the only
+// document saying whether each of the four things Deepgram reads out of a
+// transcript runs on a live connection or only on a finished recording. The
+// pricing page sells them as models, and this page describes them by the same
+// names, so the two are joined on the name.
+func (b *builder) applyIntelligence(doc catalog.Document) {
+	for _, match := range tableRowRe.FindAllStringSubmatch(
+		string(doc.Body),
+		-1,
+	) {
+		cells := strings.Split(match[1], "|")
+		if len(cells) < 4 {
+			continue
+		}
+		m, ok := b.models[slugID(label(cells[0]))]
+		if !ok {
+			continue
+		}
+		if affirms(cells[1]) {
+			b.addFeature(m, FeatureBatch)
+		}
+		if affirms(cells[2]) {
+			b.addFeature(m, FeatureRealtime)
+		}
+		m.SetAttr(AttrLanguageSupport, plain(cells[3]))
+		m.AddSource(doc.URL)
+	}
+}
+
+// affirms reports whether a cell says a feature is available. Deepgram writes
+// yes with a footnote mark beside it where the answer is qualified, and the
+// qualification is the column of models the streaming overview states.
+func affirms(cell string) bool {
+	return strings.HasPrefix(strings.ToLower(plain(cell)), "yes")
 }

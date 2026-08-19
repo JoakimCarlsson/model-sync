@@ -1,0 +1,91 @@
+{
+  "id": "fireworks/kat-dev-72b-exp",
+  "provider": "fireworks",
+  "name": "KAT Dev 72B Exp",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Kwaipilot",
+    "calibrated": "false",
+    "hugging_face_id": "Kwaipilot/KAT-Dev-72B-Exp",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/kat-dev-72b-exp",
+    "model_url": "https://fireworks.ai/models/fireworks/kat-dev-72b-exp",
+    "open_weights": "true",
+    "parameter_count": "72.7B",
+    "release_date": "2025-11-12",
+    "state": "active",
+    "summary": "KAT-Dev-72B-Exp is an open-source 72B-parameter model for software engineering tasks. KAT-Dev-72B-Exp is the experimental reinforcement-learning version of the KAT-Coder model."
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "fine_tuning",
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/kat-dev-72b-exp",
+    "https://fireworks.ai/pricing"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "id": "fireworks/qwen3-reranker-8b",
+  "provider": "fireworks",
+  "name": "Qwen3 Reranker 8B",
+  "kind": "rerank",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Fireworks",
+    "calibrated": "false",
+    "mixture_of_experts": "false",
+    "model_kind": "Embedding model",
+    "model_path": "accounts/fireworks/models/qwen3-reranker-8b",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen3-reranker-8b",
+    "parameter_count": "8.18B",
+    "release_date": "2025-10-07",
+    "state": "active",
+    "summary": "significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining"
+  },
+  "limits": {
+    "context_window": 40960,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
+    "features": [
+      "prompt_caching"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/overview.md",
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://fireworks.ai/models/fireworks/qwen3-reranker-8b"
+  ]
+}

@@ -18,10 +18,17 @@
   "attrs": {
     "default_snapshot": "gpt-realtime-translate",
     "knowledge_cutoff": "2024-09-30",
+    "last_updated": "2026-05-07",
+    "release_date": "2026-05-07",
     "state": "active",
     "summary": "Streaming speech-to-speech translation model"
   },
   "limits": {
+    "audio_minutes_per_minute_tier_1": 50,
+    "audio_minutes_per_minute_tier_2": 200,
+    "audio_minutes_per_minute_tier_3": 400,
+    "audio_minutes_per_minute_tier_4": 650,
+    "audio_minutes_per_minute_tier_5": 850,
     "context_window": 16000,
     "max_output_tokens": 2000
   },
@@ -43,7 +50,11 @@
       "gpt-realtime-translate"
     ]
   },
+  "notes": [
+    "GPT-Realtime-Translate is priced by audio duration rather than text tokens."
+  ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime-translate.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

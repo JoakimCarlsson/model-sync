@@ -18,12 +18,24 @@
     }
   ],
   "attrs": {
-    "author": "Thinking Machines"
+    "active_parameter_count": "12B",
+    "author": "Thinking Machines",
+    "category": "Chat",
+    "dedicated_hardware": "8xnvidia-h100-80gb",
+    "parameter_count": "276B",
+    "quantization": "FP8",
+    "release_date": "2026-07-29",
+    "serverless_since": "2026-07-31",
+    "summary": "276B parameter (12B active) multimodal MoE model with native image and audio input, variable thinking effort, and a context window of up to 1M tokens."
   },
   "limits": {
     "context_window": 524288
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "reasoning"
@@ -35,10 +47,18 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Audio",
+      "Chat",
+      "Reasoning",
+      "Vision"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/inkling-small"
   ]
 }

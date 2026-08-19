@@ -50,6 +50,11 @@
       }
     }
   ],
+  "attrs": {
+    "knowledge_cutoff": "2024-08",
+    "release_date": "2025-04-29",
+    "state": "active"
+  },
   "limits": {
     "context_window": 1310720,
     "max_output_tokens": 8192
@@ -66,6 +71,9 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "us-east5"
     ]
   },
   "sources": [

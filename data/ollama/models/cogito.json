@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "cogito:latest",
+    "last_updated": "2025-04-08",
+    "license": "LLAMA 3.2 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "8.03B",
+    "quantization": "Q4_K_M",
     "summary": "Cogito v1 Preview is a family of hybrid reasoning models by Deep Cogito that outperform the best available open models of the same size, including counterparts from LLaMA, DeepSeek, and Qwen across most standard benchmarks."
   },
   "limits": {
@@ -30,6 +37,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/cogito/tags"
+    "https://ollama.com/library/cogito/tags",
+    "https://ollama.com/library/cogito:latest"
   ]
 }

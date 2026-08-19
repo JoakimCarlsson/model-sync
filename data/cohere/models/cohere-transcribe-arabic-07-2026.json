@@ -5,24 +5,54 @@
   "kind": "transcription",
   "attrs": {
     "family": "audio",
+    "license": "Apache 2.0",
     "max_file_size": "25MB",
+    "model_size": "2B",
+    "release_date": "2026-07-07",
     "summary": "Cohere Transcribe Arabic is a finetuned version of Cohere Transcribe that is optimized for Arabic audio inputs."
   },
+  "limits": {
+    "requests_per_minute_trial": 5
+  },
   "lists": {
+    "endpoints": [
+      "Audio Transcriptions"
+    ],
     "features": [
       "code_switching"
+    ],
+    "file_formats": [
+      "flac",
+      "mp3",
+      "mpeg",
+      "mpga",
+      "ogg",
+      "wav"
     ],
     "input_modalities": [
       "audio"
     ],
+    "languages": [
+      "Arabic",
+      "English"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "file",
+      "language",
+      "model",
+      "temperature"
     ]
   },
   "notes": [
     "no rate stated on the pricing or dedicated deployment pages"
   ],
   "sources": [
-    "https://docs.cohere.com/docs/transcribe-arabic.md"
+    "https://docs.cohere.com/changelog/transcribe-arabic.md",
+    "https://docs.cohere.com/docs/rate-limits.md",
+    "https://docs.cohere.com/docs/transcribe-arabic.md",
+    "https://docs.cohere.com/reference/create-audio-transcription.md"
   ]
 }

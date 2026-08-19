@@ -1,6 +1,7 @@
 {
   "id": "kimi-k2-thinking",
   "provider": "azure",
+  "name": "FW-Kimi-K2-Thinking",
   "kind": "chat",
   "prices": [
     {
@@ -1501,9 +1502,60 @@
     }
   ],
   "attrs": {
-    "product": "Azure Kimi"
+    "author": "Moonshot AI",
+    "catalog_added_on": "2026-01-26",
+    "license": "other",
+    "product": "Azure Kimi",
+    "publisher": "Fireworks",
+    "retirement_date": "2027-07-01",
+    "state": "active",
+    "summary": "Kimi K2 Thinking is an open-source thinking model that reasons step-by-step while dynamically invoking tools, with native INT4 quantization for lossless reductions in inference latency and memory usage.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged"
+    ],
+    "features": [
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus",
+      "eastus2",
+      "northcentralus",
+      "southcentralus",
+      "westcentralus",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

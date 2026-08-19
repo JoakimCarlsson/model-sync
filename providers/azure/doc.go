@@ -5,12 +5,14 @@
 // at Microsoft's prices. They are recorded as Azure's own entries, the same as
 // any reseller's.
 //
-// Five documents are read, because a billing API returns meters and rates and
+// Seven documents are read, because a billing API returns meters and rates and
 // never says what a model holds. Azure's model documentation says that, and
 // states no rate, so the price list stays the authority on cost and the
 // documentation becomes the authority on capability. The documentation is four
-// pages: the models Azure sells, the models it resells, and a guide each for
-// image and video generation.
+// concept pages, the models Azure sells, the models it resells and a guide each
+// for image and video generation; a fifth page scheduling every model's
+// retirement; and the catalog listing the Foundry portal browses, which states
+// in fields what the pages state in prose and covers models no page does.
 //
 // Joining them is the hard part. A meter's name is a billing SKU and carries
 // what is being charged for as a suffix, so one model has several of them:
@@ -119,10 +121,10 @@
 // and 32,000 and shorten the embedding one to 8,191; Microsoft states none of
 // those figures, so none of them is recorded.
 //
-// Phi-4-reasoning-plus is metered and documented nowhere, and reaches
-// Phi-4-reasoning's row by the same prefix rule that attaches any meter to its
-// documentation. Its window is therefore the one Azure states for the model
-// its SKU extends, which is the only thing Azure states that covers it.
+// Phi-4-reasoning-plus is on no concept page, and the catalog listing is where
+// Azure states its bounds, its licence and its publisher. What the listing
+// leaves empty it takes from Phi-4-reasoning's row, by the same prefix rule
+// that attaches any meter to a document naming less of it than the meter does.
 //
 // The fine tuning table heads a Modality column with the flow through the
 // model, "Text and vision to text", and that is the only place Azure states
@@ -133,6 +135,64 @@
 // row is the only place Azure says what those models take and return. The
 // model tables state how long a prompt may be, in characters, and nothing
 // else.
+//
+// # What the catalog listing publishes
+//
+// The listing behind the Foundry portal's model catalog answers without a
+// credential, and states as fields what the concept pages state as prose: a
+// display name, a description, the publisher selling the model and the lab that
+// wrote it, a licence, a lifecycle stage, a version, the two token bounds, the
+// modalities either side of the model, the languages it covers, the tasks it
+// answers, the words the portal filters on, and the deployment types and Azure
+// regions it can be served in. That is why it carries capabilities for two
+// models for every one a concept page's bullets reach: the pages describe a
+// model in a sentence and the listing names what it does.
+//
+// It lists a model once per version, and labels one of them the current one.
+// That version is the model, and the others are what it used to be. A model
+// whose versions have all retired carries no such label, and its highest
+// version is then the last one Azure published.
+//
+// Thirteen of its fifteen thousand entries are Hugging Face repositories
+// mirrored for deployment onto a virtual machine, which Azure bills as compute
+// and meters nowhere in the listing this package reads. Excluding that one
+// publisher is what makes the listing walkable.
+//
+// A version written as a date is a release date, because Azure's lifecycle page
+// defines a model version as "a dated release within a family". A version that
+// counts revisions of a registry entry is not, and no date is read out of one.
+//
+// # What the retirement schedule publishes
+//
+// One page holds, per model and per version, the lifecycle stage it is in, the
+// day it stops answering and the model to move to. It is the only document
+// stating a retirement date for more than a handful of models, and the only one
+// still naming a model Azure has retired: the concept pages drop a model when
+// it goes and the catalog listing drops most of them, while the schedule keeps
+// the row and marks it retired.
+//
+// Only the highest version's row is read. Every value in a row belongs to the
+// version the row is about, so filling a gap in the current version's row from
+// an older one would state the older version's fact about the model: sora-2's
+// first version names its own second version as the replacement, which is not
+// what a reader of the model wants told about it.
+//
+// The same page schedules a fine tuned model's two retirements, of training and
+// of deployment, which happen on different days from each other and from the
+// base model's.
+//
+// # How the documents are joined
+//
+// A meter reaches every name it equals or extends, most specific first, and the
+// first document to state a fact keeps it. That is what lets gpt-4-32k take its
+// publisher, its licence and its lifecycle from its own catalog entry, which
+// states no token bound, and its window from the concept page's row for the
+// gpt-4 family, which does.
+//
+// Where two documents state the same fact, the concept pages win, because they
+// are written about the model and the listing's fields are generated from the
+// registry entry. Where they do not overlap, which is most of what the listing
+// carries, there is nothing to resolve.
 //
 // A model Azure has stopped documenting can still name its window in the meter
 // itself, as gpt-4-32k does, and that is read as well: it is Azure stating the
@@ -155,25 +215,45 @@
 // Grok 4.20 do, neither is the name of the model they are metered as and the
 // model keeps none.
 //
+// The catalog listing states a third, which is what the portal shows above a
+// model card: "OpenAI gpt-5", "Cohere Embed 4", "FLUX.2-flex". It is stated for
+// every model the listing holds, which is why a display name reaches most of
+// the catalog rather than the quarter of it the tables reach. Where the listing
+// writes the identifier back as the name, as it does for gpt-4-32k, that is
+// still the name Azure publishes and it is recorded.
+//
+// The retirement schedule states a fourth, in the column heading each row,
+// which is how a model the listing has dropped still has one.
+//
 // Everywhere else Azure states no name. The GPT-5 and o-series tables head a
 // Model ID column and a description, and the headings above them name a family
 // rather than a model, since GPT-5.6 heads three of them. Those models carry
-// the identifier alone, and so do the meters Azure no longer documents.
+// the identifier alone, and so do the meters no document names.
 //
 // # What Azure does not publish
 //
-// Anything at all for the models it meters and no longer documents. The page
-// for the models it resells says it lists them "excluding deprecated and
-// retired models", and the page for the ones it sells drops a model when it
-// retires: GPT-3.5 Turbo, GPT-4.5, DALL-E, the Phi-3 family, Grok 3, Grok 4
-// Fast, DeepSeek R1 and V3, Kimi K2 Thinking, MAI-DS-R1 and the 2503 and 2512
-// Mistral OCR and Document AI releases are all metered and documented nowhere.
-// A window survives for some of them inside the meter's own name, and nothing
-// else does.
+// Anything at all for the models it meters and neither the catalog listing nor
+// the retirement schedule carries. The concept pages drop a model when it
+// retires, and the page for the models Azure resells says it lists them
+// "excluding deprecated and retired models", so the two later documents are
+// where a retired model survives: GPT-3.5 Turbo, DALL-E 3, the Phi-3 family,
+// Grok 3, DeepSeek R1, V3 and V3.1, Kimi K2 Thinking, MAI-Image-2 and the 2505
+// Mistral Document AI release are named by one of them and nothing else.
+// GPT-4.5, DALL-E 2, MAI-DS-R1, Grok 4 Fast and the 2503 and 2512 Mistral OCR
+// releases are named by none. A window survives for some of those inside the
+// meter's own name, and nothing else does.
 //
 // Anything for the models it meters under a codename. The MAI product carries
 // twelve meters named "MAI o" through "MAI z", which name no model that any
 // document names.
+//
+// A per-deployment rate limit, and the day a model was last changed. Azure
+// states requests and tokens per minute against a subscription's quota rather
+// than against a model, and its Models API, which returns a model's
+// lifecycleStatus and per-SKU deprecation dates, is reached through Azure
+// Resource Manager and needs a subscription. The lifecycle stage and the
+// retirement date this package records are the public statements of the same
+// two facts, on the schedule page and in the catalog listing.
 //
 // Anything but a rate for a partner-hosted model no page covers. The Fireworks
 // meters serve GLM and MiniMax models that neither page documents; the

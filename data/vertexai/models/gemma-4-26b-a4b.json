@@ -1,7 +1,7 @@
 {
   "id": "gemma-4-26b-a4b",
   "provider": "vertexai",
-  "name": "gemma 4 26b a4b",
+  "name": "Gemma 4 26B A4B IT",
   "kind": "chat",
   "prices": [
     {
@@ -14,6 +14,12 @@
       }
     }
   ],
+  "attrs": {
+    "author": "google",
+    "release_date": "2026-04-03",
+    "state": "experimental",
+    "summary": "Google's family of open models built by Google DeepMind."
+  },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 128000
@@ -29,10 +35,14 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "global"
     ]
   },
   "sources": [
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/google/gemma-4-26b-a4b-it",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/maas/use-open-models",
     "https://cloud.google.com/gemini-enterprise-agent-platform/models/open-models/use-gemma",
     "https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"
   ]

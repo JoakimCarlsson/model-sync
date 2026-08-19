@@ -13,18 +13,28 @@
   ],
   "attrs": {
     "author": "NVIDIA",
-    "modality": "Speech-to-Text"
+    "category": "Transcribe",
+    "modality": "Speech-to-Text",
+    "release_date": "2025-08-14",
+    "summary": "600M parameter multilingual STT model supporting EU official languages with automatic language detection, 6.34% avg WER, and among the highest throughput on the HuggingFace Open ASR Leaderboard."
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "input_modalities": [
       "audio"
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Transcribe"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/parakeet-tdt-0-6b-v3"
   ]
 }

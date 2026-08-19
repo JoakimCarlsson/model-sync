@@ -27,19 +27,28 @@ const PricingURL = "https://elevenlabs.io/pricing/api"
 
 // cacheFiles is where each fetched document is kept.
 var cacheFiles = map[string]string{
-	ModelsURL:       "elevenlabs_models.md",
-	NamesURL:        "elevenlabs_model_ids.md",
-	VoiceDesignURL:  "elevenlabs_voice_design.md",
-	SoundEffectsURL: "elevenlabs_sound_effects.md",
-	SpeechToTextURL: "elevenlabs_speech_to_text.md",
-	PricingURL:      "elevenlabs_pricing_api.html",
+	ModelsURL:            "elevenlabs_models.md",
+	NamesURL:             "elevenlabs_model_ids.md",
+	VoiceDesignURL:       "elevenlabs_voice_design.md",
+	SoundEffectsURL:      "elevenlabs_sound_effects.md",
+	SpeechToTextURL:      "elevenlabs_speech_to_text.md",
+	MusicURL:             "elevenlabs_music.md",
+	TextToSpeechURL:      "elevenlabs_text_to_speech.md",
+	SpeechToSpeechURL:    "elevenlabs_speech_to_speech.md",
+	SpeechToTextGuideURL: "elevenlabs_guide_speech_to_text.md",
+	MusicGuideURL:        "elevenlabs_guide_music.md",
+	SoundEffectsGuideURL: "elevenlabs_guide_sound_effects.md",
+	VoiceChangerGuideURL: "elevenlabs_guide_voice_changer.md",
+	PricingURL:           "elevenlabs_pricing_api.html",
 }
 
 // sourceURLs are the documents this provider reads, models page first because
 // it is the only one naming every identifier and the rest are read onto it.
-var sourceURLs = append(
+var sourceURLs = slices.Concat(
 	[]string{ModelsURL, NamesURL},
-	append(endpointURLs, PricingURL)...,
+	endpointURLs,
+	guideURLs,
+	[]string{PricingURL},
 )
 
 // Provider reads ElevenLabs' models and pricing pages. The zero value is not
@@ -109,9 +118,11 @@ func (p *Provider) get(
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the models page first, because it is the only document naming an
-// identifier and every other document is read onto the models it establishes,
-// then prices the families the pricing page quotes.
+// Parse indexes the language lists of every document first, because a languages
+// cell on the models page is often a link to one of them and the cell is read
+// through the link. It then reads the models page, which is the only document
+// naming an identifier and onto whose models every other document is read, and
+// prices the families the pricing page quotes last.
 //
 // The models the cards leave out are marked only when the pricing page was one
 // of the documents. A fetch that lost it would otherwise mark every model as
@@ -119,6 +130,9 @@ func (p *Provider) get(
 // fact about ElevenLabs.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
+	for _, doc := range docs {
+		b.indexLanguages(doc)
+	}
 	for _, doc := range docs {
 		if doc.URL == ModelsURL {
 			b.applyModels(doc)
@@ -131,12 +145,15 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyNames(doc)
 		case slices.Contains(endpointURLs, doc.URL):
 			b.applyEndpoint(doc)
+		case slices.Contains(guideURLs, doc.URL):
+			b.applyGuide(doc)
 		}
 	}
 	priced := false
 	for _, doc := range docs {
 		if doc.URL == PricingURL {
 			b.applyPricing(doc)
+			b.applyRates(doc)
 			priced = true
 		}
 	}
@@ -171,10 +188,16 @@ func (p *Provider) writeCache(url string, body []byte) {
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// sections holds the language list of every section a languages cell can
+	// link to, keyed by the path and anchor a link names it by.
+	sections map[string][]string
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models:   map[string]*catalog.Model{},
+		sections: map[string][]string{},
+	}
 }
 
 // model returns the entry for id, creating it if absent.

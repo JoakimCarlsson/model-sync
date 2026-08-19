@@ -1,0 +1,44 @@
+{
+  "id": "fireworks/step-3p7-flash-nvfp4",
+  "provider": "fireworks",
+  "name": "Step-3.7-Flash-NVFP4",
+  "kind": "chat",
+  "attrs": {
+    "author": "N/A",
+    "calibrated": "false",
+    "hugging_face_id": "stepfun-ai/Step-3.7-Flash-NVFP4",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/step-3p7-flash-nvfp4",
+    "model_url": "https://fireworks.ai/models/fireworks/step-3p7-flash-nvfp4",
+    "open_weights": "true",
+    "parameter_count": "198B",
+    "release_date": "2026-05-31",
+    "state": "active",
+    "summary": "Step 3.7 Flash is a 198B-parameter sparse Mixture-of-Experts (MoE) vision-language model that combines a 196B-parameter language backbone with a 1.8B-parameter vision encoder for native image understanding. Engineered for high-frequency production workloads, it activates approximately 11B parameters per token and delivers a throughput of up to 400 tokens per second. Step 3.7 Flash supports a 256k context window and offers three selectable reasoning levels (low, medium, and high) so developers can easily balance speed, cost, and cognitive depth."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/step-3p7-flash-nvfp4"
+  ]
+}

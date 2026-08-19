@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -24,28 +25,43 @@ const (
 // ModelsURL is the page describing every model and its rate.
 const ModelsURL = "https://www.assemblyai.com/docs/getting-started/models.md"
 
-// cacheFiles are where each fetched document is kept.
-var cacheFiles = map[string]string{
-	ModelsURL:            "assemblyai_models.md",
-	PrerecordedModelsURL: "assemblyai_prerecorded_models.md",
-	StreamingModelsURL:   "assemblyai_streaming_models.md",
-	LimitsURL:            "assemblyai_limits.md",
-	PricingURL:           "assemblyai_pricing.html",
-}
-
-// sourceURLs are the documents this provider reads. The models page comes
-// first because it is the only one naming every model; the rest are read onto
-// what it established.
-var sourceURLs = []string{
+// sourceURLs are the documents this provider reads. The two documents naming
+// models come first, and the rest are read onto what they established.
+var sourceURLs = append([]string{
 	ModelsURL,
+	GatewayModelsURL,
 	PrerecordedModelsURL,
 	StreamingModelsURL,
+	LanguagesURL,
 	LimitsURL,
+	TimestampsURL,
+	GatewaySpecURL,
+	PrerecordedLimitsURL,
+	StreamingLimitsURL,
+	GatewayLimitsURL,
 	PricingURL,
+}, featureURLs...)
+
+// cacheFile names the file one document is kept in, derived from the document
+// so that adding a source does not mean maintaining a second list. Two
+// documents of the same name under different sections keep their sections in
+// the file name, which is why the whole path is used and not the last segment.
+func cacheFile(url string) string {
+	trimmed := strings.TrimPrefix(url, "https://www.assemblyai.com/")
+	name := strings.Map(func(r rune) rune {
+		if r >= 'a' && r <= 'z' || r >= '0' && r <= '9' || r == '.' {
+			return r
+		}
+		return '_'
+	}, strings.ToLower(trimmed))
+	if !strings.Contains(name, ".") {
+		name += ".html"
+	}
+	return providerID + "_" + name
 }
 
-// Provider reads AssemblyAI's models page. The zero value is not usable; call
-// New.
+// Provider reads AssemblyAI's published documentation. The zero value is not
+// usable; call New.
 type Provider struct {
 	// Client performs the fetch.
 	Client *http.Client
@@ -64,8 +80,7 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page, the two model-selection pages and the
-// pricing page.
+// Fetch retrieves every document this provider reads.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	docs := make([]catalog.Document, 0, len(sourceURLs))
 	for _, url := range sourceURLs {
@@ -111,22 +126,43 @@ func (p *Provider) get(
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
-// Parse reads the models page first, because it is the only document naming
-// the models, then the selection pages and the pricing page onto what it
-// established.
+// Parse reads the documents in three passes, because what AssemblyAI states
+// about a model is spread across documents that only make sense in an order.
+//
+// The first pass is the two rosters, the models page and the gateway models
+// page, since every other document says something about a model one of them
+// named. The second reads onto those: the identifier a request uses, the
+// bounds, the capability matrix, the feature pages. The pricing page is last,
+// because a feature page is what says a feature exists and the pricing page
+// only says what it costs.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
-		if doc.URL == ModelsURL {
+		switch doc.URL {
+		case ModelsURL:
 			b.applyModels(doc)
+		case GatewayModelsURL:
+			b.applyGateway(doc)
 		}
 	}
 	for _, doc := range docs {
 		switch doc.URL {
 		case PrerecordedModelsURL, StreamingModelsURL:
 			b.applySelection(doc)
+		case LanguagesURL:
+			b.applyLanguages(doc)
 		case LimitsURL:
 			b.applyLimits(doc)
+		case TimestampsURL:
+			b.applyTimestamps(doc)
+		case GatewaySpecURL:
+			b.applyGatewaySpec(doc)
+		case PrerecordedLimitsURL, StreamingLimitsURL, GatewayLimitsURL:
+			b.applyRateLimits(doc)
+		default:
+			if slices.Contains(featureURLs, doc.URL) {
+				b.applyFeature(doc)
+			}
 		}
 	}
 	for _, doc := range docs {
@@ -142,7 +178,7 @@ func (p *Provider) readCache(url string) ([]byte, bool) {
 	if p.CacheDir == "" {
 		return nil, false
 	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFiles[url]))
+	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile(url)))
 	return body, err == nil
 }
 
@@ -155,7 +191,7 @@ func (p *Provider) writeCache(url string, body []byte) {
 	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
 		return
 	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFiles[url]), body, 0o644)
+	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile(url)), body, 0o644)
 }
 
 // builder accumulates models.

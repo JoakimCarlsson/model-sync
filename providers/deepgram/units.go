@@ -1,7 +1,9 @@
 package deepgram
 
 import (
+	"fmt"
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -43,6 +45,28 @@ const DimPlan = "plan"
 // the two would be indistinguishable rates for the same thing.
 const DimPromotion = "promotional"
 
+// DimDelivery records whether a rate is for transcribing a live connection or
+// a finished recording. Deepgram charges differently for the two and prices
+// them in separate tables, so without the dimension one model carries two
+// rates for the same plan and nothing saying which is which.
+const DimDelivery = "delivery"
+
+// The two ways Deepgram takes audio, named as its pricing tables caption
+// themselves.
+const (
+	DeliveryStreaming = "streaming"
+	DeliveryBatch     = "pre-recorded"
+)
+
+// deliveryFeatures say what a model that is priced in a given table can do,
+// which is the same statement the feature overviews make: a model with a
+// streaming rate transcribes a live connection, and a model with a
+// pre-recorded rate transcribes a recording.
+var deliveryFeatures = map[string]string{
+	DeliveryStreaming: FeatureRealtime,
+	DeliveryBatch:     FeatureBatch,
+}
+
 // freeMarker is what Deepgram writes where an offer costs nothing at all.
 const freeMarker = "free"
 
@@ -67,13 +91,69 @@ func splitOffer(plain string) (offer, standard string) {
 	return strings.TrimSpace(plain[:at[0]]), strings.TrimSpace(plain[at[1]:])
 }
 
-// offerEnd reads the date an offer runs to.
-func offerEnd(offer string) string {
+// offerEnd reads the date an offer runs to, in full where the page states it
+// in full. The rate cell writes the day and the month and no year, and the
+// prose over the table it sits in writes the same day out with its year, so a
+// prose date that agrees with the cell is what the cell means.
+func offerEnd(offer, stated string) string {
 	match := offerEndRe.FindStringSubmatch(offer)
 	if match == nil {
 		return ""
 	}
+	if agrees(stated, match[1]) {
+		return stated
+	}
 	return match[1]
+}
+
+// months are the names Deepgram writes a date out with.
+var months = []string{
+	"january", "february", "march", "april", "may", "june",
+	"july", "august", "september", "october", "november", "december",
+}
+
+// statedDateRe matches a date written out in full, which is how the prose over
+// a table says when the promotion in it lapses.
+var statedDateRe = regexp.MustCompile(
+	`([A-Z][a-z]+)\s+(\d{1,2}),\s+(\d{4})`,
+)
+
+// statedDate returns the first date a stretch of the page writes out in full,
+// as ISO.
+func statedDate(body string) string {
+	for _, match := range statedDateRe.FindAllStringSubmatch(text(body), -1) {
+		month := slices.Index(months, strings.ToLower(match[1])) + 1
+		if month == 0 {
+			continue
+		}
+		return fmt.Sprintf(
+			"%s-%02d-%02d",
+			match[3],
+			month,
+			atoi(match[2]),
+		)
+	}
+	return ""
+}
+
+// agrees reports whether a date written out in full is the same day as one
+// written as a month and a day alone.
+func agrees(iso, short string) bool {
+	parts := strings.Split(short, "/")
+	if iso == "" || len(parts) < 2 {
+		return false
+	}
+	return iso[5:] == fmt.Sprintf("%02d-%02d", atoi(parts[0]), atoi(parts[1]))
+}
+
+// atoi reads a number written without a sign, and reports nothing where it is
+// not one.
+func atoi(s string) int {
+	n, err := strconv.Atoi(strings.TrimSpace(s))
+	if err != nil {
+		return 0
+	}
+	return n
 }
 
 // offerNote says what an introductory rate is, since a consumer reading the
@@ -156,9 +236,6 @@ const (
 	// AttrAccess records that a model is sold by arrangement rather than at a
 	// published rate.
 	AttrAccess = "access"
-	// AttrPreviousRate keeps the struck-through amount, which is what
-	// Deepgram charged before the current rate.
-	AttrPreviousRate = "previous_rate"
 	// AttrOfferEnds is the date the introductory rate lapses on.
 	AttrOfferEnds = "promotion_ends"
 	// AttrMetered keeps what the Voice Agent tables say behind their
@@ -166,6 +243,11 @@ const (
 	// rather than a minute of audio.
 	AttrMetered = "metered_on"
 )
+
+// ListPreviousRates keeps the struck-through amounts, which are what Deepgram
+// charged before the rates beside them. There is one per plan and they differ,
+// so they are a list: a model whose promotion covers two plans has two.
+const ListPreviousRates = "previous_rates"
 
 // planDescription is the column heading the add-on table puts between the
 // feature and its rates. It describes the feature rather than pricing it, so
@@ -177,10 +259,13 @@ var (
 	amountRe = regexp.MustCompile(
 		`\$\s*([\d,]*\.?\d+)\s*(?:/\s*([A-Za-z0-9 ]{1,18}))?`,
 	)
-	// struckRe matches the wrapper Deepgram puts around a withdrawn rate,
-	// which is styled rather than labelled.
+	// struckRe matches the wrapper Deepgram puts around a withdrawn rate. The
+	// wide tables mark it as deleted text and the narrow ones only draw a line
+	// through it, so both forms are matched: a rate read from either without
+	// this is recorded as one Deepgram still charges.
 	struckRe = regexp.MustCompile(
-		`(?is)<span[^>]*text-gray-500[^>]*>(.*?)</span>\s*<span[^>]*aria-hidden`,
+		`(?is)<del[^>]*>(.*?)</del>|` +
+			`<span[^>]*text-gray-500[^>]*>(.*?)</span>\s*<span[^>]*aria-hidden`,
 	)
 )
 
@@ -291,8 +376,10 @@ func raw(amount, denominator string) string {
 func struckAmounts(cellHTML string) map[string]bool {
 	out := map[string]bool{}
 	for _, match := range struckRe.FindAllStringSubmatch(cellHTML, -1) {
-		for _, r := range parseRates(text(match[1])) {
-			out[r.Raw] = true
+		for _, group := range match[1:] {
+			for _, r := range parseRates(text(group)) {
+				out[r.Raw] = true
+			}
 		}
 	}
 	return out

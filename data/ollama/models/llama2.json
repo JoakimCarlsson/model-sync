@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "llama2:latest",
+    "last_updated": "2023-12-27",
+    "license": "LLAMA 2 COMMUNITY LICENSE AGREEMENT",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "Llama 2 is a collection of foundation language models ranging from 7B to 70B parameters."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/llama2/tags"
+    "https://ollama.com/library/llama2/tags",
+    "https://ollama.com/library/llama2:latest"
   ]
 }

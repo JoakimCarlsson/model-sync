@@ -5,6 +5,46 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "flex"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1.8,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "priority"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.1,
@@ -89,46 +129,6 @@
       "dims": {
         "plan": "paid",
         "resolution": "text-image-video",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "flex"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1.8,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "priority"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
         "tier": "standard"
       }
     },
@@ -307,7 +307,8 @@
       "currency": "USD",
       "dims": {
         "plan": "free",
-        "tier": "priority"
+        "tier": "priority",
+        "tool": "google_search"
       }
     },
     {
@@ -317,7 +318,8 @@
       "currency": "USD",
       "dims": {
         "plan": "free",
-        "tier": "standard"
+        "tier": "standard",
+        "tool": "google_search"
       }
     },
     {
@@ -327,8 +329,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash-Lite RPD)"
     },
     {
       "metric": "tool_call",
@@ -337,8 +341,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "flex"
-      }
+        "tier": "flex",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash-Lite RPD)"
     },
     {
       "metric": "tool_call",
@@ -347,8 +353,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "priority",
+        "tool": "google_maps"
+      },
+      "note": "1,500 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -357,8 +365,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "priority"
-      }
+        "tier": "priority",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash-Lite RPD)"
     },
     {
       "metric": "tool_call",
@@ -367,8 +377,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_maps"
+      },
+      "note": "1,500 RPD (free)"
     },
     {
       "metric": "tool_call",
@@ -377,16 +389,24 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash-Lite RPD)"
     }
   ],
   "attrs": {
-    "latest_update": "June 2025",
+    "default_thinking_level": "on",
+    "last_updated": "June 2025",
     "model_code": "gemini-2.5-flash",
+    "release_date": "2025-06-17",
+    "state": "active",
     "summary": "Our best model in terms of price-performance, offering well-rounded capabilities. 2.5 Flash is best for large scale processing, low-latency, high volume tasks that require thinking, and agentic use cases."
   },
   "limits": {
+    "batch_enqueued_tokens_tier_1": 3000000,
+    "batch_enqueued_tokens_tier_2": 400000000,
+    "batch_enqueued_tokens_tier_3": 1000000000,
     "context_window": 1048576,
     "max_output_tokens": 65536
   },
@@ -419,11 +439,19 @@
     ],
     "snapshots": [
       "gemini-2.5-flash"
+    ],
+    "thinking_levels": [
+      "high",
+      "low",
+      "medium"
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash",
-    "https://ai.google.dev/gemini-api/docs/pricing"
+    "https://ai.google.dev/gemini-api/docs/pricing",
+    "https://ai.google.dev/gemini-api/docs/rate-limits",
+    "https://ai.google.dev/gemini-api/docs/thinking"
   ]
 }

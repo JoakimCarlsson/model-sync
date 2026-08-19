@@ -1,0 +1,62 @@
+{
+  "id": "twelvelabs/marengo-embed-3.0",
+  "provider": "bedrock",
+  "name": "Marengo Embed 3.0",
+  "kind": "embedding",
+  "attrs": {
+    "author": "TwelveLabs",
+    "marketplace_product_id": "prod-ibqpnh3htjd4s",
+    "model_id": "twelvelabs.marengo-embed-3-0-v1:0",
+    "release_date": "2025-10-29",
+    "state": "active",
+    "summary": "Marengo Embed 3.0 is TwelveLabs' video embedding model that generates vector representations of video content for search and retrieval. For more information about model development and performance, see the model/service card."
+  },
+  "lists": {
+    "aliases": [
+      "eu.twelvelabs.marengo-embed-3-0-v1:0",
+      "twelvelabs.marengo-embed-3-0-v1:0",
+      "us.twelvelabs.marengo-embed-3-0-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "invoke",
+      "startasyncinvoke"
+    ],
+    "features": [
+      "abuse_detection"
+    ],
+    "geo_regions": [
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "in_region_regions": [
+      "ap-northeast-2",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "inference_profile_ids": [
+      "eu.twelvelabs.marengo-embed-3-0-v1:0",
+      "us.twelvelabs.marengo-embed-3-0-v1:0"
+    ],
+    "input_modalities": [
+      "audio",
+      "image",
+      "text",
+      "video"
+    ],
+    "output_modalities": [
+      "embedding"
+    ],
+    "regions": [
+      "ap-northeast-2",
+      "eu-west-1",
+      "us-east-1"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-twelvelabs-marengo-embed-3-0.md"
+  ]
+}

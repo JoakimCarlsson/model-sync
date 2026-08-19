@@ -4,6 +4,9 @@
   "kind": "chat",
   "attrs": {
     "cloud": "true",
+    "default_snapshot": "deepseek-v4-flash:cloud",
+    "last_updated": "2026-08-01",
+    "parameter_count": "304B",
     "summary": "DeepSeek-V4-Flash is a preview of the DeepSeek-V4 series, a Mixture-of-Experts model with 284B total parameters and 13B activated, built for efficient reasoning across a 1M-token context window.",
     "usage_level": "medium",
     "usage_level_rank": "2"

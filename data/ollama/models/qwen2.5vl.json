@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen25vl",
+    "default_snapshot": "qwen2.5vl:latest",
+    "last_updated": "2025-05-22",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "8.29B",
+    "quantization": "Q4_K_M",
     "summary": "Flagship vision-language model of Qwen and also a significant leap from the previous Qwen2-VL."
   },
   "limits": {
@@ -29,6 +36,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/qwen2.5vl/tags"
+    "https://ollama.com/library/qwen2.5vl/tags",
+    "https://ollama.com/library/qwen2.5vl:latest"
   ]
 }

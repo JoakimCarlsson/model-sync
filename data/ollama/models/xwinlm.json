@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "xwinlm:latest",
+    "last_updated": "2023-11-04",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "Conversational model based on Llama 2 that performs competitively on various benchmarks."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/xwinlm/tags"
+    "https://ollama.com/library/xwinlm/tags",
+    "https://ollama.com/library/xwinlm:latest"
   ]
 }

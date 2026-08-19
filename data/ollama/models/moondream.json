@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "phi2",
+    "default_snapshot": "moondream:latest",
+    "last_updated": "2024-05-07",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "1.42B",
+    "quantization": "Q4_0",
     "summary": "moondream2 is a small vision language model designed to run efficiently on edge devices."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/moondream/tags"
+    "https://ollama.com/library/moondream/tags",
+    "https://ollama.com/library/moondream:latest"
   ]
 }

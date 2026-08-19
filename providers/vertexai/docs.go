@@ -30,6 +30,16 @@ const (
 	// already have. It is the only document that says a model Vertex still
 	// bills for is no longer served.
 	versionsURL = modelPagePre + "model-versions"
+	// deprecationsURL is the same table for the models Vertex serves for other
+	// labs as a managed API, which the versions page does not cover. It is the
+	// only document stating when notice of a withdrawal was given, as against
+	// when the withdrawal takes effect.
+	deprecationsURL = modelPagePre + "deprecations/open-models"
+	// openModelsURL and partnerModelsURL index those models, stating for each
+	// the lab that made it, what it is for and the identifier Model Garden
+	// serves it under. No model page states any of the three.
+	openModelsURL    = modelPagePre + "maas/use-open-models"
+	partnerModelsURL = modelPagePre + "partner-models/use-partner-models"
 )
 
 // capabilityPages are the pages that enumerate, one capability at a time, the
@@ -48,14 +58,22 @@ var capabilityPages = []struct {
 		catalog.CapabilityStructuredOutputs,
 	},
 	{modelPagePre + "thinking", catalog.CapabilityReasoning},
-	{modelPagePre + "tools/function-calling", catalog.CapabilityFunctionCalling},
+	{
+		modelPagePre + "tools/function-calling",
+		catalog.CapabilityFunctionCalling,
+	},
 }
 
 // sidePages are the documents to read besides the one each model has. They
 // are addressed outright because the index links a model's page and not the
 // pages that describe a capability or a lifecycle.
 func sidePages() []string {
-	urls := []string{versionsURL}
+	urls := []string{
+		versionsURL,
+		deprecationsURL,
+		openModelsURL,
+		partnerModelsURL,
+	}
 	for _, page := range capabilityPages {
 		urls = append(urls, page.URL)
 	}
@@ -162,15 +180,11 @@ var (
 	// them against a grid, "Inputs: Text, Code, Images", and the side of the
 	// request they fall on. The models Vertex serves for other labs state
 	// theirs this way.
-	specListedIORe = regexp.MustCompile(`(?is)<li>\s*(Inputs|Outputs):(.*?)</li>`)
+	specListedIORe = regexp.MustCompile(
+		`(?is)<li>\s*(Inputs|Outputs):(.*?)</li>`,
+	)
 	// specListedModalityRe matches one modality of such a list.
 	specListedModalityRe = regexp.MustCompile(`(?is)<span>(.*?)</span>`)
-	// specCapabilityRe matches the row listing what a model can do. The table
-	// carries a second list in the same shape below it, of the ways the model
-	// may be bought, and those are not capabilities.
-	specCapabilityRe = regexp.MustCompile(
-		`(?is)<th id="capabilities">.*?</tr>`,
-	)
 	// specFeatureRe matches one capability and whether the model has it. The
 	// page states the answer in a class rather than only in the text.
 	specFeatureRe = regexp.MustCompile(
@@ -178,8 +192,11 @@ var (
 	)
 	// specFeatureNameRe matches the capability's own name, which the page
 	// links and follows with a break and the variants of it the model offers.
-	// Those variants are the capability rather than more of them.
-	specFeatureNameRe = regexp.MustCompile(`(?is)^(.*?)(?:<br|$)`)
+	// Those variants are the capability rather than more of them, and the
+	// marker the page hangs off a capability still in preview is not part of
+	// its name: reading it left Gemini's computer use recorded as a
+	// computer_use_preview_preview_feature.
+	specFeatureNameRe = regexp.MustCompile(`(?is)^(.*?)(?:<br|<span|$)`)
 	specSupportedRe   = regexp.MustCompile(`(?is)class="geap-supported"`)
 	// specSupportedSectionRe matches the capabilities a page groups under one
 	// heading rather than marking each with its own. The models Vertex serves
@@ -190,7 +207,9 @@ var (
 	)
 	// specSectionFeatureRe matches one capability of such a group. The heading
 	// that opens it carries a class and so is not one.
-	specSectionFeatureRe = regexp.MustCompile(`(?is)<li>(.*?)</li>`)
+	specSectionFeatureRe = regexp.MustCompile(
+		`(?is)<li(?: class="geap-capabilities-not-ga")?>(.*?)</li>`,
+	)
 	// specHeadRe matches a labelled row of the table. The heading may not run
 	// across markup: a row stating a bound carries two headings, the group's
 	// and the bound's, and it is the second that names the value beside it.
@@ -210,8 +229,13 @@ var (
 	// through a partner write "Max output: 8,192" and "Context length:
 	// 524,288". Reading only the first form took the figure beside the wrong
 	// label, so a Llama page's output ceiling was recorded as its context.
+	//
+	// The form that puts the figure first is only read where no colon follows
+	// the label, because a quota block states the two forms one after the
+	// other: "Output TPM: 80,000 Context length: 200,000" read the other way
+	// makes the tokens a minute the context window.
 	specQuotaRe = regexp.MustCompile(
-		`(?i)([\d][\d,]*)\s*(maximum output|context length)|` +
+		`(?i)([\d][\d,]*)\s*(maximum output|context length)(?:[^:]|$)|` +
 			`(max(?:imum)? output|context length)\s*:\s*([\d][\d,]*)`,
 	)
 	// specSupportedModelsRe matches the models a capability page lists as
@@ -229,8 +253,10 @@ var (
 	// versionsRowRe matches a row of the lifecycle tables, which state a model
 	// identifier, when it was released, when it retires and what replaces it.
 	versionsRowRe = regexp.MustCompile(
-		`(?is)<tr[^>]*>\s*<td[^>]*>\s*<code[^>]*>(.*?)</code>.*?` +
-			`<td[^>]*>(.*?)</td>\s*<td[^>]*>(.*?)</td>`,
+		`(?is)<tr[^>]*>\s*<td[^>]*>\s*(?:<a[^>]*></a>\s*)?` +
+			`<code[^>]*>(.*?)</code>.*?` +
+			`<td[^>]*>(.*?)</td>\s*<td[^>]*>(.*?)</td>` +
+			`\s*(?:<td[^>]*>(.*?)</td>)?`,
 	)
 	// versionsRetiredRe matches the part of the lifecycle page listing the
 	// models already withdrawn, which is the last section of it.
@@ -256,6 +282,18 @@ const (
 	// rowDimensions is the width of the vector an embedding model returns,
 	// which its page states as a ceiling, "Up to 1,024".
 	rowDimensions = "output dimensions"
+	// rowLaunchStage is the stage Google serves a model at. Only the models it
+	// serves for other labs head a row with it; a Gemini page states the same
+	// thing against the release its version block describes.
+	rowLaunchStage = "launch stage"
+	// rowKnowledgeCutoff is how recent the data a model was trained on is.
+	rowKnowledgeCutoff = "knowledge cutoff date"
+	// rowSessions is how many streams a model holds at once.
+	rowSessions = "maximum concurrent sessions"
+	// rowInputSize is how large a request may be, stated in bytes.
+	rowInputSize = "input size limit"
+	// rowLayers is the depth of an embedding model.
+	rowLayers = "number of layers"
 )
 
 // Columns of the Gemma table, which names a variant and then says how large it
@@ -323,10 +361,13 @@ func inModelSection(path string) bool {
 // together settle it. Dropping the model is what removes its file, since the
 // store deletes what the parser stops emitting. A model still served keeps the
 // date it is due to retire on, that being a fact about something still sold.
-func (b *builder) applyModelPages(docs []catalog.Document) {
-	pages := readDocumented(docs)
-	lives := readVersions(docs)
+func (b *builder) applyModelPages(
+	docs []catalog.Document,
+	pages map[string]*documented,
+) {
+	lives := readLifecycles(docs)
 	names := slices.Sorted(maps.Keys(pages))
+	used := map[string]bool{}
 	kept := make([]string, 0, len(b.order))
 	for _, id := range b.order {
 		life, listed := lives[strings.ToLower(id)]
@@ -336,28 +377,108 @@ func (b *builder) applyModelPages(docs []catalog.Document) {
 		}
 		kept = append(kept, id)
 		m := b.models[id]
-		if listed {
-			m.SetAttr(AttrRetirementDate, life.Retires)
-			m.AddSource(versionsURL)
-		}
 		name := matchPage(id, names, pages)
-		if name == "" {
-			continue
+		if name != "" {
+			used[name] = true
+			applyDocumented(m, pages[name])
 		}
-		page := pages[name]
-		for _, source := range page.Sources {
-			m.AddSource(source)
-		}
-		m.SetLimit(LimitContextWindow, page.Context)
-		m.SetLimit(LimitMaxOutputTokens, page.MaxOut)
-		m.AddList(ListFeatures, page.Features...)
-		m.AddList(ListInputModalities, page.InputMod...)
-		m.AddList(ListOutputModalities, page.OutMod...)
-		if width := page.Dimensions; width > 0 {
-			m.AddList(ListDimensions, strconv.FormatInt(width, 10))
+		if listed {
+			applyLifecycle(m, life)
 		}
 	}
 	b.order = kept
+	b.addDocumented(names, pages, used, lives)
+}
+
+// addDocumented holds the models Google documents that the billing catalog
+// does not meter.
+//
+// Vertex bills for the models it serves for other labs through those labs'
+// own services rather than through its own, so the Claude, Grok and Mistral
+// releases it serves carry no SKU under the Vertex service and were absent
+// from the catalog altogether, as were the Gemini releases whose meter names
+// two models at once. A page of a model's own is what admits it: the page
+// states the identifier the API answers to, what the model takes and returns,
+// what it can do, where it answers and when it was released, which is a model
+// described rather than a name. An index row without such a page states the
+// lab and a sentence and nothing else, so it enriches a model and never
+// stands for one.
+func (b *builder) addDocumented(
+	names []string,
+	pages map[string]*documented,
+	used map[string]bool,
+	lives map[string]lifecycle,
+) {
+	for _, name := range names {
+		page := pages[name]
+		if used[name] || !page.Named {
+			continue
+		}
+		life, listed := lives[name]
+		if listed && life.State == StateRetired {
+			continue
+		}
+		m := b.model(name, kindFor(name))
+		m.Name = name
+		applyDocumented(m, page)
+		if listed {
+			applyLifecycle(m, life)
+		}
+	}
+}
+
+// applyDocumented records everything the documentation states about a model.
+func applyDocumented(m *catalog.Model, page *documented) {
+	for _, source := range page.Sources {
+		m.AddSource(source)
+	}
+	if page.Title != "" {
+		m.Name = page.Title
+	}
+	m.SetLimit(LimitContextWindow, page.Context)
+	m.SetLimit(LimitMaxOutputTokens, page.MaxOut)
+	m.SetLimit(LimitMaxInputTokens, page.MaxInput)
+	m.SetLimit(LimitConcurrentSessions, page.Sessions)
+	for key, value := range page.Quotas {
+		m.SetLimit(key, value)
+	}
+	m.SetAttr(AttrSummary, page.Summary)
+	m.SetAttr(AttrAuthor, page.Author)
+	m.SetAttr(AttrState, page.State)
+	m.SetAttr(AttrReleaseDate, page.ReleaseDate)
+	m.SetAttr(AttrKnowledgeCutoff, page.Cutoff)
+	m.SetAttr(AttrRetirementDate, page.Retirement)
+	m.SetAttr(AttrRetirementQualifier, page.RetireQualifier)
+	m.SetAttr(AttrInputSizeLimit, page.InputSize)
+	if page.Layers > 0 {
+		m.SetAttr(AttrLayers, strconv.FormatInt(page.Layers, 10))
+	}
+	m.AddList(ListFeatures, page.Features...)
+	m.AddList(ListInputModalities, page.InputMod...)
+	m.AddList(ListOutputModalities, page.OutMod...)
+	m.AddList(ListRegions, page.Regions...)
+	m.AddList(ListLanguages, page.Languages...)
+	if width := page.Dimensions; width > 0 {
+		m.AddList(ListDimensions, strconv.FormatInt(width, 10))
+	}
+}
+
+// applyLifecycle records what a lifecycle table states, which fills in for a
+// model page rather than overriding it: the page describes the release and the
+// table describes the schedule, and where both state a date they state the
+// same one.
+func applyLifecycle(m *catalog.Model, life lifecycle) {
+	m.AddSource(life.Source)
+	if m.Attrs[AttrRetirementDate] == "" {
+		m.SetAttr(AttrRetirementDate, life.Retires)
+		m.SetAttr(AttrRetirementQualifier, life.Qualifier)
+	}
+	if m.Attrs[AttrReleaseDate] == "" {
+		m.SetAttr(AttrReleaseDate, life.Released)
+	}
+	m.SetAttr(AttrDeprecatedOn, life.Deprecated)
+	m.SetAttr(AttrReplacement, life.Replacement)
+	m.SetAttr(AttrSelfDeploy, life.SelfDeploy)
 }
 
 // readDocumented indexes everything the documentation states about a model, by
@@ -373,6 +494,8 @@ func readDocumented(docs []catalog.Document) map[string]*documented {
 			continue
 		}
 		page.Named = true
+		page.Served = true
+		page.ID = id
 		entry := documentedFor(pages, servedName(id))
 		entry.merge(page, doc.URL)
 		byURL[doc.URL] = entry
@@ -380,6 +503,8 @@ func readDocumented(docs []catalog.Document) map[string]*documented {
 	for _, doc := range docs {
 		readCapabilityPage(byURL, doc)
 		readGemmaSizes(pages, doc)
+		readModelCards(byURL, doc)
+		readModelTable(pages, doc)
 	}
 	return pages
 }
@@ -401,14 +526,51 @@ func documentedFor(
 type documented struct {
 	Context int64
 	MaxOut  int64
+	// MaxInput is the ceiling a page states in place of a context window,
+	// which the models Vertex serves for other labs state and Google's own do
+	// not.
+	MaxInput int64
 	// Dimensions is the width of the vector an embedding model returns, and is
 	// zero for every model that returns something else.
 	Dimensions int64
-	Features   []string
-	InputMod   []string
-	OutMod     []string
+	// Sessions is how many streams a model holds at once, which only the Live
+	// API page states.
+	Sessions int64
+	// State, ReleaseDate, Retirement and RetireQualifier are what the version
+	// block says of the release the page describes.
+	State           string
+	ReleaseDate     string
+	Retirement      string
+	RetireQualifier string
+	// Cutoff is how recent the data the model was trained on is.
+	Cutoff string
+	// InputSize is how large a request may be, stated in bytes.
+	InputSize string
+	// Layers is the depth of an embedding model.
+	Layers int64
+	// Quotas are the rate limits the page states for every endpoint alike.
+	Quotas   map[string]int64
+	Regions  []string
+	Features []string
+	InputMod []string
+	OutMod   []string
 	// Sources are the URLs of the documents that stated all this.
 	Sources []string
+	// Languages are the languages the index states the family answers in.
+	Languages []string
+	// ID is the identifier Model Garden serves the model under, which only the
+	// index tables state for a model with no page of its own.
+	ID string
+	// Served reports that some document named this as a model Vertex serves,
+	// as against a row of a table describing a family. Only such an entry may
+	// stand for a model on its own.
+	Served bool
+	// Summary, Author and Title are what the index tables state, which no
+	// model page does: what the model is for, which lab made it and the name
+	// Google writes for it in prose.
+	Summary string
+	Author  string
+	Title   string
 	// Named reports that a page of this model's own stated it, rather than a
 	// table naming a family. Only such a page names one model exactly, which
 	// is what lets a coarser SKU reach it.
@@ -428,6 +590,40 @@ func (d *documented) merge(other documented, source string) {
 	if d.Dimensions == 0 {
 		d.Dimensions = other.Dimensions
 	}
+	if d.MaxInput == 0 {
+		d.MaxInput = other.MaxInput
+	}
+	if d.Sessions == 0 {
+		d.Sessions = other.Sessions
+	}
+	if d.Layers == 0 {
+		d.Layers = other.Layers
+	}
+	mergeText(&d.State, other.State)
+	mergeText(&d.ReleaseDate, other.ReleaseDate)
+	mergeText(&d.Retirement, other.Retirement)
+	mergeText(&d.RetireQualifier, other.RetireQualifier)
+	mergeText(&d.Cutoff, other.Cutoff)
+	mergeText(&d.InputSize, other.InputSize)
+	mergeText(&d.Summary, other.Summary)
+	mergeText(&d.Author, other.Author)
+	mergeText(&d.Title, other.Title)
+	for key, value := range other.Quotas {
+		if d.Quotas == nil {
+			d.Quotas = map[string]int64{}
+		}
+		if _, ok := d.Quotas[key]; !ok {
+			d.Quotas[key] = value
+		}
+	}
+	for _, value := range other.Regions {
+		d.Regions = appendNew(d.Regions, value)
+	}
+	for _, value := range other.Languages {
+		d.Languages = appendNew(d.Languages, value)
+	}
+	mergeText(&d.ID, other.ID)
+	d.Served = d.Served || other.Served
 	d.Named = d.Named || other.Named
 	for _, value := range other.Features {
 		d.Features = appendNew(d.Features, value)
@@ -439,6 +635,14 @@ func (d *documented) merge(other documented, source string) {
 		d.OutMod = appendNew(d.OutMod, value)
 	}
 	d.Sources = appendNew(d.Sources, source)
+}
+
+// mergeText fills a value in from a second statement of the same model, the
+// first statement winning wherever both answer.
+func mergeText(into *string, value string) {
+	if *into == "" {
+		*into = value
+	}
 }
 
 // readCapabilityPage records the capability a page enumerates the models for,
@@ -518,42 +722,6 @@ func gemmaModalitiesOf(cell string) []string {
 	return out
 }
 
-// lifecycle is what the versions page states about one model.
-type lifecycle struct {
-	State   string
-	Retires string
-}
-
-// readVersions reads when each model retires, and which ones already have.
-// Vertex goes on billing for a model after it stops serving it, so without
-// this a withdrawn model reads as one whose documentation is missing.
-//
-// The identifier is matched exactly rather than by prefix, unlike a model
-// page: the page describes a family and the row describes one release, and a
-// live variant of a withdrawn model is one Google has not said it withdrew.
-func readVersions(docs []catalog.Document) map[string]lifecycle {
-	out := map[string]lifecycle{}
-	for _, doc := range docs {
-		if doc.URL != versionsURL {
-			continue
-		}
-		body := string(doc.Body)
-		retired := versionsRetiredRe.FindString(body)
-		for _, row := range versionsRowRe.FindAllStringSubmatch(body, -1) {
-			id := servedName(firstField(specText(row[1])))
-			if id == "" {
-				continue
-			}
-			state := ""
-			if strings.Contains(retired, row[0]) {
-				state = StateRetired
-			}
-			out[id] = lifecycle{State: state, Retires: specText(row[3])}
-		}
-	}
-	return out
-}
-
 // firstField returns the first word of a value, dropping the marker the page
 // hangs off an identifier to footnote it.
 func firstField(value string) string {
@@ -586,9 +754,23 @@ func readModelPage(body string) (string, documented, bool) {
 			page.Context = parseCount(specText(row[2]))
 		case rowDimensions:
 			page.Dimensions = parseCount(specText(row[2]))
+		case rowLaunchStage:
+			page.State = stateOf(specText(row[2]))
+		case rowKnowledgeCutoff:
+			page.Cutoff = isoDate(specText(row[2]))
+		case rowSessions:
+			page.Sessions = parseCount(specText(row[2]))
+		case rowInputSize:
+			page.InputSize = specText(row[2])
+		case rowLayers:
+			page.Layers = parseCount(specText(row[2]))
 		}
 	}
 	readQuotas(&page, specText(table[1]))
+	readListedLimits(&page, table[1])
+	readQuotaLimits(&page, table[1])
+	readVersionBlock(&page, table[1], id)
+	readRegions(&page, table[1])
 	readModalities(&page, table[1])
 	readListedModalities(&page, table[1])
 	readFeatures(&page, table[1])
@@ -666,7 +848,16 @@ func readListedModalities(page *documented, table string) {
 // below it, of the ways the model may be bought, and provisioned throughput is
 // a billing arrangement rather than something the model can do.
 func readFeatures(page *documented, table string) {
-	row := specCapabilityRe.FindString(table)
+	readFeatureRow(page, rowBlock(table, blockCapability))
+	readFeatureRow(page, rowBlock(table, blockTools))
+}
+
+// readFeatureRow records the capabilities one such row states.
+//
+// Google splits them across two rows, what the model can do and which tools it
+// can be given, and reading only the first left every Gemini model without the
+// grounding, the code execution and the computer use its page states.
+func readFeatureRow(page *documented, row string) {
 	for _, match := range specFeatureRe.FindAllStringSubmatch(row, -1) {
 		if !specSupportedRe.MatchString(match[1]) {
 			continue

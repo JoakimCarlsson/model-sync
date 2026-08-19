@@ -12,7 +12,9 @@
     }
   ],
   "attrs": {
-    "released": "2026-03-01",
+    "distribution": "premier",
+    "open_weights": "false",
+    "release_date": "2026-03-01",
     "state": "active",
     "summary": "Our latest moderation model with 128k context window and jailbreaking detection. Strong performance on complex multilingual data including long multi-turn conversations.",
     "version": "26.03"
@@ -21,6 +23,10 @@
     "context_window": 128000
   },
   "lists": {
+    "endpoints": [
+      "/v1/batch",
+      "/v1/moderations"
+    ],
     "features": [
       "batching",
       "moderations"

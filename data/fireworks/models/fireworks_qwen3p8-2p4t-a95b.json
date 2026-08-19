@@ -1,0 +1,99 @@
+{
+  "id": "fireworks/qwen3p8-2p4t-a95b",
+  "provider": "fireworks",
+  "name": "Qwen3.8-2.4T-A95B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "tier": "standard"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Qwen",
+    "calibrated": "false",
+    "hugging_face_id": "Qwen/Qwen3.8-2.4T-A95B",
+    "mixture_of_experts": "true",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/qwen3p8-2p4t-a95b",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen3p8-max",
+    "open_weights": "true",
+    "parameter_count": "2.41T",
+    "release_date": "2026-08-12",
+    "state": "active",
+    "summary": "Qwen3.8-2.4T-A95B is Alibaba's most capable Qwen model to date, a 2.4T-parameter sparse MoE with ~95B active parameters. It is built for autonomous, long-horizon work: multi-day coding runs, research-paper reproduction and self-improvement."
+  },
+  "limits": {
+    "context_window": 262144,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
+    "features": [
+      "function_calling",
+      "grammar_mode",
+      "prompt_caching",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/serverless/overview.md",
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/qwen3p8-max"
+  ]
+}

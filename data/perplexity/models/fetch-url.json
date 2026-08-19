@@ -12,9 +12,22 @@
     }
   ],
   "attrs": {
+    "api_type": "fetch_url",
     "summary": "Fetches and extracts content from specific URLs"
   },
+  "lists": {
+    "endpoints": [
+      "/v1/agent"
+    ],
+    "parameters": [
+      "max_urls",
+      "type"
+    ]
+  },
   "sources": [
+    "https://docs.perplexity.ai/api-reference/agent-post.md",
+    "https://docs.perplexity.ai/docs/agent-api/tools/fetch-url-content.md",
+    "https://docs.perplexity.ai/docs/agent-api/tools/overview.md",
     "https://docs.perplexity.ai/getting-started/pricing.md"
   ]
 }

@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "nous-hermes2:latest",
+    "last_updated": "2024-01-02",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "10.7B",
+    "quantization": "Q4_0",
     "summary": "The powerful family of models by Nous Research that excels at scientific discussion and coding tasks."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nous-hermes2/tags"
+    "https://ollama.com/library/nous-hermes2/tags",
+    "https://ollama.com/library/nous-hermes2:latest"
   ]
 }

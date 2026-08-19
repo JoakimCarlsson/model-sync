@@ -2,7 +2,6 @@ package cohere
 
 import (
 	"regexp"
-	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -88,12 +87,21 @@ func (b *builder) applyStructuredOutputs(doc catalog.Document) {
 // model the overview gives a Chat endpoint gets the capability, and a Command
 // model listed only in the table of platform identifiers, which states no
 // endpoint, does not.
+//
+// A family is a claim about its members and one of them contradicts it. The
+// page of Command A Vision says tool use is not supported with that model, and
+// a document naming a model outranks a document naming the family it is in, so
+// the model the page excepts is skipped here.
 func (b *builder) applyToolUse(doc catalog.Document) {
 	if !commandFamilyRe.Match(doc.Body) {
 		return
 	}
-	for _, m := range b.models {
+	for _, id := range b.order {
+		m := b.models[id]
 		if m.Attrs[AttrFamily] != familyCommand || !onChat(m) {
+			continue
+		}
+		if b.noTools[id] {
 			continue
 		}
 		m.AddList(ListFeatures, catalog.CapabilityFunctionCalling)
@@ -126,8 +134,5 @@ func (b *builder) applyStreaming(doc catalog.Document) {
 
 // onChat reports whether the overview gives a model the Chat endpoint.
 func onChat(m *catalog.Model) bool {
-	return strings.Contains(
-		strings.Join(m.Lists[ListEndpoints], " "),
-		endpointChat,
-	)
+	return onEndpoint(m, endpointChat)
 }

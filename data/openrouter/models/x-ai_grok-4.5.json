@@ -13,6 +13,90 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD",
       "dims": {
@@ -24,6 +108,90 @@
       "unit": "per_1m_tokens",
       "amount": 2,
       "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai",
+        "min_prompt_tokens": "200000"
+      }
     },
     {
       "metric": "input_tokens",
@@ -43,6 +211,90 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 24,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 24,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai",
+        "min_prompt_tokens": "200000"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 12,
       "currency": "USD",
       "dims": {
@@ -54,15 +306,59 @@
       "unit": "per_1k_calls",
       "amount": 5,
       "currency": "USD"
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/priority"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr"
+      }
+    },
+    {
+      "metric": "tool_call",
+      "unit": "per_1k_calls",
+      "amount": 5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "xAI",
+        "endpoint_tag": "xai/zdr/priority"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "48.9",
+    "artificial_analysis_coding_index": "72.4",
+    "artificial_analysis_intelligence_index": "55.8",
     "author": "x-ai",
     "canonical_slug": "x-ai/grok-4.5-20260708",
+    "modality": "text+image+file->text",
     "reasoning_default_effort": "high",
     "reasoning_default_enabled": "true",
     "reasoning_mandatory": "true",
-    "released": "2026-07-08",
+    "release_date": "2026-07-08",
     "summary": "Grok 4.5 is a model from SpaceXAI with frontier performance on coding, knowledge work, and STEM.",
     "tokenizer": "Grok"
   },
@@ -71,6 +367,15 @@
     "top_provider_context_window": 500000
   },
   "lists": {
+    "endpoint_tags": [
+      "xai",
+      "xai/priority",
+      "xai/zdr",
+      "xai/zdr/priority"
+    ],
+    "endpoints": [
+      "xAI"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -88,22 +393,22 @@
       "text"
     ],
     "parameters": [
-      "frequency_penalty",
       "include_reasoning",
       "logprobs",
       "max_tokens",
-      "presence_penalty",
       "reasoning",
       "reasoning_effort",
       "response_format",
       "seed",
-      "stop",
       "structured_outputs",
       "temperature",
       "tool_choice",
       "tools",
       "top_logprobs",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ],
     "reasoning_efforts": [
       "high",
@@ -112,7 +417,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/x-ai/grok-4.5-20260708/endpoints"
+    "https://openrouter.ai/api/v1/models/x-ai/grok-4.5-20260708/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

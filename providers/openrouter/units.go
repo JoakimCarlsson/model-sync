@@ -20,6 +20,7 @@ const (
 	MetricCachedAudioInput  catalog.Metric = "cached_audio_input"
 	MetricImageInput        catalog.Metric = "image_input"
 	MetricImageOutput       catalog.Metric = "image_output"
+	MetricImageTokens       catalog.Metric = "image_tokens"
 	MetricToolCall          catalog.Metric = "tool_call"
 )
 
@@ -32,9 +33,14 @@ const (
 
 // Kinds of model OpenRouter brokers.
 const (
-	KindChat  catalog.Kind = "chat"
-	KindImage catalog.Kind = "image"
-	KindAudio catalog.Kind = "audio"
+	KindChat          catalog.Kind = "chat"
+	KindImage         catalog.Kind = "image"
+	KindAudio         catalog.Kind = "audio"
+	KindVideo         catalog.Kind = "video"
+	KindEmbedding     catalog.Kind = "embedding"
+	KindRerank        catalog.Kind = "rerank"
+	KindTranscription catalog.Kind = "transcription"
+	KindSpeech        catalog.Kind = "speech"
 )
 
 // Dimension keys OpenRouter's prices vary along.
@@ -43,6 +49,19 @@ const (
 	// OpenRouter states as the smallest prompt the override applies from.
 	DimMinPromptTokens = "min_prompt_tokens"
 	DimCacheTTL        = "cache_ttl"
+	// DimEndpointProvider names the upstream a per-seller rate belongs to, and
+	// DimQuantization the weights that seller serves it at, since the same
+	// seller may offer one model at two precisions for two prices.
+	DimEndpointProvider = "endpoint_provider"
+	// DimEndpointTag identifies which of a seller's offerings a rate belongs
+	// to, since one seller may sell the same model at several service levels
+	// and from several regions.
+	DimEndpointTag  = "endpoint_tag"
+	DimQuantization = "quantization"
+	// DimDiscount carries the reduction OpenRouter states beside a seller's
+	// rates. It is published as a bare fraction and documented nowhere, so it
+	// qualifies the rate rather than being applied to it.
+	DimDiscount = "discount"
 )
 
 // Scalar keys the API populates.
@@ -55,7 +74,7 @@ const (
 	AttrInstructType       = "instruct_type"
 	AttrKnowledgeCutoff    = "knowledge_cutoff"
 	AttrExpirationDate     = "expiration_date"
-	AttrReleased           = "released"
+	AttrReleaseDate        = "release_date"
 	AttrModerated          = "is_moderated"
 	AttrReasoningMandatory = "reasoning_mandatory"
 	AttrFree               = "is_free"
@@ -64,6 +83,21 @@ const (
 	// reasoning model does when the caller asks for nothing in particular.
 	AttrReasoningDefaultEffort  = "reasoning_default_effort"
 	AttrReasoningDefaultEnabled = "reasoning_default_enabled"
+	// AttrModality is OpenRouter's own one-line spelling of what a model takes
+	// and returns, such as text+image->text.
+	AttrModality = "modality"
+	// AttrImplicitCaching marks a model some seller caches for without being
+	// asked to.
+	AttrImplicitCaching = "implicit_prompt_caching"
+	// AttrDefaultPrefix prefixes the sampling defaults OpenRouter states a
+	// model is served with when the caller sets nothing.
+	AttrDefaultPrefix = "default_"
+	// AttrBenchmarkPrefix prefixes the third-party scores OpenRouter attaches
+	// to a model, named for the house that published them.
+	AttrBenchmarkPrefix = "artificial_analysis_"
+	// AttrDefaultEmbeddingDimension is the width of the vector an embedding
+	// model returns where it returns one width.
+	AttrDefaultEmbeddingDimension = "default_embedding_dimension"
 )
 
 // Capabilities OpenRouter states that catalog declares no canonical value for.
@@ -72,6 +106,7 @@ const (
 	FeaturePromptCaching     = "prompt_caching"
 	FeatureParallelToolCalls = "parallel_tool_calls"
 	FeatureWebSearch         = "web_search"
+	FeatureVoiceCloning      = "voice_cloning"
 )
 
 // Numeric keys the API populates.
@@ -79,7 +114,7 @@ const (
 	LimitContextWindow    = "context_window"
 	LimitMaxOutputTokens  = "max_output_tokens"
 	LimitProviderContext  = "top_provider_context_window"
-	LimitMaxPromptTokens  = "max_prompt_tokens"
+	LimitMaxInputTokens   = "max_input_tokens"
 	LimitMaxRequestTokens = "max_request_tokens"
 )
 
@@ -91,6 +126,17 @@ const (
 	ListOutputModalities = "output_modalities"
 	ListVoices           = "voices"
 	ListReasoningEfforts = "reasoning_efforts"
+	// ListEndpoints names the upstreams that serve the model, ListQuantizations
+	// the weight precisions they serve it at.
+	ListEndpoints    = "endpoints"
+	ListEndpointTags = "endpoint_tags"
+	// ListEmbeddingDimensions holds the widths an embedding model offers a
+	// choice of.
+	ListEmbeddingDimensions = "embedding_dimensions"
+	ListQuantizations       = "quantizations"
+	ListCategories          = "categories"
+	ListHeadquarters        = "provider_headquarters"
+	ListDatacenters         = "datacenter_countries"
 )
 
 // parameterFeatures map a request parameter OpenRouter states a model accepts
@@ -173,7 +219,10 @@ var priceKeys = map[string]scale{
 	"input_audio_cache": {
 		MetricCachedAudioInput, UnitPer1MTokens, 1_000_000, nil,
 	},
-	"image":        {MetricImageInput, UnitPerImage, 1, nil},
+	"image": {MetricImageInput, UnitPerImage, 1, nil},
+	"image_token": {
+		MetricImageTokens, UnitPer1MTokens, 1_000_000, nil,
+	},
 	"image_output": {MetricImageOutput, UnitPerImage, 1, nil},
 	"web_search":   {MetricToolCall, UnitPer1KCalls, 1_000, nil},
 }
@@ -210,16 +259,49 @@ func isZeroRate(raw string) bool {
 }
 
 // kindFor reports what a model is from what it emits.
+//
+// A model emitting more than one thing is named for the richer of them, since
+// a model that returns an image and the text describing it is an image model
+// that also talks rather than a chat model.
 func kindFor(outputs []string) catalog.Kind {
-	for _, out := range outputs {
-		switch strings.ToLower(out) {
-		case "image":
-			return KindImage
-		case "audio":
-			return KindAudio
+	for _, kind := range []catalog.Kind{
+		KindVideo,
+		KindImage,
+		KindEmbedding,
+		KindRerank,
+		KindTranscription,
+		KindSpeech,
+		KindAudio,
+	} {
+		for _, out := range outputs {
+			if outputKinds[strings.ToLower(out)] == kind {
+				return kind
+			}
 		}
 	}
 	return KindChat
+}
+
+// outputKinds names what a model emitting each output modality is.
+var outputKinds = map[string]catalog.Kind{
+	"image":         KindImage,
+	"video":         KindVideo,
+	"audio":         KindAudio,
+	"speech":        KindSpeech,
+	"transcription": KindTranscription,
+	"embeddings":    KindEmbedding,
+	"rerank":        KindRerank,
+}
+
+// modalityAliases translate the two output modalities OpenRouter names after
+// the task rather than after the medium. A model whose output modality is
+// "speech" returns audio and one whose output modality is "transcription"
+// returns text, so each carries the medium alongside the vendor's word. The
+// remaining two, "embeddings" and "rerank", name no medium at all and are left
+// as published.
+var modalityAliases = map[string]string{
+	"speech":        "audio",
+	"transcription": "text",
 }
 
 // authorOf returns the lab an identifier is namespaced under, which is the

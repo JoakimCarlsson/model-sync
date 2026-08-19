@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "openhermes:latest",
+    "last_updated": "2023-12-29",
+    "open_weights": "true",
+    "parameter_count": "7.24B",
+    "quantization": "Q4_0",
     "summary": "OpenHermes 2.5 is a 7B model fine-tuned by Teknium on Mistral with fully open datasets."
   },
   "limits": {
@@ -22,6 +28,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/openhermes/tags"
+    "https://ollama.com/library/openhermes/tags",
+    "https://ollama.com/library/openhermes:latest"
   ]
 }

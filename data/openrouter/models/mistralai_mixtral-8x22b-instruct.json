@@ -11,25 +11,57 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 2,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 6,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
     }
   ],
   "attrs": {
     "author": "mistralai",
     "canonical_slug": "mistralai/mixtral-8x22b-instruct",
+    "default_temperature": "0.3",
     "hugging_face_id": "mistralai/Mixtral-8x22B-Instruct-v0.1",
     "instruct_type": "mistral",
     "knowledge_cutoff": "2024-01-31",
-    "released": "2024-04-17",
+    "modality": "text+file->text",
+    "release_date": "2024-04-17",
     "summary": "Mistral's official instruct fine-tuned version of [Mixtral 8x22B](/models/mistralai/mixtral-8x22b).",
     "tokenizer": "Mistral"
   },
@@ -38,6 +70,12 @@
     "top_provider_context_window": 65536
   },
   "lists": {
+    "endpoint_tags": [
+      "mistral"
+    ],
+    "endpoints": [
+      "Mistral"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -63,10 +101,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "FR"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/mistralai/mixtral-8x22b-instruct/endpoints"
+    "https://openrouter.ai/api/v1/models/mistralai/mixtral-8x22b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

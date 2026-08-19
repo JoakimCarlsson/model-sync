@@ -3,8 +3,16 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "bert",
     "default_embedding_dimension": "1024",
-    "summary": "State-of-the-art large embedding model from mixedbread.ai"
+    "default_snapshot": "mxbai-embed-large:latest",
+    "last_updated": "2024-05-06",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "334M",
+    "quantization": "F16",
+    "summary": "State-of-the-art large embedding model from mixedbread.ai",
+    "tokenizer": "bert"
   },
   "limits": {
     "context_window": 512
@@ -23,6 +31,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/mxbai-embed-large/tags",
+    "https://ollama.com/library/mxbai-embed-large:latest",
     "https://ollama.com/library/mxbai-embed-large:latest/blobs/819c2adf5ce6"
   ]
 }

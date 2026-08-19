@@ -1,0 +1,32 @@
+{
+  "id": "mistral-ocr-2505",
+  "provider": "vertexai",
+  "name": "Mistral OCR (25.05)",
+  "kind": "ocr",
+  "attrs": {
+    "author": "mistralai",
+    "release_date": "2025-05-14",
+    "state": "active",
+    "summary": "Mistral OCR (25.05) is an Optical Character Recognition API for document understanding. The model comprehends each element of documents such as media, text, tables, and equations."
+  },
+  "limits": {
+    "context_window": 30,
+    "requests_per_minute": 30
+  },
+  "lists": {
+    "input_modalities": [
+      "file"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "europe-west4",
+      "us-central1"
+    ]
+  },
+  "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-ocr",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models"
+  ]
+}

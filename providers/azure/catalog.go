@@ -201,17 +201,33 @@ var (
 
 // documented is what the documentation states about one model.
 type documented struct {
-	Source     string
-	Name       string
-	Context    int64
-	MaxOut     int64
-	Training   string
-	Features   []string
-	Endpoint   []string
-	InputMod   []string
-	OutMod     []string
-	Languages  []string
-	Dimensions []string
+	Sources      []string
+	Name         string
+	Summary      string
+	State        string
+	Publisher    string
+	Author       string
+	License      string
+	Version      string
+	Release      string
+	Added        string
+	Retire       string
+	Replacement  string
+	TrainRetire  string
+	DeployRetire string
+	Context      int64
+	MaxOut       int64
+	Training     string
+	Features     []string
+	Endpoint     []string
+	InputMod     []string
+	OutMod       []string
+	Languages    []string
+	Dimensions   []string
+	Keywords     []string
+	Tasks        []string
+	Deployments  []string
+	Regions      []string
 }
 
 // applyCatalog reads the documentation onto the models the price list
@@ -226,20 +242,29 @@ type documented struct {
 func (b *builder) applyCatalog(pages []catalog.Document) {
 	docs := map[string]documented{}
 	for _, page := range pages {
+		if page.URL == GalleryURL {
+			mergeDocumented(docs, readGallery(page.Body), page.URL)
+			continue
+		}
 		body := string(page.Body)
 		mergeDocumented(docs, readDocumentation(body), page.URL)
 		mergeDocumented(docs, readCollections(body), page.URL)
 		mergeDocumented(docs, readAspects(body), page.URL)
+		mergeDocumented(docs, readSchedule(body), page.URL)
 	}
 	names := slices.Sorted(maps.Keys(docs))
 	for _, id := range b.order {
 		b.applySKUWindow(b.models[id])
-		name := longestPrefix(id, names)
-		if name == "" {
-			continue
+		for at, name := range matchingPrefixes(id, names) {
+			for _, source := range docs[name].Sources {
+				b.models[id].AddSource(source)
+			}
+			if at == 0 {
+				apply(b.models[id], docs[name])
+				continue
+			}
+			applyFamily(b.models[id], docs[name])
 		}
-		b.models[id].AddSource(docs[name].Source)
-		apply(b.models[id], docs[name])
 	}
 }
 
@@ -252,31 +277,64 @@ func (b *builder) applyCatalog(pages []catalog.Document) {
 // merge that took the first page's reading whole would drop the second.
 func mergeDocumented(into, from map[string]documented, source string) {
 	for id, found := range from {
-		d, held := into[id]
-		if !held {
-			found.Source = source
-			into[id] = found
-			continue
-		}
-		if d.Name == "" {
-			d.Name = found.Name
-		}
-		if d.Context == 0 {
-			d.Context = found.Context
-		}
-		if d.MaxOut == 0 {
-			d.MaxOut = found.MaxOut
-		}
-		if d.Training == "" {
-			d.Training = found.Training
-		}
-		d.Features = appendNew(d.Features, found.Features...)
-		d.Endpoint = appendNew(d.Endpoint, found.Endpoint...)
-		d.InputMod = appendNew(d.InputMod, found.InputMod...)
-		d.OutMod = appendNew(d.OutMod, found.OutMod...)
-		d.Languages = appendNew(d.Languages, found.Languages...)
-		d.Dimensions = appendNew(d.Dimensions, found.Dimensions...)
+		found.Sources = appendNew(found.Sources, source)
+		d := into[id]
+		fold(&d, found)
 		into[id] = d
+	}
+}
+
+// fold merges one reading into another, field by field and letting whoever
+// stated one first keep it.
+func fold(into *documented, found documented) {
+	scalars := []struct {
+		at    *string
+		found string
+	}{
+		{&into.Name, found.Name},
+		{&into.Summary, found.Summary},
+		{&into.State, found.State},
+		{&into.Publisher, found.Publisher},
+		{&into.Author, found.Author},
+		{&into.License, found.License},
+		{&into.Version, found.Version},
+		{&into.Release, found.Release},
+		{&into.Added, found.Added},
+		{&into.Retire, found.Retire},
+		{&into.Replacement, found.Replacement},
+		{&into.TrainRetire, found.TrainRetire},
+		{&into.DeployRetire, found.DeployRetire},
+		{&into.Training, found.Training},
+	}
+	for _, s := range scalars {
+		if *s.at == "" {
+			*s.at = s.found
+		}
+	}
+	if into.Context == 0 {
+		into.Context = found.Context
+	}
+	if into.MaxOut == 0 {
+		into.MaxOut = found.MaxOut
+	}
+	lists := []struct {
+		at    *[]string
+		found []string
+	}{
+		{&into.Sources, found.Sources},
+		{&into.Features, found.Features},
+		{&into.Endpoint, found.Endpoint},
+		{&into.InputMod, found.InputMod},
+		{&into.OutMod, found.OutMod},
+		{&into.Languages, found.Languages},
+		{&into.Dimensions, found.Dimensions},
+		{&into.Keywords, found.Keywords},
+		{&into.Tasks, found.Tasks},
+		{&into.Deployments, found.Deployments},
+		{&into.Regions, found.Regions},
+	}
+	for _, l := range lists {
+		*l.at = appendNew(*l.at, l.found...)
 	}
 }
 
@@ -298,20 +356,52 @@ func (b *builder) applySKUWindow(m *catalog.Model) {
 	m.SetLimit(LimitContextWindow, n*1_000)
 }
 
-// apply records one documented model onto a catalog entry.
-func apply(m *catalog.Model, d documented) {
-	if d.Name != "" && d.Name != nameAmbiguous {
-		m.Name = d.Name
-	}
+// applyFamily records what a document naming a model's family states about it.
+//
+// Only what a family shares is taken. Azure states a token bound, a training
+// cutoff and a set of capabilities once for a family, and gpt-4-32k has none of
+// its own; it states a name, a description, a lifecycle and a retirement per
+// model, and the family's are not the model's. The schedule marks gpt-4o-mini
+// as having no replacement and gpt-4o as replaced by gpt-5.1, and reading the
+// family's answer into the gap would contradict the row written about the
+// model.
+func applyFamily(m *catalog.Model, d documented) {
 	m.SetLimit(LimitContextWindow, d.Context)
 	m.SetLimit(LimitMaxOutputTokens, d.MaxOut)
 	m.SetAttr(AttrTrainingCutoff, d.Training)
+	m.SetAttr(AttrKnowledgeCutoff, isoMonth(d.Training))
 	m.AddList(ListFeatures, d.Features...)
 	m.AddList(ListEndpoints, d.Endpoint...)
 	m.AddList(ListInputModalities, d.InputMod...)
 	m.AddList(ListOutputModalities, d.OutMod...)
 	m.AddList(ListLanguages, d.Languages...)
 	m.AddList(ListDimensions, d.Dimensions...)
+}
+
+// apply records everything one documented model states onto a catalog entry.
+// Every field is first stated wins, and this is called for the most specific
+// name a meter reaches before applyFamily is called for the rest.
+func apply(m *catalog.Model, d documented) {
+	if m.Name == "" && d.Name != "" && d.Name != nameAmbiguous {
+		m.Name = d.Name
+	}
+	applyFamily(m, d)
+	m.SetAttr(AttrSummary, d.Summary)
+	m.SetAttr(AttrState, d.State)
+	m.SetAttr(AttrPublisher, d.Publisher)
+	m.SetAttr(AttrAuthor, d.Author)
+	m.SetAttr(AttrLicense, d.License)
+	m.SetAttr(AttrVersion, d.Version)
+	m.SetAttr(AttrReleaseDate, d.Release)
+	m.SetAttr(AttrCatalogAdded, d.Added)
+	m.SetAttr(AttrRetirementDate, d.Retire)
+	m.SetAttr(AttrReplacement, d.Replacement)
+	m.SetAttr(AttrTrainingRetirement, d.TrainRetire)
+	m.SetAttr(AttrDeploymentRetirement, d.DeployRetire)
+	m.AddList(ListKeywords, d.Keywords...)
+	m.AddList(ListTasks, d.Tasks...)
+	m.AddList(ListDeployments, d.Deployments...)
+	m.AddList(ListRegions, d.Regions...)
 }
 
 // meterAliases name the documented model behind a SKU that abbreviates it past
@@ -370,17 +460,37 @@ var meterAliases = map[string]string{
 	"fw-gpt-oss-120b":           "gpt-oss-120b",
 }
 
-// longestPrefix returns the longest name that id equals or extends, so that a
-// meter reaches the most specific model documented rather than the first. A
-// meter named in the alias table reaches what that names instead, and is
+// matchingPrefixes returns every name id equals or extends, longest first, so
+// that a meter reaches the most specific model documented and then the family
+// it belongs to for whatever that model does not state.
+//
+// Azure documents the same model in more than one place at more than one
+// grain: gpt-4-32k is an entry in the catalog listing, which states its
+// publisher, its licence and its lifecycle and no token bound, while the
+// concept page states the bound under gpt-4 for the whole family. Reading the
+// specific entry first and the family after is what gives the model both.
+//
+// A meter named in the alias table reaches what that names instead, and is
 // matched the same way, since the alias names a family whose meters carry a
 // version after it.
-func longestPrefix(id string, names []string) string {
+func matchingPrefixes(id string, names []string) []string {
 	lower := strings.ToLower(id)
 	if alias := longestOf(lower, aliasNames); alias != "" {
-		return meterAliases[alias]
+		lower = meterAliases[alias]
 	}
-	return longestOf(lower, names)
+	var out []string
+	for _, name := range names {
+		if lower == name || strings.HasPrefix(lower, name+"-") {
+			out = append(out, name)
+		}
+	}
+	slices.SortFunc(out, func(a, b string) int {
+		if len(a) != len(b) {
+			return len(b) - len(a)
+		}
+		return strings.Compare(a, b)
+	})
+	return out
 }
 
 // longestOf returns the longest name that id equals or extends.
@@ -695,4 +805,50 @@ func docText(markup string) string {
 		),
 		" ",
 	)
+}
+
+// cutoffMonths name the months Azure writes a training cutoff with, in both
+// the full and the shortened form its tables use.
+var cutoffMonths = map[string]string{
+	"january": "01", "jan": "01",
+	"february": "02", "feb": "02",
+	"march": "03", "mar": "03",
+	"april": "04", "apr": "04",
+	"may":  "05",
+	"june": "06", "jun": "06",
+	"july": "07", "jul": "07",
+	"august": "08", "aug": "08",
+	"september": "09", "sep": "09", "sept": "09",
+	"october": "10", "oct": "10",
+	"november": "11", "nov": "11",
+	"december": "12", "dec": "12",
+}
+
+// cutoffRe matches a training cutoff as Azure writes it, which is a month and
+// a year with the day between them where the table states one: "October 2023",
+// "May 31, 2024", "Sep 2021".
+var cutoffRe = regexp.MustCompile(
+	`(?i)^([a-z]+)\s+(?:(\d{1,2}),\s*)?(\d{4})$`,
+)
+
+// isoMonth restates a training cutoff as an ISO date, to the precision Azure
+// wrote it at and never further. A cutoff written any other way is not
+// restated, since guessing at its precision is what the catalog forbids.
+func isoMonth(cutoff string) string {
+	match := cutoffRe.FindStringSubmatch(strings.TrimSpace(cutoff))
+	if match == nil {
+		return ""
+	}
+	month, ok := cutoffMonths[strings.ToLower(match[1])]
+	if !ok {
+		return ""
+	}
+	if match[2] == "" {
+		return match[3] + "-" + month
+	}
+	day := match[2]
+	if len(day) == 1 {
+		day = "0" + day
+	}
+	return match[3] + "-" + month + "-" + day
 }

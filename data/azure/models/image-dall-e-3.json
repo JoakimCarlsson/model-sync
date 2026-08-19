@@ -1,6 +1,7 @@
 {
   "id": "image-dall-e-3",
   "provider": "azure",
+  "name": "dall-e-3",
   "kind": "image",
   "prices": [
     {
@@ -442,9 +443,19 @@
     }
   ],
   "attrs": {
-    "product": "Azure OpenAI"
+    "author": "OpenAI",
+    "catalog_added_on": "2024-05-07",
+    "product": "Azure OpenAI",
+    "publisher": "OpenAI",
+    "version": "1"
+  },
+  "lists": {
+    "tasks": [
+      "text-to-image"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

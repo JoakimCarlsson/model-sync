@@ -12,19 +12,29 @@
     }
   ],
   "attrs": {
-    "author": "Alibaba"
+    "author": "Alibaba",
+    "category": "Video",
+    "serverless_since": "2026-05-25",
+    "summary": "Alibaba's unified audio-video model generating identity-consistent video from reference inputs, with synchronized dialogue and sound effects produced alongside the visuals in a single pass."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/happyhorse-1-0-r2v"
   ]
 }

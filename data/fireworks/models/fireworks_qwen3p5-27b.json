@@ -1,0 +1,91 @@
+{
+  "id": "fireworks/qwen3p5-27b",
+  "provider": "fireworks",
+  "name": "Qwen3.5 27B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 12,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "full_param_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 6,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_dpo",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    },
+    {
+      "metric": "training_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "USD",
+      "dims": {
+        "method": "lora_sft",
+        "size_band": "Models 16.1B - 80B",
+        "surface": "managed"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "Qwen",
+    "calibrated": "false",
+    "hugging_face_id": "Qwen/Qwen3.5-27B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/qwen3p5-27b",
+    "model_url": "https://fireworks.ai/models/fireworks/qwen3p5-27b",
+    "open_weights": "true",
+    "parameter_count": "27.3B",
+    "release_date": "2026-03-02",
+    "state": "active",
+    "summary": "Qwen3.5-27B (Qwen Chat) is a post-trained, chat-optimized large language model released in Hugging Face Transformers format. It’s designed for strong general-purpose performance across reasoning, coding, and agentic tasks, and is compatible with popular inference stacks like Transformers, vLLM, and SGLang. Qwen3.5 emphasizes improved efficiency and scalability, with broader multilingual coverage and training advances aimed at high-utility real-world deployment."
+  },
+  "limits": {
+    "context_window": 262144
+  },
+  "lists": {
+    "deployment_types": [
+      "fine_tuning",
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/qwen3p5-27b",
+    "https://fireworks.ai/pricing"
+  ]
+}

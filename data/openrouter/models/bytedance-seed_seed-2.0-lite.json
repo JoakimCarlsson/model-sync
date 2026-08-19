@@ -16,6 +16,29 @@
       "amount": 0.5,
       "currency": "USD",
       "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed/fp8",
+        "min_prompt_tokens": "128000",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.25,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.5,
+      "currency": "USD",
+      "dims": {
         "min_prompt_tokens": "128000"
       }
     },
@@ -31,6 +54,29 @@
       "amount": 4,
       "currency": "USD",
       "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed/fp8",
+        "min_prompt_tokens": "128000",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Seed",
+        "endpoint_tag": "seed/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
         "min_prompt_tokens": "128000"
       }
     }
@@ -38,8 +84,9 @@
   "attrs": {
     "author": "bytedance-seed",
     "canonical_slug": "bytedance-seed/seed-2.0-lite-20260309",
+    "modality": "text+image+video->text",
     "reasoning_default_effort": "medium",
-    "released": "2026-03-10",
+    "release_date": "2026-03-10",
     "summary": "Seed-2.0-Lite is a versatile, cost‑efficient enterprise workhorse that delivers strong multimodal and agent capabilities while offering noticeably lower latency, making it a practical default choice for most production workloads across...",
     "tokenizer": "Other"
   },
@@ -49,6 +96,12 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "endpoint_tags": [
+      "seed/fp8"
+    ],
+    "endpoints": [
+      "Seed"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -77,6 +130,12 @@
       "tools",
       "top_p"
     ],
+    "provider_headquarters": [
+      "SG"
+    ],
+    "quantizations": [
+      "fp8"
+    ],
     "reasoning_efforts": [
       "high",
       "low",
@@ -85,6 +144,8 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/bytedance-seed/seed-2.0-lite-20260309/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

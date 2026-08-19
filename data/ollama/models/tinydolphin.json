@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "tinydolphin:latest",
+    "last_updated": "2024-01-30",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "1.1B",
+    "quantization": "Q4_0",
     "summary": "An experimental 1.1B parameter model trained on the new Dolphin 2.8 dataset by Eric Hartford and based on TinyLlama."
   },
   "limits": {
@@ -25,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/tinydolphin/tags"
+    "https://ollama.com/library/tinydolphin/tags",
+    "https://ollama.com/library/tinydolphin:latest"
   ]
 }

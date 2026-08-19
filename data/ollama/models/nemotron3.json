@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
-    "summary": "NVIDIA Nemotron 3 Nano Omni is a multimodal large language model that unifies video, audio, image, and text understanding to support enterprise-grade Q&amp;A, summarization, transcription, and document intelligence workflows."
+    "architecture": "nemotron_h_omni",
+    "default_snapshot": "nemotron3:33b",
+    "last_updated": "2026-04-27",
+    "license": "NVIDIA Open Model License Agreement",
+    "open_weights": "true",
+    "parameter_count": "33B",
+    "quantization": "Q4_K_M",
+    "summary": "NVIDIA Nemotron 3 Nano Omni is a multimodal large language model that unifies video, audio, image, and text understanding to support enterprise-grade Q&A, summarization, transcription, and document intelligence workflows."
   },
   "limits": {
     "context_window": 128000
@@ -28,6 +35,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nemotron3/tags"
+    "https://ollama.com/library/nemotron3/tags",
+    "https://ollama.com/library/nemotron3:33b"
   ]
 }

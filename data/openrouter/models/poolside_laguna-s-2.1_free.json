@@ -5,7 +5,37 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.009,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
       "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.09,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0,
       "currency": "USD"
@@ -13,8 +43,14 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0,
-      "currency": "USD"
+      "amount": 0.18,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.1",
+        "endpoint_provider": "Poolside",
+        "endpoint_tag": "poolside/fp4",
+        "quantization": "fp4"
+      }
     }
   ],
   "attrs": {
@@ -22,8 +58,9 @@
     "canonical_slug": "poolside/laguna-s-2.1-20260720",
     "hugging_face_id": "poolside/Laguna-S-2.1",
     "is_free": "true",
+    "modality": "text->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-07-21",
+    "release_date": "2026-07-21",
     "summary": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>).",
     "tokenizer": "Other"
   },
@@ -33,8 +70,19 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "categories": [
+      "programming",
+      "science"
+    ],
+    "endpoint_tags": [
+      "poolside/fp4"
+    ],
+    "endpoints": [
+      "Poolside"
+    ],
     "features": [
       "function_calling",
+      "prompt_caching",
       "reasoning"
     ],
     "input_modalities": [
@@ -50,9 +98,16 @@
       "temperature",
       "tool_choice",
       "tools"
+    ],
+    "quantizations": [
+      "fp4"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/poolside/laguna-s-2.1-20260720/endpoints",
+    "https://openrouter.ai/api/v1/models?category=programming",
+    "https://openrouter.ai/api/v1/models?category=science",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

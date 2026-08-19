@@ -328,6 +328,8 @@
   "attrs": {
     "default_snapshot": "gpt-5.6-sol",
     "knowledge_cutoff": "2026-02-16",
+    "last_updated": "2026-08-05",
+    "release_date": "2026-07-09",
     "state": "active",
     "summary": "Frontier model for complex professional work"
   },
@@ -340,16 +342,16 @@
     "context_window": 1050000,
     "max_input_tokens": 922000,
     "max_output_tokens": 128000,
-    "rpm_tier_1": 500,
-    "rpm_tier_2": 5000,
-    "rpm_tier_3": 5000,
-    "rpm_tier_4": 10000,
-    "rpm_tier_5": 15000,
-    "tpm_tier_1": 500000,
-    "tpm_tier_2": 1000000,
-    "tpm_tier_3": 2000000,
-    "tpm_tier_4": 4000000,
-    "tpm_tier_5": 40000000
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 5000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 15000,
+    "tokens_per_minute_tier_1": 500000,
+    "tokens_per_minute_tier_2": 1000000,
+    "tokens_per_minute_tier_3": 2000000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 40000000
   },
   "lists": {
     "endpoints": [
@@ -402,6 +404,7 @@
     "Prompts with >272K input tokens are priced at 2x input and 1.5x output for the full request."
   ],
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-5.6-sol.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

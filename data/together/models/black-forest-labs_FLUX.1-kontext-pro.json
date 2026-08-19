@@ -13,19 +13,33 @@
   ],
   "attrs": {
     "author": "Black Forest Labs",
-    "default_steps": "28"
+    "category": "Image",
+    "default_steps": "28",
+    "model_card_url": "https://bfl.ai/models/flux-kontext",
+    "release_date": "2025-05-28",
+    "summary": "In-context image generation and editing model with enhanced prompt adherence."
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image-to-Image"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/flux-1-kontext-pro"
   ]
 }

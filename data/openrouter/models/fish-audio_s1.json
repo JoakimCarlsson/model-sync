@@ -1,0 +1,52 @@
+{
+  "id": "fish-audio/s1",
+  "provider": "openrouter",
+  "name": "Fish Audio: S1",
+  "kind": "speech",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fish Audio",
+        "endpoint_tag": "fish-audio"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "fish-audio",
+    "canonical_slug": "fish-audio/s1-20260729",
+    "modality": "text->speech",
+    "release_date": "2026-07-29",
+    "summary": "S1 is a multilingual text-to-speech model from Fish Audio.",
+    "tokenizer": "Other"
+  },
+  "lists": {
+    "endpoint_tags": [
+      "fish-audio"
+    ],
+    "endpoints": [
+      "Fish Audio"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "audio",
+      "speech"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/fish-audio/s1-20260729/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

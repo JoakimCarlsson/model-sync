@@ -644,20 +644,36 @@
     }
   ],
   "attrs": {
-    "product": "Azure Kimi"
+    "author": "Moonshot AI",
+    "catalog_added_on": "2026-01-29",
+    "license": "other",
+    "product": "Azure Kimi",
+    "publisher": "Moonshot AI",
+    "retirement_date": "2027-01-26",
+    "state": "preview",
+    "summary": "Kimi K2.5 is an open-source, native multimodal agentic model built through continual pretraining on approximately 15 trillion mixed visual and text tokens atop Kimi-K2-Base.",
+    "version": "1"
   },
   "limits": {
     "context_window": 262144,
     "max_output_tokens": 262144
   },
   "lists": {
+    "deployment_types": [
+      "GlobalStandard"
+    ],
     "features": [
       "function_calling",
-      "reasoning"
+      "reasoning",
+      "streaming"
     ],
     "input_modalities": [
       "image",
       "text"
+    ],
+    "keywords": [
+      "Multilingual",
+      "Reasoning"
     ],
     "languages": [
       "en",
@@ -665,10 +681,46 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

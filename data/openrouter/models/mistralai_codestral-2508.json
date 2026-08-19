@@ -11,23 +11,55 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.03,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.9,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.9,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral"
+      }
     }
   ],
   "attrs": {
     "author": "mistralai",
     "canonical_slug": "mistralai/codestral-2508",
+    "default_temperature": "0.3",
     "knowledge_cutoff": "2025-03-31",
-    "released": "2025-08-01",
+    "modality": "text+file->text",
+    "release_date": "2025-08-01",
     "summary": "Mistral's cutting-edge language model for coding released end of July 2025.",
     "tokenizer": "Mistral"
   },
@@ -36,6 +68,12 @@
     "top_provider_context_window": 256000
   },
   "lists": {
+    "endpoint_tags": [
+      "mistral"
+    ],
+    "endpoints": [
+      "Mistral"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -62,10 +100,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "FR"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/mistralai/codestral-2508/endpoints"
+    "https://openrouter.ai/api/v1/models/mistralai/codestral-2508/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

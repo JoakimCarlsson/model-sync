@@ -16,19 +16,32 @@
     }
   ],
   "attrs": {
-    "author": "ByteDance"
+    "author": "ByteDance",
+    "category": "Video",
+    "last_updated": "2025-10-20",
+    "summary": "Affordable video generation with 720p resolution and 5-second duration."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/bytedance-seedance-1-0-lite"
   ]
 }

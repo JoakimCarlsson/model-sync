@@ -3,6 +3,7 @@ package cohere
 import (
 	"encoding/json"
 	"regexp"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -88,6 +89,7 @@ func (b *builder) applyPricing(doc catalog.Document) {
 		}
 	}
 	b.addVault(doc, body)
+	b.addSearchUnit(doc, body)
 	for _, match := range legacyRe.FindAllStringSubmatch(body, -1) {
 		b.addTokenRates(doc, match[1], match[2], match[3])
 	}
@@ -113,6 +115,107 @@ func (b *builder) nameFromCard(product string) {
 	}
 	if m := b.models[ids[0]]; m != nil && m.Name == "" {
 		m.Name = strings.TrimSpace(product)
+	}
+}
+
+// Keys saying what a search a reranker is billed by is made of.
+const (
+	// LimitDocumentsPerSearch is how many documents one billed search covers.
+	LimitDocumentsPerSearch = "documents_per_search_unit"
+	// LimitTokensPerSearchChunk is the length past which a document is split,
+	// each piece then counting against the ceiling above.
+	LimitTokensPerSearchChunk = "tokens_per_search_chunk"
+)
+
+var (
+	// searchUnitRe matches how many documents one billed search covers.
+	searchUnitRe = regexp.MustCompile(
+		`A single search unit is defined as one query with up to (\d+) ` +
+			`documents to be ranked`,
+	)
+	// searchChunkRe matches the length past which a document is split into
+	// several, which is what makes the ceiling above reachable by one
+	// document.
+	searchChunkRe = regexp.MustCompile(
+		`If any document exceeds (\d+) tokens[^,]*, it is automatically ` +
+			`split into multiple chunks`,
+	)
+)
+
+// addSearchUnit records what a search a reranker is billed by is made of.
+//
+// A rate quoted against a thousand searches says nothing on its own, because
+// nothing else says what a search is. The pricing page answers it once, in
+// prose beside the rerank cards, and the answer bounds a call as firmly as any
+// context length does: a hundred documents to a search, and a document past
+// five hundred tokens counting as several.
+//
+// It is recorded against the models the same page prices per search, since it
+// is a definition of that rate and not of the endpoint.
+func (b *builder) addSearchUnit(doc catalog.Document, body string) {
+	documents := searchUnitRe.FindStringSubmatch(body)
+	chunk := searchChunkRe.FindStringSubmatch(body)
+	if documents == nil {
+		return
+	}
+	for _, id := range b.order {
+		m := b.models[id]
+		if !billedPerSearch(m) {
+			continue
+		}
+		m.SetLimit(LimitDocumentsPerSearch, parseCount(documents[1]))
+		if chunk != nil {
+			m.SetLimit(LimitTokensPerSearchChunk, parseCount(chunk[1]))
+		}
+		m.AddSource(doc.URL)
+	}
+}
+
+// billedPerSearch reports whether a model carries a rate quoted against a
+// count of searches.
+func billedPerSearch(m *catalog.Model) bool {
+	for _, p := range m.Prices {
+		if p.Metric == MetricSearchQueries {
+			return true
+		}
+	}
+	return false
+}
+
+// noteAliasRate marks a rate an identifier carries because of what it is
+// another name for rather than because a document quotes it under that name.
+const noteAliasRate = "rate of the model this identifier is an alias for"
+
+// aliasPrices gives an alias the rate of the model it stands for.
+//
+// The overview says command-r is another name for command-r-03-2024, and the
+// pricing page quotes a rate for command-r-03-2024. A call to either costs the
+// same thing, because they are the same call, so the alias is priced from the
+// model it names and the note says where the amount came from. Without this an
+// identifier the API answers to and bills for reads as one Cohere states no
+// rate for.
+//
+// This runs once both pricing documents have been read, so that an alias never
+// carries half of what its model costs.
+func (b *builder) aliasPrices() {
+	for _, id := range b.order {
+		m := b.models[id]
+		target, ok := b.models[m.Attrs[AttrAliasOf]]
+		if !ok || len(m.Prices) > 0 {
+			continue
+		}
+		for _, p := range target.Prices {
+			if p.Note != "" {
+				continue
+			}
+			p.Note = noteAliasRate
+			m.AddPrice(p)
+		}
+		for _, src := range []string{PricingURL, VaultPricingURL} {
+			if slices.Contains(target.Sources, src) {
+				m.AddSource(src)
+			}
+		}
 	}
 }
 

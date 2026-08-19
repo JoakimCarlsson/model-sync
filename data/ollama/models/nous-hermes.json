@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "nous-hermes:latest",
+    "last_updated": "2023-10-29",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "General use models based on Llama and Llama 2 from Nous Research."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nous-hermes/tags"
+    "https://ollama.com/library/nous-hermes/tags",
+    "https://ollama.com/library/nous-hermes:latest"
   ]
 }

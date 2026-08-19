@@ -12,19 +12,30 @@
     }
   ],
   "attrs": {
-    "author": "Google"
+    "author": "Google",
+    "category": "Image",
+    "summary": "Google's image generation model with 94% text rendering accuracy, up to 5 consistent characters per scene, 14 distinct objects per composition, search grounding, and native 4K output."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/gemini-31-flash-image"
   ]
 }

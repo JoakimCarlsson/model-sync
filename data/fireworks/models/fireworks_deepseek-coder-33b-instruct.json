@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/deepseek-coder-33b-instruct",
+  "provider": "fireworks",
+  "name": "DeepSeek Coder 33B Instruct",
+  "kind": "chat",
+  "attrs": {
+    "author": "Deepseek",
+    "calibrated": "false",
+    "hugging_face_id": "deepseek-ai/deepseek-coder-33b-instruct",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/deepseek-coder-33b-instruct",
+    "model_url": "https://fireworks.ai/models/fireworks/deepseek-coder-33b-instruct",
+    "open_weights": "true",
+    "parameter_count": "33.3B",
+    "release_date": "2024-02-27",
+    "state": "active",
+    "summary": "Deepseek Coder is composed of a series of code language models, each trained from scratch on 2T tokens, with a composition of 87% code and 13% natural language in both English and Chinese. deepseek-coder-33b-instruct is a 33B parameter model initialized from deepseek-coder-33b-base and fine-tuned on 2B tokens of instruction data."
+  },
+  "limits": {
+    "context_window": 16384
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/deepseek-coder-33b-instruct"
+  ]
+}

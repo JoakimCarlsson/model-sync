@@ -1,0 +1,43 @@
+{
+  "id": "topic-detection",
+  "provider": "assemblyai",
+  "name": "Topic Detection",
+  "kind": "speech_understanding",
+  "prices": [
+    {
+      "metric": "audio",
+      "unit": "per_hour",
+      "amount": 0.15,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "product": "Speech Understanding",
+    "regions": "US & EU",
+    "summary": "Label the topics spoken in standardized IAB taxonomy"
+  },
+  "lists": {
+    "features": [
+      "topic_detection"
+    ],
+    "languages": [
+      "de",
+      "en",
+      "en_au",
+      "en_uk",
+      "en_us",
+      "es",
+      "fr",
+      "it",
+      "pt"
+    ],
+    "supported_models": [
+      "universal-2",
+      "universal-3-5-pro"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/speech-understanding/topic-detection.md",
+    "https://www.assemblyai.com/pricing"
+  ]
+}

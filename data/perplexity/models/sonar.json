@@ -44,11 +44,26 @@
       }
     }
   ],
+  "attrs": {
+    "recommended_replacement": "fast preset",
+    "retirement_date": "2026-09-27",
+    "state": "legacy"
+  },
   "limits": {
     "context_window": 128000,
-    "max_output_tokens": 128000
+    "max_output_tokens": 128000,
+    "requests_per_minute_tier_0": 50,
+    "requests_per_minute_tier_1": 150,
+    "requests_per_minute_tier_2": 500,
+    "requests_per_minute_tier_3": 1000,
+    "requests_per_minute_tier_4": 4000,
+    "requests_per_minute_tier_5": 4000
   },
   "lists": {
+    "endpoints": [
+      "/v1/async/sonar",
+      "/v1/sonar"
+    ],
     "features": [
       "streaming",
       "structured_outputs"
@@ -60,10 +75,52 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "disable_search",
+      "enable_search_classifier",
+      "image_domain_filter",
+      "image_format_filter",
+      "language_preference",
+      "last_updated_after_filter",
+      "last_updated_before_filter",
+      "max_tokens",
+      "messages",
+      "model",
+      "reasoning_effort",
+      "response_format",
+      "return_images",
+      "return_related_questions",
+      "search_after_date_filter",
+      "search_before_date_filter",
+      "search_domain_filter",
+      "search_language_filter",
+      "search_mode",
+      "search_recency_filter",
+      "stop",
+      "stream",
+      "stream_mode",
+      "temperature",
+      "top_p",
+      "web_search_options"
+    ],
+    "reasoning_effort_levels": [
+      "high",
+      "low",
+      "medium",
+      "minimal"
+    ],
+    "search_modes": [
+      "academic",
+      "sec",
+      "web"
     ]
   },
   "sources": [
+    "https://docs.perplexity.ai/api-reference/async-sonar-post.md",
     "https://docs.perplexity.ai/api-reference/sonar-post.md",
+    "https://docs.perplexity.ai/docs/admin/rate-limits-usage-tiers.md",
+    "https://docs.perplexity.ai/docs/agent-api/migrate-from-sonar/overview.md",
     "https://docs.perplexity.ai/docs/sonar/features.md",
     "https://docs.perplexity.ai/docs/sonar/media.md",
     "https://docs.perplexity.ai/docs/sonar/models/sonar.md",

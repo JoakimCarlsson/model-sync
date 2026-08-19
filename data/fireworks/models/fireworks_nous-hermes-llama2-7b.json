@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/nous-hermes-llama2-7b",
+  "provider": "fireworks",
+  "name": "Nous Hermes Llama2 7B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Nous",
+    "calibrated": "false",
+    "hugging_face_id": "NousResearch/Nous-Hermes-llama-2-7b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/nous-hermes-llama2-7b",
+    "model_url": "https://fireworks.ai/models/fireworks/nous-hermes-llama2-7b",
+    "open_weights": "true",
+    "parameter_count": "6.73B",
+    "release_date": "2024-02-29",
+    "state": "active",
+    "summary": "Nous-Hermes-Llama2-7b is a state-of-the-art language model fine-tuned on over 300,000 instructions. This model stands out for its long responses, lower hallucination rate, and absence of OpenAI censorship mechanisms in the synthetic training data."
+  },
+  "limits": {
+    "context_window": 4096
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/nous-hermes-llama2-7b"
+  ]
+}

@@ -47,17 +47,19 @@
     },
     {
       "metric": "tool_call",
-      "unit": "per_1m_tokens",
+      "unit": "per_1k_requests",
       "amount": 14,
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "5,000 free search requests per month (shared across all Gemini 3.x models)"
     }
   ],
   "attrs": {
-    "latest_update": "July 2026",
+    "last_updated": "July 2026",
     "model_card_url": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
     "summary": "Gemini Robotics ER 2 Streaming is a vision-language model (VLM) for robotics optimized for real-time text streaming using the Live API. It accepts text, image, video, and audio input and supports bidirectional streaming with function calling."
   },

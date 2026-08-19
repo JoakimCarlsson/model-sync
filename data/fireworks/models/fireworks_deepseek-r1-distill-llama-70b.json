@@ -1,0 +1,42 @@
+{
+  "id": "fireworks/deepseek-r1-distill-llama-70b",
+  "provider": "fireworks",
+  "name": "DeepSeek R1 Distill Llama 70B",
+  "kind": "chat",
+  "attrs": {
+    "author": "Deepseek",
+    "calibrated": "true",
+    "hugging_face_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/deepseek-r1-distill-llama-70b",
+    "model_url": "https://fireworks.ai/models/fireworks/deepseek-r1-distill-llama-70b",
+    "open_weights": "true",
+    "parameter_count": "70.5B",
+    "release_date": "2025-01-21",
+    "state": "active",
+    "summary": "Llama 70B distilled with reasoning from Deepseek R1"
+  },
+  "limits": {
+    "context_window": 131072
+  },
+  "lists": {
+    "deployment_types": [
+      "on_demand"
+    ],
+    "features": [
+      "grammar_mode",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ]
+  },
+  "sources": [
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/deepseek-r1-distill-llama-70b"
+  ]
+}

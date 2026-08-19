@@ -17,25 +17,49 @@
     }
   ],
   "attrs": {
-    "state": "older",
+    "announcement_url": "https://blog.voyageai.com/2024/09/18/voyage-3",
+    "release_date": "2024-09-18",
+    "state": "legacy",
     "summary": "Optimized for general-purpose and multilingual retrieval quality."
   },
   "limits": {
-    "context_window": 32000
+    "context_window": 32000,
+    "max_inputs_per_request": 1000
   },
   "lists": {
     "embedding_dimensions": [
       "1024"
     ],
+    "endpoints": [
+      "https://api.voyageai.com/v1/embeddings"
+    ],
+    "features": [
+      "input_truncation",
+      "input_type_prompting"
+    ],
     "input_modalities": [
       "text"
     ],
+    "output_dtypes": [
+      "float"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "parameters": [
+      "encoding_format",
+      "input",
+      "input_type",
+      "model",
+      "output_dimension",
+      "output_dtype",
+      "truncation"
     ]
   },
   "sources": [
+    "https://blog.voyageai.com/2024/09/18/voyage-3",
     "https://docs.voyageai.com/docs/embeddings.md",
-    "https://docs.voyageai.com/docs/pricing.md"
+    "https://docs.voyageai.com/docs/pricing.md",
+    "https://docs.voyageai.com/reference/embeddings-api.md"
   ]
 }

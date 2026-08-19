@@ -13,7 +13,9 @@
   ],
   "attrs": {
     "default_embedding_dimension": "1024",
-    "released": "2023-12-11",
+    "distribution": "premier",
+    "open_weights": "false",
+    "release_date": "2023-12-11",
     "state": "active",
     "summary": "Our state-of-the-art semantic for extracting representation of code extracts",
     "version": "23.12"
@@ -24,6 +26,10 @@
   "lists": {
     "aliases": [
       "mistral-embed"
+    ],
+    "endpoints": [
+      "/v1/batch",
+      "/v1/embeddings"
     ],
     "features": [
       "batching",

@@ -12,9 +12,15 @@
     }
   ],
   "attrs": {
-    "author": "Black Forest Labs"
+    "author": "Black Forest Labs",
+    "category": "Video",
+    "serverless_since": "2026-08-07",
+    "summary": "Black Forest Labs' multimodal video generation model with synchronized audio, producing up to 20-second multi-shot clips from text, images, or ordered keyframes, with video continuation."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text",
@@ -22,10 +28,14 @@
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/flux-3"
   ]
 }

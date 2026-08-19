@@ -12,18 +12,32 @@
     }
   ],
   "attrs": {
-    "author": "Qwen"
+    "author": "Qwen",
+    "category": "Image",
+    "hugging_face_id": "Qwen/Qwen-Image",
+    "model_card_url": "https://huggingface.co/Qwen/Qwen-Image",
+    "release_date": "2025-08-01",
+    "summary": "Affordable image generation powered by Qwen's advanced AI technology."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "image"
+    ],
+    "tags": [
+      "Image"
+    ],
+    "use_cases": [
+      "Image Generation"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen-image"
   ]
 }

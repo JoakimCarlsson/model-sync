@@ -25,22 +25,40 @@
   ],
   "attrs": {
     "author": "Meta",
-    "quantization": "FP8"
+    "category": "Chat",
+    "dedicated_hardware": "2xnvidia-h100-80gb",
+    "hugging_face_id": "meta-models/Muse-Glimmer-30B",
+    "model_card_url": "https://huggingface.co/meta-models/Muse-Glimmer-30B",
+    "parameter_count": "30B",
+    "quantization": "FP8",
+    "release_date": "2026-08-10",
+    "serverless_since": "2026-08-11",
+    "summary": "The 30B dense agentic model from Meta, the first from Meta Superintelligence Labs, with image input, 128K+ context, and Apache 2.0, built for always-on agents that run for hours or days."
   },
   "limits": {
     "context_window": 131072
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Vision"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/dedicated-endpoints/models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/muse-glimmer"
   ]
 }

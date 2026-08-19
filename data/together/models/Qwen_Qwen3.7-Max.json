@@ -18,12 +18,19 @@
     }
   ],
   "attrs": {
-    "author": "Qwen"
+    "author": "Qwen",
+    "category": "Chat",
+    "release_date": "2026-05-18",
+    "serverless_since": "2026-05-22",
+    "summary": "Qwen's flagship agentic model with 1M context, leading Terminal-Bench 2.0 (69.7), 92.4% GPQA Diamond, and a Qwen-reported ~35-hour autonomous kernel optimization run."
   },
   "limits": {
     "context_window": 1000000
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -35,10 +42,20 @@
     ],
     "output_modalities": [
       "text"
+    ],
+    "tags": [
+      "Chat",
+      "Code",
+      "LLM",
+      "Reasoning"
+    ],
+    "use_cases": [
+      "Reasoning"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/qwen37-max"
   ]
 }

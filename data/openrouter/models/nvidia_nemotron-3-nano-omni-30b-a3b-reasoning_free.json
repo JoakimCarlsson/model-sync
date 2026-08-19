@@ -18,12 +18,16 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_coding_index": "13.8",
     "author": "nvidia",
     "canonical_slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-20260428",
+    "default_temperature": "0.6",
+    "default_top_p": "0.95",
     "hugging_face_id": "nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
     "is_free": "true",
+    "modality": "text+image+audio+video->text",
     "reasoning_default_enabled": "true",
-    "released": "2026-04-28",
+    "release_date": "2026-04-28",
     "summary": "NVIDIA Nemotron™ 3 Nano Omni is a 30B-A3B open multimodal model designed to function as a perception and context sub-agent in enterprise agent systems.",
     "tokenizer": "Other"
   },
@@ -58,6 +62,7 @@
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/nvidia/nemotron-3-nano-omni-30b-a3b-reasoning-20260428/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
   ]
 }

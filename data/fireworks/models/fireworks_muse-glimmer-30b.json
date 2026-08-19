@@ -25,6 +25,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.175,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.525,
       "currency": "USD",
       "dims": {
@@ -37,6 +47,16 @@
       "amount": 0.35,
       "currency": "USD",
       "dims": {
+        "tier": "standard"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.75,
+      "currency": "USD",
+      "dims": {
+        "batch": "true",
         "tier": "standard"
       }
     },
@@ -60,16 +80,34 @@
     }
   ],
   "attrs": {
+    "author": "Meta",
+    "calibrated": "false",
     "hugging_face_id": "meta-models/Muse-Glimmer-30B",
-    "model_url": "https://app.fireworks.ai/models/fireworks/muse-glimmer-30b",
+    "mixture_of_experts": "false",
+    "model_kind": "Base model",
+    "model_path": "accounts/fireworks/models/muse-glimmer-30b",
+    "model_url": "https://fireworks.ai/models/fireworks/muse-glimmer-30b",
+    "open_weights": "true",
+    "parameter_count": "29.7B",
+    "release_date": "2026-08-10",
+    "state": "active",
     "summary": "Muse Glimmer 30B is a dense causal language model distilled from Muse Spark and purpose-built for autonomous agentic work. It combines multi-step reasoning, reliable schema-based tool calling, and failure recovery with multimodal understanding via a ~1.8B ViT-G/14 perception encoder, supporting interleaved text and image input, a 131K+ context window, and selectable reasoning strength (low through xhigh). Trained on data from over 100 languages, Muse Glimmer performs strongly for its size class on agentic benchmarks including MCP Atlas, DeepSearch QA, Gaia2 and SWE-Bench Pro, and is released under Apache 2.0."
   },
   "limits": {
-    "context_window": 131072
+    "context_window": 131072,
+    "input_tokens_per_minute": 21600000,
+    "output_tokens_per_minute": 216000,
+    "uncached_input_tokens_per_minute": 5400000
   },
   "lists": {
+    "deployment_types": [
+      "on_demand",
+      "serverless"
+    ],
     "features": [
       "function_calling",
+      "grammar_mode",
+      "prompt_caching",
       "structured_outputs"
     ],
     "input_modalities": [
@@ -81,8 +119,10 @@
     ]
   },
   "sources": [
-    "https://app.fireworks.ai/models/fireworks/muse-glimmer-30b",
+    "https://docs.fireworks.ai/serverless/overview.md",
     "https://docs.fireworks.ai/serverless/pricing.md",
-    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md"
+    "https://docs.fireworks.ai/serverless/rate-limits.md",
+    "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
+    "https://fireworks.ai/models/fireworks/muse-glimmer-30b"
   ]
 }

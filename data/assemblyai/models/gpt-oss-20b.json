@@ -1,0 +1,52 @@
+{
+  "id": "gpt-oss-20b",
+  "provider": "assemblyai",
+  "name": "GPT OSS 20B",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.07,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "api_identifier": "gpt-oss-20b"
+  },
+  "limits": {
+    "context_window": 131072,
+    "requests_per_minute_paid": 30
+  },
+  "lists": {
+    "endpoints": [
+      "https://llm-gateway.assemblyai.com/v1/chat/completions"
+    ],
+    "features": [
+      "function_calling"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "max_tokens",
+      "temperature",
+      "tool_choice",
+      "tools"
+    ]
+  },
+  "sources": [
+    "https://www.assemblyai.com/docs/llm-gateway/api-reference/create-chat-completion.md",
+    "https://www.assemblyai.com/docs/llm-gateway/available-models.md",
+    "https://www.assemblyai.com/docs/llm-gateway/rate-limits.md"
+  ]
+}

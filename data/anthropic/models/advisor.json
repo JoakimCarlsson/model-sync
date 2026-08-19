@@ -1,0 +1,24 @@
+{
+  "id": "advisor",
+  "provider": "anthropic",
+  "name": "Advisor tool",
+  "kind": "tool",
+  "attrs": {
+    "execution": "server",
+    "release_date": "2026-04-09",
+    "release_status": "Beta",
+    "state": "beta"
+  },
+  "lists": {
+    "beta_headers": [
+      "advisor-tool-2026-03-01"
+    ],
+    "versions": [
+      "advisor_20260301"
+    ]
+  },
+  "sources": [
+    "https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-reference.md",
+    "https://platform.claude.com/docs/en/release-notes/overview.md"
+  ]
+}

@@ -5,6 +5,26 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "batch"
+      }
+    },
+    {
+      "metric": "cache_storage_tokens",
+      "unit": "per_1m_tokens_per_hour",
+      "amount": 1,
+      "currency": "USD",
+      "dims": {
+        "plan": "paid",
+        "tier": "standard"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.03,
@@ -45,26 +65,6 @@
       "dims": {
         "plan": "paid",
         "resolution": "text-image-video",
-        "tier": "standard"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
-        "tier": "batch"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 1,
-      "currency": "USD",
-      "dims": {
-        "plan": "paid",
         "tier": "standard"
       }
     },
@@ -159,7 +159,8 @@
       "currency": "USD",
       "dims": {
         "plan": "free",
-        "tier": "standard"
+        "tier": "standard",
+        "tool": "google_search"
       }
     },
     {
@@ -169,8 +170,10 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "batch"
-      }
+        "tier": "batch",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash RPD)"
     },
     {
       "metric": "tool_call",
@@ -179,13 +182,18 @@
       "currency": "USD",
       "dims": {
         "plan": "paid",
-        "tier": "standard"
-      }
+        "tier": "standard",
+        "tool": "google_search"
+      },
+      "note": "1,500 RPD (free, limit shared with Flash RPD)"
     }
   ],
   "attrs": {
-    "latest_update": "September 2025",
-    "model_code": "gemini-2.5-flash-lite-preview-09-2025"
+    "last_updated": "September 2025",
+    "model_code": "gemini-2.5-flash-lite-preview-09-2025",
+    "recommended_replacement": "gemini-3.1-flash-lite",
+    "release_date": "2025-09-25",
+    "retirement_date": "2026-03-31"
   },
   "limits": {
     "context_window": 1048576,
@@ -221,6 +229,7 @@
     ]
   },
   "sources": [
+    "https://ai.google.dev/gemini-api/docs/deprecations",
     "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite-preview-09-2025",
     "https://ai.google.dev/gemini-api/docs/pricing"
   ]

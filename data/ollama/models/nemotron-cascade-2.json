@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "nemotron_h_moe",
+    "default_snapshot": "nemotron-cascade-2:latest",
+    "last_updated": "2026-03-20",
+    "license": "NVIDIA Open Model License Agreement",
+    "open_weights": "true",
+    "parameter_count": "31.6B",
+    "quantization": "Q4_K_M",
     "summary": "An open 30B MoE model from NVIDIA with 3B activated parameters that delivers strong reasoning and agentic capabilities."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nemotron-cascade-2/tags"
+    "https://ollama.com/library/nemotron-cascade-2/tags",
+    "https://ollama.com/library/nemotron-cascade-2:latest"
   ]
 }

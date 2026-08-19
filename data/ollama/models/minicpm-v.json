@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "qwen2",
+    "default_snapshot": "minicpm-v:latest",
+    "last_updated": "2024-11-18",
+    "open_weights": "true",
+    "parameter_count": "7.61B",
+    "quantization": "Q4_0",
     "summary": "A series of multimodal LLMs (MLLMs) designed for vision-language understanding."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/minicpm-v/tags"
+    "https://ollama.com/library/minicpm-v/tags",
+    "https://ollama.com/library/minicpm-v:latest"
   ]
 }

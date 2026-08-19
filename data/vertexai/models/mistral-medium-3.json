@@ -1,0 +1,33 @@
+{
+  "id": "mistral-medium-3",
+  "provider": "vertexai",
+  "name": "Mistral Medium 3",
+  "kind": "chat",
+  "attrs": {
+    "author": "mistralai",
+    "release_date": "2025-10-07",
+    "state": "active",
+    "summary": "Mistral Medium 3 is a versatile model designed for a wide range of tasks, including programming, mathematical reasoning, understanding long documents, summarization, and dialogue."
+  },
+  "limits": {
+    "context_window": 128000,
+    "requests_per_minute": 90,
+    "tokens_per_minute": 315000
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "europe-west4",
+      "us-central1"
+    ]
+  },
+  "sources": [
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/mistral/mistral-medium-3",
+    "https://cloud.google.com/gemini-enterprise-agent-platform/models/partner-models/use-partner-models"
+  ]
+}

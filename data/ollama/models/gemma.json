@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "gemma",
+    "default_snapshot": "gemma:latest",
+    "last_updated": "2024-04-09",
+    "license": "Gemma Terms of Use",
+    "open_weights": "true",
+    "parameter_count": "8.54B",
+    "quantization": "Q4_0",
     "summary": "Gemma is a family of lightweight, state-of-the-art open models built by Google DeepMind. Updated to version 1.1"
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/gemma/tags"
+    "https://ollama.com/library/gemma/tags",
+    "https://ollama.com/library/gemma:latest"
   ]
 }

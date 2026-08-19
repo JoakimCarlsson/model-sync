@@ -13,18 +13,32 @@
   ],
   "attrs": {
     "author": "Cartesia",
-    "modality": "Text-to-Speech"
+    "category": "Audio",
+    "modality": "Text-to-Speech",
+    "model_card_url": "https://docs.cartesia.ai/build-with-cartesia/tts-models/older-models",
+    "release_date": "2025-03-06",
+    "summary": "Low-latency, ultra-realistic voice model, served in partnership with Cartesia."
   },
   "lists": {
+    "deployments": [
+      "Dedicated",
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "audio"
+    ],
+    "tags": [
+      "Audio"
+    ],
+    "use_cases": [
+      "Text-to-Speech"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/cartesia-sonic"
   ]
 }

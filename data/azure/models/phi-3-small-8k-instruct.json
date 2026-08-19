@@ -1,6 +1,7 @@
 {
   "id": "phi-3-small-8k-instruct",
   "provider": "azure",
+  "name": "Phi-3-small instruct (8k)",
   "kind": "chat",
   "prices": [
     {
@@ -645,12 +646,39 @@
     }
   ],
   "attrs": {
-    "product": "Azure Phi Models"
+    "author": "Microsoft",
+    "catalog_added_on": "2025-06-11",
+    "license": "MIT",
+    "product": "Azure Phi Models",
+    "publisher": "Microsoft",
+    "retirement_date": "2025-08-30",
+    "summary": "A 7B parameters model, proves better quality than Phi-3-mini, with a focus on high-quality, reasoning-dense data.",
+    "version": "6"
   },
   "limits": {
-    "context_window": 8000
+    "context_window": 8000,
+    "max_output_tokens": 4096
+  },
+  "lists": {
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Reasoning",
+      "Understanding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

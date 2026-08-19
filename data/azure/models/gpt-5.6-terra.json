@@ -1,6 +1,7 @@
 {
   "id": "gpt-5.6-terra",
   "provider": "azure",
+  "name": "gpt-5.6-terra",
   "kind": "chat",
   "prices": [
     {
@@ -5333,35 +5334,98 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "catalog_added_on": "2026-07-09",
+    "knowledge_cutoff": "2026-06",
+    "license": "custom",
     "product": "Azure OpenAI GPT5",
-    "training_data_cutoff": "June 2026"
+    "publisher": "OpenAI",
+    "release_date": "2026-07-09",
+    "retirement_date": "2028-01-11",
+    "state": "active",
+    "summary": "GPT‑5.6-terra is OpenAI's most capable frontier model, built to deliver faster, more reliable results for complex professional work.",
+    "training_data_cutoff": "June 2026",
+    "version": "2026-07-09"
   },
   "limits": {
     "context_window": 1050000,
     "max_output_tokens": 128000
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
     ],
     "features": [
+      "agents",
+      "agents_v2",
+      "background_mode",
       "computer_use",
       "function_calling",
       "parallel_tool_calls",
       "reasoning",
+      "streaming",
       "structured_outputs"
     ],
     "input_modalities": [
       "image",
       "text"
     ],
+    "keywords": [
+      "Multilingual",
+      "Multimodal",
+      "Multipurpose"
+    ],
+    "languages": [
+      "en"
+    ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southeastasia",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

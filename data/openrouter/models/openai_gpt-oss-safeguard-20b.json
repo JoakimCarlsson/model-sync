@@ -11,24 +11,55 @@
       "currency": "USD"
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0375,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Groq",
+        "endpoint_tag": "groq"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.075,
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.075,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Groq",
+        "endpoint_tag": "groq"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Groq",
+        "endpoint_tag": "groq"
+      }
     }
   ],
   "attrs": {
     "author": "openai",
     "canonical_slug": "openai/gpt-oss-safeguard-20b",
     "hugging_face_id": "openai/gpt-oss-safeguard-20b",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2025-10-29",
+    "release_date": "2025-10-29",
     "summary": "gpt-oss-safeguard-20b is a safety reasoning model from OpenAI built upon gpt-oss-20b.",
     "tokenizer": "GPT"
   },
@@ -38,6 +69,12 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "groq"
+    ],
+    "endpoints": [
+      "Groq"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -63,9 +100,14 @@
       "tool_choice",
       "tools",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/openai/gpt-oss-safeguard-20b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

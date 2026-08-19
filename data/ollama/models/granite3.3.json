@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "granite",
+    "default_snapshot": "granite3.3:latest",
+    "last_updated": "2025-04-16",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "8.17B",
+    "quantization": "Q4_K_M",
     "summary": "IBM Granite 2B and 8B models are 128K context length language models that have been fine-tuned for improved reasoning and instruction-following capabilities."
   },
   "limits": {
@@ -27,6 +34,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/granite3.3/tags"
+    "https://ollama.com/library/granite3.3/tags",
+    "https://ollama.com/library/granite3.3:latest"
   ]
 }

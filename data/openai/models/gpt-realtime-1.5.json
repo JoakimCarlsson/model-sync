@@ -88,12 +88,25 @@
   "attrs": {
     "default_snapshot": "gpt-realtime-1.5",
     "knowledge_cutoff": "2024-09-30",
+    "last_updated": "2026-02-23",
+    "release_date": "2026-02-23",
     "state": "active",
     "summary": "The best voice model for audio in, audio out"
   },
   "limits": {
     "context_window": 32000,
-    "max_output_tokens": 4096
+    "max_output_tokens": 4096,
+    "requests_per_day_tier_1": 1000,
+    "requests_per_minute_tier_1": 200,
+    "requests_per_minute_tier_2": 400,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 20000,
+    "tokens_per_minute_tier_1": 40000,
+    "tokens_per_minute_tier_2": 200000,
+    "tokens_per_minute_tier_3": 800000,
+    "tokens_per_minute_tier_4": 4000000,
+    "tokens_per_minute_tier_5": 15000000
   },
   "lists": {
     "endpoints": [
@@ -117,6 +130,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-realtime-1.5.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

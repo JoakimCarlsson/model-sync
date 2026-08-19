@@ -3,8 +3,16 @@
   "provider": "ollama",
   "kind": "embedding",
   "attrs": {
+    "architecture": "nomic-bert",
     "default_embedding_dimension": "768",
-    "summary": "A high-performing open embedding model with a large token context window."
+    "default_snapshot": "nomic-embed-text:latest",
+    "last_updated": "2024-02-21",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "137M",
+    "quantization": "F16",
+    "summary": "A high-performing open embedding model with a large token context window.",
+    "tokenizer": "bert"
   },
   "limits": {
     "context_window": 2000
@@ -20,6 +28,7 @@
   "sources": [
     "https://ollama.com/library",
     "https://ollama.com/library/nomic-embed-text/tags",
+    "https://ollama.com/library/nomic-embed-text:latest",
     "https://ollama.com/library/nomic-embed-text:latest/blobs/970aa74c0a90"
   ]
 }

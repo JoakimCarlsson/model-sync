@@ -1,0 +1,62 @@
+{
+  "id": "writer/palmyra-x5",
+  "provider": "bedrock",
+  "name": "Palmyra X5",
+  "kind": "chat",
+  "attrs": {
+    "author": "Writer",
+    "marketplace_product_id": "prod-23enyy63orhuk",
+    "model_id": "writer.palmyra-x5-v1:0",
+    "release_date": "2026-01-21",
+    "retirement_date": "2026-04-28",
+    "state": "active",
+    "summary": "Palmyra X5 is Writer's enterprise model with improved reasoning, coding, and agentic capabilities for complex business workflows. For more information about model development and performance, see the model/service card."
+  },
+  "limits": {
+    "context_window": 128000,
+    "max_output_tokens": 8000
+  },
+  "lists": {
+    "aliases": [
+      "us.writer.palmyra-x5-v1:0",
+      "writer.palmyra-x5-v1:0"
+    ],
+    "endpoints": [
+      "bedrock-runtime",
+      "converse",
+      "invoke"
+    ],
+    "features": [
+      "function_calling",
+      "guardrails",
+      "streaming"
+    ],
+    "geo_regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "inference_profile_ids": [
+      "us.writer.palmyra-x5-v1:0"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "us-east-1",
+      "us-east-2",
+      "us-west-1",
+      "us-west-2"
+    ],
+    "service_tiers": [
+      "standard"
+    ]
+  },
+  "sources": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-writer-palmyra-x5.md"
+  ]
+}

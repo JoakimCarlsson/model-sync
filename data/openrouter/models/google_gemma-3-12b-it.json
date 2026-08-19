@@ -11,19 +11,45 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.05,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.15,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.15,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra/bf16",
+        "quantization": "bf16"
+      }
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "0.3",
+    "artificial_analysis_coding_index": "5.8",
+    "artificial_analysis_intelligence_index": "5.5",
     "author": "google",
     "canonical_slug": "google/gemma-3-12b-it",
     "hugging_face_id": "google/gemma-3-12b-it",
     "instruct_type": "gemma",
     "knowledge_cutoff": "2024-08-31",
-    "released": "2025-03-13",
+    "modality": "text+image->text",
+    "release_date": "2025-03-13",
     "summary": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs.",
     "tokenizer": "Gemini"
   },
@@ -33,6 +59,12 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "endpoint_tags": [
+      "deepinfra/bf16"
+    ],
+    "endpoints": [
+      "DeepInfra"
+    ],
     "features": [
       "function_calling",
       "json_mode",
@@ -61,9 +93,17 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
+    ],
+    "quantizations": [
+      "bf16"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/google/gemma-3-12b-it/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

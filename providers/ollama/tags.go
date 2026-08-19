@@ -20,6 +20,42 @@ const defaultTag = "latest"
 // tagsPath is what a model's tag listing is filed under.
 const tagsPath = "/tags"
 
+// AttrLastUpdated is the day Ollama last changed the model, which the listing
+// states twice: once as an age in words, "10 months ago", and once as the
+// instant behind it. Only the instant is a date, so the age is not recorded.
+const AttrLastUpdated = "last_updated"
+
+// updatedRe matches that instant. The listing writes it as the tooltip of the
+// age it shows, and it is the only tooltip on the page shaped like a date.
+var updatedRe = regexp.MustCompile(
+	`title="([A-Z][a-z]{2}) (\d{1,2}), (\d{4})[^"]*"`,
+)
+
+// months map the listing's spelling of a month onto its number.
+var months = map[string]string{
+	"Jan": "01", "Feb": "02", "Mar": "03", "Apr": "04",
+	"May": "05", "Jun": "06", "Jul": "07", "Aug": "08",
+	"Sep": "09", "Oct": "10", "Nov": "11", "Dec": "12",
+}
+
+// updatedDate reads the day of the instant the listing states, or the empty
+// string where it states none.
+func updatedDate(body []byte) string {
+	match := updatedRe.FindSubmatch(body)
+	if match == nil {
+		return ""
+	}
+	month, ok := months[string(match[1])]
+	if !ok {
+		return ""
+	}
+	day := string(match[2])
+	if len(day) == 1 {
+		day = "0" + day
+	}
+	return string(match[3]) + "-" + month + "-" + day
+}
+
 // tagRowRe matches one row of the tag listing: the build it names, the context
 // window it holds and the modalities it takes.
 //
@@ -54,6 +90,10 @@ func (b *builder) applyTagListing(doc catalog.Document) {
 		return
 	}
 	m.AddSource(doc.URL)
+	m.SetAttr(AttrDefaultSnapsh, row[1])
+	if date := updatedDate(doc.Body); date != "" {
+		m.SetAttr(AttrLastUpdated, date)
+	}
 	m.SetLimit(LimitContextWindow, parseCount(row[2], row[3]))
 	for _, name := range strings.Split(row[4], ",") {
 		addModality(m, ListInputModalities, strings.TrimSpace(name))

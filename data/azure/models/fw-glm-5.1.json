@@ -1,6 +1,7 @@
 {
   "id": "fw-glm-5.1",
   "provider": "azure",
+  "name": "FW-GLM-5.1",
   "kind": "chat",
   "prices": [
     {
@@ -731,9 +732,61 @@
     }
   ],
   "attrs": {
-    "product": "Azure Fireworks Models"
+    "author": "zAI",
+    "catalog_added_on": "2026-04-21",
+    "license": "other",
+    "product": "Azure Fireworks Models",
+    "publisher": "Fireworks",
+    "retirement_date": "2027-07-01",
+    "state": "active",
+    "summary": "GLM 5.1 is zAI's next-generation flagship model for agentic engineering with 754B total parameters (40B activated), achieving state-of-the-art performance on SWE-Bench Pro and leading on NL2Repo and Terminal-Bench 2.0.",
+    "version": "1"
+  },
+  "limits": {
+    "context_window": 202752
+  },
+  "lists": {
+    "deployment_types": [
+      "DataZoneProvisionedManaged",
+      "DataZoneStandard"
+    ],
+    "features": [
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "reasoning",
+      "streaming"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Coding"
+    ],
+    "languages": [
+      "en"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "regions": [
+      "centralus",
+      "eastus",
+      "eastus2",
+      "northcentralus",
+      "southcentralus",
+      "westcentralus",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion"
+    ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
+    "https://learn.microsoft.com/en-us/azure/foundry/openai/concepts/model-retirement-schedule",
     "https://prices.azure.com/api/retail/prices"
   ]
 }

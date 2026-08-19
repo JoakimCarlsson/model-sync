@@ -12,19 +12,30 @@
     }
   ],
   "attrs": {
-    "author": "Alibaba"
+    "author": "Alibaba",
+    "category": "Video",
+    "release_date": "2026-06-21",
+    "serverless_since": "2026-07-01",
+    "summary": "Upgraded release of Alibaba's unified audio-video model animating images into video, with improved motion dynamics, subject consistency, prompt adherence, visual quality, and audio generation."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "image",
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/changelog.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/happyhorse-1-1-i2v"
   ]
 }

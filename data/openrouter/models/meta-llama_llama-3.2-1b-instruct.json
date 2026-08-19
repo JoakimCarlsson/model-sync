@@ -11,10 +11,30 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.027,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.201,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.201,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Cloudflare",
+        "endpoint_tag": "cloudflare"
+      }
     }
   ],
   "attrs": {
@@ -23,7 +43,8 @@
     "hugging_face_id": "meta-llama/Llama-3.2-1B-Instruct",
     "instruct_type": "llama3",
     "knowledge_cutoff": "2023-12-31",
-    "released": "2024-09-25",
+    "modality": "text->text",
+    "release_date": "2024-09-25",
     "summary": "Llama 3.2 1B is a 1-billion-parameter language model focused on efficiently performing natural language tasks, such as summarization, dialogue, and multilingual text analysis.",
     "tokenizer": "Llama3"
   },
@@ -33,6 +54,12 @@
     "top_provider_context_window": 60000
   },
   "lists": {
+    "endpoint_tags": [
+      "cloudflare"
+    ],
+    "endpoints": [
+      "Cloudflare"
+    ],
     "input_modalities": [
       "text"
     ],
@@ -51,10 +78,14 @@
       "temperature",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models",
-    "https://openrouter.ai/api/v1/models/meta-llama/llama-3.2-1b-instruct/endpoints"
+    "https://openrouter.ai/api/v1/models/meta-llama/llama-3.2-1b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

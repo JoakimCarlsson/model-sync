@@ -3,6 +3,13 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "dolphin-mixtral:latest",
+    "last_updated": "2024-12-20",
+    "license": "Apache License 2.0",
+    "open_weights": "true",
+    "parameter_count": "46.7B",
+    "quantization": "Q4_0",
     "summary": "Uncensored, 8x7b and 8x22b fine-tuned models based on the Mixtral mixture of experts models that excels at coding tasks. Created by Eric Hartford."
   },
   "limits": {
@@ -26,6 +33,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/dolphin-mixtral/tags"
+    "https://ollama.com/library/dolphin-mixtral/tags",
+    "https://ollama.com/library/dolphin-mixtral:latest"
   ]
 }

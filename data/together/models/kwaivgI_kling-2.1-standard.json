@@ -16,18 +16,30 @@
     }
   ],
   "attrs": {
-    "author": "Kuaishou"
+    "author": "Kuaishou",
+    "category": "Video",
+    "summary": "Standard video generation with 720p resolution at affordable pricing."
   },
   "lists": {
+    "deployments": [
+      "Serverless"
+    ],
     "input_modalities": [
       "text"
     ],
     "output_modalities": [
       "video"
+    ],
+    "tags": [
+      "Video"
+    ],
+    "use_cases": [
+      "Image-to-Video",
+      "Text-to-Video"
     ]
   },
   "sources": [
-    "https://docs.together.ai/docs/serverless-models.md",
+    "https://docs.together.ai/docs/serverless/models.md",
     "https://www.together.ai/models/kling-2-1-standard"
   ]
 }

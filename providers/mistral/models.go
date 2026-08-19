@@ -114,6 +114,7 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 	}
 
 	m := b.model(names[0], kindFor(names[0], list))
+	b.slugs[strings.TrimPrefix(doc.URL, modelPagePre)] = names[0]
 	m.AddSource(doc.URL)
 	if m.Name == "" {
 		m.Name = first(titleRe, body)
@@ -123,24 +124,22 @@ func (b *builder) applyModelPage(doc catalog.Document) {
 		m.AddList(ListFeatures, featureName(id))
 	}
 	applyState(m, body)
+	applyWeights(m, body)
+	applyEndpoints(m, body)
 	applyLimits(m, body)
 	applyModalities(m, body)
 	applyPrices(m, body)
 }
 
-// applyState records the standing, version, licensing and lifecycle dates.
+// applyState records the standing, version and lifecycle dates. Licensing is
+// read from the weights tab instead, which states it alongside the repository
+// the licence governs.
 func applyState(m *catalog.Model, body string) {
 	m.SetAttr(AttrState, badgeStates[first(badgeRe, body)])
 	m.SetAttr(AttrVersion, first(versionRe, body))
 	m.SetAttr(AttrSummary, first(summaryRe, body))
 	m.SetAttr(AttrReleased, isoDate(first(releasedRe, body)))
 	m.SetAttr(AttrReplacement, first(replacementRe, body))
-	if match := weightsRe.FindStringSubmatch(body); match != nil {
-		if match[1] == "Open" {
-			m.SetAttr(AttrOpenWeights, "true")
-		}
-		m.SetAttr(AttrLicense, strings.Join(quoted(match[2]), ", "))
-	}
 	for _, match := range lifecycleRe.FindAllStringSubmatch(body, -1) {
 		key := AttrDeprecatedOn
 		if match[1] == "Retirement" {
@@ -254,11 +253,17 @@ func addRate(m *catalog.Model, r rate, output bool) {
 
 // metricFor reports what an amount counts. A denominator that names its own
 // subject wins, since a per-minute rate is audio however Mistral grouped it.
+// The exception is the text a speech model is given: it is counted in the same
+// characters as the audio it returns, so the denominator alone would name the
+// two sides the same thing.
 func metricFor(
 	fixed catalog.Metric,
 	label string,
 	output bool,
 ) catalog.Metric {
+	if fixed == MetricSpeech && !output {
+		return MetricInputCharacters
+	}
 	if fixed != "" {
 		return fixed
 	}

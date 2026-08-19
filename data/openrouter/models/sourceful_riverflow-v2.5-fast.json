@@ -1,0 +1,87 @@
+{
+  "id": "sourceful/riverflow-v2.5-fast",
+  "provider": "openrouter",
+  "name": "Sourceful: Riverflow V2.5 Fast",
+  "kind": "image",
+  "prices": [
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000455089820359281,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_output",
+      "unit": "per_image",
+      "amount": 0.00000455089820359281,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sourceful",
+        "endpoint_tag": "sourceful"
+      }
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.55089820359281,
+      "currency": "USD"
+    },
+    {
+      "metric": "image_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.55089820359281,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Sourceful",
+        "endpoint_tag": "sourceful"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "sourceful",
+    "canonical_slug": "sourceful/riverflow-v2.5-fast-20260605",
+    "modality": "text+image->image",
+    "reasoning_default_effort": "medium",
+    "reasoning_mandatory": "true",
+    "release_date": "2026-06-04",
+    "summary": "Riverflow V2.5 Fast is the speed-optimized variant of Sourceful's Riverflow 2.5 lineup, best for production deployments and latency-critical workflows.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32768,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "endpoint_tags": [
+      "sourceful"
+    ],
+    "endpoints": [
+      "Sourceful"
+    ],
+    "features": [
+      "reasoning"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "image"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "reasoning",
+      "reasoning_effort"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "medium"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/sourceful/riverflow-v2.5-fast-20260605/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

@@ -17,8 +17,22 @@
   ],
   "attrs": {
     "default_snapshot": "gpt-live-transcribe",
+    "last_updated": "2026-07-28",
+    "release_date": "2026-07-28",
     "state": "active",
     "summary": "Low-latency speech-to-text model for realtime transcription"
+  },
+  "limits": {
+    "requests_per_minute_tier_1": 500,
+    "requests_per_minute_tier_2": 2000,
+    "requests_per_minute_tier_3": 5000,
+    "requests_per_minute_tier_4": 10000,
+    "requests_per_minute_tier_5": 10000,
+    "tokens_per_minute_tier_1": 60000,
+    "tokens_per_minute_tier_2": 210000,
+    "tokens_per_minute_tier_3": 390000,
+    "tokens_per_minute_tier_4": 600000,
+    "tokens_per_minute_tier_5": 780000
   },
   "lists": {
     "endpoints": [
@@ -39,6 +53,7 @@
     ]
   },
   "sources": [
+    "https://developers.openai.com/api/docs/changelog.md",
     "https://developers.openai.com/api/docs/models/gpt-live-transcribe.md",
     "https://developers.openai.com/api/docs/pricing.md"
   ]

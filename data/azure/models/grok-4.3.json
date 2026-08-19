@@ -4504,27 +4504,83 @@
     }
   ],
   "attrs": {
-    "product": "Azure Grok Models"
+    "author": "xAI",
+    "catalog_added_on": "2026-05-13",
+    "license": "custom",
+    "product": "Azure Grok Models",
+    "publisher": "xAI",
+    "state": "preview",
+    "summary": "Grok 4.3 is the latest model from xAI, with advanced reasoning, productivity, and multi-agent capabilities, enabling it to achieve state-of-the-art performance across challenging academic and industry benchmarks.",
+    "version": "1"
   },
   "limits": {
     "context_window": 200000,
     "max_output_tokens": 8192
   },
   "lists": {
+    "deployment_types": [
+      "DataZoneStandard",
+      "GlobalStandard"
+    ],
     "features": [
-      "function_calling"
+      "agents",
+      "agents_v2",
+      "function_calling",
+      "streaming"
     ],
     "input_modalities": [
+      "image",
       "text"
+    ],
+    "keywords": [
+      "Agents",
+      "Low latency",
+      "Multimodal"
     ],
     "languages": [
       "en"
     ],
     "output_modalities": [
       "text"
+    ],
+    "regions": [
+      "australiaeast",
+      "brazilsouth",
+      "canadacentral",
+      "canadaeast",
+      "centralus",
+      "eastus",
+      "eastus2",
+      "francecentral",
+      "germanywestcentral",
+      "italynorth",
+      "japaneast",
+      "japanwest",
+      "koreacentral",
+      "northcentralus",
+      "norwayeast",
+      "polandcentral",
+      "southafricanorth",
+      "southcentralus",
+      "southindia",
+      "spaincentral",
+      "swedencentral",
+      "switzerlandnorth",
+      "switzerlandwest",
+      "uaenorth",
+      "uksouth",
+      "westcentralus",
+      "westeurope",
+      "westus",
+      "westus3"
+    ],
+    "tasks": [
+      "chat-completion",
+      "responses"
     ]
   },
   "sources": [
+    "https://api.catalog.azureml.ms/asset-gallery/v1.0/models",
     "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/models",
     "https://prices.azure.com/api/retail/prices"
   ]

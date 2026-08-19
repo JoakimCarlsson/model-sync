@@ -51,12 +51,12 @@ type family struct {
 // page names none of them.
 var families = []family{
 	{
-		Card:      "flash / turbo",
+		Card:      "flash/turbo",
 		Metric:    MetricSpeech,
 		Fragments: []string{"eleven_flash", "eleven_turbo"},
 	},
 	{
-		Card:      "multilingual v2 / v3",
+		Card:      "multilingual v2/v3",
 		Metric:    MetricSpeech,
 		Fragments: []string{"eleven_multilingual_v2", "eleven_v3"},
 	},
@@ -136,9 +136,19 @@ func parseAmount(fragment string) (float64, bool) {
 	return value, true
 }
 
-// normalize lowercases a cell and collapses its whitespace.
+// normalize lowercases a cell and collapses its whitespace. A family is
+// written both ways round a slash on the same page, as "Flash / Turbo" in one
+// place and "Multilingual v2/v3" in another, so the spaces around one are
+// closed up and the two spellings become one name.
 func normalize(text string) string {
-	return strings.ToLower(strings.Join(strings.Fields(clean(text)), " "))
+	spaced := strings.Join(strings.Fields(clean(text)), " ")
+	return strings.ToLower(strings.ReplaceAll(spaced, " / ", "/"))
+}
+
+// parseFloat reads an amount written with thousands separators in it.
+func parseFloat(text string) (float64, bool) {
+	value, err := strconv.ParseFloat(strings.ReplaceAll(text, ",", ""), 64)
+	return value, err == nil
 }
 
 // unitFor maps a card's denominator onto a unit.

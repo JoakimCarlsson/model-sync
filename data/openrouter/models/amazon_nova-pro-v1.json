@@ -11,10 +11,50 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.8,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/eu-west-1"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 3.2,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Amazon Bedrock",
+        "endpoint_tag": "amazon-bedrock/eu-west-1"
+      }
     }
   ],
   "attrs": {
@@ -22,7 +62,8 @@
     "canonical_slug": "amazon/nova-pro-v1",
     "is_moderated": "true",
     "knowledge_cutoff": "2024-10-31",
-    "released": "2024-12-05",
+    "modality": "text+image->text",
+    "release_date": "2024-12-05",
     "summary": "Amazon Nova Pro 1.0 is a capable multimodal model from Amazon focused on providing a combination of accuracy, speed, and cost for a wide range of tasks.",
     "tokenizer": "Nova"
   },
@@ -32,6 +73,13 @@
     "top_provider_context_window": 300000
   },
   "lists": {
+    "endpoint_tags": [
+      "amazon-bedrock",
+      "amazon-bedrock/eu-west-1"
+    ],
+    "endpoints": [
+      "Amazon Bedrock"
+    ],
     "features": [
       "function_calling"
     ],
@@ -49,9 +97,14 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "US"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/amazon/nova-pro-v1/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

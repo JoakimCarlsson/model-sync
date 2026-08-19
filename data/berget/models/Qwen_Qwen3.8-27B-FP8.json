@@ -1,0 +1,106 @@
+{
+  "id": "Qwen/Qwen3.8-27B-FP8",
+  "provider": "berget",
+  "name": "Qwen3.8-27B-FP8",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.4,
+      "currency": "EUR"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3,
+      "currency": "EUR"
+    }
+  ],
+  "attrs": {
+    "author": "Qwen",
+    "data_residency": "EU",
+    "license": "Apache 2.0",
+    "model_path": "Qwen/Qwen3.8-27B-FP8",
+    "open_weights": "true",
+    "quantization": "FP8",
+    "release_date": "2026-08-14",
+    "state": "eval",
+    "trains_on_customer_data": "false"
+  },
+  "limits": {
+    "model_size_billions": 27
+  },
+  "lists": {
+    "aliases": [
+      "qwen",
+      "qwen-3.8",
+      "qwen-3.8-27b",
+      "qwen/3.8",
+      "qwen/3.8-27b",
+      "qwen/Qwen3.8-27B-FP8",
+      "qwen3.8",
+      "qwen3.8-27b"
+    ],
+    "endpoints": [
+      "/v1/chat/completions"
+    ],
+    "features": [
+      "function_calling",
+      "streaming",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "audio",
+      "frequency_penalty",
+      "function_call",
+      "functions",
+      "json_mode",
+      "logit_bias",
+      "logprobs",
+      "max_completion_tokens",
+      "max_tokens",
+      "messages",
+      "min_p",
+      "modalities",
+      "model",
+      "n",
+      "parallel_tool_calls",
+      "presence_penalty",
+      "reasoning_effort",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "service_tier",
+      "stop",
+      "stop_token_ids",
+      "stream",
+      "stream_options",
+      "temperature",
+      "thinking",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_logprobs",
+      "top_p",
+      "user"
+    ],
+    "response_formats": [
+      "json_object",
+      "json_schema",
+      "text"
+    ]
+  },
+  "sources": [
+    "https://api.berget.ai/openapi.json",
+    "https://api.berget.ai/v1/models",
+    "https://docs.berget.ai/llms-full.txt"
+  ]
+}

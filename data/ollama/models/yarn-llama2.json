@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "llama",
+    "default_snapshot": "yarn-llama2:latest",
+    "last_updated": "2023-11-04",
+    "open_weights": "true",
+    "parameter_count": "6.74B",
+    "quantization": "Q4_0",
     "summary": "An extension of Llama 2 that supports a context of up to 128k tokens."
   },
   "limits": {
@@ -26,6 +32,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/yarn-llama2/tags"
+    "https://ollama.com/library/yarn-llama2/tags",
+    "https://ollama.com/library/yarn-llama2:latest"
   ]
 }

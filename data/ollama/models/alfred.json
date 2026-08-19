@@ -3,6 +3,12 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "falcon",
+    "default_snapshot": "alfred:latest",
+    "last_updated": "2023-11-19",
+    "open_weights": "true",
+    "parameter_count": "41.8B",
+    "quantization": "Q4_0",
     "summary": "A robust conversational model designed to be used for both chat and instruct use cases."
   },
   "limits": {
@@ -25,6 +31,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/alfred/tags"
+    "https://ollama.com/library/alfred/tags",
+    "https://ollama.com/library/alfred:latest"
   ]
 }

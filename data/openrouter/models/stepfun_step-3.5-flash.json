@@ -11,18 +11,41 @@
       "currency": "USD"
     },
     {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
     }
   ],
   "attrs": {
     "author": "stepfun",
     "canonical_slug": "stepfun/step-3.5-flash",
     "hugging_face_id": "stepfun-ai/Step-3.5-Flash",
+    "modality": "text->text",
     "reasoning_mandatory": "true",
-    "released": "2026-01-29",
+    "release_date": "2026-01-29",
     "summary": "Step 3.5 Flash is StepFun's most capable open-source foundation model.",
     "tokenizer": "Other"
   },
@@ -32,6 +55,15 @@
     "top_provider_context_window": 262144
   },
   "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "siliconflow/fp8"
+    ],
+    "endpoints": [
+      "SiliconFlow"
+    ],
     "features": [
       "function_calling",
       "reasoning"
@@ -52,9 +84,17 @@
       "tools",
       "top_k",
       "top_p"
+    ],
+    "provider_headquarters": [
+      "SG"
+    ],
+    "quantizations": [
+      "fp8"
     ]
   },
   "sources": [
-    "https://openrouter.ai/api/v1/models"
+    "https://openrouter.ai/api/v1/models/stepfun/step-3.5-flash/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
   ]
 }

@@ -1,0 +1,109 @@
+{
+  "id": "qwen/qwen3-embedding-8b",
+  "provider": "openrouter",
+  "name": "Qwen: Qwen3 Embedding 8B",
+  "kind": "embedding",
+  "prices": [
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.01,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "DeepInfra",
+        "endpoint_tag": "deepinfra"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.01,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Nebius",
+        "endpoint_tag": "nebius"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.04,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "SiliconFlow",
+        "endpoint_tag": "siliconflow/fp8",
+        "quantization": "fp8"
+      }
+    }
+  ],
+  "attrs": {
+    "author": "qwen",
+    "canonical_slug": "qwen/qwen3-embedding-8b",
+    "hugging_face_id": "Qwen/Qwen3-Embedding-8B",
+    "modality": "text->embeddings",
+    "release_date": "2025-10-28",
+    "summary": "The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks.",
+    "tokenizer": "Other"
+  },
+  "limits": {
+    "context_window": 32768,
+    "max_output_tokens": 32000,
+    "top_provider_context_window": 32768
+  },
+  "lists": {
+    "datacenter_countries": [
+      "US"
+    ],
+    "endpoint_tags": [
+      "deepinfra",
+      "nebius",
+      "siliconflow/fp8"
+    ],
+    "endpoints": [
+      "DeepInfra",
+      "Nebius",
+      "SiliconFlow"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "embeddings"
+    ],
+    "parameters": [
+      "frequency_penalty",
+      "logit_bias",
+      "logprobs",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "temperature",
+      "top_k",
+      "top_logprobs",
+      "top_p"
+    ],
+    "provider_headquarters": [
+      "NL",
+      "SG",
+      "US"
+    ],
+    "quantizations": [
+      "fp8"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/qwen/qwen3-embedding-8b/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all",
+    "https://openrouter.ai/api/v1/providers"
+  ]
+}

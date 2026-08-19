@@ -17,11 +17,15 @@
   "attrs": {
     "api_identifier": "universal-streaming-multilingual",
     "mode": "streaming",
+    "summary": "Multilingual transcription at the speed and cost of Universal-Streaming. Supports English, Spanish, German, French, Portuguese, and Italian.",
     "volume_discounts": "available"
   },
   "limits": {
     "language_count": 6,
-    "max_keyterms": 100
+    "max_keyterms": 100,
+    "max_session_duration_seconds": 10800,
+    "new_sessions_per_minute_free": 5,
+    "new_sessions_per_minute_paid_minimum": 100
   },
   "lists": {
     "features": [
@@ -47,6 +51,8 @@
   },
   "sources": [
     "https://www.assemblyai.com/docs/getting-started/models.md",
-    "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md"
+    "https://www.assemblyai.com/docs/streaming/rate-limits.md",
+    "https://www.assemblyai.com/docs/streaming/select-the-speech-model.md",
+    "https://www.assemblyai.com/pricing"
   ]
 }

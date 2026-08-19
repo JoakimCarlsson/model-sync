@@ -3,7 +3,14 @@
   "provider": "ollama",
   "kind": "chat",
   "attrs": {
+    "architecture": "nemotron_h_moe",
     "cloud": "true",
+    "default_snapshot": "nemotron-3-nano:latest",
+    "last_updated": "2026-03-16",
+    "license": "NVIDIA Open Model License Agreement",
+    "open_weights": "true",
+    "parameter_count": "31.6B",
+    "quantization": "Q4_K_M",
     "summary": "Nemotron-3-Nano is a new Standard for Efficient, Open, and Intelligent Agentic Models, now updated with a 4B parameter count model."
   },
   "limits": {
@@ -29,6 +36,7 @@
   "sources": [
     "https://docs.ollama.com/capabilities/structured-outputs.md",
     "https://ollama.com/library",
-    "https://ollama.com/library/nemotron-3-nano/tags"
+    "https://ollama.com/library/nemotron-3-nano/tags",
+    "https://ollama.com/library/nemotron-3-nano:latest"
   ]
 }
