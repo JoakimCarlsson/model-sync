@@ -1,14 +1,1 @@
-{
-  "id": "speech-threshold",
-  "provider": "assemblyai",
-  "name": "Speech Threshold",
-  "kind": "guardrail",
-  "lists": {
-    "features": [
-      "speech_threshold"
-    ]
-  },
-  "sources": [
-    "https://www.assemblyai.com/docs/guardrails/set-minimum-speech-threshold.md"
-  ]
-}
+{"id":"speech-threshold","provider":"assemblyai","name":"Speech Threshold","kind":"guardrail","lists":{"features":["speech_threshold"]},"sources":["https://www.assemblyai.com/docs/guardrails/set-minimum-speech-threshold.md"]}

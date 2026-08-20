@@ -183,12 +183,11 @@ func prune(dir string, keep map[string]bool) error {
 	return nil
 }
 
-// writeJSON encodes a value as indented JSON with a trailing newline, leaving
-// HTML unescaped so URLs in the data stay readable in a diff.
+// writeJSON encodes a value as a single line of JSON with a trailing newline,
+// leaving HTML unescaped so URLs in the data stay readable.
 func writeJSON(path string, value any) error {
 	var buf bytes.Buffer
 	enc := json.NewEncoder(&buf)
-	enc.SetIndent("", "  ")
 	enc.SetEscapeHTML(false)
 	if err := enc.Encode(value); err != nil {
 		return fmt.Errorf("encode %s: %w", path, err)

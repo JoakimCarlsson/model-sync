@@ -1,15 +1,1 @@
-{
-  "id": "pplx-7b-online",
-  "provider": "perplexity",
-  "name": "pplx-7b-online",
-  "kind": "chat",
-  "attrs": {
-    "state": "retired"
-  },
-  "notes": [
-    "Please note that as of May 14, several models and model name aliases will no longer be accessible"
-  ],
-  "sources": [
-    "https://docs.perplexity.ai/docs/resources/changelog.md"
-  ]
-}
+{"id":"pplx-7b-online","provider":"perplexity","name":"pplx-7b-online","kind":"chat","attrs":{"state":"retired"},"notes":["Please note that as of May 14, several models and model name aliases will no longer be accessible"],"sources":["https://docs.perplexity.ai/docs/resources/changelog.md"]}

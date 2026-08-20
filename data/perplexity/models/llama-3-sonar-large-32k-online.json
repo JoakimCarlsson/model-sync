@@ -1,15 +1,1 @@
-{
-  "id": "llama-3-sonar-large-32k-online",
-  "provider": "perplexity",
-  "name": "llama-3-sonar-large-32k-online",
-  "kind": "chat",
-  "attrs": {
-    "state": "retired"
-  },
-  "notes": [
-    "Please note that several models will no longer be accessible effective 8/12/2024"
-  ],
-  "sources": [
-    "https://docs.perplexity.ai/docs/resources/changelog.md"
-  ]
-}
+{"id":"llama-3-sonar-large-32k-online","provider":"perplexity","name":"llama-3-sonar-large-32k-online","kind":"chat","attrs":{"state":"retired"},"notes":["Please note that several models will no longer be accessible effective 8/12/2024"],"sources":["https://docs.perplexity.ai/docs/resources/changelog.md"]}

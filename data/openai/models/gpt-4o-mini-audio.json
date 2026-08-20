@@ -1,14 +1,1 @@
-{
-  "id": "gpt-4o-mini-audio",
-  "provider": "openai",
-  "kind": "audio",
-  "attrs": {
-    "deprecated_on": "2026-07-20",
-    "recommended_replacement": "gpt-audio-1.5",
-    "retirement_date": "2027-01-20",
-    "state": "deprecated"
-  },
-  "sources": [
-    "https://developers.openai.com/api/docs/deprecations.md"
-  ]
-}
+{"id":"gpt-4o-mini-audio","provider":"openai","kind":"audio","attrs":{"deprecated_on":"2026-07-20","recommended_replacement":"gpt-audio-1.5","retirement_date":"2027-01-20","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

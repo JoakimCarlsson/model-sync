@@ -1,16 +1,1 @@
-{
-  "id": "sonar-reasoning",
-  "provider": "perplexity",
-  "name": "sonar-reasoning",
-  "kind": "chat",
-  "attrs": {
-    "retirement_date": "2025-12-15",
-    "state": "retired"
-  },
-  "notes": [
-    "As of December 15, 2025, the sonar-reasoning model has been deprecated and removed from the API"
-  ],
-  "sources": [
-    "https://docs.perplexity.ai/docs/resources/changelog.md"
-  ]
-}
+{"id":"sonar-reasoning","provider":"perplexity","name":"sonar-reasoning","kind":"chat","attrs":{"retirement_date":"2025-12-15","state":"retired"},"notes":["As of December 15, 2025, the sonar-reasoning model has been deprecated and removed from the API"],"sources":["https://docs.perplexity.ai/docs/resources/changelog.md"]}

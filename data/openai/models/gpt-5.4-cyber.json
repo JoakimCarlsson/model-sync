@@ -1,11 +1,1 @@
-{
-  "id": "gpt-5.4-cyber",
-  "provider": "openai",
-  "kind": "chat",
-  "notes": [
-    "no rate stated on the pricing page"
-  ],
-  "sources": [
-    "https://developers.openai.com/api/docs/pricing.md"
-  ]
-}
+{"id":"gpt-5.4-cyber","provider":"openai","kind":"chat","notes":["no rate stated on the pricing page"],"sources":["https://developers.openai.com/api/docs/pricing.md"]}

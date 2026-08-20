@@ -1,14 +1,1 @@
-{
-  "id": "gpt-4o-mini-realtime",
-  "provider": "openai",
-  "kind": "realtime",
-  "attrs": {
-    "deprecated_on": "2026-07-20",
-    "recommended_replacement": "gpt-realtime-2.1-mini",
-    "retirement_date": "2027-01-20",
-    "state": "deprecated"
-  },
-  "sources": [
-    "https://developers.openai.com/api/docs/deprecations.md"
-  ]
-}
+{"id":"gpt-4o-mini-realtime","provider":"openai","kind":"realtime","attrs":{"deprecated_on":"2026-07-20","recommended_replacement":"gpt-realtime-2.1-mini","retirement_date":"2027-01-20","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

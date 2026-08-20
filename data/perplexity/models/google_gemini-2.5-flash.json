@@ -1,16 +1,1 @@
-{
-  "id": "google/gemini-2.5-flash",
-  "provider": "perplexity",
-  "name": "google/gemini-2.5-flash",
-  "kind": "chat",
-  "attrs": {
-    "retirement_date": "2026-03-20",
-    "state": "retired"
-  },
-  "notes": [
-    "As of March 20, 2026, google/gemini-2.5-flash has been deprecated and removed from the API"
-  ],
-  "sources": [
-    "https://docs.perplexity.ai/docs/resources/changelog.md"
-  ]
-}
+{"id":"google/gemini-2.5-flash","provider":"perplexity","name":"google/gemini-2.5-flash","kind":"chat","attrs":{"retirement_date":"2026-03-20","state":"retired"},"notes":["As of March 20, 2026, google/gemini-2.5-flash has been deprecated and removed from the API"],"sources":["https://docs.perplexity.ai/docs/resources/changelog.md"]}
