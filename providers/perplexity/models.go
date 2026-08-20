@@ -271,7 +271,11 @@ func rateBands(cell string) []rate {
 // bandLabel writes a bound the way the other providers state one, since
 // Perplexity writes its lower bound with a character no consumer will type.
 func bandLabel(bound string) string {
-	return strings.ReplaceAll(strings.Join(strings.Fields(bound), ""), "≤", "<=")
+	return strings.ReplaceAll(
+		strings.Join(strings.Fields(bound), ""),
+		"≤",
+		"<=",
+	)
 }
 
 // applyTools reads the server-side tool rates, which are charged per
