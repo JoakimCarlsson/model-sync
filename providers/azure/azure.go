@@ -9,8 +9,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"os"
-	"path/filepath"
 	"slices"
 	"strings"
 	"time"
@@ -44,17 +42,6 @@ const (
 	maxPages       = 60
 )
 
-// cacheFiles are where a fetched document is kept, one per document.
-var cacheFiles = map[string]string{
-	retailPricesURL: "azure_foundry_meters.json",
-	ModelsURL:       "azure_foundry_models.html",
-	PartnersURL:     "azure_foundry_partners.html",
-	ImagesURL:       "azure_foundry_images.html",
-	VideoURL:        "azure_foundry_video.html",
-	ScheduleURL:     "azure_foundry_schedule.html",
-	GalleryURL:      "azure_foundry_gallery.json",
-}
-
 // documentationURLs are the pages stating what a model holds and can do, in
 // the order they are read.
 var documentationURLs = []string{
@@ -74,8 +61,6 @@ const defaultCurrency = "USD"
 type Provider struct {
 	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
-	CacheDir string
 	// Sleep waits between pages. It exists so a caller can run the pagination
 	// without delay.
 	Sleep func(time.Duration)
@@ -144,9 +129,6 @@ func (p *Provider) fetchDocument(
 // document, the same as the meter listing, so that parsing does not depend on
 // how the pages were split.
 func (p *Provider) fetchGallery(ctx context.Context) (catalog.Document, error) {
-	if body, ok := p.readCache(GalleryURL); ok {
-		return catalog.Document{URL: GalleryURL, Body: body}, nil
-	}
 	var (
 		summaries []gallerySummary
 		token     string
@@ -187,7 +169,6 @@ func (p *Provider) fetchGallery(ctx context.Context) (catalog.Document, error) {
 	if err != nil {
 		return catalog.Document{}, err
 	}
-	p.writeCache(GalleryURL, body)
 	return catalog.Document{URL: GalleryURL, Body: body}, nil
 }
 
@@ -197,23 +178,16 @@ func (p *Provider) fetchPage(
 	ctx context.Context,
 	url string,
 ) (catalog.Document, error) {
-	if body, ok := p.readCache(url); ok {
-		return catalog.Document{URL: url, Body: body}, nil
-	}
 	body, err := p.get(ctx, url)
 	if err != nil {
 		return catalog.Document{}, err
 	}
-	p.writeCache(url, body)
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
 // fetchMeters walks every page of the meter listing and returns them as one
 // document, so that parsing does not depend on how the pages were split.
 func (p *Provider) fetchMeters(ctx context.Context) (catalog.Document, error) {
-	if body, ok := p.readCache(retailPricesURL); ok {
-		return catalog.Document{URL: retailPricesURL, Body: body}, nil
-	}
 	var (
 		meters []meter
 		next   = retailPricesURL + "?$filter=" + url.QueryEscape(meterFilter)
@@ -237,7 +211,6 @@ func (p *Provider) fetchMeters(ctx context.Context) (catalog.Document, error) {
 	if err != nil {
 		return catalog.Document{}, err
 	}
-	p.writeCache(retailPricesURL, body)
 	return catalog.Document{URL: retailPricesURL, Body: body}, nil
 }
 
@@ -410,27 +383,6 @@ func (b *builder) applyMeter(m meter, source string) {
 			With(DimDuration, read.duration).
 			With(DimRegion, m.ArmRegionName),
 	})
-}
-
-// readCache returns a previously fetched listing.
-func (p *Provider) readCache(url string) ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
-	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFiles[url]))
-	return body, err == nil
-}
-
-// writeCache stores a listing, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCache(url string, body []byte) {
-	if p.CacheDir == "" {
-		return
-	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFiles[url]), body, 0o644)
 }
 
 // builder accumulates models.

@@ -48,7 +48,6 @@ func main() {
 		"api.json",
 		"aggregate written for consumers, or - to skip",
 	)
-	cache := flag.String("cache", "", "directory to cache fetched documents in")
 	only := flag.String(
 		"provider",
 		"",
@@ -61,7 +60,7 @@ func main() {
 	)
 	flag.Parse()
 
-	if err := run(*data, *api, *cache, *only, *timeout); err != nil {
+	if err := run(*data, *api, *only, *timeout); err != nil {
 		fmt.Fprintln(os.Stderr, "model-sync:", err)
 		os.Exit(1)
 	}
@@ -88,51 +87,29 @@ func main() {
 // aggregate is rebuilt with its previous models still in it. The failures are
 // returned at the end, so a run that lost a provider still exits non-zero rather
 // than passing quietly with stale data.
-func run(data, api, cache, only string, timeout time.Duration) error {
+func run(data, api, only string, timeout time.Duration) error {
 	mistralSource := mistral.New()
-	mistralSource.CacheDir = cache
 	ollamaSource := ollama.New()
-	ollamaSource.CacheDir = cache
 	openaiSource := openai.New()
-	openaiSource.CacheDir = cache
 	anthropicSource := anthropic.New()
-	anthropicSource.CacheDir = cache
 	xaiSource := xai.New()
-	xaiSource.CacheDir = cache
 	vertexaiSource := vertexai.New()
-	vertexaiSource.CacheDir = cache
 	voyageSource := voyage.New()
-	voyageSource.CacheDir = cache
 	openrouterSource := openrouter.New()
-	openrouterSource.CacheDir = cache
 	togetherSource := together.New()
-	togetherSource.CacheDir = cache
 	assemblyaiSource := assemblyai.New()
-	assemblyaiSource.CacheDir = cache
 	perplexitySource := perplexity.New()
-	perplexitySource.CacheDir = cache
 	azureSource := azure.New()
-	azureSource.CacheDir = cache
 	bedrockSource := bedrock.New()
-	bedrockSource.CacheDir = cache
 	bergetSource := berget.New()
-	bergetSource.CacheDir = cache
 	cerebrasSource := cerebras.New()
-	cerebrasSource.CacheDir = cache
 	cohereSource := cohere.New()
-	cohereSource.CacheDir = cache
 	deepgramSource := deepgram.New()
-	deepgramSource.CacheDir = cache
 	deepseekSource := deepseek.New()
-	deepseekSource.CacheDir = cache
 	elevenlabsSource := elevenlabs.New()
-	elevenlabsSource.CacheDir = cache
 	fireworksSource := fireworks.New()
-	fireworksSource.CacheDir = cache
 	googleSource := google.New()
-	googleSource.CacheDir = cache
 	groqSource := groq.New()
-	groqSource.CacheDir = cache
 	sources := []catalog.Source{
 		assemblyaiSource,
 		azureSource,

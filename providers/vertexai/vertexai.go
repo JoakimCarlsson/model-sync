@@ -10,7 +10,6 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"slices"
 	"strings"
 
@@ -34,9 +33,6 @@ const catalogURL = "https://cloudbilling.googleapis.com/v1/services/" +
 // gcloud can still sync.
 const tokenEnv = "GOOGLE_OAUTH_TOKEN"
 
-// cacheFile is where a fetched listing is kept.
-const cacheFile = "vertexai_skus.json"
-
 // pageSize is how many SKUs to request at a time.
 const pageSize = 5000
 
@@ -56,8 +52,6 @@ var ErrUnconfigured = fmt.Errorf(
 type Provider struct {
 	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
-	CacheDir string
 	// Token is the OAuth token to present. When empty it is taken from the
 	// environment, and failing that from gcloud.
 	Token string
@@ -148,9 +142,6 @@ func (p *Provider) getPage(
 	ctx context.Context,
 	url string,
 ) (catalog.Document, error) {
-	if body, ok := p.readCacheFile(cacheName(url)); ok {
-		return catalog.Document{URL: url, Body: body}, nil
-	}
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return catalog.Document{}, err
@@ -171,29 +162,11 @@ func (p *Provider) getPage(
 	if err != nil {
 		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCacheFile(cacheName(url), body)
 	return catalog.Document{URL: url, Body: body}, nil
-}
-
-// cacheName turns a documentation URL into a flat filename.
-func cacheName(url string) string {
-	trimmed := strings.TrimPrefix(url, docsBase+"/")
-	return providerID + "_" + strings.Map(func(r rune) rune {
-		switch {
-		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
-			return r
-		case r == '.', r == '-', r == '_':
-			return r
-		}
-		return '_'
-	}, trimmed)
 }
 
 // fetchSKUs walks the catalog and returns every SKU as one document.
 func (p *Provider) fetchSKUs(ctx context.Context) (catalog.Document, error) {
-	if body, ok := p.readCache(); ok {
-		return catalog.Document{URL: catalogURL, Body: body}, nil
-	}
 	token, err := p.accessToken(ctx)
 	if err != nil {
 		return catalog.Document{}, err
@@ -225,7 +198,6 @@ func (p *Provider) fetchSKUs(ctx context.Context) (catalog.Document, error) {
 	if err != nil {
 		return catalog.Document{}, err
 	}
-	p.writeCache(body)
 	return catalog.Document{URL: catalogURL, Body: body}, nil
 }
 
@@ -422,37 +394,6 @@ func (b *builder) applySKU(s sku, read reading, source string) {
 
 // defaultCurrency is what the catalog quotes when a rate states none.
 const defaultCurrency = "USD"
-
-// readCache returns a previously fetched listing.
-func (p *Provider) readCache() ([]byte, bool) {
-	return p.readCacheFile(cacheFile)
-}
-
-// writeCache stores a listing.
-func (p *Provider) writeCache(body []byte) {
-	p.writeCacheFile(cacheFile, body)
-}
-
-// readCacheFile returns a previously fetched body.
-func (p *Provider) readCacheFile(name string) ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
-	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, name))
-	return body, err == nil
-}
-
-// writeCacheFile stores a body, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCacheFile(name string, body []byte) {
-	if p.CacheDir == "" {
-		return
-	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, name), body, 0o644)
-}
 
 // builder accumulates models.
 type builder struct {

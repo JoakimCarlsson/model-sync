@@ -7,10 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"path/filepath"
 	"slices"
-	"strings"
 	"sync"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -50,8 +47,6 @@ const fetchWorkers = 8
 type Provider struct {
 	// Client performs the fetch.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
-	CacheDir string
 }
 
 // New returns a Provider using the default HTTP client.
@@ -149,15 +144,11 @@ func (p *Provider) getAll(
 	return out, failures
 }
 
-// get retrieves one document, reading from and writing to the cache directory
-// when one is configured.
+// get retrieves one document.
 func (p *Provider) get(
 	ctx context.Context,
 	url string,
 ) (catalog.Document, error) {
-	if body, ok := p.readCache(url); ok {
-		return catalog.Document{URL: url, Body: body}, nil
-	}
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return catalog.Document{}, err
@@ -178,7 +169,6 @@ func (p *Provider) get(
 	if err != nil {
 		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(url, body)
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
@@ -228,41 +218,6 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	return b.result(), errors.Join(failures...)
-}
-
-// readCache returns a previously fetched body.
-func (p *Provider) readCache(url string) ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
-	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheName(url)))
-	return body, err == nil
-}
-
-// cacheName turns a URL into a flat filename.
-func cacheName(url string) string {
-	trimmed := strings.TrimPrefix(url, "https://")
-	return providerID + "_" + strings.Map(func(r rune) rune {
-		switch {
-		case r >= 'a' && r <= 'z', r >= 'A' && r <= 'Z', r >= '0' && r <= '9':
-			return r
-		case r == '.', r == '-', r == '_':
-			return r
-		}
-		return '_'
-	}, trimmed)
-}
-
-// writeCache stores a document, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCache(url string, body []byte) {
-	if p.CacheDir == "" {
-		return
-	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheName(url)), body, 0o644)
 }
 
 // builder accumulates models.

@@ -5,10 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"path/filepath"
 	"slices"
-	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -42,31 +39,11 @@ var sourceURLs = append([]string{
 	PricingURL,
 }, featureURLs...)
 
-// cacheFile names the file one document is kept in, derived from the document
-// so that adding a source does not mean maintaining a second list. Two
-// documents of the same name under different sections keep their sections in
-// the file name, which is why the whole path is used and not the last segment.
-func cacheFile(url string) string {
-	trimmed := strings.TrimPrefix(url, "https://www.assemblyai.com/")
-	name := strings.Map(func(r rune) rune {
-		if r >= 'a' && r <= 'z' || r >= '0' && r <= '9' || r == '.' {
-			return r
-		}
-		return '_'
-	}, strings.ToLower(trimmed))
-	if !strings.Contains(name, ".") {
-		name += ".html"
-	}
-	return providerID + "_" + name
-}
-
 // Provider reads AssemblyAI's published documentation. The zero value is not
 // usable; call New.
 type Provider struct {
 	// Client performs the fetch.
 	Client *http.Client
-	// CacheDir, when set, backs the fetch with a file on disk.
-	CacheDir string
 }
 
 // New returns a Provider using the default HTTP client.
@@ -93,15 +70,11 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	return docs, nil
 }
 
-// get retrieves one document, reading from and writing to the cache directory
-// when one is configured.
+// get retrieves one document.
 func (p *Provider) get(
 	ctx context.Context,
 	url string,
 ) (catalog.Document, error) {
-	if body, ok := p.readCache(url); ok {
-		return catalog.Document{URL: url, Body: body}, nil
-	}
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
 	if err != nil {
 		return catalog.Document{}, err
@@ -122,7 +95,6 @@ func (p *Provider) get(
 	if err != nil {
 		return catalog.Document{}, fmt.Errorf("read %s: %w", url, err)
 	}
-	p.writeCache(url, body)
 	return catalog.Document{URL: url, Body: body}, nil
 }
 
@@ -171,27 +143,6 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	return b.result(), nil
-}
-
-// readCache returns a previously fetched document.
-func (p *Provider) readCache(url string) ([]byte, bool) {
-	if p.CacheDir == "" {
-		return nil, false
-	}
-	body, err := os.ReadFile(filepath.Join(p.CacheDir, cacheFile(url)))
-	return body, err == nil
-}
-
-// writeCache stores a document, ignoring failures because the cache is an
-// optimization and never the source of truth.
-func (p *Provider) writeCache(url string, body []byte) {
-	if p.CacheDir == "" {
-		return
-	}
-	if err := os.MkdirAll(p.CacheDir, 0o755); err != nil {
-		return
-	}
-	_ = os.WriteFile(filepath.Join(p.CacheDir, cacheFile(url)), body, 0o644)
 }
 
 // builder accumulates models.

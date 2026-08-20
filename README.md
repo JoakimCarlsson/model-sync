@@ -54,7 +54,6 @@ Every model records the URLs it was read from.
 make sync                    # fetch everything, rewrite data/ and api.json
 make coverage                # what share of each field every provider populates
 go run . -provider cohere    # sync one provider, leaving the rest of the tree
-go run . -cache .cache       # reuse fetched documents instead of refetching
 make fmt
 make lint
 ```

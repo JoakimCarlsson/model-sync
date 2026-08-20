@@ -19,8 +19,6 @@ const (
 type Provider struct {
 	// Client performs the fetches.
 	Client *http.Client
-	// CacheDir, when set, backs every fetch with a file on disk.
-	CacheDir string
 }
 
 // New returns a Provider using the default HTTP client.
