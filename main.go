@@ -35,13 +35,6 @@ import (
 )
 
 func main() {
-	if len(os.Args) > 1 && os.Args[1] == "coverage" {
-		if err := coverage(os.Args[2:], os.Stdout); err != nil {
-			fmt.Fprintln(os.Stderr, "model-sync:", err)
-			os.Exit(1)
-		}
-		return
-	}
 	data := flag.String("data", "data", "directory holding one file per model")
 	api := flag.String(
 		"api",

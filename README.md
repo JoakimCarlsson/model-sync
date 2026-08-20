@@ -52,7 +52,6 @@ Every model records the URLs it was read from.
 
 ```sh
 make sync                    # fetch everything, rewrite data/ and api.json
-make coverage                # what share of each field every provider populates
 go run . -provider cohere    # sync one provider, leaving the rest of the tree
 make fmt
 make lint
@@ -68,21 +67,6 @@ A source that fails is reported and the rest still sync, and the run exits
 non-zero. A source that fetched nothing, parsed nothing, or ran out of time
 writes nothing, so its existing files stay as they are: a vendor moving a page
 costs that provider a refresh rather than corrupting it.
-
-`make coverage` reads `api.json` and reports, per provider and kind, how many
-models carry a price, a context window, an output ceiling, a feature list, both
-modality lists, a display name and an embedding width. It counts only models
-still served, since a retired model has no rate to find and counting it would
-report a shortfall that can never close. A count is marked `!` when it falls
-short of the bucket, so the gaps are what stands out:
-
-```
-  provider   kind   live  priced  ctx  maxout  feats  inmod  outmod  name
-    cohere   chat     16      4!  14!     14!     0!    14!      0!    8!
-```
-
-It takes `-kind`, `-provider`, `-api`, `-data` and `-all`, the last counting
-withdrawn models too.
 
 The generated data is committed. Output is byte-identical for unchanged input,
 so a sync produces a diff only where a provider actually changed something.

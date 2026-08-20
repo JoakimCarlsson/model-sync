@@ -1,4 +1,4 @@
-.PHONY: fmt lint sync coverage
+.PHONY: fmt lint sync
 
 fmt:
 	goimports -w .
@@ -9,6 +9,3 @@ lint:
 
 sync:
 	go run .
-
-coverage:
-	go run . coverage
