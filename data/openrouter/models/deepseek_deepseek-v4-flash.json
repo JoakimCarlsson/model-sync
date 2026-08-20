@@ -7,30 +7,30 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.01652,
+      "amount": 0.0177212,
       "currency": "USD"
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.01652,
+      "amount": 0.0224,
       "currency": "USD",
       "dims": {
-        "discount": "0.41",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0168,
+      "amount": 0.0177212,
       "currency": "USD",
       "dims": {
-        "discount": "0.4",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.3671",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -112,7 +112,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.007,
+      "amount": 0.014,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -196,30 +196,30 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0826,
+      "amount": 0.088606,
       "currency": "USD"
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0826,
+      "amount": 0.112,
       "currency": "USD",
       "dims": {
-        "discount": "0.41",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.084,
+      "amount": 0.088606,
       "currency": "USD",
       "dims": {
-        "discount": "0.4",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.3671",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -301,7 +301,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.22,
+      "amount": 0.44,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -396,30 +396,30 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.1652,
+      "amount": 0.177212,
       "currency": "USD"
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.1652,
+      "amount": 0.224,
       "currency": "USD",
       "dims": {
-        "discount": "0.41",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.168,
+      "amount": 0.177212,
       "currency": "USD",
       "dims": {
-        "discount": "0.4",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.3671",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -501,7 +501,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.66,
+      "amount": 1.32,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",

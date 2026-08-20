@@ -92,6 +92,7 @@
   },
   "sources": [
     "https://docs.fireworks.ai/serverless/overview.md",
+    "https://docs.fireworks.ai/serverless/pricing.md",
     "https://docs.fireworks.ai/serverless/rate-limits.md",
     "https://docs.fireworks.ai/structured-responses/structured-output-grammar-based.md",
     "https://fireworks.ai/models/fireworks/qwen3p8-max"

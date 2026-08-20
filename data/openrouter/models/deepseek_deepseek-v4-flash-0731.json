@@ -136,7 +136,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.007,
+      "amount": 0.014,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -210,7 +210,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.028,
+      "amount": 0.014,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "OpenInference",
@@ -242,7 +242,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.021,
+      "amount": 0.014,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Relace",
@@ -434,7 +434,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.22,
+      "amount": 0.44,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -519,7 +519,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.08,
+      "amount": 0.065,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "OpenInference",
@@ -551,7 +551,18 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.105,
+      "amount": 0.22,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Reka",
+        "endpoint_tag": "reka/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.07,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Relace",
@@ -562,7 +573,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.09,
+      "amount": 0.065,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Sail Research",
@@ -743,7 +754,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.66,
+      "amount": 1.32,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -828,7 +839,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.18,
+      "amount": 0.14,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "OpenInference",
@@ -860,7 +871,18 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.21,
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Reka",
+        "endpoint_tag": "reka/fp4",
+        "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.14,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Relace",
@@ -982,6 +1004,7 @@
       "open-inference/fp4",
       "parasail/fp8",
       "phala",
+      "reka/fp4",
       "relace/fp4",
       "sail-research/fp4",
       "siliconflow/fp8",
@@ -1012,6 +1035,7 @@
       "OpenInference",
       "Parasail",
       "Phala",
+      "Reka",
       "Relace",
       "Sail Research",
       "SiliconFlow",

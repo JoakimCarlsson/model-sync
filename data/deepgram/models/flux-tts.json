@@ -22,7 +22,7 @@
         "plan": "growth",
         "promotional": "true"
       },
-      "note": "introductory rate through 9/12"
+      "note": "introductory rate through 2026-09-12"
     },
     {
       "metric": "speech",
@@ -42,12 +42,12 @@
         "plan": "pay-as-you-go",
         "promotional": "true"
       },
-      "note": "introductory rate through 9/12"
+      "note": "introductory rate through 2026-09-12"
     }
   ],
   "attrs": {
     "product": "text to speech",
-    "promotion_ends": "9/12",
+    "promotion_ends": "2026-09-12",
     "summary": "Our latest-generation, conversation-native voice model — streaming-first, turn-based, and expressive by default. **Recommended for all new builds**: voice agents, customer service, IVR, and general-purpose synthesis. Served on /v2/speak ."
   },
   "limits": {

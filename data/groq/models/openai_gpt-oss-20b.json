@@ -24,8 +24,12 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
     "model_card_url": "https://openai.com/index/gpt-oss-model-card/",
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
     "state": "production",
+    "summary": "OpenAI's compact open-weight Mixture-of-Experts model with 20B total parameters. Optimized for cost-efficient deployment and agentic workflows.",
     "tokens_per_second": "1000"
   },
   "limits": {

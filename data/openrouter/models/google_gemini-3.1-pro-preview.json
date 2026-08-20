@@ -993,6 +993,9 @@
     "top_provider_context_window": 1048576
   },
   "lists": {
+    "categories": [
+      "legal"
+    ],
     "endpoint_tags": [
       "google-ai-studio",
       "google-ai-studio/flex",
@@ -1048,6 +1051,7 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/google/gemini-3.1-pro-preview-20260219/endpoints",
+    "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

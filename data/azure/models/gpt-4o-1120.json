@@ -3053,7 +3053,7 @@
     "recommended_replacement": "gpt-5.1",
     "release_date": "2024-11-20",
     "retirement_date": "2027-04-14",
-    "state": "deprecated",
+    "state": "legacy",
     "summary": "OpenAI's most advanced multimodal model in the gpt-4o family. Can handle both text and image inputs.",
     "training_data_cutoff": "October 2023",
     "version": "2024-11-20"

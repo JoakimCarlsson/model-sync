@@ -57,9 +57,12 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "20.1",
     "artificial_analysis_coding_index": "42.8",
+    "artificial_analysis_intelligence_index": "31.7",
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ring-2.6-1t-20260508",
+    "expiration_date": "2026-08-24",
     "modality": "text->text",
     "reasoning_default_effort": "high",
     "reasoning_mandatory": "true",

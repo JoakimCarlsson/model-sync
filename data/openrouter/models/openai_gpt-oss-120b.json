@@ -199,7 +199,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.085,
+      "amount": 0.08,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Mancer 2",
@@ -532,7 +532,6 @@
   "lists": {
     "categories": [
       "academia",
-      "finance",
       "health",
       "legal",
       "marketing",
@@ -640,7 +639,6 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/openai/gpt-oss-120b/endpoints",
     "https://openrouter.ai/api/v1/models?category=academia",
-    "https://openrouter.ai/api/v1/models?category=finance",
     "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=marketing",

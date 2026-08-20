@@ -46,17 +46,6 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.16,
-      "currency": "USD",
-      "dims": {
-        "endpoint_provider": "AtlasCloud",
-        "endpoint_tag": "atlas-cloud/int4",
-        "quantization": "int4"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.19,
       "currency": "USD",
       "dims": {
@@ -84,6 +73,17 @@
         "endpoint_provider": "DeepInfra",
         "endpoint_tag": "deepinfra/fp4",
         "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.19,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
       }
     },
     {
@@ -218,17 +218,6 @@
       "amount": 0.95,
       "currency": "USD",
       "dims": {
-        "endpoint_provider": "AtlasCloud",
-        "endpoint_tag": "atlas-cloud/int4",
-        "quantization": "int4"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.95,
-      "currency": "USD",
-      "dims": {
         "endpoint_provider": "Cloudflare",
         "endpoint_tag": "cloudflare"
       }
@@ -253,6 +242,17 @@
         "endpoint_provider": "DeepInfra",
         "endpoint_tag": "deepinfra/fp4",
         "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.95,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
       }
     },
     {
@@ -387,17 +387,6 @@
       "amount": 4,
       "currency": "USD",
       "dims": {
-        "endpoint_provider": "AtlasCloud",
-        "endpoint_tag": "atlas-cloud/int4",
-        "quantization": "int4"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 4,
-      "currency": "USD",
-      "dims": {
         "endpoint_provider": "Cloudflare",
         "endpoint_tag": "cloudflare"
       }
@@ -422,6 +411,17 @@
         "endpoint_provider": "DeepInfra",
         "endpoint_tag": "deepinfra/fp4",
         "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
       }
     },
     {
@@ -542,10 +542,10 @@
     "endpoint_tags": [
       "alibaba/fp8",
       "ambient",
-      "atlas-cloud/int4",
       "cloudflare",
       "coreweave/int4",
       "deepinfra/fp4",
+      "gmicloud/fp8",
       "inceptron/int4",
       "modelrun/fp4",
       "moonshotai/highspeed",
@@ -559,10 +559,10 @@
     "endpoints": [
       "Alibaba",
       "Ambient",
-      "AtlasCloud",
       "Cloudflare",
       "CoreWeave",
       "DeepInfra",
+      "GMICloud",
       "Inceptron",
       "ModelRun",
       "Moonshot AI",

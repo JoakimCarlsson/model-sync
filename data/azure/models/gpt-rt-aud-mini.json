@@ -1345,7 +1345,6 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneStandard",
       "GlobalStandard"
     ],
     "input_modalities": [
@@ -1389,7 +1388,6 @@
     "regions": [
       "canadacentral",
       "centralus",
-      "eastus",
       "eastus2",
       "francecentral",
       "southindia",

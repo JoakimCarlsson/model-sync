@@ -1412,13 +1412,10 @@
   "attrs": {
     "author": "OpenAI",
     "catalog_added_on": "2025-04-15",
-    "fine_tuning_deployment_retirement_date": "2027-10-01",
-    "fine_tuning_training_retirement_date": "No earlier than 2027-04-01",
     "knowledge_cutoff": "2023-10",
     "license": "custom",
     "product": "Azure OpenAI Media",
     "publisher": "OpenAI",
-    "recommended_replacement": "gpt-5.1",
     "release_date": "2025-03-20",
     "retirement_date": "2026-10-15",
     "state": "active",
@@ -1432,13 +1429,8 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
       "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
+      "GlobalStandard"
     ],
     "features": [
       "agents",
@@ -1455,11 +1447,6 @@
       "audio",
       "image",
       "text"
-    ],
-    "keywords": [
-      "Multilingual",
-      "Multimodal",
-      "Multipurpose"
     ],
     "languages": [
       "af",
@@ -1527,37 +1514,17 @@
       "text"
     ],
     "regions": [
-      "australiaeast",
-      "brazilsouth",
       "canadacentral",
-      "canadaeast",
       "centralus",
       "eastus",
       "eastus2",
       "francecentral",
-      "germanywestcentral",
-      "italynorth",
       "japaneast",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
       "southindia",
-      "spaincentral",
       "swedencentral",
-      "switzerlandnorth",
-      "uaenorth",
-      "uksouth",
-      "westeurope",
-      "westus",
       "westus3"
     ],
     "tasks": [
-      "chat-completion",
-      "responses",
       "speech-to-text"
     ]
   },

@@ -32,7 +32,8 @@
     }
   ],
   "limits": {
-    "requests_per_second": 5
+    "requests_per_second": 6,
+    "tokens_per_minute": -9223372036854775808
   },
   "lists": {
     "aliases": [

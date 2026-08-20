@@ -1,7 +1,7 @@
 {
   "id": "fireworks/deepseek-v4-flash-0731",
   "provider": "fireworks",
-  "name": "DeepSeek V4 Flash (0731)",
+  "name": "DeepSeek-V4-Flash-0731",
   "kind": "chat",
   "prices": [
     {

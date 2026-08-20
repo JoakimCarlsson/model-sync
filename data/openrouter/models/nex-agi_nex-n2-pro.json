@@ -87,7 +87,9 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "31.2",
     "artificial_analysis_coding_index": "59.1",
+    "artificial_analysis_intelligence_index": "41.7",
     "author": "nex-agi",
     "canonical_slug": "nex-agi/nex-n2-pro",
     "default_temperature": "0.7",

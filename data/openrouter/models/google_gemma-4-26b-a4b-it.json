@@ -247,6 +247,7 @@
     "categories": [
       "academia",
       "health",
+      "legal",
       "roleplay",
       "translation",
       "trivia"
@@ -325,6 +326,7 @@
     "https://openrouter.ai/api/v1/models/google/gemma-4-26b-a4b-it-20260403/endpoints",
     "https://openrouter.ai/api/v1/models?category=academia",
     "https://openrouter.ai/api/v1/models?category=health",
+    "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=roleplay",
     "https://openrouter.ai/api/v1/models?category=translation",
     "https://openrouter.ai/api/v1/models?category=trivia",

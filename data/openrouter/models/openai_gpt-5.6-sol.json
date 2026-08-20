@@ -733,9 +733,11 @@
   "lists": {
     "categories": [
       "academia",
+      "finance",
       "legal",
       "programming",
-      "science"
+      "science",
+      "technology"
     ],
     "endpoint_tags": [
       "amazon-bedrock/us-east-1",
@@ -794,9 +796,11 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/openai/gpt-5.6-sol-20260709/endpoints",
     "https://openrouter.ai/api/v1/models?category=academia",
+    "https://openrouter.ai/api/v1/models?category=finance",
     "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=programming",
     "https://openrouter.ai/api/v1/models?category=science",
+    "https://openrouter.ai/api/v1/models?category=technology",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

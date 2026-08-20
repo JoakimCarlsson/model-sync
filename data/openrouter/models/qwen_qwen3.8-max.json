@@ -90,9 +90,6 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
-    "categories": [
-      "health"
-    ],
     "datacenter_countries": [
       "CN",
       "SG"
@@ -150,7 +147,6 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/qwen/qwen3.8-max-20260803/endpoints",
-    "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

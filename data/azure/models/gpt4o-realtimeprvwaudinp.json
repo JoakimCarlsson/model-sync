@@ -1,7 +1,6 @@
 {
   "id": "gpt4o-realtimeprvwaudinp",
   "provider": "azure",
-  "name": "GPT-4o (Omni)",
   "kind": "realtime",
   "prices": [
     {
@@ -149,36 +148,15 @@
     }
   ],
   "attrs": {
-    "author": "OpenAI",
-    "catalog_added_on": "2024-12-17",
-    "fine_tuning_deployment_retirement_date": "2027-10-01",
-    "fine_tuning_training_retirement_date": "No earlier than 2027-04-01",
     "knowledge_cutoff": "2023-10",
-    "license": "custom",
     "product": "Azure OpenAI",
-    "publisher": "OpenAI",
-    "recommended_replacement": "gpt-5.1",
-    "release_date": "2024-11-20",
-    "retirement_date": "2027-04-14",
-    "state": "deprecated",
-    "summary": "OpenAI's most advanced multimodal model in the gpt-4o family. Can handle both text and image inputs.",
-    "training_data_cutoff": "October 2023",
-    "version": "2024-11-20"
+    "training_data_cutoff": "October 2023"
   },
   "limits": {
     "context_window": 32000,
     "max_output_tokens": 4096
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
-    ],
     "features": [
       "agents",
       "agents_v2",
@@ -194,11 +172,6 @@
       "audio",
       "image",
       "text"
-    ],
-    "keywords": [
-      "Multilingual",
-      "Multimodal",
-      "Multipurpose"
     ],
     "languages": [
       "af",
@@ -232,39 +205,6 @@
     "output_modalities": [
       "audio",
       "text"
-    ],
-    "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadacentral",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "uaenorth",
-      "uksouth",
-      "westeurope",
-      "westus",
-      "westus3"
-    ],
-    "tasks": [
-      "chat-completion",
-      "responses"
     ]
   },
   "sources": [

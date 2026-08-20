@@ -57,6 +57,9 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "59.1",
+    "artificial_analysis_coding_index": "74.8",
+    "artificial_analysis_intelligence_index": "59.5",
     "author": "z-ai",
     "canonical_slug": "z-ai/glm-5.3-20260816",
     "default_temperature": "1",

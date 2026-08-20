@@ -276,8 +276,7 @@
   "lists": {
     "categories": [
       "programming",
-      "roleplay",
-      "trivia"
+      "roleplay"
     ],
     "datacenter_countries": [
       "NL",
@@ -349,7 +348,6 @@
     "https://openrouter.ai/api/v1/models/xiaomi/mimo-v2.5-pro-20260422/endpoints",
     "https://openrouter.ai/api/v1/models?category=programming",
     "https://openrouter.ai/api/v1/models?category=roleplay",
-    "https://openrouter.ai/api/v1/models?category=trivia",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

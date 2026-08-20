@@ -5,6 +5,16 @@
   "kind": "chat",
   "prices": [
     {
+      "metric": "cache_write_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.6875,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.05,
@@ -19,6 +29,16 @@
         "endpoint_provider": "AkashML",
         "endpoint_tag": "akashml/bf16",
         "quantization": "bf16"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.11,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
       }
     },
     {
@@ -63,6 +83,16 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.55,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.4,
       "currency": "USD",
       "dims": {
@@ -79,6 +109,17 @@
       "dims": {
         "endpoint_provider": "Io Net",
         "endpoint_tag": "io-net/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.45,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
         "quantization": "fp8"
       }
     },
@@ -124,6 +165,16 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 3.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Alibaba",
+        "endpoint_tag": "alibaba"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 3,
       "currency": "USD",
       "dims": {
@@ -140,6 +191,17 @@
       "dims": {
         "endpoint_provider": "Io Net",
         "endpoint_tag": "io-net/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.2,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Parasail",
+        "endpoint_tag": "parasail/fp8",
         "quantization": "fp8"
       }
     },
@@ -167,6 +229,9 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "50.9",
+    "artificial_analysis_coding_index": "68.1",
+    "artificial_analysis_intelligence_index": "52",
     "author": "qwen",
     "canonical_slug": "qwen/qwen3.8-27b-20260814",
     "default_temperature": "1",
@@ -181,25 +246,31 @@
     "tokenizer": "Qwen"
   },
   "limits": {
-    "context_window": 262144,
+    "context_window": 1000000,
     "max_output_tokens": 131072,
     "top_provider_context_window": 262144
   },
   "lists": {
     "datacenter_countries": [
+      "CN",
+      "SG",
       "US"
     ],
     "endpoint_tags": [
       "akashml/bf16",
+      "alibaba",
       "chutes/fp8",
       "io-net/fp8",
+      "parasail/fp8",
       "reka/fp8",
       "venice/fp8"
     ],
     "endpoints": [
       "AkashML",
+      "Alibaba",
       "Chutes",
       "Io Net",
+      "Parasail",
       "Reka",
       "Venice"
     ],
@@ -221,6 +292,7 @@
     "parameters": [
       "frequency_penalty",
       "include_reasoning",
+      "logit_bias",
       "logprobs",
       "max_tokens",
       "presence_penalty",
@@ -239,6 +311,7 @@
       "top_p"
     ],
     "provider_headquarters": [
+      "SG",
       "US"
     ],
     "quantizations": [

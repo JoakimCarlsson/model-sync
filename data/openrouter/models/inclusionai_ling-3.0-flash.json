@@ -13,6 +13,17 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.0084,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.3",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.0042,
       "currency": "USD",
       "dims": {
@@ -41,6 +52,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.042,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.3",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.021,
       "currency": "USD",
       "dims": {
@@ -65,6 +87,17 @@
       "unit": "per_1m_tokens",
       "amount": 0.063,
       "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.126,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.3",
+        "endpoint_provider": "Novita",
+        "endpoint_tag": "novita/fast"
+      }
     },
     {
       "metric": "output_tokens",
@@ -110,7 +143,8 @@
   "lists": {
     "endpoint_tags": [
       "deepinfra/bf16",
-      "novita"
+      "novita",
+      "novita/fast"
     ],
     "endpoints": [
       "DeepInfra",

@@ -1293,17 +1293,12 @@
     }
   ],
   "attrs": {
-    "author": "OpenAI",
-    "catalog_added_on": "2025-11-14",
     "knowledge_cutoff": "2024-09-30",
-    "license": "custom",
     "product": "Azure OpenAI GPT5",
-    "publisher": "OpenAI",
     "recommended_replacement": "gpt-chat-latest",
     "release_date": "2025-11-13",
     "retirement_date": "2026-06-29",
     "state": "retired",
-    "summary": "gpt-5.1 is designed for logic-heavy and multi-step tasks.",
     "training_data_cutoff": "September 30, 2024",
     "version": "2025-11-13"
   },
@@ -1312,15 +1307,6 @@
     "max_output_tokens": 16384
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
-    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
@@ -1339,52 +1325,11 @@
       "image",
       "text"
     ],
-    "keywords": [
-      "Multilingual",
-      "Multimodal",
-      "Multipurpose"
-    ],
     "languages": [
       "en"
     ],
     "output_modalities": [
       "text"
-    ],
-    "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadacentral",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "japanwest",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "switzerlandwest",
-      "uaenorth",
-      "uksouth",
-      "westcentralus",
-      "westeurope",
-      "westus",
-      "westus3"
-    ],
-    "tasks": [
-      "chat-completion",
-      "responses"
     ]
   },
   "sources": [

@@ -22,7 +22,7 @@
         "plan": "growth",
         "promotional": "true"
       },
-      "note": "introductory rate through 9/12"
+      "note": "introductory rate through 2026-09-12"
     },
     {
       "metric": "audio",
@@ -42,13 +42,13 @@
         "plan": "pay-as-you-go",
         "promotional": "true"
       },
-      "note": "introductory rate through 9/12"
+      "note": "introductory rate through 2026-09-12"
     }
   ],
   "attrs": {
     "metered_on": "calculated based on websocket connection time.",
     "product": "voice agent api",
-    "promotion_ends": "9/12"
+    "promotion_ends": "2026-09-12"
   },
   "limits": {
     "max_concurrent_connections_enterprise_australia": 100,

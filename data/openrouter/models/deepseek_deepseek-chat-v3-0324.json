@@ -7,12 +7,6 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.135,
-      "currency": "USD"
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.25,
       "currency": "USD",
       "dims": {
@@ -35,6 +29,17 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.11,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.135,
       "currency": "USD",
       "dims": {
@@ -46,7 +51,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.27,
+      "amount": 0.25,
       "currency": "USD"
     },
     {
@@ -74,6 +79,17 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.29,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.27,
       "currency": "USD",
       "dims": {
@@ -96,7 +112,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.12,
+      "amount": 1,
       "currency": "USD"
     },
     {
@@ -119,6 +135,17 @@
         "endpoint_provider": "DeepInfra",
         "endpoint_tag": "deepinfra/fp4",
         "quantization": "fp4"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.14,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
       }
     },
     {
@@ -159,7 +186,7 @@
   },
   "limits": {
     "context_window": 163840,
-    "max_output_tokens": 65536,
+    "max_output_tokens": 163840,
     "top_provider_context_window": 163840
   },
   "lists": {
@@ -169,12 +196,14 @@
     "endpoint_tags": [
       "crusoe/bf16",
       "deepinfra/fp4",
+      "gmicloud/fp8",
       "novita/fp8",
       "siliconflow/fp8"
     ],
     "endpoints": [
       "Crusoe",
       "DeepInfra",
+      "GMICloud",
       "Novita",
       "SiliconFlow"
     ],
@@ -193,6 +222,7 @@
     "parameters": [
       "frequency_penalty",
       "logit_bias",
+      "logprobs",
       "max_tokens",
       "min_p",
       "presence_penalty",
@@ -205,6 +235,7 @@
       "tool_choice",
       "tools",
       "top_k",
+      "top_logprobs",
       "top_p"
     ],
     "provider_headquarters": [

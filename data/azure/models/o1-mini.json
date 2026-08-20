@@ -2355,10 +2355,6 @@
     "license": "custom",
     "product": "Azure OpenAI",
     "publisher": "OpenAI",
-    "recommended_replacement": "gpt-5.6-sol",
-    "release_date": "2024-12-17",
-    "retirement_date": "2026-10-21",
-    "state": "deprecated",
     "summary": "Smaller, faster, and 80% cheaper than o1-preview, performs well at code generation and small context operations.",
     "training_data_cutoff": "October 2023",
     "version": "1"
@@ -2368,13 +2364,6 @@
     "max_output_tokens": 65536
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
-    ],
     "features": [
       "agents",
       "agents_v2",
@@ -2424,36 +2413,8 @@
     "output_modalities": [
       "text"
     ],
-    "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "uaenorth",
-      "uksouth",
-      "westeurope",
-      "westus",
-      "westus3"
-    ],
     "tasks": [
-      "chat-completion",
-      "responses"
+      "chat-completion"
     ]
   },
   "sources": [

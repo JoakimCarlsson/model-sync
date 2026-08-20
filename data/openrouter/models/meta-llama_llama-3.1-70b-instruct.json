@@ -109,6 +109,9 @@
     "top_provider_context_window": 131072
   },
   "lists": {
+    "categories": [
+      "trivia"
+    ],
     "datacenter_countries": [
       "US"
     ],
@@ -163,6 +166,7 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/meta-llama/llama-3.1-70b-instruct/endpoints",
+    "https://openrouter.ai/api/v1/models?category=trivia",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

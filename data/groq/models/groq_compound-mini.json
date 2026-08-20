@@ -14,30 +14,12 @@
       }
     },
     {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.59,
-      "currency": "USD",
-      "dims": {
-        "underlying_model": "llama-3.3-70b"
-      }
-    },
-    {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.6,
       "currency": "USD",
       "dims": {
         "underlying_model": "gpt-oss-120b"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
-      "amount": 0.79,
-      "currency": "USD",
-      "dims": {
-        "underlying_model": "llama-3.3-70b"
       }
     },
     {
@@ -78,8 +60,11 @@
     }
   ],
   "attrs": {
+    "author": "Groq",
     "is_system": "true",
+    "quantization": "TruePoint Numerics",
     "state": "production",
+    "summary": "Overview, technical specs, use cases, and best practices for the compound mini agentic tool system on Groq.",
     "tokens_per_second": "450"
   },
   "limits": {
@@ -106,6 +91,8 @@
   },
   "notes": [
     "Final pricing depends on which underlying models and tools are used for your specific query.",
+    "Llama 3.3 70B Input: Pending",
+    "Llama 3.3 70B Output: Pending",
     "Wolfram Alpha: Based on your API key from Wolfram, not billed by Groq"
   ],
   "sources": [

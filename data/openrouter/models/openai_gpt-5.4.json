@@ -556,6 +556,9 @@
     "top_provider_context_window": 1050000
   },
   "lists": {
+    "categories": [
+      "science"
+    ],
     "endpoint_tags": [
       "amazon-bedrock/us-east-1",
       "azure",
@@ -611,6 +614,7 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/openai/gpt-5.4-20260305/endpoints",
+    "https://openrouter.ai/api/v1/models?category=science",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

@@ -18,8 +18,13 @@
     }
   ],
   "attrs": {
+    "author": "Meta",
+    "hugging_face_id": "meta-llama/Llama-Prompt-Guard-2-22M",
     "model_card_url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-22M",
-    "state": "preview"
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
+    "state": "preview",
+    "summary": "A specialized classifier model for detecting and preventing prompt attacks in LLM applications, built on Microsoft's DeBERTa architecture."
   },
   "limits": {
     "context_window": 512,

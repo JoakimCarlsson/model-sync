@@ -62,6 +62,7 @@
     "artificial_analysis_intelligence_index": "14.2",
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ling-2.6-flash-20260421",
+    "expiration_date": "2026-08-24",
     "modality": "text->text",
     "release_date": "2026-04-21",
     "summary": "Ling-2.6-flash is an instant (instruct) model from inclusionAI with 104B total parameters and 7.4B active parameters, designed for real-world agents that require fast responses, strong execution, and high token efficiency....",

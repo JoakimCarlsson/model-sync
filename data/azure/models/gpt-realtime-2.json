@@ -1524,10 +1524,6 @@
     "max_output_tokens": 4096
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneStandard",
-      "GlobalStandard"
-    ],
     "input_modalities": [
       "audio",
       "image",
@@ -1565,15 +1561,6 @@
     "output_modalities": [
       "audio",
       "text"
-    ],
-    "regions": [
-      "canadacentral",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "southindia",
-      "swedencentral"
     ],
     "tasks": [
       "audio-generation"

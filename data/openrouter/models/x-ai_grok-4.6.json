@@ -368,7 +368,8 @@
   },
   "lists": {
     "categories": [
-      "legal"
+      "legal",
+      "programming"
     ],
     "endpoint_tags": [
       "xai",
@@ -423,6 +424,7 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/x-ai/grok-4.6-20260810/endpoints",
     "https://openrouter.ai/api/v1/models?category=legal",
+    "https://openrouter.ai/api/v1/models?category=programming",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

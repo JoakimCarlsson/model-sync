@@ -1,7 +1,7 @@
 {
   "id": "fireworks/nemotron-3-ultra-nvfp4",
   "provider": "fireworks",
-  "name": "NVIDIA Nemotron 3 Ultra (Preview)",
+  "name": "NVIDIA Nemotron 3 Ultra NVFP4",
   "kind": "chat",
   "prices": [
     {

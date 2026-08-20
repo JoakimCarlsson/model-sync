@@ -1,7 +1,7 @@
 {
   "id": "fireworks/deepseek-v4-pro",
   "provider": "fireworks",
-  "name": "DeepSeek V4 Pro",
+  "name": "DeepSeek-V4-Pro",
   "kind": "chat",
   "prices": [
     {

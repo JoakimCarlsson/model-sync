@@ -101,7 +101,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.0925,
+      "amount": 0.0988,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Decart",
@@ -218,16 +218,6 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.2,
-      "currency": "USD",
-      "dims": {
-        "endpoint_provider": "Together",
-        "endpoint_tag": "together"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.16,
       "currency": "USD",
       "dims": {
@@ -333,7 +323,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.5684,
+      "amount": 0.5865,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Decart",
@@ -450,16 +440,6 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.2,
-      "currency": "USD",
-      "dims": {
-        "endpoint_provider": "Together",
-        "endpoint_tag": "together"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.75,
       "currency": "USD",
       "dims": {
@@ -565,7 +545,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 3.332,
+      "amount": 2.4696,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "Decart",
@@ -682,16 +662,6 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 4.5,
-      "currency": "USD",
-      "dims": {
-        "endpoint_provider": "Together",
-        "endpoint_tag": "together"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
       "amount": 3.5,
       "currency": "USD",
       "dims": {
@@ -748,7 +718,6 @@
       "sail-research/int4",
       "siliconflow/fp8",
       "streamlake/fp8",
-      "together",
       "venice/int4"
     ],
     "endpoints": [
@@ -771,7 +740,6 @@
       "Sail Research",
       "SiliconFlow",
       "StreamLake",
-      "Together",
       "Venice"
     ],
     "features": [

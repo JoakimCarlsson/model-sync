@@ -1609,13 +1609,7 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
+      "GlobalStandard"
     ],
     "endpoints": [
       "Chat Completions",

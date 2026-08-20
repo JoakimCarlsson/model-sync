@@ -111,6 +111,7 @@
     "artificial_analysis_intelligence_index": "14.5",
     "author": "nvidia",
     "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b",
+    "expiration_date": "2026-08-24",
     "hugging_face_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
     "is_free": "true",
     "modality": "text->text",

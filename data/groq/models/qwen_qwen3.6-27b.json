@@ -18,13 +18,19 @@
     }
   ],
   "attrs": {
+    "author": "Alibaba Cloud",
+    "hugging_face_id": "Qwen/Qwen3.6-27B",
     "max_file_size": "20 MB",
     "model_card_url": "https://huggingface.co/Qwen/Qwen3.6-27B",
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
     "state": "preview",
+    "summary": "Model card for Qwen3.6-27B: a 27B multimodal (vision + text) model with thinking and non-thinking modes, flagship-level agentic coding, tool use, and near-instant responses on Groq.",
     "tokens_per_second": "500"
   },
   "limits": {
     "context_window": 131072,
+    "max_input_images": 3,
     "max_output_tokens": 16384,
     "requests_per_minute": 1000,
     "tokens_per_minute": 250000

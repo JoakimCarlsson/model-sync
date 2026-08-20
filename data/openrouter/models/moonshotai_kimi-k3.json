@@ -66,6 +66,16 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
+      "amount": 0.33,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/us"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
       "amount": 0.3,
       "currency": "USD",
       "dims": {
@@ -205,6 +215,16 @@
       "dims": {
         "endpoint_provider": "Fireworks",
         "endpoint_tag": "fireworks"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3.3,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/us"
       }
     },
     {
@@ -354,6 +374,16 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 16.5,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/us"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 15,
       "currency": "USD",
       "dims": {
@@ -474,6 +504,7 @@
       "deepinfra/bf16",
       "digitalocean",
       "fireworks",
+      "fireworks/us",
       "modal/mxfp4",
       "moonshotai/mxfp4",
       "morph/fast",

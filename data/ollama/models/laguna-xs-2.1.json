@@ -5,7 +5,7 @@
   "attrs": {
     "architecture": "laguna",
     "default_snapshot": "laguna-xs-2.1:latest",
-    "last_updated": "2026-07-25",
+    "last_updated": "2026-08-19",
     "license": "OpenMDW License Agreement, version 1.1 (OpenMDW-1.1)",
     "open_weights": "true",
     "parameter_count": "33.4B",

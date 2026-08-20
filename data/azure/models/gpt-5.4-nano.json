@@ -2830,12 +2830,8 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
       "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged"
+      "GlobalStandard"
     ],
     "endpoints": [
       "Chat Completions",
@@ -2879,7 +2875,6 @@
       "germanywestcentral",
       "italynorth",
       "japaneast",
-      "japanwest",
       "koreacentral",
       "northcentralus",
       "northeurope",

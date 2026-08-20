@@ -1,7 +1,7 @@
 {
   "id": "fireworks/gpt-oss-20b",
   "provider": "fireworks",
-  "name": "OpenAI GPT OSS 20B",
+  "name": "OpenAI gpt-oss-20b",
   "kind": "chat",
   "prices": [
     {

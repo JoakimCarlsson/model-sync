@@ -8851,7 +8851,7 @@
     "publisher": "OpenAI",
     "release_date": "2025-04-14",
     "retirement_date": "2027-04-14",
-    "state": "deprecated",
+    "state": "legacy",
     "summary": "gpt-4.1-mini outperform gpt-4o-mini across the board, with major gains in coding, instruction following, and long-context handling",
     "training_data_cutoff": "May 31, 2024",
     "version": "2025-04-14"

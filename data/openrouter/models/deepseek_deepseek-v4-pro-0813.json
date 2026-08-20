@@ -7,7 +7,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.022,
+      "amount": 0.0396,
       "currency": "USD"
     },
     {
@@ -56,7 +56,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.022,
+      "amount": 0.044,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -139,7 +139,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.66,
+      "amount": 1.188,
       "currency": "USD"
     },
     {
@@ -188,7 +188,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.66,
+      "amount": 1.32,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -271,7 +271,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.98,
+      "amount": 3.564,
       "currency": "USD"
     },
     {
@@ -320,7 +320,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.98,
+      "amount": 3.96,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -419,8 +419,8 @@
   },
   "limits": {
     "context_window": 1048576,
-    "max_output_tokens": 384000,
-    "top_provider_context_window": 1048576
+    "max_output_tokens": 1048576,
+    "top_provider_context_window": 1048575
   },
   "lists": {
     "categories": [

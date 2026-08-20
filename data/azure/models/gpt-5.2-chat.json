@@ -1227,17 +1227,12 @@
     }
   ],
   "attrs": {
-    "author": "OpenAI",
-    "catalog_added_on": "2025-12-11",
     "knowledge_cutoff": "2025-08",
-    "license": "custom",
     "product": "Azure OpenAI GPT5",
-    "publisher": "OpenAI",
     "recommended_replacement": "gpt-chat-latest",
     "release_date": "2026-02-10",
     "retirement_date": "2026-06-29",
     "state": "retired",
-    "summary": "GPT-5.2 is engineered for enterprise agent scenarios—delivering structured, auditable outputs, reliable tool use, and governed integrations.",
     "training_data_cutoff": "August 2025",
     "version": "2026-02-10"
   },
@@ -1246,12 +1241,6 @@
     "max_output_tokens": 16384
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalStandard",
-      "ProvisionedManaged"
-    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
@@ -1270,52 +1259,11 @@
       "image",
       "text"
     ],
-    "keywords": [
-      "Multilingual",
-      "Multimodal",
-      "Multipurpose"
-    ],
     "languages": [
       "en"
     ],
     "output_modalities": [
       "text"
-    ],
-    "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadacentral",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "japanwest",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "switzerlandwest",
-      "uaenorth",
-      "uksouth",
-      "westcentralus",
-      "westeurope",
-      "westus",
-      "westus3"
-    ],
-    "tasks": [
-      "chat-completion",
-      "responses"
     ]
   },
   "sources": [

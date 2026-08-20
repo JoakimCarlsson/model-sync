@@ -713,7 +713,8 @@
       "health",
       "marketing",
       "marketing/seo",
-      "technology"
+      "programming",
+      "science"
     ],
     "endpoint_tags": [
       "amazon-bedrock/us-east-1",
@@ -775,7 +776,8 @@
     "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?category=marketing",
     "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
-    "https://openrouter.ai/api/v1/models?category=technology",
+    "https://openrouter.ai/api/v1/models?category=programming",
+    "https://openrouter.ai/api/v1/models?category=science",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

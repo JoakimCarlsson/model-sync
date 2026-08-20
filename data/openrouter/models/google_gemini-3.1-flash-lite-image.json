@@ -122,7 +122,7 @@
   },
   "limits": {
     "context_window": 65536,
-    "max_output_tokens": 66000,
+    "max_output_tokens": 65536,
     "top_provider_context_window": 65536
   },
   "lists": {

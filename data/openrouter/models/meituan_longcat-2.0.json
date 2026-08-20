@@ -60,7 +60,9 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "22",
     "artificial_analysis_coding_index": "45.3",
+    "artificial_analysis_intelligence_index": "34",
     "author": "meituan",
     "canonical_slug": "meituan/longcat-2.0-20260720",
     "hugging_face_id": "meituan-longcat/LongCat-2.0",

@@ -288,7 +288,6 @@
     "product": "Azure OpenAI Media",
     "publisher": "OpenAI",
     "release_date": "2026-05-07",
-    "retirement_date": "2027-03-02",
     "state": "active",
     "summary": "A new STT (speech to text) model with realtime capability.",
     "training_data_cutoff": "September 2024",
@@ -299,10 +298,6 @@
     "max_output_tokens": 4096
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneStandard",
-      "GlobalStandard"
-    ],
     "input_modalities": [
       "audio",
       "image",
@@ -341,17 +336,7 @@
       "audio",
       "text"
     ],
-    "regions": [
-      "canadacentral",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "southindia",
-      "swedencentral"
-    ],
     "tasks": [
-      "audio-generation",
       "automatic-speech-recognition"
     ]
   },

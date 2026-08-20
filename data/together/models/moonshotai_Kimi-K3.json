@@ -36,7 +36,7 @@
     "summary": "2.8T parameter open-weights MoE model with 1M context and native vision, built for long-horizon coding, agentic knowledge work, and reasoning."
   },
   "limits": {
-    "context_window": 1000000
+    "context_window": 1048576
   },
   "lists": {
     "deployments": [

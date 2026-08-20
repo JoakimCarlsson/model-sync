@@ -12,7 +12,10 @@
     }
   ],
   "attrs": {
-    "state": "preview"
+    "author": "Canopy Labs",
+    "quantization": "TruePoint Numerics",
+    "state": "preview",
+    "summary": "Model card for Orpheus Arabic Saudi: authentic Saudi dialect text-to-speech synthesis with natural pronunciation and regional nuances."
   },
   "limits": {
     "context_window": 4000,

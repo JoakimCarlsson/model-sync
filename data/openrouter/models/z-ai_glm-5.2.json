@@ -61,24 +61,24 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.13624,
-      "currency": "USD",
-      "dims": {
-        "discount": "0.476",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
-        "quantization": "fp8"
-      }
-    },
-    {
-      "metric": "cached_input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.1378,
       "currency": "USD",
       "dims": {
         "discount": "0.47",
         "endpoint_provider": "GMICloud",
         "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.1222,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.53",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -229,6 +229,16 @@
       "dims": {
         "endpoint_provider": "Fireworks",
         "endpoint_tag": "fireworks/fast"
+      }
+    },
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.21,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/fast-us"
       }
     },
     {
@@ -396,24 +406,24 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.7336,
-      "currency": "USD",
-      "dims": {
-        "discount": "0.476",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
-        "quantization": "fp8"
-      }
-    },
-    {
-      "metric": "input_tokens",
-      "unit": "per_1m_tokens",
       "amount": 0.742,
       "currency": "USD",
       "dims": {
         "discount": "0.47",
         "endpoint_provider": "GMICloud",
         "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.658,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.53",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -564,6 +574,16 @@
       "dims": {
         "endpoint_provider": "Fireworks",
         "endpoint_tag": "fireworks/fast"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.1,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/fast-us"
       }
     },
     {
@@ -731,24 +751,24 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 2.3056,
-      "currency": "USD",
-      "dims": {
-        "discount": "0.476",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
-        "quantization": "fp8"
-      }
-    },
-    {
-      "metric": "output_tokens",
-      "unit": "per_1m_tokens",
       "amount": 2.332,
       "currency": "USD",
       "dims": {
         "discount": "0.47",
         "endpoint_provider": "GMICloud",
         "endpoint_tag": "gmicloud/fp8",
+        "quantization": "fp8"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 2.068,
+      "currency": "USD",
+      "dims": {
+        "discount": "0.53",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -904,6 +924,16 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
+      "amount": 6.6,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Fireworks",
+        "endpoint_tag": "fireworks/fast-us"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
       "amount": 4.4,
       "currency": "USD",
       "dims": {
@@ -1044,6 +1074,7 @@
       "roleplay",
       "science",
       "technology",
+      "translation",
       "trivia"
     ],
     "datacenter_countries": [
@@ -1069,6 +1100,7 @@
       "digitalocean",
       "fireworks",
       "fireworks/fast",
+      "fireworks/fast-us",
       "friendli",
       "gmicloud/fp8",
       "inceptron/fp4",
@@ -1176,6 +1208,7 @@
     "https://openrouter.ai/api/v1/models?category=roleplay",
     "https://openrouter.ai/api/v1/models?category=science",
     "https://openrouter.ai/api/v1/models?category=technology",
+    "https://openrouter.ai/api/v1/models?category=translation",
     "https://openrouter.ai/api/v1/models?category=trivia",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"

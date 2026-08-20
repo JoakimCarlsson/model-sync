@@ -712,8 +712,7 @@
   },
   "lists": {
     "categories": [
-      "science",
-      "translation"
+      "science"
     ],
     "endpoint_tags": [
       "google-ai-studio",
@@ -773,7 +772,6 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/google/gemini-3.5-flash-20260519/endpoints",
     "https://openrouter.ai/api/v1/models?category=science",
-    "https://openrouter.ai/api/v1/models?category=translation",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

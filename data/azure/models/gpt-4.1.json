@@ -8563,7 +8563,7 @@
     "publisher": "OpenAI",
     "release_date": "2025-04-14",
     "retirement_date": "2027-04-14",
-    "state": "deprecated",
+    "state": "legacy",
     "summary": "gpt-4.1 outperforms gpt-4o across the board, with major gains in coding, instruction following, and long-context understanding",
     "training_data_cutoff": "May 31, 2024",
     "version": "2025-04-14"

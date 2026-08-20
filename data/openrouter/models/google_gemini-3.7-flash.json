@@ -677,13 +677,16 @@
     "categories": [
       "academia",
       "finance",
+      "health",
+      "legal",
       "marketing",
       "marketing/seo",
       "programming",
       "roleplay",
       "science",
       "technology",
-      "translation"
+      "translation",
+      "trivia"
     ],
     "endpoint_tags": [
       "google-ai-studio",
@@ -742,6 +745,8 @@
     "https://openrouter.ai/api/v1/models/google/gemini-3.7-flash-20260813/endpoints",
     "https://openrouter.ai/api/v1/models?category=academia",
     "https://openrouter.ai/api/v1/models?category=finance",
+    "https://openrouter.ai/api/v1/models?category=health",
+    "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=marketing",
     "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
     "https://openrouter.ai/api/v1/models?category=programming",
@@ -749,6 +754,7 @@
     "https://openrouter.ai/api/v1/models?category=science",
     "https://openrouter.ai/api/v1/models?category=technology",
     "https://openrouter.ai/api/v1/models?category=translation",
+    "https://openrouter.ai/api/v1/models?category=trivia",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

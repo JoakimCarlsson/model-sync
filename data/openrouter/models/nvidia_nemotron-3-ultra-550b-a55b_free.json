@@ -170,8 +170,7 @@
   },
   "lists": {
     "categories": [
-      "programming",
-      "science"
+      "programming"
     ],
     "datacenter_countries": [
       "US"
@@ -236,7 +235,6 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/nvidia/nemotron-3-ultra-550b-a55b-20260604/endpoints",
     "https://openrouter.ai/api/v1/models?category=programming",
-    "https://openrouter.ai/api/v1/models?category=science",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

@@ -12,14 +12,31 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "hugging_face_id": "openai/whisper-large-v3-turbo",
+    "language_support": "99+ languages supported",
     "model_card_url": "https://huggingface.co/openai/whisper-large-v3-turbo",
-    "state": "production"
+    "model_size": "Optimized architecture for speed",
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
+    "state": "production",
+    "summary": "Model page for Whisper Large v3 Turbo: OpenAI's fastest speech recognition model optimized for speed while maintaining high accuracy."
   },
   "limits": {
     "audio_seconds_per_hour": 400000,
     "requests_per_minute": 400
   },
   "lists": {
+    "audio_formats": [
+      "flac",
+      "m4a",
+      "mp3",
+      "mpeg",
+      "mpga",
+      "ogg",
+      "wav",
+      "webm"
+    ],
     "features": [
       "transcription"
     ],

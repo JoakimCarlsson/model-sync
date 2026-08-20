@@ -124,9 +124,6 @@
     "top_provider_context_window": 1000000
   },
   "lists": {
-    "categories": [
-      "programming"
-    ],
     "datacenter_countries": [
       "US"
     ],
@@ -184,7 +181,6 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/nvidia/nemotron-3.5-lightning-20260807/endpoints",
-    "https://openrouter.ai/api/v1/models?category=programming",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

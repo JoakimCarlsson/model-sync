@@ -12,7 +12,10 @@
     }
   ],
   "attrs": {
-    "state": "preview"
+    "author": "Canopy Labs",
+    "quantization": "TruePoint Numerics",
+    "state": "preview",
+    "summary": "Model card for Orpheus V1 English: expressive text-to-speech model with vocal direction controls for dynamic audio output."
   },
   "limits": {
     "context_window": 4000,

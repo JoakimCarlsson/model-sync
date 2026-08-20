@@ -617,6 +617,7 @@
       "finance",
       "health",
       "marketing",
+      "marketing/seo",
       "technology",
       "trivia"
     ],
@@ -686,6 +687,7 @@
     "https://openrouter.ai/api/v1/models?category=finance",
     "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?category=marketing",
+    "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
     "https://openrouter.ai/api/v1/models?category=technology",
     "https://openrouter.ai/api/v1/models?category=trivia",
     "https://openrouter.ai/api/v1/models?output_modalities=all",

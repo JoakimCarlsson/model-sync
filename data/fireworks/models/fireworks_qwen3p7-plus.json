@@ -1,7 +1,7 @@
 {
   "id": "fireworks/qwen3p7-plus",
   "provider": "fireworks",
-  "name": "Qwen 3.7 Plus",
+  "name": "Qwen3.7 Plus",
   "kind": "chat",
   "prices": [
     {

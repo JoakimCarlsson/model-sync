@@ -1312,10 +1312,7 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalStandard",
-      "ProvisionedManaged"
+      "GlobalStandard"
     ],
     "endpoints": [
       "Chat Completions",
@@ -1358,7 +1355,6 @@
       "germanywestcentral",
       "italynorth",
       "japaneast",
-      "japanwest",
       "koreacentral",
       "northcentralus",
       "northeurope",
@@ -1374,13 +1370,11 @@
       "switzerlandwest",
       "uaenorth",
       "uksouth",
-      "westcentralus",
       "westeurope",
       "westus",
       "westus3"
     ],
     "tasks": [
-      "chat-completion",
       "responses"
     ]
   },

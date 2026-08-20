@@ -1,0 +1,82 @@
+{
+  "id": "~z-ai/glm-latest",
+  "provider": "openrouter",
+  "name": "Z.ai: GLM Latest",
+  "kind": "chat",
+  "prices": [
+    {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.26,
+      "currency": "USD"
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 1.4,
+      "currency": "USD"
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 4.4,
+      "currency": "USD"
+    }
+  ],
+  "attrs": {
+    "alias_target": "z-ai/glm-5.3",
+    "author": "~z-ai",
+    "canonical_slug": "~z-ai/glm-latest",
+    "default_temperature": "1",
+    "default_top_p": "0.95",
+    "expiration_date": "2098-12-31",
+    "modality": "text->text",
+    "reasoning_default_effort": "max",
+    "reasoning_default_enabled": "true",
+    "reasoning_mandatory": "true",
+    "release_date": "2026-08-19",
+    "summary": "This model always redirects to the latest GLM model from Z.ai.",
+    "tokenizer": "Router"
+  },
+  "limits": {
+    "context_window": 1048576,
+    "max_output_tokens": 131072,
+    "top_provider_context_window": 1048576
+  },
+  "lists": {
+    "features": [
+      "function_calling",
+      "json_mode",
+      "prompt_caching",
+      "reasoning",
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameters": [
+      "include_reasoning",
+      "max_tokens",
+      "reasoning",
+      "reasoning_effort",
+      "response_format",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "reasoning_efforts": [
+      "high",
+      "low",
+      "max"
+    ]
+  },
+  "sources": [
+    "https://openrouter.ai/api/v1/models/~z-ai/glm-latest/endpoints",
+    "https://openrouter.ai/api/v1/models?output_modalities=all"
+  ]
+}

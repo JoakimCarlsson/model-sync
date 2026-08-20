@@ -18,8 +18,13 @@
     }
   ],
   "attrs": {
+    "author": "Meta",
+    "hugging_face_id": "meta-llama/Llama-Prompt-Guard-2-86M",
     "model_card_url": "https://huggingface.co/meta-llama/Llama-Prompt-Guard-2-86M",
-    "state": "preview"
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
+    "state": "preview",
+    "summary": "A specialized natively multimodal content moderation model for identifying and classifying harmful content, built on Meta's Llama 4 Scout architecture."
   },
   "limits": {
     "context_window": 512,

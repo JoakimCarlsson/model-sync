@@ -3853,13 +3853,10 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
       "DataZoneProvisionedManaged",
       "DataZoneStandard",
-      "GlobalBatch",
       "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
+      "ProvisionedManaged"
     ],
     "endpoints": [
       "Chat Completions",
@@ -3894,7 +3891,6 @@
     "regions": [
       "australiaeast",
       "brazilsouth",
-      "canadacentral",
       "canadaeast",
       "centralus",
       "eastus",
@@ -3903,7 +3899,6 @@
       "germanywestcentral",
       "italynorth",
       "japaneast",
-      "japanwest",
       "koreacentral",
       "northcentralus",
       "norwayeast",
@@ -3915,7 +3910,6 @@
       "spaincentral",
       "swedencentral",
       "switzerlandnorth",
-      "switzerlandwest",
       "uaenorth",
       "uksouth",
       "westeurope",

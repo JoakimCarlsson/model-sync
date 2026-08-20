@@ -25,24 +25,24 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.057855,
+      "amount": 0.0352,
       "currency": "USD",
       "dims": {
-        "discount": "0.601",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.058,
+      "amount": 0.087,
       "currency": "USD",
       "dims": {
-        "discount": "0.6",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.4",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -125,7 +125,7 @@
     {
       "metric": "cached_input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.022,
+      "amount": 0.044,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -226,24 +226,24 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.69426,
+      "amount": 1.056,
       "currency": "USD",
       "dims": {
-        "discount": "0.601",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.696,
+      "amount": 1.044,
       "currency": "USD",
       "dims": {
-        "discount": "0.6",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.4",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -326,7 +326,7 @@
     {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
-      "amount": 0.66,
+      "amount": 1.32,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -427,24 +427,24 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.38852,
+      "amount": 3.168,
       "currency": "USD",
       "dims": {
-        "discount": "0.601",
-        "endpoint_provider": "StreamLake",
-        "endpoint_tag": "streamlake/fp8",
+        "discount": "0.2",
+        "endpoint_provider": "GMICloud",
+        "endpoint_tag": "gmicloud/fp8",
         "quantization": "fp8"
       }
     },
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.392,
+      "amount": 2.088,
       "currency": "USD",
       "dims": {
-        "discount": "0.6",
-        "endpoint_provider": "GMICloud",
-        "endpoint_tag": "gmicloud/fp8",
+        "discount": "0.4",
+        "endpoint_provider": "StreamLake",
+        "endpoint_tag": "streamlake/fp8",
         "quantization": "fp8"
       }
     },
@@ -527,7 +527,7 @@
     {
       "metric": "output_tokens",
       "unit": "per_1m_tokens",
-      "amount": 1.98,
+      "amount": 3.96,
       "currency": "USD",
       "dims": {
         "endpoint_provider": "DeepSeek",
@@ -634,7 +634,6 @@
     "categories": [
       "academia",
       "finance",
-      "health",
       "legal",
       "marketing",
       "marketing/seo",
@@ -744,7 +743,6 @@
     "https://openrouter.ai/api/v1/models/deepseek/deepseek-v4-pro-20260423/endpoints",
     "https://openrouter.ai/api/v1/models?category=academia",
     "https://openrouter.ai/api/v1/models?category=finance",
-    "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=marketing",
     "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",

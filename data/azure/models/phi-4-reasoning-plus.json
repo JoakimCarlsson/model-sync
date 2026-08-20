@@ -271,7 +271,6 @@
     "license": "MIT",
     "product": "Azure Phi Models",
     "publisher": "Microsoft",
-    "state": "active",
     "summary": "State-of-the-art open-weight reasoning model.",
     "version": "1"
   },
@@ -290,8 +289,7 @@
     "keywords": [
       "Large context",
       "Low latency",
-      "Reasoning",
-      "Understanding"
+      "Reasoning"
     ],
     "languages": [
       "ar",

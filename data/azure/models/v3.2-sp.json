@@ -1803,7 +1803,6 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneProvisionedManaged",
       "GlobalStandard"
     ],
     "features": [

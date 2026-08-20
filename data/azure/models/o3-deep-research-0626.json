@@ -958,7 +958,6 @@
     "license": "custom",
     "product": "Azure OpenAI Reasoning",
     "publisher": "OpenAI",
-    "recommended_replacement": "gpt-5.6-sol",
     "release_date": "2025-06-26",
     "retirement_date": "2026-12-26",
     "state": "active",
@@ -972,12 +971,7 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged"
+      "GlobalStandard"
     ],
     "endpoints": [
       "Chat Completions",
@@ -1000,8 +994,6 @@
     "keywords": [
       "Agents",
       "Multilingual",
-      "Multimodal",
-      "Multipurpose",
       "Reasoning"
     ],
     "languages": [
@@ -1037,37 +1029,11 @@
       "text"
     ],
     "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "koreacentral",
-      "northcentralus",
       "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "uaenorth",
-      "uksouth",
-      "westeurope",
-      "westus",
-      "westus3"
+      "westus"
     ],
     "tasks": [
-      "chat-completion",
-      "data-generation",
-      "responses"
+      "data-generation"
     ]
   },
   "sources": [

@@ -21,6 +21,16 @@
       }
     },
     {
+      "metric": "cached_input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.0165,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral/zdr"
+      }
+    },
+    {
       "metric": "input_tokens",
       "unit": "per_1m_tokens",
       "amount": 0.15,
@@ -34,6 +44,16 @@
       "dims": {
         "endpoint_provider": "Mistral",
         "endpoint_tag": "mistral"
+      }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.165,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral/zdr"
       }
     },
     {
@@ -61,6 +81,16 @@
       "dims": {
         "endpoint_provider": "Mistral",
         "endpoint_tag": "mistral"
+      }
+    },
+    {
+      "metric": "output_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 0.66,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral/zdr"
       }
     },
     {
@@ -100,6 +130,7 @@
     ],
     "endpoint_tags": [
       "mistral",
+      "mistral/zdr",
       "venice/fp8"
     ],
     "endpoints": [

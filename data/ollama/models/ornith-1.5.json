@@ -1,0 +1,40 @@
+{
+  "id": "ornith-1.5",
+  "provider": "ollama",
+  "kind": "chat",
+  "attrs": {
+    "architecture": "qwen35",
+    "default_snapshot": "ornith-1.5:9b",
+    "last_updated": "2026-08-19",
+    "open_weights": "true",
+    "parameter_count": "8.95B",
+    "quantization": "Q4_K_M",
+    "summary": "Chirp Chirp! 🐦 We are introducing Ornith-1.5, a major step toward building foundation models through end-to-end self-improvement."
+  },
+  "limits": {
+    "context_window": 256000
+  },
+  "lists": {
+    "features": [
+      "structured_outputs"
+    ],
+    "input_modalities": [
+      "image",
+      "text"
+    ],
+    "output_modalities": [
+      "text"
+    ],
+    "parameter_sizes": [
+      "35b",
+      "397b",
+      "9b"
+    ]
+  },
+  "sources": [
+    "https://docs.ollama.com/capabilities/structured-outputs.md",
+    "https://ollama.com/library",
+    "https://ollama.com/library/ornith-1.5/tags",
+    "https://ollama.com/library/ornith-1.5:9b"
+  ]
+}

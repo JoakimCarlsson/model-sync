@@ -615,6 +615,7 @@
   "lists": {
     "categories": [
       "finance",
+      "health",
       "marketing",
       "marketing/seo",
       "programming",
@@ -683,6 +684,7 @@
   "sources": [
     "https://openrouter.ai/api/v1/models/anthropic/claude-sonnet-5-20260630/endpoints",
     "https://openrouter.ai/api/v1/models?category=finance",
+    "https://openrouter.ai/api/v1/models?category=health",
     "https://openrouter.ai/api/v1/models?category=marketing",
     "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
     "https://openrouter.ai/api/v1/models?category=programming",

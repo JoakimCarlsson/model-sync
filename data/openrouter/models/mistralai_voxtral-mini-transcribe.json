@@ -19,6 +19,16 @@
         "endpoint_provider": "Mistral",
         "endpoint_tag": "mistral"
       }
+    },
+    {
+      "metric": "input_tokens",
+      "unit": "per_1m_tokens",
+      "amount": 3300,
+      "currency": "USD",
+      "dims": {
+        "endpoint_provider": "Mistral",
+        "endpoint_tag": "mistral/zdr"
+      }
     }
   ],
   "attrs": {
@@ -31,7 +41,8 @@
   },
   "lists": {
     "endpoint_tags": [
-      "mistral"
+      "mistral",
+      "mistral/zdr"
     ],
     "endpoints": [
       "Mistral"

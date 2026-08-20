@@ -24,8 +24,12 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
     "model_card_url": "https://openai.com/index/gpt-oss-model-card/",
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
     "state": "production",
+    "summary": "OpenAI's flagship open-weight MoE model with 120B total parameters. Designed for high-capability agentic use.",
     "tokens_per_second": "500"
   },
   "limits": {

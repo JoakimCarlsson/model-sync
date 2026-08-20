@@ -59,6 +59,7 @@
   "attrs": {
     "author": "inclusionai",
     "canonical_slug": "inclusionai/ling-2.6-1t-20260423",
+    "expiration_date": "2026-08-24",
     "modality": "text->text",
     "release_date": "2026-04-23",
     "summary": "Ling-2.6-1T is an instant (instruct) model from inclusionAI and the company’s trillion-parameter flagship, designed for real-world agents that require fast execution and high efficiency at scale.",

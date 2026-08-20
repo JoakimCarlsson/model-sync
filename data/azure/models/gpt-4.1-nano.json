@@ -7086,8 +7086,8 @@
     "product": "Azure OpenAI",
     "publisher": "OpenAI",
     "release_date": "2025-04-14",
-    "retirement_date": "2026-10-14",
-    "state": "deprecated",
+    "retirement_date": "2027-04-14",
+    "state": "legacy",
     "summary": "gpt-4.1-nano provides gains in coding, instruction following, and long-context handling along with lower latency and cost",
     "training_data_cutoff": "May 31, 2024",
     "version": "2025-04-14"

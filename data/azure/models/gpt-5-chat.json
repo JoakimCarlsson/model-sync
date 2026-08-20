@@ -916,15 +916,6 @@
     "max_output_tokens": 16384
   },
   "lists": {
-    "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
-    ],
     "endpoints": [
       "Chat Completions",
       "Responses"
@@ -955,40 +946,8 @@
     "output_modalities": [
       "text"
     ],
-    "regions": [
-      "australiaeast",
-      "brazilsouth",
-      "canadacentral",
-      "canadaeast",
-      "centralus",
-      "eastus",
-      "eastus2",
-      "francecentral",
-      "germanywestcentral",
-      "italynorth",
-      "japaneast",
-      "japanwest",
-      "koreacentral",
-      "northcentralus",
-      "norwayeast",
-      "polandcentral",
-      "southafricanorth",
-      "southcentralus",
-      "southeastasia",
-      "southindia",
-      "spaincentral",
-      "swedencentral",
-      "switzerlandnorth",
-      "switzerlandwest",
-      "uaenorth",
-      "uksouth",
-      "westeurope",
-      "westus",
-      "westus3"
-    ],
     "tasks": [
-      "chat-completion",
-      "responses"
+      "chat-completion"
     ]
   },
   "sources": [

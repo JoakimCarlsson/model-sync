@@ -209,9 +209,6 @@
     "top_provider_context_window": 400000
   },
   "lists": {
-    "categories": [
-      "marketing/seo"
-    ],
     "endpoint_tags": [
       "azure",
       "azure/swedencentral",
@@ -262,7 +259,6 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/openai/gpt-5-nano-2025-08-07/endpoints",
-    "https://openrouter.ai/api/v1/models?category=marketing%2Fseo",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"
   ]

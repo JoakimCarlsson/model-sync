@@ -87,7 +87,9 @@
     }
   ],
   "attrs": {
+    "artificial_analysis_agentic_index": "3.7",
     "artificial_analysis_coding_index": "25.8",
+    "artificial_analysis_intelligence_index": "18.7",
     "author": "arcee-ai",
     "canonical_slug": "arcee-ai/trinity-large-thinking",
     "default_temperature": "0.3",

@@ -1,7 +1,7 @@
 {
   "id": "fireworks/nemotron-lightning-3p5-30b-a3b",
   "provider": "fireworks",
-  "name": "NVIDIA Nemotron 3.5 Lightning 30B A3B",
+  "name": "Nemotron Lightning 3.5 30B A3B",
   "kind": "chat",
   "prices": [
     {

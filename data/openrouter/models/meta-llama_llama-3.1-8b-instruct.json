@@ -171,7 +171,6 @@
   },
   "lists": {
     "categories": [
-      "legal",
       "translation"
     ],
     "datacenter_countries": [
@@ -232,7 +231,6 @@
   },
   "sources": [
     "https://openrouter.ai/api/v1/models/meta-llama/llama-3.1-8b-instruct/endpoints",
-    "https://openrouter.ai/api/v1/models?category=legal",
     "https://openrouter.ai/api/v1/models?category=translation",
     "https://openrouter.ai/api/v1/models?output_modalities=all",
     "https://openrouter.ai/api/v1/providers"

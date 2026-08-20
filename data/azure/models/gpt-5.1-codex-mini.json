@@ -1312,13 +1312,7 @@
   },
   "lists": {
     "deployment_types": [
-      "DataZoneBatch",
-      "DataZoneProvisionedManaged",
-      "DataZoneStandard",
-      "GlobalBatch",
-      "GlobalStandard",
-      "ProvisionedManaged",
-      "Standard"
+      "GlobalStandard"
     ],
     "endpoints": [
       "Chat Completions",
@@ -1382,7 +1376,6 @@
       "westus3"
     ],
     "tasks": [
-      "chat-completion",
       "responses"
     ]
   },

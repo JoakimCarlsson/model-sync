@@ -60,8 +60,11 @@
     }
   ],
   "attrs": {
+    "author": "Groq",
     "is_system": "true",
+    "quantization": "TruePoint Numerics",
     "state": "production",
+    "summary": "Overview, technical specs, use cases, and best practices for the compound agentic tool system on Groq.",
     "tokens_per_second": "450"
   },
   "limits": {

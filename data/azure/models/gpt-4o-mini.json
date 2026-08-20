@@ -878,7 +878,6 @@
     "license": "custom",
     "product": "Azure OpenAI",
     "publisher": "OpenAI",
-    "recommended_replacement": "gpt-5.1",
     "release_date": "2024-07-18",
     "retirement_date": "2027-04-14",
     "state": "deprecated",

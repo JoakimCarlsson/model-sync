@@ -12,15 +12,32 @@
     }
   ],
   "attrs": {
+    "author": "OpenAI",
+    "hugging_face_id": "openai/whisper-large-v3",
+    "language_support": "99+ languages supported",
     "max_file_size": "100 MB",
     "model_card_url": "https://huggingface.co/openai/whisper-large-v3",
-    "state": "production"
+    "model_size": "1550M parameters",
+    "open_weights": "true",
+    "quantization": "TruePoint Numerics",
+    "state": "production",
+    "summary": "Model page for Whisper Large v3: OpenAI's most advanced speech recognition model with exceptional accuracy across diverse audio conditions."
   },
   "limits": {
     "audio_seconds_per_hour": 200000,
     "requests_per_minute": 300
   },
   "lists": {
+    "audio_formats": [
+      "flac",
+      "m4a",
+      "mp3",
+      "mpeg",
+      "mpga",
+      "ogg",
+      "wav",
+      "webm"
+    ],
     "features": [
       "transcription"
     ],
