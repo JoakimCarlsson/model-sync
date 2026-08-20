@@ -111,14 +111,29 @@ func splitFormats(value string) []string {
 }
 
 // kindForModalities reports what a model is from what it takes and returns,
-// which is what a page states for a model the table no longer lists.
+// which is the plainest thing a page states: a model that hears and writes is
+// a transcriber, one that reads and speaks is a speech model, and one that
+// does both converses.
 func kindForModalities(m *catalog.Model) catalog.Kind {
-	for _, key := range []string{ListInputModalities, ListOutputModalities} {
-		for _, value := range m.Lists[key] {
-			if value == "audio" {
-				return KindAudio
-			}
-		}
+	hears := hasModality(m, ListInputModalities, modalityAudio)
+	speaks := hasModality(m, ListOutputModalities, modalityAudio)
+	switch {
+	case hears && speaks:
+		return KindAudio
+	case hears:
+		return KindTranscription
+	case speaks:
+		return KindSpeech
 	}
 	return KindChat
+}
+
+// hasModality reports whether a model names one medium in one of its lists.
+func hasModality(m *catalog.Model, key, medium string) bool {
+	for _, value := range m.Lists[key] {
+		if value == medium {
+			return true
+		}
+	}
+	return false
 }

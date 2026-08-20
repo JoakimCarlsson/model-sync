@@ -179,7 +179,10 @@ func (b *builder) applyEntry(e entry, source string) {
 
 	m.SetLimit(LimitContextWindow, e.ContextLength)
 	m.SetLimit(LimitProviderContext, e.TopProvider.ContextLength)
-	m.SetLimit(LimitMaxOutputTokens, e.TopProvider.MaxCompletionTokens)
+	m.SetLimit(
+		LimitMaxOutputTokens,
+		withinWindow(m, e.TopProvider.MaxCompletionTokens),
+	)
 	applyRequestLimits(m, e.PerRequestLimits)
 
 	addModalities(m, ListInputModalities, e.Architecture.InputModalities)
@@ -414,12 +417,30 @@ func applyOverrides(m *catalog.Model, raw json.RawMessage, dims catalog.Dims) {
 // free and for a charge that does not apply to it, and a catalog full of zero
 // rates for capabilities a model does not have would say something the source
 // does not.
+//
+// A negative rate is not a rate. OpenRouter writes "-1" on its routers, whose
+// cost is whatever the model the request was routed to charges, and scaling
+// that to a denominator yields minus a million dollars per million tokens. It
+// is recorded as a variable rate instead: the metric and the unit are known,
+// the amount is not, and the catalog says so with a null rather than with a
+// sign a consumer would multiply.
 func addRate(m *catalog.Model, key, rate string, dims catalog.Dims) {
 	scaling, known := priceKeys[key]
 	if !known {
 		if !isZeroRate(rate) {
 			m.AddNote("unmapped pricing key " + key + ": " + rate)
 		}
+		return
+	}
+	if isRoutedRate(rate) {
+		m.AddPrice(catalog.Price{
+			Metric:   scaling.metric,
+			Unit:     scaling.unit,
+			Variable: true,
+			Currency: currency,
+			Dims:     scaling.dims.Merge(dims),
+			Note:     routedNote,
+		})
 		return
 	}
 	amount, ok := scaleRate(rate, scaling.factor)
@@ -434,3 +455,7 @@ func addRate(m *catalog.Model, key, rate string, dims catalog.Dims) {
 		Dims:     scaling.dims.Merge(dims),
 	})
 }
+
+// routedNote says what a variable rate on this provider means, since the model
+// carrying it is a router and not a model.
+const routedNote = "routed model; billed at the destination model's rate"

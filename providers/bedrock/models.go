@@ -21,6 +21,7 @@ const (
 	MetricImageInput        catalog.Metric = "image_input"
 	MetricVideoInput        catalog.Metric = "video_input"
 	MetricAudioInput        catalog.Metric = "audio_input"
+	MetricAudioOutput       catalog.Metric = "audio_output"
 	MetricImageOutput       catalog.Metric = "image_output"
 	MetricVideoOutput       catalog.Metric = "video_output"
 	MetricUsage             catalog.Metric = "usage"
@@ -85,6 +86,25 @@ const (
 	// DimCommitment is the term a provisioned rate is bought for, which is
 	// the only thing separating three rates AWS quotes per model unit hour.
 	DimCommitment = "commitment"
+	// DimProfile is the inference profile a rate is billed through. Bedrock
+	// serves the same model in a region and through a global profile that
+	// routes the request to whichever region has capacity, and prices the two
+	// differently: the price list states the second by appending
+	// cross-region-global to the usage type and by leaving the feature field
+	// empty, and states nothing else to tell the pair apart. Without it a
+	// model's in-region and global rates collided into one contradiction per
+	// region, per tier and per token type, which for the Nova 2.0 models was
+	// five hundred of them.
+	DimProfile = "inference_profile"
+	// DimServing is the meter family a rate belongs to. AWS bills some models
+	// through two: the older meters name the model in the usage type the way
+	// the console displays it and state which feature they belong to, and the
+	// newer ones write "mantle" into the usage type, name the API identifier
+	// there and state a service tier in a field of their own. Both are current
+	// and they do not always agree: Qwen3 Next 80B A3B's batch input in Mumbai
+	// is $0.000084 per thousand tokens on one and $0.00009 on the other, and
+	// nothing else in either product tells them apart.
+	DimServing = "serving"
 	// DimMeter names what a rate is charged for where the metric field is
 	// empty, which is how AWS bills everything that is not inference: the
 	// grounding of an answer, an hour of fine-tuning, a month of storing the
@@ -95,6 +115,22 @@ const (
 
 // ContextLong is the band of a rate AWS meters apart for a long prompt.
 const ContextLong = "long"
+
+// ProfileGlobal is the inference profile that routes a request to whichever
+// region can serve it, which the usage type names and no other field does.
+const ProfileGlobal = "global-cross-region"
+
+// profileMarker is what a usage type appends for a rate billed through the
+// global profile.
+const profileMarker = "cross-region-global"
+
+// ServingMantle is the newer of the two meter families, named after the word
+// its usage types carry.
+const ServingMantle = "mantle"
+
+// servingMarker is what a usage type of the newer family writes between the
+// model identifier and what is being counted.
+const servingMarker = "-mantle-"
 
 // Serving paths Bedrock prices separately. The first three are named inside
 // the metric field; the rest come from the feature the product belongs to.
@@ -147,6 +183,13 @@ var serviceTiers = map[string]string{
 // metricWords maps a fragment of AWS's metric field onto what is counted. The
 // order matters: a video token count is an input, so the more specific
 // fragments are checked first.
+//
+// The speech fragments are why the order matters most. The Nova Sonic models
+// are billed four ways in one region on one tier, by whether the tokens were
+// text or speech, and both of AWS's words for it end in "input token": the
+// sonic meters price a text input token at $0.00006 and a speech
+// understanding input token at $0.0034 per thousand. Read as the same metric
+// they became one contradiction per region, fifty-six times over.
 var metricWords = []struct {
 	fragment string
 	metric   catalog.Metric
@@ -156,6 +199,8 @@ var metricWords = []struct {
 	{"input image", MetricImageInput},
 	{"input video", MetricVideoInput},
 	{"input audio", MetricAudioInput},
+	{"speech understanding input", MetricAudioInput},
+	{"speech understanding output", MetricAudioOutput},
 	{"image output", MetricImageOutput},
 	{"output token", MetricOutputTokens},
 	{"input token", MetricInputTokens},
@@ -339,6 +384,8 @@ func (b *builder) applyRate(
 			With(DimCommitment, commitment(a.Feature)).
 			With(DimContext, contextBand(a.TokenType)).
 			With(DimCacheTTL, cacheTTL(a.TokenType)).
+			With(DimProfile, profileFor(a)).
+			With(DimServing, servingFor(a)).
 			With(DimMeter, meterFor(a)).
 			With(DimTask, task).
 			With(DimResolution, imageField(resolutionRe, a.InferenceType, task)).
@@ -584,8 +631,35 @@ func tierFor(a attributes) string {
 			return entry.tier
 		}
 	}
+	if usage := strings.ToLower(a.UsageType); feature == "" {
+		for word, tier := range tierWords {
+			if strings.HasSuffix(usage, "-"+word) {
+				return tier
+			}
+		}
+	}
 	if field == "" && feature == "" {
 		return serviceTiers[strings.ToLower(a.ServiceTier)]
+	}
+	return ""
+}
+
+// servingFor names the meter family a rate comes from, and names only the
+// newer one: a rate carrying no marker is the older meter, which is the shape
+// every model that has one meter family is billed through.
+func servingFor(a attributes) string {
+	if strings.Contains(strings.ToLower(a.UsageType), servingMarker) {
+		return ServingMantle
+	}
+	return ""
+}
+
+// profileFor names the inference profile a rate is billed through, and names
+// it only for the global one: a rate the price list does not mark is the rate
+// of the region it is quoted in.
+func profileFor(a attributes) string {
+	if strings.Contains(strings.ToLower(a.UsageType), profileMarker) {
+		return ProfileGlobal
 	}
 	return ""
 }

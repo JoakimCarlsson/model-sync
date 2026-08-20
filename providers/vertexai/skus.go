@@ -62,6 +62,16 @@ const (
 	DimModality   = "modality"
 	DimContext    = "context"
 	DimStage      = "stage"
+	// DimSKU names the billing SKU a rate came from, and is recorded only
+	// where the catalog publishes two SKUs for one rate at two amounts. Vertex
+	// meters cached audio input on Gemini 2.5 Flash under two SKUs whose
+	// descriptions differ by a trailing space, 3AA6-31A2-348D at $0.25 per
+	// million tokens and 58FF-366C-9ED0 at $0.10, and states nothing else that
+	// tells them apart: same region, same usage type, same effective date.
+	// Neither can be dropped without dropping a rate Google charges, so both
+	// are kept under the identifier a bill cites them by, in the lower case
+	// every dimension value is written in.
+	DimSKU = "sku"
 )
 
 // Serving paths Vertex prices separately.
@@ -70,6 +80,14 @@ const (
 	TierPriority = "priority"
 	TierFlex     = "flex"
 	TierBatch    = "batch"
+	// TierOffPeak is the path Google added for requests it may serve when it
+	// has capacity to spare. Its meters name it two ways, "Off-Peak" and
+	// "- Off-Peak Predictions", and until it was read as a tier the words
+	// stayed in the model: the catalog carried a Gemini 3.5 Flash Off-Peak and
+	// a Gemini 3.5 Flash Off-Peak Predictions beside Gemini 3.5 Flash, neither
+	// of which Vertex serves, each holding the off-peak rates of the model it
+	// was named after.
+	TierOffPeak = "off-peak"
 )
 
 // AttrAuthor records the lab that made a resold open model.
@@ -134,6 +152,7 @@ var tierWords = []word{
 	{"priority", TierPriority},
 	{"flex", TierFlex},
 	{"batch", TierBatch},
+	{"off-peak", TierOffPeak},
 }
 
 // modalities are the kinds of input priced separately on one model.
@@ -159,7 +178,7 @@ var stages = []word{
 }
 
 // noise are words that say nothing about what a rate is for.
-var noise = []string{"prompts", "prompt", "tuned models"}
+var noise = []string{"prompts", "prompt", "tuned models", "predictions", "-"}
 
 // longContextRe matches the suffix marking the long context rate, which is the
 // same model above a prompt threshold rather than a model of its own.

@@ -720,6 +720,7 @@ func applyAccess(m *catalog.Model, t table) {
 				for _, id := range identifiers(value) {
 					m.AddList(ListAliases, id)
 					m.SetAttr(AttrModelID, id)
+					m.SetAttr(catalog.APIID, id)
 				}
 			case headingGeoProfile:
 				m.AddList(ListProfiles, identifiers(value)...)

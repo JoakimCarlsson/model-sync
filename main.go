@@ -21,6 +21,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/elevenlabs"
 	"github.com/joakimcarlsson/model-sync/providers/fireworks"
 	"github.com/joakimcarlsson/model-sync/providers/google"
+	"github.com/joakimcarlsson/model-sync/providers/googlecloud"
 	"github.com/joakimcarlsson/model-sync/providers/groq"
 	"github.com/joakimcarlsson/model-sync/providers/mistral"
 	"github.com/joakimcarlsson/model-sync/providers/ollama"
@@ -32,6 +33,7 @@ import (
 	"github.com/joakimcarlsson/model-sync/providers/voyage"
 	"github.com/joakimcarlsson/model-sync/providers/xai"
 	"github.com/joakimcarlsson/model-sync/store"
+	"github.com/joakimcarlsson/model-sync/validate"
 )
 
 func main() {
@@ -65,7 +67,7 @@ func main() {
 // A named provider syncs alone, and naming one that does not exist syncs
 // nothing and rebuilds the aggregate. That the aggregate comes from the tree is
 // what makes both useful: reviewing a change to one parser means reading the
-// diff of that parser's models, and a run that refetched the other twenty-one
+// diff of that parser's models, and a run that refetched the other twenty-two
 // would bury it under whatever those vendors had changed in the meantime.
 //
 // The time budget covers the whole run, and a full run fetches something over
@@ -75,7 +77,7 @@ func main() {
 // single provider needs a small fraction of it.
 //
 // A source that fails is reported and the rest still sync. One vendor moving a
-// page must not stop the other twenty-one from refreshing, and a source that
+// page must not stop the other twenty-two from refreshing, and a source that
 // parsed nothing writes nothing, so its files stay as they were and the
 // aggregate is rebuilt with its previous models still in it. The failures are
 // returned at the end, so a run that lost a provider still exits non-zero rather
@@ -102,6 +104,7 @@ func run(data, api, only string, timeout time.Duration) error {
 	elevenlabsSource := elevenlabs.New()
 	fireworksSource := fireworks.New()
 	googleSource := google.New()
+	googlecloudSource := googlecloud.New()
 	groqSource := groq.New()
 	sources := []catalog.Source{
 		assemblyaiSource,
@@ -115,6 +118,7 @@ func run(data, api, only string, timeout time.Duration) error {
 		elevenlabsSource,
 		fireworksSource,
 		googleSource,
+		googlecloudSource,
 		groqSource,
 		perplexitySource,
 		mistralSource,
@@ -148,7 +152,7 @@ func run(data, api, only string, timeout time.Duration) error {
 	if err != nil {
 		return errors.Join(append(failures, err)...)
 	}
-	if err := store.WriteAggregate(api, cat); err != nil {
+	if err := publish(api, cat); err != nil {
 		return errors.Join(append(failures, err)...)
 	}
 	fmt.Fprintf(
@@ -159,6 +163,42 @@ func run(data, api, only string, timeout time.Duration) error {
 		cat.Count(),
 	)
 	return errors.Join(failures...)
+}
+
+// publish validates the assembled catalog and writes the aggregate.
+//
+// The rules are checked here rather than as each provider is parsed, because
+// what they catch is a disagreement: between two documents one vendor
+// publishes, or between two vendors describing the same thing in different
+// words. Neither is visible from inside one parser.
+//
+// An error refuses to write. The aggregate is what consumers read, and a
+// figure no request can ask for or a cost that comes out negative is worse for
+// them than yesterday's file, which is what they keep if this fails. A warning
+// is printed and published, since it marks something missing rather than
+// something wrong.
+func publish(api string, cat *catalog.Catalog) error {
+	problems := validate.Catalog(cat)
+	for _, problem := range problems {
+		fmt.Fprintln(os.Stderr, "model-sync:", problem)
+	}
+	if validate.Errors(problems) {
+		return fmt.Errorf(
+			"%s not written, %d problems: %s",
+			api,
+			len(problems),
+			validate.Summary(problems),
+		)
+	}
+	if len(problems) > 0 {
+		fmt.Fprintf(
+			os.Stderr,
+			"model-sync: %d warnings: %s\n",
+			len(problems),
+			validate.Summary(problems),
+		)
+	}
+	return store.WriteAggregate(api, cat)
 }
 
 // sync fetches and parses one source and writes its models to the tree. A

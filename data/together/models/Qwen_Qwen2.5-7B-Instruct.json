@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen2.5-7B-Instruct","provider":"together","attrs":{"api_id":"Qwen/Qwen2.5-7B-Instruct","dedicated_hardware":"1xnvidia-h100-80gb","retirement_date":"2026-07-29","state":"retired"},"lists":{"deployments":["Dedicated"]},"sources":["https://docs.together.ai/docs/changelog.md","https://docs.together.ai/docs/dedicated-endpoints/models.md"]}

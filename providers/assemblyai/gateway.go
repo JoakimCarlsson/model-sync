@@ -196,6 +196,7 @@ func (b *builder) gatewayModel(
 	m := b.model(id, KindChat)
 	m.AddSource(source)
 	m.SetAttr(AttrAPIIdentifier, id)
+	m.SetAttr(catalog.APIID, id)
 	return m, true
 }
 

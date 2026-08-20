@@ -39,10 +39,17 @@ const (
 
 // Kinds of model OpenAI publishes.
 const (
-	KindChat          catalog.Kind = "chat"
-	KindImage         catalog.Kind = "image"
-	KindVideo         catalog.Kind = "video"
+	KindChat  catalog.Kind = "chat"
+	KindImage catalog.Kind = "image"
+	KindVideo catalog.Kind = "video"
+	// KindAudio is a model that holds a conversation in sound over the chat
+	// route, and KindSpeech one that reads text out. Both work on audio and
+	// neither is the other: a caller wanting a spoken sentence back from a
+	// string calls the speech route, and asking gpt-audio for one means
+	// holding a conversation. They were one kind, which left OpenAI with no
+	// model under the kind its three text to speech models belong to.
 	KindAudio         catalog.Kind = "audio"
+	KindSpeech        catalog.Kind = "speech"
 	KindRealtime      catalog.Kind = "realtime"
 	KindTranscription catalog.Kind = "transcription"
 	KindEmbedding     catalog.Kind = "embedding"

@@ -91,6 +91,7 @@ func (b *builder) applyTagListing(doc catalog.Document) {
 	}
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrDefaultSnapsh, row[1])
+	m.SetAttr(catalog.APIID, row[1])
 	if date := updatedDate(doc.Body); date != "" {
 		m.SetAttr(AttrLastUpdated, date)
 	}

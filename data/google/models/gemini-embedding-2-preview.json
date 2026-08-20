@@ -1,0 +1,1 @@
+{"id":"gemini-embedding-2-preview","provider":"google","name":"Gemini Embedding 2","kind":"embedding","attrs":{"api_id":"gemini-embedding-2-preview"},"sources":["https://ai.google.dev/gemini-api/docs/models"]}

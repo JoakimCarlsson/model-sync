@@ -2,9 +2,11 @@ package catalog
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"maps"
 	"slices"
+	"strconv"
 	"strings"
 )
 
@@ -64,9 +66,65 @@ type Price struct {
 	Amount   float64 `json:"amount"`
 	Currency string  `json:"currency,omitempty"`
 	Dims     Dims    `json:"dims,omitempty"`
+	// Variable marks a rate that exists but has no number: a router that bills
+	// at whatever the model it routed to charges. It serializes as a null
+	// amount, so a consumer reads "priced, but not as a number" from the field
+	// it already reads the number from, and never from the sign of one.
+	Variable bool `json:"variable,omitempty"`
 	// Note carries pricing text that does not reduce to the amount, such as a
 	// free allowance or a rider billed separately.
 	Note string `json:"note,omitempty"`
+}
+
+// priceJSON is the wire form. Amount is a pointer only here, so that a
+// variable rate can be written as null without every parser in the repository
+// having to take the address of a float.
+type priceJSON struct {
+	Metric   Metric   `json:"metric"`
+	Unit     Unit     `json:"unit,omitempty"`
+	Amount   *float64 `json:"amount"`
+	Variable bool     `json:"variable,omitempty"`
+	Currency string   `json:"currency,omitempty"`
+	Dims     Dims     `json:"dims,omitempty"`
+	Note     string   `json:"note,omitempty"`
+}
+
+// MarshalJSON writes a variable rate with a null amount.
+func (p Price) MarshalJSON() ([]byte, error) {
+	out := priceJSON{
+		Metric:   p.Metric,
+		Unit:     p.Unit,
+		Amount:   &p.Amount,
+		Variable: p.Variable,
+		Currency: p.Currency,
+		Dims:     p.Dims,
+		Note:     p.Note,
+	}
+	if p.Variable {
+		out.Amount = nil
+	}
+	return json.Marshal(out)
+}
+
+// UnmarshalJSON reads a null amount back as a variable rate, so a round trip
+// through the tree does not turn one into a zero rate.
+func (p *Price) UnmarshalJSON(body []byte) error {
+	var in priceJSON
+	if err := json.Unmarshal(body, &in); err != nil {
+		return err
+	}
+	*p = Price{
+		Metric:   in.Metric,
+		Unit:     in.Unit,
+		Currency: in.Currency,
+		Dims:     in.Dims,
+		Variable: in.Variable || in.Amount == nil,
+		Note:     in.Note,
+	}
+	if in.Amount != nil {
+		p.Amount = *in.Amount
+	}
+	return nil
 }
 
 func (p Price) key() string {
@@ -99,13 +157,18 @@ type Model struct {
 }
 
 // AddPrice appends a price, dropping it only when an identical tuple with an
-// identical amount and note is already present. Two rates sharing a tuple but
-// differing in amount are both kept, so a contradiction between two documents
-// survives into the output instead of being silently resolved here.
+// identical amount and note is already present.
+//
+// Two rates sharing a tuple but differing in amount are both kept here, and
+// the build then refuses to publish the model: a consumer picking between them
+// picks arbitrarily, so the contradiction has to be resolved by the parser
+// that produced it, either by adding the dimension that tells them apart or by
+// reading only one of the two documents. Resolving it here would pick
+// arbitrarily too, and quietly.
 func (m *Model) AddPrice(p Price) {
 	for _, existing := range m.Prices {
 		if existing.key() == p.key() && existing.Amount == p.Amount &&
-			existing.Note == p.Note {
+			existing.Variable == p.Variable && existing.Note == p.Note {
 			return
 		}
 	}
@@ -178,12 +241,60 @@ func (m *Model) AddSource(src string) {
 // that did not change.
 func SortModels(models []Model) {
 	for i := range models {
-		models[i].Sort()
+		models[i].Normalize()
 	}
 	slices.SortStableFunc(models, func(a, b Model) int {
 		return strings.Compare(a.ID, b.ID)
 	})
 }
+
+// Normalize brings one model to the form the catalog publishes: dimension
+// values lowercased, an API identifier present, and everything ordered.
+//
+// Casing is normalized here rather than in each parser because a dimension
+// value is a key a consumer matches on, and one provider writing modality
+// "Image" where twenty write "image" makes that match fail. Values that read
+// as prose, such as a size band, lose their capital letter, which costs a
+// display string the data was not being used for.
+func (m *Model) Normalize() {
+	for _, p := range m.Prices {
+		for k, v := range p.Dims {
+			p.Dims[k] = strings.ToLower(v)
+		}
+	}
+	m.dedupePrices()
+	if m.Attrs[APIID] == "" && m.ID != "" {
+		m.SetAttr(APIID, m.ID)
+	}
+	m.Sort()
+}
+
+// dedupePrices drops a rate that says exactly what another already says.
+//
+// AddPrice already refuses one, and this runs anyway because lowercasing can
+// create one: a provider writing modality "Image" against one rate and "image"
+// against the same rate was stating one thing twice in two spellings, and
+// they only become the same tuple here.
+func (m *Model) dedupePrices() {
+	seen := make(map[string]bool, len(m.Prices))
+	kept := m.Prices[:0]
+	for _, p := range m.Prices {
+		key := p.key() + "|" + strconv.FormatFloat(p.Amount, 'g', -1, 64) +
+			"|" + strconv.FormatBool(p.Variable) + "|" + p.Note
+		if seen[key] {
+			continue
+		}
+		seen[key] = true
+		kept = append(kept, p)
+	}
+	m.Prices = kept
+}
+
+// APIID names the attribute holding the exact string to send as the model in
+// an API request. Every model carries it, equal to the identifier it is listed
+// under wherever the two coincide, so a consumer never needs a per-provider
+// rule for which of model_path, model_id or api_identifier to read.
+const APIID = "api_id"
 
 // Sort orders one model's prices, notes, sources and enumerations.
 func (m *Model) Sort() {

@@ -35,10 +35,13 @@ const (
 	paramResolution       = "resolution"
 	paramImageSize        = "imagesize"
 	featureAudio          = "audio"
-	featureInputs         = "input modalities"
-	featureFrameRate      = "frame rate"
-	featureVideosPer      = "videos per request"
-	featureStatus         = "status"
+	// modalityAudio is the catalog's word for sound, which is also the word
+	// the guides name the feature with.
+	modalityAudio    = "audio"
+	featureInputs    = "input modalities"
+	featureFrameRate = "frame rate"
+	featureVideosPer = "videos per request"
+	featureStatus    = "status"
 	// headParameter is what the comparison of request parameters heads its
 	// first column with, and what tells it from the comparison of the output,
 	// whose rows name a property rather than something a caller may send.

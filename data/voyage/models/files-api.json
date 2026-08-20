@@ -1,1 +1,1 @@
-{"id":"files-api","provider":"voyage","name":"Files API","kind":"tool","prices":[{"metric":"storage","unit":"per_gb_month","amount":0.05,"currency":"USD"}],"limits":{"file_retention_days":30},"sources":["https://docs.voyageai.com/docs/pricing.md"]}
+{"id":"files-api","provider":"voyage","name":"Files API","kind":"tool","prices":[{"metric":"storage","unit":"per_gb_month","amount":0.05,"currency":"USD"}],"attrs":{"api_id":"files-api"},"limits":{"file_retention_days":30},"sources":["https://docs.voyageai.com/docs/pricing.md"]}

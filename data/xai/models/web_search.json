@@ -1,1 +1,1 @@
-{"id":"web_search","provider":"xai","name":"Web Search","kind":"tool","prices":[{"metric":"tool_call","unit":"per_1k_calls","amount":5,"currency":"USD"}],"attrs":{"summary":"Search the internet and browse web pages"},"sources":["https://docs.x.ai/developers/pricing.md"]}
+{"id":"web_search","provider":"xai","name":"Web Search","kind":"tool","prices":[{"metric":"tool_call","unit":"per_1k_calls","amount":5,"currency":"USD"}],"attrs":{"api_id":"web_search","summary":"Search the internet and browse web pages"},"sources":["https://docs.x.ai/developers/pricing.md"]}

@@ -30,6 +30,7 @@ const (
 const (
 	UnitPer1MTokens   catalog.Unit = "per_1m_tokens"
 	UnitPerSecond     catalog.Unit = "per_second"
+	UnitPerMinute     catalog.Unit = "per_minute"
 	UnitPerImage      catalog.Unit = "per_image"
 	UnitPerRequest    catalog.Unit = "per_request"
 	UnitPer1KRequests catalog.Unit = "per_1k_requests"
@@ -220,6 +221,8 @@ var cellUnits = []struct {
 	{"per image", UnitPerImage},
 	{"per second", UnitPerSecond},
 	{"per frame", UnitPerFrame},
+	{"/min", UnitPerMinute},
+	{"per minute", UnitPerMinute},
 }
 
 // storageMarker is how Google says an amount buys storage rather than a read.
@@ -670,9 +673,41 @@ type rate struct {
 	note   string
 }
 
-// qualifierRe matches the parenthesis Google puts after an amount to say which
-// output size it buys, as in "$0.40 (720p and 1080p) $0.60 (4k)".
-var qualifierRe = regexp.MustCompile(`^\s*\(([^)]*)\)`)
+var (
+	// qualifierRe matches the parenthesis Google puts after an amount to say
+	// what that amount buys, as in "$0.40 (720p and 1080p) $0.60 (4k)" and
+	// "$3.00 or $0.005/min (audio)". It is not anchored, because the clause
+	// stating the denominator comes between the amount and the parenthesis on
+	// the models billed by the minute.
+	qualifierRe = regexp.MustCompile(`\(([^)]*)\)`)
+	// imageSizeRe matches the size an amount buys where Google states it as
+	// the denominator rather than in a parenthesis: "$0.045 per 0.5K image",
+	// "$0.24 per 4K image", "$0.134 per 1K/2K image". Read as the column's
+	// per-million-token rate these were four amounts for one thing, since the
+	// size they differ by was in the words the column heading overrode.
+	imageSizeRe = regexp.MustCompile(
+		`(?i)per\s+([\d.]+k(?:\s*/\s*[\d.]+k)*)\s+image`,
+	)
+	// alternativeRe matches what Google writes between two ways of quoting one
+	// rate: "$3.00 or $0.005/min (audio)" is one rate per million tokens and
+	// the same rate per minute, and the parenthesis after the second qualifies
+	// both.
+	alternativeRe = regexp.MustCompile(`(?i)^\s*,?\s*or\s*$`)
+)
+
+// modalityWords are the media a parenthesis can name. A parenthesis naming
+// only these says which medium an amount is charged for; one naming anything
+// else says what size of picture it buys.
+var modalityWords = map[string]bool{
+	"text":     true,
+	"image":    true,
+	"images":   true,
+	"audio":    true,
+	"video":    true,
+	"thinking": true,
+	"and":      true,
+	"or":       true,
+}
 
 // parseRates reads every amount in a cell along with the clause qualifying it,
 // which runs from that amount to the next one.
@@ -691,6 +726,7 @@ func parseRates(cell string) []rate {
 	locations := amountRe.FindAllStringSubmatchIndex(cell, -1)
 	note := noteOf(cell)
 	out := make([]rate, 0, len(locations))
+	tails := make([]string, 0, len(locations))
 	for i, at := range locations {
 		value, err := strconv.ParseFloat(
 			strings.ReplaceAll(cell[at[2]:at[3]], ",", ""),
@@ -703,10 +739,13 @@ func parseRates(cell string) []rate {
 		if i+1 < len(locations) {
 			end = locations[i+1][0]
 		}
-		r := qualify(cell[at[1]:end])
+		tail := cell[at[1]:end]
+		r := qualify(tail)
 		r.amount, r.note = value, note
 		out = append(out, r)
+		tails = append(tails, tail)
 	}
+	shareAlternatives(out, tails)
 	return out
 }
 
@@ -715,6 +754,10 @@ func parseRates(cell string) []rate {
 func qualify(tail string) rate {
 	r := rate{dims: catalog.Dims{}}
 	if match := qualifierRe.FindStringSubmatch(tail); match != nil {
+		r.dims = r.dims.With(qualifierKey(match[1]), slugID(match[1]))
+	}
+	if match := imageSizeRe.FindStringSubmatch(tail); match != nil {
+		r.unit = UnitPerImage
 		r.dims = r.dims.With(DimResolution, slugID(match[1]))
 	}
 	if match := bandRe.FindStringSubmatch(tail); match != nil {
@@ -741,6 +784,43 @@ func qualify(tail string) rate {
 		}
 	}
 	return r
+}
+
+// qualifierKey says which dimension a parenthesis states. Google writes the
+// medium and the picture size in the same place: "(audio)" and "(text and
+// thinking)" name what is being charged for, "(720p and 1080p)" and "(4k)" how
+// large the result is.
+func qualifierKey(content string) string {
+	for _, word := range strings.FieldsFunc(
+		strings.ToLower(content),
+		func(r rune) bool { return r < 'a' || r > 'z' },
+	) {
+		if !modalityWords[word] {
+			return DimResolution
+		}
+	}
+	return DimModality
+}
+
+// shareAlternatives copies a qualifier back onto the amounts it also applies
+// to.
+//
+// Google quotes one rate two ways and qualifies it once: "$3.00 or $0.005/min
+// (audio)" is three dollars a million tokens or half a cent a minute, both for
+// audio, and only the second carries the word saying so. Read apart, the first
+// was an unqualified rate, and the model's text, audio and video rates then
+// collided into one contradiction with four amounts in it.
+func shareAlternatives(rates []rate, tails []string) {
+	for i := len(rates) - 2; i >= 0; i-- {
+		if !alternativeRe.MatchString(tails[i]) {
+			continue
+		}
+		for key, value := range rates[i+1].dims {
+			if key == DimResolution || key == DimModality {
+				rates[i].dims = rates[i].dims.With(key, value)
+			}
+		}
+	}
 }
 
 // noteOf keeps the allowance a cell states ahead of its amount, which is where

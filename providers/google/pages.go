@@ -23,6 +23,16 @@ const (
 const (
 	LimitContextWindow   = "context_window"
 	LimitMaxOutputTokens = "max_output_tokens"
+	// LimitMaxAudioOutputTokens is the ceiling on what a speech model
+	// generates, which Google heads "Output token limit" in the same table it
+	// heads the input bound with, though the two count different things. A
+	// speech model's input is text and its output is audio, and an audio token
+	// is a slice of sound rather than a word: the 16,384 the tts models state
+	// is not a length a text response could reach, and it stands above the
+	// 8,192 token window that carries the prompt. Recording it as
+	// max_output_tokens made every one of them publish a ceiling no request
+	// could ask for.
+	LimitMaxAudioOutputTokens = "max_audio_output_tokens"
 )
 
 // Enumeration keys the model pages populate.

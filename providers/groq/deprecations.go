@@ -71,7 +71,7 @@ func (b *builder) applyDeprecationTable(
 		if id == "" {
 			continue
 		}
-		m := b.model(id, "")
+		m := b.model(id, kindForName(id))
 		m.AddSource(source)
 		m.SetAttr(AttrState, StateDeprecated)
 		m.SetAttr(AttrRetirementDate, parseShortDate(cellAt(row, dateCol)))
@@ -79,6 +79,25 @@ func (b *builder) applyDeprecationTable(
 		m.SetAttr(AttrReplacement, clean(cellAt(row, replaceCol)))
 		m.AddNote(applies)
 	}
+}
+
+// kindForName reports what a withdrawn model was, where its identifier says
+// so and nothing else does.
+//
+// The deprecation page is the only document naming these models and it states
+// nothing about them beyond the day they stopped answering, so most keep no
+// kind at all rather than being guessed at as chat models. The two words Groq
+// puts in an identifier that do say what the model did are its own: a model
+// named tts read text out and one named whisper wrote speech down.
+func kindForName(id string) catalog.Kind {
+	lower := strings.ToLower(id)
+	switch {
+	case strings.Contains(lower, "tts"):
+		return KindSpeech
+	case strings.Contains(lower, "whisper"):
+		return KindTranscription
+	}
+	return ""
 }
 
 // deprecationSection is one announcement: the prose under its heading and the

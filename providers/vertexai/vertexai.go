@@ -137,6 +137,15 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	return docs, errors.Join(failures...)
 }
 
+// userAgent names this program to cloud.google.com.
+//
+// It is not decoration. The pricing page answers a request carrying Go's
+// default agent with the two bytes "OK" and nothing else, while every model
+// page answers it with the page; the rates for every model Google resells
+// rather than sells were unreadable for that reason alone. Any agent that is
+// not Go's own is served the page, so this says what is asking.
+const userAgent = "model-sync (+https://github.com/joakimcarlsson/model-sync)"
+
 // getPage retrieves one documentation page, which needs no credential.
 func (p *Provider) getPage(
 	ctx context.Context,
@@ -146,6 +155,7 @@ func (p *Provider) getPage(
 	if err != nil {
 		return catalog.Document{}, err
 	}
+	req.Header.Set("User-Agent", userAgent)
 	client := p.Client
 	if client == nil {
 		client = http.DefaultClient
@@ -271,6 +281,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}
 	documented := readDocumented(pages)
 	b.applySKUs(skus, source, documented)
+	b.nameContested()
 	b.applyModelPages(pages, documented)
 	return b.result(), errors.Join(failures...)
 }
@@ -378,7 +389,7 @@ func (b *builder) applySKU(s sku, read reading, source string) {
 	if read.longCtx {
 		context = "long"
 	}
-	m.AddPrice(catalog.Price{
+	price := catalog.Price{
 		Metric:   metric,
 		Unit:     UnitPer1MTokens,
 		Amount:   amount,
@@ -389,7 +400,13 @@ func (b *builder) applySKU(s sku, read reading, source string) {
 			With(DimModality, read.modality).
 			With(DimStage, read.stage).
 			With(DimContext, context),
-	})
+	}
+	key := id + "|" + rateKey(price)
+	if b.stated[key] == nil {
+		b.stated[key] = map[float64]string{}
+	}
+	b.stated[key][amount] = s.SKUID
+	m.AddPrice(price)
 }
 
 // defaultCurrency is what the catalog quotes when a rate states none.
@@ -399,10 +416,46 @@ const defaultCurrency = "USD"
 type builder struct {
 	models map[string]*catalog.Model
 	order  []string
+	// stated records which SKU stated each rate, so that two SKUs stating
+	// different amounts for one rate can be told apart once every SKU has
+	// been read. It is keyed by the model and the rate's tuple.
+	stated map[string]map[float64]string
 }
 
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models: map[string]*catalog.Model{},
+		stated: map[string]map[float64]string{},
+	}
+}
+
+// rateKey encodes the tuple a rate is identified by, which is what a consumer
+// can tell two rates apart by and therefore what a contradiction is measured
+// against.
+func rateKey(p catalog.Price) string {
+	return string(p.Metric) + "|" + string(p.Unit) + "|" + p.Dims.Key()
+}
+
+// nameContested qualifies the rates two SKUs state differently with the SKU
+// each came from.
+//
+// Google publishes SKUs whose descriptions reduce to the same rate and whose
+// amounts differ, and publishes nothing that says which of them a request is
+// billed under. Recorded as they are read, the pair is one rate contradicting
+// itself, and a consumer picking between them picks by whichever the catalog
+// happened to list first. Naming the SKU says what the source says: there are
+// two, they charge differently, and this is what each is called.
+func (b *builder) nameContested() {
+	for _, id := range b.order {
+		m := b.models[id]
+		for at, price := range m.Prices {
+			skus, ok := b.stated[id+"|"+rateKey(price)]
+			if !ok || len(skus) < 2 {
+				continue
+			}
+			m.Prices[at].Dims = price.Dims.With(DimSKU, skus[price.Amount])
+		}
+	}
 }
 
 // model returns the entry for id, creating it if absent.

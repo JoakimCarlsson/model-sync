@@ -10,15 +10,28 @@ import (
 
 // PricingURL is the page every model page points at for its rates.
 //
-// The billing catalog is read in preference to it, and for the models Vertex
-// meters under its own service it is not read at all: the page states one
-// model in several tables with only a tab to tell them apart, where a SKU
-// carries the region and the usage type as fields. But Vertex bills for the
-// models it serves for other labs through those labs' own services, so the
-// Claude, Grok and Mistral releases it serves have no SKU under the Vertex
-// service, and this page is the only place Google publishes a rate for them. A
-// model the catalog already priced is not read here, so the two documents
-// never state the same rate twice.
+// It is not fetched, and the reader below it is not called. The page is the
+// only place Google publishes a rate for the models Vertex serves for other
+// labs — the Claude, Grok and Mistral releases have no SKU under the Vertex
+// service — and it does not state those rates once each.
+//
+// Under one region tab it repeats the same table twice with different figures
+// in it: Claude Opus 4.5 is $5.50 per million input tokens above 200K prompt
+// tokens in the first copy and unpriced above 200K in the second. It writes a
+// model's long-context rates once as a second column and once as unlabelled
+// extra rows, so Claude Sonnet 4.6 has both $3.30 and $6.60 as its input rate
+// in us-east5 with nothing saying which is which. And it mistypes the row
+// labels between copies, writing "5m Cache Write" in one and "5m Batch Write"
+// in the other, so the two do not even name the same rates.
+//
+// Read, it produced six contradictions the build refuses to publish, and every
+// way of resolving them is a guess about which copy of a table Google meant.
+// So the models it prices stay unpriced, which says that Google publishes no
+// rate this reader can trust rather than publishing a coin flip. What is here
+// is what a rewrite of it starts from: the reader itself works, and fetching
+// the page needs the User-Agent that getPage now sends, since cloud.google.com
+// answers a request for a pricing path carrying Go's default agent with the
+// two bytes "OK".
 const PricingURL = docsBase +
 	"/gemini-enterprise-agent-platform/generative-ai/pricing"
 

@@ -31,8 +31,15 @@ const (
 
 // Kinds of model Groq serves.
 const (
-	KindChat  catalog.Kind = "chat"
-	KindAudio catalog.Kind = "audio"
+	KindChat catalog.Kind = "chat"
+	// KindAudio is a model that converses in sound. KindSpeech reads text out
+	// and KindTranscription writes speech down, and neither is the other: a
+	// caller wanting a transcript cannot use a model that returns audio, and
+	// both were filed under one kind that also holds the conversational
+	// models.
+	KindAudio         catalog.Kind = "audio"
+	KindSpeech        catalog.Kind = "speech"
+	KindTranscription catalog.Kind = "transcription"
 )
 
 // States Groq distinguishes by which table a model appears in.
@@ -57,6 +64,15 @@ const (
 const (
 	LimitContextWindow   = "context_window"
 	LimitMaxOutputTokens = "max_output_tokens"
+	// LimitMaxAudioOutputTokens is the ceiling a text to speech model
+	// generates, which the table states in its Max completion tokens column
+	// like every other model's. It counts something else: the Orpheus models
+	// are billed per million characters of text and return audio, and their
+	// 50,000 stands above the 4,000 token window the table gives them in the
+	// column beside it. A ceiling above the window cannot be asked for, so
+	// what the column states about a model that returns only sound is recorded
+	// under a key that says what it counts.
+	LimitMaxAudioOutputTokens = "max_audio_output_tokens"
 )
 
 // rateLimitKeys maps Groq's rate limit codes onto numeric keys.
@@ -225,12 +241,16 @@ func scaled(number, suffix string) int64 {
 }
 
 // kindForRates reports what a model is from how it is billed, which is the
-// only signal Groq gives: a model charged per hour or per character works on
-// speech, and everything else on text.
+// only signal Groq gives for a model whose page states no modality: an hour is
+// an hour of audio to listen to, so the model writes speech down, and a
+// million characters are characters of text to read out, so the model speaks.
 func kindForRates(rates []rate) catalog.Kind {
 	for _, r := range rates {
-		if r.Unit == UnitPerHour || r.Unit == UnitPer1MChars {
-			return KindAudio
+		switch r.Unit {
+		case UnitPerHour:
+			return KindTranscription
+		case UnitPer1MChars:
+			return KindSpeech
 		}
 	}
 	return KindChat

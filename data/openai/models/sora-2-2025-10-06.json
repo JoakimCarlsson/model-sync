@@ -1,1 +1,1 @@
-{"id":"sora-2-2025-10-06","provider":"openai","kind":"video","attrs":{"deprecated_on":"2026-03-24","retirement_date":"2026-09-24","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}
+{"id":"sora-2-2025-10-06","provider":"openai","kind":"video","attrs":{"api_id":"sora-2-2025-10-06","deprecated_on":"2026-03-24","retirement_date":"2026-09-24","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

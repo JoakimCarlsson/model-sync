@@ -52,6 +52,9 @@ var capabilityModalities = map[string]string{
 	"vision": "image",
 }
 
+// modalityAudio is the catalog's word for sound.
+const modalityAudio = "audio"
+
 // modalityNames map a modality a page names onto the catalog's vocabulary.
 var modalityNames = map[string]string{
 	"text":  "text",

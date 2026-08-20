@@ -51,11 +51,38 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyPricing(doc)
 		}
 	}
+	b.applyIndexModels(ModelsURL)
 	b.applyPages(docs)
 	for _, doc := range docs {
 		b.applyGuide(doc)
 	}
+	b.applyAudioCeiling()
 	return b.result(), nil
+}
+
+// applyAudioCeiling moves the output ceiling of a model that returns only
+// audio onto the key naming what it counts.
+//
+// It runs once at the end rather than where the bound is read, because the
+// bound and the modality are stated in two different rows of the property
+// table and the row order is Google's to change. What makes the move safe is
+// the modality: a model whose only output is audio has no text length for an
+// output token limit to be about.
+func (b *builder) applyAudioCeiling() {
+	for _, m := range b.models {
+		ceiling := m.Limits[LimitMaxOutputTokens]
+		if ceiling == 0 || !audioOnly(m) {
+			continue
+		}
+		delete(m.Limits, LimitMaxOutputTokens)
+		m.Limits[LimitMaxAudioOutputTokens] = ceiling
+	}
+}
+
+// audioOnly reports whether audio is the only thing a model returns.
+func audioOnly(m *catalog.Model) bool {
+	out := m.Lists[ListOutputModalities]
+	return len(out) == 1 && out[0] == modalityAudio
 }
 
 // applyPages attaches the per-model pages, which is the one document set that
@@ -187,6 +214,9 @@ type builder struct {
 	// groups holds the endpoints of each pricing heading, in the order the
 	// heading states them, which is what lets one page stand for a family.
 	groups [][]string
+	// indexed holds the endpoints the model index lists, in the order it
+	// lists them.
+	indexed []string
 	// index holds what the model index states, keyed by endpoint and by the
 	// name of the family the endpoint belongs to.
 	index map[string]indexEntry

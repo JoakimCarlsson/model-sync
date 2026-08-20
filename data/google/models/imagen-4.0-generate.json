@@ -1,0 +1,1 @@
+{"id":"imagen-4.0-generate","provider":"google","name":"Imagen 4","kind":"image","attrs":{"api_id":"imagen-4.0-generate","state":"deprecated"},"sources":["https://ai.google.dev/gemini-api/docs/models"]}

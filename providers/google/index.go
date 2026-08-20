@@ -21,10 +21,12 @@ var indexStates = map[string]string{
 }
 
 // withdrawnStates are the states that mean Google has stopped serving a model,
-// so the catalog does not carry it: the pricing page goes on carrying a row for
-// a model that no longer answers, and such a row is a leftover rather than an
-// offer. Deprecated is deliberately not here, because a deprecated model still
-// serves and Google still prices it.
+// so the catalog carries no rate for it: the pricing page goes on carrying a
+// row for a model that no longer answers, and such a row is a leftover rather
+// than an offer. The model itself is carried, marked with the state, because a
+// consumer with a request naming it needs to be told it was withdrawn rather
+// than told nothing. Deprecated is deliberately not here, because a deprecated
+// model still serves and Google still prices it.
 var withdrawnStates = []string{"shutdown", "retired"}
 
 // indexEntry is what the model index states about one model: the name Google
@@ -85,11 +87,39 @@ func (b *builder) applyIndex(doc catalog.Document) {
 			continue
 		}
 		entry := indexEntry{name: name, state: state}
+		b.indexed = append(b.indexed, id)
 		b.setIndex(id, entry)
 		b.setIndex(indexKey(name), entry)
 		if _, ok := b.byName[indexKey(name)]; !ok {
 			b.byName[indexKey(name)] = id
 		}
+	}
+}
+
+// applyIndexModels carries the endpoints the index lists that the pricing page
+// does not price.
+//
+// The pricing page names every model that costs something, and the index names
+// several it does not: the two Deep Research agents and the Antigravity agent,
+// whose inference Google bills at the underlying model's rates rather than at
+// one of their own, and the four models it has shut down, whose rows on the
+// pricing page are leftovers. Both kinds answered to a request until recently
+// or answer to one now, and a consumer holding an endpoint name has to be able
+// to look it up.
+//
+// It runs after the pricing page rather than before, so that a model both
+// documents name keeps the name it is sold under: the index lists Gemini 3 Pro
+// Image as "Nano Banana Pro", which is what Google calls it and not how it is
+// billed.
+func (b *builder) applyIndexModels(src string) {
+	for _, id := range b.indexed {
+		entry := b.index[id]
+		m := b.model(id, nameKind(id))
+		m.AddSource(src)
+		if m.Name == "" {
+			m.Name = entry.name
+		}
+		m.SetAttr(AttrState, b.stateOf(id, entry))
 	}
 }
 

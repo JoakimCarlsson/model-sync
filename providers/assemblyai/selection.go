@@ -82,6 +82,7 @@ func (b *builder) applyIdentifierRow(row []string, source string) {
 	}
 	m.AddSource(source)
 	m.SetAttr(AttrAPIIdentifier, match[1])
+	m.SetAttr(catalog.APIID, match[1])
 }
 
 // applyMatrix records what the capability matrix answers for each model it has

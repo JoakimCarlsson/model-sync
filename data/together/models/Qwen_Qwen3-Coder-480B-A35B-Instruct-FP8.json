@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8","provider":"together","attrs":{"api_id":"Qwen/Qwen3-Coder-480B-A35B-Instruct-FP8","dedicated_after_retirement":"yes","recommended_replacement":"MiniMaxAI/MiniMax-M2.7","retirement_date":"2026-06-04","state":"retired"},"sources":["https://docs.together.ai/docs/changelog.md","https://docs.together.ai/docs/deprecations.md"]}

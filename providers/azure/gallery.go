@@ -247,6 +247,7 @@ func readGallerySummary(s gallerySummary) documented {
 		Retire:    day(s.Deprecation.InferenceRetirementDate),
 		Context:   s.ModelLimits.TextLimits.InputContextWindow,
 		MaxOut:    s.ModelLimits.TextLimits.MaxOutputTokens,
+		Bounds:    true,
 		Languages: s.ModelLimits.SupportedLanguages,
 		Keywords:  trimmed(s.Keywords),
 		Tasks:     trimmed(s.InferenceTasks),

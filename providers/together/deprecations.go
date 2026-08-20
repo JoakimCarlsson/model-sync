@@ -51,12 +51,21 @@ const noteStillListed = "the deprecation history gives this model a removal " +
 // identifiers are answered by a different model than the one they name.
 //
 // Almost every row of the removal history names a model the catalog page no
-// longer lists, and those are skipped rather than resurrected: this package
-// records what Together sells, and a model with neither a rate nor a row is
-// not that. A row naming a model the catalog page does still list is the
-// interesting case, and it is recorded together with a note, because the two
-// documents are then saying different things and neither is a misreading of
-// the other.
+// longer lists, and each is carried as a model of its own marked retired, with
+// the day it went. A consumer holding code that names one needs to be able to
+// tell a model Together withdrew from a model this catalog never read: the
+// first is answered by the retirement date and the replacement, the second
+// only by silence, and both looked the same while these rows created nothing.
+// They carry no rate, no window and no capabilities, because the only document
+// naming them states none: what it states is that they are gone.
+//
+// A row naming a model the catalog page does still list is the interesting
+// case, and it is recorded with a note, because the two documents are then
+// saying different things and neither is a misreading of the other.
+//
+// The fine-tuning removals are still not read. A model withdrawn as a tuning
+// base is not withdrawn from inference, and the table says nothing about
+// whether it is sold.
 func (b *builder) applyDeprecations(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
 		switch t.Section {
@@ -77,10 +86,11 @@ func (b *builder) applyRemovals(t table) {
 	}
 	dedicatedCol := columnOf(t.Headers, colDedicated)
 	for _, row := range t.Rows {
-		m, ok := b.models[clean(cellAt(row, idCol))]
-		if !ok {
+		id := clean(cellAt(row, idCol))
+		if id == "" {
 			continue
 		}
+		m := b.model(id, "")
 		m.SetAttr(AttrState, StateRetired)
 		m.SetAttr(AttrRetirementDate, clean(cellAt(row, dateCol)))
 		m.SetAttr(

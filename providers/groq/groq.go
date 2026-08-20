@@ -42,10 +42,31 @@ func (p *Provider) ID() string { return providerID }
 // Name implements catalog.Source.
 func (p *Provider) Name() string { return providerName }
 
-// Fetch retrieves the models page, then the page of each model it links to.
+// guides are the documents that state what the models page and the model pages
+// do not: what the speech models take, what each tier limits, when a model
+// shipped, when it stops answering, and which models the batch API accepts.
+//
+// They are listed here rather than discovered, because none of them is linked
+// from the models page as a model page is.
+var guides = []string{
+	SpeechToTextURL,
+	OrpheusURL,
+	RateLimitsURL,
+	ChangelogURL,
+	DeprecationsURL,
+	ServiceTiersURL,
+	FlexURL,
+	BatchURL,
+}
+
+// Fetch retrieves the models page, then the page of each model it links to,
+// then the guides.
 //
 // The table states what a model costs and holds, and nothing about what it
 // takes or can do. That is on the model's own page, which states no rate.
+// Neither names a model Groq has withdrawn, which is why the deprecation page
+// is read too: it is the only document naming one, and a model that stopped
+// answering last week is a model a consumer still has code pointing at.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	models, err := p.get(ctx, ModelsURL)
 	if err != nil {
@@ -53,7 +74,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	}
 	docs := []catalog.Document{models}
 	var failures []error
-	for _, url := range modelPageURLs(models) {
+	for _, url := range append(modelPageURLs(models), guides...) {
 		page, err := p.get(ctx, url)
 		if err != nil {
 			failures = append(failures, err)
@@ -93,7 +114,15 @@ func (p *Provider) get(
 }
 
 // Parse reads the models page first, because it is the only document naming
-// every model, then each model page onto what it established.
+// every model Groq serves, then each model page onto what it established, then
+// the guides.
+//
+// The order within the guides is the order the documents depend on each other.
+// The deprecation page is read after the models page and not before, so that a
+// model still listed keeps the standing its table gave it and only a model no
+// table names is created from the announcement withdrawing it. The batch page
+// is read last of all, because it states no rate of its own: it halves the ones
+// every other document has already stated.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	b := newBuilder()
 	for _, doc := range docs {
@@ -102,11 +131,59 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	for _, doc := range docs {
-		if doc.URL != ModelsURL {
+		if isModelPage(doc.URL) {
 			b.applyModelPage(doc)
 		}
 	}
+	for _, doc := range docs {
+		b.applyGuide(doc)
+	}
+	b.applyAudioCeiling()
 	return b.result(), nil
+}
+
+// applyAudioCeiling moves the completion ceiling of a model that returns only
+// audio onto the key naming what it counts.
+//
+// It runs at the end because the table states the ceiling and the model's own
+// page states the modality, and the modality is what makes the move safe: a
+// model whose only output is sound has no text length for a completion ceiling
+// to be about.
+func (b *builder) applyAudioCeiling() {
+	for _, m := range b.models {
+		ceiling := m.Limits[LimitMaxOutputTokens]
+		if ceiling == 0 || !audioOnly(m) {
+			continue
+		}
+		delete(m.Limits, LimitMaxOutputTokens)
+		m.Limits[LimitMaxAudioOutputTokens] = ceiling
+	}
+}
+
+// audioOnly reports whether audio is the only thing a model returns.
+func audioOnly(m *catalog.Model) bool {
+	out := m.Lists[ListOutputModalities]
+	return len(out) == 1 && out[0] == modalityAudio
+}
+
+// applyGuide reads one guide, or nothing where the document is not one.
+func (b *builder) applyGuide(doc catalog.Document) {
+	switch doc.URL {
+	case SpeechToTextURL:
+		b.applySpeechToText(doc)
+	case OrpheusURL:
+		b.applyOrpheus(doc)
+	case RateLimitsURL:
+		b.applyRateLimits(doc)
+	case ChangelogURL:
+		b.applyChangelog(doc)
+	case DeprecationsURL:
+		b.applyDeprecations(doc)
+	case ServiceTiersURL, FlexURL:
+		b.applyServiceTiers(doc)
+	case BatchURL:
+		b.applyBatch(doc)
+	}
 }
 
 // builder accumulates models.

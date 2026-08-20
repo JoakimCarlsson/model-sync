@@ -1,1 +1,1 @@
-{"id":"ft-gpt-3.5-turbo","provider":"openai","kind":"chat","attrs":{"deprecated_on":"2026-04-22","recommended_replacement":"gpt-5.6-terra","retirement_date":"2026-10-23","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}
+{"id":"ft-gpt-3.5-turbo","provider":"openai","kind":"chat","attrs":{"api_id":"ft-gpt-3.5-turbo","deprecated_on":"2026-04-22","recommended_replacement":"gpt-5.6-terra","retirement_date":"2026-10-23","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

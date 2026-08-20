@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen3-Coder-480B-A35B-Instruct","provider":"together","attrs":{"api_id":"Qwen/Qwen3-Coder-480B-A35B-Instruct","dedicated_hardware":"4xnvidia-b200-180gb","retirement_date":"2026-07-29","state":"retired"},"lists":{"deployments":["Dedicated"]},"sources":["https://docs.together.ai/docs/changelog.md","https://docs.together.ai/docs/dedicated-endpoints/models.md"]}

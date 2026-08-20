@@ -1,0 +1,1 @@
+{"id":"google/gemma-4-12B-it","provider":"together","attrs":{"api_id":"google/gemma-4-12B-it","serverless_since":"2026-07-14"},"notes":["announced as a serverless model on the changelog; the catalog page no longer lists it and the lifecycle page gives it no removal date"],"sources":["https://docs.together.ai/docs/changelog.md"]}

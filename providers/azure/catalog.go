@@ -217,17 +217,20 @@ type documented struct {
 	DeployRetire string
 	Context      int64
 	MaxOut       int64
-	Training     string
-	Features     []string
-	Endpoint     []string
-	InputMod     []string
-	OutMod       []string
-	Languages    []string
-	Dimensions   []string
-	Keywords     []string
-	Tasks        []string
-	Deployments  []string
-	Regions      []string
+	// Bounds marks a reading whose token bounds Azure states as fields rather
+	// than as prose, which is the gallery listing and nothing else.
+	Bounds      bool
+	Training    string
+	Features    []string
+	Endpoint    []string
+	InputMod    []string
+	OutMod      []string
+	Languages   []string
+	Dimensions  []string
+	Keywords    []string
+	Tasks       []string
+	Deployments []string
+	Regions     []string
 }
 
 // applyCatalog reads the documentation onto the models the price list
@@ -254,15 +257,18 @@ func (b *builder) applyCatalog(pages []catalog.Document) {
 	}
 	names := slices.Sorted(maps.Keys(docs))
 	for _, id := range b.order {
-		b.applySKUWindow(b.models[id])
-		for at, name := range matchingPrefixes(id, names) {
+		matched := matchingPrefixes(id, names)
+		for _, name := range matched {
 			for _, source := range docs[name].Sources {
 				b.models[id].AddSource(source)
 			}
-			if at == 0 {
-				apply(b.models[id], docs[name])
-				continue
-			}
+		}
+		if len(matched) > 0 {
+			apply(b.models[id], docs[matched[0]])
+			matched = matched[1:]
+		}
+		b.applySKUWindow(b.models[id])
+		for _, name := range matched {
 			applyFamily(b.models[id], docs[name])
 		}
 	}
@@ -286,6 +292,15 @@ func mergeDocumented(into, from map[string]documented, source string) {
 
 // fold merges one reading into another, field by field and letting whoever
 // stated one first keep it.
+//
+// The token bounds are the exception: a reading that states them as fields
+// displaces one that read them out of a table cell, whichever came first. The
+// prose is where they go wrong. Azure's models page gives gpt-audio "Input:
+// 128,00", a digit short of the 128,000 the same model's catalog entry states,
+// and gives embed-v-4-0 the 512 tokens Cohere's third embedding model took
+// rather than the 131,072 its fourth does. Both figures are below the output
+// ceiling stated beside them, which is a pair no request can satisfy, and both
+// are stated correctly in the fields.
 func fold(into *documented, found documented) {
 	scalars := []struct {
 		at    *string
@@ -311,12 +326,14 @@ func fold(into *documented, found documented) {
 			*s.at = s.found
 		}
 	}
-	if into.Context == 0 {
+	stated := found.Bounds && !into.Bounds
+	if found.Context > 0 && (into.Context == 0 || stated) {
 		into.Context = found.Context
 	}
-	if into.MaxOut == 0 {
+	if found.MaxOut > 0 && (into.MaxOut == 0 || stated) {
 		into.MaxOut = found.MaxOut
 	}
+	into.Bounds = into.Bounds || (found.Bounds && found.Context > 0)
 	lists := []struct {
 		at    *[]string
 		found []string
@@ -344,6 +361,17 @@ func fold(into *documented, found documented) {
 // carries meters for models it has stopped documenting, and those name their
 // window in the meter: gpt-4-32k is the 32,000 token deployment. That is Azure
 // stating the window, in the only place it still states it.
+//
+// It runs after the document naming this model and before the documents naming
+// its family, which is where it belongs in the order of specificity. The name
+// states a round number where the document states the window: Azure documents
+// gpt-4-turbo-128k as holding 128,000 tokens and Phi-3-mini-4k-instruct as
+// holding 4,096, and read first the name gave Phi-3 a 4,000 token window with
+// an output ceiling of 4,096 that would not fit in it. Read last it was worse,
+// since the family document for gpt-4 gave gpt-4-32k the 128,000 tokens of the
+// turbo deployment; a meter naming its own window is more specific than
+// anything said about the family, and less specific than anything said about
+// the model.
 func (b *builder) applySKUWindow(m *catalog.Model) {
 	match := skuWindowRe.FindStringSubmatch(m.ID)
 	if match == nil {

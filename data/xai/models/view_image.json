@@ -1,1 +1,1 @@
-{"id":"view_image","provider":"xai","name":"Image Understanding","kind":"tool","attrs":{"summary":"Analyze images found during Web Search and X Search*"},"notes":["no rate of its own, charged as: Token-based"],"sources":["https://docs.x.ai/developers/pricing.md"]}
+{"id":"view_image","provider":"xai","name":"Image Understanding","kind":"tool","attrs":{"api_id":"view_image","summary":"Analyze images found during Web Search and X Search*"},"notes":["no rate of its own, charged as: Token-based"],"sources":["https://docs.x.ai/developers/pricing.md"]}

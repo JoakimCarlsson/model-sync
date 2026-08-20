@@ -31,13 +31,21 @@ const (
 
 // Kinds of model Together serves.
 const (
-	KindChat       catalog.Kind = "chat"
-	KindImage      catalog.Kind = "image"
-	KindVideo      catalog.Kind = "video"
-	KindAudio      catalog.Kind = "audio"
-	KindEmbedding  catalog.Kind = "embedding"
-	KindRerank     catalog.Kind = "rerank"
-	KindModeration catalog.Kind = "moderation"
+	KindChat  catalog.Kind = "chat"
+	KindImage catalog.Kind = "image"
+	KindVideo catalog.Kind = "video"
+	// KindAudio is what a model in the audio table is until its modality
+	// column says which way it runs.
+	KindAudio catalog.Kind = "audio"
+	// KindSpeech reads text out and KindTranscription writes speech down.
+	// Together's audio table holds both and states which in a column of its
+	// own, so the two are told apart rather than filed together: a caller
+	// wanting a transcript cannot use a model that returns audio.
+	KindSpeech        catalog.Kind = "speech"
+	KindTranscription catalog.Kind = "transcription"
+	KindEmbedding     catalog.Kind = "embedding"
+	KindRerank        catalog.Kind = "rerank"
+	KindModeration    catalog.Kind = "moderation"
 )
 
 // Dimension keys Together's prices vary along.
@@ -291,8 +299,10 @@ func parseCount(value string) int64 {
 // thing distinguishing a model that reads speech from one that writes it.
 func modalityKind(cell string) (catalog.Kind, bool) {
 	switch strings.ToLower(clean(cell)) {
-	case "text-to-speech", "speech-to-text":
-		return KindAudio, true
+	case "text-to-speech":
+		return KindSpeech, true
+	case "speech-to-text":
+		return KindTranscription, true
 	}
 	return "", false
 }

@@ -123,6 +123,14 @@ func (b *builder) applyImagineTable(t mdTable) {
 // cell can hold two rates separated by a line break, one for audio and one for
 // text; and a rate can be followed by the same rate expressed per hour, or by
 // two rates distinguished only by a parenthesised transport.
+//
+// One of those rates has no denominator at all: a speech to speech mode is
+// billed "$0.004 / text input", and neither the pricing page nor the mode's
+// own page, whose pricing section xAI generates empty, says per what. It is
+// kept as a note rather than as a rate, because an amount whose unit is a
+// guess cannot be compared with the per-token rates of the models that would
+// be quoted alongside it, and a wrong denominator is a wrong price by a factor
+// of a thousand.
 func (b *builder) applyVoiceTable(t mdTable) {
 	modeCol := columnOf(t.Headers, "mode")
 	costCol := columnOf(t.Headers, "cost")
@@ -147,7 +155,7 @@ func (b *builder) applyVoiceTable(t mdTable) {
 			for _, clause := range splitRates(fragment) {
 				rest, transport := rateQualifier(clause)
 				a := parseAmount(rest)
-				if !a.Found {
+				if !a.Found || a.Unit == "" {
 					m.AddNote(clause)
 					continue
 				}

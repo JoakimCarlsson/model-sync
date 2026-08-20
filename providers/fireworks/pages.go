@@ -97,6 +97,7 @@ func (b *builder) applyLibraryPage(doc catalog.Document) {
 	m.AddSource(doc.URL)
 	m.SetAttr(AttrModelURL, doc.URL)
 	m.SetAttr(AttrModelPath, path[0])
+	m.SetAttr(catalog.APIID, path[0])
 	b.applyPageIdentity(m, doc, body, fields)
 	b.applyPageSpecification(m, fields)
 	b.applyPageCapabilities(m, fields)

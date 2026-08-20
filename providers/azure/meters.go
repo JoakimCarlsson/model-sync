@@ -193,6 +193,15 @@ const (
 // DimFineTuned marks a rate as applying to a fine tuned deployment.
 const DimFineTuned = "fine_tuned"
 
+// DimSnapshot names the dated version a rate belongs to, and is written only
+// on a family's copy of one of its versions' rates. See applySnapshots.
+const DimSnapshot = "snapshot"
+
+// ListSnapshots holds the dated versions of one model, which the price list
+// meters one by one: gpt-4o is billed as gpt-4o-0513, gpt-4o-0806 and
+// gpt-4o-1120, and the undated name is what a deployment is asked for.
+const ListSnapshots = "snapshots"
+
 // DimModelGrader marks a rate as covering a grader model's own tokens.
 const DimModelGrader = "model_grader"
 

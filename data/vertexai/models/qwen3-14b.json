@@ -1,1 +1,1 @@
-{"id":"qwen3-14b","provider":"vertexai","name":"qwen3 14b","kind":"chat","prices":[{"metric":"training","unit":"per_1m_tokens","amount":8.46,"currency":"USD","dims":{"tier":"standard"}}],"sources":["https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"]}
+{"id":"qwen3-14b","provider":"vertexai","name":"qwen3 14b","kind":"chat","prices":[{"metric":"training","unit":"per_1m_tokens","amount":8.46,"currency":"USD","dims":{"tier":"standard"}}],"attrs":{"api_id":"qwen3-14b"},"sources":["https://cloudbilling.googleapis.com/v1/services/C7E2-9256-1C43/skus"]}

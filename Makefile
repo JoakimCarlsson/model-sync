@@ -1,4 +1,4 @@
-.PHONY: fmt lint sync
+.PHONY: fmt lint sync validate
 
 fmt:
 	goimports -w .
@@ -9,3 +9,6 @@ lint:
 
 sync:
 	go run .
+
+validate:
+	go run . -provider none

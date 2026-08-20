@@ -427,7 +427,7 @@ var nameKinds = []struct {
 	{"whisper", KindTranscription},
 	{"transcribe", KindTranscription},
 	{"realtime", KindRealtime},
-	{"tts", KindAudio},
+	{"tts", KindSpeech},
 	{"audio", KindAudio},
 }
 
@@ -470,7 +470,7 @@ func kindFromEndpoints(endpoints []string) catalog.Kind {
 		has("realtime/transcription"), has("realtime/translations"):
 		return KindTranscription
 	case has("audio/speech"):
-		return KindAudio
+		return KindSpeech
 	case has("realtime"):
 		return KindRealtime
 	}

@@ -3,6 +3,9 @@ package openrouter
 import (
 	"encoding/json"
 	"fmt"
+	"maps"
+	"slices"
+	"strconv"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
@@ -73,8 +76,9 @@ func (b *builder) applyDetail(doc catalog.Document) error {
 // capability one seller offers is a capability the model has here.
 func (b *builder) applyEndpoints(m *catalog.Model, endpoints []endpoint) {
 	var ceiling, prompt, context int64
-	for _, e := range endpoints {
-		ceiling = max(ceiling, e.MaxCompletionTokens)
+	offers := offerNumbers(endpoints)
+	for at, e := range endpoints {
+		ceiling = max(ceiling, servedCeiling(e))
 		prompt = max(prompt, e.MaxPromptTokens)
 		context = max(context, e.ContextLength)
 		m.AddList(ListEndpoints, e.ProviderName)
@@ -96,12 +100,117 @@ func (b *builder) applyEndpoints(m *catalog.Model, endpoints []endpoint) {
 			m.AddList(ListFeatures, FeatureVoiceCloning)
 		}
 		m.AddList(ListFeatures, pricedFeatures(e.Pricing)...)
-		applyPricing(m, e.Pricing, endpointDims(e))
+		applyPricing(
+			m,
+			e.Pricing,
+			endpointDims(e).With(DimEndpointOffer, offers[at]),
+		)
 		b.applySeller(m, e.ProviderName)
 	}
 	m.SetLimit(LimitContextWindow, context)
-	m.SetLimit(LimitMaxOutputTokens, ceiling)
+	m.SetLimit(LimitMaxOutputTokens, withinWindow(m, ceiling))
 	m.SetLimit(LimitMaxInputTokens, prompt)
+}
+
+// servedCeiling is the largest completion one seller will actually return,
+// which is its stated ceiling or its window, whichever is smaller.
+//
+// Sellers state the two independently and some state a ceiling their own
+// window cannot hold: DeepInfra offers l3-lunaris-8b with an 8,192 token
+// window and a 16,384 token ceiling, and Azure offers gpt-3.5-turbo-0613 with
+// 4,095 and 4,096. A request asking for the ceiling fails in both cases, so
+// what the seller serves is the window.
+func servedCeiling(e endpoint) int64 {
+	if e.ContextLength > 0 && e.MaxCompletionTokens > e.ContextLength {
+		return e.ContextLength
+	}
+	return e.MaxCompletionTokens
+}
+
+// withinWindow bounds a ceiling by the window the model is recorded with.
+//
+// The sellers' largest ceiling can exceed it, because a model's window is
+// stated by the listing and its ceiling by whichever seller offers the most.
+// The two describe different deployments: minimax-m3 is listed with a 524,288
+// token window and served by one seller with 1,048,576, and a batch variant
+// takes its window from its own listing entry and its sellers from the model
+// behind it. What a consumer can ask this model for is bounded by the window
+// this model is published with.
+func withinWindow(m *catalog.Model, ceiling int64) int64 {
+	window := m.Limits[LimitContextWindow]
+	if window > 0 && ceiling > window {
+		return window
+	}
+	return ceiling
+}
+
+// offerNumbers numbers the offers whose dimensions are identical and whose
+// rates are not, and returns the number of each endpoint by its position, or
+// an empty string where the endpoint needs none.
+//
+// A seller publishing one model twice under one name, one tag and one
+// precision is stating two prices for what the catalog can only describe as
+// one rate. Which of the two a caller reaches is OpenRouter's business and it
+// publishes nothing that says, so both are kept and told apart by a number.
+//
+// The number comes from the rates rather than from the order the endpoints
+// arrive in, which is not stable between runs: the cheaper offer is the first,
+// and a run that reads the same rates writes the same numbers.
+func offerNumbers(endpoints []endpoint) map[int]string {
+	groups := map[string][]int{}
+	for at, e := range endpoints {
+		key := endpointDims(e).Key()
+		groups[key] = append(groups[key], at)
+	}
+	out := map[int]string{}
+	for _, group := range groups {
+		if len(group) < 2 || !ratesDiffer(endpoints, group) {
+			continue
+		}
+		slices.SortStableFunc(group, func(a, b int) int {
+			return strings.Compare(
+				rateKey(endpoints[a]),
+				rateKey(endpoints[b]),
+			)
+		})
+		for n, at := range group {
+			out[at] = strconv.Itoa(n + 1)
+		}
+	}
+	return out
+}
+
+// ratesDiffer reports whether the endpoints at these positions quote different
+// rates. Where they quote the same ones there is nothing to tell apart, and
+// the identical rates collapse into one entry as any repeated rate does.
+func ratesDiffer(endpoints []endpoint, group []int) bool {
+	first := rateKey(endpoints[group[0]])
+	for _, at := range group[1:] {
+		if rateKey(endpoints[at]) != first {
+			return true
+		}
+	}
+	return false
+}
+
+// rateKey encodes a seller's rates in a form that orders them: the keys in
+// order, each with the amount it is quoted at, padded so that the comparison
+// is by value rather than by the length of the decimal.
+func rateKey(e endpoint) string {
+	keys := slices.Sorted(maps.Keys(e.Pricing))
+	parts := make([]string, 0, len(keys))
+	for _, key := range keys {
+		var rate string
+		if err := json.Unmarshal(e.Pricing[key], &rate); err != nil {
+			rate = string(e.Pricing[key])
+		}
+		amount, ok := scaleRate(rate, 1)
+		if !ok {
+			continue
+		}
+		parts = append(parts, fmt.Sprintf("%s=%020.10f", key, amount))
+	}
+	return strings.Join(parts, ";")
 }
 
 // endpointDims name the seller a rate belongs to.

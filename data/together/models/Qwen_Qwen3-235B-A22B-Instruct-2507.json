@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen3-235B-A22B-Instruct-2507","provider":"together","attrs":{"api_id":"Qwen/Qwen3-235B-A22B-Instruct-2507","dedicated_hardware":"4xnvidia-h100-80gb","retirement_date":"2026-07-29","state":"retired"},"lists":{"deployments":["Dedicated"]},"sources":["https://docs.together.ai/docs/changelog.md","https://docs.together.ai/docs/dedicated-endpoints/models.md"]}

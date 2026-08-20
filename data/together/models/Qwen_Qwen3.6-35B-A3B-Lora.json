@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen3.6-35B-A3B-Lora","provider":"together","attrs":{"api_id":"Qwen/Qwen3.6-35B-A3B-Lora","serverless_since":"2026-07-01"},"notes":["announced as a serverless model on the changelog; the catalog page no longer lists it and the lifecycle page gives it no removal date"],"sources":["https://docs.together.ai/docs/changelog.md"]}

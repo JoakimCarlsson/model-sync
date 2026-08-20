@@ -1,1 +1,1 @@
-{"id":"o3-2025-04-16","provider":"openai","kind":"chat","attrs":{"deprecated_on":"2026-06-11","recommended_replacement":"gpt-5.6-sol","retirement_date":"2026-12-11","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}
+{"id":"o3-2025-04-16","provider":"openai","kind":"chat","attrs":{"api_id":"o3-2025-04-16","deprecated_on":"2026-06-11","recommended_replacement":"gpt-5.6-sol","retirement_date":"2026-12-11","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

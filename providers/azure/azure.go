@@ -324,6 +324,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		}
 	}
 	b.applyCatalog(documentation(docs))
+	b.applySnapshots()
 	return b.result(), errors.Join(failures...)
 }
 

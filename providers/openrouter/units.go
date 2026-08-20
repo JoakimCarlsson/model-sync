@@ -58,6 +58,15 @@ const (
 	// and from several regions.
 	DimEndpointTag  = "endpoint_tag"
 	DimQuantization = "quantization"
+	// DimEndpointOffer numbers the offers of one seller that nothing else
+	// tells apart. A seller can publish the same model twice under one name
+	// and one tag, at one precision and one window, charging different rates
+	// for each: Together sells gemma-4-31b-it at $0.28 and at $0.39 per
+	// million input tokens, and the only field that differs between the two
+	// endpoints is which parameters they accept. Without a number the pair
+	// reads as one rate contradicting itself. The numbering is by rate, so it
+	// is the same on every run that reads the same rates.
+	DimEndpointOffer = "endpoint_offer"
 	// DimDiscount carries the reduction OpenRouter states beside a seller's
 	// rates. It is published as a bare fraction and documented nowhere, so it
 	// qualifies the rate rather than being applied to it.
@@ -256,6 +265,14 @@ func scaleRate(raw string, factor int64) (float64, bool) {
 func isZeroRate(raw string) bool {
 	rate, ok := new(big.Rat).SetString(strings.TrimSpace(raw))
 	return ok && rate.Sign() == 0
+}
+
+// isRoutedRate reports whether a published rate is OpenRouter's sentinel for a
+// cost it cannot state, which it writes as a negative number on the models
+// that are routers rather than models.
+func isRoutedRate(raw string) bool {
+	rate, ok := new(big.Rat).SetString(strings.TrimSpace(raw))
+	return ok && rate.Sign() < 0
 }
 
 // kindFor reports what a model is from what it emits.

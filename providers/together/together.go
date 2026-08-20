@@ -192,6 +192,7 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyGuide(doc)
 		}
 	}
+	b.applyUnlisted()
 	return b.result(), nil
 }
 

@@ -63,6 +63,7 @@ func (b *builder) applySections(body, source string) {
 		}
 		if match := domainRe.FindStringSubmatch(block.body); match != nil {
 			m.SetAttr(AttrAPIIdentifier, match[1])
+			m.SetAttr(catalog.APIID, match[1])
 		}
 	}
 }
