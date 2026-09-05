@@ -12,8 +12,16 @@ import (
 // one section holds several tables that differ in nothing else: a card's
 // pricing section writes one table per context band and one per Region it
 // prices apart, and names each in the bold line above it.
+//
+// The section is the caption a later bold line displaced before any table
+// stood under it, which is how a card qualifies a run of tables rather than
+// one: the cards pricing GovCloud apart write the partition in a bold line of
+// its own and caption each of the tables under it with its context band, so
+// the partition is the only thing telling those tables from the ones above
+// them.
 type table struct {
 	caption  string
+	section  string
 	headings []string
 	rows     [][]string
 }
@@ -37,7 +45,7 @@ var dividerRe = regexp.MustCompile(`^[\s|:-]+$`)
 func parseTables(body string) []table {
 	var tables []table
 	var current *table
-	caption := ""
+	caption, section := "", ""
 	lines := strings.Split(body, "\n")
 	for i, line := range lines {
 		trimmed := strings.TrimSpace(line)
@@ -48,9 +56,12 @@ func parseTables(body string) []table {
 				current = nil
 			}
 			if strings.HasPrefix(trimmed, "#") {
-				caption = ""
+				caption, section = "", ""
 			}
 			if bold := boldLineRe.FindStringSubmatch(trimmed); bold != nil {
+				if caption != "" {
+					section = caption
+				}
 				caption = strings.TrimSpace(linkText(bold[1]))
 			}
 			continue
@@ -64,6 +75,7 @@ func parseTables(body string) []table {
 			}
 			current = &table{
 				caption:  caption,
+				section:  section,
 				headings: tableHeadings(strings.Split(match[1], "|")),
 			}
 			caption = ""

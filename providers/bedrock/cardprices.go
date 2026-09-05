@@ -77,7 +77,7 @@ func applyCardPrices(m *catalog.Model, t table, c card) {
 	base := catalog.Dims{}.
 		With(DimTier, tier).
 		With(DimContext, priceBand(t.caption)).
-		With(DimScope, priceScope(t.caption))
+		With(DimScope, priceScope(t))
 	for _, row := range t.rows {
 		applyPriceRow(m, t, row, base)
 	}
@@ -160,11 +160,19 @@ func priceBand(caption string) string {
 	return ContextShort
 }
 
-// priceScope reads what else a caption restricts a table of rates to, which
-// is the partition on the one card pricing GovCloud apart from the rest.
-func priceScope(caption string) string {
-	if caption == "" || cardBandRe.MatchString(caption) {
-		return ""
+// priceScope reads what else a table of rates is restricted to, which is the
+// partition on the cards pricing GovCloud apart from the rest.
+//
+// A card states it either in the table's own caption or, where it prices both
+// context bands there, in the bold line standing above the pair. The band
+// captions of the two are word for word the ones above them, so a card read
+// without the line qualifying them prices GovCloud and the commercial
+// Regions as one rate each and contradicts itself.
+func priceScope(t table) string {
+	for _, caption := range []string{t.section, t.caption} {
+		if caption != "" && !cardBandRe.MatchString(caption) {
+			return slug(caption)
+		}
 	}
-	return slug(caption)
+	return ""
 }

@@ -124,6 +124,12 @@ const ProfileGlobal = "global-cross-region"
 // global profile.
 const profileMarker = "cross-region-global"
 
+// profileGlobalPrefix is what the newest meters put in front of the service
+// tier for a rate billed through the global profile. They state it there and
+// nowhere else: their usage type carries the tier with the prefix on it and
+// never the marker the older meters append.
+const profileGlobalPrefix = "global-"
+
 // ServingMantle is the newer of the two meter families, named after the word
 // its usage types carry.
 const ServingMantle = "mantle"
@@ -639,7 +645,8 @@ func tierFor(a attributes) string {
 		}
 	}
 	if field == "" && feature == "" {
-		return serviceTiers[strings.ToLower(a.ServiceTier)]
+		tier := strings.ToLower(a.ServiceTier)
+		return serviceTiers[strings.TrimPrefix(tier, profileGlobalPrefix)]
 	}
 	return ""
 }
@@ -659,6 +666,10 @@ func servingFor(a attributes) string {
 // of the region it is quoted in.
 func profileFor(a attributes) string {
 	if strings.Contains(strings.ToLower(a.UsageType), profileMarker) {
+		return ProfileGlobal
+	}
+	tier := strings.ToLower(a.ServiceTier)
+	if strings.HasPrefix(tier, profileGlobalPrefix) {
 		return ProfileGlobal
 	}
 	return ""
