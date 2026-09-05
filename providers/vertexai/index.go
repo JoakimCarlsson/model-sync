@@ -67,24 +67,25 @@ var (
 // the sentence the index gives each entry is the nearest thing Google
 // publishes to a description. The entry is joined to the page it links, so
 // nothing is matched on a name.
-func readModelCards(byURL map[string]*documented, doc catalog.Document) {
+func readModelCards(byURL map[string][]*documented, doc catalog.Document) {
 	if doc.URL != ModelsURL {
 		return
 	}
 	body := string(doc.Body)
 	languages := readLanguages(body)
 	for _, match := range cardRe.FindAllStringSubmatch(body, -1) {
-		page, ok := byURL[docsBase+specAttr(match[1])]
-		if !ok {
+		for _, page := range byURL[docsBase+specAttr(match[1])] {
+			page.merge(documented{
+				Title:   specText(match[2]),
+				Summary: specText(match[3]),
+			}, doc.URL)
+		}
+	}
+	for url, entries := range byURL {
+		if !strings.HasPrefix(url, geminiPagePre) {
 			continue
 		}
-		page.merge(documented{
-			Title:   specText(match[2]),
-			Summary: specText(match[3]),
-		}, doc.URL)
-	}
-	for url, page := range byURL {
-		if strings.HasPrefix(url, geminiPagePre) {
+		for _, page := range entries {
 			page.merge(documented{Languages: languages}, doc.URL)
 		}
 	}

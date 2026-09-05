@@ -125,6 +125,17 @@ var directionTailRe = regexp.MustCompile(
 // 70B was left priced for tuning alone.
 var tokenSuffixes = []string{" tokens", " token"}
 
+// countSuffixRe matches the word Google closes a token meter with on the
+// newest audio models: "Gemini 3.5 Transcribe Audio Input Count" counts the
+// audio input tokens that every other model's meter counts without saying so.
+// It is dropped before the description is read, because a meter word left on
+// the end is read as part of the name: it made a model called
+// gemini-3.5-transcribe-count, which is not a name any request can be made
+// with, and left the description ending at none of the words a meter closes
+// with, which is the shape reserved for a description that names no model of
+// its own.
+var countSuffixRe = regexp.MustCompile(`(?i)\s+count$`)
+
 // maasPrefix is the Model Garden form that prices inference.
 const maasPrefix = "cloud vertex ai model garden model as a service "
 
@@ -229,6 +240,7 @@ func readDescription(description string) (reading, bool) {
 		strings.ToLower(strings.TrimSpace(description)),
 		"$1 $2",
 	)
+	lower = countSuffixRe.ReplaceAllString(lower, "")
 	out := reading{tier: TierStandard}
 	trimmed, isTokens := cutSuffix(lower, tokenSuffixes)
 	switch tail := predictionTailRe.FindStringSubmatch(lower); {

@@ -1,6 +1,7 @@
 package voyage
 
 import (
+	"html"
 	"regexp"
 	"strconv"
 	"strings"
@@ -192,6 +193,12 @@ var (
 // clean strips the decoration Voyage wraps around cell values. Its markdown
 // carries MDX anchor elements, escaped footnote markers and backticked
 // identifiers.
+//
+// The entities are resolved after the elements are stripped rather than
+// before, so that a page writing an angle bracket as an entity cannot become
+// markup that the stripping would then eat. Voyage writes a space as &#x20;
+// where its own markup would otherwise swallow it, and a cell read without
+// resolving that carried the entity into the identifier.
 func clean(cell string) string {
 	s := breakRe.ReplaceAllString(cell, "\n")
 	s = linkRe.ReplaceAllString(s, "$1")
@@ -199,16 +206,29 @@ func clean(cell string) string {
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
 	s = strings.ReplaceAll(s, `\*`, "")
+	s = html.UnescapeString(s)
 	return strings.Join(strings.Fields(s), " ")
 }
 
+// cellLabelRe matches the note Voyage writes in front of an identifier to say
+// how far along a model is, which it writes in brackets and in bold.
+var cellLabelRe = regexp.MustCompile(`^\([^)]*\)\s*`)
+
 // splitModels reads a model cell, which names more than one model when they
 // share a rate. Voyage separates them with a line break element.
+//
+// A cell can open with a note rather than an identifier: the reranker page
+// writes "(In Preview)" in front of the two models it has not finished, and
+// nothing else in the row says which model the row is about. The note is
+// dropped rather than read, because it says how far along a model is, and the
+// state this catalog records for Voyage says whether a model is current or
+// superseded, which is a different question and one the rate tables answer.
 func splitModels(cell string) []string {
 	var out []string
 	for _, part := range breakRe.Split(cell, -1) {
 		for _, line := range strings.Split(part, "\n") {
-			if id := clean(line); id != "" {
+			id := cellLabelRe.ReplaceAllString(clean(line), "")
+			if id != "" {
 				out = append(out, id)
 			}
 		}

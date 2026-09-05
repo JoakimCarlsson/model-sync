@@ -168,7 +168,11 @@ var (
 	specTableRe = regexp.MustCompile(
 		`(?is)<table class="geap-model-table">(.*?)</table>`,
 	)
-	specIDRe = regexp.MustCompile(
+	// specListedIDRe matches one identifier of a Model ID row written as a
+	// list, which is how the page states a release served under more than one
+	// name.
+	specListedIDRe = regexp.MustCompile(`'([^']+)'`)
+	specIDRe       = regexp.MustCompile(
 		`(?is)id="model-id".*?<code[^>]*>(.*?)</code>`,
 	)
 	// specModalityRe matches one modality and the direction it flows in.
@@ -487,18 +491,19 @@ func applyLifecycle(m *catalog.Model, life lifecycle) {
 // describe a family or a capability are folded onto what it established.
 func readDocumented(docs []catalog.Document) map[string]*documented {
 	pages := map[string]*documented{}
-	byURL := map[string]*documented{}
+	byURL := map[string][]*documented{}
 	for _, doc := range docs {
-		id, page, ok := readModelPage(string(doc.Body))
+		read, ok := readModelPage(string(doc.Body))
 		if !ok {
 			continue
 		}
-		page.Named = true
-		page.Served = true
-		page.ID = id
-		entry := documentedFor(pages, servedName(id))
-		entry.merge(page, doc.URL)
-		byURL[doc.URL] = entry
+		for _, page := range read {
+			page.Named = true
+			page.Served = true
+			entry := documentedFor(pages, servedName(page.ID))
+			entry.merge(page, doc.URL)
+			byURL[doc.URL] = append(byURL[doc.URL], entry)
+		}
 	}
 	for _, doc := range docs {
 		readCapabilityPage(byURL, doc)
@@ -647,7 +652,10 @@ func mergeText(into *string, value string) {
 
 // readCapabilityPage records the capability a page enumerates the models for,
 // against every model page it links to.
-func readCapabilityPage(byURL map[string]*documented, doc catalog.Document) {
+func readCapabilityPage(
+	byURL map[string][]*documented,
+	doc catalog.Document,
+) {
 	feature, ok := featureOfPage(doc.URL)
 	if !ok {
 		return
@@ -657,12 +665,10 @@ func readCapabilityPage(byURL map[string]*documented, doc catalog.Document) {
 		-1,
 	) {
 		for _, match := range modelHrefRe.FindAllStringSubmatch(block[1], -1) {
-			page, ok := byURL[modelPagePre+match[1]]
-			if !ok {
-				continue
+			for _, page := range byURL[modelPagePre+match[1]] {
+				page.Features = appendNew(page.Features, feature)
+				page.Sources = appendNew(page.Sources, doc.URL)
 			}
-			page.Features = appendNew(page.Features, feature)
-			page.Sources = appendNew(page.Sources, doc.URL)
 		}
 	}
 }
@@ -732,16 +738,44 @@ func firstField(value string) string {
 	return fields[0]
 }
 
+// pageIDs reads the Model ID row, which states one identifier for most models
+// and, for a release served under more than one name, the list its template
+// was handed: ['gemini-3.5-transcribe-preview',
+// 'gemini-3.5-transcribe-live-preview']. Read whole, such a row became a model
+// whose identifier no request can be made with, and the models it names were
+// absent from the catalog altogether.
+func pageIDs(cell string) []string {
+	cell = strings.TrimSpace(cell)
+	if !strings.HasPrefix(cell, "[") {
+		if cell == "" {
+			return nil
+		}
+		return []string{cell}
+	}
+	var out []string
+	for _, match := range specListedIDRe.FindAllStringSubmatch(cell, -1) {
+		if id := strings.TrimSpace(match[1]); id != "" {
+			out = appendNew(out, id)
+		}
+	}
+	return out
+}
+
 // readModelPage reads one page's specification table, reporting whether the
 // page carries one at all. Many pages under the same path are guides.
-func readModelPage(body string) (string, documented, bool) {
+//
+// A page describes as many models as its Model ID row names. Everything but
+// the version block is the same statement about each of them, so it is read
+// once and copied; the block states a release per name, so it is read against
+// the name it belongs to.
+func readModelPage(body string) ([]documented, bool) {
 	table := specTableRe.FindStringSubmatch(body)
 	if table == nil {
-		return "", documented{}, false
+		return nil, false
 	}
-	id := specText(firstOf(specIDRe, table[1]))
-	if id == "" {
-		return "", documented{}, false
+	ids := pageIDs(specText(firstOf(specIDRe, table[1])))
+	if len(ids) == 0 {
+		return nil, false
 	}
 	var page documented
 	for _, row := range specHeadRe.FindAllStringSubmatch(table[1], -1) {
@@ -769,12 +803,18 @@ func readModelPage(body string) (string, documented, bool) {
 	readQuotas(&page, specText(table[1]))
 	readListedLimits(&page, table[1])
 	readQuotaLimits(&page, table[1])
-	readVersionBlock(&page, table[1], id)
 	readRegions(&page, table[1])
 	readModalities(&page, table[1])
 	readListedModalities(&page, table[1])
 	readFeatures(&page, table[1])
-	return id, page, true
+	out := make([]documented, 0, len(ids))
+	for _, id := range ids {
+		named := page
+		named.ID = id
+		readVersionBlock(&named, table[1], id)
+		out = append(out, named)
+	}
+	return out, true
 }
 
 // readQuotas reads the bounds a page states as prose. The models Vertex serves
