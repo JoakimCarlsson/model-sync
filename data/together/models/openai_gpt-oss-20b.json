@@ -1,0 +1,1 @@
+{"id":"openai/gpt-oss-20b","provider":"together","attrs":{"api_id":"openai/gpt-oss-20b","dedicated_hardware":"1xnvidia-h100-80gb","recommended_replacement":"Qwen/Qwen3.5-9B","retirement_date":"2026-09-01","state":"retired"},"lists":{"deployments":["Dedicated"]},"sources":["https://docs.together.ai/docs/changelog.md","https://docs.together.ai/docs/dedicated-endpoints/models.md"]}
