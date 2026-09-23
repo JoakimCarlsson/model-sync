@@ -202,7 +202,11 @@ func splitModelCell(cell string) (modelRef, bool) {
 	}
 	lower := strings.ToLower(name)
 	for _, suffix := range servingSuffixes {
-		if base, ok := strings.CutSuffix(lower, " "+suffix); ok {
+		base, ok := strings.CutSuffix(lower, " "+suffix)
+		if !ok {
+			base, ok = strings.CutSuffix(lower, " ("+suffix+")")
+		}
+		if ok {
 			ref.Serving = strings.ReplaceAll(suffix, " ", "-")
 			ref.Name = strings.TrimSpace(name[:len(base)])
 			break
