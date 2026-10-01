@@ -43,6 +43,7 @@ const (
 	KindAudio         catalog.Kind = "audio"
 	KindOCR           catalog.Kind = "ocr"
 	KindRerank        catalog.Kind = "rerank"
+	KindFinetune      catalog.Kind = "finetune"
 )
 
 // productKinds are the families whose every meter is one kind, whatever the
@@ -402,6 +403,14 @@ var familyPrefixes = map[string]string{
 	"Azure Fireworks Models":   "fw-",
 }
 
+// modelAliases join billing names that Azure uses for the same model.
+var modelAliases = map[string]string{
+	"llama3.3":              "llama-3.3-70b",
+	"llama3.3-70b":          "llama-3.3-70b",
+	"mnstrl-3b":             "ministral-3b",
+	"phi-3.5-mini-instruct": "phi-3.5-mini-128k-instruct",
+}
+
 // unitsOfMeasure maps Azure's unit of measure onto a unit.
 var unitsOfMeasure = map[string]catalog.Unit{
 	"1k":       UnitPer1KTokens,
@@ -436,6 +445,7 @@ type reading struct {
 // non-inference charge is removed.
 func readSKU(sku, product string) reading {
 	rest := strings.ToLower(strings.TrimPrefix(sku, "Az-"))
+	rest = strings.ReplaceAll(rest, "3bftregnl", "3b ft regnl")
 	rest = " " + strings.Join(
 		strings.Fields(strings.ReplaceAll(rest, "-", " ")),
 		" ",

@@ -58,6 +58,13 @@
 // which is what collapses eighteen Sora meters into three models and eight
 // DALL-E meters into one.
 //
+// Billing aliases naming the same model are joined before rates are recorded,
+// so that Llama 3.3's fine tuned input and output belong to the same entry as
+// its base rates. A model whose meters price only fine tuned deployments is a
+// fine tuning offering, with a note recording that no base inference rate is
+// published. Directionless fine tuning token meters charge for training, and
+// hourly ones charge for hosting the custom deployment.
+//
 // Some meters are not models at all: a provisioned throughput reservation, an
 // hour of the managed compute a model is deployed on, and the calls a hosted
 // tool such as the code interpreter makes. Those are dropped, since there is

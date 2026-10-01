@@ -325,7 +325,28 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	}
 	b.applyCatalog(documentation(docs))
 	b.applySnapshots()
+	b.applyFineTuningKinds()
 	return b.result(), errors.Join(failures...)
+}
+
+// applyFineTuningKinds classifies entries whose published rates cover only
+// fine tuned deployments as fine tuning offerings and records the missing
+// base inference rate.
+func (b *builder) applyFineTuningKinds() {
+	for _, id := range b.order {
+		m := b.models[id]
+		if m.Kind != KindChat || len(m.Prices) == 0 {
+			continue
+		}
+		if !slices.ContainsFunc(m.Prices, func(price catalog.Price) bool {
+			return price.Dims[DimFineTuned] != "true"
+		}) {
+			m.Kind = KindFinetune
+			m.AddNote(
+				"Only fine-tuned deployment pricing is published; no base inference rate is stated.",
+			)
+		}
+	}
 }
 
 // documentation returns the fetched documentation pages, in the order they are
@@ -356,8 +377,19 @@ func (b *builder) applyMeter(m meter, source string) {
 	}
 	read := readSKU(m.SkuName, m.ProductName)
 	id := slugID(read.model)
+	if alias, ok := modelAliases[id]; ok {
+		id = alias
+	}
 	if id == "" {
 		return
+	}
+	if read.fineTuned == "true" && metricFor(read) == MetricUsage {
+		switch unit {
+		case UnitPer1KTokens, UnitPer1MTokens:
+			read.charge = "training"
+		case UnitPerHour:
+			read.charge = "hosting"
+		}
 	}
 	model := b.model(id, kindFor(read.model, m.ProductName))
 	model.AddSource(source)

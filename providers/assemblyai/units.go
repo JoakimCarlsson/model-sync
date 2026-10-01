@@ -149,6 +149,9 @@ const (
 // two columns and states only for the longer of them.
 const DimCacheTTL = "cache_ttl"
 
+// DimRegion identifies the region a gateway rate applies to.
+const DimRegion = "region"
+
 // DimRedaction says which half of a redaction a rate is for. AssemblyAI
 // documents PII redaction once and sells it twice, once for the transcript and
 // once for the audio, at different rates.

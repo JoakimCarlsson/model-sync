@@ -130,11 +130,20 @@ func applyGatewayParameters(m *catalog.Model, cell string) {
 
 // applyGatewayRates records one row of the rate table. Every column is a rate
 // against the same million tokens, so what separates them is the metric, and
-// the two cache write columns differ only in the lifetime they buy.
+// the two cache write columns differ only in the lifetime they buy. Regional
+// overrides carry the region stated in their row on every rate.
 func (b *builder) applyGatewayRates(row, heads []string, source string) {
 	m, ok := b.gatewayModel(row, source)
 	if !ok {
 		return
+	}
+	var rowDims catalog.Dims
+	for i, head := range heads {
+		if strings.EqualFold(clean(head), "region") {
+			if region := clean(cellAt(row, i)); region != "" {
+				rowDims = rowDims.With(DimRegion, region)
+			}
+		}
 	}
 	for i, head := range heads {
 		cell := clean(cellAt(row, i))
@@ -159,7 +168,7 @@ func (b *builder) applyGatewayRates(row, heads []string, source string) {
 			Unit:     UnitPer1MTokens,
 			Amount:   amount,
 			Currency: currency,
-			Dims:     dims,
+			Dims:     dims.Merge(rowDims),
 		})
 	}
 }

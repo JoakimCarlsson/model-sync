@@ -81,10 +81,11 @@ const (
 
 // Service tiers OpenAI prices separately.
 const (
-	TierStandard = "standard"
-	TierBatch    = "batch"
-	TierFlex     = "flex"
-	TierFast     = "fast"
+	TierStandard  = "standard"
+	TierBatch     = "batch"
+	TierFlex      = "flex"
+	TierFast      = "fast"
+	TierUltrafast = "ultrafast"
 )
 
 // tierFor recognizes the bare line that introduces a tier's tables.
@@ -98,6 +99,8 @@ func tierFor(line string) (string, bool) {
 		return TierFlex, true
 	case "fast mode", "fast":
 		return TierFast, true
+	case "ultrafast":
+		return TierUltrafast, true
 	}
 	return "", false
 }
