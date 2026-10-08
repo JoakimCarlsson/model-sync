@@ -1,0 +1,1 @@
+{"id":"gpt-4o-mini-tts-2025-03-20","provider":"openai","kind":"speech","attrs":{"api_id":"gpt-4o-mini-tts-2025-03-20","deprecated_on":"2026-10-01","recommended_replacement":"gpt-realtime-2.1-mini","retirement_date":"2027-01-06","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

@@ -41,8 +41,9 @@ const (
 // here because a five minute write and a one hour write are different rates
 // for the same metric.
 const (
-	DimTier     = "tier"
-	DimCacheTTL = "cache_ttl"
+	DimTier       = "tier"
+	DimCacheTTL   = "cache_ttl"
+	DimPromptBand = "prompt_band"
 )
 
 // Service tiers Anthropic prices separately.
@@ -385,18 +386,33 @@ func splitNames(text string) []string {
 type modelRef struct {
 	Name         string
 	Availability string
+	PromptBand   string
 }
 
+// promptBandRe matches a prompt-length condition in a pricing row.
+var promptBandRe = regexp.MustCompile(
+	`(?i)^for prompts (up to|over) ([\d,]+) tokens$`,
+)
+
 // splitModelCell reads a model cell. Anthropic decorates the name with a
-// parenthesized availability note that is usually a link, and lists two models
-// separated by a slash when they share a rate.
+// parenthesized availability note or prompt-length condition, and lists two
+// models separated by a slash when they share a rate.
 func splitModelCell(cell string) []modelRef {
 	text := clean(cell)
 	availability := ""
+	promptBand := ""
 	if open := strings.Index(text, "("); open >= 0 &&
 		strings.HasSuffix(text, ")") {
 		availability = strings.TrimSpace(text[open+1 : len(text)-1])
 		text = strings.TrimSpace(text[:open])
+	}
+	if match := promptBandRe.FindStringSubmatch(availability); match != nil {
+		operator := "<="
+		if strings.EqualFold(match[1], "over") {
+			operator = ">"
+		}
+		promptBand = operator + strings.ReplaceAll(match[2], ",", "")
+		availability = ""
 	}
 	var refs []modelRef
 	for _, part := range strings.Split(text, " / ") {
@@ -404,6 +420,7 @@ func splitModelCell(cell string) []modelRef {
 			refs = append(refs, modelRef{
 				Name:         name,
 				Availability: availability,
+				PromptBand:   promptBand,
 			})
 		}
 	}

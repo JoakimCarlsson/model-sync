@@ -115,7 +115,8 @@ func (b *builder) applyRateRow(
 			Unit:     unit,
 			Amount:   a.Value,
 			Currency: currency,
-			Dims:     col.dims.With(DimTier, tier),
+			Dims: col.dims.With(DimTier, tier).
+				With(DimPromptBand, ref.PromptBand),
 		})
 	}
 }

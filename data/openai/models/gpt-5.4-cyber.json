@@ -1,1 +1,0 @@
-{"id":"gpt-5.4-cyber","provider":"openai","kind":"chat","attrs":{"api_id":"gpt-5.4-cyber","deprecated_on":"2026-09-11","recommended_replacement":"The most capable cyber model available to you.","retirement_date":"2026-10-01","state":"deprecated"},"sources":["https://developers.openai.com/api/docs/deprecations.md"]}

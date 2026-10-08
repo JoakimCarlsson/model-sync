@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"regexp"
 	"slices"
+	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -142,7 +143,11 @@ func (p *Provider) get(
 	ctx context.Context,
 	url string,
 ) (catalog.Document, error) {
-	req, err := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
+	fetchURL := url
+	if strings.HasPrefix(url, blogURL) {
+		fetchURL = strings.TrimRight(url, "/") + "/"
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, fetchURL, nil)
 	if err != nil {
 		return catalog.Document{}, err
 	}
