@@ -391,6 +391,7 @@ var unprefixed = map[string]bool{
 // is carried by the product instead.
 var familyPrefixes = map[string]string{
 	"Azure OpenAI GPT5":        "gpt-",
+	"Azure OpenAI GPT6":        "gpt-",
 	"Azure OpenAI PP FT GPT4s": "gpt-",
 	"Azure OpenAI Media":       "gpt-",
 	"Azure OpenAI Embedding":   "text-",
