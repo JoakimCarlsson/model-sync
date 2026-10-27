@@ -1,1 +1,1 @@
-{"id":"auto-chapters","provider":"assemblyai","name":"Auto Chapters","kind":"speech_understanding","attrs":{"api_id":"auto-chapters","regions":"US & EU"},"lists":{"features":["auto_chapters"]},"sources":["https://www.assemblyai.com/docs/speech-understanding/auto-chapters.md"]}
+{"id":"auto-chapters","provider":"assemblyai","name":"Auto Chapters","kind":"speech_understanding","attrs":{"api_id":"auto-chapters"},"lists":{"features":["auto_chapters"]},"sources":["https://www.assemblyai.com/docs/speech-understanding/auto-chapters.md"]}

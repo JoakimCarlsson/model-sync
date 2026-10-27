@@ -131,6 +131,10 @@ var tiers = map[string]string{
 	"batch":    "batch",
 	"flex":     "flex",
 	"priority": "priority",
+	// contributor is the tier whose prompts Google may train on, priced
+	// as batch is. It has a heading of its own, and without it its rows
+	// were read as the priority tier's and contradicted them.
+	"contributor": "contributor",
 }
 
 // modelHeadingRe matches the heading that introduces a model rather than a
@@ -693,6 +697,9 @@ var (
 	// the same rate per minute, and the parenthesis after the second qualifies
 	// both.
 	alternativeRe = regexp.MustCompile(`(?i)^\s*,?\s*or\s*$`)
+	// sentenceEndRe matches a full stop that ends a sentence, as opposed to
+	// the one inside "$0.5" or "0.5K".
+	sentenceEndRe = regexp.MustCompile(`\.\s+[A-Z]`)
 )
 
 // modalityWords are the media a parenthesis can name. A parenthesis naming
@@ -752,6 +759,7 @@ func parseRates(cell string) []rate {
 // qualify reads the clause following one amount for everything it says about
 // when that amount applies.
 func qualify(tail string) rate {
+	tail = clauseOf(tail)
 	r := rate{dims: catalog.Dims{}}
 	if match := qualifierRe.FindStringSubmatch(tail); match != nil {
 		r.dims = r.dims.With(qualifierKey(match[1]), slugID(match[1]))
@@ -784,6 +792,17 @@ func qualify(tail string) rate {
 		}
 	}
 	return r
+}
+
+// clauseOf cuts a tail at the end of its sentence. What follows is a note
+// about the cell rather than about the amount, as in "Implicit caching only
+// (explicit caching is not supported)", whose parenthesis was read as the
+// size of the output the amount buys.
+func clauseOf(tail string) string {
+	if at := sentenceEndRe.FindStringIndex(tail); at != nil {
+		return tail[:at[0]]
+	}
+	return tail
 }
 
 // qualifierKey says which dimension a parenthesis states. Google writes the

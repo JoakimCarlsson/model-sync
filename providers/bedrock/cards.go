@@ -133,7 +133,7 @@ var (
 	cardModelIDRe = regexp.MustCompile(
 		"`?((?:[a-z0-9-]+\\.)+[a-z0-9.-]+-v\\d+:\\d+)`?",
 	)
-	cardCountRe = regexp.MustCompile(`(?i)([\d][\d,.]*)\s*([km])?`)
+	cardCountRe = regexp.MustCompile(`(?i)([\d][\d,.]*)\s*([km])?\b`)
 	linkTextRe  = regexp.MustCompile(`\[([^\]]*)\]\([^)]*\)`)
 	// cardDropRe matches the words one document writes and the other does
 	// not. The last of them is the generation Amazon marks its own older
@@ -886,7 +886,9 @@ func compareTokens(name string) []string {
 	return strings.Fields(cardWordRe.ReplaceAllString(s, " "))
 }
 
-// parseCount reads a quantity such as "200K tokens" or "64K".
+// parseCount reads a quantity such as "200K tokens" or "64K". A suffix counts
+// only as a whole word, so the "m" of "524,288 minus input tokens" is not a
+// million.
 func parseCount(value string) int64 {
 	match := cardCountRe.FindStringSubmatch(strings.TrimSpace(value))
 	if match == nil {
