@@ -21,6 +21,13 @@ var imageRateRe = regexp.MustCompile(
 	`(?m)^\s*\*\s*(.+?):\s*\\?\$([\d.]+)\s*/\s*image`,
 )
 
+// imageProseRateRe matches a rate written as a sentence rather than a bullet,
+// such as "At 4K it is about $0.24 per image": a resolution, then the amount
+// charged for one image at it.
+var imageProseRateRe = regexp.MustCompile(
+	`(?i)\bat\s+(\w+)\s+it\s+is\s+about\s+\\?\$([\d.]+)\s+per\s+image`,
+)
+
 // imageSizeRe matches one width-by-height pair. Together writes them with a
 // multiplication sign rather than a letter.
 var imageSizeRe = regexp.MustCompile(`(\d{3,4})\s*[x×]\s*(\d{3,4})`)
@@ -59,7 +66,9 @@ func (b *builder) applyImageRates(doc catalog.Document) {
 
 // applyImageSection records what one such section states.
 func applyImageSection(m *catalog.Model, section, source string) {
-	for _, match := range imageRateRe.FindAllStringSubmatch(section, -1) {
+	matches := imageRateRe.FindAllStringSubmatch(section, -1)
+	matches = append(matches, imageProseRateRe.FindAllStringSubmatch(section, -1)...)
+	for _, match := range matches {
 		amount := parseAmount("$" + match[2])
 		if !amount.Found {
 			continue

@@ -192,6 +192,9 @@ const (
 	FeatureFunctionCalling   = catalog.CapabilityFunctionCalling
 	FeatureStructuredOutputs = catalog.CapabilityStructuredOutputs
 	FeatureWordTimestamps    = catalog.CapabilityWordTimestamps
+	// FeatureReasoning is a model accepting a reasoning effort, which is a
+	// model that reasons before it answers.
+	FeatureReasoning = catalog.CapabilityReasoning
 	// FeatureStreaming is returning an answer as it is generated. It is not
 	// CapabilityRealtime, which is transcribing a live connection: one is
 	// about how an answer arrives, the other about what is being listened to.

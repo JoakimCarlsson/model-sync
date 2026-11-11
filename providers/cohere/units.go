@@ -99,9 +99,13 @@ var productModels = map[string][]string{
 	"command r+":          {"command-r-plus-08-2024"},
 	"command r7b":         {"command-r7b-12-2024"},
 	"embed 4":             {"embed-v4.0"},
+	"embed 5 fast":        {"embed-v5.0-fast"},
+	"embed 5 pro":         {"embed-v5.0-pro"},
 	"rerank 3.5":          {"rerank-v3.5"},
 	"rerank 4 fast":       {"rerank-v4.0-fast"},
 	"rerank 4 pro":        {"rerank-v4.0-pro"},
+	"rerank 5 fast":       {"rerank-v5.0-fast"},
+	"rerank 5 pro":        {"rerank-v5.0-pro"},
 	"transcribe":          {"cohere-transcribe-03-2026"},
 	"aya expanse":         {"c4ai-aya-expanse-8b", "c4ai-aya-expanse-32b"},
 }

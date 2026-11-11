@@ -56,14 +56,29 @@ var families = []family{
 		Fragments: []string{"eleven_flash", "eleven_turbo"},
 	},
 	{
-		Card:      "multilingual v2/v3",
+		Card:      "v2 multilingual",
 		Metric:    MetricSpeech,
-		Fragments: []string{"eleven_multilingual_v2", "eleven_v3"},
+		Fragments: []string{"eleven_multilingual_v2"},
+	},
+	{
+		Card:      "v3",
+		Metric:    MetricSpeech,
+		Fragments: []string{"eleven_v3"},
+	},
+	{
+		Card:      "v3 conversational",
+		Metric:    MetricSpeech,
+		Fragments: []string{"eleven_v3_conversational"},
 	},
 	{
 		Card:      "scribe v2",
 		Metric:    MetricAudio,
 		Fragments: []string{"scribe_v2"},
+	},
+	{
+		Card:      "scribe v2 medical",
+		Metric:    MetricAudio,
+		Fragments: []string{"scribe_v2_medical"},
 	},
 	{
 		Card:      "scribe v2 realtime",
@@ -192,9 +207,9 @@ const noteNoCard = "no card on the API pricing page covers this model"
 //
 // Two kinds fall outside every card. Voice design has no card at all: the
 // pricing page describes the product without quoting an amount for it. The
-// first generation speech model has none either, because the card covering the
-// multilingual line is headed for its second and third versions and this parser
-// will not read a rate quoted for one version onto another.
+// first generation speech model has none either, because the cards covering the
+// multilingual line are headed for later versions and this parser will not read
+// a rate quoted for one version onto another.
 //
 // A deprecated model is skipped. ElevenLabs drops a model from its cards when it
 // withdraws it, so the absence there is the withdrawal and not an omission.

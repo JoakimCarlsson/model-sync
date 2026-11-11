@@ -103,9 +103,13 @@ func detailURL(e entry) string {
 }
 
 // override is a rate that replaces the standard one once a request is large
-// enough, which is how OpenRouter expresses long-context pricing.
+// enough, which is how OpenRouter expresses long-context pricing, or while the
+// request falls within a UTC time-of-day window, which is how it expresses
+// off-peak pricing.
 type override struct {
 	MinPromptTokens int64             `json:"min_prompt_tokens"`
+	UTCStart        *int64            `json:"utc_start"`
+	UTCEnd          *int64            `json:"utc_end"`
 	Rates           map[string]string `json:"-"`
 }
 
@@ -118,9 +122,20 @@ func (o *override) UnmarshalJSON(data []byte) error {
 	}
 	o.Rates = map[string]string{}
 	for key, value := range raw {
-		if key == "min_prompt_tokens" {
+		switch key {
+		case "min_prompt_tokens":
 			if err := json.Unmarshal(value, &o.MinPromptTokens); err != nil {
 				return fmt.Errorf("min_prompt_tokens: %w", err)
+			}
+			continue
+		case "utc_start":
+			if err := json.Unmarshal(value, &o.UTCStart); err != nil {
+				return fmt.Errorf("utc_start: %w", err)
+			}
+			continue
+		case "utc_end":
+			if err := json.Unmarshal(value, &o.UTCEnd); err != nil {
+				return fmt.Errorf("utc_end: %w", err)
 			}
 			continue
 		}
@@ -398,17 +413,38 @@ func applyOverrides(m *catalog.Model, raw json.RawMessage, dims catalog.Dims) {
 		return
 	}
 	for _, o := range overrides {
-		if o.MinPromptTokens <= 0 {
+		conditional, ok := overrideDims(o, dims)
+		if !ok {
 			continue
 		}
-		conditional := dims.With(
-			DimMinPromptTokens,
-			strconv.FormatInt(o.MinPromptTokens, 10),
-		)
 		for key, rate := range o.Rates {
 			addRate(m, key, rate, conditional)
 		}
 	}
+}
+
+// overrideDims qualifies dims with the conditions under which an override
+// applies: a prompt-size threshold, a UTC time-of-day window, or both. It
+// reports false when the override states no condition the catalog can carry.
+func overrideDims(o override, dims catalog.Dims) (catalog.Dims, bool) {
+	conditional := dims
+	ok := false
+	if o.MinPromptTokens > 0 {
+		conditional = conditional.With(
+			DimMinPromptTokens,
+			strconv.FormatInt(o.MinPromptTokens, 10),
+		)
+		ok = true
+	}
+	if o.UTCStart != nil && o.UTCEnd != nil {
+		conditional = conditional.With(
+			DimUTCStart, strconv.FormatInt(*o.UTCStart, 10),
+		).With(
+			DimUTCEnd, strconv.FormatInt(*o.UTCEnd, 10),
+		)
+		ok = true
+	}
+	return conditional, ok
 }
 
 // addRate records one rate, scaled to the catalog's denominator.

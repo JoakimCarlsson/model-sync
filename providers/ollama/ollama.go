@@ -75,7 +75,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	index := newBuilder()
 	index.applyLibrary(library)
 
-	urls := append(tagListingURLs(library), StructuredOutputsURL)
+	urls := append(tagListingURLs(library), StructuredOutputsURL, PricingURL)
 	urls = append(urls, index.urlsWithAttr(AttrCloud)...)
 	docs, failures := p.getAll(ctx, urls)
 
@@ -242,6 +242,8 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 		switch {
 		case doc.URL == LibraryURL:
 		case doc.URL == StructuredOutputsURL:
+		case doc.URL == PricingURL:
+			b.applyPricing(doc)
 			b.applyStructuredOutputs(doc)
 		case strings.Contains(doc.URL, blobsPath):
 			b.applyBlob(doc)

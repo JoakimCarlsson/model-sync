@@ -196,6 +196,9 @@ var serviceTiers = map[string]string{
 // sonic meters price a text input token at $0.00006 and a speech
 // understanding input token at $0.0034 per thousand. Read as the same metric
 // they became one contradiction per region, fifty-six times over.
+//
+// Nova 2.0 Omni names the pictures it draws "Output Image Token Count", which
+// holds neither "image output" nor "output token".
 var metricWords = []struct {
 	fragment string
 	metric   catalog.Metric
@@ -208,6 +211,7 @@ var metricWords = []struct {
 	{"speech understanding input", MetricAudioInput},
 	{"speech understanding output", MetricAudioOutput},
 	{"image output", MetricImageOutput},
+	{"output image", MetricImageOutput},
 	{"output token", MetricOutputTokens},
 	{"input token", MetricInputTokens},
 	{"text output", MetricOutputTokens},

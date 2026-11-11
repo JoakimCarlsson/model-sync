@@ -51,10 +51,11 @@ const cacheTTLHour = "1h"
 // these models: it publishes, per model, which parameters that model takes,
 // and a model taking tools is a model that calls them.
 var gatewayParameters = map[string]string{
-	"tools":           FeatureFunctionCalling,
-	"tool_choice":     FeatureFunctionCalling,
-	"response_format": FeatureStructuredOutputs,
-	"stream":          FeatureStreaming,
+	"tools":            FeatureFunctionCalling,
+	"tool_choice":      FeatureFunctionCalling,
+	"response_format":  FeatureStructuredOutputs,
+	"stream":           FeatureStreaming,
+	"reasoning_effort": FeatureReasoning,
 }
 
 var (

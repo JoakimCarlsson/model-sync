@@ -274,7 +274,9 @@ func text(html string) string {
 	return strings.Join(strings.Fields(tagRe.ReplaceAllString(html, " ")), " ")
 }
 
-// unitFor maps Deepgram's denominator wording onto a unit.
+// unitFor maps Deepgram's denominator wording onto a unit. Token rates are
+// written either in full, "1k input tokens", or abbreviated, "1k in" and
+// "1k out", as the audio intelligence rows quote them.
 func unitFor(denominator string) (catalog.Unit, bool) {
 	field := strings.ToLower(strings.TrimSpace(denominator))
 	switch {
@@ -284,22 +286,24 @@ func unitFor(denominator string) (catalog.Unit, bool) {
 		return UnitPerHour, true
 	case strings.HasPrefix(field, "1k character"):
 		return UnitPer1KChars, true
-	case strings.HasPrefix(field, "1k input token"),
-		strings.HasPrefix(field, "1k output token"):
+	case strings.HasPrefix(field, "1k in"),
+		strings.HasPrefix(field, "1k out"):
 		return UnitPer1KTokens, true
 	}
 	return "", false
 }
 
 // metricFor reports what a rate counts, which its denominator and wording
-// settle: the agent's language model is billed per token in each direction,
-// speech per character, and everything else per unit of audio time.
+// settle: language models and audio intelligence are billed per token in each
+// direction, speech per character, and everything else per unit of audio time.
 func metricFor(kind catalog.Kind, denominator string) catalog.Metric {
-	field := strings.ToLower(denominator)
+	field := strings.ToLower(strings.TrimSpace(denominator))
 	switch {
-	case strings.Contains(field, "input token"):
+	case strings.Contains(field, "input token"),
+		strings.HasSuffix(field, "1k in"):
 		return MetricInputTokens
-	case strings.Contains(field, "output token"):
+	case strings.Contains(field, "output token"),
+		strings.HasSuffix(field, "1k out"):
 		return MetricOutputTokens
 	case strings.Contains(field, "character"):
 		return MetricSpeech

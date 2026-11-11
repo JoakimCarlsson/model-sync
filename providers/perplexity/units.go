@@ -90,6 +90,7 @@ func clean(cell string) string {
 	s := linkRe.ReplaceAllString(cell, "$1")
 	s = tagRe.ReplaceAllString(s, " ")
 	s = strings.ReplaceAll(s, `\$`, "$")
+	s = strings.ReplaceAll(s, `\<`, "<")
 	s = strings.ReplaceAll(s, "**", "")
 	s = strings.ReplaceAll(s, "`", "")
 	return strings.Join(strings.Fields(s), " ")
@@ -200,7 +201,7 @@ const (
 	ListParameters       = catalog.ListParameters
 	ListEndpoints        = "endpoints"
 	ListSearchModes      = "search_modes"
-	ListReasoningEfforts = "reasoning_effort_levels"
+	ListReasoningEfforts = "reasoning_efforts"
 	ListSearchTypes      = "search_types"
 	ListBuiltInTools     = "built_in_tools"
 	ListEncodingFormats  = "encoding_formats"

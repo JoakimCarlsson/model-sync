@@ -58,6 +58,9 @@ const (
 	AttrKnowledgeCutoff = "knowledge_cutoff"
 	AttrBatchDiscount   = "batch_discount"
 	AttrState           = "state"
+	// AttrDefaultReasoningEffort is the effort a model reasons at when the
+	// request names none.
+	AttrDefaultReasoningEffort = "default_reasoning_effort"
 )
 
 // Numeric keys the documents populate.
@@ -82,6 +85,8 @@ const (
 	ListRegions          = "regions"
 	ListInputModalities  = "input_modalities"
 	ListOutputModalities = "output_modalities"
+	// ListReasoningEfforts holds the reasoning efforts a model accepts.
+	ListReasoningEfforts = "reasoning_efforts"
 )
 
 // Capabilities the voice pages name that the catalog has no word for. The

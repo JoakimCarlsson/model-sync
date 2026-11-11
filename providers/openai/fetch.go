@@ -17,8 +17,11 @@ const baseURL = "https://developers.openai.com"
 
 // Documents OpenAI publishes that this parser reads.
 const (
-	PricingURL      = baseURL + "/api/docs/pricing.md"
-	ModelsIndexURL  = baseURL + "/api/docs/models.md"
+	PricingURL     = baseURL + "/api/docs/pricing.md"
+	ModelsIndexURL = baseURL + "/api/docs/models.md"
+	// AllModelsURL lists every model with a page, deprecated ones included,
+	// where the index lists only the current ones.
+	AllModelsURL    = baseURL + "/api/docs/models/all.md"
 	DeprecationsURL = baseURL + "/api/docs/deprecations.md"
 	// ChangelogURL is the only document stating when a model arrived. No
 	// model page carries a date, the pricing page carries none either, and
@@ -62,13 +65,19 @@ const fetchWorkers = 8
 
 var modelLinkRe = regexp.MustCompile(`\(/api/docs/models/([^)]+?)\.md\)`)
 
+// nonModelPages are the pages under /api/docs/models/ that list or compare
+// models rather than describe one, and so are not fetched as model pages.
+var nonModelPages = []string{"all", "compare"}
+
 // Fetch retrieves the pricing page, the guides, and one page per model listed
-// in the model index.
+// in the model index or in the page of all models, which alone links the
+// older and deprecated models still served.
 //
 // A failure to retrieve the pricing page or the index is fatal and returns no
-// documents. A failure on an individual model page is not: the remaining
-// documents are returned along with a joined error naming what was missed, so
-// a single removed page degrades the run instead of ending it.
+// documents. A failure on the page of all models or on an individual model
+// page is not: the remaining documents are returned along with a joined error
+// naming what was missed, so a single removed page degrades the run instead of
+// ending it.
 func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 	pricing, err := p.get(ctx, PricingURL)
 	if err != nil {
@@ -91,19 +100,31 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 		}
 		docs = append(docs, doc)
 	}
-	pages, pageErrs := p.getAll(ctx, modelPageURLs(index.Body))
+	indexes := [][]byte{index.Body}
+	if all, err := p.get(ctx, AllModelsURL); err != nil {
+		failures = append(failures, err)
+	} else {
+		indexes = append(indexes, all.Body)
+	}
+	pages, pageErrs := p.getAll(ctx, modelPageURLs(indexes...))
 	docs = append(docs, index)
 	docs = append(docs, pages...)
 	return docs, errors.Join(append(failures, pageErrs...)...)
 }
 
-// modelPageURLs returns the markdown page for every model the index links to.
-func modelPageURLs(index []byte) []string {
+// modelPageURLs returns the markdown page for every model the given indexes
+// link to, less the listing and comparison pages.
+func modelPageURLs(indexes ...[]byte) []string {
 	var urls []string
-	for _, m := range modelLinkRe.FindAllStringSubmatch(string(index), -1) {
-		url := baseURL + "/api/docs/models/" + m[1] + ".md"
-		if !slices.Contains(urls, url) {
-			urls = append(urls, url)
+	for _, index := range indexes {
+		for _, m := range modelLinkRe.FindAllStringSubmatch(string(index), -1) {
+			if slices.Contains(nonModelPages, m[1]) {
+				continue
+			}
+			url := baseURL + "/api/docs/models/" + m[1] + ".md"
+			if !slices.Contains(urls, url) {
+				urls = append(urls, url)
+			}
 		}
 	}
 	slices.Sort(urls)

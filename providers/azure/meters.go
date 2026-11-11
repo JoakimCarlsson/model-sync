@@ -1,6 +1,7 @@
 package azure
 
 import (
+	"regexp"
 	"slices"
 	"strings"
 
@@ -189,6 +190,7 @@ const (
 	TierStandard    = "standard"
 	TierBatch       = "batch"
 	TierProvisioned = "provisioned"
+	TierFlex        = "flex"
 )
 
 // DimFineTuned marks a rate as applying to a fine tuned deployment.
@@ -280,6 +282,33 @@ var tiers = []word{
 	{"standard", TierStandard},
 }
 
+// flexTiers are the words naming flex processing, the discounted path that
+// serves a request when capacity allows. They are read only on the products
+// in flexProducts, since "Flex" is also the name of a FLUX model.
+var flexTiers = []word{
+	{"flex", TierFlex},
+	{"fl", TierFlex},
+}
+
+// flexProducts are the families whose SKUs write the flex serving path and
+// write some versions without their dot: "54 inp Flex Gl" is GPT-5.4 and
+// "56luna LoCo Inp Fl Gl" is GPT-5.6 luna.
+var flexProducts = map[string]bool{
+	"Azure OpenAI GPT5": true,
+	"Azure OpenAI GPT6": true,
+}
+
+// undottedVersion matches a leading version written without its dot, with
+// whatever name is glued onto it.
+var undottedVersion = regexp.MustCompile(`^([56])(\d)([a-z]*)(?:\s|$)`)
+
+// gluedWords are runs Azure writes without the spaces between their words,
+// and the words they stand for.
+var gluedWords = []word{
+	{"mini0718", "mini 0718"},
+	{"batchoutp", "batch outp"},
+}
+
 // fineTunings are the words marking a rate as being for a fine tuned
 // deployment. It is separate from the serving path because a meter can name
 // both, as a provisioned fine tuned model does. "rft" is reinforcement fine
@@ -307,6 +336,8 @@ var graders = []word{
 var contexts = []word{
 	{"shortco", "short"},
 	{"longco", "long"},
+	{"shco", "short"},
+	{"loco", "long"},
 	{"l", "long"},
 }
 
@@ -447,6 +478,12 @@ type reading struct {
 func readSKU(sku, product string) reading {
 	rest := strings.ToLower(strings.TrimPrefix(sku, "Az-"))
 	rest = strings.ReplaceAll(rest, "3bftregnl", "3b ft regnl")
+	for _, g := range gluedWords {
+		rest = strings.ReplaceAll(rest, g.term, g.value)
+	}
+	if flexProducts[product] {
+		rest = undottedVersion.ReplaceAllString(rest, "$1.$2 $3 ")
+	}
 	rest = " " + strings.Join(
 		strings.Fields(strings.ReplaceAll(rest, "-", " ")),
 		" ",
@@ -461,6 +498,8 @@ func readSKU(sku, product string) reading {
 	rest = removeWords(rest, deployments)
 	rest, out.fineTuned = takeWord(rest, fineTunings)
 	if remainder, tier := takeWord(rest, tiers); tier != "" {
+		rest, out.tier = remainder, tier
+	} else if remainder, tier := takeWord(rest, flexTiers); tier != "" && flexProducts[product] {
 		rest, out.tier = remainder, tier
 	}
 	rest, out.context = takeWord(rest, contexts)

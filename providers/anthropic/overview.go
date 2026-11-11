@@ -212,9 +212,9 @@ func (b *builder) applyOverviewRow(
 			m.SetAttr(AttrSummary, value)
 		case "claude api alias":
 			m.AddList(ListAliases, value)
-		case "aws bedrock id":
+		case "aws bedrock id", "amazon bedrock id":
 			m.SetAttr(AttrBedrockID, dropIDFootnote(value, id))
-		case "google cloud id":
+		case "google cloud id", "claude models on google cloud (google managed) id":
 			m.SetAttr(AttrVertexID, dropIDFootnote(value, id))
 		case "context window":
 			m.SetLimit(LimitContextWindow, parseTokenCount(value))

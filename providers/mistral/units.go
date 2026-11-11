@@ -118,6 +118,7 @@ const (
 	ListParameters       = catalog.ListParameters
 	ListLanguages        = "languages"
 	ListFileFormats      = "file_formats"
+	ListReasoningEfforts = "reasoning_efforts"
 )
 
 // badgeStates map the lifecycle badge a model page carries onto the standing

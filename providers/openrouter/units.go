@@ -49,6 +49,10 @@ const (
 	// OpenRouter states as the smallest prompt the override applies from.
 	DimMinPromptTokens = "min_prompt_tokens"
 	DimCacheTTL        = "cache_ttl"
+	// DimUTCStart and DimUTCEnd carry the time-of-day window of a conditional
+	// rate, exactly as OpenRouter publishes them (UTC, written as HHMM).
+	DimUTCStart = "utc_start"
+	DimUTCEnd   = "utc_end"
 	// DimEndpointProvider names the upstream a per-seller rate belongs to, and
 	// DimQuantization the weights that seller serves it at, since the same
 	// seller may offer one model at two precisions for two prices.

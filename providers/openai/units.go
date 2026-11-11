@@ -107,11 +107,15 @@ func tierFor(line string) (string, bool) {
 }
 
 // sectionKind recognizes the bare line that introduces a family of tables and
-// reports the kind of model those tables describe.
+// reports the kind of model those tables describe. A family whose tables mix
+// kinds reports an empty kind, so each model's kind is settled by its page or
+// its name instead.
 func sectionKind(line string) (catalog.Kind, bool) {
 	switch strings.ToLower(line) {
 	case "flagship models", "cyber models", "specialized models":
 		return KindChat, true
+	case "multimodal models", "cloud platforms":
+		return "", true
 	case "realtime and audio generation models":
 		return KindRealtime, true
 	case "image generation models":
@@ -122,8 +126,30 @@ func sectionKind(line string) (catalog.Kind, bool) {
 		return KindTranscription, true
 	case "tools":
 		return KindTool, true
-	case "finetuning":
+	case "finetuning", "fine-tuning":
 		return KindFinetune, true
+	}
+	return "", false
+}
+
+// subsectionKind recognizes the bare line that introduces a group of tables
+// within a family, such as the multimodal family's images and audio groups,
+// and reports the kind of model the group describes. A group whose tables mix
+// kinds reports an empty kind, so each model's kind is settled by its page or
+// its name instead. A group keeps its family's denominator but not the tier
+// of the group before it.
+func subsectionKind(line string) (catalog.Kind, bool) {
+	switch strings.ToLower(line) {
+	case "audio", "realtime & audio":
+		return "", true
+	case "gpt-live":
+		return KindRealtime, true
+	case "images":
+		return KindImage, true
+	case "videos", "video":
+		return KindVideo, true
+	case "transcription":
+		return KindTranscription, true
 	}
 	return "", false
 }

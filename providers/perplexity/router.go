@@ -52,7 +52,7 @@ var openWeightRe = regexp.MustCompile(
 func (b *builder) applyRouterCatalog(doc catalog.Document) {
 	hosted := openWeightRe.MatchString(string(doc.Body))
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
-		if columnOf(t.Headers, "cache read") < 0 {
+		if routerColumn(t.Headers, "cache read") < 0 {
 			continue
 		}
 		for _, row := range t.Rows {
@@ -77,7 +77,7 @@ func (b *builder) applyRouterRates(
 	row []string,
 ) {
 	for _, col := range routerColumns {
-		at := columnOf(t.Headers, col.header)
+		at := routerColumn(t.Headers, col.header)
 		if at < 0 {
 			continue
 		}
@@ -93,6 +93,15 @@ func (b *builder) applyRouterRates(
 			Dims:     catalog.Dims{}.With(DimAPI, APIRouter),
 		})
 	}
+}
+
+// routerColumn returns the index of a Router catalog column, whose heading is
+// written either bare or followed by the per-million denominator, or -1.
+func routerColumn(headers []string, name string) int {
+	if at := columnOf(headers, name); at >= 0 {
+		return at
+	}
+	return columnOf(headers, name+" ($/1m)")
 }
 
 // applyRouterReference records a Router endpoint against every model the

@@ -199,10 +199,18 @@ type builder struct {
 	// priceNote is the pricing table's footnote naming the hours the peak
 	// period covers, which qualifies every rate on the table.
 	priceNote string
+	// noVision names the models the pricing table states have no vision, so
+	// the image content part the Responses API carries is not recorded as an
+	// input they accept.
+	noVision map[string]bool
 }
 
+// newBuilder returns an empty builder.
 func newBuilder() *builder {
-	return &builder{models: map[string]*catalog.Model{}}
+	return &builder{
+		models:   map[string]*catalog.Model{},
+		noVision: map[string]bool{},
+	}
 }
 
 // model returns the entry for id, creating it if absent.

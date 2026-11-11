@@ -88,6 +88,7 @@ var (
 func (b *builder) applyModelPage(doc catalog.Document) {
 	block := blockRe.FindStringSubmatch(string(doc.Body))
 	if block == nil {
+		b.applyProsePage(doc)
 		return
 	}
 	props := parseProps(block[1])

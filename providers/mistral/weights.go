@@ -46,7 +46,18 @@ func weightsCellRe(key string) *regexp.Regexp {
 var (
 	parameterCellRe = weightsCellRe("parameters")
 	activeCellRe    = weightsCellRe("active")
+	// parameterUnitRe and activeUnitRe match the unit a column heading names
+	// for its figures, which Mistral picks per model.
+	parameterUnitRe = regexp.MustCompile(`"children":"Parameters \(([A-Z])\)"`)
+	activeUnitRe    = regexp.MustCompile(`"children":"Active \(([A-Z])\)"`)
 )
+
+// countScales map the unit letter a heading names onto its multiplier.
+var countScales = map[string]float64{
+	"M": 1_000_000,
+	"B": 1_000_000_000,
+	"T": 1_000_000_000_000,
+}
 
 // weightsKeys map the label Mistral gives a repository onto the key it is
 // recorded under. A model whose weights come in one flavour is labelled
@@ -97,8 +108,10 @@ func applyWeights(m *catalog.Model, body string) {
 		m.SetAttr(AttrLicenseURL, row[3])
 	}
 	m.SetAttr(AttrOpenWeights, openWeights(shelf, served))
-	m.SetLimit(LimitParameterCount, billions(first(parameterCellRe, body)))
-	m.SetLimit(LimitActiveParameterCount, billions(first(activeCellRe, body)))
+	m.SetLimit(LimitParameterCount, scaledCount(
+		first(parameterCellRe, body), first(parameterUnitRe, body)))
+	m.SetLimit(LimitActiveParameterCount, scaledCount(
+		first(activeCellRe, body), first(activeUnitRe, body)))
 	for _, line := range gpuRAMRe.FindAllStringSubmatch(body, -1) {
 		m.SetLimit(gpuRAMLimits[line[1]], parseCount(line[2]))
 	}
@@ -115,14 +128,19 @@ func openWeights(shelf, repo string) string {
 	return "false"
 }
 
-// billions reads a parameter count, which Mistral writes in billions under a
-// heading saying so.
-func billions(value string) int64 {
+// scaledCount reads a parameter count in the unit its column heading names,
+// defaulting to billions when the heading names none it knows. It returns 0
+// for a value that is not a number.
+func scaledCount(value, unit string) int64 {
 	n, err := strconv.ParseFloat(strings.TrimSpace(value), 64)
 	if err != nil {
 		return 0
 	}
-	return int64(n * 1_000_000_000)
+	scale, ok := countScales[unit]
+	if !ok {
+		scale = countScales["B"]
+	}
+	return int64(n * scale)
 }
 
 // applyEndpoints records the paths a model answers on, which each capability

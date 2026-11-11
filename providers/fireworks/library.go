@@ -1,27 +1,11 @@
 package fireworks
 
 import (
-	"html"
-	"regexp"
 	"slices"
 	"strconv"
 	"strings"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
-)
-
-// The model library's index is the only document naming every model Fireworks
-// serves. Each card links the model's page, titles it, and states its context
-// window as an exact figure, which the model's own page then rounds for
-// display. These read one card.
-var (
-	cardHrefRe = regexp.MustCompile(
-		`href="(/models/[A-Za-z0-9._-]+/[A-Za-z0-9._-]+)"`,
-	)
-	cardTitleRe = regexp.MustCompile(
-		`<h3 class="min-h-\[3em\][^"]*">([^<]*)</h3>`,
-	)
-	cardContextRe = regexp.MustCompile(`([\d,]+) Context<`)
 )
 
 // card is what the index states about one model.
@@ -31,39 +15,39 @@ type card struct {
 	Context int64
 }
 
-// indexCards reads the library index, returning one card per model page it
-// links. A link the page carries for another reason, such as the banner
-// announcing a release, has no title under it and is skipped.
+// indexCards reads the library index, returning one card per model it lists.
+//
+// The rendered index shows only the first handful of cards and loads the rest
+// as the reader scrolls, so the markup no longer names the whole library. The
+// page carries every entry in the data it renders from, one object per model
+// with the path of its page, its title and its exact context window, and that
+// data is what is read. An entry without a path or a title is skipped.
 func indexCards(body string) []card {
-	spans := cardHrefRe.FindAllStringSubmatchIndex(body, -1)
-	out := make([]card, 0, len(spans))
-	for i, span := range spans {
-		end := len(body)
-		if i+1 < len(spans) {
-			end = spans[i+1][0]
-		}
-		segment := body[span[1]:end]
-		title := cardTitleRe.FindStringSubmatch(segment)
-		if title == nil {
+	var out []card
+	for _, entry := range flightObjects(body, isIndexEntry) {
+		slug, _ := entry["slug"].(string)
+		name, _ := entry["modelName"].(string)
+		slug, name = strings.Trim(slug, "/"), strings.TrimSpace(name)
+		if slug == "" || name == "" {
 			continue
 		}
-		c := card{
-			URL:  libraryHost + body[span[2]:span[3]],
-			Name: strings.TrimSpace(html.UnescapeString(title[1])),
-		}
-		if m := cardContextRe.FindStringSubmatch(segment); m != nil {
-			n, err := strconv.ParseInt(
-				strings.ReplaceAll(m[1], ",", ""),
-				10,
-				64,
-			)
-			if err == nil {
+		c := card{URL: libraryHost + modelPathPrefix + slug, Name: name}
+		if window, ok := entry["contextLength"].(string); ok {
+			if n, err := strconv.ParseInt(window, 10, 64); err == nil {
 				c.Context = n
 			}
 		}
 		out = append(out, c)
 	}
 	return out
+}
+
+// isIndexEntry reports whether an object of the index's data is the entry of
+// one model, which is the object naming both the page and the title.
+func isIndexEntry(obj map[string]any) bool {
+	_, hasSlug := obj["slug"].(string)
+	_, hasName := obj["modelName"].(string)
+	return hasSlug && hasName
 }
 
 // applyIndex records what the library index states, which is a set of pages to

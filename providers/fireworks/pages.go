@@ -1,10 +1,11 @@
 package fireworks
 
 import (
-	"fmt"
+	"encoding/json"
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
@@ -14,31 +15,26 @@ import (
 // the model can be asked to do. Every row of all three is a label and a value
 // in the same markup, so one expression reads them all.
 var pageFieldRe = regexp.MustCompile(
-	`text-nowrap">([^<]+)</span></div><(?:span|a)[^>]*>([^<]*)<`,
+	`text-copy">([^<]+)</span></div><div[^>]*><(?:span|a)[^>]*>([^<]*)<`,
 )
 
 // The rest of what a page states outside those blocks: the title, the path the
 // model is served under, the paragraph describing it, and the rate a
-// serverless model is billed at.
+// serverless model is billed at. The paragraph is looked for only above the
+// Metadata block, since the answers of the FAQ further down are set in the
+// same markup.
 var (
-	pageTitleRe = regexp.MustCompile(
-		`<h1 class="text-gray-900 text-xl font-semibold">([^<]*)</h1>`,
-	)
-	pagePathRe = regexp.MustCompile(
+	pageTitleRe = regexp.MustCompile(`<h1[^>]*>([^<]*)</h1>`)
+	pagePathRe  = regexp.MustCompile(
 		`accounts/([a-z0-9-]+)/models/([A-Za-z0-9._-]+)`,
 	)
 	pageSummaryRe = regexp.MustCompile(
-		`(?s)<div class="text-gray-600 flex flex-col gap-4 text-lg">.*?` +
-			`<p class="">(.*?)</p>`,
+		`(?s)</h1>.*?<p class="font-sans text-jumper-rich-body[^"]*">(.*?)</p>`,
 	)
-	pagePriceRe = regexp.MustCompile(
-		`(?s)Available Serverless.{0,800}?` +
-			`text-display-sm font-medium text-black">(.*?)</div>` +
-			`<div class="text-gray-500 mt-1 text-sm">Per (.*?)</div>`,
-	)
-	pageFAQRe = regexp.MustCompile(
-		`(?s)text-black sm:text-xl lg:text-xl">([^<]*)</span>.*?` +
-			`<div class="relative w-full pt-0 pb-8[^"]*">(.*?)</details>`,
+	pageMetadataRe = regexp.MustCompile(`>Metadata</h2>`)
+	pagePriceRe    = regexp.MustCompile(
+		`(?s)Available Serverless</h2><p[^>]*>([^<]*)</p>.*?` +
+			`>Per ([^<]*)</p>`,
 	)
 )
 
@@ -60,7 +56,7 @@ const (
 	fieldCreated    = "Created on"
 	fieldKind       = "Kind"
 	fieldProvider   = "Provider"
-	fieldHugging    = "Hugging Face"
+	fieldHugging    = "Huggingface"
 	fieldCalibrated = "Calibrated"
 	fieldMoE        = "Mixture-of-Experts"
 	fieldParameters = "Parameters"
@@ -70,7 +66,7 @@ const (
 	fieldTools      = "Function Calling"
 	fieldEmbeddings = "Embeddings"
 	fieldRerankers  = "Rerankers"
-	fieldImageInput = "Support image input"
+	fieldImageInput = "Supporting image input"
 )
 
 // supported is the word a page uses for a capability a model has. Its opposite
@@ -128,7 +124,11 @@ func (b *builder) applyPageIdentity(
 			m.Name = strings.TrimSpace(text(title[1]))
 		}
 	}
-	if summary := pageSummaryRe.FindStringSubmatch(body); summary != nil {
+	above := body
+	if at := pageMetadataRe.FindStringIndex(body); at != nil {
+		above = body[:at[0]]
+	}
+	if summary := pageSummaryRe.FindStringSubmatch(above); summary != nil {
 		m.SetAttr(AttrSummary, text(summary[1]))
 	}
 	m.SetAttr(AttrAuthor, fields[fieldProvider])
@@ -266,6 +266,46 @@ var (
 	)
 )
 
+// faqEntry is one question of a model's FAQ and the answer under it.
+type faqEntry struct {
+	Question string
+	Answer   string
+}
+
+// pageFAQ returns the questions of a model's FAQ with their answers.
+//
+// The page renders only the answer that starts open; the others are held in
+// the data the page was built from, each question naming the record its
+// answer is in. So the FAQ is read from that data, for every answer alike.
+func pageFAQ(body string) []faqEntry {
+	records := flightRecords(body)
+	var out []faqEntry
+	for _, item := range flightObjects(body, isFAQItem) {
+		question, _ := item["label"].(string)
+		ref, _ := item["content"].(string)
+		var answer any
+		if json.Unmarshal(
+			[]byte(records[strings.TrimPrefix(ref, "$L")]),
+			&answer,
+		) != nil {
+			continue
+		}
+		out = append(out, faqEntry{
+			Question: question,
+			Answer:   strings.Join(strings.Fields(flightText(answer)), " "),
+		})
+	}
+	return out
+}
+
+// isFAQItem reports whether an object of a page's data is a question of the
+// FAQ, which names its answer by reference rather than carrying it.
+func isFAQItem(obj map[string]any) bool {
+	label, _ := obj["label"].(string)
+	ref, _ := obj["content"].(string)
+	return label != "" && strings.HasPrefix(ref, "$L")
+}
+
 // applyPageFAQ reads the model's own FAQ, which answers three things the
 // labelled blocks have no row for.
 //
@@ -276,8 +316,8 @@ var (
 // the context window, which is not a bound of its own, so a figure is taken
 // only from the sentence that states one outright.
 func (b *builder) applyPageFAQ(m *catalog.Model, body string) {
-	for _, qa := range pageFAQRe.FindAllStringSubmatch(body, -1) {
-		question, answer := qa[1], text(qa[2])
+	for _, qa := range pageFAQ(body) {
+		question, answer := qa.Question, qa.Answer
 		switch {
 		case strings.Contains(question, "license governs"):
 			if match := faqLicenseRe.FindStringSubmatch(answer); match != nil {
@@ -340,8 +380,8 @@ func boolean(value string) string {
 }
 
 // dateRe matches the date a page states a model was taken on, which it writes
-// in the American order.
-var dateRe = regexp.MustCompile(`^(\d{1,2})/(\d{1,2})/(\d{4})$`)
+// as day, abbreviated month and year, such as "28 AUG, 2026".
+var dateRe = regexp.MustCompile(`^(\d{1,2}) ([A-Za-z]{3}),? (\d{4})$`)
 
 // isoDate rewrites that date the way every other provider records one.
 func isoDate(value string) string {
@@ -349,9 +389,15 @@ func isoDate(value string) string {
 	if match == nil {
 		return ""
 	}
-	month, _ := strconv.Atoi(match[1])
-	day, _ := strconv.Atoi(match[2])
-	return fmt.Sprintf("%s-%02d-%02d", match[3], month, day)
+	day, err := time.Parse(
+		"2 Jan 2006",
+		match[1]+" "+strings.ToUpper(match[2][:1])+
+			strings.ToLower(match[2][1:])+" "+match[3],
+	)
+	if err != nil {
+		return ""
+	}
+	return day.Format(time.DateOnly)
 }
 
 // contextLengthRe matches the window a page states, which it rounds for

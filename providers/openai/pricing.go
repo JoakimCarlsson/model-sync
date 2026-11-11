@@ -64,6 +64,10 @@ func scanMarkdownTables(doc catalog.Document) []mdTable {
 			kind, tier, unit = k, TierStandard, ""
 			continue
 		}
+		if k, ok := subsectionKind(line); ok {
+			kind, tier = k, TierStandard
+			continue
+		}
 		if t, ok := tierFor(line); ok {
 			tier = t
 			continue

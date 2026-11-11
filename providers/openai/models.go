@@ -72,7 +72,7 @@ const (
 var (
 	modelIDRe   = regexp.MustCompile("(?m)^Model ID:\\s*`([^`]+)`")
 	reasoningRe = regexp.MustCompile(
-		`(?i)^Reasoning\.effort supports:\s*(.+)$`,
+		"(?i)^`?reasoning\\.effort`? supports:?\\s*(.+)$",
 	)
 	numberLeadRe = regexp.MustCompile(`^([\d][\d,]*)\s+(.+)$`)
 	maxInputRe   = regexp.MustCompile(

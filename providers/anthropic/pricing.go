@@ -24,7 +24,7 @@ func headerColumn(header string) (priceColumn, bool) {
 		return priceColumn{metric: MetricInputTokens}, true
 	case "output tokens", "output", "batch output":
 		return priceColumn{metric: MetricOutputTokens}, true
-	case "cache hits & refreshes":
+	case "cache hits & refreshes", "cache hits and refreshes":
 		return priceColumn{metric: MetricCachedInputTokens}, true
 	case "5m cache writes":
 		return priceColumn{
@@ -274,6 +274,15 @@ var toolSystemPromptRe = regexp.MustCompile(`([\d,]+) tokens`)
 // that lets Claude decide whether to call a tool is told less than one that
 // requires a call, and both are kept under their own key.
 func (b *builder) applyToolOverhead(t mdTable) {
+	auto, anyTool :=
+		columnOf(t, "tool use system prompt tokens: auto, none"),
+		columnOf(t, "tool use system prompt tokens: any, tool")
+	if auto >= 0 && anyTool >= 0 {
+		for _, row := range t.Rows {
+			b.applyToolOverheadColumns(t, row, auto, anyTool)
+		}
+		return
+	}
 	choices, counts :=
 		columnOf(t, "tool choice"),
 		columnOf(t, "tool use system prompt token count")
@@ -282,6 +291,40 @@ func (b *builder) applyToolOverhead(t mdTable) {
 	}
 	for _, row := range t.Rows {
 		b.applyToolOverheadRow(t, row, choices, counts)
+	}
+}
+
+// applyToolOverheadColumns records one model's overheads from the layout that
+// gives each tool choice its own column, auto and anyTool being their indexes.
+// A cell left empty states nothing, so only the overheads stated are recorded.
+func (b *builder) applyToolOverheadColumns(
+	t mdTable,
+	row []string,
+	auto, anyTool int,
+) {
+	counts := map[string]string{}
+	for key, column := range map[string]int{
+		LimitToolSystemPromptAuto: auto,
+		LimitToolSystemPromptAny:  anyTool,
+	} {
+		if found := toolSystemPromptRe.FindStringSubmatch(
+			cellAt(row, column),
+		); found != nil {
+			counts[key] = found[1]
+		}
+	}
+	if len(counts) == 0 {
+		return
+	}
+	for _, ref := range splitModelCell(cellAt(row, 0)) {
+		m, ok := b.models[b.resolve(ref.Name)]
+		if !ok {
+			continue
+		}
+		m.AddSource(t.Source)
+		for key, count := range counts {
+			m.SetLimit(key, parseCount(count))
+		}
 	}
 }
 

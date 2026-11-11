@@ -222,6 +222,7 @@ var cellUnits = []struct {
 	{"tokens per hour", UnitPer1MTokensPerHour},
 	{"per 1,000 requests", UnitPer1KRequests},
 	{"1,000 search queries", UnitPer1KRequests},
+	{"1,000 grounded prompts", UnitPer1KRequests},
 	{"per image", UnitPerImage},
 	{"per second", UnitPerSecond},
 	{"per frame", UnitPerFrame},

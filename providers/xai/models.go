@@ -209,6 +209,12 @@ func applyFact(m *catalog.Model, key, value string) {
 		}
 	case "output", "input", "cached input":
 		applyBulletPrice(m, key, value)
+	case "reasoning efforts (supported)":
+		for _, effort := range strings.Split(value, ",") {
+			m.AddList(ListReasoningEfforts, strings.ToLower(clean(effort)))
+		}
+	case "reasoning efforts (default)":
+		m.SetAttr(AttrDefaultReasoningEffort, strings.ToLower(value))
 	default:
 		if strings.EqualFold(value, "yes") {
 			m.AddList(ListFeatures, strings.ReplaceAll(slugID(key), "-", "_"))

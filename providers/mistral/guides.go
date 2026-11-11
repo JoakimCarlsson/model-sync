@@ -36,7 +36,44 @@ var (
 		`"children":"([a-z0-9.-]+)"\}\],": Supports adjustable reasoning ` +
 			`via the "`,
 	)
+	// effortModelRe matches the identifier a reasoning guide bullet opens
+	// with, written either alone or in brackets after the display name.
+	effortModelRe = regexp.MustCompile(
+		`"children":"([a-z0-9.-]+)"\}\],"\)?: Supports`,
+	)
+	// effortValueRe matches one effort level a bullet names in code.
+	effortValueRe = regexp.MustCompile(`"children":"([a-z]+)"\}`)
 )
+
+// effortStops are the phrases after which a bullet stops listing the levels a
+// model accepts and goes on to recommend one or rule one out.
+var effortStops = []string{"reasoning effort", "recommend", "(see"}
+
+// bulletEnd closes one bullet of the reasoning guide.
+const bulletEnd = `"]}]`
+
+// reasoningEfforts returns the effort levels each model the reasoning guide
+// lists them for accepts, keyed by the identifier the bullet names. A bullet
+// that names the parameter without its levels yields nothing.
+func reasoningEfforts(body string) map[string][]string {
+	out := map[string][]string{}
+	for _, loc := range effortModelRe.FindAllStringSubmatchIndex(body, -1) {
+		id := body[loc[2]:loc[3]]
+		segment := body[loc[1]:]
+		if end := strings.Index(segment, bulletEnd); end >= 0 {
+			segment = segment[:end]
+		}
+		for _, stop := range effortStops {
+			if cut := strings.Index(segment, stop); cut >= 0 {
+				segment = segment[:cut]
+			}
+		}
+		for _, match := range effortValueRe.FindAllStringSubmatch(segment, -1) {
+			out[id] = append(out[id], match[1])
+		}
+	}
+	return out
+}
 
 // paramReasoningEffort is the request parameter the reasoning guide says asks
 // a model for more or less thinking.
@@ -137,6 +174,9 @@ func splitLanguages(cell string) []string {
 // it names two models whose pages do not: Mistral put the thinking behind a
 // request parameter for them, so the model answers either way and the page
 // states only the ordinary output.
+//
+// Where a bullet lists the effort levels a model accepts, those are recorded
+// too, since no model page states them.
 func (b *builder) applyReasoning(doc catalog.Document) {
 	body := flight(doc.Body)
 	for _, match := range reasoningModelRe.FindAllStringSubmatch(body, -1) {
@@ -147,6 +187,14 @@ func (b *builder) applyReasoning(doc catalog.Document) {
 		m.AddSource(doc.URL)
 		m.AddList(ListFeatures, catalog.CapabilityReasoning)
 		m.AddList(ListParameters, paramReasoningEffort)
+	}
+	for id, efforts := range reasoningEfforts(body) {
+		m := b.byName(id)
+		if m == nil {
+			continue
+		}
+		m.AddSource(doc.URL)
+		m.AddList(ListReasoningEfforts, efforts...)
 	}
 }
 

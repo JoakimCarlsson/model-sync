@@ -22,9 +22,12 @@ var periods = map[string]string{
 	"off-peak": PeriodOffPeak,
 }
 
-// noteRe matches the footnote the pricing table hangs off its PRICING
-// section, which is where the peak window itself is stated.
-var noteRe = regexp.MustCompile(`(?is)<p>\(1\)\s*(.*?)</p>`)
+// noteRe matches the numbered footnotes beneath the pricing table.
+var noteRe = regexp.MustCompile(`(?is)<p>\(\d+\)\s*(.*?)</p>`)
+
+// peakNoteRe matches the footnote stating the hours the peak period covers,
+// which is the one that qualifies every rate on the table.
+var peakNoteRe = regexp.MustCompile(`(?i)\bpeak hours\b`)
 
 // footnoteRe matches the reference marker DeepSeek appends to a row label.
 var footnoteRe = regexp.MustCompile(`\(\d+\)$`)
@@ -48,8 +51,11 @@ var thinkingRe = regexp.MustCompile(`(?i)\bsupports\b.*\bthinking\b`)
 // rather than taking that table's column headings for models.
 func (b *builder) applyPricing(doc catalog.Document) {
 	body := string(doc.Body)
-	if match := noteRe.FindStringSubmatch(body); match != nil {
-		b.priceNote = text(match[1])
+	for _, match := range noteRe.FindAllStringSubmatch(body, -1) {
+		if note := text(match[1]); peakNoteRe.MatchString(note) {
+			b.priceNote = note
+			break
+		}
 	}
 	var ids []string
 	for _, match := range rowRe.FindAllStringSubmatch(body, -1) {
@@ -62,6 +68,9 @@ func (b *builder) applyPricing(doc catalog.Document) {
 				return
 			}
 			ids = cells[1:]
+			for i, id := range ids {
+				ids[i] = footnoteRe.ReplaceAllString(id, "")
+			}
 			for _, id := range ids {
 				b.model(id, KindChat).AddSource(doc.URL)
 			}
@@ -142,6 +151,12 @@ func (b *builder) applyValue(id, label, value string) {
 	case "fim completion（beta）":
 		m.AddList(ListFeatures, FeatureFIMCompletion)
 		m.SetAttr(AttrFIMModes, value)
+	case "vision":
+		if strings.Contains(value, supported) {
+			m.AddList(ListFeatures, featureName(label))
+			return
+		}
+		b.noVision[id] = true
 	default:
 		if !strings.Contains(value, supported) || label == "" {
 			return

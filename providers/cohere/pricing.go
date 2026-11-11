@@ -40,6 +40,17 @@ var (
 	instanceRe = regexp.MustCompile(
 		`\$+([\d,]*\.?\d+)\s*/\s*(hour|month)\s*/\s*instance`,
 	)
+	// listCardMarker opens one card of the model list, which states its rates
+	// as labelled rows of text rather than as amounts.
+	listCardMarker = `"cardName":"`
+	// listRowsRe matches the rows of rates a model list card states.
+	listRowsRe = regexp.MustCompile(`"pricingRows":(\[[^\]]*\])`)
+	// listValueRe matches the amount of one row and the denominator it is
+	// quoted against, such as "$2.50 / 1 M tokens".
+	listValueRe = regexp.MustCompile(
+		`^\$+([\d,]*\.?\d+)\s*/\s*1\s*([MK])\s*(tokens|searches)$`,
+	)
+	// pushRe matches one piece of the payload a rendered page embeds.
 	pushRe = regexp.MustCompile(
 		`(?s)self\.__next_f\.push\(\[1,("(?:[^"\\]|\\.)*")\]\)`,
 	)
@@ -60,6 +71,13 @@ type cardRate struct {
 	OutputLabel string   `json:"outputLabel"`
 	OutputPrice *float64 `json:"outputPrice"`
 	OverridePer string   `json:"overridePer"`
+}
+
+// listRow is one labelled rate on a card of the model list, its amount and
+// denominator written together as text.
+type listRow struct {
+	Label string `json:"label"`
+	Value string `json:"value"`
 }
 
 // applyPricing reads the pricing page.
@@ -89,12 +107,66 @@ func (b *builder) applyPricing(doc catalog.Document) {
 		}
 	}
 	b.addVault(doc, body)
+	b.addListCards(doc, body)
 	b.addSearchUnit(doc, body)
 	for _, match := range legacyRe.FindAllStringSubmatch(body, -1) {
 		b.addTokenRates(doc, match[1], match[2], match[3])
 	}
 	for _, match := range ayaRe.FindAllStringSubmatch(body, -1) {
 		b.addTokenRates(doc, match[1], match[2], match[3])
+	}
+}
+
+// addListCards reads the rates the model list states as rows of text, which is
+// the only place the page prices some current products, such as Command A+.
+// A card stating no rows, or a row whose label or denominator is not known,
+// states no rate.
+func (b *builder) addListCards(doc catalog.Document, body string) {
+	for i, card := range strings.Split(body, listCardMarker) {
+		if i == 0 {
+			continue
+		}
+		product, rest, ok := strings.Cut(card, `"`)
+		if !ok {
+			continue
+		}
+		rows := listRowsRe.FindStringSubmatch(rest)
+		if rows == nil {
+			continue
+		}
+		var parsed []listRow
+		if err := json.Unmarshal([]byte(rows[1]), &parsed); err != nil {
+			continue
+		}
+		for _, row := range parsed {
+			b.addListRow(doc, product, row)
+		}
+	}
+}
+
+// addListRow records the amount one row of a model list card states.
+func (b *builder) addListRow(doc catalog.Document, product string, row listRow) {
+	metric, ok := cardLabels[strings.ToLower(strings.TrimSpace(row.Label))]
+	if !ok {
+		return
+	}
+	match := listValueRe.FindStringSubmatch(strings.TrimSpace(row.Value))
+	if match == nil {
+		return
+	}
+	quoted, ok := cardUnits["1"+strings.ToLower(match[2])+" "+match[3]]
+	if !ok {
+		return
+	}
+	if quoted.Metric != "" {
+		metric = quoted.Metric
+	}
+	for _, id := range b.identify(product) {
+		b.price(doc, id, catalog.Price{
+			Metric: metric,
+			Unit:   quoted.Unit,
+			Amount: amount(strings.ReplaceAll(match[1], ",", "")),
+		})
 	}
 }
 
@@ -232,10 +304,10 @@ const noteNoRate = "no rate stated on the pricing or dedicated deployment pages"
 // The marketing page prices the products it sells today as cards and the models
 // it has withdrawn as sentences, the dedicated deployment page prices an
 // instance of the models it can be given, and none of those models appears in
-// any of them. The card headed Command A+ quotes nothing but zero for an API
-// key and a model download, which is the open weight licence rather than a rate
-// and is not read as one, so what that model costs comes from the dedicated
-// deployment page alone.
+// any of them. The rate card headed Command A+ quotes nothing but zero for an
+// API key and a model download, which is the open weight licence rather than a
+// rate and is not read as one; its per-token rate comes from the model list's
+// rows instead.
 //
 // A withdrawn model is skipped: its missing rate is correct, and the page's
 // questions and answers outlive the models they answer for.

@@ -101,13 +101,17 @@ func isSupported(status string) bool {
 
 // applyContentParts records the modality of every content part one sentence
 // names, against every model, since the sentence describes the API rather than
-// a model.
+// a model. The image modality is withheld from a model the pricing table
+// states has no vision.
 func (b *builder) applyContentParts(source, sentence string) {
 	for name, part := range contentParts {
 		if !strings.Contains(sentence, name) {
 			continue
 		}
 		b.applyAll(source, func(m *catalog.Model) {
+			if part.modality == ModalityImage && b.noVision[m.ID] {
+				return
+			}
 			m.AddList(part.list, part.modality)
 		})
 	}

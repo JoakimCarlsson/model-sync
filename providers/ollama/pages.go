@@ -39,12 +39,31 @@ var costRe = regexp.MustCompile(
 // contextCard opens the card that follows the rates, and so ends them.
 const contextCard = `>Context</div>`
 
-// rateRe matches one amount of the cost card and the token it counts. The
-// amount is set in tabular figures, which nothing else on the page is.
+// rateRe matches one amount of the cost card or the word under a column of
+// amounts. An amount is set in tabular figures, which nothing else on the page
+// is, and carries the price type it belongs to where the card offers a choice
+// of types; the word names the token every amount above it counts.
 var rateRe = regexp.MustCompile(
-	`(?is)tabular-nums[^>]*>\s*\$([\d.]+)\s*</div>\s*` +
-		`<div[^>]*>\s*([a-z ]+?)\s*</div>`,
+	`(?is)<div(?:\s+data-rate="([a-z-]+)")?[^>]*tabular-nums[^>]*>\s*` +
+		`\$([\d.]+)\s*</div>|<div[^>]*>\s*([a-z ]+?)\s*</div>`,
 )
+
+// rateTypeDims map the price type a card's amount is tagged with onto the
+// dimensions that tell it apart. The card labels its default tab "Peak" and
+// tags it base, and labels its other tab "Off-Peak" while tagging it peak, so
+// it is the label that is followed.
+var rateTypeDims = map[string]catalog.Dims{
+	"":     {DimDeployment: deploymentCloud},
+	"base": {DimDeployment: deploymentCloud},
+	"peak": {DimDeployment: deploymentCloud, DimPeriod: periodOffPeak},
+}
+
+// pendingRate is an amount of the cost card waiting for the word that says
+// what it counts.
+type pendingRate struct {
+	amount float64
+	dims   catalog.Dims
+}
 
 // rateMetrics map the word under an amount onto what it counts.
 var rateMetrics = map[string]catalog.Metric{
@@ -103,22 +122,30 @@ func applyCost(m *catalog.Model, body string) bool {
 		card = card[:end]
 	}
 	recorded := false
-	for _, rate := range rateRe.FindAllStringSubmatch(card, -1) {
-		metric, ok := rateMetrics[strings.ToLower(rate[2])]
-		if !ok {
+	var pending []pendingRate
+	for _, match := range rateRe.FindAllStringSubmatch(card, -1) {
+		if match[2] != "" {
+			amount, err := strconv.ParseFloat(match[2], 64)
+			dims, ok := rateTypeDims[strings.ToLower(match[1])]
+			if err == nil && ok {
+				pending = append(pending, pendingRate{amount, dims})
+			}
 			continue
 		}
-		amount, err := strconv.ParseFloat(rate[1], 64)
-		if err != nil {
+		metric, ok := rateMetrics[strings.ToLower(match[3])]
+		if !ok || len(pending) == 0 {
 			continue
 		}
-		m.AddPrice(catalog.Price{
-			Metric:   metric,
-			Unit:     UnitPer1MTokens,
-			Amount:   amount,
-			Currency: currencyUSD,
-			Dims:     catalog.Dims{DimDeployment: deploymentCloud},
-		})
+		for _, rate := range pending {
+			m.AddPrice(catalog.Price{
+				Metric:   metric,
+				Unit:     UnitPer1MTokens,
+				Amount:   rate.amount,
+				Currency: currencyUSD,
+				Dims:     rate.dims,
+			})
+		}
+		pending = nil
 		recorded = true
 	}
 	return recorded

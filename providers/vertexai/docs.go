@@ -132,6 +132,7 @@ const (
 // their spacing reduced to an identifier.
 var featureNames = map[string]string{
 	"thinking":          catalog.CapabilityReasoning,
+	"extended thinking": catalog.CapabilityReasoning,
 	"structured output": catalog.CapabilityStructuredOutputs,
 	"context caching":   "prompt_caching",
 	"grounding":         "web_search",

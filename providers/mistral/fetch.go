@@ -40,7 +40,8 @@ const (
 )
 
 // guideURLs are the documents fetched alongside the model pages. Each states
-// something no model page does.
+// something no model page does. The regional guide follows the pricing page
+// because it adjusts the models that page prices.
 var guideURLs = []string{
 	TextEmbeddingsURL,
 	CodeEmbeddingsURL,
@@ -48,6 +49,7 @@ var guideURLs = []string{
 	LanguagesURL,
 	ReasoningURL,
 	PricingURL,
+	RegionalURL,
 }
 
 // notModels are the pages filed beside the model pages that describe no model.

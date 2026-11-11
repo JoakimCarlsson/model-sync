@@ -138,49 +138,179 @@ func equalWords(a, b []string) bool {
 	return true
 }
 
-// The ceilings the rate limit page states, which it states once for the three
-// things it counts. They are the starting point of a limit that then grows and
-// shrinks with use, and the page says they are scoped per account and per
-// model, which is why they are recorded against a model at all.
+// The rate limit page states its ceilings per tier, and puts a model in a
+// tier by naming it or, failing that, by its total parameter count. These read
+// a ceiling, the rule for a model whose count is unknown, and the column
+// headers the ceilings are written under.
 var (
-	inputTPMRe    = regexp.MustCompile(`([\d.]+)([MmKk]) Total Prompt TPM`)
-	uncachedTPMRe = regexp.MustCompile(`([\d.]+)([MmKk]) Uncached Prompt TPM`)
-	outputTPMRe   = regexp.MustCompile(`([\d.]+)([MmKk]) Generated TPM`)
+	ceilingRe     = regexp.MustCompile(`^([\d.]+)\s*([MmKk])$`)
+	unknownTierRe = regexp.MustCompile(
+		`(?i)without a known parameter count use \*\*(\w+)\*\*`,
+	)
+	ceilingColumns = map[string]string{
+		"uncached":  LimitUncachedTPM,
+		"total":     LimitInputTPM,
+		"generated": LimitOutputTokenTPM,
+	}
 )
+
+// rateTier is one row of the rate limit page's ceilings: the tier's name, the
+// parameter counts it covers, at least Min and under Max where Max is set, and
+// the ceilings it starts a caller at.
+type rateTier struct {
+	Name     string
+	Min, Max float64
+	Limits   map[string]int64
+}
+
+// covers reports whether a model of this many parameters falls in the tier.
+func (t rateTier) covers(params float64) bool {
+	return params >= t.Min && (t.Max == 0 || params < t.Max)
+}
 
 // applyRateLimits records the default ceilings against every model served on
 // the shared fleet.
 //
 // They apply to nothing else: a deployment of the caller's own is bounded by
 // the GPUs under it rather than by a token rate, which the page says outright.
+// A model takes the tier the page names it under; a model it does not name
+// takes the tier its parameter count falls in, and a model whose count is not
+// known takes the tier the page says such models use.
 func (b *builder) applyRateLimits(doc catalog.Document) {
 	body := string(doc.Body)
-	limits := map[string]int64{
-		LimitInputTPM:       tpm(inputTPMRe, body),
-		LimitUncachedTPM:    tpm(uncachedTPMRe, body),
-		LimitOutputTokenTPM: tpm(outputTPMRe, body),
+	tiers := rateTiers(body)
+	if len(tiers) == 0 {
+		return
+	}
+	named := tierMembers(body, doc.URL)
+	var unknown string
+	if match := unknownTierRe.FindStringSubmatch(body); match != nil {
+		unknown = match[1]
 	}
 	for _, id := range b.order {
 		m := b.models[id]
 		if !servesServerless(m) {
 			continue
 		}
-		for key, value := range limits {
+		tier, ok := tierFor(tiers, named, unknown, m)
+		if !ok {
+			continue
+		}
+		for key, value := range tier.Limits {
 			m.SetLimit(key, value)
 		}
-		if limits[LimitInputTPM] > 0 {
-			m.AddSource(doc.URL)
-		}
+		m.AddSource(doc.URL)
 	}
 }
 
-// tpm reads one ceiling, which the page abbreviates.
-func tpm(re *regexp.Regexp, body string) int64 {
-	match := re.FindStringSubmatch(body)
-	if match == nil {
-		return 0
+// rateTiers reads the table of ceilings, which is the one whose columns count
+// generated tokens.
+func rateTiers(body string) []rateTier {
+	var out []rateTier
+	for _, t := range scanHTMLTables(body) {
+		if len(t.Headers) < 3 ||
+			!strings.Contains(strings.ToLower(strings.Join(t.Headers, " ")),
+				"generated") {
+			continue
+		}
+		for _, row := range t.Rows {
+			if len(row) != len(t.Headers) {
+				continue
+			}
+			tier := rateTier{
+				Name:   clean(row[0]),
+				Limits: map[string]int64{},
+			}
+			tier.Min, tier.Max = tierBounds(row[1])
+			for at, header := range t.Headers[2:] {
+				key := ceilingKey(header)
+				match := ceilingRe.FindStringSubmatch(clean(row[2+at]))
+				if key == "" || match == nil {
+					continue
+				}
+				tier.Limits[key] = tokenCount(match[1], match[2])
+			}
+			out = append(out, tier)
+		}
 	}
-	return tokenCount(match[1], match[2])
+	return out
+}
+
+// ceilingKey says which limit a column of the ceilings table states.
+func ceilingKey(header string) string {
+	lower := strings.ToLower(header)
+	for _, word := range []string{"uncached", "total", "generated"} {
+		if strings.Contains(lower, word) {
+			return ceilingColumns[word]
+		}
+	}
+	return ""
+}
+
+// tierBounds reads the parameter counts a tier covers, which the page writes
+// as "< 800B", "800B – < 1.6T" or "≥ 1.6T": a count before a "<" is the
+// least the tier takes and a count after it the most it stops short of.
+func tierBounds(cell string) (lower, upper float64) {
+	counts := scaleRe.FindAllStringSubmatch(cell, -1)
+	if len(counts) == 0 {
+		return 0, 0
+	}
+	bounded := strings.Contains(cell, "<")
+	if bounded {
+		upper = countOf(counts[len(counts)-1])
+	}
+	if !bounded || len(counts) > 1 {
+		lower = countOf(counts[0])
+	}
+	return lower, upper
+}
+
+// tierMembers reads the table naming the models of each tier, returning the
+// tier of every model it names, keyed by the words of the name.
+func tierMembers(body, source string) map[string]string {
+	out := map[string]string{}
+	for _, t := range scanTables(body, source) {
+		if len(t.Headers) < 2 ||
+			!strings.EqualFold(clean(t.Headers[1]), "models") {
+			continue
+		}
+		for _, row := range t.Rows {
+			for _, name := range strings.Split(cellAt(row, 1), ",") {
+				if words := nameWords(name); len(words) > 0 {
+					out[strings.Join(words, " ")] = clean(cellAt(row, 0))
+				}
+			}
+		}
+	}
+	return out
+}
+
+// tierFor returns the tier a model is in: the one the page names it under, or
+// the one its parameter count falls in, or for a model whose count is unknown
+// the one named unknown.
+func tierFor(
+	tiers []rateTier,
+	named map[string]string,
+	unknown string,
+	m *catalog.Model,
+) (rateTier, bool) {
+	name, listed := named[strings.Join(nameWords(m.Name), " ")]
+	params := parameterCount(m.Attrs[AttrParameterCount])
+	for _, tier := range tiers {
+		switch {
+		case listed:
+			if strings.EqualFold(tier.Name, name) {
+				return tier, true
+			}
+		case params > 0:
+			if tier.covers(params) {
+				return tier, true
+			}
+		case strings.EqualFold(tier.Name, unknown):
+			return tier, true
+		}
+	}
+	return rateTier{}, false
 }
 
 // cachingRe matches the sentence saying which models have a prompt cache in
@@ -266,6 +396,16 @@ var trainerEntryRe = regexp.MustCompile(
 		`sample:\s*"\$([\d.]+)",\s*train:\s*"\$([\d.]+)"`,
 )
 
+// trainerRowRe matches one row of the shared trainer's rate card where the
+// guide writes it as a table keyed by the model's display name: the name, the
+// context the trainer takes, and the four rates in the order trainerMetrics
+// lists them.
+var trainerRowRe = regexp.MustCompile(
+	`(?m)^\|\s*([^|]+?)\s*\|\s*(\d+[KkMm])\s*\|` +
+		`\s*\\?\$([\d.]+)\s*\|\s*\\?\$([\d.]+)\s*\|` +
+		`\s*\\?\$([\d.]+)\s*\|\s*\\?\$([\d.]+)\s*\|`,
+)
+
 // trainerMetrics are the four things the shared trainer bills, in the order
 // its rate card writes them.
 var trainerMetrics = []catalog.Metric{
@@ -283,33 +423,68 @@ var trainerMetrics = []catalog.Metric{
 // longest sequence that trainer will take. So it is recorded as a dimension of
 // the rate and not as the model's context window.
 func (b *builder) applyServerlessTraining(doc catalog.Document) {
-	for _, entry := range trainerEntryRe.FindAllStringSubmatch(
-		string(doc.Body),
-		-1,
-	) {
-		m, ok := b.models[fireworksAccount+"/"+entry[1]]
-		if !ok {
+	body := string(doc.Body)
+	for _, entry := range trainerEntryRe.FindAllStringSubmatch(body, -1) {
+		if m, ok := b.models[fireworksAccount+"/"+entry[1]]; ok {
+			priceTrainer(m, entry[2], entry[3:], doc.URL)
+		}
+	}
+	for _, row := range trainerRowRe.FindAllStringSubmatch(body, -1) {
+		if id, ok := b.modelNamed(row[1]); ok {
+			priceTrainer(
+				b.models[id],
+				strings.ToUpper(row[2]),
+				row[3:],
+				doc.URL,
+			)
+		}
+	}
+}
+
+// priceTrainer records the shared trainer's four rates for one model, under
+// the context window the trainer takes for it as written by the rate card.
+func priceTrainer(
+	m *catalog.Model,
+	window string,
+	rates []string,
+	source string,
+) {
+	dims := catalog.Dims{
+		DimSurface:       SurfaceServerlessTrainer,
+		DimContextWindow: window,
+	}
+	for at, metric := range trainerMetrics {
+		if at >= len(rates) {
+			break
+		}
+		amount, err := strconv.ParseFloat(rates[at], 64)
+		if err != nil {
 			continue
 		}
-		dims := catalog.Dims{
-			DimSurface:       SurfaceServerlessTrainer,
-			DimContextWindow: entry[2],
-		}
-		for at, metric := range trainerMetrics {
-			amount, err := strconv.ParseFloat(entry[3+at], 64)
-			if err != nil {
-				continue
-			}
-			m.AddPrice(catalog.Price{
-				Metric:   metric,
-				Unit:     UnitPer1MTokens,
-				Amount:   amount,
-				Currency: currency,
-				Dims:     dims,
-			})
-		}
-		m.AddSource(doc.URL)
+		m.AddPrice(catalog.Price{
+			Metric:   metric,
+			Unit:     UnitPer1MTokens,
+			Amount:   amount,
+			Currency: currency,
+			Dims:     dims,
+		})
 	}
+	m.AddSource(source)
+}
+
+// modelNamed returns the one model whose name is the given one word for word,
+// reporting false where the name reaches none or more than one.
+func (b *builder) modelNamed(name string) (string, bool) {
+	var found []string
+	for _, id := range b.order {
+		if equalWords(nameWords(name), nameWords(b.models[id].Name)) {
+			found = append(found, id)
+		}
+	}
+	if len(found) != 1 {
+		return "", false
+	}
+	return found[0], true
 }
 
 // applyTrainingPricing reads the managed training rate card, which prices a

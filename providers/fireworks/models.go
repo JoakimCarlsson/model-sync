@@ -15,9 +15,12 @@ type table struct {
 	Source  string
 }
 
-// Sections of the pricing page that state a rate.
+// Sections of the pricing page that state a rate. The decision models are
+// priced in a card of their own, written in the same three amounts per serving
+// path as the text and vision card.
 const (
 	sectionTextVision = "text and vision models"
+	sectionDecision   = "decision models"
 	sectionOtherBase  = "other base models"
 	sectionEmbeddings = "embeddings"
 )
@@ -38,7 +41,7 @@ var tierColumns = map[string]string{
 func (b *builder) applyPricing(doc catalog.Document) {
 	for _, t := range scanTables(string(doc.Body), doc.URL) {
 		switch {
-		case t.Section == sectionTextVision:
+		case t.Section == sectionTextVision, t.Section == sectionDecision:
 			b.applyTripleTable(t)
 		case strings.HasPrefix(t.Section, sectionOtherBase):
 			b.textBands = append(b.textBands, bandRows(t)...)

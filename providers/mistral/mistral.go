@@ -57,6 +57,8 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 			b.applyReasoning(doc)
 		case PricingURL:
 			b.applyPricingPage(doc)
+		case RegionalURL:
+			b.applyRegional(doc)
 		case ModelsURL:
 			b.applyDeprecations(doc)
 		}
@@ -77,12 +79,16 @@ type builder struct {
 	// the page names, so a document that links to a page rather than naming a
 	// model can be matched to one.
 	slugs map[string]string
+	// priced holds the identifiers of the models the pricing page prices.
+	priced map[string]bool
 }
 
+// newBuilder returns an empty builder.
 func newBuilder() *builder {
 	return &builder{
 		models: map[string]*catalog.Model{},
 		slugs:  map[string]string{},
+		priced: map[string]bool{},
 	}
 }
 

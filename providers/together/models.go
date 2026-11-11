@@ -45,6 +45,7 @@ const (
 	roleGeometry
 	roleQuantization
 	roleFeature
+	roleUnit
 	rolePrice
 )
 
@@ -124,6 +125,10 @@ func headerColumn(header string) column {
 		}
 	case "pricing":
 		return column{role: rolePrice, metric: MetricAudio}
+	case "price":
+		return column{role: rolePrice, metric: MetricImageOutput}
+	case "unit":
+		return column{role: roleUnit}
 	}
 	return column{role: roleSkip}
 }
@@ -172,6 +177,7 @@ func (b *builder) applyRow(
 	m.AddList(ListInputModalities, sectionFlows[t.Section].In...)
 	m.AddList(ListOutputModalities, sectionFlows[t.Section].Out...)
 	dims := catalog.Dims{}
+	var rowUnit catalog.Unit
 	for i, col := range cols {
 		cell := cellAt(row, i)
 		switch col.role {
@@ -202,6 +208,8 @@ func (b *builder) applyRow(
 			m.SetAttr(AttrDefaultSteps, valueOrEmpty(cell))
 		case roleGeometry:
 			dims = dims.Merge(geometryDims(cell))
+		case roleUnit:
+			rowUnit = billingUnit(cell)
 		case roleQuantization:
 			m.SetAttr(AttrQuantization, valueOrEmpty(cell))
 		case roleFeature:
@@ -219,6 +227,9 @@ func (b *builder) applyRow(
 			continue
 		}
 		unit := a.Unit
+		if unit == "" {
+			unit = rowUnit
+		}
 		if unit == "" {
 			unit = col.unit
 		}
@@ -243,6 +254,19 @@ func geometryDims(cell string) catalog.Dims {
 		DimResolution: strings.ToLower(strings.TrimSpace(resolution)),
 		DimDuration:   strings.ToLower(strings.TrimSpace(duration)),
 	}
+}
+
+// billingUnit maps the image table's Unit cell, which names what the row's
+// bare Price figure is charged against, onto a catalog unit. It returns an
+// empty unit for a value it does not recognise.
+func billingUnit(cell string) catalog.Unit {
+	switch strings.ToLower(clean(cell)) {
+	case "megapixel":
+		return UnitPerMegapixel
+	case "image":
+		return UnitPerImage
+	}
+	return ""
 }
 
 // valueOrEmpty returns a cell's value, treating the dash Together writes for

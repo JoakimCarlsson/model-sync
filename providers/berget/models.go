@@ -11,9 +11,10 @@ import (
 
 // Metrics Berget bills on.
 const (
-	MetricInputTokens  catalog.Metric = "input_tokens"
-	MetricOutputTokens catalog.Metric = "output_tokens"
-	MetricAudio        catalog.Metric = "audio"
+	MetricInputTokens       catalog.Metric = "input_tokens"
+	MetricOutputTokens      catalog.Metric = "output_tokens"
+	MetricCachedInputTokens catalog.Metric = "cached_input_tokens"
+	MetricAudio             catalog.Metric = "audio"
 )
 
 // Units Berget quotes amounts against.
@@ -43,8 +44,9 @@ const (
 
 // Enumeration keys the endpoint populates.
 const (
-	ListFeatures = catalog.ListFeatures
-	ListAliases  = "aliases"
+	ListFeatures         = catalog.ListFeatures
+	ListAliases          = "aliases"
+	ListReasoningEfforts = "reasoning_efforts"
 )
 
 // capabilityFeatures map a capability flag the endpoint sets onto the
@@ -84,27 +86,29 @@ type listing struct {
 
 // entry is one model as Berget publishes it.
 type entry struct {
-	ID             string          `json:"id"`
-	Name           string          `json:"name"`
-	OwnedBy        string          `json:"owned_by"`
-	Pricing        pricing         `json:"pricing"`
-	Capabilities   map[string]bool `json:"capabilities"`
-	Quantization   string          `json:"quantization"`
-	Aliases        []string        `json:"aliases"`
-	License        string          `json:"license"`
-	LifecycleState string          `json:"lifecycle_state"`
-	ModelPath      string          `json:"model_path"`
-	ModelSize      int64           `json:"model_size"`
-	ModelType      string          `json:"model_type"`
-	ReleaseDate    string          `json:"release_date"`
+	ID               string          `json:"id"`
+	Name             string          `json:"name"`
+	OwnedBy          string          `json:"owned_by"`
+	Pricing          pricing         `json:"pricing"`
+	Capabilities     map[string]bool `json:"capabilities"`
+	Quantization     string          `json:"quantization"`
+	Aliases          []string        `json:"aliases"`
+	License          string          `json:"license"`
+	LifecycleState   string          `json:"lifecycle_state"`
+	ModelPath        string          `json:"model_path"`
+	ModelSize        int64           `json:"model_size"`
+	ModelType        string          `json:"model_type"`
+	ReleaseDate      string          `json:"release_date"`
+	ReasoningEfforts []string        `json:"reasoning_efforts"`
 }
 
 // pricing is one model's rate, which states the currency it is quoted in.
 type pricing struct {
-	Currency string  `json:"currency"`
-	Input    float64 `json:"input"`
-	Output   float64 `json:"output"`
-	Unit     string  `json:"unit"`
+	Currency    string  `json:"currency"`
+	Input       float64 `json:"input"`
+	Output      float64 `json:"output"`
+	CachedInput float64 `json:"cached_input"`
+	Unit        string  `json:"unit"`
 }
 
 // applyListing reads the endpoint's response.
@@ -135,6 +139,10 @@ func (b *builder) applyEntry(e entry, source string) {
 	m.SetAttr(AttrReleased, isoDate(e.ReleaseDate))
 	m.SetLimit(AttrModelSize, e.ModelSize)
 	m.AddList(ListAliases, e.Aliases...)
+	m.AddList(ListReasoningEfforts, e.ReasoningEfforts...)
+	if len(e.ReasoningEfforts) > 0 {
+		m.AddList(ListFeatures, catalog.CapabilityReasoning)
+	}
 	for capability, present := range e.Capabilities {
 		if !present || capability == FeatureVision {
 			continue
@@ -169,6 +177,7 @@ func (b *builder) applyPricing(m *catalog.Model, p pricing) {
 		amount float64
 	}{
 		{MetricInputTokens, p.Input},
+		{MetricCachedInputTokens, p.CachedInput},
 		{MetricOutputTokens, p.Output},
 	} {
 		if side.amount == 0 {

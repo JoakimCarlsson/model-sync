@@ -51,6 +51,7 @@ var brokeredColumns = []struct {
 	{"input ($/1m)", MetricInputTokens},
 	{"output ($/1m)", MetricOutputTokens},
 	{"cache ($/1m)", MetricCachedInputTokens},
+	{"cache read ($/1m)", MetricCachedInputTokens},
 }
 
 // contextSizes are the request-fee columns, one per depth of web search.
@@ -72,7 +73,8 @@ func (b *builder) applyDocument(doc catalog.Document) {
 			b.applyRequestFees(t)
 		case columnOf(t.Headers, "dimensions") >= 0:
 			b.applyEmbeddings(t)
-		case columnOf(t.Headers, "input ($/1m)") >= 0:
+		case columnOf(t.Headers, "input ($/1m)") >= 0 &&
+			t.Source != RouterModelsURL:
 			b.applyBrokered(t)
 		case columnOf(t.Headers, "tool") >= 0:
 			b.applyTools(t)
@@ -269,12 +271,10 @@ func rateBands(cell string) []rate {
 }
 
 // bandLabel writes a bound the way the other providers state one, since
-// Perplexity writes its lower bound with a character no consumer will type.
+// Perplexity writes its bounds with characters no consumer will type.
 func bandLabel(bound string) string {
-	return strings.ReplaceAll(
+	return strings.NewReplacer("≤", "<=", "≥", ">=").Replace(
 		strings.Join(strings.Fields(bound), ""),
-		"≤",
-		"<=",
 	)
 }
 
@@ -357,7 +357,7 @@ func scanTables(body, source string) []table {
 		ctx     tableContext
 	)
 	for _, raw := range strings.Split(body, "\n") {
-		line := strings.TrimSpace(raw)
+		line := unquote(raw)
 		if !strings.HasPrefix(line, "|") {
 			current = nil
 			ctx.observe(line)
@@ -382,6 +382,16 @@ func scanTables(body, source string) []table {
 		}
 	}
 	return out
+}
+
+// unquote strips the blockquote markers Perplexity now nests its tab and card
+// contents under, so a table inside a tab reads as a table.
+func unquote(raw string) string {
+	line := strings.TrimSpace(raw)
+	for strings.HasPrefix(line, ">") {
+		line = strings.TrimSpace(strings.TrimPrefix(line, ">"))
+	}
+	return line
 }
 
 // splitRow splits a pipe row into trimmed cells.
@@ -436,12 +446,21 @@ type tableContext struct {
 	tab     string
 }
 
-// tabTitleRe matches the opening of an MDX tab element and its title.
-var tabTitleRe = regexp.MustCompile(`(?i)<Tab\s+title="([^"]*)"`)
+var (
+	// tabTitleRe matches the opening of an MDX tab element and its title.
+	tabTitleRe = regexp.MustCompile(`(?i)<Tab\s+title="([^"]*)"`)
+	// tabMarkerRe matches the marker Perplexity's markdown export writes in
+	// place of a tab element, followed by the tab's title.
+	tabMarkerRe = regexp.MustCompile(`^\[tab\]\s+(.+)$`)
+)
 
 // observe folds one non-table line into the context.
 func (c *tableContext) observe(line string) {
 	if match := tabTitleRe.FindStringSubmatch(line); match != nil {
+		c.tab = clean(match[1])
+		return
+	}
+	if match := tabMarkerRe.FindStringSubmatch(line); match != nil {
 		c.tab = clean(match[1])
 		return
 	}

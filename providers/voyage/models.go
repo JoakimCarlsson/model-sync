@@ -98,16 +98,20 @@ var endpointSections = []struct {
 
 // servingPage returns the guide page whose endpoint serves the models of one
 // table, which for Voyage's own pages is the page itself and for the overview
-// is whatever the headings above the table name. A chain naming no family
-// yields nothing, and the models under it keep whatever Voyage's own pages
-// already said.
+// is whatever the nearest heading naming a family says. The headings are read
+// from the table upward, since the overview's title names every family at
+// once. A chain naming no family yields nothing, and the models under it keep
+// whatever Voyage's own pages already said.
 func servingPage(url, trail string) string {
 	if url != overviewURL {
 		return url
 	}
-	for _, s := range endpointSections {
-		if strings.Contains(trail, s.keyword) {
-			return s.page
+	headings := strings.Split(strings.ToLower(trail), " > ")
+	for i := len(headings) - 1; i >= 0; i-- {
+		for _, s := range endpointSections {
+			if strings.Contains(headings[i], s.keyword) {
+				return s.page
+			}
 		}
 	}
 	return ""
