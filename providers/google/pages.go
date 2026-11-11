@@ -164,9 +164,16 @@ var (
 // applyModelPage reads one model's page onto the model the pricing page
 // established for it, and adds nothing when no such model exists.
 func (b *builder) applyModelPage(doc catalog.Document, id string) {
-	table := tableRe.FindStringSubmatch(string(doc.Body))
-	if table == nil {
+	tables := tableRe.FindAllStringSubmatch(string(doc.Body), -1)
+	if len(tables) == 0 {
 		return
+	}
+	table := tables[0]
+	for _, candidate := range tables {
+		if slices.Contains(codesIn(tableCodes(candidate[1])), id) {
+			table = candidate
+			break
+		}
 	}
 	m, ok := b.models[id]
 	if !ok {
@@ -184,18 +191,15 @@ func (b *builder) applyModelPage(doc catalog.Document, id string) {
 // standing for a family lists every one of them, which is how the sizes of
 // Imagen and the fast build of Veo 3.1 reach a page of their own.
 func pageCodes(doc catalog.Document) []string {
-	table := tableRe.FindStringSubmatch(string(doc.Body))
-	if table == nil {
-		return nil
-	}
-	for _, row := range pageRowRe.FindAllStringSubmatch(table[1], -1) {
-		cells := pageCellRe.FindAllStringSubmatch(row[1], -1)
-		if len(cells) < 2 || label(cells[0][1]) != rowModelCode {
-			continue
+	var codes []string
+	for _, table := range tableRe.FindAllStringSubmatch(string(doc.Body), -1) {
+		for _, code := range codesIn(tableCodes(table[1])) {
+			if !slices.Contains(codes, code) {
+				codes = append(codes, code)
+			}
 		}
-		return codesIn(cells[1][1])
 	}
-	return nil
+	return codes
 }
 
 // modelCode is the identifier a page states for the model it is read onto,
@@ -243,9 +247,9 @@ func applyFields(m *catalog.Model, cell string) {
 			addModalities(m, ListInputModalities, value)
 		case fieldOutput:
 			addModalities(m, ListOutputModalities, value)
-		case fieldInLimit, fieldContext, fieldTextInput:
+		case fieldInLimit, fieldContext, fieldTextInput, "context window (unified input and output token limit)":
 			m.SetLimit(LimitContextWindow, parseCount(value))
-		case fieldOutLimit:
+		case fieldOutLimit, "max output":
 			m.SetLimit(LimitMaxOutputTokens, parseCount(value))
 		case fieldDimension:
 			m.AddList(ListDimensions, dimensionsOf(value)...)

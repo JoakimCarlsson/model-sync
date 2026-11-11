@@ -1,0 +1,1 @@
+{"id":"Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice","provider":"together","name":"Qwen3 TTS 12Hz 1.7B CustomVoice","kind":"speech","attrs":{"api_id":"Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice","author":"Qwen","modality":"Text-to-Speech"},"lists":{"input_modalities":["text"],"output_modalities":["audio"]},"sources":["https://docs.together.ai/docs/serverless/models.md"]}

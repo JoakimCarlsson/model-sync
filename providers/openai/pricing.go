@@ -126,9 +126,9 @@ type column struct {
 	named  bool
 }
 
-// headerColumn maps one of OpenAI's column headers onto its meaning. The
-// context prefixes are handled by stripping them and recursing, because
-// OpenAI writes the same four metrics twice per row, once per context band.
+// headerColumn maps a pricing header onto its column meaning, including cache
+// retention durations. Context prefixes recurse so context and cache TTL remain
+// independent dimensions; unrecognized headers return a skipped column.
 func headerColumn(header string) column {
 	h := strings.ToLower(strings.Join(strings.Fields(header), " "))
 	for prefix, band := range map[string]string{"short context ": "short", "long context ": "long"} {
@@ -163,6 +163,12 @@ func headerColumn(header string) column {
 		return column{role: rolePrice, metric: MetricCachedInputTokens}
 	case "cache writes":
 		return column{role: rolePrice, metric: MetricCacheWriteTokens}
+	case "30m write", "12h write":
+		return column{
+			role:   rolePrice,
+			metric: MetricCacheWriteTokens,
+			dims:   catalog.Dims{DimCacheTTL: strings.TrimSuffix(h, " write")},
+		}
 	case "output", "output / cost":
 		return column{role: rolePrice, metric: MetricOutputTokens}
 	case "training":

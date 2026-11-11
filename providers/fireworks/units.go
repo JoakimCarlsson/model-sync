@@ -146,8 +146,14 @@ var tripleOrder = []catalog.Metric{
 }
 
 // servingSuffixes are the words Fireworks appends to a display name to mark a
-// deployment variant rather than a different model.
-var servingSuffixes = []string{"fast us", "fast", "us"}
+// deployment variant rather than a different model, longest match first.
+var servingSuffixes = []string{
+	"ultra-fast (preview)",
+	"ultra-fast",
+	"fast us",
+	"fast",
+	"us",
+}
 
 var (
 	linkRe   = regexp.MustCompile(`\[([^\]]*)\]\(([^)]*)\)`)
@@ -182,8 +188,9 @@ type modelRef struct {
 // modelPathPrefix precedes the identifier in a model's console URL.
 const modelPathPrefix = "/models/"
 
-// splitModelCell reads a model cell, separating the deployment variant from
-// the model it is a variant of.
+// splitModelCell reads a linked model cell and separates its deployment variant
+// from its display name. Preview labels do not become part of the serving key;
+// cells without a model link return false.
 func splitModelCell(cell string) (modelRef, bool) {
 	match := linkRe.FindStringSubmatch(cell)
 	if match == nil {
@@ -207,7 +214,7 @@ func splitModelCell(cell string) (modelRef, bool) {
 			base, ok = strings.CutSuffix(lower, " ("+suffix+")")
 		}
 		if ok {
-			ref.Serving = strings.ReplaceAll(suffix, " ", "-")
+			ref.Serving = strings.ReplaceAll(strings.TrimSuffix(suffix, " (preview)"), " ", "-")
 			ref.Name = strings.TrimSpace(name[:len(base)])
 			break
 		}

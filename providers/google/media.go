@@ -77,7 +77,7 @@ var (
 	// carry several, and the two that compare models are told from the rest by
 	// what their first heading cell says.
 	comparisonRe = regexp.MustCompile(
-		`(?is)<table>\s*<thead>(.*?)</thead>(.*?)</table>`,
+		`(?is)<table[^>]*>\s*<thead>(.*?)</thead>(.*?)</table>`,
 	)
 	headCellRe = regexp.MustCompile(`(?is)<th[^>]*>(.*?)</th\s*>`)
 	// quotedRe matches an accepted value, which Google quotes inside the code

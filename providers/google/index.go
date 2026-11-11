@@ -42,7 +42,7 @@ type indexEntry struct {
 // preview rather than generally available for a model the deprecation
 // schedule has not reached yet.
 var cardRe = regexp.MustCompile(
-	`(?is)<a href="/gemini-api/docs/models/([a-z0-9._-]+)"[^>]*` +
+	`(?is)<a href="/(?:gemini-api/)?docs/models/([a-z0-9._-]+)"[^>]*` +
 		`class="gemini-card-centered">(.*?)</a\s*>`,
 )
 
@@ -78,20 +78,25 @@ func (b *builder) applyIndex(doc catalog.Document) {
 		if len(cells) < 2 {
 			continue
 		}
-		id := text(cells[len(cells)-1][1])
-		if !endpointRe.MatchString(id) {
-			continue
+		ids := codesIn(cells[len(cells)-1][1])
+		if len(ids) == 0 {
+			ids = []string{text(cells[len(cells)-1][1])}
 		}
 		name, state := nameState(cells[0][1])
 		if name == "" {
 			continue
 		}
-		entry := indexEntry{name: name, state: state}
-		b.indexed = append(b.indexed, id)
-		b.setIndex(id, entry)
-		b.setIndex(indexKey(name), entry)
-		if _, ok := b.byName[indexKey(name)]; !ok {
-			b.byName[indexKey(name)] = id
+		for _, id := range ids {
+			if !endpointRe.MatchString(id) {
+				continue
+			}
+			entry := indexEntry{name: name, state: state}
+			b.indexed = append(b.indexed, id)
+			b.setIndex(id, entry)
+			b.setIndex(indexKey(name), entry)
+			if _, ok := b.byName[indexKey(name)]; !ok {
+				b.byName[indexKey(name)] = id
+			}
 		}
 	}
 }

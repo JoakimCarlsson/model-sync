@@ -1,6 +1,7 @@
 package google
 
 import (
+	"fmt"
 	"net/http"
 	"slices"
 	"strings"
@@ -38,8 +39,14 @@ func (p *Provider) Name() string { return providerName }
 // Parse reads the index first, since it names and dates every model the other
 // two documents only identify, then the pricing page, which is the only
 // document naming every model the catalog holds, and finally attaches each
-// model page to the models it describes.
+// model page to the models it describes. It accepts legacy HTML and AI Studio
+// Markdoc, returning an error if a supplied pricing document yields no rates.
 func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
+	normalized := make([]catalog.Document, len(docs))
+	for i, doc := range docs {
+		normalized[i] = normalizeDocument(doc)
+	}
+	docs = normalized
 	b := newBuilder()
 	for _, doc := range docs {
 		if doc.URL == ModelsURL {
@@ -49,6 +56,13 @@ func (p *Provider) Parse(docs []catalog.Document) ([]catalog.Model, error) {
 	for _, doc := range docs {
 		if doc.URL == PricingURL {
 			b.applyPricing(doc)
+			priced := false
+			for _, model := range b.models {
+				priced = priced || len(model.Prices) > 0
+			}
+			if !priced {
+				return nil, fmt.Errorf("parse %s: no Google model prices found", doc.URL)
+			}
 		}
 	}
 	b.applyIndexModels(ModelsURL)
@@ -230,6 +244,7 @@ type builder struct {
 	cardState map[string]string
 }
 
+// newBuilder returns an empty model accumulator with initialized lookup maps.
 func newBuilder() *builder {
 	return &builder{
 		models:    map[string]*catalog.Model{},

@@ -62,6 +62,7 @@ const (
 const (
 	DimTier        = "tier"
 	DimContext     = "context"
+	DimCacheTTL    = "cache_ttl"
 	DimModality    = "modality"
 	DimQuality     = "quality"
 	DimSize        = "size"
@@ -310,8 +311,8 @@ type qualifier struct {
 	Note string
 }
 
-// splitQualifier separates a model cell into its identifier and whatever the
-// trailing parenthesis says about the row.
+// splitQualifier separates a model cell into its identifier and row dimensions,
+// retaining unrecognized trailing qualifiers as notes.
 func splitQualifier(cell string) qualifier {
 	raw := strings.TrimSpace(strings.ReplaceAll(cell, "`", ""))
 	open := strings.Index(raw, "(")
@@ -326,6 +327,10 @@ func splitQualifier(cell string) qualifier {
 		Dims: catalog.Dims{},
 	}
 	switch {
+	case strings.EqualFold(inner, "short context"):
+		q.Dims[DimContext] = "short"
+	case strings.EqualFold(inner, "long context"):
+		q.Dims[DimContext] = "long"
 	case strings.EqualFold(inner, "data sharing"):
 		q.Dims[DimDataSharing] = "true"
 	case strings.EqualFold(inner, "legacy"):

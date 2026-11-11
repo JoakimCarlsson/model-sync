@@ -13,30 +13,31 @@ import (
 	"github.com/joakimcarlsson/model-sync/catalog"
 )
 
-const baseURL = "https://ai.google.dev"
+// baseURL is the canonical Gemini documentation origin.
+const baseURL = "https://aistudio.google.com"
 
 // Documents Google publishes that this parser reads.
 const (
 	// PricingURL states the Gemini API's rates.
-	PricingURL = baseURL + "/gemini-api/docs/pricing"
+	PricingURL = baseURL + "/docs/pricing"
 	// ModelsURL indexes the page each model has of its own.
-	ModelsURL = baseURL + "/gemini-api/docs/models"
+	ModelsURL = baseURL + "/docs/models"
 	// modelPagePre prefixes one model's page.
-	modelPagePre = baseURL + "/gemini-api/docs/models/"
+	modelPagePre = baseURL + "/docs/models/"
 	// DeprecationsURL schedules every model's release and shutdown.
-	DeprecationsURL = baseURL + "/gemini-api/docs/deprecations"
+	DeprecationsURL = baseURL + "/docs/deprecations"
 	// RateLimitsURL states what a project may enqueue per model and tier.
-	RateLimitsURL = baseURL + "/gemini-api/docs/rate-limits"
+	RateLimitsURL = baseURL + "/docs/rate-limits"
 	// ThinkingURL states how much each model reasons and what it may be asked
 	// for.
-	ThinkingURL = baseURL + "/gemini-api/docs/thinking"
+	ThinkingURL = baseURL + "/docs/thinking"
 	// VideoGuideURL compares the video models parameter by parameter.
-	VideoGuideURL = baseURL + "/gemini-api/docs/veo"
+	VideoGuideURL = baseURL + "/docs/veo"
 	// ImageGuideURL states the sizes each aspect ratio of an image model comes
 	// back in.
-	ImageGuideURL = baseURL + "/gemini-api/docs/image-generation"
+	ImageGuideURL = baseURL + "/docs/image-generation"
 	// ImagenGuideURL states the Imagen request parameters in prose.
-	ImagenGuideURL = baseURL + "/gemini-api/docs/imagen"
+	ImagenGuideURL = baseURL + "/docs/imagen"
 )
 
 // guideURLs are the documents read for the models whose own page states less
@@ -57,7 +58,7 @@ const fetchWorkers = 8
 
 // modelHrefRe matches a link from the index to one model's page.
 var modelHrefRe = regexp.MustCompile(
-	`href="/gemini-api/docs/models/([a-z0-9._-]+)"`,
+	`href="(?:https://(?:ai\.google\.dev/gemini-api|aistudio\.google\.com))?/(?:gemini-api/)?docs/models/([a-z0-9._-]+)(?:#[^"]*)?"`,
 )
 
 // errNoPage reports that Google publishes nothing at a URL this parser
@@ -109,7 +110,7 @@ func (p *Provider) Fetch(ctx context.Context) ([]catalog.Document, error) {
 func modelPageURLs(index catalog.Document) []string {
 	var urls []string
 	for _, match := range modelHrefRe.FindAllStringSubmatch(
-		string(index.Body),
+		string(normalizeDocument(index).Body),
 		-1,
 	) {
 		url := modelPagePre + match[1]
@@ -193,6 +194,7 @@ func (p *Provider) get(
 	if err != nil {
 		return catalog.Document{}, err
 	}
+	req.Header.Set("Accept", "text/markdown")
 	client := p.Client
 	if client == nil {
 		client = http.DefaultClient

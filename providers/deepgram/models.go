@@ -12,9 +12,12 @@ import (
 // sectionKinds maps a page heading onto the kind of thing listed under it.
 var sectionKinds = map[string]catalog.Kind{
 	"speech to text":         KindTranscription,
+	"speech-to-text":         KindTranscription,
 	"speech-to-text add-ons": KindAddOn,
 	"text to speech":         KindSpeech,
+	"text-to-speech":         KindSpeech,
 	"voice agent api":        KindAgent,
+	"voice agent":            KindAgent,
 	"audio intelligence":     KindIntelligence,
 }
 
@@ -35,9 +38,10 @@ var (
 	// one of them, and which table a row sits in is what says whether its rate
 	// is for a live connection or for a recording.
 	tableRe = regexp.MustCompile(`(?is)<table[^>]*>(.*?)</table>`)
-	// captionRe matches the caption Deepgram writes for a screen reader, which
-	// is the only place the page says which table is which.
+	// captionRe matches the caption Deepgram writes for a screen reader.
 	captionRe = regexp.MustCompile(`(?is)<caption[^>]*>(.*?)</caption>`)
+	// deliveryContextRe matches subsection headings and selected delivery tabs.
+	deliveryContextRe = regexp.MustCompile(`(?is)<h[2-6][^>]*>(.*?)</h[2-6]>|<option\b[^>]*\bselected\b[^>]*>(.*?)</option>`)
 )
 
 // applyPricing reads the pricing page.
@@ -95,32 +99,43 @@ func (b *builder) applyTable(
 	}
 }
 
-// table is one pricing table with what its caption says about it.
+// table holds pricing markup, its caption or subsection delivery mode, and
+// whether it repeats the wider-screen table.
 type table struct {
-	body string
-	// delivery is whether the table prices transcribing a live connection or
-	// transcribing a finished recording. Deepgram prices the two differently
-	// and says which is which only in the caption, so a table read without it
-	// records two rates for one model and nothing to tell them apart.
-	delivery string
-	// duplicate marks the narrow-screen copy of the table above it, which
-	// repeats the same models under fewer plans and writes a withdrawn rate
-	// without the styling that marks it as withdrawn.
+	body      string
+	delivery  string
 	duplicate bool
 }
 
-// tables divides a section into its tables and reads each caption.
+// tables divides section markup into tables, using each caption's delivery
+// mode before falling back to the nearest subsection heading or selected tab.
 func tables(body string) []table {
-	matches := tableRe.FindAllStringSubmatch(body, -1)
+	matches := tableRe.FindAllStringSubmatchIndex(body, -1)
 	out := make([]table, 0, len(matches))
-	for _, m := range matches {
+	for _, at := range matches {
+		markup := body[at[2]:at[3]]
+		delivery := tableDelivery(markup)
+		if delivery == "" {
+			delivery = precedingDelivery(body[:at[0]])
+		}
 		out = append(out, table{
-			body:      m[1],
-			delivery:  tableDelivery(m[1]),
-			duplicate: duplicateTable(m[1]),
+			body:      markup,
+			delivery:  delivery,
+			duplicate: duplicateTable(markup),
 		})
 	}
 	return out
+}
+
+// precedingDelivery returns the delivery named by the nearest heading or
+// selected tab in the markup before a table, or empty when none names one.
+func precedingDelivery(body string) string {
+	matches := deliveryContextRe.FindAllStringSubmatch(body, -1)
+	if len(matches) == 0 {
+		return ""
+	}
+	last := matches[len(matches)-1]
+	return deliveryName(text(last[1] + last[2]))
 }
 
 // caption returns what a table calls itself, which Deepgram writes for a
@@ -133,14 +148,19 @@ func caption(body string) string {
 	return strings.ToLower(text(match[1]))
 }
 
-// tableDelivery reads whether a table prices a live connection or a
-// recording.
+// tableDelivery returns the live or recorded delivery mode named by a table's
+// caption, or empty when the caption does not identify a delivery mode.
 func tableDelivery(body string) string {
-	c := caption(body)
-	switch {
-	case strings.HasPrefix(c, "streaming"):
+	return deliveryName(caption(body))
+}
+
+// deliveryName returns the delivery mode at the start of a caption, subsection
+// heading, or selected tab label, or empty when the label names neither mode.
+func deliveryName(name string) string {
+	switch name := strings.ToLower(strings.TrimSpace(name)); {
+	case strings.HasPrefix(name, "streaming"):
 		return DeliveryStreaming
-	case strings.HasPrefix(c, "pre-recorded"):
+	case strings.HasPrefix(name, "pre-recorded"):
 		return DeliveryBatch
 	}
 	return ""
@@ -188,8 +208,9 @@ func fill(cells []cell, held []carried) ([]cell, []carried) {
 
 // headerFirstCells are the words Deepgram starts a header row with. The word
 // differs per product, and a row whose first cell is not one of them is a
-// model rather than a heading. The Voice Agent table says "Tier".
+// model rather than a heading. Current pricing tables say "API".
 var headerFirstCells = map[string]bool{
+	"api":     true,
 	"model":   true,
 	"feature": true,
 	"tier":    true,
@@ -401,10 +422,15 @@ type section struct {
 	body    string
 }
 
-// sections divides the page by heading so a table can be attributed to the
-// product it prices.
+// sections divides page markup at product and unrelated headings while keeping
+// streaming and pre-recorded subsections with the product they price.
 func sections(body string) []section {
-	locations := headingRe.FindAllStringSubmatchIndex(body, -1)
+	var locations [][]int
+	for _, at := range headingRe.FindAllStringSubmatchIndex(body, -1) {
+		if deliveryName(text(body[at[2]:at[3]])) == "" {
+			locations = append(locations, at)
+		}
+	}
 	out := make([]section, 0, len(locations))
 	for i, at := range locations {
 		end := len(body)

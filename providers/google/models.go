@@ -423,7 +423,7 @@ func headingCodes(body string) map[string][]string {
 // addresses the page Google publishes for it.
 func pricingCodes(doc catalog.Document) []string {
 	var out []string
-	for _, codes := range headingCodes(string(doc.Body)) {
+	for _, codes := range headingCodes(string(normalizeDocument(doc).Body)) {
 		for _, code := range codes {
 			if !slices.Contains(out, code) {
 				out = append(out, code)
@@ -513,7 +513,7 @@ type column struct {
 // planHeader reports whether a row names the plans its columns price, and what
 // each states rates against.
 func planHeader(cells []string) ([]column, bool) {
-	if strings.TrimSpace(cells[0]) != "" {
+	if strings.TrimSpace(cells[0]) != "" && !strings.EqualFold(strings.TrimSpace(cells[0]), "Feature") {
 		return nil, false
 	}
 	columns := make([]column, 0, len(cells)-1)
